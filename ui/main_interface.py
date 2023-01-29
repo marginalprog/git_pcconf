@@ -482,7 +482,9 @@ class Ui_MainWindow(object):
         self.table_config.setItem(0, 2, item)
         self.table_config.horizontalHeader().setVisible(False)
         self.table_config.horizontalHeader().setDefaultSectionSize(30)
+        self.table_config.horizontalHeader().setMinimumSectionSize(1)
         self.table_config.verticalHeader().setVisible(False)
+        self.table_config.verticalHeader().setMinimumSectionSize(20)
         self.lb_video = QtWidgets.QLabel(self.frame_3)
         self.lb_video.setGeometry(QtCore.QRect(120, 20, 151, 31))
         font = QtGui.QFont()
@@ -548,7 +550,7 @@ class Ui_MainWindow(object):
         self.tabNvidia.setObjectName("tabNvidia")
         self.tableConfNvidia = QtWidgets.QTableWidget(self.tabNvidia)
         self.tableConfNvidia.setEnabled(True)
-        self.tableConfNvidia.setGeometry(QtCore.QRect(-11, 0, 671, 181))
+        self.tableConfNvidia.setGeometry(QtCore.QRect(0, 0, 651, 181))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
@@ -590,6 +592,7 @@ class Ui_MainWindow(object):
 "\n"
 "QTableWidget QTableCornerButton::section\n"
 "{\n"
+"    \n"
 "    background: rgb(80,80,80);\n"
 "    border-style: solid;\n"
 "    border-width: 1px;\n"
@@ -607,7 +610,7 @@ class Ui_MainWindow(object):
 "{\n"
 "    background-color: #101010;\n"
 "    color: #dddddd;\n"
-"    border: 1px solid #434343;\n"
+"    border-top: 1px solid #434343;\n"
 "}\n"
 "\n"
 "QTableWidget::item:hover {\n"
@@ -629,9 +632,11 @@ class Ui_MainWindow(object):
         self.tableConfNvidia.setGridStyle(QtCore.Qt.SolidLine)
         self.tableConfNvidia.setObjectName("tableConfNvidia")
         self.tableConfNvidia.setColumnCount(4)
-        self.tableConfNvidia.setRowCount(1)
+        self.tableConfNvidia.setRowCount(2)
         item = QtWidgets.QTableWidgetItem()
         self.tableConfNvidia.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfNvidia.setVerticalHeaderItem(1, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableConfNvidia.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
@@ -641,9 +646,15 @@ class Ui_MainWindow(object):
         item = QtWidgets.QTableWidgetItem()
         self.tableConfNvidia.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
+        self.tableConfNvidia.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
         self.tableConfNvidia.setItem(0, 2, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableConfNvidia.setItem(0, 3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfNvidia.setItem(1, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfNvidia.setItem(1, 3, item)
         self.tableConfNvidia.horizontalHeader().setVisible(False)
         self.tableConfNvidia.horizontalHeader().setCascadingSectionResizes(True)
         self.tableConfNvidia.horizontalHeader().setDefaultSectionSize(100)
@@ -652,6 +663,7 @@ class Ui_MainWindow(object):
         self.tableConfNvidia.horizontalHeader().setSortIndicatorShown(True)
         self.tableConfNvidia.horizontalHeader().setStretchLastSection(False)
         self.tableConfNvidia.verticalHeader().setVisible(False)
+        self.tableConfNvidia.verticalHeader().setCascadingSectionResizes(False)
         self.tabWvideo.addTab(self.tabNvidia, "")
         self.tabAmd = QtWidgets.QWidget()
         self.tabAmd.setObjectName("tabAmd")
@@ -818,6 +830,8 @@ class Ui_MainWindow(object):
         self.tableConfNvidia.setSortingEnabled(True)
         item = self.tableConfNvidia.verticalHeaderItem(0)
         item.setText(_translate("MainWindow", "w"))
+        item = self.tableConfNvidia.verticalHeaderItem(1)
+        item.setText(_translate("MainWindow", "New Row"))
         item = self.tableConfNvidia.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Выбор"))
         item = self.tableConfNvidia.horizontalHeaderItem(1)
@@ -832,6 +846,10 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "w"))
         item = self.tableConfNvidia.item(0, 3)
         item.setText(_translate("MainWindow", "ffssssrrrwrwer3333222234"))
+        item = self.tableConfNvidia.item(1, 2)
+        item.setText(_translate("MainWindow", "NVIDIA RTX 4080"))
+        item = self.tableConfNvidia.item(1, 3)
+        item.setText(_translate("MainWindow", "2878913412"))
         self.tableConfNvidia.setSortingEnabled(__sortingEnabled)
         self.tabWvideo.setTabText(self.tabWvideo.indexOf(self.tabNvidia), _translate("MainWindow", "NVIDIA"))
         self.tabWvideo.setTabText(self.tabWvideo.indexOf(self.tabAmd), _translate("MainWindow", "AMD"))
