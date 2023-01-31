@@ -17,30 +17,20 @@ class Ui_Form(object):
         Form.resize(702, 320)
         self.tableWidget = QtWidgets.QTableWidget(Form)
         self.tableWidget.setGeometry(QtCore.QRect(220, 60, 321, 151))
-        self.tableWidget.setStyleSheet("QHeaderView\n"
-"{    \n"
-"    border: 0px;\n"
-"    font-size: 14px;\n"
-"}\n"
-"\n"
-"QHeaderView::section\n"
-"{\n"
-"    min-width: 10px;    \n"
-"    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"}\n"
-"\n"
-"QHeaderView::section:hover {\n"
-"   color: white;\n"
-"    background-color: purple;\n"
-"}\n"
-"QHeaderView::section:selected{\n"
-"   color: white;\n"
-"    background-color: green;\n"
+        self.tableWidget.setStyleSheet("QTableWidget::item:hover {\n"
+"    color: white;\n"
+"    background-color: red;\n"
 "}      \n"
 "\n"
+"QTableWidget::item:selected\n"
+"{\n"
+"     color: white;\n"
+"    background-color: green;\n"
+"    \n"
+"}\n"
 "")
         self.tableWidget.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.tableWidget.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tableWidget.setShowGrid(True)
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(3)
@@ -87,18 +77,14 @@ class Ui_Form(object):
         item.setText(_translate("Form", "3"))
         __sortingEnabled = self.tableWidget.isSortingEnabled()
         self.tableWidget.setSortingEnabled(False)
-        item = self.tableWidget.item(0, 0)
-        item.setText(_translate("Form", "wwerq"))
         item = self.tableWidget.item(0, 1)
-        item.setText(_translate("Form", "qwerqwer"))
+        item.setText(_translate("Form", "sssss"))
         item = self.tableWidget.item(0, 2)
-        item.setText(_translate("Form", "qwerqwre"))
-        item = self.tableWidget.item(1, 0)
-        item.setText(_translate("Form", "qwerqwer"))
+        item.setText(_translate("Form", "xxxxxxx"))
         item = self.tableWidget.item(1, 1)
-        item.setText(_translate("Form", "qwerqwe"))
+        item.setText(_translate("Form", "ttttt"))
         item = self.tableWidget.item(1, 2)
-        item.setText(_translate("Form", "qwer"))
+        item.setText(_translate("Form", "jjjjjj"))
         self.tableWidget.setSortingEnabled(__sortingEnabled)
 
 

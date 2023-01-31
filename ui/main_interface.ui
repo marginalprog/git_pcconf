@@ -246,14 +246,15 @@ QHeaderView::section{
 }
 
 QTreeView::branch:!adjoins-item{
-	border-image: url(&quot;E:/pcconf/images/dotted.png&quot;) 0;
+	border-image: url(&quot;E:/pcconf/images/dotted.png&quot;) 0 2 10 0;
 
 }
 QTreeView::branch:has-siblings:adjoins-item {
-	border-image: url(&quot;E:/pcconf/images/dotdot.png&quot;) 0 ;
+	
+	border-image: url(&quot;E:/pcconf/images/dotdot2.png&quot;) 0 0 0 10;
 }
 QTreeView::branch:!has-children:!has-siblings:adjoins-item {
-	border-image: url(&quot;E:/pcconf/images/dotdot.png&quot;) 0;
+	border-image: url(&quot;E:/pcconf/images/dotdot2.png&quot;) 0 0 0 10;
 }
 QTreeView::branch:has-children:!has-siblings:closed,QTreeView::branch:closed:has-children:has-siblings {
 	border-image: none;
@@ -413,7 +414,7 @@ QTreeView::branch:open:has-children:!has-siblings,QTreeView::branch:open:has-chi
            </brush>
           </property>
           <property name="flags">
-           <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
+           <set>ItemIsSelectable|ItemIsUserCheckable</set>
           </property>
          </item>
          <item>
@@ -439,7 +440,7 @@ QTreeView::branch:open:has-children:!has-siblings,QTreeView::branch:open:has-chi
            </brush>
           </property>
           <property name="flags">
-           <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
+           <set>ItemIsSelectable|ItemIsUserCheckable</set>
           </property>
          </item>
          <item>
@@ -465,7 +466,7 @@ QTreeView::branch:open:has-children:!has-siblings,QTreeView::branch:open:has-chi
            </brush>
           </property>
           <property name="flags">
-           <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
+           <set>ItemIsSelectable|ItemIsUserCheckable</set>
           </property>
          </item>
         </item>
@@ -778,9 +779,11 @@ border: 1px solid #bf0000;
                 <stylestrategy>PreferAntialias</stylestrategy>
                </font>
               </property>
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
+              </property>
               <property name="styleSheet">
-               <string notr="true">
-QTableWidget::item
+               <string notr="true">QTableWidget::item
 {
  	border: 0px;
 }
@@ -812,7 +815,13 @@ QTableWidget::item:hover {
               <property name="selectionBehavior">
                <enum>QAbstractItemView::SelectRows</enum>
               </property>
+              <property name="showGrid">
+               <bool>false</bool>
+              </property>
               <attribute name="horizontalHeaderVisible">
+               <bool>false</bool>
+              </attribute>
+              <attribute name="horizontalHeaderCascadingSectionResizes">
                <bool>false</bool>
               </attribute>
               <attribute name="horizontalHeaderDefaultSectionSize">

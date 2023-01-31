@@ -168,14 +168,15 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QTreeView::branch:!adjoins-item{\n"
-"    border-image: url(\"E:/pcconf/images/dotted.png\") 0;\n"
+"    border-image: url(\"E:/pcconf/images/dotted.png\") 0 2 10 0;\n"
 "\n"
 "}\n"
 "QTreeView::branch:has-siblings:adjoins-item {\n"
-"    border-image: url(\"E:/pcconf/images/dotdot.png\") 0 ;\n"
+"    \n"
+"    border-image: url(\"E:/pcconf/images/dotdot2.png\") 0 0 0 10;\n"
 "}\n"
 "QTreeView::branch:!has-children:!has-siblings:adjoins-item {\n"
-"    border-image: url(\"E:/pcconf/images/dotdot.png\") 0;\n"
+"    border-image: url(\"E:/pcconf/images/dotdot2.png\") 0 0 0 10;\n"
 "}\n"
 "QTreeView::branch:has-children:!has-siblings:closed,QTreeView::branch:closed:has-children:has-siblings {\n"
 "    border-image: none;\n"
@@ -226,7 +227,7 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(255, 244, 244))
         brush.setStyle(QtCore.Qt.NoBrush)
         item_1.setForeground(0, brush)
-        item_1.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item_1.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable)
         item_1 = QtWidgets.QTreeWidgetItem(item_0)
         brush = QtGui.QBrush(QtGui.QColor(168, 168, 168))
         brush.setStyle(QtCore.Qt.NoBrush)
@@ -234,7 +235,7 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(255, 244, 244))
         brush.setStyle(QtCore.Qt.NoBrush)
         item_1.setForeground(0, brush)
-        item_1.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item_1.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable)
         item_1 = QtWidgets.QTreeWidgetItem(item_0)
         brush = QtGui.QBrush(QtGui.QColor(168, 168, 168))
         brush.setStyle(QtCore.Qt.NoBrush)
@@ -242,7 +243,7 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(255, 244, 244))
         brush.setStyle(QtCore.Qt.NoBrush)
         item_1.setForeground(0, brush)
-        item_1.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item_1.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable)
         self.treeWidget.header().setVisible(False)
         self.treeWidget.header().setCascadingSectionResizes(False)
         self.treeWidget.header().setDefaultSectionSize(100)
@@ -435,8 +436,8 @@ class Ui_MainWindow(object):
         font.setPointSize(10)
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
         self.table_config.setFont(font)
-        self.table_config.setStyleSheet("\n"
-"QTableWidget::item\n"
+        self.table_config.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.table_config.setStyleSheet("QTableWidget::item\n"
 "{\n"
 "     border: 0px;\n"
 "}\n"
@@ -459,6 +460,7 @@ class Ui_MainWindow(object):
         self.table_config.setAlternatingRowColors(False)
         self.table_config.setSelectionMode(QtWidgets.QAbstractItemView.NoSelection)
         self.table_config.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.table_config.setShowGrid(False)
         self.table_config.setObjectName("table_config")
         self.table_config.setColumnCount(3)
         self.table_config.setRowCount(3)
@@ -481,6 +483,7 @@ class Ui_MainWindow(object):
         item = QtWidgets.QTableWidgetItem()
         self.table_config.setItem(0, 2, item)
         self.table_config.horizontalHeader().setVisible(False)
+        self.table_config.horizontalHeader().setCascadingSectionResizes(False)
         self.table_config.horizontalHeader().setDefaultSectionSize(30)
         self.table_config.horizontalHeader().setMinimumSectionSize(1)
         self.table_config.verticalHeader().setVisible(False)
