@@ -28,14 +28,14 @@ class RadioButton(QtWidgets.QRadioButton):
 class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
-        self.ui = main_interface.Ui_MainWindow()
+        #self.ui = main_interface.Ui_MainWindow()
         self.setupUi(self)
         self.setWindowTitle("Конфигуратор ПК")
         self.pushButton.clicked.connect(lambda: print("работает"))
 
         testPrice = "33500"
-        item = QTableWidgetItem(testPrice)  # create the item
-        item.setTextAlignment(QtCore.Qt.AlignVCenter)
+        item = QTableWidgetItem(testPrice)
+        item.setTextAlignment(QtCore.Qt.AlignVCenter | QtCore.Qt.AlignRight)
 
         self.table_config.setItem(0, 1, item)
 
@@ -43,34 +43,41 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         self.table_config.setColumnWidth(1, 55)
         self.table_config.setColumnWidth(2, 15)
 
-        self.insert_rb(self.tableConfNvidia)
-        self.existence(self.tableConfNvidia, True)
+        self.tableConfVideo.setColumnWidth(0, 50)
+        self.tableConfVideo.setColumnWidth(1, 40)
+        self.tableConfVideo.setColumnWidth(2, 180)
+        self.tableConfVideo.setColumnWidth(3, 180)
+        self.tableConfVideo.cellClicked.connect(self.cell_row)
+        self.row_selected = None
+        self.insert_rb(self.tableConfVideo)
+        ''' в дальнейшем existence будет из строк БД принимать true|false
+         и вставлять соответствующее в таблицу состояние комплектующего'''
+        self.existence(self.tableConfVideo, True)
 
-    def existence(self, table, bool_sklad):
+    #  метод создания индикатора состояния комплектующего
+    def create_existence(self, png_way):
         widget = QtWidgets.QWidget()
         pLayout = QtWidgets.QHBoxLayout(widget)
+        pixmap = QPixmap(png_way)
+        lbl = QtWidgets.QLabel()
+        lbl.setPixmap(pixmap)
+        pLayout.addWidget(lbl)
+        pLayout.setAlignment(QtCore.Qt.AlignCenter)
+        pLayout.setContentsMargins(0, 0, 0, 0)
+        widget.setLayout(pLayout)
+        return widget
+
+    # метод заполнения ячейки с состоянием
+    def existence(self, table, bool_sklad):
         row_count = table.rowCount()
         for i in range(row_count):
             if bool_sklad:
-                pixmap = QPixmap("E:/pcconf/images/have.png")
-                lbl = QtWidgets.QLabel()
-                lbl.setPixmap(pixmap)
-                pLayout.addWidget(lbl)
-                pLayout.setAlignment(QtCore.Qt.AlignCenter)
-                pLayout.setContentsMargins(0, 0, 0, 0)
-                widget.setLayout(pLayout)
-                table.setCellWidget(i, 1, widget)
+                table.setCellWidget(i, 1, self.create_existence("E:/pcconf/images/have.png"))
             else:
-                pixmap = QPixmap("E:/pcconf/images/nothave.png")
-                lbl = QtWidgets.QLabel()
-                lbl.setPixmap(pixmap)
-                pLayout.addWidget(lbl)
-                pLayout.setAlignment(QtCore.Qt.AlignCenter)
-                pLayout.setContentsMargins(0, 0, 0, 0)
-                widget.setLayout(pLayout)
-                table.setCellWidget(i, 1, widget)
+                table.setCellWidget(i, 1, self.create_existence("E:/pcconf/images/nothave.png"))
 
-    def create_radioButton(self):  # Метод создания рб на виджете
+    # Метод создания рб на виджете
+    def create_radioButton(self):
         widget = QtWidgets.QWidget()
         rb = RadioButton()
         pLayout = QtWidgets.QHBoxLayout(widget)
@@ -80,28 +87,32 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         widget.setLayout(pLayout)
         return widget, rb
 
+    def cell_row(self, row, column):
+        # print(f'\n row={row}; column={column}')
+        self.row_selected = row
+        rb = self.button_group.button(row)
+        rb.click()
+
+    # метод вставки в таблицу рб-шек
     def insert_rb(self, table):
         row_count = table.rowCount()
+
+        self.button_group = QtWidgets.QButtonGroup(self)
+        self.button_group.setExclusive(True)
+
         for i in range(row_count):
             widget, radio = self.create_radioButton()
-            radio.toggled.connect(lambda: self.currentPos(table, row_count))
+            radio.toggled.connect(lambda ch, row=i: self.currentPos(ch, row, table))
             table.setCellWidget(i, 0, widget)
 
-    def currentPos(self, table, row_count):
-        rbClick = QtWidgets.qApp.focusWidget()
-        index = table.indexAt(rbClick.parent().pos())
-        columns = table.columnCount()
-        if index.isValid():
-            print(index.row(), index.column())
-            table.selectRow(index.row())
-            print(table.item(index.row(), 2).text())
-            for i in range(row_count):
-                if i != index.row():
-                    widget, radio = self.create_radioButton()
-                    radio.toggled.connect(lambda: self.currentPos(table, row_count))
-                    table.setCellWidget(i, 0, widget)
-                    # item = table.item(i, 0)
-                    # item.setCheckState(False)
+            self.button_group.addButton(radio)
+            self.button_group.setId(radio, i)
+
+    def currentPos(self, ch, row, table):
+        # print(f' row = {row} -- {ch}')
+        if ch:
+            self.row_selected = row
+            table.selectRow(row)
 
 
 if __name__ == '__main__':

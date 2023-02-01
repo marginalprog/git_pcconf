@@ -227,7 +227,7 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(255, 244, 244))
         brush.setStyle(QtCore.Qt.NoBrush)
         item_1.setForeground(0, brush)
-        item_1.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable)
+        item_1.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
         item_1 = QtWidgets.QTreeWidgetItem(item_0)
         brush = QtGui.QBrush(QtGui.QColor(168, 168, 168))
         brush.setStyle(QtCore.Qt.NoBrush)
@@ -235,7 +235,7 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(255, 244, 244))
         brush.setStyle(QtCore.Qt.NoBrush)
         item_1.setForeground(0, brush)
-        item_1.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable)
+        item_1.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
         item_1 = QtWidgets.QTreeWidgetItem(item_0)
         brush = QtGui.QBrush(QtGui.QColor(168, 168, 168))
         brush.setStyle(QtCore.Qt.NoBrush)
@@ -243,7 +243,7 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(255, 244, 244))
         brush.setStyle(QtCore.Qt.NoBrush)
         item_1.setForeground(0, brush)
-        item_1.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable)
+        item_1.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
         self.treeWidget.header().setVisible(False)
         self.treeWidget.header().setCascadingSectionResizes(False)
         self.treeWidget.header().setDefaultSectionSize(100)
@@ -502,27 +502,27 @@ class Ui_MainWindow(object):
         self.lb_video.setAlignment(QtCore.Qt.AlignCenter)
         self.lb_video.setObjectName("lb_video")
         self.frameTabVideo = QtWidgets.QFrame(self.frame_3)
-        self.frameTabVideo.setGeometry(QtCore.QRect(40, 60, 671, 221))
+        self.frameTabVideo.setGeometry(QtCore.QRect(60, 60, 631, 201))
         self.frameTabVideo.setStyleSheet("background-color: #101010;\n"
 "border: 0px;")
         self.frameTabVideo.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frameTabVideo.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frameTabVideo.setObjectName("frameTabVideo")
-        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.frameTabVideo)
-        self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.tabWvideo = QtWidgets.QTabWidget(self.frameTabVideo)
-        self.tabWvideo.setEnabled(True)
+        self.tabWidgetVideo = QtWidgets.QTabWidget(self.frameTabVideo)
+        self.tabWidgetVideo.setEnabled(True)
+        self.tabWidgetVideo.setGeometry(QtCore.QRect(0, 0, 631, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(9)
-        self.tabWvideo.setFont(font)
-        self.tabWvideo.setStyleSheet("QTabWidget::pane\n"
+        self.tabWidgetVideo.setFont(font)
+        self.tabWidgetVideo.setStyleSheet("QTabWidget::pane\n"
 "{\n"
-"    border: 1px;\n"
 "    background: #101010;\n"
-"    border-style: solid;\n"
-"    border-width: 0px;\n"
-"    border-color: #151515;\n"
+"    border-bottom: 1px solid rgb(60,60,60); \n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"        \n"
 "}\n"
 "\n"
 "QTabBar::tab\n"
@@ -531,13 +531,16 @@ class Ui_MainWindow(object):
 "    min-width: 100px;\n"
 "    min-height: 10ex;\n"
 "    margin-left: 1px;\n"
-"    left: -1px;\n"
 "    color: #a2a2a2;\n"
-"\n"
+"    border-bottom: 1px solid rgb(60,60,60); \n"
+"    \n"
 "}\n"
 "QTabBar::tab:selected\n"
 "{\n"
 "    color: white;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
 "    border-bottom: 1px solid #FF0000;\n"
 "}\n"
 "QTabBar::tab:hover\n"
@@ -545,23 +548,27 @@ class Ui_MainWindow(object):
 "    color: #FF0000;\n"
 "    background: #252525;\n"
 "}")
-        self.tabWvideo.setObjectName("tabWvideo")
+        self.tabWidgetVideo.setObjectName("tabWidgetVideo")
         self.all = QtWidgets.QWidget()
         self.all.setObjectName("all")
-        self.tabWvideo.addTab(self.all, "")
+        self.tabWidgetVideo.addTab(self.all, "")
         self.tabNvidia = QtWidgets.QWidget()
         self.tabNvidia.setObjectName("tabNvidia")
-        self.tableConfNvidia = QtWidgets.QTableWidget(self.tabNvidia)
-        self.tableConfNvidia.setEnabled(True)
-        self.tableConfNvidia.setGeometry(QtCore.QRect(0, 0, 651, 181))
+        self.tabWidgetVideo.addTab(self.tabNvidia, "")
+        self.tabAmd = QtWidgets.QWidget()
+        self.tabAmd.setObjectName("tabAmd")
+        self.tabWidgetVideo.addTab(self.tabAmd, "")
+        self.tableConfVideo = QtWidgets.QTableWidget(self.frameTabVideo)
+        self.tableConfVideo.setEnabled(True)
+        self.tableConfVideo.setGeometry(QtCore.QRect(0, 30, 631, 171))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
-        self.tableConfNvidia.setFont(font)
-        self.tableConfNvidia.setMouseTracking(True)
-        self.tableConfNvidia.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.tableConfNvidia.setAutoFillBackground(False)
-        self.tableConfNvidia.setStyleSheet("QHeaderView\n"
+        self.tableConfVideo.setFont(font)
+        self.tableConfVideo.setMouseTracking(True)
+        self.tableConfVideo.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.tableConfVideo.setAutoFillBackground(False)
+        self.tableConfVideo.setStyleSheet("QHeaderView\n"
 "{    \n"
 "    background-color: #101010;\n"
 "    color: #dddddd;\n"
@@ -614,6 +621,9 @@ class Ui_MainWindow(object):
 "    background-color: #101010;\n"
 "    color: #dddddd;\n"
 "    border-top: 1px solid #434343;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-bottom: 0px;\n"
 "}\n"
 "\n"
 "QTableWidget::item:hover {\n"
@@ -628,50 +638,48 @@ class Ui_MainWindow(object):
 "    \n"
 "}\n"
 "")
-        self.tableConfNvidia.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
-        self.tableConfNvidia.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
-        self.tableConfNvidia.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self.tableConfNvidia.setShowGrid(False)
-        self.tableConfNvidia.setGridStyle(QtCore.Qt.SolidLine)
-        self.tableConfNvidia.setObjectName("tableConfNvidia")
-        self.tableConfNvidia.setColumnCount(4)
-        self.tableConfNvidia.setRowCount(2)
+        self.tableConfVideo.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableConfVideo.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.tableConfVideo.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableConfVideo.setShowGrid(False)
+        self.tableConfVideo.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableConfVideo.setObjectName("tableConfVideo")
+        self.tableConfVideo.setColumnCount(4)
+        self.tableConfVideo.setRowCount(2)
         item = QtWidgets.QTableWidgetItem()
-        self.tableConfNvidia.setVerticalHeaderItem(0, item)
+        self.tableConfVideo.setVerticalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableConfNvidia.setVerticalHeaderItem(1, item)
+        self.tableConfVideo.setVerticalHeaderItem(1, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableConfNvidia.setHorizontalHeaderItem(0, item)
+        self.tableConfVideo.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableConfNvidia.setHorizontalHeaderItem(1, item)
+        self.tableConfVideo.setHorizontalHeaderItem(1, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableConfNvidia.setHorizontalHeaderItem(2, item)
+        self.tableConfVideo.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableConfNvidia.setHorizontalHeaderItem(3, item)
+        self.tableConfVideo.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableConfNvidia.setItem(0, 0, item)
+        self.tableConfVideo.setItem(0, 0, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableConfNvidia.setItem(0, 2, item)
+        self.tableConfVideo.setItem(0, 2, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableConfNvidia.setItem(0, 3, item)
+        self.tableConfVideo.setItem(0, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableConfNvidia.setItem(1, 2, item)
+        self.tableConfVideo.setItem(1, 2, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableConfNvidia.setItem(1, 3, item)
-        self.tableConfNvidia.horizontalHeader().setVisible(False)
-        self.tableConfNvidia.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableConfNvidia.horizontalHeader().setDefaultSectionSize(100)
-        self.tableConfNvidia.horizontalHeader().setHighlightSections(False)
-        self.tableConfNvidia.horizontalHeader().setMinimumSectionSize(70)
-        self.tableConfNvidia.horizontalHeader().setSortIndicatorShown(True)
-        self.tableConfNvidia.horizontalHeader().setStretchLastSection(False)
-        self.tableConfNvidia.verticalHeader().setVisible(False)
-        self.tableConfNvidia.verticalHeader().setCascadingSectionResizes(False)
-        self.tabWvideo.addTab(self.tabNvidia, "")
-        self.tabAmd = QtWidgets.QWidget()
-        self.tabAmd.setObjectName("tabAmd")
-        self.tabWvideo.addTab(self.tabAmd, "")
-        self.verticalLayout_3.addWidget(self.tabWvideo)
+        self.tableConfVideo.setItem(1, 3, item)
+        self.tableConfVideo.horizontalHeader().setVisible(False)
+        self.tableConfVideo.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableConfVideo.horizontalHeader().setDefaultSectionSize(30)
+        self.tableConfVideo.horizontalHeader().setHighlightSections(False)
+        self.tableConfVideo.horizontalHeader().setMinimumSectionSize(15)
+        self.tableConfVideo.horizontalHeader().setSortIndicatorShown(True)
+        self.tableConfVideo.horizontalHeader().setStretchLastSection(False)
+        self.tableConfVideo.verticalHeader().setVisible(False)
+        self.tableConfVideo.verticalHeader().setCascadingSectionResizes(False)
+        self.tableConfVideo.verticalHeader().setMinimumSectionSize(10)
+        self.tableConfVideo.raise_()
+        self.tabWidgetVideo.raise_()
         self.imgVideocard = QtWidgets.QFrame(self.frame_3)
         self.imgVideocard.setGeometry(QtCore.QRect(50, 10, 71, 51))
         self.imgVideocard.setStyleSheet("border: 0px;\n"
@@ -741,13 +749,13 @@ class Ui_MainWindow(object):
         self.imgMotherboard_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.imgMotherboard_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.imgMotherboard_2.setObjectName("imgMotherboard_2")
-        self.pushButton_2 = QtWidgets.QPushButton(self.frame_3)
-        self.pushButton_2.setGeometry(QtCore.QRect(500, 30, 201, 20))
+        self.video_help = QtWidgets.QPushButton(self.frame_3)
+        self.video_help.setGeometry(QtCore.QRect(480, 30, 201, 20))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
-        self.pushButton_2.setFont(font)
-        self.pushButton_2.setStyleSheet("QPushButton\n"
+        self.video_help.setFont(font)
+        self.video_help.setStyleSheet("QPushButton\n"
 "{\n"
 "color: rgb(168, 168, 168);\n"
 "border: 0px;\n"
@@ -760,7 +768,7 @@ class Ui_MainWindow(object):
 "border-bottom: 1px dashed white;\n"
 "}\n"
 "")
-        self.pushButton_2.setObjectName("pushButton_2")
+        self.video_help.setObjectName("video_help")
         self.imgMotherboard_3 = QtWidgets.QFrame(self.frame_3)
         self.imgMotherboard_3.setGeometry(QtCore.QRect(790, 520, 71, 61))
         self.imgMotherboard_3.setStyleSheet("border: 0px;\n"
@@ -786,7 +794,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         self.tabWidget.setCurrentIndex(1)
-        self.tabWvideo.setCurrentIndex(1)
+        self.tabWidgetVideo.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -794,7 +802,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.pushButton.setText(_translate("MainWindow", "PushButton"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.sklad), _translate("MainWindow", "Склад"))
-        self.progressBar.setFormat(_translate("MainWindow", "1 / 7"))
+        self.progressBar.setFormat(_translate("MainWindow", "2/ 8"))
         self.treeWidget.setSortingEnabled(False)
         self.treeWidget.headerItem().setText(0, _translate("MainWindow", "Комплектующие"))
         __sortingEnabled = self.treeWidget.isSortingEnabled()
@@ -829,35 +837,35 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "₽"))
         self.table_config.setSortingEnabled(__sortingEnabled)
         self.lb_video.setText(_translate("MainWindow", "Видеокарта"))
-        self.tabWvideo.setTabText(self.tabWvideo.indexOf(self.all), _translate("MainWindow", "Все"))
-        self.tableConfNvidia.setSortingEnabled(True)
-        item = self.tableConfNvidia.verticalHeaderItem(0)
+        self.tabWidgetVideo.setTabText(self.tabWidgetVideo.indexOf(self.all), _translate("MainWindow", "Все"))
+        self.tabWidgetVideo.setTabText(self.tabWidgetVideo.indexOf(self.tabNvidia), _translate("MainWindow", "NVIDIA"))
+        self.tabWidgetVideo.setTabText(self.tabWidgetVideo.indexOf(self.tabAmd), _translate("MainWindow", "AMD"))
+        self.tableConfVideo.setSortingEnabled(True)
+        item = self.tableConfVideo.verticalHeaderItem(0)
         item.setText(_translate("MainWindow", "w"))
-        item = self.tableConfNvidia.verticalHeaderItem(1)
+        item = self.tableConfVideo.verticalHeaderItem(1)
         item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableConfNvidia.horizontalHeaderItem(0)
+        item = self.tableConfVideo.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Выбор"))
-        item = self.tableConfNvidia.horizontalHeaderItem(1)
+        item = self.tableConfVideo.horizontalHeaderItem(1)
         item.setText(_translate("MainWindow", "Склад"))
-        item = self.tableConfNvidia.horizontalHeaderItem(2)
+        item = self.tableConfVideo.horizontalHeaderItem(2)
         item.setText(_translate("MainWindow", "Название"))
-        item = self.tableConfNvidia.horizontalHeaderItem(3)
+        item = self.tableConfVideo.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "др. параметры"))
-        __sortingEnabled = self.tableConfNvidia.isSortingEnabled()
-        self.tableConfNvidia.setSortingEnabled(False)
-        item = self.tableConfNvidia.item(0, 2)
+        __sortingEnabled = self.tableConfVideo.isSortingEnabled()
+        self.tableConfVideo.setSortingEnabled(False)
+        item = self.tableConfVideo.item(0, 2)
         item.setText(_translate("MainWindow", "w"))
-        item = self.tableConfNvidia.item(0, 3)
+        item = self.tableConfVideo.item(0, 3)
         item.setText(_translate("MainWindow", "ffssssrrrwrwer3333222234"))
-        item = self.tableConfNvidia.item(1, 2)
+        item = self.tableConfVideo.item(1, 2)
         item.setText(_translate("MainWindow", "NVIDIA RTX 4080"))
-        item = self.tableConfNvidia.item(1, 3)
+        item = self.tableConfVideo.item(1, 3)
         item.setText(_translate("MainWindow", "2878913412"))
-        self.tableConfNvidia.setSortingEnabled(__sortingEnabled)
-        self.tabWvideo.setTabText(self.tabWvideo.indexOf(self.tabNvidia), _translate("MainWindow", "NVIDIA"))
-        self.tabWvideo.setTabText(self.tabWvideo.indexOf(self.tabAmd), _translate("MainWindow", "AMD"))
+        self.tableConfVideo.setSortingEnabled(__sortingEnabled)
         self.lb_processor.setText(_translate("MainWindow", "Процессор"))
-        self.pushButton_2.setText(_translate("MainWindow", "Как подобрать видеокарту?"))
+        self.video_help.setText(_translate("MainWindow", "Как подобрать видеокарту?"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.configurator), _translate("MainWindow", "Конфигуратор"))
 
 
