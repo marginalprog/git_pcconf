@@ -74,7 +74,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
             if bool_sklad:
                 table.setCellWidget(i, 1, self.create_existence("E:/pcconf/images/have.png"))
             else:
-                table.setCellWidget(i, 1, self.create_existence("E:/pcconf/images/nothave.png"))
+                table.setCellWidget(i, 1, self.create_existence("E:/pcconf/images/unhave.png"))
 
     # Метод создания рб на виджете
     def create_radioButton(self):

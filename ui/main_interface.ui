@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1366</width>
-    <height>783</height>
+    <height>786</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -87,10 +87,10 @@ QTabBar::tab:hover
        <widget class="QPushButton" name="pushButton">
         <property name="geometry">
          <rect>
-          <x>420</x>
-          <y>270</y>
-          <width>261</width>
-          <height>71</height>
+          <x>530</x>
+          <y>610</y>
+          <width>251</width>
+          <height>31</height>
          </rect>
         </property>
         <property name="font">
@@ -118,6 +118,154 @@ border-color: #434343;
         <property name="text">
          <string>PushButton</string>
         </property>
+       </widget>
+       <widget class="QWidget" name="verticalLayoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>1331</width>
+          <height>521</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QToolBox" name="toolBox">
+           <property name="font">
+            <font>
+             <family>Montserrat Medium</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="accessibleName">
+            <string/>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QToolBox
+{
+	border: 1px;
+	background: rgb(30, 30, 30);
+	border-style: solid;
+	border-width: 2px;
+	border-color: #151515;
+}
+
+QToolBox::tab
+{
+	background: rgb(45, 45, 45);
+	margin-left: 1px;
+	left: -1px;
+	color: white;
+	border-bottom: 1px solid;
+}
+
+QToolBox::tab:selected
+{
+	background: #151515;
+	border-bottom: 1px solid;
+	border-color: #FF0000;
+}
+
+QToolBox::tab:hover
+{
+	background: #404040;
+	border-bottom: 1px solid;
+	border-color: black;
+}</string>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Plain</enum>
+           </property>
+           <widget class="QWidget" name="toolBoxPage1">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>1323</width>
+              <height>369</height>
+             </rect>
+            </property>
+            <attribute name="label">
+             <string>Поставщики</string>
+            </attribute>
+            <widget class="QTableWidget" name="tableWidget">
+             <property name="geometry">
+              <rect>
+               <x>60</x>
+               <y>80</y>
+               <width>531</width>
+               <height>201</height>
+              </rect>
+             </property>
+             <column>
+              <property name="text">
+               <string>New Column</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>New Column</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>New Column</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>New Column</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>New Column</string>
+              </property>
+             </column>
+            </widget>
+           </widget>
+           <widget class="QWidget" name="toolBoxPage2">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>1323</width>
+              <height>369</height>
+             </rect>
+            </property>
+            <attribute name="label">
+             <string>Комплектующие</string>
+            </attribute>
+           </widget>
+           <widget class="QWidget" name="toolBoxPage3">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>1323</width>
+              <height>369</height>
+             </rect>
+            </property>
+            <attribute name="label">
+             <string>Заказать</string>
+            </attribute>
+           </widget>
+           <widget class="QWidget" name="toolBoxPage4">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>1323</width>
+              <height>369</height>
+             </rect>
+            </property>
+            <attribute name="label">
+             <string/>
+            </attribute>
+           </widget>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </widget>
       <widget class="QWidget" name="configurator">
@@ -148,12 +296,16 @@ border-color: #434343;
         <property name="mouseTracking">
          <bool>true</bool>
         </property>
+        <property name="tabletTracking">
+         <bool>true</bool>
+        </property>
         <property name="styleSheet">
          <string notr="true">QProgressBar{
 	background-color: #101010;
 	border-style: solid;
 	border-radius: 0px;
-	border-color: rgb(74, 0, 1);
+	border: 0px rgb(74, 0, 1);
+	
 }
 
 QProgressBar::chunk{
@@ -161,7 +313,12 @@ QProgressBar::chunk{
 	border-style: solid;
 	border-radius: 0px;
 	border-color: rgb(74, 0, 1);
-}</string>
+}
+
+QProgressBar::chunk:hover{
+	background-color:  rgb(190, 0, 0);
+}
+</string>
         </property>
         <property name="maximum">
          <number>8</number>
@@ -179,7 +336,7 @@ QProgressBar::chunk{
          <bool>false</bool>
         </property>
         <property name="format">
-         <string>2/ 8</string>
+         <string>2 / 8</string>
         </property>
        </widget>
        <widget class="QTreeWidget" name="treeWidget">
@@ -247,10 +404,9 @@ QHeaderView::section{
 
 QTreeView::branch:!adjoins-item{
 	border-image: url(&quot;E:/pcconf/images/dotted.png&quot;) 0 2 10 0;
-
+	
 }
 QTreeView::branch:has-siblings:adjoins-item {
-	
 	border-image: url(&quot;E:/pcconf/images/dotdot2.png&quot;) 0 0 0 10;
 }
 QTreeView::branch:!has-children:!has-siblings:adjoins-item {
@@ -265,6 +421,9 @@ QTreeView::branch:open:has-children:!has-siblings,QTreeView::branch:open:has-chi
 	border-image: none;
 	image: url(&quot;E:/pcconf/images/open1.png&quot;) 0;
 	margin-left:1px;
+}
+QTreeView{
+	border: 0px solid rgb(74, 0, 1);
 }</string>
         </property>
         <property name="editTriggers">
@@ -477,11 +636,16 @@ QTreeView::branch:open:has-children:!has-siblings,QTreeView::branch:open:has-chi
           <x>310</x>
           <y>0</y>
           <width>1031</width>
-          <height>631</height>
+          <height>681</height>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true"> QScrollBar:vertical {
+         <string notr="true">QWidget{
+	border: 0px;
+} 
+
+
+QScrollBar:vertical {
 	border: none;
     background-color: #151515;
     width: 16px;
@@ -581,7 +745,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>1013</width>
+           <width>1015</width>
            <height>2518</height>
           </rect>
          </property>
@@ -887,9 +1051,9 @@ QTableWidget::item:hover {
              <property name="geometry">
               <rect>
                <x>120</x>
-               <y>20</y>
-               <width>151</width>
-               <height>31</height>
+               <y>10</y>
+               <width>141</width>
+               <height>41</height>
               </rect>
              </property>
              <property name="font">
@@ -915,10 +1079,10 @@ QTableWidget::item:hover {
             <widget class="QFrame" name="frameTabVideo">
              <property name="geometry">
               <rect>
-               <x>60</x>
-               <y>60</y>
+               <x>50</x>
+               <y>50</y>
                <width>631</width>
-               <height>201</height>
+               <height>241</height>
               </rect>
              </property>
              <property name="styleSheet">
@@ -937,9 +1101,9 @@ border: 0px;</string>
               </property>
               <property name="geometry">
                <rect>
-                <x>0</x>
+                <x>10</x>
                 <y>0</y>
-                <width>631</width>
+                <width>621</width>
                 <height>31</height>
                </rect>
               </property>
@@ -1012,7 +1176,7 @@ QTabBar::tab:hover
                 <x>0</x>
                 <y>30</y>
                 <width>631</width>
-                <height>171</height>
+                <height>211</height>
                </rect>
               </property>
               <property name="font">
@@ -1060,8 +1224,7 @@ QHeaderView::section:hover {
 QHeaderView::section{
     color: white;
 	selection-background-color:#ffc0cb;
-}      
-
+}
 
 QTableWidget QTableCornerButton::section
 {
@@ -1073,7 +1236,7 @@ QTableWidget QTableCornerButton::section
 
 QTableWidget::item
 {
- 	border-bottom: 1px solid rgb(80,80,80); 
+ 	border-bottom: 1px solid rgb(60,60,60); 
 	border-right: 0px;
 	border-left: 0px;
 	border-top:0px;
@@ -1098,7 +1261,77 @@ QTableWidget::item:selected
 {
  	color: white;
 	border-bottom: 1px solid rgb(180,180,180);
-	
+}
+
+QScrollBar:vertical {
+	border: none;
+    background-color: #151515;
+    width: 12px;
+    margin: 15px 0 15px 0;
+	border-radius: 0px;
+ }
+
+/*  HANDLE BAR VERTICAL */
+QScrollBar::handle:vertical {	
+	background-color: #151515;
+	min-height: 30px;
+	border-radius: 0px;
+	border: 1px solid;
+	border-right: 0px;
+	border-color: rgb(60,60,60);
+}
+QScrollBar::handle:vertical:hover{	
+	background-color:  rgb(50,50,50);
+	border-color: rgb(60,60,60);
+}
+QScrollBar::handle:vertical:pressed {	
+	background-color: rgb(120, 0, 2);
+}
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+	background-color: #151515;
+	height: 15px;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+	border: 0px;
+	border-bottom: 1px solid rgb(180, 0, 0);
+}
+QScrollBar::sub-line:vertical:hover {	
+	background-color: #575757;
+	border-color: #242424;
+}
+QScrollBar::sub-line:vertical:pressed {	
+	background-color: rgb(120, 0, 2);
+}
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+	background-color: #151515;
+	height: 15px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+	border: 1px solid;
+	border-color: rgb(60,60,60);
+	border: 1px solid;
+	border-top:1px solid rgb(180, 0, 0);
+	border-right: 0px;
+	border-bottom: 0px;
+}
+QScrollBar::add-line:vertical:hover {	
+	background-color: #575757;
+	border-color: #242424;
+}
+QScrollBar::add-line:vertical:pressed {	
+	background-color: rgb(120, 0, 2);
+}
+/* RESET ARROW */
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+	background: none;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
 }
 </string>
               </property>
@@ -1160,6 +1393,36 @@ QTableWidget::item:selected
                 <string>New Row</string>
                </property>
               </row>
+              <row>
+               <property name="text">
+                <string>New Row</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>New Row</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>New Row</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>New Row</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>New Row</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>New Row</string>
+               </property>
+              </row>
               <column>
                <property name="text">
                 <string>Выбор</string>
@@ -1214,8 +1477,8 @@ QTableWidget::item:selected
               <rect>
                <x>50</x>
                <y>10</y>
-               <width>71</width>
-               <height>51</height>
+               <width>61</width>
+               <height>41</height>
               </rect>
              </property>
              <property name="styleSheet">
@@ -1232,10 +1495,10 @@ border-image: url(&quot;E:/pcconf/images/graphics-card.png&quot;) 0;</string>
             <widget class="QLabel" name="lb_processor">
              <property name="geometry">
               <rect>
-               <x>130</x>
-               <y>310</y>
+               <x>120</x>
+               <y>300</y>
                <width>131</width>
-               <height>31</height>
+               <height>41</height>
               </rect>
              </property>
              <property name="font">
@@ -1263,8 +1526,8 @@ border-image: url(&quot;E:/pcconf/images/graphics-card.png&quot;) 0;</string>
               <rect>
                <x>50</x>
                <y>300</y>
-               <width>71</width>
-               <height>51</height>
+               <width>61</width>
+               <height>41</height>
               </rect>
              </property>
              <property name="styleSheet">
@@ -1281,10 +1544,10 @@ border-image: url(&quot;E:/pcconf/images/cpu-tower.png&quot;) 0;</string>
             <widget class="QFrame" name="imgCPUcooling">
              <property name="geometry">
               <rect>
-               <x>40</x>
-               <y>420</y>
-               <width>91</width>
-               <height>61</height>
+               <x>160</x>
+               <y>610</y>
+               <width>71</width>
+               <height>51</height>
               </rect>
              </property>
              <property name="styleSheet">
@@ -1302,9 +1565,9 @@ border-image: url(&quot;E:/pcconf/images/cpucooling.png&quot;) 0;</string>
              <property name="geometry">
               <rect>
                <x>40</x>
-               <y>520</y>
-               <width>91</width>
-               <height>61</height>
+               <y>610</y>
+               <width>81</width>
+               <height>51</height>
               </rect>
              </property>
              <property name="styleSheet">
@@ -1322,8 +1585,8 @@ border-image: url(&quot;E:/pcconf/images/power.png&quot;) 0;</string>
              <property name="geometry">
               <rect>
                <x>300</x>
-               <y>530</y>
-               <width>81</width>
+               <y>610</y>
+               <width>71</width>
                <height>31</height>
               </rect>
              </property>
@@ -1342,8 +1605,8 @@ border-image: url(&quot;E:/pcconf/images/ram (2).png&quot;) 0;</string>
              <property name="geometry">
               <rect>
                <x>310</x>
-               <y>550</y>
-               <width>81</width>
+               <y>630</y>
+               <width>71</width>
                <height>31</height>
               </rect>
              </property>
@@ -1362,9 +1625,9 @@ border-image: url(&quot;E:/pcconf/images/ram (2).png&quot;) 0;</string>
              <property name="geometry">
               <rect>
                <x>520</x>
-               <y>520</y>
-               <width>71</width>
-               <height>61</height>
+               <y>610</y>
+               <width>61</width>
+               <height>51</height>
               </rect>
              </property>
              <property name="styleSheet">
@@ -1382,9 +1645,9 @@ border-image: url(&quot;E:/pcconf/images/motherboard.png&quot;) 0;</string>
              <property name="geometry">
               <rect>
                <x>640</x>
-               <y>520</y>
-               <width>71</width>
-               <height>61</height>
+               <y>610</y>
+               <width>61</width>
+               <height>51</height>
               </rect>
              </property>
              <property name="styleSheet">
@@ -1398,11 +1661,11 @@ border-image: url(&quot;E:/pcconf/images/hard-drive.png&quot;) 0;</string>
               <enum>QFrame::Raised</enum>
              </property>
             </widget>
-            <widget class="QPushButton" name="video_help">
+            <widget class="QPushButton" name="btnVideoHelp">
              <property name="geometry">
               <rect>
                <x>480</x>
-               <y>30</y>
+               <y>20</y>
                <width>201</width>
                <height>20</height>
               </rect>
@@ -1436,9 +1699,9 @@ border-bottom: 1px dashed white;
              <property name="geometry">
               <rect>
                <x>790</x>
-               <y>520</y>
-               <width>71</width>
-               <height>61</height>
+               <y>610</y>
+               <width>61</width>
+               <height>51</height>
               </rect>
              </property>
              <property name="styleSheet">
@@ -1450,6 +1713,504 @@ border-image: url(&quot;E:/pcconf/images/case.png&quot;) 0;</string>
              </property>
              <property name="frameShadow">
               <enum>QFrame::Raised</enum>
+             </property>
+            </widget>
+            <widget class="QPushButton" name="btnVideoFilter">
+             <property name="geometry">
+              <rect>
+               <x>300</x>
+               <y>20</y>
+               <width>131</width>
+               <height>21</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <family>Montserrat Medium</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton
+{
+color:  rgb(230,230, 230);
+border: 0px;
+/*border-bottom: 1px solid rgb(200, 200, 200);*/
+}
+
+QPushButton::hover
+{
+color: red;
+border-bottom: 1px solid red;
+}
+</string>
+             </property>
+             <property name="text">
+              <string>Настроить фильтр</string>
+             </property>
+            </widget>
+            <widget class="QFrame" name="frameTabProc">
+             <property name="geometry">
+              <rect>
+               <x>50</x>
+               <y>340</y>
+               <width>631</width>
+               <height>241</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: #101010;
+border: 0px;</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <widget class="QTabWidget" name="tabWidgetProc">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>0</y>
+                <width>621</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>Montserrat Medium</family>
+                <pointsize>9</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QTabWidget::pane
+{
+	background: #101010;
+	border-bottom: 1px solid rgb(60,60,60); 
+	border-right: 0px;
+	border-left: 0px;
+	border-top:0px;
+		
+}
+
+QTabBar::tab
+{
+	background-color: #101010;
+	min-width: 100px;
+	min-height: 10ex;
+	margin-left: 1px;
+	color: #a2a2a2;
+	border-bottom: 1px solid rgb(60,60,60); 
+	
+}
+QTabBar::tab:selected
+{
+	color: white;
+	border-right: 0px;
+	border-left: 0px;
+	border-top:0px;
+	border-bottom: 1px solid #FF0000;
+}
+QTabBar::tab:hover
+{
+	color: #FF0000;
+	background: #252525;
+}</string>
+              </property>
+              <property name="currentIndex">
+               <number>0</number>
+              </property>
+              <widget class="QWidget" name="allProc">
+               <attribute name="title">
+                <string>Все</string>
+               </attribute>
+              </widget>
+              <widget class="QWidget" name="tabPr1">
+               <attribute name="title">
+                <string>NVIDIA</string>
+               </attribute>
+              </widget>
+              <widget class="QWidget" name="tabPr2">
+               <attribute name="title">
+                <string>AMD</string>
+               </attribute>
+              </widget>
+             </widget>
+             <widget class="QTableWidget" name="tableConfProc">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>30</y>
+                <width>631</width>
+                <height>211</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>Montserrat Medium</family>
+                <stylestrategy>PreferAntialias</stylestrategy>
+               </font>
+              </property>
+              <property name="mouseTracking">
+               <bool>true</bool>
+              </property>
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
+              </property>
+              <property name="autoFillBackground">
+               <bool>false</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QHeaderView
+{	
+	background-color: #101010;
+	color: #dddddd;
+	border: 0px;
+	font-size: 14px;
+	min-width: 100px;	
+	min-height: 30px;
+}
+
+QHeaderView::section
+{
+	background-color: #101010;
+	min-width: 10px;	
+	min-height: 25px;
+	border: 0px solid;
+	border-right: 1px solid rgb(50,50,50); 
+	color: #dddddd;
+	font-size: 12px;
+}
+
+QHeaderView::section:hover {
+   color: white;
+	background-color: rgb(80,80,80);
+}
+
+QHeaderView::section{
+    color: white;
+	selection-background-color:#ffc0cb;
+}
+
+QTableWidget QTableCornerButton::section
+{
+	
+	background: rgb(80,80,80);
+	border-style: solid;
+	border-width: 1px;
+}
+
+QTableWidget::item
+{
+ 	border-bottom: 1px solid rgb(60,60,60); 
+	border-right: 0px;
+	border-left: 0px;
+	border-top:0px;
+}
+
+QTableView
+{
+	background-color: #101010;
+	color: #dddddd;
+	border-top: 1px solid #434343;
+	border-right: 0px;
+	border-left: 0px;
+	border-bottom: 0px;
+}
+
+QTableWidget::item:hover {
+    color: white;
+	border-bottom: 1px solid rgb(180,180,180);
+}      
+
+QTableWidget::item:selected
+{
+ 	color: white;
+	border-bottom: 1px solid rgb(180,180,180);
+}
+
+QScrollBar:vertical {
+	border: none;
+    background-color: #151515;
+    width: 12px;
+    margin: 15px 0 15px 0;
+	border-radius: 0px;
+ }
+
+/*  HANDLE BAR VERTICAL */
+QScrollBar::handle:vertical {	
+	background-color: #151515;
+	min-height: 30px;
+	border-radius: 0px;
+	border: 1px solid;
+	border-right: 0px;
+	border-color: rgb(60,60,60);
+}
+QScrollBar::handle:vertical:hover{	
+	background-color:  rgb(50,50,50);
+	border-color: rgb(60,60,60);
+}
+QScrollBar::handle:vertical:pressed {	
+	background-color: rgb(120, 0, 2);
+}
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+	background-color: #151515;
+	height: 15px;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+	border: 0px;
+	border-bottom: 1px solid rgb(180, 0, 0);
+}
+QScrollBar::sub-line:vertical:hover {	
+	background-color: #575757;
+	border-color: #242424;
+}
+QScrollBar::sub-line:vertical:pressed {	
+	background-color: rgb(120, 0, 2);
+}
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+	background-color: #151515;
+	height: 15px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+	border: 1px solid;
+	border-color: rgb(60,60,60);
+	border: 1px solid;
+	border-top:1px solid rgb(180, 0, 0);
+	border-right: 0px;
+	border-bottom: 0px;
+}
+QScrollBar::add-line:vertical:hover {	
+	background-color: #575757;
+	border-color: #242424;
+}
+QScrollBar::add-line:vertical:pressed {	
+	background-color: rgb(120, 0, 2);
+}
+/* RESET ARROW */
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+	background: none;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
+}
+</string>
+              </property>
+              <property name="editTriggers">
+               <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
+              </property>
+              <property name="selectionMode">
+               <enum>QAbstractItemView::SingleSelection</enum>
+              </property>
+              <property name="selectionBehavior">
+               <enum>QAbstractItemView::SelectRows</enum>
+              </property>
+              <property name="showGrid">
+               <bool>false</bool>
+              </property>
+              <property name="gridStyle">
+               <enum>Qt::SolidLine</enum>
+              </property>
+              <property name="sortingEnabled">
+               <bool>true</bool>
+              </property>
+              <attribute name="horizontalHeaderVisible">
+               <bool>false</bool>
+              </attribute>
+              <attribute name="horizontalHeaderCascadingSectionResizes">
+               <bool>true</bool>
+              </attribute>
+              <attribute name="horizontalHeaderDefaultSectionSize">
+               <number>30</number>
+              </attribute>
+              <attribute name="horizontalHeaderHighlightSections">
+               <bool>false</bool>
+              </attribute>
+              <attribute name="horizontalHeaderMinimumSectionSize">
+               <number>15</number>
+              </attribute>
+              <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+               <bool>true</bool>
+              </attribute>
+              <attribute name="horizontalHeaderStretchLastSection">
+               <bool>false</bool>
+              </attribute>
+              <attribute name="verticalHeaderVisible">
+               <bool>false</bool>
+              </attribute>
+              <attribute name="verticalHeaderCascadingSectionResizes">
+               <bool>false</bool>
+              </attribute>
+              <attribute name="verticalHeaderMinimumSectionSize">
+               <number>10</number>
+              </attribute>
+              <row>
+               <property name="text">
+                <string>w</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>New Row</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>New Row</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>New Row</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>New Row</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>New Row</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>New Row</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>New Row</string>
+               </property>
+              </row>
+              <column>
+               <property name="text">
+                <string>Выбор</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Склад</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Название</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>др. параметры</string>
+               </property>
+              </column>
+              <item row="0" column="0">
+               <property name="text">
+                <string/>
+               </property>
+              </item>
+              <item row="0" column="2">
+               <property name="text">
+                <string>w</string>
+               </property>
+              </item>
+              <item row="0" column="3">
+               <property name="text">
+                <string>ffssssrrrwrwer3333222234</string>
+               </property>
+              </item>
+              <item row="1" column="2">
+               <property name="text">
+                <string>NVIDIA RTX 4080</string>
+               </property>
+              </item>
+              <item row="1" column="3">
+               <property name="text">
+                <string>2878913412</string>
+               </property>
+              </item>
+             </widget>
+             <zorder>tableConfProc</zorder>
+             <zorder>tabWidgetProc</zorder>
+            </widget>
+            <widget class="QPushButton" name="btnProcFilter">
+             <property name="geometry">
+              <rect>
+               <x>310</x>
+               <y>310</y>
+               <width>131</width>
+               <height>21</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <family>Montserrat Medium</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton
+{
+color:  rgb(230,230, 230);
+border: 0px;
+/*border-bottom: 1px solid rgb(200, 200, 200);*/
+}
+
+QPushButton::hover
+{
+color: red;
+border-bottom: 1px solid red;
+}
+</string>
+             </property>
+             <property name="text">
+              <string>Настроить фильтр</string>
+             </property>
+            </widget>
+            <widget class="QPushButton" name="btnProcHelp">
+             <property name="geometry">
+              <rect>
+               <x>490</x>
+               <y>310</y>
+               <width>191</width>
+               <height>20</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <family>Montserrat Medium</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton
+{
+color: rgb(168, 168, 168);
+border: 0px;
+border-bottom: 1px dashed rgb(168, 168, 168);
+}
+
+QPushButton::hover
+{
+color: white;
+border-bottom: 1px dashed white;
+}
+</string>
+             </property>
+             <property name="text">
+              <string>Как подобрать процессор?</string>
              </property>
             </widget>
            </widget>
