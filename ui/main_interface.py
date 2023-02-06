@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1366, 786)
+        MainWindow.resize(1366, 779)
         icon = QtGui.QIcon.fromTheme("E:\\pcconf\\images\\pcconf.png")
         MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet("background: rgb(30, 30, 30);\n"
@@ -37,9 +37,11 @@ class Ui_MainWindow(object):
         font.setWeight(50)
         self.tabWidget.setFont(font)
         self.tabWidget.setMouseTracking(False)
-        self.tabWidget.setStyleSheet("QTabWidget::pane\n"
+        self.tabWidget.setStyleSheet("QFrame{\n"
+"    border:0px;\n"
+"}\n"
+"QTabWidget::pane\n"
 "{\n"
-"    border: 1px;\n"
 "    background: rgb(30, 30, 30);\n"
 "    border-style: solid;\n"
 "    border-width: 2px;\n"
@@ -70,49 +72,34 @@ class Ui_MainWindow(object):
 "    border-bottom: 1px solid;\n"
 "    border-color: black;\n"
 "}")
+        self.tabWidget.setTabsClosable(False)
         self.tabWidget.setObjectName("tabWidget")
         self.sklad = QtWidgets.QWidget()
         self.sklad.setObjectName("sklad")
-        self.pushButton = QtWidgets.QPushButton(self.sklad)
-        self.pushButton.setGeometry(QtCore.QRect(530, 610, 251, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        self.pushButton.setFont(font)
-        self.pushButton.setStyleSheet("QPushButton::hover\n"
-"{\n"
-"color: white;\n"
-"background:#676767;\n"
-"}\n"
-"\n"
-"\n"
-"QPushButton\n"
-"{\n"
-"background: #313131;\n"
-"color: white;\n"
-"border-style: solid;\n"
-"border-width: 1px;\n"
-"border-color: #434343;\n"
-"}")
-        self.pushButton.setObjectName("pushButton")
         self.verticalLayoutWidget = QtWidgets.QWidget(self.sklad)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 20, 1331, 521))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 60, 211, 601))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.toolBox = QtWidgets.QToolBox(self.verticalLayoutWidget)
+        self.toolBox_2 = QtWidgets.QToolBox(self.verticalLayoutWidget)
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(12)
-        self.toolBox.setFont(font)
-        self.toolBox.setAccessibleName("")
-        self.toolBox.setStyleSheet("QToolBox\n"
+        self.toolBox_2.setFont(font)
+        self.toolBox_2.setAccessibleName("")
+        self.toolBox_2.setStyleSheet("QToolBox\n"
 "{\n"
-"    border: 1px;\n"
 "    background: rgb(30, 30, 30);\n"
 "    border-style: solid;\n"
 "    border-width: 2px;\n"
 "    border-color: #151515;\n"
+"\n"
+"}\n"
+"\n"
+"QIcon QToolBox::itemIcon\n"
+"{\n"
+"    border-image: url(\"E:/pcconf/images/graphics-card.png\") 0;\n"
 "}\n"
 "\n"
 "QToolBox::tab\n"
@@ -121,7 +108,8 @@ class Ui_MainWindow(object):
 "    margin-left: 1px;\n"
 "    left: -1px;\n"
 "    color: white;\n"
-"    border-bottom: 1px solid;\n"
+"    border-bottom: 2px solid;\n"
+"    \n"
 "}\n"
 "\n"
 "QToolBox::tab:selected\n"
@@ -137,17 +125,468 @@ class Ui_MainWindow(object):
 "    border-bottom: 1px solid;\n"
 "    border-color: black;\n"
 "}")
-        self.toolBox.setFrameShadow(QtWidgets.QFrame.Plain)
-        self.toolBox.setObjectName("toolBox")
-        self.toolBoxPage1 = QtWidgets.QWidget()
-        self.toolBoxPage1.setGeometry(QtCore.QRect(0, 0, 1323, 369))
-        self.toolBoxPage1.setObjectName("toolBoxPage1")
-        self.tableWidget = QtWidgets.QTableWidget(self.toolBoxPage1)
-        self.tableWidget.setGeometry(QtCore.QRect(60, 80, 531, 201))
+        self.toolBox_2.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.toolBox_2.setLineWidth(1)
+        self.toolBox_2.setObjectName("toolBox_2")
+        self.toolBoxPage1_2 = QtWidgets.QWidget()
+        self.toolBoxPage1_2.setGeometry(QtCore.QRect(0, 0, 205, 215))
+        self.toolBoxPage1_2.setObjectName("toolBoxPage1_2")
+        self.frame = QtWidgets.QFrame(self.toolBoxPage1_2)
+        self.frame.setGeometry(QtCore.QRect(0, -10, 211, 251))
+        self.frame.setStyleSheet("QFrame{\n"
+"    background-color: rgb(10,10,10);\n"
+"    color:  white;\n"
+"    border: 1px;\n"
+"}")
+        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName("frame")
+        self.label = QtWidgets.QLabel(self.frame)
+        self.label.setGeometry(QtCore.QRect(20, 10, 161, 21))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        self.label.setFont(font)
+        self.label.setStyleSheet("border: 0px;\n"
+"border-bottom: 1px solid rgb(100, 100, 100);")
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.label.setObjectName("label")
+        self.listWidget_3 = QtWidgets.QListWidget(self.frame)
+        self.listWidget_3.setGeometry(QtCore.QRect(0, 40, 201, 121))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.listWidget_3.setFont(font)
+        self.listWidget_3.setStyleSheet("QListWidget\n"
+"{\n"
+"    background-color: rgb(10,10,10);\n"
+"    color: #dddddd;\n"
+"    border: 0px;\n"
+"    border-top: 0px solid rgb(100, 100, 100);\n"
+"    border-bottom: 1px solid rgb(100, 100, 100);\n"
+"}\n"
+"\n"
+"QListWidget::item\n"
+"{\n"
+"     border-bottom: 1px solid rgb(60,60,60); \n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"}\n"
+"\n"
+"QListWidget::item::hover {\n"
+"    color: white;\n"
+"    border-bottom: 1px solid rgb(210,210,210);\n"
+"}      \n"
+"\n"
+"QListWidget::item:selected\n"
+"{\n"
+"     color: white;\n"
+"    border-bottom: 1px solid rgb(225,225,225);\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background-color: #151515;\n"
+"    width: 8px;\n"
+"    margin: 15px 0 15px 0;\n"
+"    border-radius: 0px;\n"
+" }\n"
+"\n"
+"/*  HANDLE BAR VERTICAL */\n"
+"QScrollBar::handle:vertical {    \n"
+"    background-color: #151515;\n"
+"    min-height: 30px;\n"
+"    border-radius: 0px;\n"
+"    border: 1px solid;\n"
+"    border-right: 0px;\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:hover{    \n"
+"    background-color:  rgb(50,50,50);\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);\n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border: 1px solid;\n"
+"    border-top:1px solid rgb(180, 0, 0);\n"
+"    border-right: 0px;\n"
+"    border-bottom: 0px;\n"
+"}\n"
+"QScrollBar::add-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
+"}")
+        self.listWidget_3.setObjectName("listWidget_3")
+        item = QtWidgets.QListWidgetItem()
+        self.listWidget_3.addItem(item)
+        item = QtWidgets.QListWidgetItem()
+        self.listWidget_3.addItem(item)
+        item = QtWidgets.QListWidgetItem()
+        self.listWidget_3.addItem(item)
+        item = QtWidgets.QListWidgetItem()
+        self.listWidget_3.addItem(item)
+        item = QtWidgets.QListWidgetItem()
+        self.listWidget_3.addItem(item)
+        item = QtWidgets.QListWidgetItem()
+        self.listWidget_3.addItem(item)
+        self.pushButton_13 = QtWidgets.QPushButton(self.frame)
+        self.pushButton_13.setGeometry(QtCore.QRect(10, 170, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.pushButton_13.setFont(font)
+        self.pushButton_13.setStyleSheet("QPushButton\n"
+"{\n"
+"color:  white;\n"
+"border: 1px solid rgb(100, 100, 100);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"background-color: rgb(40, 40, 40);\n"
+"color: green;\n"
+"border: 1px solid green;\n"
+"}\n"
+"")
+        self.pushButton_13.setObjectName("pushButton_13")
+        self.pushButton_14 = QtWidgets.QPushButton(self.frame)
+        self.pushButton_14.setGeometry(QtCore.QRect(100, 170, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.pushButton_14.setFont(font)
+        self.pushButton_14.setStyleSheet("QPushButton\n"
+"{\n"
+"color:  white;\n"
+"border: 1px solid rgb(100, 100, 100);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"color: red;\n"
+"border: 1px solid red;\n"
+"}\n"
+"")
+        self.pushButton_14.setObjectName("pushButton_14")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/cpu-tower.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.toolBox_2.addItem(self.toolBoxPage1_2, icon, "")
+        self.page = QtWidgets.QWidget()
+        self.page.setGeometry(QtCore.QRect(0, 0, 205, 215))
+        self.page.setObjectName("page")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/graphics-card.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.toolBox_2.addItem(self.page, icon1, "")
+        self.toolBoxPage2_2 = QtWidgets.QWidget()
+        self.toolBoxPage2_2.setGeometry(QtCore.QRect(0, 0, 205, 215))
+        self.toolBoxPage2_2.setObjectName("toolBoxPage2_2")
+        self.listWidget_2 = QtWidgets.QListWidget(self.toolBoxPage2_2)
+        self.listWidget_2.setGeometry(QtCore.QRect(20, 50, 141, 192))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.listWidget_2.setFont(font)
+        self.listWidget_2.setStyleSheet("QListWidget\n"
+"{\n"
+"color:  white;\n"
+"border: 1px;\n"
+"/*border-bottom: 1px solid rgb(200, 200, 200);*/\n"
+"}\n"
+"\n"
+"QListWidget::item::hover\n"
+"{\n"
+"color: red;\n"
+"border-bottom: 1px solid red;\n"
+"}\n"
+"")
+        self.listWidget_2.setObjectName("listWidget_2")
+        item = QtWidgets.QListWidgetItem()
+        self.listWidget_2.addItem(item)
+        item = QtWidgets.QListWidgetItem()
+        self.listWidget_2.addItem(item)
+        item = QtWidgets.QListWidgetItem()
+        self.listWidget_2.addItem(item)
+        item = QtWidgets.QListWidgetItem()
+        self.listWidget_2.addItem(item)
+        self.toolBox_2.addItem(self.toolBoxPage2_2, "")
+        self.toolBoxPage3_2 = QtWidgets.QWidget()
+        self.toolBoxPage3_2.setGeometry(QtCore.QRect(0, 0, 205, 215))
+        self.toolBoxPage3_2.setObjectName("toolBoxPage3_2")
+        self.toolBox_2.addItem(self.toolBoxPage3_2, "")
+        self.toolBoxPage4_2 = QtWidgets.QWidget()
+        self.toolBoxPage4_2.setGeometry(QtCore.QRect(0, 0, 205, 215))
+        self.toolBoxPage4_2.setObjectName("toolBoxPage4_2")
+        self.toolBox_2.addItem(self.toolBoxPage4_2, "")
+        self.page_2 = QtWidgets.QWidget()
+        self.page_2.setGeometry(QtCore.QRect(0, 0, 205, 215))
+        self.page_2.setObjectName("page_2")
+        self.toolBox_2.addItem(self.page_2, "")
+        self.page_3 = QtWidgets.QWidget()
+        self.page_3.setGeometry(QtCore.QRect(0, 0, 205, 215))
+        self.page_3.setObjectName("page_3")
+        self.toolBox_2.addItem(self.page_3, "")
+        self.page_4 = QtWidgets.QWidget()
+        self.page_4.setGeometry(QtCore.QRect(0, 0, 205, 215))
+        self.page_4.setObjectName("page_4")
+        self.toolBox_2.addItem(self.page_4, "")
+        self.page_5 = QtWidgets.QWidget()
+        self.page_5.setGeometry(QtCore.QRect(0, 0, 205, 215))
+        self.page_5.setObjectName("page_5")
+        self.toolBox_2.addItem(self.page_5, "")
+        self.page_6 = QtWidgets.QWidget()
+        self.page_6.setGeometry(QtCore.QRect(0, 0, 205, 215))
+        self.page_6.setObjectName("page_6")
+        self.toolBox_2.addItem(self.page_6, "")
+        self.verticalLayout_2.addWidget(self.toolBox_2)
+        self.lbNavPanel = QtWidgets.QLabel(self.sklad)
+        self.lbNavPanel.setGeometry(QtCore.QRect(10, 20, 171, 21))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setWeight(50)
+        self.lbNavPanel.setFont(font)
+        self.lbNavPanel.setStyleSheet("    color: #fffafa;\n"
+"    border: 0px;\n"
+"")
+        self.lbNavPanel.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbNavPanel.setObjectName("lbNavPanel")
+        self.btnSkladFilter = QtWidgets.QPushButton(self.sklad)
+        self.btnSkladFilter.setGeometry(QtCore.QRect(1110, 30, 131, 21))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnSkladFilter.setFont(font)
+        self.btnSkladFilter.setStyleSheet("QPushButton\n"
+"{\n"
+"color:  rgb(230,230, 230);\n"
+"border: 0px;\n"
+"/*border-bottom: 1px solid rgb(200, 200, 200);*/\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"color: red;\n"
+"border-bottom: 1px solid red;\n"
+"}\n"
+"")
+        self.btnSkladFilter.setObjectName("btnSkladFilter")
+        self.tableWidget = QtWidgets.QTableWidget(self.sklad)
+        self.tableWidget.setGeometry(QtCore.QRect(250, 60, 1001, 381))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setKerning(True)
+        self.tableWidget.setFont(font)
+        self.tableWidget.setMouseTracking(True)
+        self.tableWidget.setStyleSheet("QHeaderView\n"
+"{    \n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border: 0px;\n"
+"    min-width: 30px;    \n"
+"    min-height: 30px;\n"
+"    font-family: Montserrat SemiBold;\n"
+"}\n"
+"\n"
+"QHeaderView::section\n"
+"{\n"
+"    background-color: #101010;\n"
+"    border: 0px solid white;\n"
+"    border-bottom: 1px solid rgb(60,60,60);\n"
+"    border-right: 1px solid rgb(60,60,60);\n"
+"    min-height: 25px;\n"
+"    color: #dddddd;\n"
+"    font-size: 12px;\n"
+"    color: white;\n"
+"    selection-background-color:#ffc0cb;\n"
+"}\n"
+"\n"
+"QHeaderView::section:hover {\n"
+"   color: white;\n"
+"    background-color: rgb(80,80,80);\n"
+"}\n"
+"\n"
+"QTableWidget QTableCornerButton::section\n"
+"{\n"
+"    background-color: #101010;\n"
+"    border: 0px solid;\n"
+"    border-bottom: 1px solid rgb(60,60,60);\n"
+"    border-right: 1px solid rgb(60,60,60);\n"
+"}\n"
+"\n"
+"QTableWidget::item\n"
+"{\n"
+"     border-bottom: 1px solid rgb(60,60,60); \n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"}\n"
+"\n"
+"QTableView\n"
+"{\n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border: 0px solid #434343;\n"
+"\n"
+"}\n"
+"\n"
+"QTableWidget::item:hover {\n"
+"    color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}      \n"
+"\n"
+"QTableWidget::item:selected\n"
+"{\n"
+"     color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background-color: #151515;\n"
+"    width: 16px;\n"
+"    margin: 15px 0 15px 0;\n"
+"    border-radius: 0px;\n"
+" }\n"
+"\n"
+"/*  HANDLE BAR VERTICAL */\n"
+"QScrollBar::handle:vertical {    \n"
+"    background-color: rgb(35, 35, 35);\n"
+"    min-height: 30px;\n"
+"    border-radius: 1px;\n"
+"    border: 1px solid;\n"
+"    border-color: qlineargradient(spread:pad, x1:0.528604, y1:0.034, x2:0.528, y2:1, stop:0 rgba(227, 0, 0, 255), stop:0.238636 rgba(142, 47, 47, 255), stop:0.517045 rgba(192, 0, 0, 255), stop:0.767045 rgba(135, 0, 0, 255), stop:1 rgba(255, 0, 0, 255));\n"
+"    border-top-color: #FF0000;    \n"
+"    border-bottom-color: #FF0000;\n"
+"\n"
+"}\n"
+"QScrollBar::handle:vertical:hover{    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::handle:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:vertical {\n"
+"    background-color: rgb(35, 35, 35);\n"
+"    height: 15px;\n"
+"    border-top-left-radius: 1px;\n"
+"    border-top-right-radius: 1px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: #FF0000;    \n"
+"    border-color: qlineargradient(spread:pad, x1:0.5, y1:0, x2:0.517, y2:1, stop:0 rgba(0, 0, 0, 255), stop:0.965909 rgba(227, 0, 0, 255));\n"
+"    border-top-color:   #3d3d3d;\n"
+"    border-bottom-color: rgb(227, 0, 0, 255);\n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:vertical {\n"
+"    background-color: rgb(35, 35, 35);\n"
+"    height: 15px;\n"
+"    border-top-left-radius: 1px;\n"
+"    border-top-right-radius: 1px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: #FF0000;    \n"
+"    border-color: qlineargradient(spread:pad, x1:0.506, y1:1, x2:0.528, y2:0, stop:0 rgba(0, 0, 0, 255), stop:0.965909 rgba(227, 0, 0, 255));\n"
+"    border-top-color:  rgb(227, 0, 0, 255);\n"
+"    border-bottom-color: #3d3d3d;\n"
+"}\n"
+"QScrollBar::add-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
+"}")
+        self.tableWidget.setTextElideMode(QtCore.Qt.ElideLeft)
+        self.tableWidget.setShowGrid(False)
+        self.tableWidget.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableWidget.setCornerButtonEnabled(True)
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(5)
-        self.tableWidget.setRowCount(0)
+        self.tableWidget.setRowCount(7)
         item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setVerticalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setVerticalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setVerticalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setVerticalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setVerticalHeaderItem(6, item)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setFamily("MS Sans Serif")
+        item.setFont(font)
         self.tableWidget.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(1, item)
@@ -157,25 +596,17 @@ class Ui_MainWindow(object):
         self.tableWidget.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(4, item)
-        self.toolBox.addItem(self.toolBoxPage1, "")
-        self.toolBoxPage2 = QtWidgets.QWidget()
-        self.toolBoxPage2.setGeometry(QtCore.QRect(0, 0, 1323, 369))
-        self.toolBoxPage2.setObjectName("toolBoxPage2")
-        self.toolBox.addItem(self.toolBoxPage2, "")
-        self.toolBoxPage3 = QtWidgets.QWidget()
-        self.toolBoxPage3.setGeometry(QtCore.QRect(0, 0, 1323, 369))
-        self.toolBoxPage3.setObjectName("toolBoxPage3")
-        self.toolBox.addItem(self.toolBoxPage3, "")
-        self.toolBoxPage4 = QtWidgets.QWidget()
-        self.toolBoxPage4.setGeometry(QtCore.QRect(0, 0, 1323, 369))
-        self.toolBoxPage4.setObjectName("toolBoxPage4")
-        self.toolBox.addItem(self.toolBoxPage4, "")
-        self.verticalLayout_2.addWidget(self.toolBox)
+        self.tableWidget.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableWidget.horizontalHeader().setDefaultSectionSize(90)
+        self.tableWidget.horizontalHeader().setMinimumSectionSize(44)
+        self.tableWidget.verticalHeader().setVisible(False)
+        self.tableWidget.verticalHeader().setDefaultSectionSize(32)
+        self.tableWidget.verticalHeader().setMinimumSectionSize(10)
         self.tabWidget.addTab(self.sklad, "")
         self.configurator = QtWidgets.QWidget()
         self.configurator.setObjectName("configurator")
         self.progressBar = QtWidgets.QProgressBar(self.configurator)
-        self.progressBar.setGeometry(QtCore.QRect(10, 100, 51, 411))
+        self.progressBar.setGeometry(QtCore.QRect(10, 120, 51, 411))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(12)
@@ -214,7 +645,7 @@ class Ui_MainWindow(object):
         self.progressBar.setInvertedAppearance(False)
         self.progressBar.setObjectName("progressBar")
         self.treeWidget = QtWidgets.QTreeWidget(self.configurator)
-        self.treeWidget.setGeometry(QtCore.QRect(80, 100, 221, 411))
+        self.treeWidget.setGeometry(QtCore.QRect(100, 120, 221, 411))
         self.treeWidget.setMinimumSize(QtCore.QSize(0, 0))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
@@ -230,7 +661,7 @@ class Ui_MainWindow(object):
         self.treeWidget.setAutoFillBackground(False)
         self.treeWidget.setStyleSheet("QTreeWidget{\n"
 "    background-color:  #101010;\n"
-"    border: 0px;\n"
+"    \n"
 "}\n"
 "\n"
 "QTreeWidget::item:pressed{color:#fff4f4;}\n"
@@ -338,7 +769,7 @@ class Ui_MainWindow(object):
         self.treeWidget.header().setSortIndicatorShown(False)
         self.treeWidget.header().setStretchLastSection(True)
         self.scrollArea = QtWidgets.QScrollArea(self.configurator)
-        self.scrollArea.setGeometry(QtCore.QRect(310, 0, 1031, 681))
+        self.scrollArea.setGeometry(QtCore.QRect(310, 10, 1031, 671))
         self.scrollArea.setStyleSheet("QWidget{\n"
 "    border: 0px;\n"
 "} \n"
@@ -430,7 +861,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
         self.scrollAreaWidgetContents.setEnabled(True)
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1015, 2518))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -753, 1015, 2518))
         self.scrollAreaWidgetContents.setAutoFillBackground(False)
         self.scrollAreaWidgetContents.setInputMethodHints(QtCore.Qt.ImhNone)
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
@@ -442,164 +873,27 @@ class Ui_MainWindow(object):
         self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_3.setObjectName("frame_3")
-        self.frame_cart = QtWidgets.QFrame(self.frame_3)
-        self.frame_cart.setGeometry(QtCore.QRect(720, 70, 261, 371))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.frame_cart.setFont(font)
-        self.frame_cart.setStyleSheet("QFrame{\n"
-"background-color: rgb(20,20,20);\n"
-"border: 1px solid #FF0000;\n"
-"}")
-        self.frame_cart.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_cart.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_cart.setObjectName("frame_cart")
-        self.lb_preview = QtWidgets.QLabel(self.frame_cart)
-        self.lb_preview.setGeometry(QtCore.QRect(60, 10, 141, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(11)
-        font.setKerning(True)
-        self.lb_preview.setFont(font)
-        self.lb_preview.setStyleSheet("QLabel{\n"
-"border: 0px;\n"
-"border-bottom: 1px solid rgb(70,70,70);\n"
-"}")
-        self.lb_preview.setAlignment(QtCore.Qt.AlignCenter)
-        self.lb_preview.setObjectName("lb_preview")
-        self.lb_price = QtWidgets.QLabel(self.frame_cart)
-        self.lb_price.setGeometry(QtCore.QRect(10, 50, 241, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(12)
-        font.setKerning(True)
-        self.lb_price.setFont(font)
-        self.lb_price.setStyleSheet("QLabel{\n"
-"border: 0px;\n"
-"\n"
-"}")
-        self.lb_price.setAlignment(QtCore.Qt.AlignCenter)
-        self.lb_price.setObjectName("lb_price")
-        self.lb_config = QtWidgets.QLabel(self.frame_cart)
-        self.lb_config.setGeometry(QtCore.QRect(10, 140, 241, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat ExtraBold")
-        font.setPointSize(11)
-        font.setBold(False)
-        font.setWeight(50)
-        font.setKerning(True)
-        self.lb_config.setFont(font)
-        self.lb_config.setStyleSheet("QLabel{\n"
-"border: 0px;\n"
-"border-top: 1px solid rgb(70,70,70);\n"
-"}")
-        self.lb_config.setAlignment(QtCore.Qt.AlignCenter)
-        self.lb_config.setObjectName("lb_config")
-        self.btn_purcashe = QtWidgets.QPushButton(self.frame_cart)
-        self.btn_purcashe.setGeometry(QtCore.QRect(20, 90, 221, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat SemiBold")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.btn_purcashe.setFont(font)
-        self.btn_purcashe.setStyleSheet("\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"color: white;\n"
-"background: #bf0000;\n"
-"}\n"
-"\n"
-"\n"
-"QPushButton\n"
-"{\n"
-"background-color: #FF0000;\n"
-"color: white;\n"
-"border: 1px solid #bf0000;\n"
-"}")
-        self.btn_purcashe.setObjectName("btn_purcashe")
-        self.table_config = QtWidgets.QTableWidget(self.frame_cart)
-        self.table_config.setGeometry(QtCore.QRect(10, 170, 241, 181))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
-        self.table_config.setFont(font)
-        self.table_config.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.table_config.setStyleSheet("QTableWidget::item\n"
-"{\n"
-"     border: 0px;\n"
-"}\n"
-"\n"
-"QTableView\n"
-"{\n"
-"    background-color: rgb(20,20,20);\n"
-"    color:  rgb(220,220,220);\n"
-"    border: 0px;\n"
-"    border-top: 1px solid rgb(70,70,70);\n"
-"\n"
-"}\n"
-"\n"
-"QTableWidget::item:hover {\n"
-"    color: white;\n"
-"    background-color:#151515;\n"
-"}      \n"
-"")
-        self.table_config.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
-        self.table_config.setAlternatingRowColors(False)
-        self.table_config.setSelectionMode(QtWidgets.QAbstractItemView.NoSelection)
-        self.table_config.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self.table_config.setShowGrid(False)
-        self.table_config.setObjectName("table_config")
-        self.table_config.setColumnCount(3)
-        self.table_config.setRowCount(3)
-        item = QtWidgets.QTableWidgetItem()
-        self.table_config.setVerticalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.table_config.setVerticalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.table_config.setVerticalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.table_config.setHorizontalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.table_config.setHorizontalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.table_config.setHorizontalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.table_config.setItem(0, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.table_config.setItem(0, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.table_config.setItem(0, 2, item)
-        self.table_config.horizontalHeader().setVisible(False)
-        self.table_config.horizontalHeader().setCascadingSectionResizes(False)
-        self.table_config.horizontalHeader().setDefaultSectionSize(30)
-        self.table_config.horizontalHeader().setMinimumSectionSize(1)
-        self.table_config.verticalHeader().setVisible(False)
-        self.table_config.verticalHeader().setMinimumSectionSize(20)
-        self.lb_video = QtWidgets.QLabel(self.frame_3)
-        self.lb_video.setGeometry(QtCore.QRect(120, 10, 141, 41))
+        self.lbVideo = QtWidgets.QLabel(self.frame_3)
+        self.lbVideo.setGeometry(QtCore.QRect(120, 0, 141, 51))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(16)
         font.setBold(False)
         font.setWeight(50)
-        self.lb_video.setFont(font)
-        self.lb_video.setStyleSheet("    color: #fffafa;\n"
+        self.lbVideo.setFont(font)
+        self.lbVideo.setStyleSheet("    color: #fffafa;\n"
 "    border: 0px;\n"
 "")
-        self.lb_video.setAlignment(QtCore.Qt.AlignCenter)
-        self.lb_video.setObjectName("lb_video")
-        self.frameTabVideo = QtWidgets.QFrame(self.frame_3)
-        self.frameTabVideo.setGeometry(QtCore.QRect(50, 50, 631, 241))
-        self.frameTabVideo.setStyleSheet("background-color: #101010;\n"
+        self.lbVideo.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbVideo.setObjectName("lbVideo")
+        self.frameVideo = QtWidgets.QFrame(self.frame_3)
+        self.frameVideo.setGeometry(QtCore.QRect(50, 50, 631, 241))
+        self.frameVideo.setStyleSheet("background-color: #101010;\n"
 "border: 0px;")
-        self.frameTabVideo.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frameTabVideo.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frameTabVideo.setObjectName("frameTabVideo")
-        self.tabWidgetVideo = QtWidgets.QTabWidget(self.frameTabVideo)
+        self.frameVideo.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frameVideo.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frameVideo.setObjectName("frameVideo")
+        self.tabWidgetVideo = QtWidgets.QTabWidget(self.frameVideo)
         self.tabWidgetVideo.setEnabled(True)
         self.tabWidgetVideo.setGeometry(QtCore.QRect(10, 0, 621, 31))
         font = QtGui.QFont()
@@ -649,7 +943,7 @@ class Ui_MainWindow(object):
         self.tabAmd = QtWidgets.QWidget()
         self.tabAmd.setObjectName("tabAmd")
         self.tabWidgetVideo.addTab(self.tabAmd, "")
-        self.tableConfVideo = QtWidgets.QTableWidget(self.frameTabVideo)
+        self.tableConfVideo = QtWidgets.QTableWidget(self.frameVideo)
         self.tableConfVideo.setEnabled(True)
         self.tableConfVideo.setGeometry(QtCore.QRect(0, 30, 631, 211))
         font = QtGui.QFont()
@@ -853,103 +1147,83 @@ class Ui_MainWindow(object):
         self.tableConfVideo.raise_()
         self.tabWidgetVideo.raise_()
         self.imgVideocard = QtWidgets.QFrame(self.frame_3)
-        self.imgVideocard.setGeometry(QtCore.QRect(50, 10, 61, 41))
+        self.imgVideocard.setGeometry(QtCore.QRect(50, 0, 61, 51))
         self.imgVideocard.setStyleSheet("border: 0px;\n"
 "border-image: url(\"E:/pcconf/images/graphics-card.png\") 0;")
         self.imgVideocard.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.imgVideocard.setFrameShadow(QtWidgets.QFrame.Raised)
         self.imgVideocard.setObjectName("imgVideocard")
-        self.lb_processor = QtWidgets.QLabel(self.frame_3)
-        self.lb_processor.setGeometry(QtCore.QRect(120, 300, 131, 41))
+        self.lbProc = QtWidgets.QLabel(self.frame_3)
+        self.lbProc.setGeometry(QtCore.QRect(120, 310, 131, 51))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(16)
         font.setBold(False)
         font.setWeight(50)
-        self.lb_processor.setFont(font)
-        self.lb_processor.setStyleSheet("    color: #fffafa;\n"
+        self.lbProc.setFont(font)
+        self.lbProc.setStyleSheet("    color: #fffafa;\n"
 "    border: 0px;\n"
 "")
-        self.lb_processor.setAlignment(QtCore.Qt.AlignCenter)
-        self.lb_processor.setObjectName("lb_processor")
+        self.lbProc.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbProc.setObjectName("lbProc")
         self.imgCPU = QtWidgets.QFrame(self.frame_3)
-        self.imgCPU.setGeometry(QtCore.QRect(50, 300, 61, 41))
+        self.imgCPU.setGeometry(QtCore.QRect(60, 310, 51, 41))
         self.imgCPU.setStyleSheet("border: 0px;\n"
 "border-image: url(\"E:/pcconf/images/cpu-tower.png\") 0;")
         self.imgCPU.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.imgCPU.setFrameShadow(QtWidgets.QFrame.Raised)
         self.imgCPU.setObjectName("imgCPU")
         self.imgCPUcooling = QtWidgets.QFrame(self.frame_3)
-        self.imgCPUcooling.setGeometry(QtCore.QRect(160, 610, 71, 51))
+        self.imgCPUcooling.setGeometry(QtCore.QRect(60, 930, 51, 51))
         self.imgCPUcooling.setStyleSheet("border: 0px;\n"
 "border-image: url(\"E:/pcconf/images/cpucooling.png\") 0;")
         self.imgCPUcooling.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.imgCPUcooling.setFrameShadow(QtWidgets.QFrame.Raised)
         self.imgCPUcooling.setObjectName("imgCPUcooling")
         self.imgPower = QtWidgets.QFrame(self.frame_3)
-        self.imgPower.setGeometry(QtCore.QRect(40, 610, 81, 51))
+        self.imgPower.setGeometry(QtCore.QRect(60, 1840, 51, 51))
         self.imgPower.setStyleSheet("border: 0px;\n"
 "border-image: url(\"E:/pcconf/images/power.png\") 0;")
         self.imgPower.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.imgPower.setFrameShadow(QtWidgets.QFrame.Raised)
         self.imgPower.setObjectName("imgPower")
         self.imgRam = QtWidgets.QFrame(self.frame_3)
-        self.imgRam.setGeometry(QtCore.QRect(300, 610, 71, 31))
+        self.imgRam.setGeometry(QtCore.QRect(60, 1230, 51, 41))
         self.imgRam.setStyleSheet("border: 0px;\n"
-"border-image: url(\"E:/pcconf/images/ram (2).png\") 0;")
+"border-image: url(\"E:/pcconf/images/ram (1).png\") 0;")
         self.imgRam.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.imgRam.setFrameShadow(QtWidgets.QFrame.Raised)
         self.imgRam.setObjectName("imgRam")
         self.imgRam2 = QtWidgets.QFrame(self.frame_3)
-        self.imgRam2.setGeometry(QtCore.QRect(310, 630, 71, 31))
+        self.imgRam2.setGeometry(QtCore.QRect(0, 1230, 51, 41))
         self.imgRam2.setStyleSheet("border: 0px;\n"
 "border-image: url(\"E:/pcconf/images/ram (2).png\") 0;")
         self.imgRam2.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.imgRam2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.imgRam2.setObjectName("imgRam2")
         self.imgMotherboard = QtWidgets.QFrame(self.frame_3)
-        self.imgMotherboard.setGeometry(QtCore.QRect(520, 610, 61, 51))
+        self.imgMotherboard.setGeometry(QtCore.QRect(50, 610, 61, 51))
         self.imgMotherboard.setStyleSheet("border: 0px;\n"
 "border-image: url(\"E:/pcconf/images/motherboard.png\") 0;")
         self.imgMotherboard.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.imgMotherboard.setFrameShadow(QtWidgets.QFrame.Raised)
         self.imgMotherboard.setObjectName("imgMotherboard")
-        self.imgMotherboard_2 = QtWidgets.QFrame(self.frame_3)
-        self.imgMotherboard_2.setGeometry(QtCore.QRect(640, 610, 61, 51))
-        self.imgMotherboard_2.setStyleSheet("border: 0px;\n"
+        self.imgDisk = QtWidgets.QFrame(self.frame_3)
+        self.imgDisk.setGeometry(QtCore.QRect(50, 1540, 51, 41))
+        self.imgDisk.setStyleSheet("border: 0px;\n"
 "border-image: url(\"E:/pcconf/images/hard-drive.png\") 0;")
-        self.imgMotherboard_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.imgMotherboard_2.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.imgMotherboard_2.setObjectName("imgMotherboard_2")
-        self.btnVideoHelp = QtWidgets.QPushButton(self.frame_3)
-        self.btnVideoHelp.setGeometry(QtCore.QRect(480, 20, 201, 20))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnVideoHelp.setFont(font)
-        self.btnVideoHelp.setStyleSheet("QPushButton\n"
-"{\n"
-"color: rgb(168, 168, 168);\n"
-"border: 0px;\n"
-"border-bottom: 1px dashed rgb(168, 168, 168);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"color: white;\n"
-"border-bottom: 1px dashed white;\n"
-"}\n"
-"")
-        self.btnVideoHelp.setObjectName("btnVideoHelp")
-        self.imgMotherboard_3 = QtWidgets.QFrame(self.frame_3)
-        self.imgMotherboard_3.setGeometry(QtCore.QRect(790, 610, 61, 51))
-        self.imgMotherboard_3.setStyleSheet("border: 0px;\n"
+        self.imgDisk.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.imgDisk.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.imgDisk.setObjectName("imgDisk")
+        self.imgBody = QtWidgets.QFrame(self.frame_3)
+        self.imgBody.setGeometry(QtCore.QRect(60, 2150, 51, 51))
+        self.imgBody.setStyleSheet("border: 0px;\n"
 "border-image: url(\"E:/pcconf/images/case.png\") 0;")
-        self.imgMotherboard_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.imgMotherboard_3.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.imgMotherboard_3.setObjectName("imgMotherboard_3")
+        self.imgBody.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.imgBody.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.imgBody.setObjectName("imgBody")
         self.btnVideoFilter = QtWidgets.QPushButton(self.frame_3)
-        self.btnVideoFilter.setGeometry(QtCore.QRect(300, 20, 131, 21))
+        self.btnVideoFilter.setGeometry(QtCore.QRect(340, 20, 131, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -968,14 +1242,14 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.btnVideoFilter.setObjectName("btnVideoFilter")
-        self.frameTabProc = QtWidgets.QFrame(self.frame_3)
-        self.frameTabProc.setGeometry(QtCore.QRect(50, 340, 631, 241))
-        self.frameTabProc.setStyleSheet("background-color: #101010;\n"
+        self.frameProc = QtWidgets.QFrame(self.frame_3)
+        self.frameProc.setGeometry(QtCore.QRect(50, 360, 631, 241))
+        self.frameProc.setStyleSheet("background-color: #101010;\n"
 "border: 0px;")
-        self.frameTabProc.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frameTabProc.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frameTabProc.setObjectName("frameTabProc")
-        self.tabWidgetProc = QtWidgets.QTabWidget(self.frameTabProc)
+        self.frameProc.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frameProc.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frameProc.setObjectName("frameProc")
+        self.tabWidgetProc = QtWidgets.QTabWidget(self.frameProc)
         self.tabWidgetProc.setEnabled(True)
         self.tabWidgetProc.setGeometry(QtCore.QRect(10, 0, 621, 31))
         font = QtGui.QFont()
@@ -1025,7 +1299,7 @@ class Ui_MainWindow(object):
         self.tabPr2 = QtWidgets.QWidget()
         self.tabPr2.setObjectName("tabPr2")
         self.tabWidgetProc.addTab(self.tabPr2, "")
-        self.tableConfProc = QtWidgets.QTableWidget(self.frameTabProc)
+        self.tableConfProc = QtWidgets.QTableWidget(self.frameProc)
         self.tableConfProc.setEnabled(True)
         self.tableConfProc.setGeometry(QtCore.QRect(0, 30, 631, 211))
         font = QtGui.QFont()
@@ -1229,7 +1503,7 @@ class Ui_MainWindow(object):
         self.tableConfProc.raise_()
         self.tabWidgetProc.raise_()
         self.btnProcFilter = QtWidgets.QPushButton(self.frame_3)
-        self.btnProcFilter.setGeometry(QtCore.QRect(310, 310, 131, 21))
+        self.btnProcFilter.setGeometry(QtCore.QRect(350, 330, 131, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -1249,7 +1523,7 @@ class Ui_MainWindow(object):
 "")
         self.btnProcFilter.setObjectName("btnProcFilter")
         self.btnProcHelp = QtWidgets.QPushButton(self.frame_3)
-        self.btnProcHelp.setGeometry(QtCore.QRect(490, 310, 191, 20))
+        self.btnProcHelp.setGeometry(QtCore.QRect(490, 330, 191, 20))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -1268,11 +1542,2105 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.btnProcHelp.setObjectName("btnProcHelp")
+        self.lbMother = QtWidgets.QLabel(self.frame_3)
+        self.lbMother.setGeometry(QtCore.QRect(130, 630, 221, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(16)
+        font.setBold(False)
+        font.setWeight(50)
+        self.lbMother.setFont(font)
+        self.lbMother.setStyleSheet("    color: #fffafa;\n"
+"    border: 0px;\n"
+"")
+        self.lbMother.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbMother.setObjectName("lbMother")
+        self.btnMotherFilter = QtWidgets.QPushButton(self.frame_3)
+        self.btnMotherFilter.setGeometry(QtCore.QRect(360, 641, 131, 20))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnMotherFilter.setFont(font)
+        self.btnMotherFilter.setStyleSheet("QPushButton\n"
+"{\n"
+"color:  rgb(230,230, 230);\n"
+"border: 0px;\n"
+"/*border-bottom: 1px solid rgb(200, 200, 200);*/\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"color: red;\n"
+"border-bottom: 1px solid red;\n"
+"}\n"
+"")
+        self.btnMotherFilter.setObjectName("btnMotherFilter")
+        self.btnMotherHelp = QtWidgets.QPushButton(self.frame_3)
+        self.btnMotherHelp.setGeometry(QtCore.QRect(500, 640, 181, 20))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnMotherHelp.setFont(font)
+        self.btnMotherHelp.setStyleSheet("QPushButton\n"
+"{\n"
+"color: rgb(168, 168, 168);\n"
+"border: 0px;\n"
+"border-bottom: 1px dashed rgb(168, 168, 168);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"color: white;\n"
+"border-bottom: 1px dashed white;\n"
+"}\n"
+"")
+        self.btnMotherHelp.setObjectName("btnMotherHelp")
+        self.btnProcHelp_3 = QtWidgets.QPushButton(self.frame_3)
+        self.btnProcHelp_3.setGeometry(QtCore.QRect(490, 20, 191, 20))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnProcHelp_3.setFont(font)
+        self.btnProcHelp_3.setStyleSheet("QPushButton\n"
+"{\n"
+"color: rgb(168, 168, 168);\n"
+"border: 0px;\n"
+"border-bottom: 1px dashed rgb(168, 168, 168);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"color: white;\n"
+"border-bottom: 1px dashed white;\n"
+"}\n"
+"")
+        self.btnProcHelp_3.setObjectName("btnProcHelp_3")
+        self.frameMother = QtWidgets.QFrame(self.frame_3)
+        self.frameMother.setGeometry(QtCore.QRect(50, 670, 631, 241))
+        self.frameMother.setStyleSheet("background-color: #101010;\n"
+"border: 0px;")
+        self.frameMother.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frameMother.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frameMother.setObjectName("frameMother")
+        self.tabWidgetMothet = QtWidgets.QTabWidget(self.frameMother)
+        self.tabWidgetMothet.setEnabled(True)
+        self.tabWidgetMothet.setGeometry(QtCore.QRect(10, 0, 621, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(9)
+        self.tabWidgetMothet.setFont(font)
+        self.tabWidgetMothet.setStyleSheet("QTabWidget::pane\n"
+"{\n"
+"    background: #101010;\n"
+"    border-bottom: 1px solid rgb(60,60,60); \n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"        \n"
+"}\n"
+"\n"
+"QTabBar::tab\n"
+"{\n"
+"    background-color: #101010;\n"
+"    min-width: 100px;\n"
+"    min-height: 10ex;\n"
+"    margin-left: 1px;\n"
+"    color: #a2a2a2;\n"
+"    border-bottom: 1px solid rgb(60,60,60); \n"
+"    \n"
+"}\n"
+"QTabBar::tab:selected\n"
+"{\n"
+"    color: white;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"    border-bottom: 1px solid #FF0000;\n"
+"}\n"
+"QTabBar::tab:hover\n"
+"{\n"
+"    color: #FF0000;\n"
+"    background: #252525;\n"
+"}")
+        self.tabWidgetMothet.setObjectName("tabWidgetMothet")
+        self.allMother = QtWidgets.QWidget()
+        self.allMother.setObjectName("allMother")
+        self.tabWidgetMothet.addTab(self.allMother, "")
+        self.tabMoth1 = QtWidgets.QWidget()
+        self.tabMoth1.setObjectName("tabMoth1")
+        self.tabWidgetMothet.addTab(self.tabMoth1, "")
+        self.tabMoth2 = QtWidgets.QWidget()
+        self.tabMoth2.setObjectName("tabMoth2")
+        self.tabWidgetMothet.addTab(self.tabMoth2, "")
+        self.tableConfMother = QtWidgets.QTableWidget(self.frameMother)
+        self.tableConfMother.setEnabled(True)
+        self.tableConfMother.setGeometry(QtCore.QRect(0, 30, 631, 211))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
+        self.tableConfMother.setFont(font)
+        self.tableConfMother.setMouseTracking(True)
+        self.tableConfMother.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.tableConfMother.setAutoFillBackground(False)
+        self.tableConfMother.setStyleSheet("QHeaderView\n"
+"{    \n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border: 0px;\n"
+"    font-size: 14px;\n"
+"    min-width: 100px;    \n"
+"    min-height: 30px;\n"
+"}\n"
+"\n"
+"QHeaderView::section\n"
+"{\n"
+"    background-color: #101010;\n"
+"    min-width: 10px;    \n"
+"    min-height: 25px;\n"
+"    border: 0px solid;\n"
+"    border-right: 1px solid rgb(50,50,50); \n"
+"    color: #dddddd;\n"
+"    font-size: 12px;\n"
+"}\n"
+"\n"
+"QHeaderView::section:hover {\n"
+"   color: white;\n"
+"    background-color: rgb(80,80,80);\n"
+"}\n"
+"\n"
+"QHeaderView::section{\n"
+"    color: white;\n"
+"    selection-background-color:#ffc0cb;\n"
+"}\n"
+"\n"
+"QTableWidget QTableCornerButton::section\n"
+"{\n"
+"    \n"
+"    background: rgb(80,80,80);\n"
+"    border-style: solid;\n"
+"    border-width: 1px;\n"
+"}\n"
+"\n"
+"QTableWidget::item\n"
+"{\n"
+"     border-bottom: 1px solid rgb(60,60,60); \n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"}\n"
+"\n"
+"QTableView\n"
+"{\n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border-top: 1px solid #434343;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-bottom: 0px;\n"
+"}\n"
+"\n"
+"QTableWidget::item:hover {\n"
+"    color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}      \n"
+"\n"
+"QTableWidget::item:selected\n"
+"{\n"
+"     color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background-color: #151515;\n"
+"    width: 12px;\n"
+"    margin: 15px 0 15px 0;\n"
+"    border-radius: 0px;\n"
+" }\n"
+"\n"
+"/*  HANDLE BAR VERTICAL */\n"
+"QScrollBar::handle:vertical {    \n"
+"    background-color: #151515;\n"
+"    min-height: 30px;\n"
+"    border-radius: 0px;\n"
+"    border: 1px solid;\n"
+"    border-right: 0px;\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:hover{    \n"
+"    background-color:  rgb(50,50,50);\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);\n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border: 1px solid;\n"
+"    border-top:1px solid rgb(180, 0, 0);\n"
+"    border-right: 0px;\n"
+"    border-bottom: 0px;\n"
+"}\n"
+"QScrollBar::add-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
+"}\n"
+"")
+        self.tableConfMother.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableConfMother.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.tableConfMother.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableConfMother.setShowGrid(False)
+        self.tableConfMother.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableConfMother.setObjectName("tableConfMother")
+        self.tableConfMother.setColumnCount(4)
+        self.tableConfMother.setRowCount(8)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfMother.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfMother.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfMother.setVerticalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfMother.setVerticalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfMother.setVerticalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfMother.setVerticalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfMother.setVerticalHeaderItem(6, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfMother.setVerticalHeaderItem(7, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfMother.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfMother.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfMother.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfMother.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfMother.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfMother.setItem(0, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfMother.setItem(0, 3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfMother.setItem(1, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfMother.setItem(1, 3, item)
+        self.tableConfMother.horizontalHeader().setVisible(False)
+        self.tableConfMother.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableConfMother.horizontalHeader().setDefaultSectionSize(30)
+        self.tableConfMother.horizontalHeader().setHighlightSections(False)
+        self.tableConfMother.horizontalHeader().setMinimumSectionSize(15)
+        self.tableConfMother.horizontalHeader().setSortIndicatorShown(True)
+        self.tableConfMother.horizontalHeader().setStretchLastSection(False)
+        self.tableConfMother.verticalHeader().setVisible(False)
+        self.tableConfMother.verticalHeader().setCascadingSectionResizes(False)
+        self.tableConfMother.verticalHeader().setMinimumSectionSize(10)
+        self.lbCooling = QtWidgets.QLabel(self.frame_3)
+        self.lbCooling.setGeometry(QtCore.QRect(130, 940, 151, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(16)
+        font.setBold(False)
+        font.setWeight(50)
+        self.lbCooling.setFont(font)
+        self.lbCooling.setStyleSheet("    color: #fffafa;\n"
+"    border: 0px;\n"
+"")
+        self.lbCooling.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbCooling.setObjectName("lbCooling")
+        self.btnCoolHelp = QtWidgets.QPushButton(self.frame_3)
+        self.btnCoolHelp.setGeometry(QtCore.QRect(480, 950, 201, 20))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnCoolHelp.setFont(font)
+        self.btnCoolHelp.setStyleSheet("QPushButton\n"
+"{\n"
+"color: rgb(168, 168, 168);\n"
+"border: 0px;\n"
+"border-bottom: 1px dashed rgb(168, 168, 168);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"color: white;\n"
+"border-bottom: 1px dashed white;\n"
+"}\n"
+"")
+        self.btnCoolHelp.setObjectName("btnCoolHelp")
+        self.btnCoolFilter = QtWidgets.QPushButton(self.frame_3)
+        self.btnCoolFilter.setGeometry(QtCore.QRect(340, 951, 131, 20))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnCoolFilter.setFont(font)
+        self.btnCoolFilter.setStyleSheet("QPushButton\n"
+"{\n"
+"color:  rgb(230,230, 230);\n"
+"border: 0px;\n"
+"/*border-bottom: 1px solid rgb(200, 200, 200);*/\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"color: red;\n"
+"border-bottom: 1px solid red;\n"
+"}\n"
+"")
+        self.btnCoolFilter.setObjectName("btnCoolFilter")
+        self.frameCool = QtWidgets.QFrame(self.frame_3)
+        self.frameCool.setGeometry(QtCore.QRect(50, 980, 631, 241))
+        self.frameCool.setStyleSheet("background-color: #101010;\n"
+"border: 0px;")
+        self.frameCool.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frameCool.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frameCool.setObjectName("frameCool")
+        self.tabWidgetCool = QtWidgets.QTabWidget(self.frameCool)
+        self.tabWidgetCool.setEnabled(True)
+        self.tabWidgetCool.setGeometry(QtCore.QRect(10, 0, 621, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(9)
+        self.tabWidgetCool.setFont(font)
+        self.tabWidgetCool.setStyleSheet("QTabWidget::pane\n"
+"{\n"
+"    background: #101010;\n"
+"    border-bottom: 1px solid rgb(60,60,60); \n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"        \n"
+"}\n"
+"\n"
+"QTabBar::tab\n"
+"{\n"
+"    background-color: #101010;\n"
+"    min-width: 100px;\n"
+"    min-height: 10ex;\n"
+"    margin-left: 1px;\n"
+"    color: #a2a2a2;\n"
+"    border-bottom: 1px solid rgb(60,60,60); \n"
+"    \n"
+"}\n"
+"QTabBar::tab:selected\n"
+"{\n"
+"    color: white;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"    border-bottom: 1px solid #FF0000;\n"
+"}\n"
+"QTabBar::tab:hover\n"
+"{\n"
+"    color: #FF0000;\n"
+"    background: #252525;\n"
+"}")
+        self.tabWidgetCool.setObjectName("tabWidgetCool")
+        self.allCool = QtWidgets.QWidget()
+        self.allCool.setObjectName("allCool")
+        self.tabWidgetCool.addTab(self.allCool, "")
+        self.tabCool1 = QtWidgets.QWidget()
+        self.tabCool1.setObjectName("tabCool1")
+        self.tabWidgetCool.addTab(self.tabCool1, "")
+        self.tabCool2 = QtWidgets.QWidget()
+        self.tabCool2.setObjectName("tabCool2")
+        self.tabWidgetCool.addTab(self.tabCool2, "")
+        self.tableConfCool = QtWidgets.QTableWidget(self.frameCool)
+        self.tableConfCool.setEnabled(True)
+        self.tableConfCool.setGeometry(QtCore.QRect(0, 30, 631, 211))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
+        self.tableConfCool.setFont(font)
+        self.tableConfCool.setMouseTracking(True)
+        self.tableConfCool.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.tableConfCool.setAutoFillBackground(False)
+        self.tableConfCool.setStyleSheet("QHeaderView\n"
+"{    \n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border: 0px;\n"
+"    font-size: 14px;\n"
+"    min-width: 100px;    \n"
+"    min-height: 30px;\n"
+"}\n"
+"\n"
+"QHeaderView::section\n"
+"{\n"
+"    background-color: #101010;\n"
+"    min-width: 10px;    \n"
+"    min-height: 25px;\n"
+"    border: 0px solid;\n"
+"    border-right: 1px solid rgb(50,50,50); \n"
+"    color: #dddddd;\n"
+"    font-size: 12px;\n"
+"}\n"
+"\n"
+"QHeaderView::section:hover {\n"
+"   color: white;\n"
+"    background-color: rgb(80,80,80);\n"
+"}\n"
+"\n"
+"QHeaderView::section{\n"
+"    color: white;\n"
+"    selection-background-color:#ffc0cb;\n"
+"}\n"
+"\n"
+"QTableWidget QTableCornerButton::section\n"
+"{\n"
+"    \n"
+"    background: rgb(80,80,80);\n"
+"    border-style: solid;\n"
+"    border-width: 1px;\n"
+"}\n"
+"\n"
+"QTableWidget::item\n"
+"{\n"
+"     border-bottom: 1px solid rgb(60,60,60); \n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"}\n"
+"\n"
+"QTableView\n"
+"{\n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border-top: 1px solid #434343;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-bottom: 0px;\n"
+"}\n"
+"\n"
+"QTableWidget::item:hover {\n"
+"    color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}      \n"
+"\n"
+"QTableWidget::item:selected\n"
+"{\n"
+"     color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background-color: #151515;\n"
+"    width: 12px;\n"
+"    margin: 15px 0 15px 0;\n"
+"    border-radius: 0px;\n"
+" }\n"
+"\n"
+"/*  HANDLE BAR VERTICAL */\n"
+"QScrollBar::handle:vertical {    \n"
+"    background-color: #151515;\n"
+"    min-height: 30px;\n"
+"    border-radius: 0px;\n"
+"    border: 1px solid;\n"
+"    border-right: 0px;\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:hover{    \n"
+"    background-color:  rgb(50,50,50);\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);\n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border: 1px solid;\n"
+"    border-top:1px solid rgb(180, 0, 0);\n"
+"    border-right: 0px;\n"
+"    border-bottom: 0px;\n"
+"}\n"
+"QScrollBar::add-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
+"}\n"
+"")
+        self.tableConfCool.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableConfCool.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.tableConfCool.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableConfCool.setShowGrid(False)
+        self.tableConfCool.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableConfCool.setObjectName("tableConfCool")
+        self.tableConfCool.setColumnCount(4)
+        self.tableConfCool.setRowCount(8)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfCool.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfCool.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfCool.setVerticalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfCool.setVerticalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfCool.setVerticalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfCool.setVerticalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfCool.setVerticalHeaderItem(6, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfCool.setVerticalHeaderItem(7, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfCool.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfCool.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfCool.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfCool.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfCool.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfCool.setItem(0, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfCool.setItem(0, 3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfCool.setItem(1, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfCool.setItem(1, 3, item)
+        self.tableConfCool.horizontalHeader().setVisible(False)
+        self.tableConfCool.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableConfCool.horizontalHeader().setDefaultSectionSize(30)
+        self.tableConfCool.horizontalHeader().setHighlightSections(False)
+        self.tableConfCool.horizontalHeader().setMinimumSectionSize(15)
+        self.tableConfCool.horizontalHeader().setSortIndicatorShown(True)
+        self.tableConfCool.horizontalHeader().setStretchLastSection(False)
+        self.tableConfCool.verticalHeader().setVisible(False)
+        self.tableConfCool.verticalHeader().setCascadingSectionResizes(False)
+        self.tableConfCool.verticalHeader().setMinimumSectionSize(10)
+        self.btnRamHelp = QtWidgets.QPushButton(self.frame_3)
+        self.btnRamHelp.setGeometry(QtCore.QRect(540, 1250, 141, 20))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnRamHelp.setFont(font)
+        self.btnRamHelp.setStyleSheet("QPushButton\n"
+"{\n"
+"color: rgb(168, 168, 168);\n"
+"border: 0px;\n"
+"border-bottom: 1px dashed rgb(168, 168, 168);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"color: white;\n"
+"border-bottom: 1px dashed white;\n"
+"}\n"
+"")
+        self.btnRamHelp.setObjectName("btnRamHelp")
+        self.btnRamFilter = QtWidgets.QPushButton(self.frame_3)
+        self.btnRamFilter.setGeometry(QtCore.QRect(370, 1251, 131, 20))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnRamFilter.setFont(font)
+        self.btnRamFilter.setStyleSheet("QPushButton\n"
+"{\n"
+"color:  rgb(230,230, 230);\n"
+"border: 0px;\n"
+"/*border-bottom: 1px solid rgb(200, 200, 200);*/\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"color: red;\n"
+"border-bottom: 1px solid red;\n"
+"}\n"
+"")
+        self.btnRamFilter.setObjectName("btnRamFilter")
+        self.lbRam = QtWidgets.QLabel(self.frame_3)
+        self.lbRam.setGeometry(QtCore.QRect(120, 1240, 241, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(16)
+        font.setBold(False)
+        font.setWeight(50)
+        self.lbRam.setFont(font)
+        self.lbRam.setStyleSheet("    color: #fffafa;\n"
+"    border: 0px;\n"
+"")
+        self.lbRam.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbRam.setObjectName("lbRam")
+        self.frameRam = QtWidgets.QFrame(self.frame_3)
+        self.frameRam.setGeometry(QtCore.QRect(50, 1280, 631, 241))
+        self.frameRam.setStyleSheet("background-color: #101010;\n"
+"border: 0px;")
+        self.frameRam.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frameRam.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frameRam.setObjectName("frameRam")
+        self.tabWidgetRam = QtWidgets.QTabWidget(self.frameRam)
+        self.tabWidgetRam.setEnabled(True)
+        self.tabWidgetRam.setGeometry(QtCore.QRect(10, 0, 621, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(9)
+        self.tabWidgetRam.setFont(font)
+        self.tabWidgetRam.setStyleSheet("QTabWidget::pane\n"
+"{\n"
+"    background: #101010;\n"
+"    border-bottom: 1px solid rgb(60,60,60); \n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"        \n"
+"}\n"
+"\n"
+"QTabBar::tab\n"
+"{\n"
+"    background-color: #101010;\n"
+"    min-width: 100px;\n"
+"    min-height: 10ex;\n"
+"    margin-left: 1px;\n"
+"    color: #a2a2a2;\n"
+"    border-bottom: 1px solid rgb(60,60,60); \n"
+"    \n"
+"}\n"
+"QTabBar::tab:selected\n"
+"{\n"
+"    color: white;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"    border-bottom: 1px solid #FF0000;\n"
+"}\n"
+"QTabBar::tab:hover\n"
+"{\n"
+"    color: #FF0000;\n"
+"    background: #252525;\n"
+"}")
+        self.tabWidgetRam.setObjectName("tabWidgetRam")
+        self.allRam = QtWidgets.QWidget()
+        self.allRam.setObjectName("allRam")
+        self.tabWidgetRam.addTab(self.allRam, "")
+        self.tabR1 = QtWidgets.QWidget()
+        self.tabR1.setObjectName("tabR1")
+        self.tabWidgetRam.addTab(self.tabR1, "")
+        self.tabR2 = QtWidgets.QWidget()
+        self.tabR2.setObjectName("tabR2")
+        self.tabWidgetRam.addTab(self.tabR2, "")
+        self.tableConfRam = QtWidgets.QTableWidget(self.frameRam)
+        self.tableConfRam.setEnabled(True)
+        self.tableConfRam.setGeometry(QtCore.QRect(0, 30, 631, 211))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
+        self.tableConfRam.setFont(font)
+        self.tableConfRam.setMouseTracking(True)
+        self.tableConfRam.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.tableConfRam.setAutoFillBackground(False)
+        self.tableConfRam.setStyleSheet("QHeaderView\n"
+"{    \n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border: 0px;\n"
+"    font-size: 14px;\n"
+"    min-width: 100px;    \n"
+"    min-height: 30px;\n"
+"}\n"
+"\n"
+"QHeaderView::section\n"
+"{\n"
+"    background-color: #101010;\n"
+"    min-width: 10px;    \n"
+"    min-height: 25px;\n"
+"    border: 0px solid;\n"
+"    border-right: 1px solid rgb(50,50,50); \n"
+"    color: #dddddd;\n"
+"    font-size: 12px;\n"
+"}\n"
+"\n"
+"QHeaderView::section:hover {\n"
+"   color: white;\n"
+"    background-color: rgb(80,80,80);\n"
+"}\n"
+"\n"
+"QHeaderView::section{\n"
+"    color: white;\n"
+"    selection-background-color:#ffc0cb;\n"
+"}\n"
+"\n"
+"QTableWidget QTableCornerButton::section\n"
+"{\n"
+"    \n"
+"    background: rgb(80,80,80);\n"
+"    border-style: solid;\n"
+"    border-width: 1px;\n"
+"}\n"
+"\n"
+"QTableWidget::item\n"
+"{\n"
+"     border-bottom: 1px solid rgb(60,60,60); \n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"}\n"
+"\n"
+"QTableView\n"
+"{\n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border-top: 1px solid #434343;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-bottom: 0px;\n"
+"}\n"
+"\n"
+"QTableWidget::item:hover {\n"
+"    color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}      \n"
+"\n"
+"QTableWidget::item:selected\n"
+"{\n"
+"     color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background-color: #151515;\n"
+"    width: 12px;\n"
+"    margin: 15px 0 15px 0;\n"
+"    border-radius: 0px;\n"
+" }\n"
+"\n"
+"/*  HANDLE BAR VERTICAL */\n"
+"QScrollBar::handle:vertical {    \n"
+"    background-color: #151515;\n"
+"    min-height: 30px;\n"
+"    border-radius: 0px;\n"
+"    border: 1px solid;\n"
+"    border-right: 0px;\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:hover{    \n"
+"    background-color:  rgb(50,50,50);\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);\n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border: 1px solid;\n"
+"    border-top:1px solid rgb(180, 0, 0);\n"
+"    border-right: 0px;\n"
+"    border-bottom: 0px;\n"
+"}\n"
+"QScrollBar::add-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
+"}\n"
+"")
+        self.tableConfRam.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableConfRam.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.tableConfRam.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableConfRam.setShowGrid(False)
+        self.tableConfRam.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableConfRam.setObjectName("tableConfRam")
+        self.tableConfRam.setColumnCount(4)
+        self.tableConfRam.setRowCount(8)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfRam.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfRam.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfRam.setVerticalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfRam.setVerticalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfRam.setVerticalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfRam.setVerticalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfRam.setVerticalHeaderItem(6, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfRam.setVerticalHeaderItem(7, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfRam.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfRam.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfRam.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfRam.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfRam.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfRam.setItem(0, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfRam.setItem(0, 3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfRam.setItem(1, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfRam.setItem(1, 3, item)
+        self.tableConfRam.horizontalHeader().setVisible(False)
+        self.tableConfRam.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableConfRam.horizontalHeader().setDefaultSectionSize(30)
+        self.tableConfRam.horizontalHeader().setHighlightSections(False)
+        self.tableConfRam.horizontalHeader().setMinimumSectionSize(15)
+        self.tableConfRam.horizontalHeader().setSortIndicatorShown(True)
+        self.tableConfRam.horizontalHeader().setStretchLastSection(False)
+        self.tableConfRam.verticalHeader().setVisible(False)
+        self.tableConfRam.verticalHeader().setCascadingSectionResizes(False)
+        self.tableConfRam.verticalHeader().setMinimumSectionSize(10)
+        self.lbDisk = QtWidgets.QLabel(self.frame_3)
+        self.lbDisk.setGeometry(QtCore.QRect(120, 1550, 141, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(16)
+        font.setBold(False)
+        font.setWeight(50)
+        self.lbDisk.setFont(font)
+        self.lbDisk.setStyleSheet("    color: #fffafa;\n"
+"    border: 0px;\n"
+"")
+        self.lbDisk.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbDisk.setObjectName("lbDisk")
+        self.btnDiskFilter = QtWidgets.QPushButton(self.frame_3)
+        self.btnDiskFilter.setGeometry(QtCore.QRect(320, 1560, 131, 20))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnDiskFilter.setFont(font)
+        self.btnDiskFilter.setStyleSheet("QPushButton\n"
+"{\n"
+"color:  rgb(230,230, 230);\n"
+"border: 0px;\n"
+"/*border-bottom: 1px solid rgb(200, 200, 200);*/\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"color: red;\n"
+"border-bottom: 1px solid red;\n"
+"}\n"
+"")
+        self.btnDiskFilter.setObjectName("btnDiskFilter")
+        self.frameDisk = QtWidgets.QFrame(self.frame_3)
+        self.frameDisk.setGeometry(QtCore.QRect(50, 1590, 631, 241))
+        self.frameDisk.setStyleSheet("background-color: #101010;\n"
+"border: 0px;")
+        self.frameDisk.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frameDisk.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frameDisk.setObjectName("frameDisk")
+        self.tabWidgetDisk = QtWidgets.QTabWidget(self.frameDisk)
+        self.tabWidgetDisk.setEnabled(True)
+        self.tabWidgetDisk.setGeometry(QtCore.QRect(10, 0, 621, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(9)
+        self.tabWidgetDisk.setFont(font)
+        self.tabWidgetDisk.setStyleSheet("QTabWidget::pane\n"
+"{\n"
+"    background: #101010;\n"
+"    border-bottom: 1px solid rgb(60,60,60); \n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"        \n"
+"}\n"
+"\n"
+"QTabBar::tab\n"
+"{\n"
+"    background-color: #101010;\n"
+"    min-width: 100px;\n"
+"    min-height: 10ex;\n"
+"    margin-left: 1px;\n"
+"    color: #a2a2a2;\n"
+"    border-bottom: 1px solid rgb(60,60,60); \n"
+"    \n"
+"}\n"
+"QTabBar::tab:selected\n"
+"{\n"
+"    color: white;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"    border-bottom: 1px solid #FF0000;\n"
+"}\n"
+"QTabBar::tab:hover\n"
+"{\n"
+"    color: #FF0000;\n"
+"    background: #252525;\n"
+"}")
+        self.tabWidgetDisk.setObjectName("tabWidgetDisk")
+        self.allDisk = QtWidgets.QWidget()
+        self.allDisk.setObjectName("allDisk")
+        self.tabWidgetDisk.addTab(self.allDisk, "")
+        self.tabD1 = QtWidgets.QWidget()
+        self.tabD1.setObjectName("tabD1")
+        self.tabWidgetDisk.addTab(self.tabD1, "")
+        self.tabD2 = QtWidgets.QWidget()
+        self.tabD2.setObjectName("tabD2")
+        self.tabWidgetDisk.addTab(self.tabD2, "")
+        self.tableConfDisk = QtWidgets.QTableWidget(self.frameDisk)
+        self.tableConfDisk.setEnabled(True)
+        self.tableConfDisk.setGeometry(QtCore.QRect(0, 30, 631, 211))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
+        self.tableConfDisk.setFont(font)
+        self.tableConfDisk.setMouseTracking(True)
+        self.tableConfDisk.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.tableConfDisk.setAutoFillBackground(False)
+        self.tableConfDisk.setStyleSheet("QHeaderView\n"
+"{    \n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border: 0px;\n"
+"    font-size: 14px;\n"
+"    min-width: 100px;    \n"
+"    min-height: 30px;\n"
+"}\n"
+"\n"
+"QHeaderView::section\n"
+"{\n"
+"    background-color: #101010;\n"
+"    min-width: 10px;    \n"
+"    min-height: 25px;\n"
+"    border: 0px solid;\n"
+"    border-right: 1px solid rgb(50,50,50); \n"
+"    color: #dddddd;\n"
+"    font-size: 12px;\n"
+"}\n"
+"\n"
+"QHeaderView::section:hover {\n"
+"   color: white;\n"
+"    background-color: rgb(80,80,80);\n"
+"}\n"
+"\n"
+"QHeaderView::section{\n"
+"    color: white;\n"
+"    selection-background-color:#ffc0cb;\n"
+"}\n"
+"\n"
+"QTableWidget QTableCornerButton::section\n"
+"{\n"
+"    \n"
+"    background: rgb(80,80,80);\n"
+"    border-style: solid;\n"
+"    border-width: 1px;\n"
+"}\n"
+"\n"
+"QTableWidget::item\n"
+"{\n"
+"     border-bottom: 1px solid rgb(60,60,60); \n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"}\n"
+"\n"
+"QTableView\n"
+"{\n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border-top: 1px solid #434343;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-bottom: 0px;\n"
+"}\n"
+"\n"
+"QTableWidget::item:hover {\n"
+"    color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}      \n"
+"\n"
+"QTableWidget::item:selected\n"
+"{\n"
+"     color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background-color: #151515;\n"
+"    width: 12px;\n"
+"    margin: 15px 0 15px 0;\n"
+"    border-radius: 0px;\n"
+" }\n"
+"\n"
+"/*  HANDLE BAR VERTICAL */\n"
+"QScrollBar::handle:vertical {    \n"
+"    background-color: #151515;\n"
+"    min-height: 30px;\n"
+"    border-radius: 0px;\n"
+"    border: 1px solid;\n"
+"    border-right: 0px;\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:hover{    \n"
+"    background-color:  rgb(50,50,50);\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);\n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border: 1px solid;\n"
+"    border-top:1px solid rgb(180, 0, 0);\n"
+"    border-right: 0px;\n"
+"    border-bottom: 0px;\n"
+"}\n"
+"QScrollBar::add-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
+"}\n"
+"")
+        self.tableConfDisk.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableConfDisk.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.tableConfDisk.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableConfDisk.setShowGrid(False)
+        self.tableConfDisk.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableConfDisk.setObjectName("tableConfDisk")
+        self.tableConfDisk.setColumnCount(4)
+        self.tableConfDisk.setRowCount(8)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfDisk.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfDisk.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfDisk.setVerticalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfDisk.setVerticalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfDisk.setVerticalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfDisk.setVerticalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfDisk.setVerticalHeaderItem(6, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfDisk.setVerticalHeaderItem(7, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfDisk.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfDisk.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfDisk.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfDisk.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfDisk.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfDisk.setItem(0, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfDisk.setItem(0, 3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfDisk.setItem(1, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfDisk.setItem(1, 3, item)
+        self.tableConfDisk.horizontalHeader().setVisible(False)
+        self.tableConfDisk.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableConfDisk.horizontalHeader().setDefaultSectionSize(30)
+        self.tableConfDisk.horizontalHeader().setHighlightSections(False)
+        self.tableConfDisk.horizontalHeader().setMinimumSectionSize(15)
+        self.tableConfDisk.horizontalHeader().setSortIndicatorShown(True)
+        self.tableConfDisk.horizontalHeader().setStretchLastSection(False)
+        self.tableConfDisk.verticalHeader().setVisible(False)
+        self.tableConfDisk.verticalHeader().setCascadingSectionResizes(False)
+        self.tableConfDisk.verticalHeader().setMinimumSectionSize(10)
+        self.btnDiskHelp = QtWidgets.QPushButton(self.frame_3)
+        self.btnDiskHelp.setGeometry(QtCore.QRect(490, 1560, 191, 20))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnDiskHelp.setFont(font)
+        self.btnDiskHelp.setStyleSheet("QPushButton\n"
+"{\n"
+"color: rgb(168, 168, 168);\n"
+"border: 0px;\n"
+"border-bottom: 1px dashed rgb(168, 168, 168);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"color: white;\n"
+"border-bottom: 1px dashed white;\n"
+"}\n"
+"")
+        self.btnDiskHelp.setObjectName("btnDiskHelp")
+        self.lbPower = QtWidgets.QLabel(self.frame_3)
+        self.lbPower.setGeometry(QtCore.QRect(130, 1860, 101, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(16)
+        font.setBold(False)
+        font.setWeight(50)
+        self.lbPower.setFont(font)
+        self.lbPower.setStyleSheet("    color: #fffafa;\n"
+"    border: 0px;\n"
+"")
+        self.lbPower.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbPower.setObjectName("lbPower")
+        self.btnPowerFilter = QtWidgets.QPushButton(self.frame_3)
+        self.btnPowerFilter.setGeometry(QtCore.QRect(330, 1870, 131, 20))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnPowerFilter.setFont(font)
+        self.btnPowerFilter.setStyleSheet("QPushButton\n"
+"{\n"
+"color:  rgb(230,230, 230);\n"
+"border: 0px;\n"
+"/*border-bottom: 1px solid rgb(200, 200, 200);*/\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"color: red;\n"
+"border-bottom: 1px solid red;\n"
+"}\n"
+"")
+        self.btnPowerFilter.setObjectName("btnPowerFilter")
+        self.framePower = QtWidgets.QFrame(self.frame_3)
+        self.framePower.setGeometry(QtCore.QRect(50, 1900, 631, 241))
+        self.framePower.setStyleSheet("background-color: #101010;\n"
+"border: 0px;")
+        self.framePower.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.framePower.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.framePower.setObjectName("framePower")
+        self.tabWidgetPower = QtWidgets.QTabWidget(self.framePower)
+        self.tabWidgetPower.setEnabled(True)
+        self.tabWidgetPower.setGeometry(QtCore.QRect(10, 0, 621, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(9)
+        self.tabWidgetPower.setFont(font)
+        self.tabWidgetPower.setStyleSheet("QTabWidget::pane\n"
+"{\n"
+"    background: #101010;\n"
+"    border-bottom: 1px solid rgb(60,60,60); \n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"        \n"
+"}\n"
+"\n"
+"QTabBar::tab\n"
+"{\n"
+"    background-color: #101010;\n"
+"    min-width: 100px;\n"
+"    min-height: 10ex;\n"
+"    margin-left: 1px;\n"
+"    color: #a2a2a2;\n"
+"    border-bottom: 1px solid rgb(60,60,60); \n"
+"    \n"
+"}\n"
+"QTabBar::tab:selected\n"
+"{\n"
+"    color: white;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"    border-bottom: 1px solid #FF0000;\n"
+"}\n"
+"QTabBar::tab:hover\n"
+"{\n"
+"    color: #FF0000;\n"
+"    background: #252525;\n"
+"}")
+        self.tabWidgetPower.setObjectName("tabWidgetPower")
+        self.allPower = QtWidgets.QWidget()
+        self.allPower.setObjectName("allPower")
+        self.tabWidgetPower.addTab(self.allPower, "")
+        self.tabPower1 = QtWidgets.QWidget()
+        self.tabPower1.setObjectName("tabPower1")
+        self.tabWidgetPower.addTab(self.tabPower1, "")
+        self.tabPower2 = QtWidgets.QWidget()
+        self.tabPower2.setObjectName("tabPower2")
+        self.tabWidgetPower.addTab(self.tabPower2, "")
+        self.tableConfPower = QtWidgets.QTableWidget(self.framePower)
+        self.tableConfPower.setEnabled(True)
+        self.tableConfPower.setGeometry(QtCore.QRect(0, 30, 631, 211))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
+        self.tableConfPower.setFont(font)
+        self.tableConfPower.setMouseTracking(True)
+        self.tableConfPower.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.tableConfPower.setAutoFillBackground(False)
+        self.tableConfPower.setStyleSheet("QHeaderView\n"
+"{    \n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border: 0px;\n"
+"    font-size: 14px;\n"
+"    min-width: 100px;    \n"
+"    min-height: 30px;\n"
+"}\n"
+"\n"
+"QHeaderView::section\n"
+"{\n"
+"    background-color: #101010;\n"
+"    min-width: 10px;    \n"
+"    min-height: 25px;\n"
+"    border: 0px solid;\n"
+"    border-right: 1px solid rgb(50,50,50); \n"
+"    color: #dddddd;\n"
+"    font-size: 12px;\n"
+"}\n"
+"\n"
+"QHeaderView::section:hover {\n"
+"   color: white;\n"
+"    background-color: rgb(80,80,80);\n"
+"}\n"
+"\n"
+"QHeaderView::section{\n"
+"    color: white;\n"
+"    selection-background-color:#ffc0cb;\n"
+"}\n"
+"\n"
+"QTableWidget QTableCornerButton::section\n"
+"{\n"
+"    \n"
+"    background: rgb(80,80,80);\n"
+"    border-style: solid;\n"
+"    border-width: 1px;\n"
+"}\n"
+"\n"
+"QTableWidget::item\n"
+"{\n"
+"     border-bottom: 1px solid rgb(60,60,60); \n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"}\n"
+"\n"
+"QTableView\n"
+"{\n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border-top: 1px solid #434343;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-bottom: 0px;\n"
+"}\n"
+"\n"
+"QTableWidget::item:hover {\n"
+"    color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}      \n"
+"\n"
+"QTableWidget::item:selected\n"
+"{\n"
+"     color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background-color: #151515;\n"
+"    width: 12px;\n"
+"    margin: 15px 0 15px 0;\n"
+"    border-radius: 0px;\n"
+" }\n"
+"\n"
+"/*  HANDLE BAR VERTICAL */\n"
+"QScrollBar::handle:vertical {    \n"
+"    background-color: #151515;\n"
+"    min-height: 30px;\n"
+"    border-radius: 0px;\n"
+"    border: 1px solid;\n"
+"    border-right: 0px;\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:hover{    \n"
+"    background-color:  rgb(50,50,50);\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);\n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border: 1px solid;\n"
+"    border-top:1px solid rgb(180, 0, 0);\n"
+"    border-right: 0px;\n"
+"    border-bottom: 0px;\n"
+"}\n"
+"QScrollBar::add-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
+"}")
+        self.tableConfPower.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableConfPower.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.tableConfPower.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableConfPower.setShowGrid(False)
+        self.tableConfPower.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableConfPower.setObjectName("tableConfPower")
+        self.tableConfPower.setColumnCount(4)
+        self.tableConfPower.setRowCount(8)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfPower.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfPower.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfPower.setVerticalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfPower.setVerticalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfPower.setVerticalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfPower.setVerticalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfPower.setVerticalHeaderItem(6, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfPower.setVerticalHeaderItem(7, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfPower.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfPower.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfPower.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfPower.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfPower.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfPower.setItem(0, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfPower.setItem(0, 3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfPower.setItem(1, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfPower.setItem(1, 3, item)
+        self.tableConfPower.horizontalHeader().setVisible(False)
+        self.tableConfPower.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableConfPower.horizontalHeader().setDefaultSectionSize(30)
+        self.tableConfPower.horizontalHeader().setHighlightSections(False)
+        self.tableConfPower.horizontalHeader().setMinimumSectionSize(15)
+        self.tableConfPower.horizontalHeader().setSortIndicatorShown(True)
+        self.tableConfPower.horizontalHeader().setStretchLastSection(False)
+        self.tableConfPower.verticalHeader().setVisible(False)
+        self.tableConfPower.verticalHeader().setCascadingSectionResizes(False)
+        self.tableConfPower.verticalHeader().setMinimumSectionSize(10)
+        self.btnPowerHelp = QtWidgets.QPushButton(self.frame_3)
+        self.btnPowerHelp.setGeometry(QtCore.QRect(470, 1870, 211, 20))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnPowerHelp.setFont(font)
+        self.btnPowerHelp.setStyleSheet("QPushButton\n"
+"{\n"
+"color: rgb(168, 168, 168);\n"
+"border: 0px;\n"
+"border-bottom: 1px dashed rgb(168, 168, 168);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"color: white;\n"
+"border-bottom: 1px dashed white;\n"
+"}\n"
+"")
+        self.btnPowerHelp.setObjectName("btnPowerHelp")
+        self.btnBodyFilter = QtWidgets.QPushButton(self.frame_3)
+        self.btnBodyFilter.setGeometry(QtCore.QRect(340, 2180, 131, 21))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnBodyFilter.setFont(font)
+        self.btnBodyFilter.setStyleSheet("QPushButton\n"
+"{\n"
+"color:  rgb(230,230, 230);\n"
+"border: 0px;\n"
+"/*border-bottom: 1px solid rgb(200, 200, 200);*/\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"color: red;\n"
+"border-bottom: 1px solid red;\n"
+"}\n"
+"")
+        self.btnBodyFilter.setObjectName("btnBodyFilter")
+        self.btnBodyHelp = QtWidgets.QPushButton(self.frame_3)
+        self.btnBodyHelp.setGeometry(QtCore.QRect(520, 2180, 161, 20))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnBodyHelp.setFont(font)
+        self.btnBodyHelp.setStyleSheet("QPushButton\n"
+"{\n"
+"color: rgb(168, 168, 168);\n"
+"border: 0px;\n"
+"border-bottom: 1px dashed rgb(168, 168, 168);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"color: white;\n"
+"border-bottom: 1px dashed white;\n"
+"}\n"
+"")
+        self.btnBodyHelp.setObjectName("btnBodyHelp")
+        self.frameBody = QtWidgets.QFrame(self.frame_3)
+        self.frameBody.setGeometry(QtCore.QRect(50, 2210, 631, 241))
+        self.frameBody.setStyleSheet("background-color: #101010;\n"
+"border: 0px;")
+        self.frameBody.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frameBody.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frameBody.setObjectName("frameBody")
+        self.tabWidgetBody = QtWidgets.QTabWidget(self.frameBody)
+        self.tabWidgetBody.setEnabled(True)
+        self.tabWidgetBody.setGeometry(QtCore.QRect(10, 0, 621, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(9)
+        self.tabWidgetBody.setFont(font)
+        self.tabWidgetBody.setStyleSheet("QTabWidget::pane\n"
+"{\n"
+"    background: #101010;\n"
+"    border-bottom: 1px solid rgb(60,60,60); \n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"        \n"
+"}\n"
+"\n"
+"QTabBar::tab\n"
+"{\n"
+"    background-color: #101010;\n"
+"    min-width: 100px;\n"
+"    min-height: 10ex;\n"
+"    margin-left: 1px;\n"
+"    color: #a2a2a2;\n"
+"    border-bottom: 1px solid rgb(60,60,60); \n"
+"    \n"
+"}\n"
+"QTabBar::tab:selected\n"
+"{\n"
+"    color: white;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"    border-bottom: 1px solid #FF0000;\n"
+"}\n"
+"QTabBar::tab:hover\n"
+"{\n"
+"    color: #FF0000;\n"
+"    background: #252525;\n"
+"}")
+        self.tabWidgetBody.setObjectName("tabWidgetBody")
+        self.allBody = QtWidgets.QWidget()
+        self.allBody.setObjectName("allBody")
+        self.tabWidgetBody.addTab(self.allBody, "")
+        self.tabB1 = QtWidgets.QWidget()
+        self.tabB1.setObjectName("tabB1")
+        self.tabWidgetBody.addTab(self.tabB1, "")
+        self.tabB2 = QtWidgets.QWidget()
+        self.tabB2.setObjectName("tabB2")
+        self.tabWidgetBody.addTab(self.tabB2, "")
+        self.tableConfBody = QtWidgets.QTableWidget(self.frameBody)
+        self.tableConfBody.setEnabled(True)
+        self.tableConfBody.setGeometry(QtCore.QRect(0, 30, 631, 211))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
+        self.tableConfBody.setFont(font)
+        self.tableConfBody.setMouseTracking(True)
+        self.tableConfBody.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.tableConfBody.setAutoFillBackground(False)
+        self.tableConfBody.setStyleSheet("QHeaderView\n"
+"{    \n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border: 0px;\n"
+"    font-size: 14px;\n"
+"    min-width: 100px;    \n"
+"    min-height: 30px;\n"
+"}\n"
+"\n"
+"QHeaderView::section\n"
+"{\n"
+"    background-color: #101010;\n"
+"    min-width: 10px;    \n"
+"    min-height: 25px;\n"
+"    border: 0px solid;\n"
+"    border-right: 1px solid rgb(50,50,50); \n"
+"    color: #dddddd;\n"
+"    font-size: 12px;\n"
+"}\n"
+"\n"
+"QHeaderView::section:hover {\n"
+"   color: white;\n"
+"    background-color: rgb(80,80,80);\n"
+"}\n"
+"\n"
+"QHeaderView::section{\n"
+"    color: white;\n"
+"    selection-background-color:#ffc0cb;\n"
+"}\n"
+"\n"
+"QTableWidget QTableCornerButton::section\n"
+"{\n"
+"    \n"
+"    background: rgb(80,80,80);\n"
+"    border-style: solid;\n"
+"    border-width: 1px;\n"
+"}\n"
+"\n"
+"QTableWidget::item\n"
+"{\n"
+"     border-bottom: 1px solid rgb(60,60,60); \n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"}\n"
+"\n"
+"QTableView\n"
+"{\n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border-top: 1px solid #434343;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-bottom: 0px;\n"
+"}\n"
+"\n"
+"QTableWidget::item:hover {\n"
+"    color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}      \n"
+"\n"
+"QTableWidget::item:selected\n"
+"{\n"
+"     color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background-color: #151515;\n"
+"    width: 12px;\n"
+"    margin: 15px 0 15px 0;\n"
+"    border-radius: 0px;\n"
+" }\n"
+"\n"
+"/*  HANDLE BAR VERTICAL */\n"
+"QScrollBar::handle:vertical {    \n"
+"    background-color: #151515;\n"
+"    min-height: 30px;\n"
+"    border-radius: 0px;\n"
+"    border: 1px solid;\n"
+"    border-right: 0px;\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:hover{    \n"
+"    background-color:  rgb(50,50,50);\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);\n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border: 1px solid;\n"
+"    border-top:1px solid rgb(180, 0, 0);\n"
+"    border-right: 0px;\n"
+"    border-bottom: 0px;\n"
+"}\n"
+"QScrollBar::add-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
+"}\n"
+"")
+        self.tableConfBody.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableConfBody.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.tableConfBody.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableConfBody.setShowGrid(False)
+        self.tableConfBody.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableConfBody.setObjectName("tableConfBody")
+        self.tableConfBody.setColumnCount(4)
+        self.tableConfBody.setRowCount(8)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfBody.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfBody.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfBody.setVerticalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfBody.setVerticalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfBody.setVerticalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfBody.setVerticalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfBody.setVerticalHeaderItem(6, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfBody.setVerticalHeaderItem(7, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfBody.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfBody.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfBody.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfBody.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfBody.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfBody.setItem(0, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfBody.setItem(0, 3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfBody.setItem(1, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfBody.setItem(1, 3, item)
+        self.tableConfBody.horizontalHeader().setVisible(False)
+        self.tableConfBody.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableConfBody.horizontalHeader().setDefaultSectionSize(30)
+        self.tableConfBody.horizontalHeader().setHighlightSections(False)
+        self.tableConfBody.horizontalHeader().setMinimumSectionSize(15)
+        self.tableConfBody.horizontalHeader().setSortIndicatorShown(True)
+        self.tableConfBody.horizontalHeader().setStretchLastSection(False)
+        self.tableConfBody.verticalHeader().setVisible(False)
+        self.tableConfBody.verticalHeader().setCascadingSectionResizes(False)
+        self.tableConfBody.verticalHeader().setMinimumSectionSize(10)
+        self.lbBody = QtWidgets.QLabel(self.frame_3)
+        self.lbBody.setGeometry(QtCore.QRect(140, 2160, 81, 51))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(16)
+        font.setBold(False)
+        font.setWeight(50)
+        self.lbBody.setFont(font)
+        self.lbBody.setStyleSheet("    color: #fffafa;\n"
+"    border: 0px;\n"
+"")
+        self.lbBody.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbBody.setObjectName("lbBody")
         self.gridLayout.addWidget(self.frame_3, 0, 0, 1, 1)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+        self.frame_cart = QtWidgets.QFrame(self.configurator)
+        self.frame_cart.setGeometry(QtCore.QRect(1030, 120, 261, 401))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.frame_cart.setFont(font)
+        self.frame_cart.setStyleSheet("QFrame{\n"
+"background-color: rgb(20,20,20);\n"
+"border: 1px solid #FF0000;\n"
+"}")
+        self.frame_cart.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_cart.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_cart.setObjectName("frame_cart")
+        self.lb_preview = QtWidgets.QLabel(self.frame_cart)
+        self.lb_preview.setGeometry(QtCore.QRect(60, 10, 141, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(11)
+        font.setKerning(True)
+        self.lb_preview.setFont(font)
+        self.lb_preview.setStyleSheet("QLabel{\n"
+"border: 0px;\n"
+"border-bottom: 1px solid rgb(70,70,70);\n"
+"}")
+        self.lb_preview.setAlignment(QtCore.Qt.AlignCenter)
+        self.lb_preview.setObjectName("lb_preview")
+        self.lb_price = QtWidgets.QLabel(self.frame_cart)
+        self.lb_price.setGeometry(QtCore.QRect(10, 50, 241, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(12)
+        font.setKerning(True)
+        self.lb_price.setFont(font)
+        self.lb_price.setStyleSheet("QLabel{\n"
+"border: 0px;\n"
+"\n"
+"}")
+        self.lb_price.setAlignment(QtCore.Qt.AlignCenter)
+        self.lb_price.setObjectName("lb_price")
+        self.lb_config = QtWidgets.QLabel(self.frame_cart)
+        self.lb_config.setGeometry(QtCore.QRect(10, 140, 241, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat ExtraBold")
+        font.setPointSize(11)
+        font.setBold(False)
+        font.setWeight(50)
+        font.setKerning(True)
+        self.lb_config.setFont(font)
+        self.lb_config.setStyleSheet("QLabel{\n"
+"border: 0px;\n"
+"border-top: 1px solid rgb(70,70,70);\n"
+"}")
+        self.lb_config.setAlignment(QtCore.Qt.AlignCenter)
+        self.lb_config.setObjectName("lb_config")
+        self.btn_purcashe = QtWidgets.QPushButton(self.frame_cart)
+        self.btn_purcashe.setGeometry(QtCore.QRect(20, 90, 221, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.btn_purcashe.setFont(font)
+        self.btn_purcashe.setStyleSheet("\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"color: white;\n"
+"background: #bf0000;\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton\n"
+"{\n"
+"background-color: #FF0000;\n"
+"color: white;\n"
+"border: 1px solid #bf0000;\n"
+"}")
+        self.btn_purcashe.setObjectName("btn_purcashe")
+        self.table_config = QtWidgets.QTableWidget(self.frame_cart)
+        self.table_config.setGeometry(QtCore.QRect(10, 170, 241, 181))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
+        self.table_config.setFont(font)
+        self.table_config.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.table_config.setStyleSheet("QTableWidget::item\n"
+"{\n"
+"     border: 0px;\n"
+"}\n"
+"\n"
+"QTableView\n"
+"{\n"
+"    background-color: rgb(20,20,20);\n"
+"    color:  rgb(220,220,220);\n"
+"    border: 0px;\n"
+"    border-top: 1px solid rgb(70,70,70);\n"
+"\n"
+"}\n"
+"\n"
+"QTableWidget::item:hover {\n"
+"    color: white;\n"
+"    background-color:#151515;\n"
+"}      \n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background-color: #151515;\n"
+"    width: 12px;\n"
+"    margin: 15px 0 15px 0;\n"
+"    border-radius: 0px;\n"
+" }\n"
+"\n"
+"/*  HANDLE BAR VERTICAL */\n"
+"QScrollBar::handle:vertical {    \n"
+"    background-color: #151515;\n"
+"    min-height: 30px;\n"
+"    border-radius: 0px;\n"
+"    border: 1px solid;\n"
+"    border-right: 0px;\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:hover{    \n"
+"    background-color:  rgb(50,50,50);\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);\n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border: 1px solid;\n"
+"    border-top:1px solid rgb(180, 0, 0);\n"
+"    border-right: 0px;\n"
+"    border-bottom: 0px;\n"
+"}\n"
+"QScrollBar::add-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
+"}\n"
+"")
+        self.table_config.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.table_config.setAlternatingRowColors(False)
+        self.table_config.setSelectionMode(QtWidgets.QAbstractItemView.NoSelection)
+        self.table_config.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.table_config.setShowGrid(False)
+        self.table_config.setObjectName("table_config")
+        self.table_config.setColumnCount(3)
+        self.table_config.setRowCount(3)
+        item = QtWidgets.QTableWidgetItem()
+        self.table_config.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.table_config.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.table_config.setVerticalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.table_config.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.table_config.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.table_config.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.table_config.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.table_config.setItem(0, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.table_config.setItem(0, 2, item)
+        self.table_config.horizontalHeader().setVisible(False)
+        self.table_config.horizontalHeader().setCascadingSectionResizes(False)
+        self.table_config.horizontalHeader().setDefaultSectionSize(30)
+        self.table_config.horizontalHeader().setMinimumSectionSize(1)
+        self.table_config.verticalHeader().setVisible(False)
+        self.table_config.verticalHeader().setMinimumSectionSize(20)
         self.scrollArea.raise_()
         self.progressBar.raise_()
         self.treeWidget.raise_()
+        self.frame_cart.raise_()
         self.tabWidget.addTab(self.configurator, "")
         self.verticalLayout.addWidget(self.tabWidget)
         MainWindow.setCentralWidget(self.centralwidget)
@@ -1286,16 +3654,79 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         self.tabWidget.setCurrentIndex(1)
+        self.toolBox_2.layout().setSpacing(8)
         self.tabWidgetVideo.setCurrentIndex(0)
-        self.tabWidgetProc.setCurrentIndex(0)
+        self.tabWidgetProc.setCurrentIndex(2)
+        self.tabWidgetMothet.setCurrentIndex(2)
+        self.tabWidgetCool.setCurrentIndex(2)
+        self.tabWidgetRam.setCurrentIndex(2)
+        self.tabWidgetDisk.setCurrentIndex(2)
+        self.tabWidgetPower.setCurrentIndex(2)
+        self.tabWidgetBody.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.pushButton.setText(_translate("MainWindow", "PushButton"))
+        self.label.setText(_translate("MainWindow", "Поставщики:"))
+        __sortingEnabled = self.listWidget_3.isSortingEnabled()
+        self.listWidget_3.setSortingEnabled(False)
+        item = self.listWidget_3.item(0)
+        item.setText(_translate("MainWindow", "New Item"))
+        item = self.listWidget_3.item(1)
+        item.setText(_translate("MainWindow", "New Item"))
+        item = self.listWidget_3.item(2)
+        item.setText(_translate("MainWindow", "New Item"))
+        item = self.listWidget_3.item(3)
+        item.setText(_translate("MainWindow", "New Item"))
+        item = self.listWidget_3.item(4)
+        item.setText(_translate("MainWindow", "New Item"))
+        item = self.listWidget_3.item(5)
+        item.setText(_translate("MainWindow", "New Item"))
+        self.listWidget_3.setSortingEnabled(__sortingEnabled)
+        self.pushButton_13.setText(_translate("MainWindow", "Новый\n"
+"поставщик"))
+        self.pushButton_14.setText(_translate("MainWindow", "Удалить\n"
+"выбранного"))
+        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.toolBoxPage1_2), _translate("MainWindow", "Процессоры"))
+        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.page), _translate("MainWindow", "Видеокарты"))
+        __sortingEnabled = self.listWidget_2.isSortingEnabled()
+        self.listWidget_2.setSortingEnabled(False)
+        item = self.listWidget_2.item(0)
+        item.setText(_translate("MainWindow", "New Item"))
+        item = self.listWidget_2.item(1)
+        item.setText(_translate("MainWindow", "New Item"))
+        item = self.listWidget_2.item(2)
+        item.setText(_translate("MainWindow", "New Item"))
+        item = self.listWidget_2.item(3)
+        item.setText(_translate("MainWindow", "New Item"))
+        self.listWidget_2.setSortingEnabled(__sortingEnabled)
+        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.toolBoxPage2_2), _translate("MainWindow", "Охлаждение"))
+        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.toolBoxPage3_2), _translate("MainWindow", "Блоки питания"))
+        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.toolBoxPage4_2), _translate("MainWindow", "Оперативная память"))
+        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.page_2), _translate("MainWindow", "Материнские платы"))
+        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.page_3), _translate("MainWindow", "Накопители"))
+        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.page_4), _translate("MainWindow", "Корпусы"))
+        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.page_5), _translate("MainWindow", "Конфигурации"))
+        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.page_6), _translate("MainWindow", "Page"))
+        self.lbNavPanel.setText(_translate("MainWindow", "Панель навигации"))
+        self.btnSkladFilter.setText(_translate("MainWindow", "Настроить фильтр"))
+        item = self.tableWidget.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", "1"))
+        item = self.tableWidget.verticalHeaderItem(1)
+        item.setText(_translate("MainWindow", "2"))
+        item = self.tableWidget.verticalHeaderItem(2)
+        item.setText(_translate("MainWindow", "3"))
+        item = self.tableWidget.verticalHeaderItem(3)
+        item.setText(_translate("MainWindow", "4"))
+        item = self.tableWidget.verticalHeaderItem(4)
+        item.setText(_translate("MainWindow", "5"))
+        item = self.tableWidget.verticalHeaderItem(5)
+        item.setText(_translate("MainWindow", "6"))
+        item = self.tableWidget.verticalHeaderItem(6)
+        item.setText(_translate("MainWindow", "7777"))
         item = self.tableWidget.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "New Column"))
+        item.setText(_translate("MainWindow", "либо № тут"))
         item = self.tableWidget.horizontalHeaderItem(1)
         item.setText(_translate("MainWindow", "New Column"))
         item = self.tableWidget.horizontalHeaderItem(2)
@@ -1304,9 +3735,6 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "New Column"))
         item = self.tableWidget.horizontalHeaderItem(4)
         item.setText(_translate("MainWindow", "New Column"))
-        self.toolBox.setItemText(self.toolBox.indexOf(self.toolBoxPage1), _translate("MainWindow", "Поставщики"))
-        self.toolBox.setItemText(self.toolBox.indexOf(self.toolBoxPage2), _translate("MainWindow", "Комплектующие"))
-        self.toolBox.setItemText(self.toolBox.indexOf(self.toolBoxPage3), _translate("MainWindow", "Заказать"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.sklad), _translate("MainWindow", "Склад"))
         self.progressBar.setFormat(_translate("MainWindow", "2 / 8"))
         self.treeWidget.setSortingEnabled(False)
@@ -1317,32 +3745,7 @@ class Ui_MainWindow(object):
         self.treeWidget.topLevelItem(0).child(1).setText(0, _translate("MainWindow", "Материнская плата"))
         self.treeWidget.topLevelItem(0).child(2).setText(0, _translate("MainWindow", "Видеокарта"))
         self.treeWidget.setSortingEnabled(__sortingEnabled)
-        self.lb_preview.setText(_translate("MainWindow", "Предпросмотр"))
-        self.lb_price.setText(_translate("MainWindow", "Цена: 000 000 ₽"))
-        self.lb_config.setText(_translate("MainWindow", "Конфигурация"))
-        self.btn_purcashe.setText(_translate("MainWindow", "Оформить заказ"))
-        item = self.table_config.verticalHeaderItem(0)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.table_config.verticalHeaderItem(1)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.table_config.verticalHeaderItem(2)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.table_config.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "название"))
-        item = self.table_config.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "цена"))
-        item = self.table_config.horizontalHeaderItem(2)
-        item.setText(_translate("MainWindow", "рубль"))
-        __sortingEnabled = self.table_config.isSortingEnabled()
-        self.table_config.setSortingEnabled(False)
-        item = self.table_config.item(0, 0)
-        item.setText(_translate("MainWindow", "nvidia gtx3080"))
-        item = self.table_config.item(0, 1)
-        item.setText(_translate("MainWindow", "35600"))
-        item = self.table_config.item(0, 2)
-        item.setText(_translate("MainWindow", "₽"))
-        self.table_config.setSortingEnabled(__sortingEnabled)
-        self.lb_video.setText(_translate("MainWindow", "Видеокарта"))
+        self.lbVideo.setText(_translate("MainWindow", "Видеокарта"))
         self.tabWidgetVideo.setTabText(self.tabWidgetVideo.indexOf(self.all), _translate("MainWindow", "Все"))
         self.tabWidgetVideo.setTabText(self.tabWidgetVideo.indexOf(self.tabNvidia), _translate("MainWindow", "NVIDIA"))
         self.tabWidgetVideo.setTabText(self.tabWidgetVideo.indexOf(self.tabAmd), _translate("MainWindow", "AMD"))
@@ -1382,8 +3785,7 @@ class Ui_MainWindow(object):
         item = self.tableConfVideo.item(1, 3)
         item.setText(_translate("MainWindow", "2878913412"))
         self.tableConfVideo.setSortingEnabled(__sortingEnabled)
-        self.lb_processor.setText(_translate("MainWindow", "Процессор"))
-        self.btnVideoHelp.setText(_translate("MainWindow", "Как подобрать видеокарту?"))
+        self.lbProc.setText(_translate("MainWindow", "Процессор"))
         self.btnVideoFilter.setText(_translate("MainWindow", "Настроить фильтр"))
         self.tabWidgetProc.setTabText(self.tabWidgetProc.indexOf(self.allProc), _translate("MainWindow", "Все"))
         self.tabWidgetProc.setTabText(self.tabWidgetProc.indexOf(self.tabPr1), _translate("MainWindow", "NVIDIA"))
@@ -1426,6 +3828,284 @@ class Ui_MainWindow(object):
         self.tableConfProc.setSortingEnabled(__sortingEnabled)
         self.btnProcFilter.setText(_translate("MainWindow", "Настроить фильтр"))
         self.btnProcHelp.setText(_translate("MainWindow", "Как подобрать процессор?"))
+        self.lbMother.setText(_translate("MainWindow", "Материнская плата"))
+        self.btnMotherFilter.setText(_translate("MainWindow", "Настроить фильтр"))
+        self.btnMotherHelp.setText(_translate("MainWindow", "Как подобрать мат. плату?"))
+        self.btnProcHelp_3.setText(_translate("MainWindow", "Как подобрать процессор?"))
+        self.tabWidgetMothet.setTabText(self.tabWidgetMothet.indexOf(self.allMother), _translate("MainWindow", "Все"))
+        self.tabWidgetMothet.setTabText(self.tabWidgetMothet.indexOf(self.tabMoth1), _translate("MainWindow", "NVIDIA"))
+        self.tabWidgetMothet.setTabText(self.tabWidgetMothet.indexOf(self.tabMoth2), _translate("MainWindow", "AMD"))
+        self.tableConfMother.setSortingEnabled(True)
+        item = self.tableConfMother.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", "w"))
+        item = self.tableConfMother.verticalHeaderItem(1)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfMother.verticalHeaderItem(2)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfMother.verticalHeaderItem(3)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfMother.verticalHeaderItem(4)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfMother.verticalHeaderItem(5)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfMother.verticalHeaderItem(6)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfMother.verticalHeaderItem(7)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfMother.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Выбор"))
+        item = self.tableConfMother.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Склад"))
+        item = self.tableConfMother.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Название"))
+        item = self.tableConfMother.horizontalHeaderItem(3)
+        item.setText(_translate("MainWindow", "др. параметры"))
+        __sortingEnabled = self.tableConfMother.isSortingEnabled()
+        self.tableConfMother.setSortingEnabled(False)
+        item = self.tableConfMother.item(0, 2)
+        item.setText(_translate("MainWindow", "w"))
+        item = self.tableConfMother.item(0, 3)
+        item.setText(_translate("MainWindow", "ffssssrrrwrwer3333222234"))
+        item = self.tableConfMother.item(1, 2)
+        item.setText(_translate("MainWindow", "NVIDIA RTX 4080"))
+        item = self.tableConfMother.item(1, 3)
+        item.setText(_translate("MainWindow", "2878913412"))
+        self.tableConfMother.setSortingEnabled(__sortingEnabled)
+        self.lbCooling.setText(_translate("MainWindow", "Охлаждение"))
+        self.btnCoolHelp.setText(_translate("MainWindow", "Как подобрать охлаждение?"))
+        self.btnCoolFilter.setText(_translate("MainWindow", "Настроить фильтр"))
+        self.tabWidgetCool.setTabText(self.tabWidgetCool.indexOf(self.allCool), _translate("MainWindow", "Все"))
+        self.tabWidgetCool.setTabText(self.tabWidgetCool.indexOf(self.tabCool1), _translate("MainWindow", "NVIDIA"))
+        self.tabWidgetCool.setTabText(self.tabWidgetCool.indexOf(self.tabCool2), _translate("MainWindow", "AMD"))
+        self.tableConfCool.setSortingEnabled(True)
+        item = self.tableConfCool.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", "w"))
+        item = self.tableConfCool.verticalHeaderItem(1)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfCool.verticalHeaderItem(2)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfCool.verticalHeaderItem(3)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfCool.verticalHeaderItem(4)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfCool.verticalHeaderItem(5)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfCool.verticalHeaderItem(6)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfCool.verticalHeaderItem(7)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfCool.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Выбор"))
+        item = self.tableConfCool.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Склад"))
+        item = self.tableConfCool.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Название"))
+        item = self.tableConfCool.horizontalHeaderItem(3)
+        item.setText(_translate("MainWindow", "др. параметры"))
+        __sortingEnabled = self.tableConfCool.isSortingEnabled()
+        self.tableConfCool.setSortingEnabled(False)
+        item = self.tableConfCool.item(0, 2)
+        item.setText(_translate("MainWindow", "w"))
+        item = self.tableConfCool.item(0, 3)
+        item.setText(_translate("MainWindow", "ffssssrrrwrwer3333222234"))
+        item = self.tableConfCool.item(1, 2)
+        item.setText(_translate("MainWindow", "NVIDIA RTX 4080"))
+        item = self.tableConfCool.item(1, 3)
+        item.setText(_translate("MainWindow", "2878913412"))
+        self.tableConfCool.setSortingEnabled(__sortingEnabled)
+        self.btnRamHelp.setText(_translate("MainWindow", "Как подобрать ОЗУ?"))
+        self.btnRamFilter.setText(_translate("MainWindow", "Настроить фильтр"))
+        self.lbRam.setText(_translate("MainWindow", "Оперативная память"))
+        self.tabWidgetRam.setTabText(self.tabWidgetRam.indexOf(self.allRam), _translate("MainWindow", "Все"))
+        self.tabWidgetRam.setTabText(self.tabWidgetRam.indexOf(self.tabR1), _translate("MainWindow", "NVIDIA"))
+        self.tabWidgetRam.setTabText(self.tabWidgetRam.indexOf(self.tabR2), _translate("MainWindow", "AMD"))
+        self.tableConfRam.setSortingEnabled(True)
+        item = self.tableConfRam.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", "w"))
+        item = self.tableConfRam.verticalHeaderItem(1)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfRam.verticalHeaderItem(2)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfRam.verticalHeaderItem(3)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfRam.verticalHeaderItem(4)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfRam.verticalHeaderItem(5)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfRam.verticalHeaderItem(6)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfRam.verticalHeaderItem(7)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfRam.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Выбор"))
+        item = self.tableConfRam.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Склад"))
+        item = self.tableConfRam.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Название"))
+        item = self.tableConfRam.horizontalHeaderItem(3)
+        item.setText(_translate("MainWindow", "др. параметры"))
+        __sortingEnabled = self.tableConfRam.isSortingEnabled()
+        self.tableConfRam.setSortingEnabled(False)
+        item = self.tableConfRam.item(0, 2)
+        item.setText(_translate("MainWindow", "w"))
+        item = self.tableConfRam.item(0, 3)
+        item.setText(_translate("MainWindow", "ffssssrrrwrwer3333222234"))
+        item = self.tableConfRam.item(1, 2)
+        item.setText(_translate("MainWindow", "NVIDIA RTX 4080"))
+        item = self.tableConfRam.item(1, 3)
+        item.setText(_translate("MainWindow", "2878913412"))
+        self.tableConfRam.setSortingEnabled(__sortingEnabled)
+        self.lbDisk.setText(_translate("MainWindow", "Накопитель"))
+        self.btnDiskFilter.setText(_translate("MainWindow", "Настроить фильтр"))
+        self.tabWidgetDisk.setTabText(self.tabWidgetDisk.indexOf(self.allDisk), _translate("MainWindow", "Все"))
+        self.tabWidgetDisk.setTabText(self.tabWidgetDisk.indexOf(self.tabD1), _translate("MainWindow", "NVIDIA"))
+        self.tabWidgetDisk.setTabText(self.tabWidgetDisk.indexOf(self.tabD2), _translate("MainWindow", "AMD"))
+        self.tableConfDisk.setSortingEnabled(True)
+        item = self.tableConfDisk.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", "w"))
+        item = self.tableConfDisk.verticalHeaderItem(1)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfDisk.verticalHeaderItem(2)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfDisk.verticalHeaderItem(3)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfDisk.verticalHeaderItem(4)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfDisk.verticalHeaderItem(5)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfDisk.verticalHeaderItem(6)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfDisk.verticalHeaderItem(7)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfDisk.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Выбор"))
+        item = self.tableConfDisk.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Склад"))
+        item = self.tableConfDisk.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Название"))
+        item = self.tableConfDisk.horizontalHeaderItem(3)
+        item.setText(_translate("MainWindow", "др. параметры"))
+        __sortingEnabled = self.tableConfDisk.isSortingEnabled()
+        self.tableConfDisk.setSortingEnabled(False)
+        item = self.tableConfDisk.item(0, 2)
+        item.setText(_translate("MainWindow", "w"))
+        item = self.tableConfDisk.item(0, 3)
+        item.setText(_translate("MainWindow", "ffssssrrrwrwer3333222234"))
+        item = self.tableConfDisk.item(1, 2)
+        item.setText(_translate("MainWindow", "NVIDIA RTX 4080"))
+        item = self.tableConfDisk.item(1, 3)
+        item.setText(_translate("MainWindow", "2878913412"))
+        self.tableConfDisk.setSortingEnabled(__sortingEnabled)
+        self.btnDiskHelp.setText(_translate("MainWindow", "Как подобрать накопитель?"))
+        self.lbPower.setText(_translate("MainWindow", "Питание"))
+        self.btnPowerFilter.setText(_translate("MainWindow", "Настроить фильтр"))
+        self.tabWidgetPower.setTabText(self.tabWidgetPower.indexOf(self.allPower), _translate("MainWindow", "Все"))
+        self.tabWidgetPower.setTabText(self.tabWidgetPower.indexOf(self.tabPower1), _translate("MainWindow", "NVIDIA"))
+        self.tabWidgetPower.setTabText(self.tabWidgetPower.indexOf(self.tabPower2), _translate("MainWindow", "AMD"))
+        self.tableConfPower.setSortingEnabled(True)
+        item = self.tableConfPower.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", "w"))
+        item = self.tableConfPower.verticalHeaderItem(1)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfPower.verticalHeaderItem(2)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfPower.verticalHeaderItem(3)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfPower.verticalHeaderItem(4)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfPower.verticalHeaderItem(5)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfPower.verticalHeaderItem(6)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfPower.verticalHeaderItem(7)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfPower.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Выбор"))
+        item = self.tableConfPower.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Склад"))
+        item = self.tableConfPower.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Название"))
+        item = self.tableConfPower.horizontalHeaderItem(3)
+        item.setText(_translate("MainWindow", "др. параметры"))
+        __sortingEnabled = self.tableConfPower.isSortingEnabled()
+        self.tableConfPower.setSortingEnabled(False)
+        item = self.tableConfPower.item(0, 2)
+        item.setText(_translate("MainWindow", "w"))
+        item = self.tableConfPower.item(0, 3)
+        item.setText(_translate("MainWindow", "ffssssrrrwrwer3333222234"))
+        item = self.tableConfPower.item(1, 2)
+        item.setText(_translate("MainWindow", "NVIDIA RTX 4080"))
+        item = self.tableConfPower.item(1, 3)
+        item.setText(_translate("MainWindow", "2878913412"))
+        self.tableConfPower.setSortingEnabled(__sortingEnabled)
+        self.btnPowerHelp.setText(_translate("MainWindow", "Как подобрать блок питания?"))
+        self.btnBodyFilter.setText(_translate("MainWindow", "Настроить фильтр"))
+        self.btnBodyHelp.setText(_translate("MainWindow", "Как подобрать корпус?"))
+        self.tabWidgetBody.setTabText(self.tabWidgetBody.indexOf(self.allBody), _translate("MainWindow", "Все"))
+        self.tabWidgetBody.setTabText(self.tabWidgetBody.indexOf(self.tabB1), _translate("MainWindow", "NVIDIA"))
+        self.tabWidgetBody.setTabText(self.tabWidgetBody.indexOf(self.tabB2), _translate("MainWindow", "AMD"))
+        self.tableConfBody.setSortingEnabled(True)
+        item = self.tableConfBody.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", "w"))
+        item = self.tableConfBody.verticalHeaderItem(1)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfBody.verticalHeaderItem(2)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfBody.verticalHeaderItem(3)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfBody.verticalHeaderItem(4)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfBody.verticalHeaderItem(5)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfBody.verticalHeaderItem(6)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfBody.verticalHeaderItem(7)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableConfBody.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Выбор"))
+        item = self.tableConfBody.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Склад"))
+        item = self.tableConfBody.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Название"))
+        item = self.tableConfBody.horizontalHeaderItem(3)
+        item.setText(_translate("MainWindow", "др. параметры"))
+        __sortingEnabled = self.tableConfBody.isSortingEnabled()
+        self.tableConfBody.setSortingEnabled(False)
+        item = self.tableConfBody.item(0, 2)
+        item.setText(_translate("MainWindow", "w"))
+        item = self.tableConfBody.item(0, 3)
+        item.setText(_translate("MainWindow", "ffssssrrrwrwer3333222234"))
+        item = self.tableConfBody.item(1, 2)
+        item.setText(_translate("MainWindow", "NVIDIA RTX 4080"))
+        item = self.tableConfBody.item(1, 3)
+        item.setText(_translate("MainWindow", "2878913412"))
+        self.tableConfBody.setSortingEnabled(__sortingEnabled)
+        self.lbBody.setText(_translate("MainWindow", "Корпус"))
+        self.lb_preview.setText(_translate("MainWindow", "Предпросмотр"))
+        self.lb_price.setText(_translate("MainWindow", "Цена: 000 000 ₽"))
+        self.lb_config.setText(_translate("MainWindow", "Конфигурация"))
+        self.btn_purcashe.setText(_translate("MainWindow", "Оформить заказ"))
+        item = self.table_config.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.table_config.verticalHeaderItem(1)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.table_config.verticalHeaderItem(2)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.table_config.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "название"))
+        item = self.table_config.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "цена"))
+        item = self.table_config.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "рубль"))
+        __sortingEnabled = self.table_config.isSortingEnabled()
+        self.table_config.setSortingEnabled(False)
+        item = self.table_config.item(0, 0)
+        item.setText(_translate("MainWindow", "nvidia gtx3080"))
+        item = self.table_config.item(0, 1)
+        item.setText(_translate("MainWindow", "35600"))
+        item = self.table_config.item(0, 2)
+        item.setText(_translate("MainWindow", "₽"))
+        self.table_config.setSortingEnabled(__sortingEnabled)
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.configurator), _translate("MainWindow", "Конфигуратор"))
 
 

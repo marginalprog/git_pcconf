@@ -31,7 +31,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         #self.ui = main_interface.Ui_MainWindow()
         self.setupUi(self)
         self.setWindowTitle("Конфигуратор ПК")
-        self.pushButton.clicked.connect(lambda: print("работает"))
+        #self.pushButton.clicked.connect(lambda: print("работает"))
 
         testPrice = "33500"
         item = QTableWidgetItem(testPrice)
