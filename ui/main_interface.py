@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1366, 779)
+        MainWindow.resize(1366, 730)
         icon = QtGui.QIcon.fromTheme("E:\\pcconf\\images\\pcconf.png")
         MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet("background: rgb(30, 30, 30);\n"
@@ -77,7 +77,7 @@ class Ui_MainWindow(object):
         self.sklad = QtWidgets.QWidget()
         self.sklad.setObjectName("sklad")
         self.verticalLayoutWidget = QtWidgets.QWidget(self.sklad)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 60, 211, 601))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 50, 231, 581))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
@@ -94,45 +94,39 @@ class Ui_MainWindow(object):
 "    border-style: solid;\n"
 "    border-width: 2px;\n"
 "    border-color: #151515;\n"
-"\n"
-"}\n"
-"\n"
-"QIcon QToolBox::itemIcon\n"
-"{\n"
-"    border-image: url(\"E:/pcconf/images/graphics-card.png\") 0;\n"
 "}\n"
 "\n"
 "QToolBox::tab\n"
 "{\n"
-"    background: rgb(45, 45, 45);\n"
+"    background: rgb(30, 30, 30);\n"
 "    margin-left: 1px;\n"
 "    left: -1px;\n"
-"    color: white;\n"
-"    border-bottom: 2px solid;\n"
+"    color: rgb(235, 235, 235);\n"
+"    border-bottom: 3px solid;\n"
 "    \n"
 "}\n"
 "\n"
 "QToolBox::tab:selected\n"
 "{\n"
-"    background: #151515;\n"
-"    border-bottom: 1px solid;\n"
-"    border-color: #FF0000;\n"
+"    background: #202020;\n"
+"    border-bottom: 2px solid  rgb(150, 0, 0);\n"
+"    color:white;\n"
 "}\n"
 "\n"
 "QToolBox::tab:hover\n"
 "{\n"
 "    background: #404040;\n"
-"    border-bottom: 1px solid;\n"
+"    border-bottom: 5px solid;\n"
 "    border-color: black;\n"
 "}")
         self.toolBox_2.setFrameShadow(QtWidgets.QFrame.Plain)
         self.toolBox_2.setLineWidth(1)
         self.toolBox_2.setObjectName("toolBox_2")
         self.toolBoxPage1_2 = QtWidgets.QWidget()
-        self.toolBoxPage1_2.setGeometry(QtCore.QRect(0, 0, 205, 215))
+        self.toolBoxPage1_2.setGeometry(QtCore.QRect(0, 0, 225, 233))
         self.toolBoxPage1_2.setObjectName("toolBoxPage1_2")
         self.frame = QtWidgets.QFrame(self.toolBoxPage1_2)
-        self.frame.setGeometry(QtCore.QRect(0, -10, 211, 251))
+        self.frame.setGeometry(QtCore.QRect(0, 0, 231, 261))
         self.frame.setStyleSheet("QFrame{\n"
 "    background-color: rgb(10,10,10);\n"
 "    color:  white;\n"
@@ -142,7 +136,7 @@ class Ui_MainWindow(object):
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
         self.label = QtWidgets.QLabel(self.frame)
-        self.label.setGeometry(QtCore.QRect(20, 10, 161, 21))
+        self.label.setGeometry(QtCore.QRect(30, 0, 161, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -152,15 +146,16 @@ class Ui_MainWindow(object):
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.listWidget_3 = QtWidgets.QListWidget(self.frame)
-        self.listWidget_3.setGeometry(QtCore.QRect(0, 40, 201, 121))
+        self.listWidget_3.setGeometry(QtCore.QRect(0, 30, 221, 151))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
         self.listWidget_3.setFont(font)
+        self.listWidget_3.setFocusPolicy(QtCore.Qt.NoFocus)
         self.listWidget_3.setStyleSheet("QListWidget\n"
 "{\n"
 "    background-color: rgb(10,10,10);\n"
-"    color: #dddddd;\n"
+"    color:  rgb(190,190,190);\n"
 "    border: 0px;\n"
 "    border-top: 0px solid rgb(100, 100, 100);\n"
 "    border-bottom: 1px solid rgb(100, 100, 100);\n"
@@ -255,8 +250,11 @@ class Ui_MainWindow(object):
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}")
+        self.listWidget_3.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.listWidget_3.setSelectionRectVisible(False)
         self.listWidget_3.setObjectName("listWidget_3")
         item = QtWidgets.QListWidgetItem()
+        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsEnabled)
         self.listWidget_3.addItem(item)
         item = QtWidgets.QListWidgetItem()
         self.listWidget_3.addItem(item)
@@ -269,7 +267,7 @@ class Ui_MainWindow(object):
         item = QtWidgets.QListWidgetItem()
         self.listWidget_3.addItem(item)
         self.pushButton_13 = QtWidgets.QPushButton(self.frame)
-        self.pushButton_13.setGeometry(QtCore.QRect(10, 170, 91, 41))
+        self.pushButton_13.setGeometry(QtCore.QRect(20, 190, 91, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -289,7 +287,7 @@ class Ui_MainWindow(object):
 "")
         self.pushButton_13.setObjectName("pushButton_13")
         self.pushButton_14 = QtWidgets.QPushButton(self.frame)
-        self.pushButton_14.setGeometry(QtCore.QRect(100, 170, 91, 41))
+        self.pushButton_14.setGeometry(QtCore.QRect(110, 190, 91, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -307,94 +305,83 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.pushButton_14.setObjectName("pushButton_14")
+        self.listWidget_3.raise_()
+        self.label.raise_()
+        self.pushButton_13.raise_()
+        self.pushButton_14.raise_()
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/cpu-tower.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/graphics-card.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBox_2.addItem(self.toolBoxPage1_2, icon, "")
         self.page = QtWidgets.QWidget()
-        self.page.setGeometry(QtCore.QRect(0, 0, 205, 215))
+        self.page.setGeometry(QtCore.QRect(0, 0, 225, 233))
         self.page.setObjectName("page")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/graphics-card.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/cpu-tower.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBox_2.addItem(self.page, icon1, "")
         self.toolBoxPage2_2 = QtWidgets.QWidget()
-        self.toolBoxPage2_2.setGeometry(QtCore.QRect(0, 0, 205, 215))
+        self.toolBoxPage2_2.setGeometry(QtCore.QRect(0, 0, 225, 233))
         self.toolBoxPage2_2.setObjectName("toolBoxPage2_2")
-        self.listWidget_2 = QtWidgets.QListWidget(self.toolBoxPage2_2)
-        self.listWidget_2.setGeometry(QtCore.QRect(20, 50, 141, 192))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.listWidget_2.setFont(font)
-        self.listWidget_2.setStyleSheet("QListWidget\n"
-"{\n"
-"color:  white;\n"
-"border: 1px;\n"
-"/*border-bottom: 1px solid rgb(200, 200, 200);*/\n"
-"}\n"
-"\n"
-"QListWidget::item::hover\n"
-"{\n"
-"color: red;\n"
-"border-bottom: 1px solid red;\n"
-"}\n"
-"")
-        self.listWidget_2.setObjectName("listWidget_2")
-        item = QtWidgets.QListWidgetItem()
-        self.listWidget_2.addItem(item)
-        item = QtWidgets.QListWidgetItem()
-        self.listWidget_2.addItem(item)
-        item = QtWidgets.QListWidgetItem()
-        self.listWidget_2.addItem(item)
-        item = QtWidgets.QListWidgetItem()
-        self.listWidget_2.addItem(item)
-        self.toolBox_2.addItem(self.toolBoxPage2_2, "")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/motherboard.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.toolBox_2.addItem(self.toolBoxPage2_2, icon2, "")
         self.toolBoxPage3_2 = QtWidgets.QWidget()
-        self.toolBoxPage3_2.setGeometry(QtCore.QRect(0, 0, 205, 215))
+        self.toolBoxPage3_2.setGeometry(QtCore.QRect(0, 0, 225, 233))
         self.toolBoxPage3_2.setObjectName("toolBoxPage3_2")
-        self.toolBox_2.addItem(self.toolBoxPage3_2, "")
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/cpucooling.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.toolBox_2.addItem(self.toolBoxPage3_2, icon3, "")
         self.toolBoxPage4_2 = QtWidgets.QWidget()
-        self.toolBoxPage4_2.setGeometry(QtCore.QRect(0, 0, 205, 215))
+        self.toolBoxPage4_2.setGeometry(QtCore.QRect(0, 0, 225, 233))
         self.toolBoxPage4_2.setObjectName("toolBoxPage4_2")
-        self.toolBox_2.addItem(self.toolBoxPage4_2, "")
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/ram (1).png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.toolBox_2.addItem(self.toolBoxPage4_2, icon4, "")
         self.page_2 = QtWidgets.QWidget()
-        self.page_2.setGeometry(QtCore.QRect(0, 0, 205, 215))
+        self.page_2.setGeometry(QtCore.QRect(0, 0, 225, 233))
         self.page_2.setObjectName("page_2")
-        self.toolBox_2.addItem(self.page_2, "")
+        icon5 = QtGui.QIcon()
+        icon5.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/hard-drive.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.toolBox_2.addItem(self.page_2, icon5, "")
         self.page_3 = QtWidgets.QWidget()
-        self.page_3.setGeometry(QtCore.QRect(0, 0, 205, 215))
+        self.page_3.setGeometry(QtCore.QRect(0, 0, 225, 233))
         self.page_3.setObjectName("page_3")
-        self.toolBox_2.addItem(self.page_3, "")
+        icon6 = QtGui.QIcon()
+        icon6.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/power.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.toolBox_2.addItem(self.page_3, icon6, "")
         self.page_4 = QtWidgets.QWidget()
-        self.page_4.setGeometry(QtCore.QRect(0, 0, 205, 215))
+        self.page_4.setGeometry(QtCore.QRect(0, 0, 225, 233))
         self.page_4.setObjectName("page_4")
-        self.toolBox_2.addItem(self.page_4, "")
+        icon7 = QtGui.QIcon()
+        icon7.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/case.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.toolBox_2.addItem(self.page_4, icon7, "")
         self.page_5 = QtWidgets.QWidget()
-        self.page_5.setGeometry(QtCore.QRect(0, 0, 205, 215))
+        self.page_5.setGeometry(QtCore.QRect(0, 0, 225, 233))
         self.page_5.setObjectName("page_5")
-        self.toolBox_2.addItem(self.page_5, "")
-        self.page_6 = QtWidgets.QWidget()
-        self.page_6.setGeometry(QtCore.QRect(0, 0, 205, 215))
-        self.page_6.setObjectName("page_6")
-        self.toolBox_2.addItem(self.page_6, "")
+        icon8 = QtGui.QIcon()
+        icon8.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/conf.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.toolBox_2.addItem(self.page_5, icon8, "")
         self.verticalLayout_2.addWidget(self.toolBox_2)
         self.lbNavPanel = QtWidgets.QLabel(self.sklad)
-        self.lbNavPanel.setGeometry(QtCore.QRect(10, 20, 171, 21))
+        self.lbNavPanel.setGeometry(QtCore.QRect(10, 10, 231, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(12)
         font.setBold(False)
         font.setWeight(50)
         self.lbNavPanel.setFont(font)
-        self.lbNavPanel.setStyleSheet("    color: #fffafa;\n"
-"    border: 0px;\n"
+        self.lbNavPanel.setStyleSheet("background-color: rgb(30,30,30);\n"
+"color: #fffafa;\n"
+"border: 0px;\n"
+"border-bottom: 1px solid  rgb(80,80,80);\n"
 "")
         self.lbNavPanel.setAlignment(QtCore.Qt.AlignCenter)
         self.lbNavPanel.setObjectName("lbNavPanel")
         self.btnSkladFilter = QtWidgets.QPushButton(self.sklad)
-        self.btnSkladFilter.setGeometry(QtCore.QRect(1110, 30, 131, 21))
+        self.btnSkladFilter.setGeometry(QtCore.QRect(1160, 50, 131, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
+        font.setUnderline(False)
         self.btnSkladFilter.setFont(font)
         self.btnSkladFilter.setStyleSheet("QPushButton\n"
 "{\n"
@@ -411,7 +398,7 @@ class Ui_MainWindow(object):
 "")
         self.btnSkladFilter.setObjectName("btnSkladFilter")
         self.tableWidget = QtWidgets.QTableWidget(self.sklad)
-        self.tableWidget.setGeometry(QtCore.QRect(250, 60, 1001, 381))
+        self.tableWidget.setGeometry(QtCore.QRect(290, 80, 1001, 501))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -421,6 +408,7 @@ class Ui_MainWindow(object):
         font.setKerning(True)
         self.tableWidget.setFont(font)
         self.tableWidget.setMouseTracking(True)
+        self.tableWidget.setFocusPolicy(QtCore.Qt.NoFocus)
         self.tableWidget.setStyleSheet("QHeaderView\n"
 "{    \n"
 "    background-color: #101010;\n"
@@ -435,7 +423,7 @@ class Ui_MainWindow(object):
 "{\n"
 "    background-color: #101010;\n"
 "    border: 0px solid white;\n"
-"    border-bottom: 1px solid rgb(60,60,60);\n"
+"    border-bottom: 0px solid rgb(60,60,60);\n"
 "    border-right: 1px solid rgb(60,60,60);\n"
 "    min-height: 25px;\n"
 "    color: #dddddd;\n"
@@ -562,6 +550,9 @@ class Ui_MainWindow(object):
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}")
+        self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableWidget.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.tableWidget.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tableWidget.setTextElideMode(QtCore.Qt.ElideLeft)
         self.tableWidget.setShowGrid(False)
         self.tableWidget.setGridStyle(QtCore.Qt.SolidLine)
@@ -737,7 +728,15 @@ class Ui_MainWindow(object):
         item_0.setForeground(0, brush)
         item_0.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
         item_1 = QtWidgets.QTreeWidgetItem(item_0)
-        self.treeWidget.topLevelItem(0).child(0).setText(0, "Процессор")
+        brush = QtGui.QBrush(QtGui.QColor(168, 168, 168))
+        brush.setStyle(QtCore.Qt.NoBrush)
+        item_1.setBackground(0, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 244, 244))
+        brush.setStyle(QtCore.Qt.NoBrush)
+        item_1.setForeground(0, brush)
+        item_1.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item_1 = QtWidgets.QTreeWidgetItem(item_0)
+        self.treeWidget.topLevelItem(0).child(1).setText(0, "Процессор")
         brush = QtGui.QBrush(QtGui.QColor(168, 168, 168))
         brush.setStyle(QtCore.Qt.NoBrush)
         item_1.setBackground(0, brush)
@@ -754,13 +753,10 @@ class Ui_MainWindow(object):
         item_1.setForeground(0, brush)
         item_1.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
         item_1 = QtWidgets.QTreeWidgetItem(item_0)
-        brush = QtGui.QBrush(QtGui.QColor(168, 168, 168))
-        brush.setStyle(QtCore.Qt.NoBrush)
-        item_1.setBackground(0, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 244, 244))
-        brush.setStyle(QtCore.Qt.NoBrush)
-        item_1.setForeground(0, brush)
-        item_1.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item_1 = QtWidgets.QTreeWidgetItem(item_0)
+        item_1 = QtWidgets.QTreeWidgetItem(item_0)
+        item_1 = QtWidgets.QTreeWidgetItem(item_0)
+        item_1 = QtWidgets.QTreeWidgetItem(item_0)
         self.treeWidget.header().setVisible(False)
         self.treeWidget.header().setCascadingSectionResizes(False)
         self.treeWidget.header().setDefaultSectionSize(100)
@@ -769,7 +765,7 @@ class Ui_MainWindow(object):
         self.treeWidget.header().setSortIndicatorShown(False)
         self.treeWidget.header().setStretchLastSection(True)
         self.scrollArea = QtWidgets.QScrollArea(self.configurator)
-        self.scrollArea.setGeometry(QtCore.QRect(310, 10, 1031, 671))
+        self.scrollArea.setGeometry(QtCore.QRect(310, 10, 1031, 621))
         self.scrollArea.setStyleSheet("QWidget{\n"
 "    border: 0px;\n"
 "} \n"
@@ -861,7 +857,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
         self.scrollAreaWidgetContents.setEnabled(True)
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -753, 1015, 2518))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1015, 2518))
         self.scrollAreaWidgetContents.setAutoFillBackground(False)
         self.scrollAreaWidgetContents.setInputMethodHints(QtCore.Qt.ImhNone)
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
@@ -3688,27 +3684,15 @@ class Ui_MainWindow(object):
 "поставщик"))
         self.pushButton_14.setText(_translate("MainWindow", "Удалить\n"
 "выбранного"))
-        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.toolBoxPage1_2), _translate("MainWindow", "Процессоры"))
-        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.page), _translate("MainWindow", "Видеокарты"))
-        __sortingEnabled = self.listWidget_2.isSortingEnabled()
-        self.listWidget_2.setSortingEnabled(False)
-        item = self.listWidget_2.item(0)
-        item.setText(_translate("MainWindow", "New Item"))
-        item = self.listWidget_2.item(1)
-        item.setText(_translate("MainWindow", "New Item"))
-        item = self.listWidget_2.item(2)
-        item.setText(_translate("MainWindow", "New Item"))
-        item = self.listWidget_2.item(3)
-        item.setText(_translate("MainWindow", "New Item"))
-        self.listWidget_2.setSortingEnabled(__sortingEnabled)
-        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.toolBoxPage2_2), _translate("MainWindow", "Охлаждение"))
-        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.toolBoxPage3_2), _translate("MainWindow", "Блоки питания"))
+        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.toolBoxPage1_2), _translate("MainWindow", "Видеокарты"))
+        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.page), _translate("MainWindow", "Процессоры"))
+        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.toolBoxPage2_2), _translate("MainWindow", "Материнские платы"))
+        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.toolBoxPage3_2), _translate("MainWindow", "Охлаждение"))
         self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.toolBoxPage4_2), _translate("MainWindow", "Оперативная память"))
-        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.page_2), _translate("MainWindow", "Материнские платы"))
-        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.page_3), _translate("MainWindow", "Накопители"))
+        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.page_2), _translate("MainWindow", "Накопители"))
+        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.page_3), _translate("MainWindow", "Питание"))
         self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.page_4), _translate("MainWindow", "Корпусы"))
         self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.page_5), _translate("MainWindow", "Конфигурации"))
-        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.page_6), _translate("MainWindow", "Page"))
         self.lbNavPanel.setText(_translate("MainWindow", "Панель навигации"))
         self.btnSkladFilter.setText(_translate("MainWindow", "Настроить фильтр"))
         item = self.tableWidget.verticalHeaderItem(0)
@@ -3742,8 +3726,13 @@ class Ui_MainWindow(object):
         __sortingEnabled = self.treeWidget.isSortingEnabled()
         self.treeWidget.setSortingEnabled(False)
         self.treeWidget.topLevelItem(0).setText(0, _translate("MainWindow", "КОМПЛЕКТУЮЩИЕ"))
-        self.treeWidget.topLevelItem(0).child(1).setText(0, _translate("MainWindow", "Материнская плата"))
-        self.treeWidget.topLevelItem(0).child(2).setText(0, _translate("MainWindow", "Видеокарта"))
+        self.treeWidget.topLevelItem(0).child(0).setText(0, _translate("MainWindow", "Видеокарта"))
+        self.treeWidget.topLevelItem(0).child(2).setText(0, _translate("MainWindow", "Материнская плата"))
+        self.treeWidget.topLevelItem(0).child(3).setText(0, _translate("MainWindow", "Охлаждение"))
+        self.treeWidget.topLevelItem(0).child(4).setText(0, _translate("MainWindow", "Оперативаня память"))
+        self.treeWidget.topLevelItem(0).child(5).setText(0, _translate("MainWindow", "Накопитель"))
+        self.treeWidget.topLevelItem(0).child(6).setText(0, _translate("MainWindow", "Блок питания"))
+        self.treeWidget.topLevelItem(0).child(7).setText(0, _translate("MainWindow", "Корпус"))
         self.treeWidget.setSortingEnabled(__sortingEnabled)
         self.lbVideo.setText(_translate("MainWindow", "Видеокарта"))
         self.tabWidgetVideo.setTabText(self.tabWidgetVideo.indexOf(self.all), _translate("MainWindow", "Все"))

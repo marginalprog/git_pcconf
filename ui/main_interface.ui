@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1366</width>
-    <height>779</height>
+    <height>730</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -93,9 +93,9 @@ QTabBar::tab:hover
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>60</y>
-          <width>211</width>
-          <height>601</height>
+          <y>50</y>
+          <width>231</width>
+          <height>581</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -117,35 +117,29 @@ QTabBar::tab:hover
 	border-style: solid;
 	border-width: 2px;
 	border-color: #151515;
-
-}
-
-QIcon QToolBox::itemIcon
-{
-	border-image: url(&quot;E:/pcconf/images/graphics-card.png&quot;) 0;
 }
 
 QToolBox::tab
 {
-	background: rgb(45, 45, 45);
+	background: rgb(30, 30, 30);
 	margin-left: 1px;
 	left: -1px;
-	color: white;
-	border-bottom: 2px solid;
+	color: rgb(235, 235, 235);
+	border-bottom: 3px solid;
 	
 }
 
 QToolBox::tab:selected
 {
-	background: #151515;
-	border-bottom: 1px solid;
-	border-color: #FF0000;
+	background: #202020;
+	border-bottom: 2px solid  rgb(150, 0, 0);
+	color:white;
 }
 
 QToolBox::tab:hover
 {
 	background: #404040;
-	border-bottom: 1px solid;
+	border-bottom: 5px solid;
 	border-color: black;
 }</string>
            </property>
@@ -163,24 +157,24 @@ QToolBox::tab:hover
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>205</width>
-              <height>215</height>
+              <width>225</width>
+              <height>233</height>
              </rect>
             </property>
             <attribute name="icon">
              <iconset>
-              <normaloff>../images/cpu-tower.png</normaloff>../images/cpu-tower.png</iconset>
+              <normaloff>../images/graphics-card.png</normaloff>../images/graphics-card.png</iconset>
             </attribute>
             <attribute name="label">
-             <string>Процессоры</string>
+             <string>Видеокарты</string>
             </attribute>
             <widget class="QFrame" name="frame">
              <property name="geometry">
               <rect>
                <x>0</x>
-               <y>-10</y>
-               <width>211</width>
-               <height>251</height>
+               <y>0</y>
+               <width>231</width>
+               <height>261</height>
               </rect>
              </property>
              <property name="styleSheet">
@@ -199,10 +193,10 @@ QToolBox::tab:hover
              <widget class="QLabel" name="label">
               <property name="geometry">
                <rect>
-                <x>20</x>
-                <y>10</y>
+                <x>30</x>
+                <y>0</y>
                 <width>161</width>
-                <height>21</height>
+                <height>31</height>
                </rect>
               </property>
               <property name="font">
@@ -226,9 +220,9 @@ border-bottom: 1px solid rgb(100, 100, 100);</string>
               <property name="geometry">
                <rect>
                 <x>0</x>
-                <y>40</y>
-                <width>201</width>
-                <height>121</height>
+                <y>30</y>
+                <width>221</width>
+                <height>151</height>
                </rect>
               </property>
               <property name="font">
@@ -237,11 +231,14 @@ border-bottom: 1px solid rgb(100, 100, 100);</string>
                 <pointsize>10</pointsize>
                </font>
               </property>
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
+              </property>
               <property name="styleSheet">
                <string notr="true">QListWidget
 {
 	background-color: rgb(10,10,10);
-	color: #dddddd;
+	color:  rgb(190,190,190);
 	border: 0px;
 	border-top: 0px solid rgb(100, 100, 100);
 	border-bottom: 1px solid rgb(100, 100, 100);
@@ -337,9 +334,18 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 	background: none;
 }</string>
               </property>
+              <property name="selectionBehavior">
+               <enum>QAbstractItemView::SelectRows</enum>
+              </property>
+              <property name="selectionRectVisible">
+               <bool>false</bool>
+              </property>
               <item>
                <property name="text">
                 <string>New Item</string>
+               </property>
+               <property name="flags">
+                <set>ItemIsSelectable|ItemIsEnabled</set>
                </property>
               </item>
               <item>
@@ -371,8 +377,8 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              <widget class="QPushButton" name="pushButton_13">
               <property name="geometry">
                <rect>
-                <x>10</x>
-                <y>170</y>
+                <x>20</x>
+                <y>190</y>
                 <width>91</width>
                 <height>41</height>
                </rect>
@@ -406,8 +412,8 @@ border: 1px solid green;
              <widget class="QPushButton" name="pushButton_14">
               <property name="geometry">
                <rect>
-                <x>100</x>
-                <y>170</y>
+                <x>110</x>
+                <y>190</y>
                 <width>91</width>
                 <height>41</height>
                </rect>
@@ -437,6 +443,10 @@ border: 1px solid red;
 выбранного</string>
               </property>
              </widget>
+             <zorder>listWidget_3</zorder>
+             <zorder>label</zorder>
+             <zorder>pushButton_13</zorder>
+             <zorder>pushButton_14</zorder>
             </widget>
            </widget>
            <widget class="QWidget" name="page">
@@ -444,16 +454,16 @@ border: 1px solid red;
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>205</width>
-              <height>215</height>
+              <width>225</width>
+              <height>233</height>
              </rect>
             </property>
             <attribute name="icon">
              <iconset>
-              <normaloff>../images/graphics-card.png</normaloff>../images/graphics-card.png</iconset>
+              <normaloff>../images/cpu-tower.png</normaloff>../images/cpu-tower.png</iconset>
             </attribute>
             <attribute name="label">
-             <string>Видеокарты</string>
+             <string>Процессоры</string>
             </attribute>
            </widget>
            <widget class="QWidget" name="toolBoxPage2_2">
@@ -461,76 +471,33 @@ border: 1px solid red;
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>205</width>
-              <height>215</height>
+              <width>225</width>
+              <height>233</height>
              </rect>
             </property>
-            <attribute name="label">
-             <string>Охлаждение</string>
+            <attribute name="icon">
+             <iconset>
+              <normaloff>../images/motherboard.png</normaloff>../images/motherboard.png</iconset>
             </attribute>
-            <widget class="QListWidget" name="listWidget_2">
-             <property name="geometry">
-              <rect>
-               <x>20</x>
-               <y>50</y>
-               <width>141</width>
-               <height>192</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Montserrat Medium</family>
-               <pointsize>10</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QListWidget
-{
-color:  white;
-border: 1px;
-/*border-bottom: 1px solid rgb(200, 200, 200);*/
-}
-
-QListWidget::item::hover
-{
-color: red;
-border-bottom: 1px solid red;
-}
-</string>
-             </property>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-            </widget>
+            <attribute name="label">
+             <string>Материнские платы</string>
+            </attribute>
            </widget>
            <widget class="QWidget" name="toolBoxPage3_2">
             <property name="geometry">
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>205</width>
-              <height>215</height>
+              <width>225</width>
+              <height>233</height>
              </rect>
             </property>
+            <attribute name="icon">
+             <iconset>
+              <normaloff>../images/cpucooling.png</normaloff>../images/cpucooling.png</iconset>
+            </attribute>
             <attribute name="label">
-             <string>Блоки питания</string>
+             <string>Охлаждение</string>
             </attribute>
            </widget>
            <widget class="QWidget" name="toolBoxPage4_2">
@@ -538,10 +505,14 @@ border-bottom: 1px solid red;
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>205</width>
-              <height>215</height>
+              <width>225</width>
+              <height>233</height>
              </rect>
             </property>
+            <attribute name="icon">
+             <iconset>
+              <normaloff>../images/ram (1).png</normaloff>../images/ram (1).png</iconset>
+            </attribute>
             <attribute name="label">
              <string>Оперативная память</string>
             </attribute>
@@ -551,12 +522,16 @@ border-bottom: 1px solid red;
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>205</width>
-              <height>215</height>
+              <width>225</width>
+              <height>233</height>
              </rect>
             </property>
+            <attribute name="icon">
+             <iconset>
+              <normaloff>../images/hard-drive.png</normaloff>../images/hard-drive.png</iconset>
+            </attribute>
             <attribute name="label">
-             <string>Материнские платы</string>
+             <string>Накопители</string>
             </attribute>
            </widget>
            <widget class="QWidget" name="page_3">
@@ -564,12 +539,16 @@ border-bottom: 1px solid red;
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>205</width>
-              <height>215</height>
+              <width>225</width>
+              <height>233</height>
              </rect>
             </property>
+            <attribute name="icon">
+             <iconset>
+              <normaloff>../images/power.png</normaloff>../images/power.png</iconset>
+            </attribute>
             <attribute name="label">
-             <string>Накопители</string>
+             <string>Питание</string>
             </attribute>
            </widget>
            <widget class="QWidget" name="page_4">
@@ -577,10 +556,14 @@ border-bottom: 1px solid red;
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>205</width>
-              <height>215</height>
+              <width>225</width>
+              <height>233</height>
              </rect>
             </property>
+            <attribute name="icon">
+             <iconset>
+              <normaloff>../images/case.png</normaloff>../images/case.png</iconset>
+            </attribute>
             <attribute name="label">
              <string>Корпусы</string>
             </attribute>
@@ -590,25 +573,16 @@ border-bottom: 1px solid red;
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>205</width>
-              <height>215</height>
+              <width>225</width>
+              <height>233</height>
              </rect>
             </property>
+            <attribute name="icon">
+             <iconset>
+              <normaloff>../images/conf.png</normaloff>../images/conf.png</iconset>
+            </attribute>
             <attribute name="label">
              <string>Конфигурации</string>
-            </attribute>
-           </widget>
-           <widget class="QWidget" name="page_6">
-            <property name="geometry">
-             <rect>
-              <x>0</x>
-              <y>0</y>
-              <width>205</width>
-              <height>215</height>
-             </rect>
-            </property>
-            <attribute name="label">
-             <string>Page</string>
             </attribute>
            </widget>
           </widget>
@@ -619,9 +593,9 @@ border-bottom: 1px solid red;
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>20</y>
-          <width>171</width>
-          <height>21</height>
+          <y>10</y>
+          <width>231</width>
+          <height>31</height>
          </rect>
         </property>
         <property name="font">
@@ -633,8 +607,10 @@ border-bottom: 1px solid red;
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">	color: #fffafa;
-	border: 0px;
+         <string notr="true">background-color: rgb(30,30,30);
+color: #fffafa;
+border: 0px;
+border-bottom: 1px solid  rgb(80,80,80);
 </string>
         </property>
         <property name="text">
@@ -647,8 +623,8 @@ border-bottom: 1px solid red;
        <widget class="QPushButton" name="btnSkladFilter">
         <property name="geometry">
          <rect>
-          <x>1110</x>
-          <y>30</y>
+          <x>1160</x>
+          <y>50</y>
           <width>131</width>
           <height>21</height>
          </rect>
@@ -657,6 +633,7 @@ border-bottom: 1px solid red;
          <font>
           <family>Montserrat Medium</family>
           <pointsize>10</pointsize>
+          <underline>false</underline>
          </font>
         </property>
         <property name="styleSheet">
@@ -681,10 +658,10 @@ border-bottom: 1px solid red;
        <widget class="QTableWidget" name="tableWidget">
         <property name="geometry">
          <rect>
-          <x>250</x>
-          <y>60</y>
+          <x>290</x>
+          <y>80</y>
           <width>1001</width>
-          <height>381</height>
+          <height>501</height>
          </rect>
         </property>
         <property name="font">
@@ -699,6 +676,9 @@ border-bottom: 1px solid red;
         </property>
         <property name="mouseTracking">
          <bool>true</bool>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
         </property>
         <property name="styleSheet">
          <string notr="true">QHeaderView
@@ -715,7 +695,7 @@ QHeaderView::section
 {
 	background-color: #101010;
 	border: 0px solid white;
-	border-bottom: 1px solid rgb(60,60,60);
+	border-bottom: 0px solid rgb(60,60,60);
 	border-right: 1px solid rgb(60,60,60);
 	min-height: 25px;
 	color: #dddddd;
@@ -842,6 +822,15 @@ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
 QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 	background: none;
 }</string>
+        </property>
+        <property name="editTriggers">
+         <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
+        </property>
+        <property name="selectionMode">
+         <enum>QAbstractItemView::SingleSelection</enum>
+        </property>
+        <property name="selectionBehavior">
+         <enum>QAbstractItemView::SelectRows</enum>
         </property>
         <property name="textElideMode">
          <enum>Qt::ElideLeft</enum>
@@ -1224,6 +1213,32 @@ QTreeView{
          </property>
          <item>
           <property name="text">
+           <string>Видеокарта</string>
+          </property>
+          <property name="background">
+           <brush brushstyle="NoBrush">
+            <color alpha="255">
+             <red>168</red>
+             <green>168</green>
+             <blue>168</blue>
+            </color>
+           </brush>
+          </property>
+          <property name="foreground">
+           <brush brushstyle="NoBrush">
+            <color alpha="255">
+             <red>255</red>
+             <green>244</green>
+             <blue>244</blue>
+            </color>
+           </brush>
+          </property>
+          <property name="flags">
+           <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
+          </property>
+         </item>
+         <item>
+          <property name="text">
            <string notr="true">Процессор</string>
           </property>
           <property name="background">
@@ -1276,28 +1291,27 @@ QTreeView{
          </item>
          <item>
           <property name="text">
-           <string>Видеокарта</string>
+           <string>Охлаждение</string>
           </property>
-          <property name="background">
-           <brush brushstyle="NoBrush">
-            <color alpha="255">
-             <red>168</red>
-             <green>168</green>
-             <blue>168</blue>
-            </color>
-           </brush>
+         </item>
+         <item>
+          <property name="text">
+           <string>Оперативаня память</string>
           </property>
-          <property name="foreground">
-           <brush brushstyle="NoBrush">
-            <color alpha="255">
-             <red>255</red>
-             <green>244</green>
-             <blue>244</blue>
-            </color>
-           </brush>
+         </item>
+         <item>
+          <property name="text">
+           <string>Накопитель</string>
           </property>
-          <property name="flags">
-           <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
+         </item>
+         <item>
+          <property name="text">
+           <string>Блок питания</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Корпус</string>
           </property>
          </item>
         </item>
@@ -1308,7 +1322,7 @@ QTreeView{
           <x>310</x>
           <y>10</y>
           <width>1031</width>
-          <height>671</height>
+          <height>621</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -1416,7 +1430,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>-753</y>
+           <y>0</y>
            <width>1015</width>
            <height>2518</height>
           </rect>
