@@ -46,6 +46,7 @@ border-color: #434343;
        <string notr="true">QFrame{
 	border:0px;
 }
+
 QTabWidget::pane
 {
 	background: rgb(30, 30, 30);
@@ -80,12 +81,15 @@ QTabBar::tab:hover
 }</string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="tabsClosable">
        <bool>false</bool>
       </property>
       <widget class="QWidget" name="sklad">
+       <property name="styleSheet">
+        <string notr="true">border:0px;</string>
+       </property>
        <attribute name="title">
         <string>Склад</string>
        </attribute>
@@ -125,6 +129,7 @@ QToolBox::tab
 	margin-left: 1px;
 	left: -1px;
 	color: rgb(235, 235, 235);
+	border-top: 1px solid;
 	border-bottom: 3px solid;
 	
 }
@@ -374,7 +379,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                </property>
               </item>
              </widget>
-             <widget class="QPushButton" name="pushButton_13">
+             <widget class="QPushButton" name="btnNewVideoPost">
               <property name="geometry">
                <rect>
                 <x>20</x>
@@ -409,7 +414,7 @@ border: 1px solid green;
 поставщик</string>
               </property>
              </widget>
-             <widget class="QPushButton" name="pushButton_14">
+             <widget class="QPushButton" name="btnDelVideoPost">
               <property name="geometry">
                <rect>
                 <x>110</x>
@@ -445,8 +450,8 @@ border: 1px solid red;
              </widget>
              <zorder>listWidget_3</zorder>
              <zorder>label</zorder>
-             <zorder>pushButton_13</zorder>
-             <zorder>pushButton_14</zorder>
+             <zorder>btnNewVideoPost</zorder>
+             <zorder>btnDelVideoPost</zorder>
             </widget>
            </widget>
            <widget class="QWidget" name="page">
@@ -609,8 +614,7 @@ border: 1px solid red;
         <property name="styleSheet">
          <string notr="true">background-color: rgb(30,30,30);
 color: #fffafa;
-border: 0px;
-border-bottom: 1px solid  rgb(80,80,80);
+border: 1px solid  rgb(80,80,80);
 </string>
         </property>
         <property name="text">
@@ -624,7 +628,7 @@ border-bottom: 1px solid  rgb(80,80,80);
         <property name="geometry">
          <rect>
           <x>1160</x>
-          <y>50</y>
+          <y>30</y>
           <width>131</width>
           <height>21</height>
          </rect>
@@ -659,7 +663,7 @@ border-bottom: 1px solid red;
         <property name="geometry">
          <rect>
           <x>290</x>
-          <y>80</y>
+          <y>60</y>
           <width>1001</width>
           <height>501</height>
          </rect>
@@ -689,13 +693,15 @@ border-bottom: 1px solid red;
 	min-width: 30px;	
 	min-height: 30px;
 	font-family: Montserrat SemiBold;
+	qproperty-defaultAlignment: AlignVCenter;
 }
+
 
 QHeaderView::section
 {
 	background-color: #101010;
 	border: 0px solid white;
-	border-bottom: 0px solid rgb(60,60,60);
+	border-bottom: 1px solid rgb(60,60,60);
 	border-right: 1px solid rgb(60,60,60);
 	min-height: 25px;
 	color: #dddddd;
@@ -712,9 +718,9 @@ QHeaderView::section:hover {
 QTableWidget QTableCornerButton::section
 {
 	background-color: #101010;
-	border: 0px solid;
-	border-bottom: 1px solid rgb(60,60,60);
-	border-right: 1px solid rgb(60,60,60);
+	border: 0px;
+	border-bottom: 1px  solid rgb(60,60,60);
+    border-right: 1px  solid rgb(60,60,60);
 }
 
 QTableWidget::item
@@ -730,7 +736,6 @@ QTableView
 	background-color: #101010;
 	color: #dddddd;
 	border: 0px solid #434343;
-
 }
 
 QTableWidget::item:hover {
@@ -854,7 +859,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
          <number>44</number>
         </attribute>
         <attribute name="verticalHeaderVisible">
-         <bool>false</bool>
+         <bool>true</bool>
         </attribute>
         <attribute name="verticalHeaderDefaultSectionSize">
          <number>32</number>
@@ -899,7 +904,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
         </row>
         <column>
          <property name="text">
-          <string>либо № тут</string>
+          <string>New Column</string>
          </property>
          <property name="font">
           <font>
@@ -928,8 +933,109 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
          </property>
         </column>
        </widget>
+       <widget class="QPushButton" name="btnAdd">
+        <property name="geometry">
+         <rect>
+          <x>490</x>
+          <y>580</y>
+          <width>151</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Montserrat Medium</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+background-color: rgb(20,20,20);
+color: #fffafa;
+}
+
+QPushButton::hover
+{
+background-color: rgb(40,40,40);
+border-color: rgb(40,40,40);
+border-bottom: 1px solid  green;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Добавить</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btnDelete">
+        <property name="geometry">
+         <rect>
+          <x>890</x>
+          <y>580</y>
+          <width>151</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Montserrat Medium</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+background-color: rgb(20,20,20);
+color: #fffafa;
+}
+
+QPushButton::hover
+{
+background-color: rgb(40,40,40);
+border-color: rgb(40,40,40);
+color:  red;
+border-bottom: 1px solid  red;
+}</string>
+        </property>
+        <property name="text">
+         <string>Удалить</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btnChange">
+        <property name="geometry">
+         <rect>
+          <x>690</x>
+          <y>580</y>
+          <width>151</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Montserrat Medium</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+background-color: rgb(20,20,20);
+color: #fffafa;
+}
+
+QPushButton::hover
+{
+background-color: rgb(40,40,40);
+border-color: rgb(40,40,40);
+border-bottom: 1px solid  yellow;
+}</string>
+        </property>
+        <property name="text">
+         <string>Изменить договор</string>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="configurator">
+       <property name="styleSheet">
+        <string notr="true">border:0px;</string>
+       </property>
        <attribute name="title">
         <string>Конфигуратор</string>
        </attribute>
@@ -1462,7 +1568,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
             <widget class="QLabel" name="lbVideo">
              <property name="geometry">
               <rect>
-               <x>120</x>
+               <x>130</x>
                <y>0</y>
                <width>141</width>
                <height>51</height>
@@ -1805,36 +1911,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                 <string>New Row</string>
                </property>
               </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
               <column>
                <property name="text">
                 <string>Выбор</string>
@@ -1907,7 +1983,7 @@ border-image: url(&quot;E:/pcconf/images/graphics-card.png&quot;) 0;</string>
             <widget class="QLabel" name="lbProc">
              <property name="geometry">
               <rect>
-               <x>120</x>
+               <x>130</x>
                <y>310</y>
                <width>131</width>
                <height>51</height>
@@ -1956,10 +2032,10 @@ border-image: url(&quot;E:/pcconf/images/cpu-tower.png&quot;) 0;</string>
             <widget class="QFrame" name="imgCPUcooling">
              <property name="geometry">
               <rect>
-               <x>60</x>
+               <x>70</x>
                <y>930</y>
                <width>51</width>
-               <height>51</height>
+               <height>41</height>
               </rect>
              </property>
              <property name="styleSheet">
@@ -2013,32 +2089,12 @@ border-image: url(&quot;E:/pcconf/images/ram (1).png&quot;) 0;</string>
               <enum>QFrame::Raised</enum>
              </property>
             </widget>
-            <widget class="QFrame" name="imgRam2">
-             <property name="geometry">
-              <rect>
-               <x>0</x>
-               <y>1230</y>
-               <width>51</width>
-               <height>41</height>
-              </rect>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">border: 0px;
-border-image: url(&quot;E:/pcconf/images/ram (2).png&quot;) 0;</string>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-            </widget>
             <widget class="QFrame" name="imgMotherboard">
              <property name="geometry">
               <rect>
-               <x>50</x>
+               <x>60</x>
                <y>610</y>
-               <width>61</width>
+               <width>51</width>
                <height>51</height>
               </rect>
              </property>
@@ -2437,31 +2493,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
               <row>
                <property name="text">
                 <string>w</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
                </property>
               </row>
               <row>
@@ -3644,7 +3675,7 @@ border-bottom: 1px dashed white;
             <widget class="QPushButton" name="btnRamFilter">
              <property name="geometry">
               <rect>
-               <x>370</x>
+               <x>380</x>
                <y>1251</y>
                <width>131</width>
                <height>20</height>
@@ -3678,7 +3709,7 @@ border-bottom: 1px solid red;
             <widget class="QLabel" name="lbRam">
              <property name="geometry">
               <rect>
-               <x>120</x>
+               <x>130</x>
                <y>1240</y>
                <width>241</width>
                <height>31</height>
@@ -4103,7 +4134,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
               <rect>
                <x>120</x>
                <y>1550</y>
-               <width>141</width>
+               <width>151</width>
                <height>31</height>
               </rect>
              </property>
@@ -4592,7 +4623,7 @@ border-bottom: 1px dashed white;
             <widget class="QLabel" name="lbPower">
              <property name="geometry">
               <rect>
-               <x>130</x>
+               <x>140</x>
                <y>1860</y>
                <width>101</width>
                <height>31</height>

@@ -1,0 +1,1 @@
+pyuic5.exe -x E:\pcconf\ui\addChangeWindow.ui -o  E:\pcconf\ui\addChangeWindow.py

@@ -3,8 +3,15 @@ import sys
 from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtWidgets import QDialog, QTableWidgetItem
 from PyQt5.QtGui import QIcon, QPixmap
-from ui import main_interface
-from ui import untitled
+from ui import main_interface, addChangeWindow
+#  from ui import untitled
+
+
+class AddChangeWindow(QtWidgets.QWidget, addChangeWindow.Ui_addChangeWidget):
+    def __init__(self, mainwindow):
+        super().__init__()
+        self.setupUi(self)
+        #  self.setWindowIcon(QtGui.QIcon("car.png"))
 
 
 class RadioButton(QtWidgets.QRadioButton):
@@ -28,10 +35,11 @@ class RadioButton(QtWidgets.QRadioButton):
 class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
-        #self.ui = main_interface.Ui_MainWindow()
+        #  self.ui = main_interface.Ui_MainWindow()
         self.setupUi(self)
         self.setWindowTitle("Конфигуратор ПК")
-        #self.pushButton.clicked.connect(lambda: print("работает"))
+        #  self.pushButton.clicked.connect(lambda: print("работает"))
+        self.btnAdd.clicked.connect(self.show_AddChange)
 
         testPrice = "33500"
         item = QTableWidgetItem(testPrice)
@@ -53,6 +61,10 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         ''' в дальнейшем existence будет из строк БД принимать true|false
          и вставлять соответствующее в таблицу состояние комплектующего'''
         self.existence(self.tableConfVideo, True)
+
+    def show_AddChange(self):
+        self.win_add_change = AddChangeWindow(self)
+        self.win_add_change.show()
 
     #  метод создания индикатора состояния комплектующего
     def create_existence(self, png_way):
