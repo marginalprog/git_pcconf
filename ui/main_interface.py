@@ -79,7 +79,7 @@ class Ui_MainWindow(object):
         self.sklad.setStyleSheet("border:0px;")
         self.sklad.setObjectName("sklad")
         self.verticalLayoutWidget = QtWidgets.QWidget(self.sklad)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 50, 231, 581))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 50, 301, 581))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
@@ -93,9 +93,8 @@ class Ui_MainWindow(object):
         self.toolBox_2.setStyleSheet("QToolBox\n"
 "{\n"
 "    background: rgb(30, 30, 30);\n"
-"    border-style: solid;\n"
+"    border-style: 2px solid red;\n"
 "    border-width: 2px;\n"
-"    border-color: #151515;\n"
 "}\n"
 "\n"
 "QToolBox::tab\n"
@@ -126,10 +125,10 @@ class Ui_MainWindow(object):
         self.toolBox_2.setLineWidth(1)
         self.toolBox_2.setObjectName("toolBox_2")
         self.toolBoxPage1_2 = QtWidgets.QWidget()
-        self.toolBoxPage1_2.setGeometry(QtCore.QRect(0, 0, 225, 233))
+        self.toolBoxPage1_2.setGeometry(QtCore.QRect(0, 0, 295, 233))
         self.toolBoxPage1_2.setObjectName("toolBoxPage1_2")
         self.frame = QtWidgets.QFrame(self.toolBoxPage1_2)
-        self.frame.setGeometry(QtCore.QRect(0, 0, 231, 261))
+        self.frame.setGeometry(QtCore.QRect(0, 0, 301, 261))
         self.frame.setStyleSheet("QFrame{\n"
 "    background-color: rgb(10,10,10);\n"
 "    color:  white;\n"
@@ -139,7 +138,7 @@ class Ui_MainWindow(object):
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
         self.label = QtWidgets.QLabel(self.frame)
-        self.label.setGeometry(QtCore.QRect(30, 0, 161, 31))
+        self.label.setGeometry(QtCore.QRect(70, 0, 161, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -148,23 +147,95 @@ class Ui_MainWindow(object):
 "border-bottom: 1px solid rgb(100, 100, 100);")
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
-        self.listWidget_3 = QtWidgets.QListWidget(self.frame)
-        self.listWidget_3.setGeometry(QtCore.QRect(0, 30, 221, 151))
+        self.btnNewVideoPost = QtWidgets.QPushButton(self.frame)
+        self.btnNewVideoPost.setGeometry(QtCore.QRect(10, 190, 91, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
-        self.listWidget_3.setFont(font)
-        self.listWidget_3.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.listWidget_3.setStyleSheet("QListWidget\n"
+        self.btnNewVideoPost.setFont(font)
+        self.btnNewVideoPost.setStyleSheet("QPushButton\n"
 "{\n"
-"    background-color: rgb(10,10,10);\n"
-"    color:  rgb(190,190,190);\n"
-"    border: 0px;\n"
-"    border-top: 0px solid rgb(100, 100, 100);\n"
-"    border-bottom: 1px solid rgb(100, 100, 100);\n"
+"color:  white;\n"
+"border: 1px solid rgb(100, 100, 100);\n"
 "}\n"
 "\n"
-"QListWidget::item\n"
+"QPushButton::hover\n"
+"{\n"
+"background-color: rgb(40, 40, 40);\n"
+"color: green;\n"
+"border: 1px solid green;\n"
+"}\n"
+"")
+        self.btnNewVideoPost.setObjectName("btnNewVideoPost")
+        self.btnDelVideoPost = QtWidgets.QPushButton(self.frame)
+        self.btnDelVideoPost.setGeometry(QtCore.QRect(190, 190, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnDelVideoPost.setFont(font)
+        self.btnDelVideoPost.setStyleSheet("QPushButton\n"
+"{\n"
+"color:  white;\n"
+"border: 1px solid rgb(100, 100, 100);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"color: red;\n"
+"border: 1px solid red;\n"
+"}\n"
+"")
+        self.btnDelVideoPost.setObjectName("btnDelVideoPost")
+        self.tablePost = QtWidgets.QTableWidget(self.frame)
+        self.tablePost.setEnabled(True)
+        self.tablePost.setGeometry(QtCore.QRect(0, 30, 291, 141))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
+        self.tablePost.setFont(font)
+        self.tablePost.setMouseTracking(True)
+        self.tablePost.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.tablePost.setAutoFillBackground(False)
+        self.tablePost.setStyleSheet("QHeaderView\n"
+"{    \n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border: 0px;\n"
+"    font-size: 14px;\n"
+"    min-width: 100px;    \n"
+"    min-height: 30px;\n"
+"}\n"
+"\n"
+"QHeaderView::section\n"
+"{\n"
+"    background-color: #101010;\n"
+"    min-width: 10px;    \n"
+"    min-height: 25px;\n"
+"    border: 0px solid;\n"
+"    border-right: 1px solid rgb(50,50,50); \n"
+"    color: #dddddd;\n"
+"    font-size: 12px;\n"
+"}\n"
+"\n"
+"QHeaderView::section:hover {\n"
+"   color: white;\n"
+"    background-color: rgb(80,80,80);\n"
+"}\n"
+"\n"
+"QHeaderView::section{\n"
+"    color: white;\n"
+"    selection-background-color:#ffc0cb;\n"
+"}\n"
+"\n"
+"QTableWidget QTableCornerButton::section\n"
+"{\n"
+"    \n"
+"    background: rgb(80,80,80);\n"
+"    border-style: solid;\n"
+"    border-width: 1px;\n"
+"}\n"
+"\n"
+"QTableWidget::item\n"
 "{\n"
 "     border-bottom: 1px solid rgb(60,60,60); \n"
 "    border-right: 0px;\n"
@@ -172,15 +243,25 @@ class Ui_MainWindow(object):
 "    border-top:0px;\n"
 "}\n"
 "\n"
-"QListWidget::item::hover {\n"
+"QTableView\n"
+"{\n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border-top: 1px solid #434343;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-bottom: 0px;\n"
+"}\n"
+"\n"
+"QTableWidget::item:hover {\n"
 "    color: white;\n"
-"    border-bottom: 1px solid rgb(210,210,210);\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
 "}      \n"
 "\n"
-"QListWidget::item:selected\n"
+"QTableWidget::item:selected\n"
 "{\n"
 "     color: white;\n"
-"    border-bottom: 1px solid rgb(225,225,225);\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
 "}\n"
 "\n"
 "QScrollBar:vertical {\n"
@@ -253,49 +334,53 @@ class Ui_MainWindow(object):
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}")
-        self.listWidget_3.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self.listWidget_3.setSelectionRectVisible(False)
-        self.listWidget_3.setObjectName("listWidget_3")
-        item = QtWidgets.QListWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsEnabled)
-        self.listWidget_3.addItem(item)
-        item = QtWidgets.QListWidgetItem()
-        self.listWidget_3.addItem(item)
-        item = QtWidgets.QListWidgetItem()
-        self.listWidget_3.addItem(item)
-        item = QtWidgets.QListWidgetItem()
-        self.listWidget_3.addItem(item)
-        item = QtWidgets.QListWidgetItem()
-        self.listWidget_3.addItem(item)
-        item = QtWidgets.QListWidgetItem()
-        self.listWidget_3.addItem(item)
-        self.btnNewVideoPost = QtWidgets.QPushButton(self.frame)
-        self.btnNewVideoPost.setGeometry(QtCore.QRect(20, 190, 91, 41))
+        self.tablePost.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tablePost.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.tablePost.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tablePost.setShowGrid(False)
+        self.tablePost.setGridStyle(QtCore.Qt.SolidLine)
+        self.tablePost.setObjectName("tablePost")
+        self.tablePost.setColumnCount(2)
+        self.tablePost.setRowCount(3)
+        item = QtWidgets.QTableWidgetItem()
+        self.tablePost.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tablePost.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tablePost.setVerticalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tablePost.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tablePost.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tablePost.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tablePost.setItem(0, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tablePost.setItem(1, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tablePost.setItem(1, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tablePost.setItem(2, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tablePost.setItem(2, 1, item)
+        self.tablePost.horizontalHeader().setVisible(False)
+        self.tablePost.horizontalHeader().setCascadingSectionResizes(True)
+        self.tablePost.horizontalHeader().setDefaultSectionSize(120)
+        self.tablePost.horizontalHeader().setHighlightSections(False)
+        self.tablePost.horizontalHeader().setMinimumSectionSize(15)
+        self.tablePost.horizontalHeader().setSortIndicatorShown(True)
+        self.tablePost.horizontalHeader().setStretchLastSection(False)
+        self.tablePost.verticalHeader().setVisible(False)
+        self.tablePost.verticalHeader().setCascadingSectionResizes(False)
+        self.tablePost.verticalHeader().setMinimumSectionSize(10)
+        self.btnDelVideoPost_2 = QtWidgets.QPushButton(self.frame)
+        self.btnDelVideoPost_2.setGeometry(QtCore.QRect(100, 190, 91, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
-        self.btnNewVideoPost.setFont(font)
-        self.btnNewVideoPost.setStyleSheet("QPushButton\n"
-"{\n"
-"color:  white;\n"
-"border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"background-color: rgb(40, 40, 40);\n"
-"color: green;\n"
-"border: 1px solid green;\n"
-"}\n"
-"")
-        self.btnNewVideoPost.setObjectName("btnNewVideoPost")
-        self.btnDelVideoPost = QtWidgets.QPushButton(self.frame)
-        self.btnDelVideoPost.setGeometry(QtCore.QRect(110, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnDelVideoPost.setFont(font)
-        self.btnDelVideoPost.setStyleSheet("QPushButton\n"
+        self.btnDelVideoPost_2.setFont(font)
+        self.btnDelVideoPost_2.setStyleSheet("QPushButton\n"
 "{\n"
 "color:  white;\n"
 "border: 1px solid rgb(100, 100, 100);\n"
@@ -307,65 +392,66 @@ class Ui_MainWindow(object):
 "border: 1px solid red;\n"
 "}\n"
 "")
-        self.btnDelVideoPost.setObjectName("btnDelVideoPost")
-        self.listWidget_3.raise_()
+        self.btnDelVideoPost_2.setObjectName("btnDelVideoPost_2")
+        self.btnDelVideoPost_2.raise_()
         self.label.raise_()
         self.btnNewVideoPost.raise_()
         self.btnDelVideoPost.raise_()
+        self.tablePost.raise_()
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/graphics-card.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBox_2.addItem(self.toolBoxPage1_2, icon, "")
         self.page = QtWidgets.QWidget()
-        self.page.setGeometry(QtCore.QRect(0, 0, 225, 233))
+        self.page.setGeometry(QtCore.QRect(0, 0, 295, 233))
         self.page.setObjectName("page")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/cpu-tower.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBox_2.addItem(self.page, icon1, "")
         self.toolBoxPage2_2 = QtWidgets.QWidget()
-        self.toolBoxPage2_2.setGeometry(QtCore.QRect(0, 0, 225, 233))
+        self.toolBoxPage2_2.setGeometry(QtCore.QRect(0, 0, 295, 233))
         self.toolBoxPage2_2.setObjectName("toolBoxPage2_2")
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/motherboard.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBox_2.addItem(self.toolBoxPage2_2, icon2, "")
         self.toolBoxPage3_2 = QtWidgets.QWidget()
-        self.toolBoxPage3_2.setGeometry(QtCore.QRect(0, 0, 225, 233))
+        self.toolBoxPage3_2.setGeometry(QtCore.QRect(0, 0, 295, 233))
         self.toolBoxPage3_2.setObjectName("toolBoxPage3_2")
         icon3 = QtGui.QIcon()
         icon3.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/cpucooling.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBox_2.addItem(self.toolBoxPage3_2, icon3, "")
         self.toolBoxPage4_2 = QtWidgets.QWidget()
-        self.toolBoxPage4_2.setGeometry(QtCore.QRect(0, 0, 225, 233))
+        self.toolBoxPage4_2.setGeometry(QtCore.QRect(0, 0, 295, 233))
         self.toolBoxPage4_2.setObjectName("toolBoxPage4_2")
         icon4 = QtGui.QIcon()
         icon4.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/ram (1).png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBox_2.addItem(self.toolBoxPage4_2, icon4, "")
         self.page_2 = QtWidgets.QWidget()
-        self.page_2.setGeometry(QtCore.QRect(0, 0, 225, 233))
+        self.page_2.setGeometry(QtCore.QRect(0, 0, 295, 233))
         self.page_2.setObjectName("page_2")
         icon5 = QtGui.QIcon()
         icon5.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/hard-drive.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBox_2.addItem(self.page_2, icon5, "")
         self.page_3 = QtWidgets.QWidget()
-        self.page_3.setGeometry(QtCore.QRect(0, 0, 225, 233))
+        self.page_3.setGeometry(QtCore.QRect(0, 0, 295, 233))
         self.page_3.setObjectName("page_3")
         icon6 = QtGui.QIcon()
         icon6.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/power.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBox_2.addItem(self.page_3, icon6, "")
         self.page_4 = QtWidgets.QWidget()
-        self.page_4.setGeometry(QtCore.QRect(0, 0, 225, 233))
+        self.page_4.setGeometry(QtCore.QRect(0, 0, 295, 233))
         self.page_4.setObjectName("page_4")
         icon7 = QtGui.QIcon()
         icon7.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/case.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBox_2.addItem(self.page_4, icon7, "")
         self.page_5 = QtWidgets.QWidget()
-        self.page_5.setGeometry(QtCore.QRect(0, 0, 225, 233))
+        self.page_5.setGeometry(QtCore.QRect(0, 0, 295, 233))
         self.page_5.setObjectName("page_5")
         icon8 = QtGui.QIcon()
         icon8.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/conf.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBox_2.addItem(self.page_5, icon8, "")
         self.verticalLayout_2.addWidget(self.toolBox_2)
         self.lbNavPanel = QtWidgets.QLabel(self.sklad)
-        self.lbNavPanel.setGeometry(QtCore.QRect(10, 10, 231, 31))
+        self.lbNavPanel.setGeometry(QtCore.QRect(10, 10, 301, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(12)
@@ -374,7 +460,7 @@ class Ui_MainWindow(object):
         self.lbNavPanel.setFont(font)
         self.lbNavPanel.setStyleSheet("background-color: rgb(30,30,30);\n"
 "color: #fffafa;\n"
-"border: 1px solid  rgb(80,80,80);\n"
+"border-bottom: 1px solid  rgb(95,95,95);\n"
 "")
         self.lbNavPanel.setAlignment(QtCore.Qt.AlignCenter)
         self.lbNavPanel.setObjectName("lbNavPanel")
@@ -399,8 +485,8 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.btnSkladFilter.setObjectName("btnSkladFilter")
-        self.tableWidget = QtWidgets.QTableWidget(self.sklad)
-        self.tableWidget.setGeometry(QtCore.QRect(290, 60, 1001, 501))
+        self.twSklad = QtWidgets.QTableWidget(self.sklad)
+        self.twSklad.setGeometry(QtCore.QRect(350, 60, 941, 501))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -408,10 +494,10 @@ class Ui_MainWindow(object):
         font.setUnderline(False)
         font.setWeight(50)
         font.setKerning(True)
-        self.tableWidget.setFont(font)
-        self.tableWidget.setMouseTracking(True)
-        self.tableWidget.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.tableWidget.setStyleSheet("QHeaderView\n"
+        self.twSklad.setFont(font)
+        self.twSklad.setMouseTracking(True)
+        self.twSklad.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.twSklad.setStyleSheet("QHeaderView\n"
 "{    \n"
 "    background-color: #101010;\n"
 "    color: #dddddd;\n"
@@ -553,51 +639,71 @@ class Ui_MainWindow(object):
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}")
-        self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
-        self.tableWidget.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
-        self.tableWidget.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self.tableWidget.setTextElideMode(QtCore.Qt.ElideLeft)
-        self.tableWidget.setShowGrid(False)
-        self.tableWidget.setGridStyle(QtCore.Qt.SolidLine)
-        self.tableWidget.setCornerButtonEnabled(True)
-        self.tableWidget.setObjectName("tableWidget")
-        self.tableWidget.setColumnCount(5)
-        self.tableWidget.setRowCount(7)
+        self.twSklad.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.twSklad.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.twSklad.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.twSklad.setTextElideMode(QtCore.Qt.ElideLeft)
+        self.twSklad.setShowGrid(False)
+        self.twSklad.setGridStyle(QtCore.Qt.SolidLine)
+        self.twSklad.setCornerButtonEnabled(True)
+        self.twSklad.setObjectName("twSklad")
+        self.twSklad.setColumnCount(5)
+        self.twSklad.setRowCount(7)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(0, item)
+        self.twSklad.setVerticalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(1, item)
+        self.twSklad.setVerticalHeaderItem(1, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(2, item)
+        self.twSklad.setVerticalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(3, item)
+        self.twSklad.setVerticalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(4, item)
+        self.twSklad.setVerticalHeaderItem(4, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(5, item)
+        self.twSklad.setVerticalHeaderItem(5, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(6, item)
+        self.twSklad.setVerticalHeaderItem(6, item)
         item = QtWidgets.QTableWidgetItem()
         font = QtGui.QFont()
         font.setFamily("MS Sans Serif")
         item.setFont(font)
-        self.tableWidget.setHorizontalHeaderItem(0, item)
+        self.twSklad.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(1, item)
+        self.twSklad.setHorizontalHeaderItem(1, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(2, item)
+        self.twSklad.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(3, item)
+        self.twSklad.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(4, item)
-        self.tableWidget.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableWidget.horizontalHeader().setDefaultSectionSize(90)
-        self.tableWidget.horizontalHeader().setMinimumSectionSize(44)
-        self.tableWidget.verticalHeader().setVisible(True)
-        self.tableWidget.verticalHeader().setDefaultSectionSize(32)
-        self.tableWidget.verticalHeader().setMinimumSectionSize(10)
+        self.twSklad.setHorizontalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setItem(0, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setItem(0, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setItem(0, 3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setItem(0, 4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setItem(1, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setItem(1, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setItem(1, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setItem(1, 3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setItem(1, 4, item)
+        self.twSklad.horizontalHeader().setCascadingSectionResizes(True)
+        self.twSklad.horizontalHeader().setDefaultSectionSize(90)
+        self.twSklad.horizontalHeader().setMinimumSectionSize(44)
+        self.twSklad.verticalHeader().setVisible(True)
+        self.twSklad.verticalHeader().setDefaultSectionSize(32)
+        self.twSklad.verticalHeader().setMinimumSectionSize(10)
         self.btnAdd = QtWidgets.QPushButton(self.sklad)
-        self.btnAdd.setGeometry(QtCore.QRect(490, 580, 151, 31))
+        self.btnAdd.setGeometry(QtCore.QRect(540, 580, 151, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -616,7 +722,7 @@ class Ui_MainWindow(object):
 "")
         self.btnAdd.setObjectName("btnAdd")
         self.btnDelete = QtWidgets.QPushButton(self.sklad)
-        self.btnDelete.setGeometry(QtCore.QRect(890, 580, 151, 31))
+        self.btnDelete.setGeometry(QtCore.QRect(940, 580, 151, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -635,7 +741,7 @@ class Ui_MainWindow(object):
 "}")
         self.btnDelete.setObjectName("btnDelete")
         self.btnChange = QtWidgets.QPushButton(self.sklad)
-        self.btnChange.setGeometry(QtCore.QRect(690, 580, 151, 31))
+        self.btnChange.setGeometry(QtCore.QRect(740, 580, 151, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -696,7 +802,7 @@ class Ui_MainWindow(object):
         self.progressBar.setInvertedAppearance(False)
         self.progressBar.setObjectName("progressBar")
         self.treeWidget = QtWidgets.QTreeWidget(self.configurator)
-        self.treeWidget.setGeometry(QtCore.QRect(100, 120, 221, 411))
+        self.treeWidget.setGeometry(QtCore.QRect(90, 120, 221, 411))
         self.treeWidget.setMinimumSize(QtCore.QSize(0, 0))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
@@ -825,7 +931,7 @@ class Ui_MainWindow(object):
         self.treeWidget.header().setSortIndicatorShown(False)
         self.treeWidget.header().setStretchLastSection(True)
         self.scrollArea = QtWidgets.QScrollArea(self.configurator)
-        self.scrollArea.setGeometry(QtCore.QRect(310, 10, 1031, 621))
+        self.scrollArea.setGeometry(QtCore.QRect(290, 10, 1051, 621))
         self.scrollArea.setStyleSheet("QWidget{\n"
 "    border: 0px;\n"
 "} \n"
@@ -917,7 +1023,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
         self.scrollAreaWidgetContents.setEnabled(True)
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1015, 2518))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1035, 2518))
         self.scrollAreaWidgetContents.setAutoFillBackground(False)
         self.scrollAreaWidgetContents.setInputMethodHints(QtCore.Qt.ImhNone)
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
@@ -3696,25 +3802,38 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setText(_translate("MainWindow", "Поставщики:"))
-        __sortingEnabled = self.listWidget_3.isSortingEnabled()
-        self.listWidget_3.setSortingEnabled(False)
-        item = self.listWidget_3.item(0)
-        item.setText(_translate("MainWindow", "New Item"))
-        item = self.listWidget_3.item(1)
-        item.setText(_translate("MainWindow", "New Item"))
-        item = self.listWidget_3.item(2)
-        item.setText(_translate("MainWindow", "New Item"))
-        item = self.listWidget_3.item(3)
-        item.setText(_translate("MainWindow", "New Item"))
-        item = self.listWidget_3.item(4)
-        item.setText(_translate("MainWindow", "New Item"))
-        item = self.listWidget_3.item(5)
-        item.setText(_translate("MainWindow", "New Item"))
-        self.listWidget_3.setSortingEnabled(__sortingEnabled)
         self.btnNewVideoPost.setText(_translate("MainWindow", "Новый\n"
 "поставщик"))
         self.btnDelVideoPost.setText(_translate("MainWindow", "Удалить\n"
 "выбранного"))
+        self.tablePost.setSortingEnabled(True)
+        item = self.tablePost.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", "w"))
+        item = self.tablePost.verticalHeaderItem(1)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tablePost.verticalHeaderItem(2)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tablePost.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Название"))
+        item = self.tablePost.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Договор"))
+        __sortingEnabled = self.tablePost.isSortingEnabled()
+        self.tablePost.setSortingEnabled(False)
+        item = self.tablePost.item(0, 0)
+        item.setText(_translate("MainWindow", "Gigabyte"))
+        item = self.tablePost.item(0, 1)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tablePost.item(1, 0)
+        item.setText(_translate("MainWindow", "Asus"))
+        item = self.tablePost.item(1, 1)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tablePost.item(2, 0)
+        item.setText(_translate("MainWindow", "Nvidia"))
+        item = self.tablePost.item(2, 1)
+        item.setText(_translate("MainWindow", "-"))
+        self.tablePost.setSortingEnabled(__sortingEnabled)
+        self.btnDelVideoPost_2.setText(_translate("MainWindow", "Изменить\n"
+"договор"))
         self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.toolBoxPage1_2), _translate("MainWindow", "Видеокарты"))
         self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.page), _translate("MainWindow", "Процессоры"))
         self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.toolBoxPage2_2), _translate("MainWindow", "Материнские платы"))
@@ -3726,30 +3845,53 @@ class Ui_MainWindow(object):
         self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.page_5), _translate("MainWindow", "Конфигурации"))
         self.lbNavPanel.setText(_translate("MainWindow", "Панель навигации"))
         self.btnSkladFilter.setText(_translate("MainWindow", "Настроить фильтр"))
-        item = self.tableWidget.verticalHeaderItem(0)
+        item = self.twSklad.verticalHeaderItem(0)
         item.setText(_translate("MainWindow", "1"))
-        item = self.tableWidget.verticalHeaderItem(1)
+        item = self.twSklad.verticalHeaderItem(1)
         item.setText(_translate("MainWindow", "2"))
-        item = self.tableWidget.verticalHeaderItem(2)
+        item = self.twSklad.verticalHeaderItem(2)
         item.setText(_translate("MainWindow", "3"))
-        item = self.tableWidget.verticalHeaderItem(3)
+        item = self.twSklad.verticalHeaderItem(3)
         item.setText(_translate("MainWindow", "4"))
-        item = self.tableWidget.verticalHeaderItem(4)
+        item = self.twSklad.verticalHeaderItem(4)
         item.setText(_translate("MainWindow", "5"))
-        item = self.tableWidget.verticalHeaderItem(5)
+        item = self.twSklad.verticalHeaderItem(5)
         item.setText(_translate("MainWindow", "6"))
-        item = self.tableWidget.verticalHeaderItem(6)
+        item = self.twSklad.verticalHeaderItem(6)
         item.setText(_translate("MainWindow", "7777"))
-        item = self.tableWidget.horizontalHeaderItem(0)
+        item = self.twSklad.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "New Column"))
-        item = self.tableWidget.horizontalHeaderItem(1)
+        item = self.twSklad.horizontalHeaderItem(1)
         item.setText(_translate("MainWindow", "New Column"))
-        item = self.tableWidget.horizontalHeaderItem(2)
+        item = self.twSklad.horizontalHeaderItem(2)
         item.setText(_translate("MainWindow", "New Column"))
-        item = self.tableWidget.horizontalHeaderItem(3)
+        item = self.twSklad.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "New Column"))
-        item = self.tableWidget.horizontalHeaderItem(4)
+        item = self.twSklad.horizontalHeaderItem(4)
         item.setText(_translate("MainWindow", "New Column"))
+        __sortingEnabled = self.twSklad.isSortingEnabled()
+        self.twSklad.setSortingEnabled(False)
+        item = self.twSklad.item(0, 0)
+        item.setText(_translate("MainWindow", "sttt"))
+        item = self.twSklad.item(0, 1)
+        item.setText(_translate("MainWindow", "tqweq"))
+        item = self.twSklad.item(0, 2)
+        item.setText(_translate("MainWindow", "2511"))
+        item = self.twSklad.item(0, 3)
+        item.setText(_translate("MainWindow", "ggggg"))
+        item = self.twSklad.item(0, 4)
+        item.setText(_translate("MainWindow", "weqwe661"))
+        item = self.twSklad.item(1, 0)
+        item.setText(_translate("MainWindow", "zzzzzzz"))
+        item = self.twSklad.item(1, 1)
+        item.setText(_translate("MainWindow", "xxxxxxxx"))
+        item = self.twSklad.item(1, 2)
+        item.setText(_translate("MainWindow", "ccccccccc"))
+        item = self.twSklad.item(1, 3)
+        item.setText(_translate("MainWindow", "611111"))
+        item = self.twSklad.item(1, 4)
+        item.setText(_translate("MainWindow", "2222111"))
+        self.twSklad.setSortingEnabled(__sortingEnabled)
         self.btnAdd.setText(_translate("MainWindow", "Добавить"))
         self.btnDelete.setText(_translate("MainWindow", "Удалить"))
         self.btnChange.setText(_translate("MainWindow", "Изменить договор"))

@@ -1,1 +1,0 @@
-pyuic5.exe -x E:\pcconf\ui\untitled.ui -o  E:\pcconf\ui\untitled.py
