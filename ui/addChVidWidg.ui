@@ -263,6 +263,9 @@ QTextEdit:hover{
 	border-bottom: 1px solid  red;
 }</string>
    </property>
+   <property name="placeholderText">
+    <string/>
+   </property>
   </widget>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
@@ -562,6 +565,9 @@ QTextEdit:hover{
 	background-color: rgb(55,55,55);
 	border-bottom: 1px solid  red;
 }</string>
+   </property>
+   <property name="placeholderText">
+    <string>1920х1080</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_9">

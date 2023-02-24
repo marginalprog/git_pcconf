@@ -118,8 +118,8 @@ QTabBar::tab:hover
             <string notr="true">QToolBox
 {
 	background: rgb(30, 30, 30);
-	border-style: 2px solid red;
-	border-width: 2px;
+	border: 1px solid rgb(115, 0, 0);
+	margin: 1px;
 }
 
 QToolBox::tab
@@ -135,14 +135,15 @@ QToolBox::tab
 
 QToolBox::tab:selected
 {
-	background: #202020;
+	background-color: rgb(50, 50, 50);
 	border-bottom: 2px solid  rgb(150, 0, 0);
 	color:white;
+	font-weight: bold;
 }
 
 QToolBox::tab:hover
 {
-	background: #404040;
+	background-color: rgb(65, 65, 65);
 	border-bottom: 5px solid;
 	border-color: black;
 }</string>
@@ -606,8 +607,8 @@ border: 1px solid red;
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>295</width>
-              <height>233</height>
+              <width>100</width>
+              <height>30</height>
              </rect>
             </property>
             <attribute name="icon">
@@ -623,8 +624,8 @@ border: 1px solid red;
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>295</width>
-              <height>233</height>
+              <width>100</width>
+              <height>30</height>
              </rect>
             </property>
             <attribute name="icon">
@@ -640,8 +641,8 @@ border: 1px solid red;
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>295</width>
-              <height>233</height>
+              <width>100</width>
+              <height>30</height>
              </rect>
             </property>
             <attribute name="icon">
@@ -657,8 +658,8 @@ border: 1px solid red;
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>295</width>
-              <height>233</height>
+              <width>100</width>
+              <height>30</height>
              </rect>
             </property>
             <attribute name="icon">
@@ -674,8 +675,8 @@ border: 1px solid red;
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>295</width>
-              <height>233</height>
+              <width>100</width>
+              <height>30</height>
              </rect>
             </property>
             <attribute name="icon">
@@ -691,8 +692,8 @@ border: 1px solid red;
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>295</width>
-              <height>233</height>
+              <width>100</width>
+              <height>30</height>
              </rect>
             </property>
             <attribute name="icon">
@@ -708,8 +709,8 @@ border: 1px solid red;
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>295</width>
-              <height>233</height>
+              <width>100</width>
+              <height>30</height>
              </rect>
             </property>
             <attribute name="icon">
@@ -725,8 +726,8 @@ border: 1px solid red;
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>295</width>
-              <height>233</height>
+              <width>100</width>
+              <height>30</height>
              </rect>
             </property>
             <attribute name="icon">
@@ -1132,9 +1133,9 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
        <widget class="QPushButton" name="btnAdd">
         <property name="geometry">
          <rect>
-          <x>540</x>
+          <x>530</x>
           <y>580</y>
-          <width>151</width>
+          <width>161</width>
           <height>31</height>
          </rect>
         </property>
@@ -1159,15 +1160,15 @@ border-bottom: 1px solid  green;
 </string>
         </property>
         <property name="text">
-         <string>Добавить</string>
+         <string>Новый заказ</string>
         </property>
        </widget>
        <widget class="QPushButton" name="btnDelete">
         <property name="geometry">
          <rect>
-          <x>940</x>
+          <x>950</x>
           <y>580</y>
-          <width>151</width>
+          <width>161</width>
           <height>31</height>
          </rect>
         </property>
@@ -1200,7 +1201,7 @@ border-bottom: 1px solid  red;
          <rect>
           <x>740</x>
           <y>580</y>
-          <width>151</width>
+          <width>161</width>
           <height>31</height>
          </rect>
         </property>
@@ -1224,7 +1225,7 @@ border-bottom: 1px solid  yellow;
 }</string>
         </property>
         <property name="text">
-         <string>Изменить договор</string>
+         <string>Изменить параметры</string>
         </property>
        </widget>
       </widget>
@@ -1344,7 +1345,6 @@ QProgressBar::chunk:hover{
         <property name="styleSheet">
          <string notr="true">QTreeWidget{
 	background-color:  #101010;
-	
 }
 
 QTreeWidget::item:pressed{color:#fff4f4;}
@@ -1732,7 +1732,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>-425</y>
+           <y>-1897</y>
            <width>1035</width>
            <height>2518</height>
           </rect>
@@ -2050,7 +2050,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 </string>
               </property>
               <property name="editTriggers">
-               <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
+               <set>QAbstractItemView::SelectedClicked</set>
               </property>
               <property name="selectionMode">
                <enum>QAbstractItemView::SingleSelection</enum>
@@ -2639,7 +2639,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 </string>
               </property>
               <property name="editTriggers">
-               <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
+               <set>QAbstractItemView::SelectedClicked</set>
               </property>
               <property name="selectionMode">
                <enum>QAbstractItemView::SingleSelection</enum>
@@ -2744,6 +2744,16 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
               <item row="1" column="3">
                <property name="text">
                 <string>2878913412</string>
+               </property>
+              </item>
+              <item row="2" column="2">
+               <property name="text">
+                <string>324122</string>
+               </property>
+              </item>
+              <item row="2" column="3">
+               <property name="text">
+                <string>erttttt</string>
                </property>
               </item>
              </widget>
@@ -3209,7 +3219,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 </string>
               </property>
               <property name="editTriggers">
-               <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
+               <set>QAbstractItemView::SelectedClicked</set>
               </property>
               <property name="selectionMode">
                <enum>QAbstractItemView::SingleSelection</enum>
@@ -3700,7 +3710,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 </string>
               </property>
               <property name="editTriggers">
-               <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
+               <set>QAbstractItemView::SelectedClicked</set>
               </property>
               <property name="selectionMode">
                <enum>QAbstractItemView::SingleSelection</enum>
@@ -4191,7 +4201,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 </string>
               </property>
               <property name="editTriggers">
-               <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
+               <set>QAbstractItemView::SelectedClicked</set>
               </property>
               <property name="selectionMode">
                <enum>QAbstractItemView::SingleSelection</enum>
@@ -4648,7 +4658,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 </string>
               </property>
               <property name="editTriggers">
-               <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
+               <set>QAbstractItemView::SelectedClicked</set>
               </property>
               <property name="selectionMode">
                <enum>QAbstractItemView::SingleSelection</enum>
@@ -5138,7 +5148,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 }</string>
               </property>
               <property name="editTriggers">
-               <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
+               <set>QAbstractItemView::SelectedClicked</set>
               </property>
               <property name="selectionMode">
                <enum>QAbstractItemView::SingleSelection</enum>
@@ -5634,7 +5644,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 </string>
               </property>
               <property name="editTriggers">
-               <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
+               <set>QAbstractItemView::SelectedClicked</set>
               </property>
               <property name="selectionMode">
                <enum>QAbstractItemView::SingleSelection</enum>
@@ -6105,16 +6115,11 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
            <string>New Row</string>
           </property>
          </row>
-         <row>
+         <column>
           <property name="text">
-           <string>New Row</string>
+           <string>id</string>
           </property>
-         </row>
-         <row>
-          <property name="text">
-           <string>New Row</string>
-          </property>
-         </row>
+         </column>
          <column>
           <property name="text">
            <string>название</string>
@@ -6132,15 +6137,20 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
          </column>
          <item row="0" column="0">
           <property name="text">
-           <string>nvidia gtx3080</string>
+           <string>0</string>
           </property>
          </item>
          <item row="0" column="1">
           <property name="text">
-           <string>35600</string>
+           <string>nvidia gtx3080</string>
           </property>
          </item>
          <item row="0" column="2">
+          <property name="text">
+           <string>35600</string>
+          </property>
+         </item>
+         <item row="0" column="3">
           <property name="text">
            <string>₽</string>
           </property>

@@ -75,9 +75,7 @@ class Ui_addChVidWidg(object):
 "}\n"
 "\n"
 "QComboBox QListView{\n"
-"    background-color: rgb(40,40,40);\n"
-"    border: 1px;\n"
-"    border-bottom: 1px solid red;\n"
+"    border: 1px solid red;\n"
 "    padding-left: 5px;\n"
 "    selection-background-color: rgb(105, 0, 0);\n"
 "}\n"
@@ -152,6 +150,7 @@ class Ui_addChVidWidg(object):
 "    background-color: rgb(55,55,55);\n"
 "    border-bottom: 1px solid  red;\n"
 "}")
+        self.teVidName.setPlaceholderText("")
         self.teVidName.setObjectName("teVidName")
         self.label_3 = QtWidgets.QLabel(addChVidWidg)
         self.label_3.setGeometry(QtCore.QRect(750, 30, 111, 21))
@@ -640,6 +639,7 @@ class Ui_addChVidWidg(object):
         self.label_6.setText(_translate("addChVidWidg", "Частота памяти [МГц]"))
         self.label_7.setText(_translate("addChVidWidg", "Тип интерфейса"))
         self.label_8.setText(_translate("addChVidWidg", "Мониторы"))
+        self.teVidResol.setPlaceholderText(_translate("addChVidWidg", "1920х1080"))
         self.label_9.setText(_translate("addChVidWidg", "Разрешение"))
         self.label_10.setText(_translate("addChVidWidg", "Длина [см]"))
         self.label_11.setText(_translate("addChVidWidg", "Тепловыделение (TDP)"))

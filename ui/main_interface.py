@@ -93,8 +93,8 @@ class Ui_MainWindow(object):
         self.toolBox_2.setStyleSheet("QToolBox\n"
 "{\n"
 "    background: rgb(30, 30, 30);\n"
-"    border-style: 2px solid red;\n"
-"    border-width: 2px;\n"
+"    border: 1px solid rgb(115, 0, 0);\n"
+"    margin: 1px;\n"
 "}\n"
 "\n"
 "QToolBox::tab\n"
@@ -110,14 +110,15 @@ class Ui_MainWindow(object):
 "\n"
 "QToolBox::tab:selected\n"
 "{\n"
-"    background: #202020;\n"
+"    background-color: rgb(50, 50, 50);\n"
 "    border-bottom: 2px solid  rgb(150, 0, 0);\n"
 "    color:white;\n"
+"    font-weight: bold;\n"
 "}\n"
 "\n"
 "QToolBox::tab:hover\n"
 "{\n"
-"    background: #404040;\n"
+"    background-color: rgb(65, 65, 65);\n"
 "    border-bottom: 5px solid;\n"
 "    border-color: black;\n"
 "}")
@@ -402,49 +403,49 @@ class Ui_MainWindow(object):
         icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/graphics-card.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBox_2.addItem(self.toolBoxPage1_2, icon, "")
         self.page = QtWidgets.QWidget()
-        self.page.setGeometry(QtCore.QRect(0, 0, 295, 233))
+        self.page.setGeometry(QtCore.QRect(0, 0, 100, 30))
         self.page.setObjectName("page")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/cpu-tower.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBox_2.addItem(self.page, icon1, "")
         self.toolBoxPage2_2 = QtWidgets.QWidget()
-        self.toolBoxPage2_2.setGeometry(QtCore.QRect(0, 0, 295, 233))
+        self.toolBoxPage2_2.setGeometry(QtCore.QRect(0, 0, 100, 30))
         self.toolBoxPage2_2.setObjectName("toolBoxPage2_2")
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/motherboard.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBox_2.addItem(self.toolBoxPage2_2, icon2, "")
         self.toolBoxPage3_2 = QtWidgets.QWidget()
-        self.toolBoxPage3_2.setGeometry(QtCore.QRect(0, 0, 295, 233))
+        self.toolBoxPage3_2.setGeometry(QtCore.QRect(0, 0, 100, 30))
         self.toolBoxPage3_2.setObjectName("toolBoxPage3_2")
         icon3 = QtGui.QIcon()
         icon3.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/cpucooling.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBox_2.addItem(self.toolBoxPage3_2, icon3, "")
         self.toolBoxPage4_2 = QtWidgets.QWidget()
-        self.toolBoxPage4_2.setGeometry(QtCore.QRect(0, 0, 295, 233))
+        self.toolBoxPage4_2.setGeometry(QtCore.QRect(0, 0, 100, 30))
         self.toolBoxPage4_2.setObjectName("toolBoxPage4_2")
         icon4 = QtGui.QIcon()
         icon4.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/ram (1).png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBox_2.addItem(self.toolBoxPage4_2, icon4, "")
         self.page_2 = QtWidgets.QWidget()
-        self.page_2.setGeometry(QtCore.QRect(0, 0, 295, 233))
+        self.page_2.setGeometry(QtCore.QRect(0, 0, 100, 30))
         self.page_2.setObjectName("page_2")
         icon5 = QtGui.QIcon()
         icon5.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/hard-drive.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBox_2.addItem(self.page_2, icon5, "")
         self.page_3 = QtWidgets.QWidget()
-        self.page_3.setGeometry(QtCore.QRect(0, 0, 295, 233))
+        self.page_3.setGeometry(QtCore.QRect(0, 0, 100, 30))
         self.page_3.setObjectName("page_3")
         icon6 = QtGui.QIcon()
         icon6.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/power.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBox_2.addItem(self.page_3, icon6, "")
         self.page_4 = QtWidgets.QWidget()
-        self.page_4.setGeometry(QtCore.QRect(0, 0, 295, 233))
+        self.page_4.setGeometry(QtCore.QRect(0, 0, 100, 30))
         self.page_4.setObjectName("page_4")
         icon7 = QtGui.QIcon()
         icon7.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/case.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBox_2.addItem(self.page_4, icon7, "")
         self.page_5 = QtWidgets.QWidget()
-        self.page_5.setGeometry(QtCore.QRect(0, 0, 295, 233))
+        self.page_5.setGeometry(QtCore.QRect(0, 0, 100, 30))
         self.page_5.setObjectName("page_5")
         icon8 = QtGui.QIcon()
         icon8.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/conf.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -505,7 +506,6 @@ class Ui_MainWindow(object):
 "    min-width: 30px;    \n"
 "    min-height: 30px;\n"
 "    font-family: Montserrat SemiBold;\n"
-"    qproperty-defaultAlignment: AlignVCenter;\n"
 "}\n"
 "\n"
 "\n"
@@ -699,11 +699,11 @@ class Ui_MainWindow(object):
         self.twSklad.horizontalHeader().setCascadingSectionResizes(True)
         self.twSklad.horizontalHeader().setDefaultSectionSize(90)
         self.twSklad.horizontalHeader().setMinimumSectionSize(44)
-        self.twSklad.verticalHeader().setVisible(True)
+        self.twSklad.verticalHeader().setVisible(False)
         self.twSklad.verticalHeader().setDefaultSectionSize(32)
         self.twSklad.verticalHeader().setMinimumSectionSize(10)
         self.btnAdd = QtWidgets.QPushButton(self.sklad)
-        self.btnAdd.setGeometry(QtCore.QRect(540, 580, 151, 31))
+        self.btnAdd.setGeometry(QtCore.QRect(530, 580, 161, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -722,7 +722,7 @@ class Ui_MainWindow(object):
 "")
         self.btnAdd.setObjectName("btnAdd")
         self.btnDelete = QtWidgets.QPushButton(self.sklad)
-        self.btnDelete.setGeometry(QtCore.QRect(940, 580, 151, 31))
+        self.btnDelete.setGeometry(QtCore.QRect(950, 580, 161, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -741,7 +741,7 @@ class Ui_MainWindow(object):
 "}")
         self.btnDelete.setObjectName("btnDelete")
         self.btnChange = QtWidgets.QPushButton(self.sklad)
-        self.btnChange.setGeometry(QtCore.QRect(740, 580, 151, 31))
+        self.btnChange.setGeometry(QtCore.QRect(740, 580, 161, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -818,7 +818,6 @@ class Ui_MainWindow(object):
         self.treeWidget.setAutoFillBackground(False)
         self.treeWidget.setStyleSheet("QTreeWidget{\n"
 "    background-color:  #101010;\n"
-"    \n"
 "}\n"
 "\n"
 "QTreeWidget::item:pressed{color:#fff4f4;}\n"
@@ -1023,7 +1022,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
         self.scrollAreaWidgetContents.setEnabled(True)
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1035, 2518))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -1897, 1035, 2518))
         self.scrollAreaWidgetContents.setAutoFillBackground(False)
         self.scrollAreaWidgetContents.setInputMethodHints(QtCore.Qt.ImhNone)
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
@@ -1254,7 +1253,7 @@ class Ui_MainWindow(object):
 "    background: none;\n"
 "}\n"
 "")
-        self.tableConfVideo.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableConfVideo.setEditTriggers(QtWidgets.QAbstractItemView.SelectedClicked)
         self.tableConfVideo.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.tableConfVideo.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tableConfVideo.setShowGrid(False)
@@ -1591,7 +1590,7 @@ class Ui_MainWindow(object):
 "    background: none;\n"
 "}\n"
 "")
-        self.tableConfProc.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableConfProc.setEditTriggers(QtWidgets.QAbstractItemView.SelectedClicked)
         self.tableConfProc.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.tableConfProc.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tableConfProc.setShowGrid(False)
@@ -1623,6 +1622,10 @@ class Ui_MainWindow(object):
         self.tableConfProc.setItem(1, 2, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableConfProc.setItem(1, 3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfProc.setItem(2, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableConfProc.setItem(2, 3, item)
         self.tableConfProc.horizontalHeader().setVisible(False)
         self.tableConfProc.horizontalHeader().setCascadingSectionResizes(True)
         self.tableConfProc.horizontalHeader().setDefaultSectionSize(30)
@@ -1954,7 +1957,7 @@ class Ui_MainWindow(object):
 "    background: none;\n"
 "}\n"
 "")
-        self.tableConfMother.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableConfMother.setEditTriggers(QtWidgets.QAbstractItemView.SelectedClicked)
         self.tableConfMother.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.tableConfMother.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tableConfMother.setShowGrid(False)
@@ -2265,7 +2268,7 @@ class Ui_MainWindow(object):
 "    background: none;\n"
 "}\n"
 "")
-        self.tableConfCool.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableConfCool.setEditTriggers(QtWidgets.QAbstractItemView.SelectedClicked)
         self.tableConfCool.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.tableConfCool.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tableConfCool.setShowGrid(False)
@@ -2576,7 +2579,7 @@ class Ui_MainWindow(object):
 "    background: none;\n"
 "}\n"
 "")
-        self.tableConfRam.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableConfRam.setEditTriggers(QtWidgets.QAbstractItemView.SelectedClicked)
         self.tableConfRam.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.tableConfRam.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tableConfRam.setShowGrid(False)
@@ -2867,7 +2870,7 @@ class Ui_MainWindow(object):
 "    background: none;\n"
 "}\n"
 "")
-        self.tableConfDisk.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableConfDisk.setEditTriggers(QtWidgets.QAbstractItemView.SelectedClicked)
         self.tableConfDisk.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.tableConfDisk.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tableConfDisk.setShowGrid(False)
@@ -3177,7 +3180,7 @@ class Ui_MainWindow(object):
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}")
-        self.tableConfPower.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableConfPower.setEditTriggers(QtWidgets.QAbstractItemView.SelectedClicked)
         self.tableConfPower.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.tableConfPower.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tableConfPower.setShowGrid(False)
@@ -3495,7 +3498,7 @@ class Ui_MainWindow(object):
 "    background: none;\n"
 "}\n"
 "")
-        self.tableConfBody.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableConfBody.setEditTriggers(QtWidgets.QAbstractItemView.SelectedClicked)
         self.tableConfBody.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.tableConfBody.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tableConfBody.setShowGrid(False)
@@ -3744,14 +3747,10 @@ class Ui_MainWindow(object):
         self.table_config.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.table_config.setShowGrid(False)
         self.table_config.setObjectName("table_config")
-        self.table_config.setColumnCount(3)
-        self.table_config.setRowCount(3)
+        self.table_config.setColumnCount(4)
+        self.table_config.setRowCount(1)
         item = QtWidgets.QTableWidgetItem()
         self.table_config.setVerticalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.table_config.setVerticalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.table_config.setVerticalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
         self.table_config.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
@@ -3759,11 +3758,15 @@ class Ui_MainWindow(object):
         item = QtWidgets.QTableWidgetItem()
         self.table_config.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
+        self.table_config.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
         self.table_config.setItem(0, 0, item)
         item = QtWidgets.QTableWidgetItem()
         self.table_config.setItem(0, 1, item)
         item = QtWidgets.QTableWidgetItem()
         self.table_config.setItem(0, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.table_config.setItem(0, 3, item)
         self.table_config.horizontalHeader().setVisible(False)
         self.table_config.horizontalHeader().setCascadingSectionResizes(False)
         self.table_config.horizontalHeader().setDefaultSectionSize(30)
@@ -3786,7 +3789,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)
         self.toolBox_2.layout().setSpacing(8)
         self.tabWidgetVideo.setCurrentIndex(0)
         self.tabWidgetProc.setCurrentIndex(2)
@@ -3892,9 +3895,9 @@ class Ui_MainWindow(object):
         item = self.twSklad.item(1, 4)
         item.setText(_translate("MainWindow", "2222111"))
         self.twSklad.setSortingEnabled(__sortingEnabled)
-        self.btnAdd.setText(_translate("MainWindow", "Добавить"))
+        self.btnAdd.setText(_translate("MainWindow", "Новый заказ"))
         self.btnDelete.setText(_translate("MainWindow", "Удалить"))
-        self.btnChange.setText(_translate("MainWindow", "Изменить договор"))
+        self.btnChange.setText(_translate("MainWindow", "Изменить параметры"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.sklad), _translate("MainWindow", "Склад"))
         self.progressBar.setFormat(_translate("MainWindow", "2 / 8"))
         self.treeWidget.setSortingEnabled(False)
@@ -3968,6 +3971,10 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "NVIDIA RTX 4080"))
         item = self.tableConfProc.item(1, 3)
         item.setText(_translate("MainWindow", "2878913412"))
+        item = self.tableConfProc.item(2, 2)
+        item.setText(_translate("MainWindow", "324122"))
+        item = self.tableConfProc.item(2, 3)
+        item.setText(_translate("MainWindow", "erttttt"))
         self.tableConfProc.setSortingEnabled(__sortingEnabled)
         self.btnProcFilter.setText(_translate("MainWindow", "Настроить фильтр"))
         self.btnProcHelp.setText(_translate("MainWindow", "Как подобрать процессор?"))
@@ -4230,23 +4237,23 @@ class Ui_MainWindow(object):
         self.btn_purcashe.setText(_translate("MainWindow", "Оформить заказ"))
         item = self.table_config.verticalHeaderItem(0)
         item.setText(_translate("MainWindow", "New Row"))
-        item = self.table_config.verticalHeaderItem(1)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.table_config.verticalHeaderItem(2)
-        item.setText(_translate("MainWindow", "New Row"))
         item = self.table_config.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "название"))
+        item.setText(_translate("MainWindow", "id"))
         item = self.table_config.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "цена"))
+        item.setText(_translate("MainWindow", "название"))
         item = self.table_config.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "цена"))
+        item = self.table_config.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "рубль"))
         __sortingEnabled = self.table_config.isSortingEnabled()
         self.table_config.setSortingEnabled(False)
         item = self.table_config.item(0, 0)
-        item.setText(_translate("MainWindow", "nvidia gtx3080"))
+        item.setText(_translate("MainWindow", "0"))
         item = self.table_config.item(0, 1)
-        item.setText(_translate("MainWindow", "35600"))
+        item.setText(_translate("MainWindow", "nvidia gtx3080"))
         item = self.table_config.item(0, 2)
+        item.setText(_translate("MainWindow", "35600"))
+        item = self.table_config.item(0, 3)
         item.setText(_translate("MainWindow", "₽"))
         self.table_config.setSortingEnabled(__sortingEnabled)
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.configurator), _translate("MainWindow", "Конфигуратор"))
