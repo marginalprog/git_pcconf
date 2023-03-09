@@ -1,9 +1,12 @@
 import sys
 
-from PyQt5 import QtWidgets, QtCore, QtGui, Qt
+from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtWidgets import QDialog, QTableWidgetItem
-from PyQt5.QtGui import QIcon, QPixmap
-from ui import main_interface, addChVidWidg, warningWin
+from PyQt5.QtGui import QPixmap
+from ui import main_interface, warningWin
+from ui.add import adding  # импорт файла со всеми окнами добавления
+from ui.help import helping  # импорт файла со всеми окнами помощи
+from ui.filter import filters  # импорт файла со всеми фильтрами
 
 
 # Класс диалогового окна с кнопкой
@@ -14,14 +17,6 @@ class DialogOk(QDialog, warningWin.Ui_warningDialog):
         self.setWindowTitle("Ошибка")
         self.lbErrDescription.setText(text)
         self.btnCancel.clicked.connect(lambda: self.close())
-
-
-# Класс окна с добавлением\редактированием видеокарты
-class AddChangeVideoWindow(QtWidgets.QWidget, addChVidWidg.Ui_addChVidWidg):
-    def __init__(self):
-        super().__init__()
-        self.setupUi(self)
-        self.btnVidCancel.clicked.connect(lambda: self.close())
 
 
 class RadioButton(QtWidgets.QRadioButton):
@@ -49,7 +44,6 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         self.setWindowTitle("Конфигуратор ПК")
 
         self.treeWidget.itemClicked.connect(lambda: self.treeNavigation())
-
         #  self.toolBox_2.currentChanged.connect(lambda: self.toolBox_2.currentIndex())
         self.btnAdd.clicked.connect(lambda: self.tbChanged(
             self.toolBox_2.currentIndex(),
@@ -63,10 +57,18 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 self.twSklad.currentRow(),
                 self.twSklad.columnCount()))
                                        )
-        # self.scrollArea.changeEvent()
-        if self.scrollArea.verticalScrollBar().value() > 900:
-            self.lbVideo.setStyleSheet("color: green")
-        # значение отловить
+
+        # ---------------------Кнопки с помощью---------------------------
+        self.vHelp = helping.VideoHelp()
+        self.btnVidHelp.clicked.connect(lambda: self.vHelp.show())
+
+        # ----------------------------------------------------------------
+
+        # ---------------------Кнопки с фильтрами---------------------------
+        self.fVideo = filters.VideoFilter()
+        self.btnVidFilter.clicked.connect(lambda: self.fVideo.show())
+
+        # ----------------------------------------------------------------
 
         self.twSklad.horizontalHeader().setDefaultAlignment(QtCore.Qt.AlignVCenter | QtCore.Qt.AlignHCenter)
         self.twSklad.verticalHeader().setDefaultAlignment(QtCore.Qt.AlignVCenter | QtCore.Qt.AlignHCenter)
@@ -156,28 +158,59 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         match page:
             case 0:  # 0-9 - вкладки ToolBox (меню навигации)
                 if button:  # Если True - добавляем новую запись: открываем пустое окно
-                    self.win_add_change = AddChangeVideoWindow()
+                    self.win_add_change = adding.AddChangeVideoWindow()
                     self.win_add_change.setWindowTitle("Создание заказа")
                     self.win_add_change.show()
                 else:  # Есил False - изменяем выбранную запись
-                    if type(row) is str:  # Если пришел не список, а строка - вывод окна с ошибкой
+                    if type(row) is str:  # Если пришел не список, а строка(ошибка) - вывод окна с ошибкой
                         self.dialog = DialogOk(row)
                         self.dialog.show()
                         if self.dialog.exec():
                             pass
-                    else:  # Если пришел список - заполняем окно
+                        '''Убрал кнопку с изменением данных товара! теперь проверка неактуальна'''
+                    '''else:  # Если пришел список - заполняем окно.
                         self.win_add_change = AddChangeVideoWindow()
                         self.win_add_change.setWindowTitle("Изменить запись")
                         self.win_add_change.teVidName.setText(row[0])
                         self.win_add_change.teVidChip.setText(row[1])
                         self.win_add_change.teVidType.setText(row[2])
-                        self.win_add_change.show()
+                        self.win_add_change.show()'''
             case 1:
-                print("Процессоры")
+                if button:  # Если True - добавляем новую запись: открываем пустое окно
+                    self.win_add_change = adding.AddChangeVideoWindow()
+                    self.win_add_change.setWindowTitle("Создание заказа")
+                    #self.win_add_change.radioButton = RadioButton()
+                    self.win_add_change.show()
             case 2:
-                print("ццц")
+                if button:  # Если True - добавляем новую запись: открываем пустое окно
+                    self.win_add_change = adding.AddChangeVideoWindow()
+                    self.win_add_change.setWindowTitle("Создание заказа")
+                    self.win_add_change.show()
             case 3:
-                print("sss")
+                if button:  # Если True - добавляем новую запись: открываем пустое окно
+                    self.win_add_change = adding.AddChangeVideoWindow()
+                    self.win_add_change.setWindowTitle("Создание заказа")
+                    self.win_add_change.show()
+            case 4:
+                if button:  # Если True - добавляем новую запись: открываем пустое окно
+                    self.win_add_change = adding.AddChangeVideoWindow()
+                    self.win_add_change.setWindowTitle("Создание заказа")
+                    self.win_add_change.show()
+            case 5:
+                if button:  # Если True - добавляем новую запись: открываем пустое окно
+                    self.win_add_change = adding.AddChangeVideoWindow()
+                    self.win_add_change.setWindowTitle("Создание заказа")
+                    self.win_add_change.show()
+            case 6:
+                if button:  # Если True - добавляем новую запись: открываем пустое окно
+                    self.win_add_change = adding.AddChangeVideoWindow()
+                    self.win_add_change.setWindowTitle("Создание заказа")
+                    self.win_add_change.show()
+            case 7:
+                if button:  # Если True - добавляем новую запись: открываем пустое окно
+                    self.win_add_change = adding.AddChangeVideoWindow()
+                    self.win_add_change.setWindowTitle("Создание заказа")
+                    self.win_add_change.show()
 
     #  метод создания индикатора состояния комплектующего
     def create_existence(self, png_way):
@@ -259,14 +292,15 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         # Метод проверки корзины на наличие выбранного типа комплектуюшего (вызывается из .fill_cart)
 
     def check_cart(self, id_table):
-        if self.table_config.rowCount() == 0:  # если корзина пуста - вернуть 0
-            return 0
+        if self.table_config.rowCount() == 0:  # если корзина пуста - вернуть -1
+            return -1
         else:
             for i in range(self.table_config.rowCount()):
                 s = self.table_config.item(i, 0).text()
                 if self.table_config.item(i, 0).text() == str(id_table):
                     return i
             return -1  # если не найдено записей - вернуть -1
+
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)

@@ -3,6 +3,7 @@ import sys
 from PyQt5 import QtWidgets, QtCore
 from ui import untitled
 
+a = untitled.Ui_Form()
 
 class MainWindow(QtWidgets.QMainWindow, untitled.Ui_Form):
     def __init__(self):

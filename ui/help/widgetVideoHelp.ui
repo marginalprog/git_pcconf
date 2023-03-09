@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>widgetVideoHelp</class>
+ <widget class="QWidget" name="widgetVideoHelp">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>899</width>
+    <height>629</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Montserrat Medium</family>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Подобрать видеокарту</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget{
+	background-color: rgb(35,35,35);
+	color: white;
+}</string>
+  </property>
+  <widget class="QLabel" name="lbHowVid">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>30</y>
+     <width>281</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Как подобрать видеокарту?</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbHowVidTxt">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>80</y>
+     <width>821</width>
+     <height>191</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat Medium</family>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(220,220,220);</string>
+   </property>
+   <property name="text">
+    <string>Видеокарта – это устройство, преобразующее графический образ, хранящийся как содержимое памяти компьютера (или самого адаптера), в форму, пригодную для дальнейшего вывода на экран монитора.
+Наша компания предоставляет видеокарты NVIDIA GeForce и AMD Radeon.
+
+При выборе видеокарты в первую очередь следует обратить внимание на её поколение, так как от этого зависит современность технологий, которые были применены и внедрены при производстве.
+Далее - выбирается оптимальный вариант по цене и справочным данным: объём памяти, разъём интерфейса, частота ядра памяти и и пр.</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::PlainText</enum>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignJustify|Qt::AlignTop</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="Line" name="rectangle">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>61</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;
+background-color: rgb(180, 0, 0);
+border: 1px solid rgb(180, 0, 0);</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbNvidia">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>290</y>
+     <width>151</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat</family>
+     <pointsize>13</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>NVIDIA GeForce</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbGeForce">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>340</y>
+     <width>381</width>
+     <height>221</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat Medium</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(220,220,220);</string>
+   </property>
+   <property name="text">
+    <string>NVIDIA является лидером относительно разработки видеокарт, технологий и инновационных прорывов. 
+ Новейшие технологии, например: 
+NVIDIA RTX. Аппаратное ускорение трассировки лучей, в идеале работающее и первое появившееся на видеокартах NVIDIA; 
+NVIDIA DLSS. Высокотехнологичном апскейлинге до 4K из более низкого разрешения с применением нейросетей.
+Так, если требуется инновационная производительность и использование новейших технолгий, то следует выбирать продукты от NVIDIA</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::PlainText</enum>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignJustify|Qt::AlignTop</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbRadeon">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>340</y>
+     <width>381</width>
+     <height>211</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat Medium</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(220,220,220);</string>
+   </property>
+   <property name="text">
+    <string>Продукцию AMD относят к более бюджетным вариантам. Большинство прорывов в области архитектуры графических процессоров остаётся за NVIDIA. Однако не всем пользователям необходимы последние инновационные технологии, плюс ко всему, часто AMD Radeon выигрывает в производительности у аналогов Nvidia. 
+Так, если нет необходимости в самых последних графичских инновациях и ограничен бюджет, то, часто без потери производительности, следует выбирать продукты от AMD.</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::PlainText</enum>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignJustify|Qt::AlignTop</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbAmd">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>290</y>
+     <width>151</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat</family>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>AMD Radeon</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnClose">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>580</y>
+     <width>121</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat Medium</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	border:1px solid rgb(70,70,70);
+	background-color: rgb(40,40,40);
+	color: #fffafa;
+}
+
+QPushButton::hover
+{
+	border:1px;
+	background-color: rgb(60,60,60);
+	border-color: rgb(40,40,40);
+	border-bottom: 1px solid  red;
+	color: red;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Закрыть</string>
+   </property>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>340</y>
+     <width>20</width>
+     <height>211</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 0px;
+border-right: 1px solid rgb(180, 0, 0);</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>190</y>
+     <width>20</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 0px;
+border-right: 1px solid rgb(180, 0, 0);</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_3">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>340</y>
+     <width>20</width>
+     <height>211</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 0px;
+border-right: 1px solid rgb(180, 0, 0);</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_4">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>80</y>
+     <width>20</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 0px;
+border-right: 1px solid rgb(180, 0, 0);</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <zorder>lbHowVid</zorder>
+  <zorder>lbHowVidTxt</zorder>
+  <zorder>rectangle</zorder>
+  <zorder>lbNvidia</zorder>
+  <zorder>lbRadeon</zorder>
+  <zorder>lbAmd</zorder>
+  <zorder>btnClose</zorder>
+  <zorder>line</zorder>
+  <zorder>line_2</zorder>
+  <zorder>lbGeForce</zorder>
+  <zorder>line_3</zorder>
+  <zorder>line_4</zorder>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>btnClose</sender>
+   <signal>clicked()</signal>
+   <receiver>widgetVideoHelp</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>450</x>
+     <y>595</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>449</x>
+     <y>314</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

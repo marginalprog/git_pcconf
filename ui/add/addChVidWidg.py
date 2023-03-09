@@ -15,7 +15,7 @@ class Ui_addChVidWidg(object):
     def setupUi(self, addChVidWidg):
         addChVidWidg.setObjectName("addChVidWidg")
         addChVidWidg.setWindowModality(QtCore.Qt.WindowModal)
-        addChVidWidg.resize(881, 565)
+        addChVidWidg.resize(881, 582)
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -28,7 +28,12 @@ class Ui_addChVidWidg(object):
 "}\n"
 "")
         self.radioButton = QtWidgets.QRadioButton(addChVidWidg)
-        self.radioButton.setGeometry(QtCore.QRect(20, 30, 221, 17))
+        self.radioButton.setGeometry(QtCore.QRect(20, 40, 221, 17))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.radioButton.sizePolicy().hasHeightForWidth())
+        self.radioButton.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -36,10 +41,27 @@ class Ui_addChVidWidg(object):
         self.radioButton.setStyleSheet("QRadioButton:hover{\n"
 "    color: rgb(190,0,0);\n"
 "}\n"
-"")
+"\n"
+"QRadioButton::indicator {\n"
+"    width: 13px;\n"
+"    height: 13px;\n"
+"     border-image: url(\"E:/pcconf/images/off.png\") 0;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:checked {\n"
+"    width: 13px;\n"
+"    height: 13px;\n"
+"     border-image: url(\"E:/pcconf/images/on.png\") 0;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:unchecked {\n"
+"    width: 13px;\n"
+"    height: 13px;\n"
+"     border-image: url(\"E:/pcconf/images/off.png\") 0;\n"
+"}")
         self.radioButton.setObjectName("radioButton")
         self.lbFullName = QtWidgets.QLabel(addChVidWidg)
-        self.lbFullName.setGeometry(QtCore.QRect(20, 160, 201, 21))
+        self.lbFullName.setGeometry(QtCore.QRect(20, 170, 201, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -47,21 +69,21 @@ class Ui_addChVidWidg(object):
         self.lbFullName.setStyleSheet("border:0px;")
         self.lbFullName.setObjectName("lbFullName")
         self.line = QtWidgets.QFrame(addChVidWidg)
-        self.line.setGeometry(QtCore.QRect(20, 60, 841, 16))
+        self.line.setGeometry(QtCore.QRect(20, 70, 841, 16))
         self.line.setStyleSheet("border:0px;\n"
 "border-top: 1px solid rgb(180, 0, 0);")
         self.line.setFrameShape(QtWidgets.QFrame.HLine)
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
         self.line_2 = QtWidgets.QFrame(addChVidWidg)
-        self.line_2.setGeometry(QtCore.QRect(20, 320, 841, 16))
+        self.line_2.setGeometry(QtCore.QRect(20, 330, 841, 16))
         self.line_2.setStyleSheet("border:0px;\n"
 "border-top: 1px solid rgb(180, 0, 0);")
         self.line_2.setFrameShape(QtWidgets.QFrame.HLine)
         self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_2.setObjectName("line_2")
         self.comBoxVidPost = QtWidgets.QComboBox(addChVidWidg)
-        self.comBoxVidPost.setGeometry(QtCore.QRect(20, 110, 181, 31))
+        self.comBoxVidPost.setGeometry(QtCore.QRect(20, 120, 181, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -125,7 +147,7 @@ class Ui_addChVidWidg(object):
         self.comBoxVidPost.addItem("")
         self.comBoxVidPost.addItem("")
         self.lbVidPost = QtWidgets.QLabel(addChVidWidg)
-        self.lbVidPost.setGeometry(QtCore.QRect(20, 80, 171, 21))
+        self.lbVidPost.setGeometry(QtCore.QRect(20, 90, 171, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -133,7 +155,7 @@ class Ui_addChVidWidg(object):
         self.lbVidPost.setStyleSheet("border:0px;")
         self.lbVidPost.setObjectName("lbVidPost")
         self.teVidName = QtWidgets.QTextEdit(addChVidWidg)
-        self.teVidName.setGeometry(QtCore.QRect(20, 190, 261, 31))
+        self.teVidName.setGeometry(QtCore.QRect(20, 200, 261, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -153,7 +175,7 @@ class Ui_addChVidWidg(object):
         self.teVidName.setPlaceholderText("")
         self.teVidName.setObjectName("teVidName")
         self.label_3 = QtWidgets.QLabel(addChVidWidg)
-        self.label_3.setGeometry(QtCore.QRect(750, 30, 111, 21))
+        self.label_3.setGeometry(QtCore.QRect(750, 40, 111, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(12)
@@ -161,39 +183,40 @@ class Ui_addChVidWidg(object):
         self.label_3.setStyleSheet("border:0px;")
         self.label_3.setObjectName("label_3")
         self.btnVidSave = QtWidgets.QPushButton(addChVidWidg)
-        self.btnVidSave.setGeometry(QtCore.QRect(220, 520, 151, 31))
+        self.btnVidSave.setGeometry(QtCore.QRect(220, 530, 151, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
         self.btnVidSave.setFont(font)
         self.btnVidSave.setStyleSheet("QPushButton{\n"
-"    border-color: rgb(30,30,30);\n"
+"    border:1px solid rgb(80,80,80);\n"
 "    background-color: rgb(40,40,40);\n"
 "    color: #fffafa;\n"
 "}\n"
 "\n"
 "QPushButton::hover\n"
 "{\n"
+"    border:1px;\n"
 "    background-color: rgb(60,60,60);\n"
-"    border-color: rgb(40,40,40);\n"
-"    border-bottom: 1px solid  green;\n"
+"    border-bottom: 1px solid rgb(0, 255, 8);\n"
 "}\n"
 "")
         self.btnVidSave.setObjectName("btnVidSave")
         self.btnVidCancel = QtWidgets.QPushButton(addChVidWidg)
-        self.btnVidCancel.setGeometry(QtCore.QRect(460, 520, 151, 31))
+        self.btnVidCancel.setGeometry(QtCore.QRect(460, 530, 151, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
         self.btnVidCancel.setFont(font)
         self.btnVidCancel.setStyleSheet("QPushButton{\n"
-"    border-color: rgb(30,30,30);\n"
+"    border:1px solid rgb(80,80,80);\n"
 "    background-color: rgb(40,40,40);\n"
 "    color: #fffafa;\n"
 "}\n"
 "\n"
 "QPushButton::hover\n"
 "{\n"
+"    border:1px;\n"
 "    background-color: rgb(60,60,60);\n"
 "    border-color: rgb(40,40,40);\n"
 "    border-bottom: 1px solid  red;\n"
@@ -205,7 +228,7 @@ class Ui_addChVidWidg(object):
         self.btnVidCancel.setFlat(False)
         self.btnVidCancel.setObjectName("btnVidCancel")
         self.teVidVolume = QtWidgets.QTextEdit(addChVidWidg)
-        self.teVidVolume.setGeometry(QtCore.QRect(20, 270, 111, 31))
+        self.teVidVolume.setGeometry(QtCore.QRect(20, 280, 111, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -224,7 +247,7 @@ class Ui_addChVidWidg(object):
 "}")
         self.teVidVolume.setObjectName("teVidVolume")
         self.label_4 = QtWidgets.QLabel(addChVidWidg)
-        self.label_4.setGeometry(QtCore.QRect(20, 240, 141, 21))
+        self.label_4.setGeometry(QtCore.QRect(20, 250, 141, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -232,7 +255,7 @@ class Ui_addChVidWidg(object):
         self.label_4.setStyleSheet("border:0px;")
         self.label_4.setObjectName("label_4")
         self.label_5 = QtWidgets.QLabel(addChVidWidg)
-        self.label_5.setGeometry(QtCore.QRect(170, 240, 111, 21))
+        self.label_5.setGeometry(QtCore.QRect(170, 250, 111, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -240,7 +263,7 @@ class Ui_addChVidWidg(object):
         self.label_5.setStyleSheet("border:0px;")
         self.label_5.setObjectName("label_5")
         self.label_6 = QtWidgets.QLabel(addChVidWidg)
-        self.label_6.setGeometry(QtCore.QRect(320, 240, 161, 21))
+        self.label_6.setGeometry(QtCore.QRect(320, 250, 161, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -248,7 +271,7 @@ class Ui_addChVidWidg(object):
         self.label_6.setStyleSheet("border:0px;")
         self.label_6.setObjectName("label_6")
         self.teVidFreq = QtWidgets.QTextEdit(addChVidWidg)
-        self.teVidFreq.setGeometry(QtCore.QRect(320, 270, 111, 31))
+        self.teVidFreq.setGeometry(QtCore.QRect(320, 280, 111, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -267,7 +290,7 @@ class Ui_addChVidWidg(object):
 "}")
         self.teVidFreq.setObjectName("teVidFreq")
         self.label_7 = QtWidgets.QLabel(addChVidWidg)
-        self.label_7.setGeometry(QtCore.QRect(20, 340, 121, 21))
+        self.label_7.setGeometry(QtCore.QRect(20, 350, 121, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -275,7 +298,7 @@ class Ui_addChVidWidg(object):
         self.label_7.setStyleSheet("border:0px;")
         self.label_7.setObjectName("label_7")
         self.label_8 = QtWidgets.QLabel(addChVidWidg)
-        self.label_8.setGeometry(QtCore.QRect(170, 340, 111, 21))
+        self.label_8.setGeometry(QtCore.QRect(170, 350, 111, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -283,7 +306,7 @@ class Ui_addChVidWidg(object):
         self.label_8.setStyleSheet("border:0px;")
         self.label_8.setObjectName("label_8")
         self.teVidResol = QtWidgets.QTextEdit(addChVidWidg)
-        self.teVidResol.setGeometry(QtCore.QRect(320, 370, 111, 31))
+        self.teVidResol.setGeometry(QtCore.QRect(320, 380, 111, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -302,7 +325,7 @@ class Ui_addChVidWidg(object):
 "}")
         self.teVidResol.setObjectName("teVidResol")
         self.label_9 = QtWidgets.QLabel(addChVidWidg)
-        self.label_9.setGeometry(QtCore.QRect(320, 340, 111, 21))
+        self.label_9.setGeometry(QtCore.QRect(320, 350, 111, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -310,7 +333,7 @@ class Ui_addChVidWidg(object):
         self.label_9.setStyleSheet("border:0px;")
         self.label_9.setObjectName("label_9")
         self.label_10 = QtWidgets.QLabel(addChVidWidg)
-        self.label_10.setGeometry(QtCore.QRect(640, 340, 111, 21))
+        self.label_10.setGeometry(QtCore.QRect(640, 350, 111, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -318,7 +341,7 @@ class Ui_addChVidWidg(object):
         self.label_10.setStyleSheet("border:0px;")
         self.label_10.setObjectName("label_10")
         self.teVidLength = QtWidgets.QTextEdit(addChVidWidg)
-        self.teVidLength.setGeometry(QtCore.QRect(640, 370, 111, 31))
+        self.teVidLength.setGeometry(QtCore.QRect(640, 380, 111, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -337,7 +360,7 @@ class Ui_addChVidWidg(object):
 "}")
         self.teVidLength.setObjectName("teVidLength")
         self.teVidTdp = QtWidgets.QTextEdit(addChVidWidg)
-        self.teVidTdp.setGeometry(QtCore.QRect(470, 370, 111, 31))
+        self.teVidTdp.setGeometry(QtCore.QRect(470, 380, 111, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -356,7 +379,7 @@ class Ui_addChVidWidg(object):
 "}")
         self.teVidTdp.setObjectName("teVidTdp")
         self.label_11 = QtWidgets.QLabel(addChVidWidg)
-        self.label_11.setGeometry(QtCore.QRect(470, 340, 161, 21))
+        self.label_11.setGeometry(QtCore.QRect(470, 350, 161, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -364,7 +387,7 @@ class Ui_addChVidWidg(object):
         self.label_11.setStyleSheet("border:0px;")
         self.label_11.setObjectName("label_11")
         self.teVidKol = QtWidgets.QTextEdit(addChVidWidg)
-        self.teVidKol.setGeometry(QtCore.QRect(20, 460, 111, 31))
+        self.teVidKol.setGeometry(QtCore.QRect(20, 470, 111, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -383,7 +406,7 @@ class Ui_addChVidWidg(object):
 "}")
         self.teVidKol.setObjectName("teVidKol")
         self.label_12 = QtWidgets.QLabel(addChVidWidg)
-        self.label_12.setGeometry(QtCore.QRect(20, 430, 111, 21))
+        self.label_12.setGeometry(QtCore.QRect(20, 440, 111, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -391,7 +414,7 @@ class Ui_addChVidWidg(object):
         self.label_12.setStyleSheet("border:0px;")
         self.label_12.setObjectName("label_12")
         self.teVidPrice = QtWidgets.QTextEdit(addChVidWidg)
-        self.teVidPrice.setGeometry(QtCore.QRect(170, 460, 111, 31))
+        self.teVidPrice.setGeometry(QtCore.QRect(170, 470, 111, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -410,7 +433,7 @@ class Ui_addChVidWidg(object):
 "}")
         self.teVidPrice.setObjectName("teVidPrice")
         self.label_13 = QtWidgets.QLabel(addChVidWidg)
-        self.label_13.setGeometry(QtCore.QRect(170, 430, 111, 21))
+        self.label_13.setGeometry(QtCore.QRect(170, 440, 111, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -418,14 +441,14 @@ class Ui_addChVidWidg(object):
         self.label_13.setStyleSheet("border:0px;")
         self.label_13.setObjectName("label_13")
         self.line_3 = QtWidgets.QFrame(addChVidWidg)
-        self.line_3.setGeometry(QtCore.QRect(20, 420, 841, 16))
+        self.line_3.setGeometry(QtCore.QRect(20, 430, 841, 16))
         self.line_3.setStyleSheet("border:0px;\n"
 "border-top: 1px solid rgb(180, 0, 0);")
         self.line_3.setFrameShape(QtWidgets.QFrame.HLine)
         self.line_3.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_3.setObjectName("line_3")
         self.comBoxVidInterface = QtWidgets.QComboBox(addChVidWidg)
-        self.comBoxVidInterface.setGeometry(QtCore.QRect(20, 370, 111, 31))
+        self.comBoxVidInterface.setGeometry(QtCore.QRect(20, 380, 111, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -482,7 +505,7 @@ class Ui_addChVidWidg(object):
         self.comBoxVidInterface.addItem("")
         self.comBoxVidInterface.addItem("")
         self.comBoxVidMonitor = QtWidgets.QComboBox(addChVidWidg)
-        self.comBoxVidMonitor.setGeometry(QtCore.QRect(170, 370, 111, 31))
+        self.comBoxVidMonitor.setGeometry(QtCore.QRect(170, 380, 111, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -540,7 +563,7 @@ class Ui_addChVidWidg(object):
         self.comBoxVidMonitor.addItem("")
         self.comBoxVidMonitor.addItem("")
         self.teVidType = QtWidgets.QTextEdit(addChVidWidg)
-        self.teVidType.setGeometry(QtCore.QRect(170, 270, 111, 31))
+        self.teVidType.setGeometry(QtCore.QRect(170, 280, 111, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -559,7 +582,7 @@ class Ui_addChVidWidg(object):
 "}")
         self.teVidType.setObjectName("teVidType")
         self.lbChip = QtWidgets.QLabel(addChVidWidg)
-        self.lbChip.setGeometry(QtCore.QRect(320, 160, 171, 21))
+        self.lbChip.setGeometry(QtCore.QRect(320, 170, 171, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -567,7 +590,7 @@ class Ui_addChVidWidg(object):
         self.lbChip.setStyleSheet("border:0px;")
         self.lbChip.setObjectName("lbChip")
         self.teVidChip = QtWidgets.QTextEdit(addChVidWidg)
-        self.teVidChip.setGeometry(QtCore.QRect(320, 190, 291, 31))
+        self.teVidChip.setGeometry(QtCore.QRect(320, 200, 291, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -585,6 +608,78 @@ class Ui_addChVidWidg(object):
 "    border-bottom: 1px solid  red;\n"
 "}")
         self.teVidChip.setObjectName("teVidChip")
+        self.comBoxVidPost_2 = QtWidgets.QComboBox(addChVidWidg)
+        self.comBoxVidPost_2.setGeometry(QtCore.QRect(320, 120, 181, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.comBoxVidPost_2.setFont(font)
+        self.comBoxVidPost_2.setStyleSheet("QComboBox{\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px;\n"
+"    border-bottom: 1px solid red;\n"
+"    padding-left: 5px;\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QComboBox QListView{\n"
+"    border: 1px solid red;\n"
+"    padding-left: 5px;\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QComboBox:hover{\n"
+"    background-color: rgb(55,55,55);\n"
+"}\n"
+"\n"
+"QComboBox::drop-down{\n"
+"border: 0px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow {\n"
+"border-image: url(\"E:/pcconf/images/down-arrow.png\");\n"
+"width: 17px;\n"
+"height: 17px;\n"
+"margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow:on {\n"
+"    border-image: url(\"E:/pcconf/images/down-arrow (1).png\");\n"
+"    width: 17px;\n"
+"    height: 17px;\n"
+"    margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox:on{\n"
+"border: 2px solid rgb(100,0,0);\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    background: rgb(250, 250, 250);\n"
+"    border-width: 1px;\n"
+"    border-style: solid;\n"
+"    border-color: rgb(235, 235, 235);\n"
+"    selection-background-color: rgb(240, 240, 240);\n"
+"    selection-color: rgb(25, 25, 25);\n"
+"}\n"
+"")
+        self.comBoxVidPost_2.setEditable(False)
+        self.comBoxVidPost_2.setIconSize(QtCore.QSize(20, 20))
+        self.comBoxVidPost_2.setDuplicatesEnabled(False)
+        self.comBoxVidPost_2.setFrame(False)
+        self.comBoxVidPost_2.setModelColumn(0)
+        self.comBoxVidPost_2.setObjectName("comBoxVidPost_2")
+        self.comBoxVidPost_2.addItem("")
+        self.comBoxVidPost_2.addItem("")
+        self.comBoxVidPost_2.addItem("")
+        self.rectangle = QtWidgets.QFrame(addChVidWidg)
+        self.rectangle.setGeometry(QtCore.QRect(20, 10, 61, 16))
+        self.rectangle.setStyleSheet("border:0px;\n"
+"background-color: rgb(180, 0, 0);\n"
+"border: 1px solid rgb(180, 0, 0);")
+        self.rectangle.setFrameShape(QtWidgets.QFrame.HLine)
+        self.rectangle.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.rectangle.setObjectName("rectangle")
         self.radioButton.raise_()
         self.lbFullName.raise_()
         self.line.raise_()
@@ -618,6 +713,8 @@ class Ui_addChVidWidg(object):
         self.teVidType.raise_()
         self.lbChip.raise_()
         self.teVidChip.raise_()
+        self.comBoxVidPost_2.raise_()
+        self.rectangle.raise_()
 
         self.retranslateUi(addChVidWidg)
         QtCore.QMetaObject.connectSlotsByName(addChVidWidg)
@@ -653,6 +750,9 @@ class Ui_addChVidWidg(object):
         self.comBoxVidMonitor.setItemText(2, _translate("addChVidWidg", "3"))
         self.comBoxVidMonitor.setItemText(3, _translate("addChVidWidg", "4"))
         self.lbChip.setText(_translate("addChVidWidg", "Наименование чипа"))
+        self.comBoxVidPost_2.setItemText(0, _translate("addChVidWidg", "Новая"))
+        self.comBoxVidPost_2.setItemText(1, _translate("addChVidWidg", "в1"))
+        self.comBoxVidPost_2.setItemText(2, _translate("addChVidWidg", "в2"))
 
 
 if __name__ == "__main__":

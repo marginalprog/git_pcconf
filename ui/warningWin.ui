@@ -122,7 +122,7 @@ border: 1px solid rgb(180, 0, 0);</string>
    </property>
    <property name="font">
     <font>
-     <family>Montserrat Medium</family>
+     <family>Montserrat SemiBold</family>
      <pointsize>10</pointsize>
     </font>
    </property>
@@ -141,7 +141,7 @@ QPushButton::hover
 </string>
    </property>
    <property name="text">
-    <string>Отмена</string>
+    <string>ОК</string>
    </property>
   </widget>
   <widget class="Line" name="line_2">

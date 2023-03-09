@@ -1,0 +1,1080 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>WidgetVideoFilter</class>
+ <widget class="QWidget" name="WidgetVideoFilter">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>366</width>
+    <height>788</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Фильтр видеокарт</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget
+{
+     background: rgb(30, 30, 30);
+	color: white;
+
+}
+</string>
+  </property>
+  <widget class="QPushButton" name="btnClose">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>720</y>
+     <width>121</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat Medium</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	border:1px solid rgb(70,70,70);
+	background-color: rgb(40,40,40);
+	color: #fffafa;
+}
+
+QPushButton::hover
+{
+	border:1px;
+	background-color: rgb(60,60,60);
+	border-color: rgb(40,40,40);
+	border-bottom: 1px solid  red;
+	color: red;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Отмена</string>
+   </property>
+  </widget>
+  <widget class="QToolBox" name="toolBoxVidFilter">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>90</y>
+     <width>311</width>
+     <height>601</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Ignored">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat Medium</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="accessibleName">
+    <string/>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QToolBox
+{
+	background: rgb(30, 30, 30);
+	border: 1px solid red;
+	margin: 1px;
+	icon-size: 23px;
+}
+
+QToolBox::tab
+{
+	height:250px;
+	background: rgb(30, 30, 30);
+	margin-left: 1px;
+	left: -1px;
+	color: rgb(235, 235, 235);
+	border-top: 1px solid;
+	border-bottom: 3px solid;
+}
+
+QToolBox::tab:selected
+{
+	background-color: rgb(50, 50, 50);
+	border-bottom: 2px solid  rgb(180, 0, 0);
+	color: white;
+	font-weight: bold;
+}
+
+QToolBox::tab:hover
+{
+	background-color: rgb(65, 65, 65);
+	border-bottom: 5px solid;
+	border-color: black;
+}
+</string>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="lineWidth">
+    <number>0</number>
+   </property>
+   <property name="midLineWidth">
+    <number>1</number>
+   </property>
+   <property name="tabSpacing">
+    <number>3</number>
+   </property>
+   <widget class="QWidget" name="Price">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>307</width>
+      <height>189</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="sizeIncrement">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="baseSize">
+     <size>
+      <width>0</width>
+      <height>200</height>
+     </size>
+    </property>
+    <attribute name="icon">
+     <iconset theme="w">
+      <normaloff>../../images/down-arrow.png</normaloff>
+      <normalon>../../images/down-arrow (1).png</normalon>
+      <activeoff>../../images/down-arrow.png</activeoff>
+      <activeon>../../images/down-arrow (1).png</activeon>
+      <selectedoff>../../images/down-arrow.png</selectedoff>
+      <selectedon>../../images/down-arrow (1).png</selectedon>../../images/down-arrow.png</iconset>
+    </attribute>
+    <attribute name="label">
+     <string>Цена, Р</string>
+    </attribute>
+    <widget class="QFrame" name="tbFrameVideo">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>301</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QSlider" name="sliderPriceMin">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>111</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QSlider::groove:horizontal {
+border: 1px solid #bbb;
+background: rgb(150,150,150);
+height:6px;
+}
+
+QSlider::sub-page:horizontal {
+border: 1px solid rgb(60,60,60);
+background: qlineargradient(x1: 0, y1: 0,    x2: 0, y2: 1,
+    stop: 0 rgb(255, 0, 0), stop: 1 rgb(91, 91, 91));
+background: qlineargradient(x1: 0, y1: 0.2, x2: 1, y2: 1,
+    stop: 0 rgb(60, 60,60), stop: 1 rgb(250, 0, 0));
+color: rgb(144, 144, 144);
+height: 6px;
+}
+
+QSlider::add-page:horizontal {
+border: 1px solid rgb(60,60,60);
+background: rgb(80,80,80);
+}
+
+QSlider::handle:horizontal {
+border: 1px solid rgb(60,60,60);
+background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+    stop:0 rgb(80,80,80), stop:1 rgb(250,0,0));
+width: 6px;
+margin-top: -7px;
+margin-bottom: -7px;
+}
+
+QSlider::handle:horizontal:hover {
+border: 1px solid rgb(60,60,60);
+background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+    stop:0 rgb(105,105,105), stop:1 rgb(250,0,0));
+width: 9px;
+margin-top: -7px;
+margin-bottom: -7px;
+}
+
+
+QSlider::sub-page:horizontal:disabled {
+background: #bbb;
+border-color: #999;
+}
+
+QSlider::add-page:horizontal:disabled {
+background: #eee;
+border-color: #999;
+}
+
+QSlider::handle:horizontal:disabled {
+background: #eee;
+border: 1px solid #aaa;
+border-radius: 4px;
+}</string>
+      </property>
+      <property name="value">
+       <number>50</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="invertedAppearance">
+       <bool>false</bool>
+      </property>
+      <property name="invertedControls">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="teMinPrice">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Montserrat Medium</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTextEdit{
+	padding-left: 5px;
+	border: 1px solid rgb(20,20,20);
+	background-color: rgb(40,40,40);
+	border-bottom: 1px solid  rgb(120,120,120);
+	selection-background-color: rgb(105, 0, 0);
+}
+
+QTextEdit:hover{
+	background-color: rgb(55,55,55);
+	border-bottom: 1px solid  red;
+}</string>
+      </property>
+      <property name="autoFormatting">
+       <set>QTextEdit::AutoNone</set>
+      </property>
+      <property name="undoRedoEnabled">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Montserrat Medium'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="overwriteMode">
+       <bool>false</bool>
+      </property>
+      <property name="textInteractionFlags">
+       <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextEditable|Qt::TextEditorInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+      </property>
+      <property name="placeholderText">
+       <string>от 1500</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="teMaxPrice">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>20</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Montserrat Medium</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTextEdit{
+	padding-left: 5px;
+	border: 1px solid rgb(20,20,20);
+	background-color: rgb(40,40,40);
+	border-bottom: 1px solid  rgb(120,120,120);
+	selection-background-color: rgb(105, 0, 0);
+}
+
+QTextEdit:hover{
+	background-color: rgb(55,55,55);
+	border-bottom: 1px solid  red;
+}</string>
+      </property>
+      <property name="placeholderText">
+       <string>до 1500</string>
+      </property>
+     </widget>
+     <widget class="Line" name="line_2">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>40</y>
+        <width>21</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border:0px;
+border-top: 1px solid white;</string>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QSlider" name="sliderPriceMax">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>70</y>
+        <width>111</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QSlider::groove:horizontal {
+border: 1px solid #bbb;
+background: rgb(150,150,150);
+height:6px;
+}
+
+QSlider::sub-page:horizontal {
+border: 1px solid rgb(60,60,60);
+background: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.125 rgba(66, 68, 68, 255), stop:0.426136 rgba(117, 19, 19, 255), stop:0.852273 rgba(255, 0, 0, 255));
+
+color: rgb(144, 144, 144);
+height: 6px;
+}
+
+QSlider::add-page:horizontal {
+border: 1px solid rgb(60,60,60);
+background: rgb(80,80,80);
+}
+
+QSlider::handle:horizontal {
+border: 1px solid rgb(60,60,60);
+background:qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0.057, stop:0 rgba(255, 0, 0, 255), stop:0.398876 rgba(165, 0, 0, 255), stop:0.994318 rgba(46, 48, 49, 255));
+width: 6px;
+margin-top: -7px;
+margin-bottom: -7px;
+}
+
+QSlider::handle:horizontal:hover {
+border: 1px solid rgb(60,60,60);
+background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+    stop:0 rgb(105,105,105), stop:1 rgb(250,0,0));
+width: 9px;
+margin-top: -7px;
+margin-bottom: -7px;
+}
+
+
+QSlider::sub-page:horizontal:disabled {
+background: #bbb;
+border-color: #999;
+}
+
+QSlider::add-page:horizontal:disabled {
+background: #eee;
+border-color: #999;
+}
+
+QSlider::handle:horizontal:disabled {
+background: #eee;
+border: 1px solid #aaa;
+border-radius: 4px;
+}</string>
+      </property>
+      <property name="value">
+       <number>50</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="invertedAppearance">
+       <bool>false</bool>
+      </property>
+      <property name="invertedControls">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="Brand">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>307</width>
+      <height>189</height>
+     </rect>
+    </property>
+    <attribute name="icon">
+     <iconset>
+      <normaloff>../../images/down-arrow.png</normaloff>../../images/down-arrow.png</iconset>
+    </attribute>
+    <attribute name="label">
+     <string>Бренд</string>
+    </attribute>
+    <widget class="QFrame" name="frameBrand">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>301</width>
+       <height>181</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QTableWidget" name="tableBrand">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>0</y>
+        <width>241</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Montserrat Medium</family>
+        <stylestrategy>PreferAntialias</stylestrategy>
+       </font>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QHeaderView
+{	
+	background: rgb(30, 30, 30);
+	color: #dddddd;
+	border: 0px;
+	font-size: 14px;
+	min-width: 100px;	
+	min-height: 30px;
+}
+
+QHeaderView::section{
+	background: rgb(30, 30, 30);
+	min-width: 10px;	
+	min-height: 25px;
+	border: 0px solid;
+	border-right: 1px solid rgb(50,50,50); 
+	color: #dddddd;
+	font-size: 12px;
+}
+
+QHeaderView::section:hover {
+   color: white;
+	background-color: rgb(80,80,80);
+}
+
+QHeaderView::section{
+    color: white;
+	selection-background-color:#ffc0cb;
+}
+
+QTableWidget QTableCornerButton::section
+{
+	
+	background: rgb(30, 30, 30);
+	border-style: solid;
+	border-width: 1px;
+}
+
+QTableWidget::item
+{
+ 	border-bottom: 1px solid rgb(60,60,60); 
+	border-right: 0px;
+	border-left: 0px;
+	border-top:0px;
+}
+
+QTableView
+{
+	background: rgb(30, 30, 30);
+	color: #dddddd;
+	border-top: 0px;
+	border-right: 0px;
+	border-left: 0px;
+	border-bottom: 0px;
+}
+
+QTableWidget::item:hover {
+    color: white;
+	border-bottom: 1px solid rgb(180,180,180);
+}      
+
+QTableWidget::item:selected
+{
+ 	color: white;
+	border-bottom: 1px solid rgb(180,180,180);
+}
+
+QScrollBar:vertical {
+	border: none;
+    background-color: #151515;
+    width: 8px;
+    margin: 15px 0 15px 0;
+	border-radius: 0px;
+ }
+
+/*  HANDLE BAR VERTICAL */
+QScrollBar::handle:vertical {	
+	background-color: #151515;
+	min-height: 30px;
+	border-radius: 0px;
+	border: 1px solid;
+	border-right: 0px;
+	border-color: rgb(60,60,60);
+}
+QScrollBar::handle:vertical:hover{	
+	background-color:  rgb(50,50,50);
+	border-color: rgb(60,60,60);
+}
+QScrollBar::handle:vertical:pressed {	
+	background-color: rgb(120, 0, 2);
+}
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+	background-color: #151515;
+	height: 15px;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+	border: 0px;
+	border-bottom: 1px solid rgb(180, 0, 0);
+}
+QScrollBar::sub-line:vertical:hover {	
+	background-color: #575757;
+	border-color: #242424;
+}
+QScrollBar::sub-line:vertical:pressed {	
+	background-color: rgb(120, 0, 2);
+}
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+	background-color: #151515;
+	height: 15px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+	border: 1px solid;
+	border-color: rgb(60,60,60);
+	border: 1px solid;
+	border-top:1px solid rgb(180, 0, 0);
+	border-right: 0px;
+	border-bottom: 0px;
+}
+QScrollBar::add-line:vertical:hover {	
+	background-color: #575757;
+	border-color: #242424;
+}
+QScrollBar::add-line:vertical:pressed {	
+	background-color: rgb(120, 0, 2);
+}
+/* RESET ARROW */
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+	background: none;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
+}</string>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::SingleSelection</enum>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+      <property name="showGrid">
+       <bool>false</bool>
+      </property>
+      <property name="gridStyle">
+       <enum>Qt::SolidLine</enum>
+      </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
+      <attribute name="horizontalHeaderVisible">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="horizontalHeaderCascadingSectionResizes">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>120</number>
+      </attribute>
+      <attribute name="horizontalHeaderHighlightSections">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="horizontalHeaderMinimumSectionSize">
+       <number>15</number>
+      </attribute>
+      <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="horizontalHeaderStretchLastSection">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="verticalHeaderVisible">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="verticalHeaderCascadingSectionResizes">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="verticalHeaderMinimumSectionSize">
+       <number>10</number>
+      </attribute>
+      <row>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>1</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>2</string>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>Выбор</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Название</string>
+       </property>
+      </column>
+      <item row="0" column="0">
+       <property name="text">
+        <string>+</string>
+       </property>
+      </item>
+      <item row="0" column="1">
+       <property name="text">
+        <string>Gigabyte</string>
+       </property>
+      </item>
+      <item row="1" column="0">
+       <property name="text">
+        <string>-</string>
+       </property>
+      </item>
+      <item row="1" column="1">
+       <property name="text">
+        <string>Asus</string>
+       </property>
+      </item>
+      <item row="2" column="0">
+       <property name="text">
+        <string>+</string>
+       </property>
+      </item>
+      <item row="2" column="1">
+       <property name="text">
+        <string>Nvidia</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QCheckBox" name="checkBox">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>100</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QCheckBox {
+    spacing: 5px;
+}
+
+QCheckBox::indicator {
+    width: 25px;
+    height: 25px;
+}
+
+QCheckBox::indicator:unchecked {
+    image: url(E:/pcconf/images/unchecked.png);
+}
+
+
+QCheckBox::indicator:checked {
+    image: url(E:/pcconf/images/checked.png);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="pageMother">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>307</width>
+      <height>189</height>
+     </rect>
+    </property>
+    <attribute name="icon">
+     <iconset>
+      <normaloff>../../images/down-arrow.png</normaloff>../../images/down-arrow.png</iconset>
+    </attribute>
+    <attribute name="label">
+     <string>Производитель процессора</string>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="pageCooling">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>307</width>
+      <height>189</height>
+     </rect>
+    </property>
+    <attribute name="icon">
+     <iconset>
+      <normaloff>../../images/down-arrow.png</normaloff>../../images/down-arrow.png</iconset>
+    </attribute>
+    <attribute name="label">
+     <string>Графический процессор</string>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="pageRam">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>307</width>
+      <height>189</height>
+     </rect>
+    </property>
+    <attribute name="icon">
+     <iconset>
+      <normaloff>../../images/down-arrow.png</normaloff>../../images/down-arrow.png</iconset>
+    </attribute>
+    <attribute name="label">
+     <string>Объём памяти</string>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="pageDisk">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>307</width>
+      <height>189</height>
+     </rect>
+    </property>
+    <attribute name="icon">
+     <iconset>
+      <normaloff>../../images/down-arrow.png</normaloff>../../images/down-arrow.png</iconset>
+    </attribute>
+    <attribute name="label">
+     <string>Тип памяти</string>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="pagePower">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>307</width>
+      <height>189</height>
+     </rect>
+    </property>
+    <attribute name="icon">
+     <iconset>
+      <normaloff>../../images/down-arrow.png</normaloff>../../images/down-arrow.png</iconset>
+    </attribute>
+    <attribute name="label">
+     <string>Частота видеочипа</string>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="pageBody">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>307</width>
+      <height>189</height>
+     </rect>
+    </property>
+    <attribute name="icon">
+     <iconset>
+      <normaloff>../../images/down-arrow.png</normaloff>../../images/down-arrow.png</iconset>
+    </attribute>
+    <attribute name="label">
+     <string>Интерфейс подключения</string>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="page">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>307</width>
+      <height>189</height>
+     </rect>
+    </property>
+    <attribute name="icon">
+     <iconset>
+      <normaloff>../../images/down-arrow.png</normaloff>
+      <normalon>../../images/down-arrow (1).png</normalon>../../images/down-arrow.png</iconset>
+    </attribute>
+    <attribute name="label">
+     <string>Количество мониторов</string>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="page_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>307</width>
+      <height>189</height>
+     </rect>
+    </property>
+    <attribute name="icon">
+     <iconset>
+      <normaloff>../../images/down-arrow.png</normaloff>../../images/down-arrow.png</iconset>
+    </attribute>
+    <attribute name="label">
+     <string>Разрешение</string>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="page_3">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>307</width>
+      <height>189</height>
+     </rect>
+    </property>
+    <attribute name="icon">
+     <iconset>
+      <normaloff>../../images/down-arrow.png</normaloff>../../images/down-arrow.png</iconset>
+    </attribute>
+    <attribute name="label">
+     <string>Тепловыделение</string>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="page_4">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>307</width>
+      <height>189</height>
+     </rect>
+    </property>
+    <attribute name="icon">
+     <iconset>
+      <normaloff>../../images/down-arrow.png</normaloff>../../images/down-arrow.png</iconset>
+    </attribute>
+    <attribute name="label">
+     <string>Длина видеокарты</string>
+    </attribute>
+   </widget>
+  </widget>
+  <widget class="Line" name="rectangle">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>61</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;
+background-color: rgb(180, 0, 0);
+border: 1px solid rgb(180, 0, 0);</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbErr">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>40</y>
+     <width>181</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat Medium</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;</string>
+   </property>
+   <property name="text">
+    <string>Настройка фильтров</string>
+   </property>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>70</y>
+     <width>181</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;
+border-top: 1px solid red;</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnAccept">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>720</y>
+     <width>121</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat Medium</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	border:1px solid rgb(70,70,70);
+	background-color: rgb(40,40,40);
+	color: #fffafa;
+}
+
+QPushButton::hover
+{
+	border:1px;
+	background-color: rgb(60,60,60);
+	border-color: rgb(40,40,40);
+	border-bottom: 1px solid  red;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Применить</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>btnClose</sender>
+   <signal>clicked()</signal>
+   <receiver>WidgetVideoFilter</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>170</x>
+     <y>545</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>169</x>
+     <y>289</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

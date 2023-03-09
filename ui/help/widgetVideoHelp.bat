@@ -1,0 +1,1 @@
+pyuic5.exe -x E:\pcconf\ui\help\widgetVideoHelp.ui -o  E:\pcconf\ui\help\widgetVideoHelp.py
