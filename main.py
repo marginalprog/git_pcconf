@@ -290,7 +290,6 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
             self.table_config.setItem(insert_row, 2, QTableWidgetItem(price))
 
         # Метод проверки корзины на наличие выбранного типа комплектуюшего (вызывается из .fill_cart)
-
     def check_cart(self, id_table):
         if self.table_config.rowCount() == 0:  # если корзина пуста - вернуть -1
             return -1

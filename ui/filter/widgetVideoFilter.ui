@@ -164,7 +164,7 @@ QToolBox::tab:hover
      </size>
     </property>
     <attribute name="icon">
-     <iconset theme="w">
+     <iconset>
       <normaloff>../../images/down-arrow.png</normaloff>
       <normalon>../../images/down-arrow (1).png</normalon>
       <activeoff>../../images/down-arrow.png</activeoff>
@@ -179,7 +179,7 @@ QToolBox::tab:hover
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>0</y>
+       <y>30</y>
        <width>301</width>
        <height>121</height>
       </rect>
@@ -466,7 +466,8 @@ border-radius: 4px;
     </property>
     <attribute name="icon">
      <iconset>
-      <normaloff>../../images/down-arrow.png</normaloff>../../images/down-arrow.png</iconset>
+      <normaloff>../../images/down-arrow.png</normaloff>
+      <activeoff>../../images/up-arrow.png</activeoff>../../images/down-arrow.png</iconset>
     </attribute>
     <attribute name="label">
      <string>Бренд</string>
@@ -495,10 +496,10 @@ border-radius: 4px;
       </property>
       <property name="geometry">
        <rect>
-        <x>40</x>
+        <x>10</x>
         <y>0</y>
-        <width>241</width>
-        <height>111</height>
+        <width>291</width>
+        <height>181</height>
        </rect>
       </property>
       <property name="font">
@@ -659,7 +660,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
        <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
       </property>
       <property name="selectionMode">
-       <enum>QAbstractItemView::SingleSelection</enum>
+       <enum>QAbstractItemView::MultiSelection</enum>
       </property>
       <property name="selectionBehavior">
        <enum>QAbstractItemView::SelectRows</enum>
@@ -758,38 +759,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
         <string>Nvidia</string>
        </property>
       </item>
-     </widget>
-     <widget class="QCheckBox" name="checkBox">
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>100</y>
-        <width>21</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QCheckBox {
-    spacing: 5px;
-}
-
-QCheckBox::indicator {
-    width: 25px;
-    height: 25px;
-}
-
-QCheckBox::indicator:unchecked {
-    image: url(E:/pcconf/images/unchecked.png);
-}
-
-
-QCheckBox::indicator:checked {
-    image: url(E:/pcconf/images/checked.png);
-}</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
      </widget>
     </widget>
    </widget>
