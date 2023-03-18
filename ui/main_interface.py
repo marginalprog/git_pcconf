@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1366, 728)
+        MainWindow.resize(1367, 728)
         icon = QtGui.QIcon.fromTheme("E:\\pcconf\\images\\pcconf.png")
         MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet("background: rgb(30, 30, 30);\n"
@@ -78,23 +78,332 @@ class Ui_MainWindow(object):
         self.sklad = QtWidgets.QWidget()
         self.sklad.setStyleSheet("border:0px;")
         self.sklad.setObjectName("sklad")
-        self.verticalLayoutWidget = QtWidgets.QWidget(self.sklad)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 50, 301, 581))
-        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
-        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.toolBox_2 = QtWidgets.QToolBox(self.verticalLayoutWidget)
+        self.lbNavPanel = QtWidgets.QLabel(self.sklad)
+        self.lbNavPanel.setGeometry(QtCore.QRect(10, 10, 301, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(12)
-        self.toolBox_2.setFont(font)
-        self.toolBox_2.setAccessibleName("")
-        self.toolBox_2.setStyleSheet("QToolBox\n"
+        font.setBold(False)
+        font.setWeight(50)
+        self.lbNavPanel.setFont(font)
+        self.lbNavPanel.setStyleSheet("background-color: rgb(30,30,30);\n"
+"color: #fffafa;\n"
+"border-bottom: 1px solid  rgb(95,95,95);\n"
+"")
+        self.lbNavPanel.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbNavPanel.setObjectName("lbNavPanel")
+        self.btnSkladFilter = QtWidgets.QPushButton(self.sklad)
+        self.btnSkladFilter.setGeometry(QtCore.QRect(1160, 30, 131, 21))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        font.setUnderline(False)
+        self.btnSkladFilter.setFont(font)
+        self.btnSkladFilter.setStyleSheet("QPushButton\n"
+"{\n"
+"color:  rgb(230,230, 230);\n"
+"border: 0px;\n"
+"/*border-bottom: 1px solid rgb(200, 200, 200);*/\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"color: red;\n"
+"border-bottom: 1px solid red;\n"
+"}\n"
+"")
+        self.btnSkladFilter.setObjectName("btnSkladFilter")
+        self.twSklad = QtWidgets.QTableWidget(self.sklad)
+        self.twSklad.setGeometry(QtCore.QRect(350, 60, 941, 501))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setKerning(True)
+        self.twSklad.setFont(font)
+        self.twSklad.setMouseTracking(True)
+        self.twSklad.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.twSklad.setStyleSheet("QHeaderView\n"
+"{    \n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border: 0px;\n"
+"    min-width: 30px;    \n"
+"    min-height: 30px;\n"
+"    font-family: Montserrat SemiBold;\n"
+"}\n"
+"\n"
+"\n"
+"QHeaderView::section\n"
+"{\n"
+"    background-color: #101010;\n"
+"    border: 0px solid white;\n"
+"    border-bottom: 1px solid rgb(60,60,60);\n"
+"    border-right: 1px solid rgb(60,60,60);\n"
+"    min-height: 25px;\n"
+"    color: #dddddd;\n"
+"    font-size: 12px;\n"
+"    color: white;\n"
+"    selection-background-color:#ffc0cb;\n"
+"}\n"
+"\n"
+"QHeaderView::section:hover {\n"
+"   color: white;\n"
+"    background-color: rgb(80,80,80);\n"
+"}\n"
+"\n"
+"QTableWidget QTableCornerButton::section\n"
+"{\n"
+"    background-color: #101010;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px  solid rgb(60,60,60);\n"
+"    border-right: 1px  solid rgb(60,60,60);\n"
+"}\n"
+"\n"
+"QTableWidget::item\n"
+"{\n"
+"     border-bottom: 1px solid rgb(60,60,60); \n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"}\n"
+"\n"
+"QTableView\n"
+"{\n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border: 0px solid #434343;\n"
+"}\n"
+"\n"
+"QTableWidget::item:hover {\n"
+"    color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}      \n"
+"\n"
+"QTableWidget::item:selected\n"
+"{\n"
+"     color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background-color: #151515;\n"
+"    width: 16px;\n"
+"    margin: 15px 0 15px 0;\n"
+"    border-radius: 0px;\n"
+" }\n"
+"\n"
+"/*  HANDLE BAR VERTICAL */\n"
+"QScrollBar::handle:vertical {    \n"
+"    background-color: rgb(35, 35, 35);\n"
+"    min-height: 30px;\n"
+"    border-radius: 1px;\n"
+"    border: 1px solid;\n"
+"    border-color: qlineargradient(spread:pad, x1:0.528604, y1:0.034, x2:0.528, y2:1, stop:0 rgba(227, 0, 0, 255), stop:0.238636 rgba(142, 47, 47, 255), stop:0.517045 rgba(192, 0, 0, 255), stop:0.767045 rgba(135, 0, 0, 255), stop:1 rgba(255, 0, 0, 255));\n"
+"    border-top-color: #FF0000;    \n"
+"    border-bottom-color: #FF0000;\n"
+"\n"
+"}\n"
+"QScrollBar::handle:vertical:hover{    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::handle:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:vertical {\n"
+"    background-color: rgb(35, 35, 35);\n"
+"    height: 15px;\n"
+"    border-top-left-radius: 1px;\n"
+"    border-top-right-radius: 1px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: #FF0000;    \n"
+"    border-color: qlineargradient(spread:pad, x1:0.5, y1:0, x2:0.517, y2:1, stop:0 rgba(0, 0, 0, 255), stop:0.965909 rgba(227, 0, 0, 255));\n"
+"    border-top-color:   #3d3d3d;\n"
+"    border-bottom-color: rgb(227, 0, 0, 255);\n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:vertical {\n"
+"    background-color: rgb(35, 35, 35);\n"
+"    height: 15px;\n"
+"    border-top-left-radius: 1px;\n"
+"    border-top-right-radius: 1px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: #FF0000;    \n"
+"    border-color: qlineargradient(spread:pad, x1:0.506, y1:1, x2:0.528, y2:0, stop:0 rgba(0, 0, 0, 255), stop:0.965909 rgba(227, 0, 0, 255));\n"
+"    border-top-color:  rgb(227, 0, 0, 255);\n"
+"    border-bottom-color: #3d3d3d;\n"
+"}\n"
+"QScrollBar::add-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
+"}")
+        self.twSklad.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.twSklad.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.twSklad.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.twSklad.setTextElideMode(QtCore.Qt.ElideLeft)
+        self.twSklad.setShowGrid(False)
+        self.twSklad.setGridStyle(QtCore.Qt.SolidLine)
+        self.twSklad.setCornerButtonEnabled(True)
+        self.twSklad.setObjectName("twSklad")
+        self.twSklad.setColumnCount(5)
+        self.twSklad.setRowCount(7)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setVerticalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setVerticalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setVerticalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setVerticalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setVerticalHeaderItem(6, item)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setFamily("MS Sans Serif")
+        item.setFont(font)
+        self.twSklad.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setHorizontalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setItem(0, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setItem(0, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setItem(0, 3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setItem(0, 4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setItem(1, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setItem(1, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setItem(1, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setItem(1, 3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.twSklad.setItem(1, 4, item)
+        self.twSklad.horizontalHeader().setCascadingSectionResizes(True)
+        self.twSklad.horizontalHeader().setDefaultSectionSize(90)
+        self.twSklad.horizontalHeader().setMinimumSectionSize(44)
+        self.twSklad.verticalHeader().setVisible(False)
+        self.twSklad.verticalHeader().setDefaultSectionSize(32)
+        self.twSklad.verticalHeader().setMinimumSectionSize(10)
+        self.btnAdd = QtWidgets.QPushButton(self.sklad)
+        self.btnAdd.setGeometry(QtCore.QRect(530, 580, 161, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnAdd.setFont(font)
+        self.btnAdd.setStyleSheet("QPushButton{\n"
+"    border:1px solid rgb(70,70,70);\n"
+"    background-color: rgb(40,40,40);\n"
+"    color: #fffafa;\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    border:1px;\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-color: rgb(40,40,40);\n"
+"    border-bottom: 1px solid   rgb(0, 255, 8);\n"
+"    color:  rgb(0, 255, 8);\n"
+"}\n"
+"")
+        self.btnAdd.setObjectName("btnAdd")
+        self.btnDelete = QtWidgets.QPushButton(self.sklad)
+        self.btnDelete.setGeometry(QtCore.QRect(950, 580, 161, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnDelete.setFont(font)
+        self.btnDelete.setStyleSheet("QPushButton{\n"
+"    border:1px solid rgb(70,70,70);\n"
+"    background-color: rgb(40,40,40);\n"
+"    color: #fffafa;\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    border:1px;\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-color: rgb(40,40,40);\n"
+"    border-bottom: 1px solid  red;\n"
+"    color: red;\n"
+"}\n"
+"")
+        self.btnDelete.setObjectName("btnDelete")
+        self.btnChange = QtWidgets.QPushButton(self.sklad)
+        self.btnChange.setGeometry(QtCore.QRect(740, 620, 161, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnChange.setFont(font)
+        self.btnChange.setStyleSheet("QPushButton{\n"
+"background-color: rgb(20,20,20);\n"
+"color: #fffafa;\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"background-color: rgb(40,40,40);\n"
+"border-color: rgb(40,40,40);\n"
+"border-bottom: 1px solid  yellow;\n"
+"}")
+        self.btnChange.setObjectName("btnChange")
+        self.toolBoxNavigation = QtWidgets.QToolBox(self.sklad)
+        self.toolBoxNavigation.setGeometry(QtCore.QRect(11, 51, 301, 571))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(12)
+        self.toolBoxNavigation.setFont(font)
+        self.toolBoxNavigation.setAccessibleName("")
+        self.toolBoxNavigation.setStyleSheet("QToolBox\n"
 "{\n"
 "    background: rgb(30, 30, 30);\n"
 "    border: 1px solid rgb(195, 0, 0);\n"
 "    margin: 1px;\n"
+"    icon-size: 23px;\n"
 "}\n"
 "\n"
 "QToolBox::tab\n"
@@ -122,11 +431,11 @@ class Ui_MainWindow(object):
 "    border-bottom: 5px solid;\n"
 "    border-color: black;\n"
 "}")
-        self.toolBox_2.setFrameShadow(QtWidgets.QFrame.Plain)
-        self.toolBox_2.setLineWidth(1)
-        self.toolBox_2.setObjectName("toolBox_2")
+        self.toolBoxNavigation.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.toolBoxNavigation.setLineWidth(1)
+        self.toolBoxNavigation.setObjectName("toolBoxNavigation")
         self.pageVideo = QtWidgets.QWidget()
-        self.pageVideo.setGeometry(QtCore.QRect(0, 0, 295, 233))
+        self.pageVideo.setGeometry(QtCore.QRect(0, 0, 297, 243))
         self.pageVideo.setObjectName("pageVideo")
         self.tbFrameVideo = QtWidgets.QFrame(self.pageVideo)
         self.tbFrameVideo.setGeometry(QtCore.QRect(0, 0, 301, 261))
@@ -156,15 +465,16 @@ class Ui_MainWindow(object):
         self.btnNewVideoPost.setFont(font)
         self.btnNewVideoPost.setStyleSheet("QPushButton\n"
 "{\n"
-"color:  white;\n"
-"border: 1px solid rgb(100, 100, 100);\n"
+"    color:  white;\n"
+"    border: 1px solid rgb(100, 100, 100);\n"
+"    background-color: rgb(40,40,40);\n"
 "}\n"
 "\n"
 "QPushButton::hover\n"
 "{\n"
-"background-color: rgb(40, 40, 40);\n"
-"color: rgb(0, 255, 8);\n"
-"border-bottom: 1px solid rgb(0, 255, 8);\n"
+"    background-color: rgb(60,60,60);\n"
+"    color: rgb(0, 255, 8);\n"
+"    border-bottom: 1px solid rgb(0, 255, 8);\n"
 "}\n"
 "")
         self.btnNewVideoPost.setObjectName("btnNewVideoPost")
@@ -176,14 +486,16 @@ class Ui_MainWindow(object):
         self.btnDelVideoPost.setFont(font)
         self.btnDelVideoPost.setStyleSheet("QPushButton\n"
 "{\n"
-"color:  white;\n"
-"border: 1px solid rgb(100, 100, 100);\n"
+"    color:  white;\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px solid rgb(100, 100, 100);\n"
 "}\n"
 "\n"
 "QPushButton::hover\n"
 "{\n"
-"color: red;\n"
-"border-bottom: 1px solid red;\n"
+"    background-color: rgb(60,60,60);\n"
+"    color: red;\n"
+"    border-bottom: 1px solid red;\n"
 "}\n"
 "")
         self.btnDelVideoPost.setObjectName("btnDelVideoPost")
@@ -383,14 +695,16 @@ class Ui_MainWindow(object):
         self.btnCngVideoPost.setFont(font)
         self.btnCngVideoPost.setStyleSheet("QPushButton\n"
 "{\n"
-"color:  white;\n"
-"border: 1px solid rgb(100, 100, 100);\n"
+"    color:  white;\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px solid rgb(100, 100, 100);\n"
 "}\n"
 "\n"
 "QPushButton::hover\n"
 "{\n"
-"color: rgb(255, 247, 0);\n"
-"border-bottom: 1px solid rgb(255, 247, 0);\n"
+"    background-color: rgb(60,60,60);\n"
+"    color: rgb(255, 247, 0);    \n"
+"    border-bottom: 1px solid rgb(255, 247, 0);\n"
 "}\n"
 "")
         self.btnCngVideoPost.setObjectName("btnCngVideoPost")
@@ -401,9 +715,9 @@ class Ui_MainWindow(object):
         self.tableVideoPost.raise_()
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/graphics-card.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.toolBox_2.addItem(self.pageVideo, icon, "")
+        self.toolBoxNavigation.addItem(self.pageVideo, icon, "")
         self.pageProc = QtWidgets.QWidget()
-        self.pageProc.setGeometry(QtCore.QRect(0, 0, 295, 233))
+        self.pageProc.setGeometry(QtCore.QRect(0, 0, 297, 243))
         self.pageProc.setObjectName("pageProc")
         self.tbFrameProc = QtWidgets.QFrame(self.pageProc)
         self.tbFrameProc.setGeometry(QtCore.QRect(0, 0, 301, 251))
@@ -673,9 +987,9 @@ class Ui_MainWindow(object):
         self.btnCngProcPost.setObjectName("btnCngProcPost")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/cpu-tower.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.toolBox_2.addItem(self.pageProc, icon1, "")
+        self.toolBoxNavigation.addItem(self.pageProc, icon1, "")
         self.pageMother = QtWidgets.QWidget()
-        self.pageMother.setGeometry(QtCore.QRect(0, 0, 295, 233))
+        self.pageMother.setGeometry(QtCore.QRect(0, 0, 297, 243))
         self.pageMother.setObjectName("pageMother")
         self.tbFrameMother = QtWidgets.QFrame(self.pageMother)
         self.tbFrameMother.setGeometry(QtCore.QRect(0, 0, 301, 261))
@@ -945,9 +1259,9 @@ class Ui_MainWindow(object):
         self.btnCngMotherPost.setObjectName("btnCngMotherPost")
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/motherboard.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.toolBox_2.addItem(self.pageMother, icon2, "")
+        self.toolBoxNavigation.addItem(self.pageMother, icon2, "")
         self.pageCooling = QtWidgets.QWidget()
-        self.pageCooling.setGeometry(QtCore.QRect(0, 0, 295, 233))
+        self.pageCooling.setGeometry(QtCore.QRect(0, 0, 297, 243))
         self.pageCooling.setObjectName("pageCooling")
         self.tbFrameCooling = QtWidgets.QFrame(self.pageCooling)
         self.tbFrameCooling.setGeometry(QtCore.QRect(0, 0, 301, 261))
@@ -1217,9 +1531,9 @@ class Ui_MainWindow(object):
         self.btnCngCoolingPost.setObjectName("btnCngCoolingPost")
         icon3 = QtGui.QIcon()
         icon3.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/cpucooling.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.toolBox_2.addItem(self.pageCooling, icon3, "")
+        self.toolBoxNavigation.addItem(self.pageCooling, icon3, "")
         self.pageRam = QtWidgets.QWidget()
-        self.pageRam.setGeometry(QtCore.QRect(0, 0, 295, 233))
+        self.pageRam.setGeometry(QtCore.QRect(0, 0, 297, 243))
         self.pageRam.setObjectName("pageRam")
         self.tbFrameRam = QtWidgets.QFrame(self.pageRam)
         self.tbFrameRam.setGeometry(QtCore.QRect(0, 0, 301, 261))
@@ -1489,9 +1803,9 @@ class Ui_MainWindow(object):
         self.btnCngRamPost.setObjectName("btnCngRamPost")
         icon4 = QtGui.QIcon()
         icon4.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/ram (1).png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.toolBox_2.addItem(self.pageRam, icon4, "")
+        self.toolBoxNavigation.addItem(self.pageRam, icon4, "")
         self.pageDisk = QtWidgets.QWidget()
-        self.pageDisk.setGeometry(QtCore.QRect(0, 0, 295, 233))
+        self.pageDisk.setGeometry(QtCore.QRect(0, 0, 297, 243))
         self.pageDisk.setObjectName("pageDisk")
         self.tbFrameDisk = QtWidgets.QFrame(self.pageDisk)
         self.tbFrameDisk.setGeometry(QtCore.QRect(0, 0, 301, 261))
@@ -1761,9 +2075,9 @@ class Ui_MainWindow(object):
         self.btnCngDiskPost.setObjectName("btnCngDiskPost")
         icon5 = QtGui.QIcon()
         icon5.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/hard-drive.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.toolBox_2.addItem(self.pageDisk, icon5, "")
+        self.toolBoxNavigation.addItem(self.pageDisk, icon5, "")
         self.pagePower = QtWidgets.QWidget()
-        self.pagePower.setGeometry(QtCore.QRect(0, 0, 295, 233))
+        self.pagePower.setGeometry(QtCore.QRect(0, 0, 297, 243))
         self.pagePower.setObjectName("pagePower")
         self.tbFramePower = QtWidgets.QFrame(self.pagePower)
         self.tbFramePower.setGeometry(QtCore.QRect(0, 0, 301, 261))
@@ -2033,9 +2347,9 @@ class Ui_MainWindow(object):
         self.btnCngPowerPost.setObjectName("btnCngPowerPost")
         icon6 = QtGui.QIcon()
         icon6.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/power.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.toolBox_2.addItem(self.pagePower, icon6, "")
+        self.toolBoxNavigation.addItem(self.pagePower, icon6, "")
         self.pageBody = QtWidgets.QWidget()
-        self.pageBody.setGeometry(QtCore.QRect(0, 0, 295, 233))
+        self.pageBody.setGeometry(QtCore.QRect(0, 0, 297, 243))
         self.pageBody.setObjectName("pageBody")
         self.tbFrameBody = QtWidgets.QFrame(self.pageBody)
         self.tbFrameBody.setGeometry(QtCore.QRect(0, 0, 301, 261))
@@ -2305,9 +2619,9 @@ class Ui_MainWindow(object):
         self.btnCngBodyPost.setObjectName("btnCngBodyPost")
         icon7 = QtGui.QIcon()
         icon7.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/case.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.toolBox_2.addItem(self.pageBody, icon7, "")
+        self.toolBoxNavigation.addItem(self.pageBody, icon7, "")
         self.pageConf = QtWidgets.QWidget()
-        self.pageConf.setGeometry(QtCore.QRect(0, 0, 295, 233))
+        self.pageConf.setGeometry(QtCore.QRect(0, 0, 297, 243))
         self.pageConf.setObjectName("pageConf")
         self.tbFrameConf = QtWidgets.QFrame(self.pageConf)
         self.tbFrameConf.setGeometry(QtCore.QRect(0, 0, 301, 261))
@@ -2577,316 +2891,7 @@ class Ui_MainWindow(object):
         self.btnDelVideoPost_20.setObjectName("btnDelVideoPost_20")
         icon8 = QtGui.QIcon()
         icon8.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/conf.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.toolBox_2.addItem(self.pageConf, icon8, "")
-        self.verticalLayout_2.addWidget(self.toolBox_2)
-        self.lbNavPanel = QtWidgets.QLabel(self.sklad)
-        self.lbNavPanel.setGeometry(QtCore.QRect(10, 10, 301, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(12)
-        font.setBold(False)
-        font.setWeight(50)
-        self.lbNavPanel.setFont(font)
-        self.lbNavPanel.setStyleSheet("background-color: rgb(30,30,30);\n"
-"color: #fffafa;\n"
-"border-bottom: 1px solid  rgb(95,95,95);\n"
-"")
-        self.lbNavPanel.setAlignment(QtCore.Qt.AlignCenter)
-        self.lbNavPanel.setObjectName("lbNavPanel")
-        self.btnSkladFilter = QtWidgets.QPushButton(self.sklad)
-        self.btnSkladFilter.setGeometry(QtCore.QRect(1160, 30, 131, 21))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        font.setUnderline(False)
-        self.btnSkladFilter.setFont(font)
-        self.btnSkladFilter.setStyleSheet("QPushButton\n"
-"{\n"
-"color:  rgb(230,230, 230);\n"
-"border: 0px;\n"
-"/*border-bottom: 1px solid rgb(200, 200, 200);*/\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"color: red;\n"
-"border-bottom: 1px solid red;\n"
-"}\n"
-"")
-        self.btnSkladFilter.setObjectName("btnSkladFilter")
-        self.twSklad = QtWidgets.QTableWidget(self.sklad)
-        self.twSklad.setGeometry(QtCore.QRect(350, 60, 941, 501))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setUnderline(False)
-        font.setWeight(50)
-        font.setKerning(True)
-        self.twSklad.setFont(font)
-        self.twSklad.setMouseTracking(True)
-        self.twSklad.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.twSklad.setStyleSheet("QHeaderView\n"
-"{    \n"
-"    background-color: #101010;\n"
-"    color: #dddddd;\n"
-"    border: 0px;\n"
-"    min-width: 30px;    \n"
-"    min-height: 30px;\n"
-"    font-family: Montserrat SemiBold;\n"
-"}\n"
-"\n"
-"\n"
-"QHeaderView::section\n"
-"{\n"
-"    background-color: #101010;\n"
-"    border: 0px solid white;\n"
-"    border-bottom: 1px solid rgb(60,60,60);\n"
-"    border-right: 1px solid rgb(60,60,60);\n"
-"    min-height: 25px;\n"
-"    color: #dddddd;\n"
-"    font-size: 12px;\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
-"QHeaderView::section:hover {\n"
-"   color: white;\n"
-"    background-color: rgb(80,80,80);\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section\n"
-"{\n"
-"    background-color: #101010;\n"
-"    border: 0px;\n"
-"    border-bottom: 1px  solid rgb(60,60,60);\n"
-"    border-right: 1px  solid rgb(60,60,60);\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
-"{\n"
-"     border-bottom: 1px solid rgb(60,60,60); \n"
-"    border-right: 0px;\n"
-"    border-left: 0px;\n"
-"    border-top:0px;\n"
-"}\n"
-"\n"
-"QTableView\n"
-"{\n"
-"    background-color: #101010;\n"
-"    color: #dddddd;\n"
-"    border: 0px solid #434343;\n"
-"}\n"
-"\n"
-"QTableWidget::item:hover {\n"
-"    color: white;\n"
-"    border-bottom: 1px solid rgb(180,180,180);\n"
-"}      \n"
-"\n"
-"QTableWidget::item:selected\n"
-"{\n"
-"     color: white;\n"
-"    border-bottom: 1px solid rgb(180,180,180);\n"
-"}\n"
-"\n"
-"QScrollBar:vertical {\n"
-"    border: none;\n"
-"    background-color: #151515;\n"
-"    width: 16px;\n"
-"    margin: 15px 0 15px 0;\n"
-"    border-radius: 0px;\n"
-" }\n"
-"\n"
-"/*  HANDLE BAR VERTICAL */\n"
-"QScrollBar::handle:vertical {    \n"
-"    background-color: rgb(35, 35, 35);\n"
-"    min-height: 30px;\n"
-"    border-radius: 1px;\n"
-"    border: 1px solid;\n"
-"    border-color: qlineargradient(spread:pad, x1:0.528604, y1:0.034, x2:0.528, y2:1, stop:0 rgba(227, 0, 0, 255), stop:0.238636 rgba(142, 47, 47, 255), stop:0.517045 rgba(192, 0, 0, 255), stop:0.767045 rgba(135, 0, 0, 255), stop:1 rgba(255, 0, 0, 255));\n"
-"    border-top-color: #FF0000;    \n"
-"    border-bottom-color: #FF0000;\n"
-"\n"
-"}\n"
-"QScrollBar::handle:vertical:hover{    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::handle:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"\n"
-"/* BTN TOP - SCROLLBAR */\n"
-"QScrollBar::sub-line:vertical {\n"
-"    background-color: rgb(35, 35, 35);\n"
-"    height: 15px;\n"
-"    border-top-left-radius: 1px;\n"
-"    border-top-right-radius: 1px;\n"
-"    subcontrol-position: top;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 1px solid;\n"
-"    border-color: #FF0000;    \n"
-"    border-color: qlineargradient(spread:pad, x1:0.5, y1:0, x2:0.517, y2:1, stop:0 rgba(0, 0, 0, 255), stop:0.965909 rgba(227, 0, 0, 255));\n"
-"    border-top-color:   #3d3d3d;\n"
-"    border-bottom-color: rgb(227, 0, 0, 255);\n"
-"}\n"
-"QScrollBar::sub-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::sub-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"\n"
-"/* BTN BOTTOM - SCROLLBAR */\n"
-"QScrollBar::add-line:vertical {\n"
-"    background-color: rgb(35, 35, 35);\n"
-"    height: 15px;\n"
-"    border-top-left-radius: 1px;\n"
-"    border-top-right-radius: 1px;\n"
-"    subcontrol-position: bottom;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 1px solid;\n"
-"    border-color: #FF0000;    \n"
-"    border-color: qlineargradient(spread:pad, x1:0.506, y1:1, x2:0.528, y2:0, stop:0 rgba(0, 0, 0, 255), stop:0.965909 rgba(227, 0, 0, 255));\n"
-"    border-top-color:  rgb(227, 0, 0, 255);\n"
-"    border-bottom-color: #3d3d3d;\n"
-"}\n"
-"QScrollBar::add-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::add-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"/* RESET ARROW */\n"
-"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"    background: none;\n"
-"}\n"
-"\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"    background: none;\n"
-"}")
-        self.twSklad.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
-        self.twSklad.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
-        self.twSklad.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self.twSklad.setTextElideMode(QtCore.Qt.ElideLeft)
-        self.twSklad.setShowGrid(False)
-        self.twSklad.setGridStyle(QtCore.Qt.SolidLine)
-        self.twSklad.setCornerButtonEnabled(True)
-        self.twSklad.setObjectName("twSklad")
-        self.twSklad.setColumnCount(5)
-        self.twSklad.setRowCount(7)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setVerticalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setVerticalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setVerticalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setVerticalHeaderItem(3, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setVerticalHeaderItem(4, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setVerticalHeaderItem(5, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setVerticalHeaderItem(6, item)
-        item = QtWidgets.QTableWidgetItem()
-        font = QtGui.QFont()
-        font.setFamily("MS Sans Serif")
-        item.setFont(font)
-        self.twSklad.setHorizontalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setHorizontalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setHorizontalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setHorizontalHeaderItem(3, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setHorizontalHeaderItem(4, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setItem(0, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setItem(0, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setItem(0, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setItem(0, 3, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setItem(0, 4, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setItem(1, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setItem(1, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setItem(1, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setItem(1, 3, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setItem(1, 4, item)
-        self.twSklad.horizontalHeader().setCascadingSectionResizes(True)
-        self.twSklad.horizontalHeader().setDefaultSectionSize(90)
-        self.twSklad.horizontalHeader().setMinimumSectionSize(44)
-        self.twSklad.verticalHeader().setVisible(False)
-        self.twSklad.verticalHeader().setDefaultSectionSize(32)
-        self.twSklad.verticalHeader().setMinimumSectionSize(10)
-        self.btnAdd = QtWidgets.QPushButton(self.sklad)
-        self.btnAdd.setGeometry(QtCore.QRect(530, 580, 161, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnAdd.setFont(font)
-        self.btnAdd.setStyleSheet("QPushButton{\n"
-"background-color: rgb(20,20,20);\n"
-"color: #fffafa;\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"background-color: rgb(40,40,40);\n"
-"border-color: rgb(40,40,40);\n"
-"border-bottom: 1px solid  rgb(0, 255, 8);\n"
-"color: rgb(0, 255, 8);\n"
-"}\n"
-"")
-        self.btnAdd.setObjectName("btnAdd")
-        self.btnDelete = QtWidgets.QPushButton(self.sklad)
-        self.btnDelete.setGeometry(QtCore.QRect(950, 580, 161, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnDelete.setFont(font)
-        self.btnDelete.setStyleSheet("QPushButton{\n"
-"background-color: rgb(20,20,20);\n"
-"color: #fffafa;\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"background-color: rgb(40,40,40);\n"
-"border-color: rgb(40,40,40);\n"
-"color:  red;\n"
-"border-bottom: 1px solid  red;\n"
-"}")
-        self.btnDelete.setObjectName("btnDelete")
-        self.btnChange = QtWidgets.QPushButton(self.sklad)
-        self.btnChange.setGeometry(QtCore.QRect(740, 610, 161, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnChange.setFont(font)
-        self.btnChange.setStyleSheet("QPushButton{\n"
-"background-color: rgb(20,20,20);\n"
-"color: #fffafa;\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"background-color: rgb(40,40,40);\n"
-"border-color: rgb(40,40,40);\n"
-"border-bottom: 1px solid  yellow;\n"
-"}")
-        self.btnChange.setObjectName("btnChange")
+        self.toolBoxNavigation.addItem(self.pageConf, icon8, "")
         self.tabWidget.addTab(self.sklad, "")
         self.configurator = QtWidgets.QWidget()
         self.configurator.setStyleSheet("border:0px;")
@@ -5901,7 +5906,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.tabWidget)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1366, 23))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1367, 23))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -5909,8 +5914,8 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(1)
-        self.toolBox_2.layout().setSpacing(8)
+        self.tabWidget.setCurrentIndex(0)
+        self.toolBoxNavigation.layout().setSpacing(5)
         self.tabWidgetVideo.setCurrentIndex(0)
         self.tabWidgetProc.setCurrentIndex(2)
         self.tabWidgetMothet.setCurrentIndex(2)
@@ -5924,312 +5929,6 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.lbVideoPost.setText(_translate("MainWindow", "Поставщики:"))
-        self.btnNewVideoPost.setText(_translate("MainWindow", "Новый\n"
-"поставщик"))
-        self.btnDelVideoPost.setText(_translate("MainWindow", "Удалить\n"
-"выбранного"))
-        self.tableVideoPost.setSortingEnabled(True)
-        item = self.tableVideoPost.verticalHeaderItem(0)
-        item.setText(_translate("MainWindow", "w"))
-        item = self.tableVideoPost.verticalHeaderItem(1)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableVideoPost.verticalHeaderItem(2)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableVideoPost.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Название"))
-        item = self.tableVideoPost.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Договор"))
-        __sortingEnabled = self.tableVideoPost.isSortingEnabled()
-        self.tableVideoPost.setSortingEnabled(False)
-        item = self.tableVideoPost.item(0, 0)
-        item.setText(_translate("MainWindow", "Gigabyte"))
-        item = self.tableVideoPost.item(0, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tableVideoPost.item(1, 0)
-        item.setText(_translate("MainWindow", "Asus"))
-        item = self.tableVideoPost.item(1, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tableVideoPost.item(2, 0)
-        item.setText(_translate("MainWindow", "Nvidia"))
-        item = self.tableVideoPost.item(2, 1)
-        item.setText(_translate("MainWindow", "-"))
-        self.tableVideoPost.setSortingEnabled(__sortingEnabled)
-        self.btnCngVideoPost.setText(_translate("MainWindow", "Изменить\n"
-"договор"))
-        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.pageVideo), _translate("MainWindow", "Видеокарты"))
-        self.lbProcPost.setText(_translate("MainWindow", "Поставщики:"))
-        self.btnNewProcPost.setText(_translate("MainWindow", "Новый\n"
-"поставщик"))
-        self.btnDelProcPost.setText(_translate("MainWindow", "Удалить\n"
-"выбранного"))
-        self.tableProcPost.setSortingEnabled(True)
-        item = self.tableProcPost.verticalHeaderItem(0)
-        item.setText(_translate("MainWindow", "w"))
-        item = self.tableProcPost.verticalHeaderItem(1)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableProcPost.verticalHeaderItem(2)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableProcPost.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Название"))
-        item = self.tableProcPost.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Договор"))
-        __sortingEnabled = self.tableProcPost.isSortingEnabled()
-        self.tableProcPost.setSortingEnabled(False)
-        item = self.tableProcPost.item(0, 0)
-        item.setText(_translate("MainWindow", "Gigabyte"))
-        item = self.tableProcPost.item(0, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tableProcPost.item(1, 0)
-        item.setText(_translate("MainWindow", "Asus"))
-        item = self.tableProcPost.item(1, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tableProcPost.item(2, 0)
-        item.setText(_translate("MainWindow", "Nvidia"))
-        item = self.tableProcPost.item(2, 1)
-        item.setText(_translate("MainWindow", "-"))
-        self.tableProcPost.setSortingEnabled(__sortingEnabled)
-        self.btnCngProcPost.setText(_translate("MainWindow", "Изменить\n"
-"договор"))
-        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.pageProc), _translate("MainWindow", "Процессоры"))
-        self.lbMotherPost.setText(_translate("MainWindow", "Поставщики:"))
-        self.btnNewMotherPost.setText(_translate("MainWindow", "Новый\n"
-"поставщик"))
-        self.btnDelMotherPost.setText(_translate("MainWindow", "Удалить\n"
-"выбранного"))
-        self.tableMotherPost.setSortingEnabled(True)
-        item = self.tableMotherPost.verticalHeaderItem(0)
-        item.setText(_translate("MainWindow", "w"))
-        item = self.tableMotherPost.verticalHeaderItem(1)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableMotherPost.verticalHeaderItem(2)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableMotherPost.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Название"))
-        item = self.tableMotherPost.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Договор"))
-        __sortingEnabled = self.tableMotherPost.isSortingEnabled()
-        self.tableMotherPost.setSortingEnabled(False)
-        item = self.tableMotherPost.item(0, 0)
-        item.setText(_translate("MainWindow", "Gigabyte"))
-        item = self.tableMotherPost.item(0, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tableMotherPost.item(1, 0)
-        item.setText(_translate("MainWindow", "Asus"))
-        item = self.tableMotherPost.item(1, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tableMotherPost.item(2, 0)
-        item.setText(_translate("MainWindow", "Nvidia"))
-        item = self.tableMotherPost.item(2, 1)
-        item.setText(_translate("MainWindow", "-"))
-        self.tableMotherPost.setSortingEnabled(__sortingEnabled)
-        self.btnCngMotherPost.setText(_translate("MainWindow", "Изменить\n"
-"договор"))
-        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.pageMother), _translate("MainWindow", "Материнские платы"))
-        self.lbCooligPost.setText(_translate("MainWindow", "Поставщики:"))
-        self.btnNewCoolingPost.setText(_translate("MainWindow", "Новый\n"
-"поставщик"))
-        self.btnDelCoolingPost.setText(_translate("MainWindow", "Удалить\n"
-"выбранного"))
-        self.tableCoolingPost.setSortingEnabled(True)
-        item = self.tableCoolingPost.verticalHeaderItem(0)
-        item.setText(_translate("MainWindow", "w"))
-        item = self.tableCoolingPost.verticalHeaderItem(1)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableCoolingPost.verticalHeaderItem(2)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableCoolingPost.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Название"))
-        item = self.tableCoolingPost.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Договор"))
-        __sortingEnabled = self.tableCoolingPost.isSortingEnabled()
-        self.tableCoolingPost.setSortingEnabled(False)
-        item = self.tableCoolingPost.item(0, 0)
-        item.setText(_translate("MainWindow", "Gigabyte"))
-        item = self.tableCoolingPost.item(0, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tableCoolingPost.item(1, 0)
-        item.setText(_translate("MainWindow", "Asus"))
-        item = self.tableCoolingPost.item(1, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tableCoolingPost.item(2, 0)
-        item.setText(_translate("MainWindow", "Nvidia"))
-        item = self.tableCoolingPost.item(2, 1)
-        item.setText(_translate("MainWindow", "-"))
-        self.tableCoolingPost.setSortingEnabled(__sortingEnabled)
-        self.btnCngCoolingPost.setText(_translate("MainWindow", "Изменить\n"
-"договор"))
-        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.pageCooling), _translate("MainWindow", "Охлаждение"))
-        self.lbRamPost.setText(_translate("MainWindow", "Поставщики:"))
-        self.btnNewRamPost.setText(_translate("MainWindow", "Новый\n"
-"поставщик"))
-        self.btnDelRamPost.setText(_translate("MainWindow", "Удалить\n"
-"выбранного"))
-        self.tableRamPost.setSortingEnabled(True)
-        item = self.tableRamPost.verticalHeaderItem(0)
-        item.setText(_translate("MainWindow", "w"))
-        item = self.tableRamPost.verticalHeaderItem(1)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableRamPost.verticalHeaderItem(2)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableRamPost.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Название"))
-        item = self.tableRamPost.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Договор"))
-        __sortingEnabled = self.tableRamPost.isSortingEnabled()
-        self.tableRamPost.setSortingEnabled(False)
-        item = self.tableRamPost.item(0, 0)
-        item.setText(_translate("MainWindow", "Gigabyte"))
-        item = self.tableRamPost.item(0, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tableRamPost.item(1, 0)
-        item.setText(_translate("MainWindow", "Asus"))
-        item = self.tableRamPost.item(1, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tableRamPost.item(2, 0)
-        item.setText(_translate("MainWindow", "Nvidia"))
-        item = self.tableRamPost.item(2, 1)
-        item.setText(_translate("MainWindow", "-"))
-        self.tableRamPost.setSortingEnabled(__sortingEnabled)
-        self.btnCngRamPost.setText(_translate("MainWindow", "Изменить\n"
-"договор"))
-        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.pageRam), _translate("MainWindow", "Оперативная память"))
-        self.lbDiskPost.setText(_translate("MainWindow", "Поставщики:"))
-        self.btnNewDiskPost.setText(_translate("MainWindow", "Новый\n"
-"поставщик"))
-        self.btnDelDiskPost.setText(_translate("MainWindow", "Удалить\n"
-"выбранного"))
-        self.tableDiskPost.setSortingEnabled(True)
-        item = self.tableDiskPost.verticalHeaderItem(0)
-        item.setText(_translate("MainWindow", "w"))
-        item = self.tableDiskPost.verticalHeaderItem(1)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableDiskPost.verticalHeaderItem(2)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableDiskPost.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Название"))
-        item = self.tableDiskPost.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Договор"))
-        __sortingEnabled = self.tableDiskPost.isSortingEnabled()
-        self.tableDiskPost.setSortingEnabled(False)
-        item = self.tableDiskPost.item(0, 0)
-        item.setText(_translate("MainWindow", "Gigabyte"))
-        item = self.tableDiskPost.item(0, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tableDiskPost.item(1, 0)
-        item.setText(_translate("MainWindow", "Asus"))
-        item = self.tableDiskPost.item(1, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tableDiskPost.item(2, 0)
-        item.setText(_translate("MainWindow", "Nvidia"))
-        item = self.tableDiskPost.item(2, 1)
-        item.setText(_translate("MainWindow", "-"))
-        self.tableDiskPost.setSortingEnabled(__sortingEnabled)
-        self.btnCngDiskPost.setText(_translate("MainWindow", "Изменить\n"
-"договор"))
-        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.pageDisk), _translate("MainWindow", "Накопители"))
-        self.lbPowerPost.setText(_translate("MainWindow", "Поставщики:"))
-        self.btnNewPowerPost.setText(_translate("MainWindow", "Новый\n"
-"поставщик"))
-        self.btnDelPowerPost.setText(_translate("MainWindow", "Удалить\n"
-"выбранного"))
-        self.tablePowerPost.setSortingEnabled(True)
-        item = self.tablePowerPost.verticalHeaderItem(0)
-        item.setText(_translate("MainWindow", "w"))
-        item = self.tablePowerPost.verticalHeaderItem(1)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tablePowerPost.verticalHeaderItem(2)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tablePowerPost.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Название"))
-        item = self.tablePowerPost.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Договор"))
-        __sortingEnabled = self.tablePowerPost.isSortingEnabled()
-        self.tablePowerPost.setSortingEnabled(False)
-        item = self.tablePowerPost.item(0, 0)
-        item.setText(_translate("MainWindow", "Gigabyte"))
-        item = self.tablePowerPost.item(0, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tablePowerPost.item(1, 0)
-        item.setText(_translate("MainWindow", "Asus"))
-        item = self.tablePowerPost.item(1, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tablePowerPost.item(2, 0)
-        item.setText(_translate("MainWindow", "Nvidia"))
-        item = self.tablePowerPost.item(2, 1)
-        item.setText(_translate("MainWindow", "-"))
-        self.tablePowerPost.setSortingEnabled(__sortingEnabled)
-        self.btnCngPowerPost.setText(_translate("MainWindow", "Изменить\n"
-"договор"))
-        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.pagePower), _translate("MainWindow", "Питание"))
-        self.lbBodyPost.setText(_translate("MainWindow", "Поставщики:"))
-        self.btnNewBodyPost.setText(_translate("MainWindow", "Новый\n"
-"поставщик"))
-        self.btnDelBodyPost.setText(_translate("MainWindow", "Удалить\n"
-"выбранного"))
-        self.tableBodyPost.setSortingEnabled(True)
-        item = self.tableBodyPost.verticalHeaderItem(0)
-        item.setText(_translate("MainWindow", "w"))
-        item = self.tableBodyPost.verticalHeaderItem(1)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableBodyPost.verticalHeaderItem(2)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableBodyPost.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Название"))
-        item = self.tableBodyPost.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Договор"))
-        __sortingEnabled = self.tableBodyPost.isSortingEnabled()
-        self.tableBodyPost.setSortingEnabled(False)
-        item = self.tableBodyPost.item(0, 0)
-        item.setText(_translate("MainWindow", "Gigabyte"))
-        item = self.tableBodyPost.item(0, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tableBodyPost.item(1, 0)
-        item.setText(_translate("MainWindow", "Asus"))
-        item = self.tableBodyPost.item(1, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tableBodyPost.item(2, 0)
-        item.setText(_translate("MainWindow", "Nvidia"))
-        item = self.tableBodyPost.item(2, 1)
-        item.setText(_translate("MainWindow", "-"))
-        self.tableBodyPost.setSortingEnabled(__sortingEnabled)
-        self.btnCngBodyPost.setText(_translate("MainWindow", "Изменить\n"
-"договор"))
-        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.pageBody), _translate("MainWindow", "Корпусы"))
-        self.label_10.setText(_translate("MainWindow", "?????"))
-        self.btnNewVideoPost_10.setText(_translate("MainWindow", "Новый\n"
-"поставщик"))
-        self.btnDelBConfPost.setText(_translate("MainWindow", "Удалить\n"
-"выбранного"))
-        self.tbconfigs_name.setSortingEnabled(True)
-        item = self.tbconfigs_name.verticalHeaderItem(0)
-        item.setText(_translate("MainWindow", "w"))
-        item = self.tbconfigs_name.verticalHeaderItem(1)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tbconfigs_name.verticalHeaderItem(2)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tbconfigs_name.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Название"))
-        item = self.tbconfigs_name.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Договор"))
-        __sortingEnabled = self.tbconfigs_name.isSortingEnabled()
-        self.tbconfigs_name.setSortingEnabled(False)
-        item = self.tbconfigs_name.item(0, 0)
-        item.setText(_translate("MainWindow", "Gigabyte"))
-        item = self.tbconfigs_name.item(0, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tbconfigs_name.item(1, 0)
-        item.setText(_translate("MainWindow", "Asus"))
-        item = self.tbconfigs_name.item(1, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tbconfigs_name.item(2, 0)
-        item.setText(_translate("MainWindow", "Nvidia"))
-        item = self.tbconfigs_name.item(2, 1)
-        item.setText(_translate("MainWindow", "-"))
-        self.tbconfigs_name.setSortingEnabled(__sortingEnabled)
-        self.btnDelVideoPost_20.setText(_translate("MainWindow", "Изменить\n"
-"договор"))
-        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.pageConf), _translate("MainWindow", "Конфигурации"))
         self.lbNavPanel.setText(_translate("MainWindow", "Панель навигации"))
         self.btnSkladFilter.setText(_translate("MainWindow", "Настроить фильтр"))
         item = self.twSklad.verticalHeaderItem(0)
@@ -6282,6 +5981,312 @@ class Ui_MainWindow(object):
         self.btnAdd.setText(_translate("MainWindow", "Новый заказ"))
         self.btnDelete.setText(_translate("MainWindow", "Удалить"))
         self.btnChange.setText(_translate("MainWindow", "Изменить параметры"))
+        self.lbVideoPost.setText(_translate("MainWindow", "Поставщики:"))
+        self.btnNewVideoPost.setText(_translate("MainWindow", "Новый\n"
+"поставщик"))
+        self.btnDelVideoPost.setText(_translate("MainWindow", "Удалить\n"
+"выбранного"))
+        self.tableVideoPost.setSortingEnabled(True)
+        item = self.tableVideoPost.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", "w"))
+        item = self.tableVideoPost.verticalHeaderItem(1)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableVideoPost.verticalHeaderItem(2)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableVideoPost.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Название"))
+        item = self.tableVideoPost.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Договор"))
+        __sortingEnabled = self.tableVideoPost.isSortingEnabled()
+        self.tableVideoPost.setSortingEnabled(False)
+        item = self.tableVideoPost.item(0, 0)
+        item.setText(_translate("MainWindow", "Gigabyte"))
+        item = self.tableVideoPost.item(0, 1)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tableVideoPost.item(1, 0)
+        item.setText(_translate("MainWindow", "Asus"))
+        item = self.tableVideoPost.item(1, 1)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tableVideoPost.item(2, 0)
+        item.setText(_translate("MainWindow", "Nvidia"))
+        item = self.tableVideoPost.item(2, 1)
+        item.setText(_translate("MainWindow", "-"))
+        self.tableVideoPost.setSortingEnabled(__sortingEnabled)
+        self.btnCngVideoPost.setText(_translate("MainWindow", "Изменить\n"
+"договор"))
+        self.toolBoxNavigation.setItemText(self.toolBoxNavigation.indexOf(self.pageVideo), _translate("MainWindow", "Видеокарты"))
+        self.lbProcPost.setText(_translate("MainWindow", "Поставщики:"))
+        self.btnNewProcPost.setText(_translate("MainWindow", "Новый\n"
+"поставщик"))
+        self.btnDelProcPost.setText(_translate("MainWindow", "Удалить\n"
+"выбранного"))
+        self.tableProcPost.setSortingEnabled(True)
+        item = self.tableProcPost.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", "w"))
+        item = self.tableProcPost.verticalHeaderItem(1)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableProcPost.verticalHeaderItem(2)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableProcPost.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Название"))
+        item = self.tableProcPost.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Договор"))
+        __sortingEnabled = self.tableProcPost.isSortingEnabled()
+        self.tableProcPost.setSortingEnabled(False)
+        item = self.tableProcPost.item(0, 0)
+        item.setText(_translate("MainWindow", "Gigabyte"))
+        item = self.tableProcPost.item(0, 1)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tableProcPost.item(1, 0)
+        item.setText(_translate("MainWindow", "Asus"))
+        item = self.tableProcPost.item(1, 1)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tableProcPost.item(2, 0)
+        item.setText(_translate("MainWindow", "Nvidia"))
+        item = self.tableProcPost.item(2, 1)
+        item.setText(_translate("MainWindow", "-"))
+        self.tableProcPost.setSortingEnabled(__sortingEnabled)
+        self.btnCngProcPost.setText(_translate("MainWindow", "Изменить\n"
+"договор"))
+        self.toolBoxNavigation.setItemText(self.toolBoxNavigation.indexOf(self.pageProc), _translate("MainWindow", "Процессоры"))
+        self.lbMotherPost.setText(_translate("MainWindow", "Поставщики:"))
+        self.btnNewMotherPost.setText(_translate("MainWindow", "Новый\n"
+"поставщик"))
+        self.btnDelMotherPost.setText(_translate("MainWindow", "Удалить\n"
+"выбранного"))
+        self.tableMotherPost.setSortingEnabled(True)
+        item = self.tableMotherPost.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", "w"))
+        item = self.tableMotherPost.verticalHeaderItem(1)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableMotherPost.verticalHeaderItem(2)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableMotherPost.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Название"))
+        item = self.tableMotherPost.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Договор"))
+        __sortingEnabled = self.tableMotherPost.isSortingEnabled()
+        self.tableMotherPost.setSortingEnabled(False)
+        item = self.tableMotherPost.item(0, 0)
+        item.setText(_translate("MainWindow", "Gigabyte"))
+        item = self.tableMotherPost.item(0, 1)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tableMotherPost.item(1, 0)
+        item.setText(_translate("MainWindow", "Asus"))
+        item = self.tableMotherPost.item(1, 1)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tableMotherPost.item(2, 0)
+        item.setText(_translate("MainWindow", "Nvidia"))
+        item = self.tableMotherPost.item(2, 1)
+        item.setText(_translate("MainWindow", "-"))
+        self.tableMotherPost.setSortingEnabled(__sortingEnabled)
+        self.btnCngMotherPost.setText(_translate("MainWindow", "Изменить\n"
+"договор"))
+        self.toolBoxNavigation.setItemText(self.toolBoxNavigation.indexOf(self.pageMother), _translate("MainWindow", "Материнские платы"))
+        self.lbCooligPost.setText(_translate("MainWindow", "Поставщики:"))
+        self.btnNewCoolingPost.setText(_translate("MainWindow", "Новый\n"
+"поставщик"))
+        self.btnDelCoolingPost.setText(_translate("MainWindow", "Удалить\n"
+"выбранного"))
+        self.tableCoolingPost.setSortingEnabled(True)
+        item = self.tableCoolingPost.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", "w"))
+        item = self.tableCoolingPost.verticalHeaderItem(1)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableCoolingPost.verticalHeaderItem(2)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableCoolingPost.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Название"))
+        item = self.tableCoolingPost.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Договор"))
+        __sortingEnabled = self.tableCoolingPost.isSortingEnabled()
+        self.tableCoolingPost.setSortingEnabled(False)
+        item = self.tableCoolingPost.item(0, 0)
+        item.setText(_translate("MainWindow", "Gigabyte"))
+        item = self.tableCoolingPost.item(0, 1)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tableCoolingPost.item(1, 0)
+        item.setText(_translate("MainWindow", "Asus"))
+        item = self.tableCoolingPost.item(1, 1)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tableCoolingPost.item(2, 0)
+        item.setText(_translate("MainWindow", "Nvidia"))
+        item = self.tableCoolingPost.item(2, 1)
+        item.setText(_translate("MainWindow", "-"))
+        self.tableCoolingPost.setSortingEnabled(__sortingEnabled)
+        self.btnCngCoolingPost.setText(_translate("MainWindow", "Изменить\n"
+"договор"))
+        self.toolBoxNavigation.setItemText(self.toolBoxNavigation.indexOf(self.pageCooling), _translate("MainWindow", "Охлаждение"))
+        self.lbRamPost.setText(_translate("MainWindow", "Поставщики:"))
+        self.btnNewRamPost.setText(_translate("MainWindow", "Новый\n"
+"поставщик"))
+        self.btnDelRamPost.setText(_translate("MainWindow", "Удалить\n"
+"выбранного"))
+        self.tableRamPost.setSortingEnabled(True)
+        item = self.tableRamPost.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", "w"))
+        item = self.tableRamPost.verticalHeaderItem(1)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableRamPost.verticalHeaderItem(2)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableRamPost.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Название"))
+        item = self.tableRamPost.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Договор"))
+        __sortingEnabled = self.tableRamPost.isSortingEnabled()
+        self.tableRamPost.setSortingEnabled(False)
+        item = self.tableRamPost.item(0, 0)
+        item.setText(_translate("MainWindow", "Gigabyte"))
+        item = self.tableRamPost.item(0, 1)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tableRamPost.item(1, 0)
+        item.setText(_translate("MainWindow", "Asus"))
+        item = self.tableRamPost.item(1, 1)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tableRamPost.item(2, 0)
+        item.setText(_translate("MainWindow", "Nvidia"))
+        item = self.tableRamPost.item(2, 1)
+        item.setText(_translate("MainWindow", "-"))
+        self.tableRamPost.setSortingEnabled(__sortingEnabled)
+        self.btnCngRamPost.setText(_translate("MainWindow", "Изменить\n"
+"договор"))
+        self.toolBoxNavigation.setItemText(self.toolBoxNavigation.indexOf(self.pageRam), _translate("MainWindow", "Оперативная память"))
+        self.lbDiskPost.setText(_translate("MainWindow", "Поставщики:"))
+        self.btnNewDiskPost.setText(_translate("MainWindow", "Новый\n"
+"поставщик"))
+        self.btnDelDiskPost.setText(_translate("MainWindow", "Удалить\n"
+"выбранного"))
+        self.tableDiskPost.setSortingEnabled(True)
+        item = self.tableDiskPost.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", "w"))
+        item = self.tableDiskPost.verticalHeaderItem(1)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableDiskPost.verticalHeaderItem(2)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableDiskPost.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Название"))
+        item = self.tableDiskPost.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Договор"))
+        __sortingEnabled = self.tableDiskPost.isSortingEnabled()
+        self.tableDiskPost.setSortingEnabled(False)
+        item = self.tableDiskPost.item(0, 0)
+        item.setText(_translate("MainWindow", "Gigabyte"))
+        item = self.tableDiskPost.item(0, 1)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tableDiskPost.item(1, 0)
+        item.setText(_translate("MainWindow", "Asus"))
+        item = self.tableDiskPost.item(1, 1)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tableDiskPost.item(2, 0)
+        item.setText(_translate("MainWindow", "Nvidia"))
+        item = self.tableDiskPost.item(2, 1)
+        item.setText(_translate("MainWindow", "-"))
+        self.tableDiskPost.setSortingEnabled(__sortingEnabled)
+        self.btnCngDiskPost.setText(_translate("MainWindow", "Изменить\n"
+"договор"))
+        self.toolBoxNavigation.setItemText(self.toolBoxNavigation.indexOf(self.pageDisk), _translate("MainWindow", "Накопители"))
+        self.lbPowerPost.setText(_translate("MainWindow", "Поставщики:"))
+        self.btnNewPowerPost.setText(_translate("MainWindow", "Новый\n"
+"поставщик"))
+        self.btnDelPowerPost.setText(_translate("MainWindow", "Удалить\n"
+"выбранного"))
+        self.tablePowerPost.setSortingEnabled(True)
+        item = self.tablePowerPost.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", "w"))
+        item = self.tablePowerPost.verticalHeaderItem(1)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tablePowerPost.verticalHeaderItem(2)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tablePowerPost.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Название"))
+        item = self.tablePowerPost.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Договор"))
+        __sortingEnabled = self.tablePowerPost.isSortingEnabled()
+        self.tablePowerPost.setSortingEnabled(False)
+        item = self.tablePowerPost.item(0, 0)
+        item.setText(_translate("MainWindow", "Gigabyte"))
+        item = self.tablePowerPost.item(0, 1)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tablePowerPost.item(1, 0)
+        item.setText(_translate("MainWindow", "Asus"))
+        item = self.tablePowerPost.item(1, 1)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tablePowerPost.item(2, 0)
+        item.setText(_translate("MainWindow", "Nvidia"))
+        item = self.tablePowerPost.item(2, 1)
+        item.setText(_translate("MainWindow", "-"))
+        self.tablePowerPost.setSortingEnabled(__sortingEnabled)
+        self.btnCngPowerPost.setText(_translate("MainWindow", "Изменить\n"
+"договор"))
+        self.toolBoxNavigation.setItemText(self.toolBoxNavigation.indexOf(self.pagePower), _translate("MainWindow", "Питание"))
+        self.lbBodyPost.setText(_translate("MainWindow", "Поставщики:"))
+        self.btnNewBodyPost.setText(_translate("MainWindow", "Новый\n"
+"поставщик"))
+        self.btnDelBodyPost.setText(_translate("MainWindow", "Удалить\n"
+"выбранного"))
+        self.tableBodyPost.setSortingEnabled(True)
+        item = self.tableBodyPost.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", "w"))
+        item = self.tableBodyPost.verticalHeaderItem(1)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableBodyPost.verticalHeaderItem(2)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableBodyPost.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Название"))
+        item = self.tableBodyPost.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Договор"))
+        __sortingEnabled = self.tableBodyPost.isSortingEnabled()
+        self.tableBodyPost.setSortingEnabled(False)
+        item = self.tableBodyPost.item(0, 0)
+        item.setText(_translate("MainWindow", "Gigabyte"))
+        item = self.tableBodyPost.item(0, 1)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tableBodyPost.item(1, 0)
+        item.setText(_translate("MainWindow", "Asus"))
+        item = self.tableBodyPost.item(1, 1)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tableBodyPost.item(2, 0)
+        item.setText(_translate("MainWindow", "Nvidia"))
+        item = self.tableBodyPost.item(2, 1)
+        item.setText(_translate("MainWindow", "-"))
+        self.tableBodyPost.setSortingEnabled(__sortingEnabled)
+        self.btnCngBodyPost.setText(_translate("MainWindow", "Изменить\n"
+"договор"))
+        self.toolBoxNavigation.setItemText(self.toolBoxNavigation.indexOf(self.pageBody), _translate("MainWindow", "Корпусы"))
+        self.label_10.setText(_translate("MainWindow", "?????"))
+        self.btnNewVideoPost_10.setText(_translate("MainWindow", "Новый\n"
+"поставщик"))
+        self.btnDelBConfPost.setText(_translate("MainWindow", "Удалить\n"
+"выбранного"))
+        self.tbconfigs_name.setSortingEnabled(True)
+        item = self.tbconfigs_name.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", "w"))
+        item = self.tbconfigs_name.verticalHeaderItem(1)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tbconfigs_name.verticalHeaderItem(2)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tbconfigs_name.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Название"))
+        item = self.tbconfigs_name.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Договор"))
+        __sortingEnabled = self.tbconfigs_name.isSortingEnabled()
+        self.tbconfigs_name.setSortingEnabled(False)
+        item = self.tbconfigs_name.item(0, 0)
+        item.setText(_translate("MainWindow", "Gigabyte"))
+        item = self.tbconfigs_name.item(0, 1)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tbconfigs_name.item(1, 0)
+        item.setText(_translate("MainWindow", "Asus"))
+        item = self.tbconfigs_name.item(1, 1)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tbconfigs_name.item(2, 0)
+        item.setText(_translate("MainWindow", "Nvidia"))
+        item = self.tbconfigs_name.item(2, 1)
+        item.setText(_translate("MainWindow", "-"))
+        self.tbconfigs_name.setSortingEnabled(__sortingEnabled)
+        self.btnDelVideoPost_20.setText(_translate("MainWindow", "Изменить\n"
+"договор"))
+        self.toolBoxNavigation.setItemText(self.toolBoxNavigation.indexOf(self.pageConf), _translate("MainWindow", "Конфигурации"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.sklad), _translate("MainWindow", "Склад"))
         self.progressBar.setFormat(_translate("MainWindow", "2 / 8"))
         self.treeWidget.setSortingEnabled(False)

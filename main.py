@@ -44,14 +44,14 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         self.setWindowTitle("Конфигуратор ПК")
 
         self.treeWidget.itemClicked.connect(lambda: self.treeNavigation())
-        #  self.toolBox_2.currentChanged.connect(lambda: self.toolBox_2.currentIndex())
+        #  self.toolBoxNavigation.currentChanged.connect(lambda: self.toolBoxNavigation.currentIndex())
         self.btnAdd.clicked.connect(lambda: self.tbChanged(
-            self.toolBox_2.currentIndex(),
+            self.toolBoxNavigation.currentIndex(),
             True,
             self.twSklad.currentRow())
                                     )
         self.btnChange.clicked.connect(lambda: self.tbChanged(
-            self.toolBox_2.currentIndex(),
+            self.toolBoxNavigation.currentIndex(),
             False,
             self.readSklad(
                 self.twSklad.currentRow(),

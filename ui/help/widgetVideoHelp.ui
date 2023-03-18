@@ -22,9 +22,13 @@
   <property name="windowTitle">
    <string>Подобрать видеокарту</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../images/faq.png</normaloff>../../images/faq.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">QWidget{
-	background-color: rgb(35,35,35);
+	background-color: rgb(30,30,30);
 	color: white;
 }</string>
   </property>
@@ -183,7 +187,7 @@ NVIDIA DLSS. Высокотехнологичном апскейлинге до 
    </property>
    <property name="text">
     <string>Продукцию AMD относят к более бюджетным вариантам. Большинство прорывов в области архитектуры графических процессоров остаётся за NVIDIA. Однако не всем пользователям необходимы последние инновационные технологии, плюс ко всему, часто AMD Radeon выигрывает в производительности у аналогов Nvidia. 
-Так, если нет необходимости в самых последних графичских инновациях и ограничен бюджет, то, часто без потери производительности, следует выбирать продукты от AMD.</string>
+Так, если нет необходимости в самых последних графичских инновациях, а бюджет ограничен, то, часто без потери производительности, следует выбирать продукты от AMD.</string>
    </property>
    <property name="textFormat">
     <enum>Qt::PlainText</enum>

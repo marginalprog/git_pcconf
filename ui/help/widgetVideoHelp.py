@@ -20,8 +20,11 @@ class Ui_widgetVideoHelp(object):
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
         widgetVideoHelp.setFont(font)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\help\\../../images/faq.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        widgetVideoHelp.setWindowIcon(icon)
         widgetVideoHelp.setStyleSheet("QWidget{\n"
-"    background-color: rgb(35,35,35);\n"
+"    background-color: rgb(30,30,30);\n"
 "    color: white;\n"
 "}")
         self.lbHowVid = QtWidgets.QLabel(widgetVideoHelp)
@@ -174,7 +177,7 @@ class Ui_widgetVideoHelp(object):
 "NVIDIA DLSS. Высокотехнологичном апскейлинге до 4K из более низкого разрешения с применением нейросетей.\n"
 "Так, если требуется инновационная производительность и использование новейших технолгий, то следует выбирать продукты от NVIDIA"))
         self.lbRadeon.setText(_translate("widgetVideoHelp", "Продукцию AMD относят к более бюджетным вариантам. Большинство прорывов в области архитектуры графических процессоров остаётся за NVIDIA. Однако не всем пользователям необходимы последние инновационные технологии, плюс ко всему, часто AMD Radeon выигрывает в производительности у аналогов Nvidia. \n"
-"Так, если нет необходимости в самых последних графичских инновациях и ограничен бюджет, то, часто без потери производительности, следует выбирать продукты от AMD."))
+"Так, если нет необходимости в самых последних графичских инновациях, а бюджет ограничен, то, часто без потери производительности, следует выбирать продукты от AMD."))
         self.lbAmd.setText(_translate("widgetVideoHelp", "AMD Radeon"))
         self.btnClose.setText(_translate("widgetVideoHelp", "Закрыть"))
 

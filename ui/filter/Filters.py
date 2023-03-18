@@ -2,9 +2,20 @@ import sys
 
 from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtWidgets import QDialog, QTableWidgetItem
-from PyQt5.QtGui import QPixmap, QIcon
+from PyQt5.QtGui import QPixmap, QIcon, QIntValidator
 # ----------файлы интерфейса---------------
 from ui.filter import widgetVideoFilter
+from ui import warningWin
+
+
+# Класс диалогового окна с кнопкой
+class DialogOk(QDialog, warningWin.Ui_warningDialog):
+    def __init__(self, text):
+        QDialog.__init__(self)
+        self.setupUi(self)
+        self.setWindowTitle("Ошибка")
+        self.lbErrDescription.setText(text)
+        self.btnCancel.clicked.connect(lambda: self.close())
 
 
 class CheckBox(QtWidgets.QCheckBox):
@@ -34,24 +45,54 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
         max_price = 34999  # Здесь должен быть запрос в бд по макс. цене видеокарт
         self.sliderPriceMin.setRange(0, max_price)
         self.sliderPriceMax.setRange(0, max_price)
+        # -------------------Установка ширины столбцов для таблиц-------------------
         self.tableBrand.setColumnWidth(0, 20)
         self.tableBrand.setColumnWidth(1, 270)
 
+        self.tableProizv.setColumnWidth(0, 20)
+        self.tableProizv.setColumnWidth(1, 270)
+
+        self.tableGraphProc.setColumnWidth(0, 20)
+        self.tableGraphProc.setColumnWidth(1, 270)
+        # -------------------Установка ширины столбцов для таблиц-------------------
+
+        # -----------Соединение кнопок сбосов с методом обнуления-----------
+        self.btnResetPrice.clicked.connect(lambda: self.resetSliders(self.sliderPriceMin, self.sliderPriceMax))
+        self.btnResetTdp.clicked.connect(lambda: self.resetSliders(self.sliderTdpMin, self.sliderTdpMax))
+        self.btnResetLen.clicked.connect(lambda: self.resetSliders(self.sliderLenMin, self.sliderLenMax))
+        self.btnResetBrand.clicked.connect(lambda: self.resetCheckBoxes(self.tableBrand))
+        self.btnResetProizv.clicked.connect(lambda: self.resetCheckBoxes(self.tableProizv))
+        self.btnResetGraphProc.clicked.connect(lambda: self.resetCheckBoxes(self.tableGraphProc))
+        # -------------------Соединение кнопк сбосов с методом обнуления-------------------
+
+        # -------------------Задание ограничений для полей ввода-------------------
+        onlyInt = QIntValidator()
+        onlyInt.setRange(0, 999999)
+        self.leMinPrice.setValidator(onlyInt)
+        self.leMaxPrice.setValidator(onlyInt)
+        self.leMinTdp.setValidator(onlyInt)
+        self.leMaxTdp.setValidator(onlyInt)
+        self.leMinLen.setValidator(onlyInt)
+        self.leMaxLen.setValidator(onlyInt)
+        # -------------------Задание ограничений для полей ввода-------------------
         # Изменение положения стрелки при нажатии на вкладку фильтра
         self.toolBoxVidFilter.currentChanged.connect(self.tbChangeArrows)
 
-        # Заполнение брендов
+        # Заполнение таблиц кнопками CB
         self.insert_cb(self.tableBrand)
+        self.insert_cb(self.tableProizv)
+        self.insert_cb(self.tableGraphProc)
 
         #
         self.query = ""
         self.btnAccept.clicked.connect(self.clickAccept)
 
+    # нужен общий метод!!!!!!
     def updateMinPrice(self, value):
-        self.teMinPrice.setText(f"{value}")
+        self.leMinPrice.setText(f"{value}")
 
     def updateMaxPrice(self, value):
-        self.teMaxPrice.setText(f"{value}")
+        self.leMaxPrice.setText(f"{value}")
 
     # Метод создания рб на виджете
     def create_checkbox(self):
@@ -84,11 +125,72 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
             if i != page:
                 self.toolBoxVidFilter.setItemIcon(i, QIcon("E:/pcconf/images/down-arrow.png"))
 
-    # Метод, собирающий данные о выбранных фильтрах
+    # Метод, обнуляющий CheckBox-ы в таблице
+    def resetCheckBoxes(self, table):
+        for i in range(table.rowCount()):
+            table.clearSelection()
+            widget = table.cellWidget(i, 0)
+            if widget is not None:
+                chk_box = widget.findChild(CheckBox)
+                if chk_box is not None and chk_box.isChecked():
+                    chk_box.setChecked(False)
+
+    # Метод, обнуляющий значения слайдеров
+    def resetSliders(self, sliderMin, sliderMax):
+        sliderMin.setValue(0)
+        sliderMax.setValue(0)
+
+    # Метод, считывающий отмеченные CheckBox-ами строки из таблицы. Возвращает отмеченные строки
+    def getCheckBoxes(self, table):
+        selected_parameters = ""
+        for i in range(table.rowCount()):
+            widget = table.cellWidget(i, 0)
+            if widget is not None:
+                chk_box = widget.findChild(CheckBox)
+                if chk_box is not None and chk_box.isChecked():
+                    selected_parameters += table.item(i, 1).text() + " "
+        return selected_parameters
+
+    # Метод для сравнения значений полей (принимает .text())
+    def checkFields(self, min_field, max_field):
+        if min_field != "" and max_field != "":
+            if int(min_field) < int(max_field):
+                return min_field, max_field
+            else:
+                self.dialog = DialogOk("Максимальные значения должны быть больше минимальных")
+                self.dialog.show()
+                return -1, -1
+        elif min_field == "" and max_field == "":
+            return 0, 0
+        elif min_field != "" and max_field == "":
+            return min_field, 0
+        elif min_field == "" and max_field != "":
+            return 0, max_field
+
+    # метод для очистки параметров фильтрации
+    # SELECT * FROM Videocard WHERE Price BETWEEN {16000} AND {18000}
+    #                                     > {sss}
+    # Метод, срабатывающий по нажатии на кнопку и отправляющий в БД запрос на фильтрацию данных
     def clickAccept(self):
-        widget = self.tableBrand.cellWidget(1, 0)
-        if widget is not None:
-            chk_box = widget.findChild(CheckBox)
-            if chk_box is not None and chk_box.isChecked():
-                self.query += self.tableBrand.item(0, 1).text()
-        print(self.query)
+        query = ""  # Сделать массив, который потом по порядку вбить в f-строку для запроса БД
+        min_price, max_price = self.checkFields(self.leMinPrice.text(), self.leMaxPrice.text())
+        min_tdp, max_tdp = self.checkFields(self.leMinTdp.text(), self.leMaxTdp.text())
+        min_len, max_len = self.checkFields(self.leMinLen.text(), self.leMaxLen.text())
+        if min_price != -1 and min_tdp != -1 and min_len != -1:  # Если не получили флаг ошибки(-1) - выполняем запрос к БД
+            if min_price == 0 and max_price == 0:  # Если пустые поля, то по цене не производим фильтрацию
+                print("Конкатенации с другими запросами не будет")
+            elif min_price != 0 and max_price == 0:
+                query = f"Price > {min_price}"
+            elif min_price == 0 and max_price != 0:
+                query = f"Price < {max_price}"
+            else:
+                query = f"Price BETWEEN {min_price} AND {max_price}"
+
+
+            #query += f'{min_price} {max_price} {min_tdp} {max_tdp} {min_len} {max_len}'
+            query += self.getCheckBoxes(self.tableBrand)
+            query += self.getCheckBoxes(self.tableProizv)
+            query += self.getCheckBoxes(self.tableGraphProc)
+            print(query)
+            self.close()
+
