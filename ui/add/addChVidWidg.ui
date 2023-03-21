@@ -25,7 +25,7 @@
   <property name="styleSheet">
    <string notr="true">QWidget
 {
-     background: rgb(30, 30, 30);
+    background: rgb(30, 30, 30);
 	color: white;
 
 }
@@ -330,7 +330,7 @@ QTextEdit:hover{
    <property name="styleSheet">
     <string notr="true">QPushButton{
 	border:1px solid rgb(70,70,70);
-	background-color: rgb(40,40,40);
+	background-color: rgb(35,35,35);
 	color: #fffafa;
 }
 
@@ -364,7 +364,7 @@ QPushButton::hover
    <property name="styleSheet">
     <string notr="true">QPushButton{
 	border:1px solid rgb(70,70,70);
-	background-color: rgb(40,40,40);
+	background-color: rgb(35,35,35);
 	color: #fffafa;
 }
 

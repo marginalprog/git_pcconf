@@ -12,3 +12,4 @@ class AddChangeVideoWindow(QtWidgets.QWidget, addChVidWidg.Ui_addChVidWidg):
         super().__init__()
         self.setupUi(self)
         self.btnVidCancel.clicked.connect(lambda: self.close())
+        self.setWindowTitle("Создание заказа")

@@ -40,8 +40,10 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.sliderPriceMin.valueChanged.connect(self.updateMinPrice)
-        self.sliderPriceMax.valueChanged.connect(self.updateMaxPrice)
+        self.sliderPriceMin.valueChanged.connect(lambda value: self.updateFieldValue(self.leMinPrice, value))
+        self.sliderPriceMax.valueChanged.connect(lambda value: self.updateFieldValue(self.leMaxPrice, value))
+        self.sliderTdpMin.valueChanged.connect(lambda value: self.updateFieldValue(self.leMinTdp, value))
+        self.sliderTdpMax.valueChanged.connect(lambda value: self.updateFieldValue(self.leMaxTdp, value))
         max_price = 34999  # Здесь должен быть запрос в бд по макс. цене видеокарт
         self.sliderPriceMin.setRange(0, max_price)
         self.sliderPriceMax.setRange(0, max_price)
@@ -54,12 +56,31 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
 
         self.tableGraphProc.setColumnWidth(0, 20)
         self.tableGraphProc.setColumnWidth(1, 270)
-        # -------------------Установка ширины столбцов для таблиц-------------------
 
+        self.tableVolume.setColumnWidth(0, 20)
+        self.tableVolume.setColumnWidth(1, 270)
+
+        self.tableType.setColumnWidth(0, 20)
+        self.tableType.setColumnWidth(1, 270)
+
+        self.tableFreq.setColumnWidth(0, 20)
+        self.tableFreq.setColumnWidth(1, 270)
+
+        self.tableInterface.setColumnWidth(0, 20)
+        self.tableInterface.setColumnWidth(1, 270)
+
+        self.tableMonitor.setColumnWidth(0, 20)
+        self.tableMonitor.setColumnWidth(1, 270)
+
+        self.tableResolution.setColumnWidth(0, 20)
+        self.tableResolution.setColumnWidth(1, 270)
+        # -------------------Установка ширины столбцов для таблиц-------------------
+        print(self.sliderPriceMin.value())
         # -----------Соединение кнопок сбосов с методом обнуления-----------
-        self.btnResetPrice.clicked.connect(lambda: self.resetSliders(self.sliderPriceMin, self.sliderPriceMax))
-        self.btnResetTdp.clicked.connect(lambda: self.resetSliders(self.sliderTdpMin, self.sliderTdpMax))
-        self.btnResetLen.clicked.connect(lambda: self.resetSliders(self.sliderLenMin, self.sliderLenMax))
+        self.btnResetAll.clicked.connect(self.resetAll)
+        self.btnResetPrice.clicked.connect(lambda: self.resetSliders(self.sliderPriceMin, self.sliderPriceMax, self.leMinPrice, self.leMaxPrice))
+        self.btnResetTdp.clicked.connect(lambda: self.resetSliders(self.sliderTdpMin, self.sliderTdpMax, self.leMinTdp, self.leMaxTdp))
+        self.btnResetLen.clicked.connect(lambda: self.resetSliders(self.sliderLenMin, self.sliderLenMax, self.leMinLen, self.leMaxLen))
         self.btnResetBrand.clicked.connect(lambda: self.resetCheckBoxes(self.tableBrand))
         self.btnResetProizv.clicked.connect(lambda: self.resetCheckBoxes(self.tableProizv))
         self.btnResetGraphProc.clicked.connect(lambda: self.resetCheckBoxes(self.tableGraphProc))
@@ -75,28 +96,24 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
         self.leMinLen.setValidator(onlyInt)
         self.leMaxLen.setValidator(onlyInt)
         # -------------------Задание ограничений для полей ввода-------------------
+
         # Изменение положения стрелки при нажатии на вкладку фильтра
         self.toolBoxVidFilter.currentChanged.connect(self.tbChangeArrows)
 
         # Заполнение таблиц кнопками CB
-        self.insert_cb(self.tableBrand)
-        self.insert_cb(self.tableProizv)
-        self.insert_cb(self.tableGraphProc)
-
+        self.pasteCheckBoxes()
         #
         self.query = ""
         self.btnAccept.clicked.connect(self.clickAccept)
 
-    # нужен общий метод!!!!!!
-    def updateMinPrice(self, value):
-        self.leMinPrice.setText(f"{value}")
+    # Метод обновления значений в поле при движении слайдера
+    def updateFieldValue(self, field, value):
+        field.setText(f"{value}")
 
-    def updateMaxPrice(self, value):
-        self.leMaxPrice.setText(f"{value}")
-
-    # Метод создания рб на виджете
+    # Метод создания cb на виджете
     def create_checkbox(self):
         widget = QtWidgets.QWidget()
+        widget.setStyleSheet("background: rgb(10, 10, 10);")
         cb = CheckBox()
         cb.checkState()
         pLayout = QtWidgets.QHBoxLayout(widget)
@@ -125,6 +142,18 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
             if i != page:
                 self.toolBoxVidFilter.setItemIcon(i, QIcon("E:/pcconf/images/down-arrow.png"))
 
+    # Метод для вставки CB в таблицы
+    def pasteCheckBoxes(self):
+        self.insert_cb(self.tableBrand)
+        self.insert_cb(self.tableProizv)
+        self.insert_cb(self.tableGraphProc)
+        self.insert_cb(self.tableVolume)
+        self.insert_cb(self.tableType)
+        self.insert_cb(self.tableFreq)
+        self.insert_cb(self.tableInterface)
+        self.insert_cb(self.tableMonitor)
+        self.insert_cb(self.tableResolution)
+
     # Метод, обнуляющий CheckBox-ы в таблице
     def resetCheckBoxes(self, table):
         for i in range(table.rowCount()):
@@ -136,9 +165,26 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
                     chk_box.setChecked(False)
 
     # Метод, обнуляющий значения слайдеров
-    def resetSliders(self, sliderMin, sliderMax):
+    def resetSliders(self, sliderMin, sliderMax, leMin, leMax):
         sliderMin.setValue(0)
         sliderMax.setValue(0)
+        leMin.clear()
+        leMax.clear()
+
+    # Метод, обнуляющий все поля
+    def resetAll(self):
+        self.resetSliders(self.sliderPriceMin, self.sliderPriceMax, self.leMinPrice, self.leMaxPrice)
+        self.resetSliders(self.sliderTdpMin, self.sliderTdpMax, self.leMinTdp, self.leMaxTdp)
+        self.resetSliders(self.sliderLenMin, self.sliderLenMax, self.leMinLen, self.leMaxLen)
+        self.resetCheckBoxes(self.tableBrand)
+        self.resetCheckBoxes(self.tableProizv)
+        self.resetCheckBoxes(self.tableGraphProc)
+        self.resetCheckBoxes(self.tableVolume)
+        self.resetCheckBoxes(self.tableType)
+        self.resetCheckBoxes(self.tableFreq)
+        self.resetCheckBoxes(self.tableInterface)
+        self.resetCheckBoxes(self.tableMonitor)
+        self.resetCheckBoxes(self.tableResolution)
 
     # Метод, считывающий отмеченные CheckBox-ами строки из таблицы. Возвращает отмеченные строки
     def getCheckBoxes(self, table):
@@ -186,8 +232,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
             else:
                 query = f"Price BETWEEN {min_price} AND {max_price}"
 
-
-            #query += f'{min_price} {max_price} {min_tdp} {max_tdp} {min_len} {max_len}'
+            # query += f'{min_price} {max_price} {min_tdp} {max_tdp} {min_len} {max_len}'
             query += self.getCheckBoxes(self.tableBrand)
             query += self.getCheckBoxes(self.tableProizv)
             query += self.getCheckBoxes(self.tableGraphProc)

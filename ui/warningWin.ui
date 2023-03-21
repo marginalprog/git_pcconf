@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>340</width>
-    <height>181</height>
+    <height>196</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
   <property name="styleSheet">
    <string notr="true">QWidget
 {
-     background: rgb(25, 25, 25);
+     background: rgb(30, 30, 30);
 	color: white;
 
 }
@@ -115,7 +115,7 @@ border: 1px solid rgb(180, 0, 0);</string>
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>140</y>
+     <y>150</y>
      <width>111</width>
      <height>31</height>
     </rect>
@@ -128,15 +128,18 @@ border: 1px solid rgb(180, 0, 0);</string>
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton{
-	background-color: rgb(40,40,40);
+	border:1px solid rgb(70,70,70);
+	background-color: rgb(35,35,35);
 	color: #fffafa;
 }
 
 QPushButton::hover
 {
+	border:1px;
+	background-color: rgb(60,60,60);
+	border-color: rgb(40,40,40);
+	border-bottom: 1px solid  red;
 	color: red;
-	background-color: rgb(50,50,50);
-	border-bottom: 1px solid red;
 }
 </string>
    </property>

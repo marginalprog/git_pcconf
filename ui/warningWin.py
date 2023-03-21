@@ -14,13 +14,13 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_warningDialog(object):
     def setupUi(self, warningDialog):
         warningDialog.setObjectName("warningDialog")
-        warningDialog.resize(340, 181)
+        warningDialog.resize(340, 196)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/warning.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         warningDialog.setWindowIcon(icon)
         warningDialog.setStyleSheet("QWidget\n"
 "{\n"
-"     background: rgb(25, 25, 25);\n"
+"     background: rgb(30, 30, 30);\n"
 "    color: white;\n"
 "\n"
 "}\n"
@@ -59,21 +59,24 @@ class Ui_warningDialog(object):
         self.rectangle.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.rectangle.setObjectName("rectangle")
         self.btnCancel = QtWidgets.QPushButton(warningDialog)
-        self.btnCancel.setGeometry(QtCore.QRect(110, 140, 111, 31))
+        self.btnCancel.setGeometry(QtCore.QRect(110, 150, 111, 31))
         font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
+        font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
         self.btnCancel.setFont(font)
         self.btnCancel.setStyleSheet("QPushButton{\n"
-"    background-color: rgb(40,40,40);\n"
+"    border:1px solid rgb(70,70,70);\n"
+"    background-color: rgb(35,35,35);\n"
 "    color: #fffafa;\n"
 "}\n"
 "\n"
 "QPushButton::hover\n"
 "{\n"
+"    border:1px;\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-color: rgb(40,40,40);\n"
+"    border-bottom: 1px solid  red;\n"
 "    color: red;\n"
-"    background-color: rgb(50,50,50);\n"
-"    border-bottom: 1px solid red;\n"
 "}\n"
 "")
         self.btnCancel.setObjectName("btnCancel")
@@ -99,7 +102,7 @@ class Ui_warningDialog(object):
         warningDialog.setWindowTitle(_translate("warningDialog", "Dialog"))
         self.lbErr.setText(_translate("warningDialog", "Ошибка"))
         self.lbErrDescription.setText(_translate("warningDialog", "[Описание ошибки]"))
-        self.btnCancel.setText(_translate("warningDialog", "Отмена"))
+        self.btnCancel.setText(_translate("warningDialog", "ОК"))
 
 
 if __name__ == "__main__":

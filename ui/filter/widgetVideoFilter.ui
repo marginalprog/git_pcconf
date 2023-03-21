@@ -23,7 +23,7 @@
   <property name="styleSheet">
    <string notr="true">QWidget
 {
-     background: rgb(30, 30, 30);
+	background-color: rgb(30,30,30);
 	color: white;
 
 }
@@ -47,7 +47,7 @@
    <property name="styleSheet">
     <string notr="true">QPushButton{
 	border:1px solid rgb(70,70,70);
-	background-color: rgb(40,40,40);
+	background-color: rgb(35,35,35);
 	color: #fffafa;
 }
 
@@ -111,7 +111,7 @@ QToolBox::tab
 
 QToolBox::tab:selected
 {
-	background-color: rgb(50, 50, 50);
+	background-color: rgb(45, 45, 45);
 	border-bottom: 2px solid  rgb(180, 0, 0);
 	color: white;
 	font-weight: bold;
@@ -187,12 +187,14 @@ QToolBox::tab:hover
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>301</width>
-       <height>181</height>
+       <width>311</width>
+       <height>191</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">QFrame{
+	background-color: rgb(10, 10, 10);
+}</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -210,7 +212,11 @@ QToolBox::tab:hover
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">QSlider::groove:horizontal {
+       <string notr="true">QSlider{
+	background-color: rgb(10, 10, 10);
+}
+
+QSlider::groove:horizontal {
 border: 1px solid #bbb;
 background: rgb(160,160,160);
 height:6px;
@@ -218,23 +224,20 @@ height:6px;
 
 QSlider::sub-page:horizontal {
 border: 1px solid rgb(60,60,60);
-background: qlineargradient(x1: 0, y1: 0,    x2: 0, y2: 1,
-    stop: 0 rgb(255, 0, 0), stop: 1 rgb(91, 91, 91));
-background: qlineargradient(x1: 0, y1: 0.2, x2: 1, y2: 1,
-    stop: 0 rgb(60, 60,60), stop: 1 rgb(250, 0, 0));
+background: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.125 rgba(66, 68, 68, 255), stop:0.426136 rgba(117, 19, 19, 255), stop:0.852273 rgba(255, 0, 0, 255));
+
 color: rgb(144, 144, 144);
 height: 6px;
 }
 
 QSlider::add-page:horizontal {
 border: 1px solid rgb(75,75,75);
-background: rgb(100,100,100);
+background: rgb(70,70,70);
 }
 
 QSlider::handle:horizontal {
 border: 1px solid rgb(60,60,60);
-background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
-    stop:0 rgb(80,80,80), stop:1 rgb(250,0,0));
+background:qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0.057, stop:0 rgba(255, 0, 0, 255), stop:0.398876 rgba(165, 0, 0, 255), stop:0.994318 rgba(46, 48, 49, 255));
 width: 6px;
 margin-top: -7px;
 margin-bottom: -7px;
@@ -268,6 +271,9 @@ border-radius: 4px;
       </property>
       <property name="value">
        <number>50</number>
+      </property>
+      <property name="tracking">
+       <bool>true</bool>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -306,7 +312,11 @@ border-top: 1px solid white;</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">QSlider::groove:horizontal {
+       <string notr="true">QSlider{
+	background-color: rgb(10, 10, 10);
+}
+
+QSlider::groove:horizontal {
 border: 1px solid #bbb;
 background: rgb(160,160,160);
 height:6px;
@@ -322,7 +332,7 @@ height: 6px;
 
 QSlider::add-page:horizontal {
 border: 1px solid rgb(75,75,75);
-background: rgb(100,100,100);
+background: rgb(70,70,70);
 }
 
 QSlider::handle:horizontal {
@@ -390,15 +400,16 @@ border-radius: 4px;
       <property name="styleSheet">
        <string notr="true">QPushButton
 {
-color:  rgb(200,200, 200);
-border: 0px;
-border-bottom: 1px dotted rgb(200, 200, 200);
+	background-color: rgb(10, 10, 10);
+	color:  rgb(200,200, 200);
+	border: 0px;
+	border-bottom: 1px dotted rgb(200, 200, 200);
 }
 
 QPushButton::hover
 {
-color: red;
-border-bottom: 1px dotted red;
+	color: red;
+	border-bottom: 1px dotted red;
 }
 </string>
       </property>
@@ -554,12 +565,15 @@ QLineEdit:hover{
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>301</width>
-       <height>181</height>
+       <width>311</width>
+       <height>191</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">QFrame{
+	background-color: rgb(10, 10, 10);
+}
+</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -627,7 +641,6 @@ QHeaderView::section{
 
 QTableWidget QTableCornerButton::section
 {
-	
 	background: rgb(30, 30, 30);
 	border-style: solid;
 	border-width: 1px;
@@ -635,6 +648,7 @@ QTableWidget QTableCornerButton::section
 
 QTableWidget::item
 {
+	background: rgb(10, 10, 10);
  	border-bottom: 1px solid rgb(60,60,60); 
 	border-right: 0px;
 	border-left: 0px;
@@ -643,7 +657,7 @@ QTableWidget::item
 
 QTableView
 {
-	background: rgb(30, 30, 30);
+	background: rgb(10, 10, 10);
 	color: #dddddd;
 	border-top: 0px;
 	border-right: 0px;
@@ -855,15 +869,16 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
       <property name="styleSheet">
        <string notr="true">QPushButton
 {
-color:  rgb(200,200, 200);
-border: 0px;
-border-bottom: 1px dotted rgb(200, 200, 200);
+	background-color: rgb(10, 10, 10);
+	color:  rgb(200,200, 200);
+	border: 0px;
+	border-bottom: 1px dotted rgb(200, 200, 200);
 }
 
 QPushButton::hover
 {
-color: red;
-border-bottom: 1px dotted red;
+	color: red;
+	border-bottom: 1px dotted red;
 }
 </string>
       </property>
@@ -894,12 +909,15 @@ border-bottom: 1px dotted red;
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>301</width>
-       <height>181</height>
+       <width>311</width>
+       <height>191</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">QFrame{
+	background-color: rgb(10, 10, 10);
+}
+</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -983,7 +1001,7 @@ QTableWidget::item
 
 QTableView
 {
-	background: rgb(30, 30, 30);
+	background-color: #101010;
 	color: #dddddd;
 	border-top: 0px;
 	border-right: 0px;
@@ -1194,16 +1212,17 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton
-{
-color:  rgb(200,200, 200);
-border: 0px;
-border-bottom: 1px dotted rgb(200, 200, 200);
+{	
+	background-color: rgb(10, 10, 10);
+	color:  rgb(200,200, 200);
+	border: 0px;
+	border-bottom: 1px dotted rgb(200, 200, 200);
 }
 
 QPushButton::hover
 {
-color: red;
-border-bottom: 1px dotted red;
+	color: red;
+	border-bottom: 1px dotted red;
 }
 </string>
       </property>
@@ -1234,12 +1253,15 @@ border-bottom: 1px dotted red;
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>301</width>
-       <height>181</height>
+       <width>311</width>
+       <height>191</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">QFrame{
+	background-color: rgb(10, 10, 10);
+}
+</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -1323,7 +1345,7 @@ QTableWidget::item
 
 QTableView
 {
-	background: rgb(30, 30, 30);
+	background-color: #101010;
 	color: #dddddd;
 	border-top: 0px;
 	border-right: 0px;
@@ -1535,15 +1557,16 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
       <property name="styleSheet">
        <string notr="true">QPushButton
 {
-color:  rgb(200,200, 200);
-border: 0px;
-border-bottom: 1px dotted rgb(200, 200, 200);
+	background-color: rgb(10, 10, 10);
+	color:  rgb(200,200, 200);
+	border: 0px;
+	border-bottom: 1px dotted rgb(200, 200, 200);
 }
 
 QPushButton::hover
 {
-color: red;
-border-bottom: 1px dotted red;
+	color: red;
+	border-bottom: 1px dotted red;
 }
 </string>
       </property>
@@ -1574,12 +1597,15 @@ border-bottom: 1px dotted red;
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>301</width>
-       <height>181</height>
+       <width>311</width>
+       <height>191</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">QFrame{
+	background-color: rgb(10, 10, 10);
+}
+</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -1663,7 +1689,7 @@ QTableWidget::item
 
 QTableView
 {
-	background: rgb(30, 30, 30);
+	background-color: #101010;
 	color: #dddddd;
 	border-top: 0px;
 	border-right: 0px;
@@ -1875,15 +1901,17 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
       <property name="styleSheet">
        <string notr="true">QPushButton
 {
-color:  rgb(200,200, 200);
-border: 0px;
-border-bottom: 1px dotted rgb(200, 200, 200);
+
+	background-color: rgb(10, 10, 10);
+	color:  rgb(200,200, 200);
+	border: 0px;
+	border-bottom: 1px dotted rgb(200, 200, 200);
 }
 
 QPushButton::hover
 {
-color: red;
-border-bottom: 1px dotted red;
+	color: red;
+	border-bottom: 1px dotted red;
 }
 </string>
       </property>
@@ -1914,12 +1942,15 @@ border-bottom: 1px dotted red;
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>301</width>
-       <height>181</height>
+       <width>311</width>
+       <height>191</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">QFrame{
+	background-color: rgb(10, 10, 10);
+}
+</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -2003,7 +2034,7 @@ QTableWidget::item
 
 QTableView
 {
-	background: rgb(30, 30, 30);
+	background-color: #101010;
 	color: #dddddd;
 	border-top: 0px;
 	border-right: 0px;
@@ -2215,6 +2246,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
       <property name="styleSheet">
        <string notr="true">QPushButton
 {
+background-color: rgb(10, 10, 10);
 color:  rgb(200,200, 200);
 border: 0px;
 border-bottom: 1px dotted rgb(200, 200, 200);
@@ -2254,12 +2286,15 @@ border-bottom: 1px dotted red;
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>301</width>
-       <height>181</height>
+       <width>311</width>
+       <height>191</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">QFrame{
+	background-color: rgb(10, 10, 10);
+}
+</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -2343,7 +2378,7 @@ QTableWidget::item
 
 QTableView
 {
-	background: rgb(30, 30, 30);
+	background-color: #101010;
 	color: #dddddd;
 	border-top: 0px;
 	border-right: 0px;
@@ -2555,6 +2590,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
       <property name="styleSheet">
        <string notr="true">QPushButton
 {
+background-color: rgb(10, 10, 10);
 color:  rgb(200,200, 200);
 border: 0px;
 border-bottom: 1px dotted rgb(200, 200, 200);
@@ -2594,12 +2630,15 @@ border-bottom: 1px dotted red;
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>301</width>
-       <height>181</height>
+       <width>311</width>
+       <height>191</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">QFrame{
+	background-color: rgb(10, 10, 10);
+}
+</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -2683,7 +2722,7 @@ QTableWidget::item
 
 QTableView
 {
-	background: rgb(30, 30, 30);
+	background-color: #101010;
 	color: #dddddd;
 	border-top: 0px;
 	border-right: 0px;
@@ -2895,6 +2934,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
       <property name="styleSheet">
        <string notr="true">QPushButton
 {
+background-color: rgb(10, 10, 10);
 color:  rgb(200,200, 200);
 border: 0px;
 border-bottom: 1px dotted rgb(200, 200, 200);
@@ -2935,12 +2975,15 @@ border-bottom: 1px dotted red;
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>301</width>
-       <height>181</height>
+       <width>311</width>
+       <height>191</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">QFrame{
+	background-color: rgb(10, 10, 10);
+}
+</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -3009,7 +3052,7 @@ QHeaderView::section{
 QTableWidget QTableCornerButton::section
 {
 	
-	background: rgb(30, 30, 30);
+	background-color: #101010;
 	border-style: solid;
 	border-width: 1px;
 }
@@ -3024,7 +3067,7 @@ QTableWidget::item
 
 QTableView
 {
-	background: rgb(30, 30, 30);
+	background-color: #101010;
 	color: #dddddd;
 	border-top: 0px;
 	border-right: 0px;
@@ -3236,6 +3279,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
       <property name="styleSheet">
        <string notr="true">QPushButton
 {
+background-color: rgb(10, 10, 10);
 color:  rgb(200,200, 200);
 border: 0px;
 border-bottom: 1px dotted rgb(200, 200, 200);
@@ -3275,12 +3319,15 @@ border-bottom: 1px dotted red;
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>301</width>
-       <height>181</height>
+       <width>311</width>
+       <height>191</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">QFrame{
+	background-color: rgb(10, 10, 10);
+}
+</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -3364,7 +3411,7 @@ QTableWidget::item
 
 QTableView
 {
-	background: rgb(30, 30, 30);
+	background-color: #101010;
 	color: #dddddd;
 	border-top: 0px;
 	border-right: 0px;
@@ -3576,6 +3623,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
       <property name="styleSheet">
        <string notr="true">QPushButton
 {
+background-color: rgb(10, 10, 10);
 color:  rgb(200,200, 200);
 border: 0px;
 border-bottom: 1px dotted rgb(200, 200, 200);
@@ -3615,12 +3663,15 @@ border-bottom: 1px dotted red;
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>301</width>
-       <height>181</height>
+       <width>311</width>
+       <height>191</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">QFrame{
+	background-color: rgb(10, 10, 10);
+}
+</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -3646,6 +3697,7 @@ border-bottom: 1px dotted red;
       <property name="styleSheet">
        <string notr="true">QPushButton
 {
+background-color: rgb(10, 10, 10);
 color:  rgb(200,200, 200);
 border: 0px;
 border-bottom: 1px dotted rgb(200, 200, 200);
@@ -3672,7 +3724,11 @@ border-bottom: 1px dotted red;
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">QSlider::groove:horizontal {
+       <string notr="true">QSlider{
+	background-color: rgb(10, 10, 10);
+}
+
+QSlider::groove:horizontal {
 border: 1px solid #bbb;
 background: rgb(160,160,160);
 height:6px;
@@ -3688,7 +3744,7 @@ height: 6px;
 
 QSlider::add-page:horizontal {
 border: 1px solid rgb(75,75,75);
-background: rgb(100,100,100);
+background: rgb(70,70,70);
 }
 
 QSlider::handle:horizontal {
@@ -3748,7 +3804,11 @@ border-radius: 4px;
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">QSlider::groove:horizontal {
+       <string notr="true">QSlider{
+	background-color: rgb(10, 10, 10);
+}
+
+QSlider::groove:horizontal {
 border: 1px solid #bbb;
 background: rgb(160,160,160);
 height:6px;
@@ -3756,27 +3816,25 @@ height:6px;
 
 QSlider::sub-page:horizontal {
 border: 1px solid rgb(60,60,60);
-background: qlineargradient(x1: 0, y1: 0,    x2: 0, y2: 1,
-    stop: 0 rgb(255, 0, 0), stop: 1 rgb(91, 91, 91));
-background: qlineargradient(x1: 0, y1: 0.2, x2: 1, y2: 1,
-    stop: 0 rgb(60, 60,60), stop: 1 rgb(250, 0, 0));
+background: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.125 rgba(66, 68, 68, 255), stop:0.426136 rgba(117, 19, 19, 255), stop:0.852273 rgba(255, 0, 0, 255));
+
 color: rgb(144, 144, 144);
 height: 6px;
 }
 
 QSlider::add-page:horizontal {
 border: 1px solid rgb(75,75,75);
-background: rgb(100,100,100);
+background: rgb(70,70,70);
 }
 
 QSlider::handle:horizontal {
 border: 1px solid rgb(60,60,60);
-background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
-    stop:0 rgb(80,80,80), stop:1 rgb(250,0,0));
+background:qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0.057, stop:0 rgba(255, 0, 0, 255), stop:0.398876 rgba(165, 0, 0, 255), stop:0.994318 rgba(46, 48, 49, 255));
 width: 6px;
 margin-top: -7px;
 margin-bottom: -7px;
 }
+
 
 QSlider::handle:horizontal:hover {
 border: 1px solid rgb(60,60,60);
@@ -3981,12 +4039,15 @@ QLineEdit:hover{
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>301</width>
-       <height>181</height>
+       <width>311</width>
+       <height>191</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">QFrame{
+	background-color: rgb(10, 10, 10);
+}
+</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -4012,6 +4073,7 @@ QLineEdit:hover{
       <property name="styleSheet">
        <string notr="true">QPushButton
 {
+background-color: rgb(10, 10, 10);
 color:  rgb(200,200, 200);
 border: 0px;
 border-bottom: 1px dotted rgb(200, 200, 200);
@@ -4055,7 +4117,10 @@ border-top: 1px solid white;</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">QSlider::groove:horizontal {
+       <string notr="true">QSlider{
+	background-color: rgb(10, 10, 10);
+}
+QSlider::groove:horizontal {
 border: 1px solid #bbb;
 background: rgb(160,160,160);
 height:6px;
@@ -4063,23 +4128,20 @@ height:6px;
 
 QSlider::sub-page:horizontal {
 border: 1px solid rgb(60,60,60);
-background: qlineargradient(x1: 0, y1: 0,    x2: 0, y2: 1,
-    stop: 0 rgb(255, 0, 0), stop: 1 rgb(91, 91, 91));
-background: qlineargradient(x1: 0, y1: 0.2, x2: 1, y2: 1,
-    stop: 0 rgb(60, 60,60), stop: 1 rgb(250, 0, 0));
+background: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.125 rgba(66, 68, 68, 255), stop:0.426136 rgba(117, 19, 19, 255), stop:0.852273 rgba(255, 0, 0, 255));
+
 color: rgb(144, 144, 144);
 height: 6px;
 }
 
 QSlider::add-page:horizontal {
 border: 1px solid rgb(75,75,75);
-background: rgb(100,100,100);
+background: rgb(70,70,70);
 }
 
 QSlider::handle:horizontal {
 border: 1px solid rgb(60,60,60);
-background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
-    stop:0 rgb(80,80,80), stop:1 rgb(250,0,0));
+background:qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0.057, stop:0 rgba(255, 0, 0, 255), stop:0.398876 rgba(165, 0, 0, 255), stop:0.994318 rgba(46, 48, 49, 255));
 width: 6px;
 margin-top: -7px;
 margin-bottom: -7px;
@@ -4192,7 +4254,10 @@ border-radius: 4px;
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">QSlider::groove:horizontal {
+       <string notr="true">QSlider{
+	background-color: rgb(10, 10, 10);
+}
+QSlider::groove:horizontal {
 border: 1px solid #bbb;
 background: rgb(160,160,160);
 height:6px;
@@ -4208,7 +4273,7 @@ height: 6px;
 
 QSlider::add-page:horizontal {
 border: 1px solid rgb(75,75,75);
-background: rgb(100,100,100);
+background: rgb(70,70,70);
 }
 
 QSlider::handle:horizontal {
@@ -4402,7 +4467,7 @@ border-top: 1px solid red;</string>
    <property name="styleSheet">
     <string notr="true">QPushButton{
 	border:1px solid rgb(70,70,70);
-	background-color: rgb(40,40,40);
+	background-color: rgb(35,35,35);
 	color: #fffafa;
 }
 
@@ -4417,6 +4482,40 @@ QPushButton::hover
    </property>
    <property name="text">
     <string>Применить</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnResetAll">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>50</y>
+     <width>91</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat Medium</family>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton
+{
+color:  rgb(200,200, 200);
+border: 0px;
+border-bottom: 1px dotted rgb(200, 200, 200);
+}
+
+QPushButton::hover
+{
+color: red;
+border-bottom: 1px dotted red;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Сбросить всё</string>
    </property>
   </widget>
  </widget>

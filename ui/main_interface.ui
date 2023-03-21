@@ -1102,8 +1102,8 @@ QPushButton::hover
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>297</width>
-           <height>243</height>
+           <width>100</width>
+           <height>30</height>
           </rect>
          </property>
          <attribute name="icon">
@@ -1542,8 +1542,8 @@ border: 1px solid rgb(255, 247, 0);
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>297</width>
-           <height>243</height>
+           <width>100</width>
+           <height>30</height>
           </rect>
          </property>
          <attribute name="icon">
@@ -1982,8 +1982,8 @@ border: 1px solid rgb(255, 247, 0);
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>297</width>
-           <height>243</height>
+           <width>100</width>
+           <height>30</height>
           </rect>
          </property>
          <attribute name="icon">
@@ -2422,8 +2422,8 @@ border: 1px solid rgb(255, 247, 0);
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>297</width>
-           <height>243</height>
+           <width>100</width>
+           <height>30</height>
           </rect>
          </property>
          <attribute name="icon">
@@ -2862,8 +2862,8 @@ border: 1px solid rgb(255, 247, 0);
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>297</width>
-           <height>243</height>
+           <width>100</width>
+           <height>30</height>
           </rect>
          </property>
          <attribute name="icon">
@@ -3302,8 +3302,8 @@ border: 1px solid rgb(255, 247, 0);
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>297</width>
-           <height>243</height>
+           <width>100</width>
+           <height>30</height>
           </rect>
          </property>
          <attribute name="icon">
@@ -3742,8 +3742,8 @@ border: 1px solid rgb(255, 247, 0);
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>297</width>
-           <height>243</height>
+           <width>100</width>
+           <height>30</height>
           </rect>
          </property>
          <attribute name="icon">
@@ -4182,8 +4182,8 @@ border: 1px solid rgb(255, 247, 0);
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>297</width>
-           <height>243</height>
+           <width>100</width>
+           <height>30</height>
           </rect>
          </property>
          <attribute name="icon">
@@ -4663,7 +4663,7 @@ border: 1px solid rgb(255, 247, 0);
 }
 
 QProgressBar::chunk{
-	background-color: #FF0000;
+	background-color:#FF0000;
 	border-style: solid;
 	border-radius: 0px;
 	border-color: rgb(74, 0, 1);
@@ -4678,7 +4678,7 @@ QProgressBar::chunk:hover{
          <number>8</number>
         </property>
         <property name="value">
-         <number>2</number>
+         <number>0</number>
         </property>
         <property name="alignment">
          <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -4690,7 +4690,7 @@ QProgressBar::chunk:hover{
          <bool>false</bool>
         </property>
         <property name="format">
-         <string>2 / 8</string>
+         <string>%v / %m</string>
         </property>
        </widget>
        <widget class="QTreeWidget" name="treeWidget">
@@ -5123,7 +5123,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>0</y>
+           <y>-310</y>
            <width>1035</width>
            <height>2518</height>
           </rect>
@@ -5259,16 +5259,6 @@ QTabBar::tab:hover
               <widget class="QWidget" name="all">
                <attribute name="title">
                 <string>Все</string>
-               </attribute>
-              </widget>
-              <widget class="QWidget" name="tabNvidia">
-               <attribute name="title">
-                <string>NVIDIA</string>
-               </attribute>
-              </widget>
-              <widget class="QWidget" name="tabAmd">
-               <attribute name="title">
-                <string>AMD</string>
                </attribute>
               </widget>
              </widget>
@@ -5843,21 +5833,11 @@ QTabBar::tab:hover
 }</string>
               </property>
               <property name="currentIndex">
-               <number>2</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="allProc">
                <attribute name="title">
                 <string>Все</string>
-               </attribute>
-              </widget>
-              <widget class="QWidget" name="tabPr1">
-               <attribute name="title">
-                <string>NVIDIA</string>
-               </attribute>
-              </widget>
-              <widget class="QWidget" name="tabPr2">
-               <attribute name="title">
-                <string>AMD</string>
                </attribute>
               </widget>
              </widget>
@@ -6423,21 +6403,11 @@ QTabBar::tab:hover
 }</string>
               </property>
               <property name="currentIndex">
-               <number>2</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="allMother">
                <attribute name="title">
                 <string>Все</string>
-               </attribute>
-              </widget>
-              <widget class="QWidget" name="tabMoth1">
-               <attribute name="title">
-                <string>NVIDIA</string>
-               </attribute>
-              </widget>
-              <widget class="QWidget" name="tabMoth2">
-               <attribute name="title">
-                <string>AMD</string>
                </attribute>
               </widget>
              </widget>
@@ -6667,36 +6637,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                 <string>New Row</string>
                </property>
               </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
               <column>
                <property name="text">
                 <string>Выбор</string>
@@ -6743,6 +6683,8 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                </property>
               </item>
              </widget>
+             <zorder>tableConfMother</zorder>
+             <zorder>tabWidgetMothet</zorder>
             </widget>
             <widget class="QLabel" name="lbCooling">
              <property name="geometry">
@@ -6914,21 +6856,11 @@ QTabBar::tab:hover
 }</string>
               </property>
               <property name="currentIndex">
-               <number>2</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="allCool">
                <attribute name="title">
                 <string>Все</string>
-               </attribute>
-              </widget>
-              <widget class="QWidget" name="tabCool1">
-               <attribute name="title">
-                <string>NVIDIA</string>
-               </attribute>
-              </widget>
-              <widget class="QWidget" name="tabCool2">
-               <attribute name="title">
-                <string>AMD</string>
                </attribute>
               </widget>
              </widget>
@@ -7158,36 +7090,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                 <string>New Row</string>
                </property>
               </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
               <column>
                <property name="text">
                 <string>Выбор</string>
@@ -7234,6 +7136,8 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                </property>
               </item>
              </widget>
+             <zorder>tableConfCool</zorder>
+             <zorder>tabWidgetCool</zorder>
             </widget>
             <widget class="QPushButton" name="btnRamHelp">
              <property name="geometry">
@@ -7405,21 +7309,11 @@ QTabBar::tab:hover
 }</string>
               </property>
               <property name="currentIndex">
-               <number>2</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="allRam">
                <attribute name="title">
                 <string>Все</string>
-               </attribute>
-              </widget>
-              <widget class="QWidget" name="tabR1">
-               <attribute name="title">
-                <string>NVIDIA</string>
-               </attribute>
-              </widget>
-              <widget class="QWidget" name="tabR2">
-               <attribute name="title">
-                <string>AMD</string>
                </attribute>
               </widget>
              </widget>
@@ -7649,36 +7543,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                 <string>New Row</string>
                </property>
               </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
               <column>
                <property name="text">
                 <string>Выбор</string>
@@ -7725,6 +7589,8 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                </property>
               </item>
              </widget>
+             <zorder>tableConfRam</zorder>
+             <zorder>tabWidgetRam</zorder>
             </widget>
             <widget class="QLabel" name="lbDisk">
              <property name="geometry">
@@ -7862,21 +7728,11 @@ QTabBar::tab:hover
 }</string>
               </property>
               <property name="currentIndex">
-               <number>2</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="allDisk">
                <attribute name="title">
                 <string>Все</string>
-               </attribute>
-              </widget>
-              <widget class="QWidget" name="tabD1">
-               <attribute name="title">
-                <string>NVIDIA</string>
-               </attribute>
-              </widget>
-              <widget class="QWidget" name="tabD2">
-               <attribute name="title">
-                <string>AMD</string>
                </attribute>
               </widget>
              </widget>
@@ -8106,36 +7962,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                 <string>New Row</string>
                </property>
               </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
               <column>
                <property name="text">
                 <string>Выбор</string>
@@ -8182,6 +8008,8 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                </property>
               </item>
              </widget>
+             <zorder>tableConfDisk</zorder>
+             <zorder>tabWidgetDisk</zorder>
             </widget>
             <widget class="QPushButton" name="btnDiskHelp">
              <property name="geometry">
@@ -8596,36 +8424,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                 <string>New Row</string>
                </property>
               </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
               <column>
                <property name="text">
                 <string>Выбор</string>
@@ -8672,6 +8470,8 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                </property>
               </item>
              </widget>
+             <zorder>tableConfPower</zorder>
+             <zorder>tabWidgetPower</zorder>
             </widget>
             <widget class="QPushButton" name="btnPowerHelp">
              <property name="geometry">
@@ -8853,16 +8653,6 @@ QTabBar::tab:hover
               <widget class="QWidget" name="allBody">
                <attribute name="title">
                 <string>Все</string>
-               </attribute>
-              </widget>
-              <widget class="QWidget" name="tabB1">
-               <attribute name="title">
-                <string>NVIDIA</string>
-               </attribute>
-              </widget>
-              <widget class="QWidget" name="tabB2">
-               <attribute name="title">
-                <string>AMD</string>
                </attribute>
               </widget>
              </widget>
@@ -9092,36 +8882,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                 <string>New Row</string>
                </property>
               </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
               <column>
                <property name="text">
                 <string>Выбор</string>
@@ -9168,6 +8928,8 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                </property>
               </item>
              </widget>
+             <zorder>tableConfBody</zorder>
+             <zorder>tabWidgetBody</zorder>
             </widget>
             <widget class="QLabel" name="lbBody">
              <property name="geometry">
@@ -9363,7 +9125,7 @@ border: 1px solid #bf0000;
            <x>10</x>
            <y>170</y>
            <width>241</width>
-           <height>181</height>
+           <height>201</height>
           </rect>
          </property>
          <property name="font">
@@ -9521,6 +9283,40 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
            <string>рубль</string>
           </property>
          </column>
+        </widget>
+        <widget class="QPushButton" name="btnResetConfig">
+         <property name="geometry">
+          <rect>
+           <x>60</x>
+           <y>370</y>
+           <width>151</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Montserrat Medium</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton
+{
+color:  rgb(170,170, 170);
+border: 0px;
+background-color: rgb(20,20,20);
+}
+
+QPushButton::hover
+{
+color: red;
+border-bottom: 1px dashed red;
+}
+</string>
+         </property>
+         <property name="text">
+          <string>Сброс конфигурации</string>
+         </property>
         </widget>
        </widget>
        <zorder>scrollArea</zorder>

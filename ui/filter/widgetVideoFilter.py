@@ -21,7 +21,7 @@ class Ui_WidgetVideoFilter(object):
         WidgetVideoFilter.setWindowIcon(icon)
         WidgetVideoFilter.setStyleSheet("QWidget\n"
 "{\n"
-"     background: rgb(30, 30, 30);\n"
+"    background-color: rgb(30,30,30);\n"
 "    color: white;\n"
 "\n"
 "}\n"
@@ -34,7 +34,7 @@ class Ui_WidgetVideoFilter(object):
         self.btnClose.setFont(font)
         self.btnClose.setStyleSheet("QPushButton{\n"
 "    border:1px solid rgb(70,70,70);\n"
-"    background-color: rgb(40,40,40);\n"
+"    background-color: rgb(35,35,35);\n"
 "    color: #fffafa;\n"
 "}\n"
 "\n"
@@ -81,7 +81,7 @@ class Ui_WidgetVideoFilter(object):
 "\n"
 "QToolBox::tab:selected\n"
 "{\n"
-"    background-color: rgb(50, 50, 50);\n"
+"    background-color: rgb(45, 45, 45);\n"
 "    border-bottom: 2px solid  rgb(180, 0, 0);\n"
 "    color: white;\n"
 "    font-weight: bold;\n"
@@ -110,14 +110,20 @@ class Ui_WidgetVideoFilter(object):
         self.price.setBaseSize(QtCore.QSize(0, 200))
         self.price.setObjectName("price")
         self.tbFrameVideo = QtWidgets.QFrame(self.price)
-        self.tbFrameVideo.setGeometry(QtCore.QRect(0, 0, 301, 181))
-        self.tbFrameVideo.setStyleSheet("")
+        self.tbFrameVideo.setGeometry(QtCore.QRect(0, 0, 311, 191))
+        self.tbFrameVideo.setStyleSheet("QFrame{\n"
+"    background-color: rgb(10, 10, 10);\n"
+"}")
         self.tbFrameVideo.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.tbFrameVideo.setFrameShadow(QtWidgets.QFrame.Raised)
         self.tbFrameVideo.setObjectName("tbFrameVideo")
         self.sliderPriceMin = QtWidgets.QSlider(self.tbFrameVideo)
         self.sliderPriceMin.setGeometry(QtCore.QRect(10, 100, 111, 21))
-        self.sliderPriceMin.setStyleSheet("QSlider::groove:horizontal {\n"
+        self.sliderPriceMin.setStyleSheet("QSlider{\n"
+"    background-color: rgb(10, 10, 10);\n"
+"}\n"
+"\n"
+"QSlider::groove:horizontal {\n"
 "border: 1px solid #bbb;\n"
 "background: rgb(160,160,160);\n"
 "height:6px;\n"
@@ -125,23 +131,20 @@ class Ui_WidgetVideoFilter(object):
 "\n"
 "QSlider::sub-page:horizontal {\n"
 "border: 1px solid rgb(60,60,60);\n"
-"background: qlineargradient(x1: 0, y1: 0,    x2: 0, y2: 1,\n"
-"    stop: 0 rgb(255, 0, 0), stop: 1 rgb(91, 91, 91));\n"
-"background: qlineargradient(x1: 0, y1: 0.2, x2: 1, y2: 1,\n"
-"    stop: 0 rgb(60, 60,60), stop: 1 rgb(250, 0, 0));\n"
+"background: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.125 rgba(66, 68, 68, 255), stop:0.426136 rgba(117, 19, 19, 255), stop:0.852273 rgba(255, 0, 0, 255));\n"
+"\n"
 "color: rgb(144, 144, 144);\n"
 "height: 6px;\n"
 "}\n"
 "\n"
 "QSlider::add-page:horizontal {\n"
 "border: 1px solid rgb(75,75,75);\n"
-"background: rgb(100,100,100);\n"
+"background: rgb(70,70,70);\n"
 "}\n"
 "\n"
 "QSlider::handle:horizontal {\n"
 "border: 1px solid rgb(60,60,60);\n"
-"background: qlineargradient(x1:0, y1:0, x2:1, y2:1,\n"
-"    stop:0 rgb(80,80,80), stop:1 rgb(250,0,0));\n"
+"background:qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0.057, stop:0 rgba(255, 0, 0, 255), stop:0.398876 rgba(165, 0, 0, 255), stop:0.994318 rgba(46, 48, 49, 255));\n"
 "width: 6px;\n"
 "margin-top: -7px;\n"
 "margin-bottom: -7px;\n"
@@ -173,6 +176,7 @@ class Ui_WidgetVideoFilter(object):
 "border-radius: 4px;\n"
 "}")
         self.sliderPriceMin.setProperty("value", 50)
+        self.sliderPriceMin.setTracking(True)
         self.sliderPriceMin.setOrientation(QtCore.Qt.Horizontal)
         self.sliderPriceMin.setInvertedAppearance(False)
         self.sliderPriceMin.setInvertedControls(False)
@@ -186,7 +190,11 @@ class Ui_WidgetVideoFilter(object):
         self.line_2.setObjectName("line_2")
         self.sliderPriceMax = QtWidgets.QSlider(self.tbFrameVideo)
         self.sliderPriceMax.setGeometry(QtCore.QRect(180, 100, 111, 21))
-        self.sliderPriceMax.setStyleSheet("QSlider::groove:horizontal {\n"
+        self.sliderPriceMax.setStyleSheet("QSlider{\n"
+"    background-color: rgb(10, 10, 10);\n"
+"}\n"
+"\n"
+"QSlider::groove:horizontal {\n"
 "border: 1px solid #bbb;\n"
 "background: rgb(160,160,160);\n"
 "height:6px;\n"
@@ -202,7 +210,7 @@ class Ui_WidgetVideoFilter(object):
 "\n"
 "QSlider::add-page:horizontal {\n"
 "border: 1px solid rgb(75,75,75);\n"
-"background: rgb(100,100,100);\n"
+"background: rgb(70,70,70);\n"
 "}\n"
 "\n"
 "QSlider::handle:horizontal {\n"
@@ -251,15 +259,16 @@ class Ui_WidgetVideoFilter(object):
         self.btnResetPrice.setFont(font)
         self.btnResetPrice.setStyleSheet("QPushButton\n"
 "{\n"
-"color:  rgb(200,200, 200);\n"
-"border: 0px;\n"
-"border-bottom: 1px dotted rgb(200, 200, 200);\n"
+"    background-color: rgb(10, 10, 10);\n"
+"    color:  rgb(200,200, 200);\n"
+"    border: 0px;\n"
+"    border-bottom: 1px dotted rgb(200, 200, 200);\n"
 "}\n"
 "\n"
 "QPushButton::hover\n"
 "{\n"
-"color: red;\n"
-"border-bottom: 1px dotted red;\n"
+"    color: red;\n"
+"    border-bottom: 1px dotted red;\n"
 "}\n"
 "")
         self.btnResetPrice.setObjectName("btnResetPrice")
@@ -339,8 +348,11 @@ class Ui_WidgetVideoFilter(object):
         self.brand.setGeometry(QtCore.QRect(0, 0, 307, 189))
         self.brand.setObjectName("brand")
         self.frameBrand = QtWidgets.QFrame(self.brand)
-        self.frameBrand.setGeometry(QtCore.QRect(0, 0, 301, 181))
-        self.frameBrand.setStyleSheet("")
+        self.frameBrand.setGeometry(QtCore.QRect(0, 0, 311, 191))
+        self.frameBrand.setStyleSheet("QFrame{\n"
+"    background-color: rgb(10, 10, 10);\n"
+"}\n"
+"")
         self.frameBrand.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frameBrand.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frameBrand.setObjectName("frameBrand")
@@ -386,7 +398,6 @@ class Ui_WidgetVideoFilter(object):
 "\n"
 "QTableWidget QTableCornerButton::section\n"
 "{\n"
-"    \n"
 "    background: rgb(30, 30, 30);\n"
 "    border-style: solid;\n"
 "    border-width: 1px;\n"
@@ -394,6 +405,7 @@ class Ui_WidgetVideoFilter(object):
 "\n"
 "QTableWidget::item\n"
 "{\n"
+"    background: rgb(10, 10, 10);\n"
 "     border-bottom: 1px solid rgb(60,60,60); \n"
 "    border-right: 0px;\n"
 "    border-left: 0px;\n"
@@ -402,7 +414,7 @@ class Ui_WidgetVideoFilter(object):
 "\n"
 "QTableView\n"
 "{\n"
-"    background: rgb(30, 30, 30);\n"
+"    background: rgb(10, 10, 10);\n"
 "    color: #dddddd;\n"
 "    border-top: 0px;\n"
 "    border-right: 0px;\n"
@@ -539,15 +551,16 @@ class Ui_WidgetVideoFilter(object):
         self.btnResetBrand.setFont(font)
         self.btnResetBrand.setStyleSheet("QPushButton\n"
 "{\n"
-"color:  rgb(200,200, 200);\n"
-"border: 0px;\n"
-"border-bottom: 1px dotted rgb(200, 200, 200);\n"
+"    background-color: rgb(10, 10, 10);\n"
+"    color:  rgb(200,200, 200);\n"
+"    border: 0px;\n"
+"    border-bottom: 1px dotted rgb(200, 200, 200);\n"
 "}\n"
 "\n"
 "QPushButton::hover\n"
 "{\n"
-"color: red;\n"
-"border-bottom: 1px dotted red;\n"
+"    color: red;\n"
+"    border-bottom: 1px dotted red;\n"
 "}\n"
 "")
         self.btnResetBrand.setObjectName("btnResetBrand")
@@ -559,8 +572,11 @@ class Ui_WidgetVideoFilter(object):
         self.proizvoditel.setGeometry(QtCore.QRect(0, 0, 307, 189))
         self.proizvoditel.setObjectName("proizvoditel")
         self.frameProizv = QtWidgets.QFrame(self.proizvoditel)
-        self.frameProizv.setGeometry(QtCore.QRect(0, 0, 301, 181))
-        self.frameProizv.setStyleSheet("")
+        self.frameProizv.setGeometry(QtCore.QRect(0, 0, 311, 191))
+        self.frameProizv.setStyleSheet("QFrame{\n"
+"    background-color: rgb(10, 10, 10);\n"
+"}\n"
+"")
         self.frameProizv.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frameProizv.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frameProizv.setObjectName("frameProizv")
@@ -622,7 +638,7 @@ class Ui_WidgetVideoFilter(object):
 "\n"
 "QTableView\n"
 "{\n"
-"    background: rgb(30, 30, 30);\n"
+"    background-color: #101010;\n"
 "    color: #dddddd;\n"
 "    border-top: 0px;\n"
 "    border-right: 0px;\n"
@@ -758,16 +774,17 @@ class Ui_WidgetVideoFilter(object):
         font.setPointSize(9)
         self.btnResetProizv.setFont(font)
         self.btnResetProizv.setStyleSheet("QPushButton\n"
-"{\n"
-"color:  rgb(200,200, 200);\n"
-"border: 0px;\n"
-"border-bottom: 1px dotted rgb(200, 200, 200);\n"
+"{    \n"
+"    background-color: rgb(10, 10, 10);\n"
+"    color:  rgb(200,200, 200);\n"
+"    border: 0px;\n"
+"    border-bottom: 1px dotted rgb(200, 200, 200);\n"
 "}\n"
 "\n"
 "QPushButton::hover\n"
 "{\n"
-"color: red;\n"
-"border-bottom: 1px dotted red;\n"
+"    color: red;\n"
+"    border-bottom: 1px dotted red;\n"
 "}\n"
 "")
         self.btnResetProizv.setObjectName("btnResetProizv")
@@ -778,8 +795,11 @@ class Ui_WidgetVideoFilter(object):
         self.graphProc.setGeometry(QtCore.QRect(0, 0, 307, 189))
         self.graphProc.setObjectName("graphProc")
         self.frameGraphProc = QtWidgets.QFrame(self.graphProc)
-        self.frameGraphProc.setGeometry(QtCore.QRect(0, 0, 301, 181))
-        self.frameGraphProc.setStyleSheet("")
+        self.frameGraphProc.setGeometry(QtCore.QRect(0, 0, 311, 191))
+        self.frameGraphProc.setStyleSheet("QFrame{\n"
+"    background-color: rgb(10, 10, 10);\n"
+"}\n"
+"")
         self.frameGraphProc.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frameGraphProc.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frameGraphProc.setObjectName("frameGraphProc")
@@ -841,7 +861,7 @@ class Ui_WidgetVideoFilter(object):
 "\n"
 "QTableView\n"
 "{\n"
-"    background: rgb(30, 30, 30);\n"
+"    background-color: #101010;\n"
 "    color: #dddddd;\n"
 "    border-top: 0px;\n"
 "    border-right: 0px;\n"
@@ -978,15 +998,16 @@ class Ui_WidgetVideoFilter(object):
         self.btnResetGraphProc.setFont(font)
         self.btnResetGraphProc.setStyleSheet("QPushButton\n"
 "{\n"
-"color:  rgb(200,200, 200);\n"
-"border: 0px;\n"
-"border-bottom: 1px dotted rgb(200, 200, 200);\n"
+"    background-color: rgb(10, 10, 10);\n"
+"    color:  rgb(200,200, 200);\n"
+"    border: 0px;\n"
+"    border-bottom: 1px dotted rgb(200, 200, 200);\n"
 "}\n"
 "\n"
 "QPushButton::hover\n"
 "{\n"
-"color: red;\n"
-"border-bottom: 1px dotted red;\n"
+"    color: red;\n"
+"    border-bottom: 1px dotted red;\n"
 "}\n"
 "")
         self.btnResetGraphProc.setObjectName("btnResetGraphProc")
@@ -995,8 +1016,11 @@ class Ui_WidgetVideoFilter(object):
         self.volume.setGeometry(QtCore.QRect(0, 0, 307, 189))
         self.volume.setObjectName("volume")
         self.frameVolume = QtWidgets.QFrame(self.volume)
-        self.frameVolume.setGeometry(QtCore.QRect(0, 0, 301, 181))
-        self.frameVolume.setStyleSheet("")
+        self.frameVolume.setGeometry(QtCore.QRect(0, 0, 311, 191))
+        self.frameVolume.setStyleSheet("QFrame{\n"
+"    background-color: rgb(10, 10, 10);\n"
+"}\n"
+"")
         self.frameVolume.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frameVolume.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frameVolume.setObjectName("frameVolume")
@@ -1058,7 +1082,7 @@ class Ui_WidgetVideoFilter(object):
 "\n"
 "QTableView\n"
 "{\n"
-"    background: rgb(30, 30, 30);\n"
+"    background-color: #101010;\n"
 "    color: #dddddd;\n"
 "    border-top: 0px;\n"
 "    border-right: 0px;\n"
@@ -1195,15 +1219,17 @@ class Ui_WidgetVideoFilter(object):
         self.btnResetVolume.setFont(font)
         self.btnResetVolume.setStyleSheet("QPushButton\n"
 "{\n"
-"color:  rgb(200,200, 200);\n"
-"border: 0px;\n"
-"border-bottom: 1px dotted rgb(200, 200, 200);\n"
+"\n"
+"    background-color: rgb(10, 10, 10);\n"
+"    color:  rgb(200,200, 200);\n"
+"    border: 0px;\n"
+"    border-bottom: 1px dotted rgb(200, 200, 200);\n"
 "}\n"
 "\n"
 "QPushButton::hover\n"
 "{\n"
-"color: red;\n"
-"border-bottom: 1px dotted red;\n"
+"    color: red;\n"
+"    border-bottom: 1px dotted red;\n"
 "}\n"
 "")
         self.btnResetVolume.setObjectName("btnResetVolume")
@@ -1212,8 +1238,11 @@ class Ui_WidgetVideoFilter(object):
         self.type.setGeometry(QtCore.QRect(0, 0, 307, 189))
         self.type.setObjectName("type")
         self.frameType = QtWidgets.QFrame(self.type)
-        self.frameType.setGeometry(QtCore.QRect(0, 0, 301, 181))
-        self.frameType.setStyleSheet("")
+        self.frameType.setGeometry(QtCore.QRect(0, 0, 311, 191))
+        self.frameType.setStyleSheet("QFrame{\n"
+"    background-color: rgb(10, 10, 10);\n"
+"}\n"
+"")
         self.frameType.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frameType.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frameType.setObjectName("frameType")
@@ -1275,7 +1304,7 @@ class Ui_WidgetVideoFilter(object):
 "\n"
 "QTableView\n"
 "{\n"
-"    background: rgb(30, 30, 30);\n"
+"    background-color: #101010;\n"
 "    color: #dddddd;\n"
 "    border-top: 0px;\n"
 "    border-right: 0px;\n"
@@ -1412,6 +1441,7 @@ class Ui_WidgetVideoFilter(object):
         self.btnResetType.setFont(font)
         self.btnResetType.setStyleSheet("QPushButton\n"
 "{\n"
+"background-color: rgb(10, 10, 10);\n"
 "color:  rgb(200,200, 200);\n"
 "border: 0px;\n"
 "border-bottom: 1px dotted rgb(200, 200, 200);\n"
@@ -1429,8 +1459,11 @@ class Ui_WidgetVideoFilter(object):
         self.frequency.setGeometry(QtCore.QRect(0, 0, 307, 189))
         self.frequency.setObjectName("frequency")
         self.frameFreq = QtWidgets.QFrame(self.frequency)
-        self.frameFreq.setGeometry(QtCore.QRect(0, 0, 301, 181))
-        self.frameFreq.setStyleSheet("")
+        self.frameFreq.setGeometry(QtCore.QRect(0, 0, 311, 191))
+        self.frameFreq.setStyleSheet("QFrame{\n"
+"    background-color: rgb(10, 10, 10);\n"
+"}\n"
+"")
         self.frameFreq.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frameFreq.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frameFreq.setObjectName("frameFreq")
@@ -1492,7 +1525,7 @@ class Ui_WidgetVideoFilter(object):
 "\n"
 "QTableView\n"
 "{\n"
-"    background: rgb(30, 30, 30);\n"
+"    background-color: #101010;\n"
 "    color: #dddddd;\n"
 "    border-top: 0px;\n"
 "    border-right: 0px;\n"
@@ -1629,6 +1662,7 @@ class Ui_WidgetVideoFilter(object):
         self.btnResetFreq.setFont(font)
         self.btnResetFreq.setStyleSheet("QPushButton\n"
 "{\n"
+"background-color: rgb(10, 10, 10);\n"
 "color:  rgb(200,200, 200);\n"
 "border: 0px;\n"
 "border-bottom: 1px dotted rgb(200, 200, 200);\n"
@@ -1646,8 +1680,11 @@ class Ui_WidgetVideoFilter(object):
         self.vidInterface.setGeometry(QtCore.QRect(0, 0, 307, 189))
         self.vidInterface.setObjectName("vidInterface")
         self.frameInterface = QtWidgets.QFrame(self.vidInterface)
-        self.frameInterface.setGeometry(QtCore.QRect(0, 0, 301, 181))
-        self.frameInterface.setStyleSheet("")
+        self.frameInterface.setGeometry(QtCore.QRect(0, 0, 311, 191))
+        self.frameInterface.setStyleSheet("QFrame{\n"
+"    background-color: rgb(10, 10, 10);\n"
+"}\n"
+"")
         self.frameInterface.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frameInterface.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frameInterface.setObjectName("frameInterface")
@@ -1709,7 +1746,7 @@ class Ui_WidgetVideoFilter(object):
 "\n"
 "QTableView\n"
 "{\n"
-"    background: rgb(30, 30, 30);\n"
+"    background-color: #101010;\n"
 "    color: #dddddd;\n"
 "    border-top: 0px;\n"
 "    border-right: 0px;\n"
@@ -1846,6 +1883,7 @@ class Ui_WidgetVideoFilter(object):
         self.btnResetInterface.setFont(font)
         self.btnResetInterface.setStyleSheet("QPushButton\n"
 "{\n"
+"background-color: rgb(10, 10, 10);\n"
 "color:  rgb(200,200, 200);\n"
 "border: 0px;\n"
 "border-bottom: 1px dotted rgb(200, 200, 200);\n"
@@ -1863,8 +1901,11 @@ class Ui_WidgetVideoFilter(object):
         self.monitor.setGeometry(QtCore.QRect(0, 0, 307, 189))
         self.monitor.setObjectName("monitor")
         self.frameMonitor = QtWidgets.QFrame(self.monitor)
-        self.frameMonitor.setGeometry(QtCore.QRect(0, 0, 301, 181))
-        self.frameMonitor.setStyleSheet("")
+        self.frameMonitor.setGeometry(QtCore.QRect(0, 0, 311, 191))
+        self.frameMonitor.setStyleSheet("QFrame{\n"
+"    background-color: rgb(10, 10, 10);\n"
+"}\n"
+"")
         self.frameMonitor.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frameMonitor.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frameMonitor.setObjectName("frameMonitor")
@@ -1911,7 +1952,7 @@ class Ui_WidgetVideoFilter(object):
 "QTableWidget QTableCornerButton::section\n"
 "{\n"
 "    \n"
-"    background: rgb(30, 30, 30);\n"
+"    background-color: #101010;\n"
 "    border-style: solid;\n"
 "    border-width: 1px;\n"
 "}\n"
@@ -1926,7 +1967,7 @@ class Ui_WidgetVideoFilter(object):
 "\n"
 "QTableView\n"
 "{\n"
-"    background: rgb(30, 30, 30);\n"
+"    background-color: #101010;\n"
 "    color: #dddddd;\n"
 "    border-top: 0px;\n"
 "    border-right: 0px;\n"
@@ -2063,6 +2104,7 @@ class Ui_WidgetVideoFilter(object):
         self.btnResetMonitor.setFont(font)
         self.btnResetMonitor.setStyleSheet("QPushButton\n"
 "{\n"
+"background-color: rgb(10, 10, 10);\n"
 "color:  rgb(200,200, 200);\n"
 "border: 0px;\n"
 "border-bottom: 1px dotted rgb(200, 200, 200);\n"
@@ -2083,8 +2125,11 @@ class Ui_WidgetVideoFilter(object):
         self.resolution.setGeometry(QtCore.QRect(0, 0, 307, 189))
         self.resolution.setObjectName("resolution")
         self.frameResolution = QtWidgets.QFrame(self.resolution)
-        self.frameResolution.setGeometry(QtCore.QRect(0, 0, 301, 181))
-        self.frameResolution.setStyleSheet("")
+        self.frameResolution.setGeometry(QtCore.QRect(0, 0, 311, 191))
+        self.frameResolution.setStyleSheet("QFrame{\n"
+"    background-color: rgb(10, 10, 10);\n"
+"}\n"
+"")
         self.frameResolution.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frameResolution.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frameResolution.setObjectName("frameResolution")
@@ -2146,7 +2191,7 @@ class Ui_WidgetVideoFilter(object):
 "\n"
 "QTableView\n"
 "{\n"
-"    background: rgb(30, 30, 30);\n"
+"    background-color: #101010;\n"
 "    color: #dddddd;\n"
 "    border-top: 0px;\n"
 "    border-right: 0px;\n"
@@ -2283,6 +2328,7 @@ class Ui_WidgetVideoFilter(object):
         self.btnResetResolution.setFont(font)
         self.btnResetResolution.setStyleSheet("QPushButton\n"
 "{\n"
+"background-color: rgb(10, 10, 10);\n"
 "color:  rgb(200,200, 200);\n"
 "border: 0px;\n"
 "border-bottom: 1px dotted rgb(200, 200, 200);\n"
@@ -2300,8 +2346,11 @@ class Ui_WidgetVideoFilter(object):
         self.tdp.setGeometry(QtCore.QRect(0, 0, 307, 189))
         self.tdp.setObjectName("tdp")
         self.frameTdp = QtWidgets.QFrame(self.tdp)
-        self.frameTdp.setGeometry(QtCore.QRect(0, 0, 301, 181))
-        self.frameTdp.setStyleSheet("")
+        self.frameTdp.setGeometry(QtCore.QRect(0, 0, 311, 191))
+        self.frameTdp.setStyleSheet("QFrame{\n"
+"    background-color: rgb(10, 10, 10);\n"
+"}\n"
+"")
         self.frameTdp.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frameTdp.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frameTdp.setObjectName("frameTdp")
@@ -2313,6 +2362,7 @@ class Ui_WidgetVideoFilter(object):
         self.btnResetTdp.setFont(font)
         self.btnResetTdp.setStyleSheet("QPushButton\n"
 "{\n"
+"background-color: rgb(10, 10, 10);\n"
 "color:  rgb(200,200, 200);\n"
 "border: 0px;\n"
 "border-bottom: 1px dotted rgb(200, 200, 200);\n"
@@ -2327,7 +2377,11 @@ class Ui_WidgetVideoFilter(object):
         self.btnResetTdp.setObjectName("btnResetTdp")
         self.sliderTdpMax = QtWidgets.QSlider(self.frameTdp)
         self.sliderTdpMax.setGeometry(QtCore.QRect(180, 100, 111, 21))
-        self.sliderTdpMax.setStyleSheet("QSlider::groove:horizontal {\n"
+        self.sliderTdpMax.setStyleSheet("QSlider{\n"
+"    background-color: rgb(10, 10, 10);\n"
+"}\n"
+"\n"
+"QSlider::groove:horizontal {\n"
 "border: 1px solid #bbb;\n"
 "background: rgb(160,160,160);\n"
 "height:6px;\n"
@@ -2343,7 +2397,7 @@ class Ui_WidgetVideoFilter(object):
 "\n"
 "QSlider::add-page:horizontal {\n"
 "border: 1px solid rgb(75,75,75);\n"
-"background: rgb(100,100,100);\n"
+"background: rgb(70,70,70);\n"
 "}\n"
 "\n"
 "QSlider::handle:horizontal {\n"
@@ -2386,7 +2440,11 @@ class Ui_WidgetVideoFilter(object):
         self.sliderTdpMax.setObjectName("sliderTdpMax")
         self.sliderTdpMin = QtWidgets.QSlider(self.frameTdp)
         self.sliderTdpMin.setGeometry(QtCore.QRect(10, 100, 111, 21))
-        self.sliderTdpMin.setStyleSheet("QSlider::groove:horizontal {\n"
+        self.sliderTdpMin.setStyleSheet("QSlider{\n"
+"    background-color: rgb(10, 10, 10);\n"
+"}\n"
+"\n"
+"QSlider::groove:horizontal {\n"
 "border: 1px solid #bbb;\n"
 "background: rgb(160,160,160);\n"
 "height:6px;\n"
@@ -2394,27 +2452,25 @@ class Ui_WidgetVideoFilter(object):
 "\n"
 "QSlider::sub-page:horizontal {\n"
 "border: 1px solid rgb(60,60,60);\n"
-"background: qlineargradient(x1: 0, y1: 0,    x2: 0, y2: 1,\n"
-"    stop: 0 rgb(255, 0, 0), stop: 1 rgb(91, 91, 91));\n"
-"background: qlineargradient(x1: 0, y1: 0.2, x2: 1, y2: 1,\n"
-"    stop: 0 rgb(60, 60,60), stop: 1 rgb(250, 0, 0));\n"
+"background: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.125 rgba(66, 68, 68, 255), stop:0.426136 rgba(117, 19, 19, 255), stop:0.852273 rgba(255, 0, 0, 255));\n"
+"\n"
 "color: rgb(144, 144, 144);\n"
 "height: 6px;\n"
 "}\n"
 "\n"
 "QSlider::add-page:horizontal {\n"
 "border: 1px solid rgb(75,75,75);\n"
-"background: rgb(100,100,100);\n"
+"background: rgb(70,70,70);\n"
 "}\n"
 "\n"
 "QSlider::handle:horizontal {\n"
 "border: 1px solid rgb(60,60,60);\n"
-"background: qlineargradient(x1:0, y1:0, x2:1, y2:1,\n"
-"    stop:0 rgb(80,80,80), stop:1 rgb(250,0,0));\n"
+"background:qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0.057, stop:0 rgba(255, 0, 0, 255), stop:0.398876 rgba(165, 0, 0, 255), stop:0.994318 rgba(46, 48, 49, 255));\n"
 "width: 6px;\n"
 "margin-top: -7px;\n"
 "margin-bottom: -7px;\n"
 "}\n"
+"\n"
 "\n"
 "QSlider::handle:horizontal:hover {\n"
 "border: 1px solid rgb(60,60,60);\n"
@@ -2522,8 +2578,11 @@ class Ui_WidgetVideoFilter(object):
         self.length.setGeometry(QtCore.QRect(0, 0, 307, 189))
         self.length.setObjectName("length")
         self.framLen = QtWidgets.QFrame(self.length)
-        self.framLen.setGeometry(QtCore.QRect(0, 0, 301, 181))
-        self.framLen.setStyleSheet("")
+        self.framLen.setGeometry(QtCore.QRect(0, 0, 311, 191))
+        self.framLen.setStyleSheet("QFrame{\n"
+"    background-color: rgb(10, 10, 10);\n"
+"}\n"
+"")
         self.framLen.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.framLen.setFrameShadow(QtWidgets.QFrame.Raised)
         self.framLen.setObjectName("framLen")
@@ -2535,6 +2594,7 @@ class Ui_WidgetVideoFilter(object):
         self.btnResetLen.setFont(font)
         self.btnResetLen.setStyleSheet("QPushButton\n"
 "{\n"
+"background-color: rgb(10, 10, 10);\n"
 "color:  rgb(200,200, 200);\n"
 "border: 0px;\n"
 "border-bottom: 1px dotted rgb(200, 200, 200);\n"
@@ -2556,7 +2616,10 @@ class Ui_WidgetVideoFilter(object):
         self.line_4.setObjectName("line_4")
         self.sliderLenMin = QtWidgets.QSlider(self.framLen)
         self.sliderLenMin.setGeometry(QtCore.QRect(10, 100, 111, 21))
-        self.sliderLenMin.setStyleSheet("QSlider::groove:horizontal {\n"
+        self.sliderLenMin.setStyleSheet("QSlider{\n"
+"    background-color: rgb(10, 10, 10);\n"
+"}\n"
+"QSlider::groove:horizontal {\n"
 "border: 1px solid #bbb;\n"
 "background: rgb(160,160,160);\n"
 "height:6px;\n"
@@ -2564,23 +2627,20 @@ class Ui_WidgetVideoFilter(object):
 "\n"
 "QSlider::sub-page:horizontal {\n"
 "border: 1px solid rgb(60,60,60);\n"
-"background: qlineargradient(x1: 0, y1: 0,    x2: 0, y2: 1,\n"
-"    stop: 0 rgb(255, 0, 0), stop: 1 rgb(91, 91, 91));\n"
-"background: qlineargradient(x1: 0, y1: 0.2, x2: 1, y2: 1,\n"
-"    stop: 0 rgb(60, 60,60), stop: 1 rgb(250, 0, 0));\n"
+"background: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.125 rgba(66, 68, 68, 255), stop:0.426136 rgba(117, 19, 19, 255), stop:0.852273 rgba(255, 0, 0, 255));\n"
+"\n"
 "color: rgb(144, 144, 144);\n"
 "height: 6px;\n"
 "}\n"
 "\n"
 "QSlider::add-page:horizontal {\n"
 "border: 1px solid rgb(75,75,75);\n"
-"background: rgb(100,100,100);\n"
+"background: rgb(70,70,70);\n"
 "}\n"
 "\n"
 "QSlider::handle:horizontal {\n"
 "border: 1px solid rgb(60,60,60);\n"
-"background: qlineargradient(x1:0, y1:0, x2:1, y2:1,\n"
-"    stop:0 rgb(80,80,80), stop:1 rgb(250,0,0));\n"
+"background:qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0.057, stop:0 rgba(255, 0, 0, 255), stop:0.398876 rgba(165, 0, 0, 255), stop:0.994318 rgba(46, 48, 49, 255));\n"
 "width: 6px;\n"
 "margin-top: -7px;\n"
 "margin-bottom: -7px;\n"
@@ -2644,7 +2704,10 @@ class Ui_WidgetVideoFilter(object):
         self.lbMinLen.setObjectName("lbMinLen")
         self.sliderLenMax = QtWidgets.QSlider(self.framLen)
         self.sliderLenMax.setGeometry(QtCore.QRect(180, 100, 111, 21))
-        self.sliderLenMax.setStyleSheet("QSlider::groove:horizontal {\n"
+        self.sliderLenMax.setStyleSheet("QSlider{\n"
+"    background-color: rgb(10, 10, 10);\n"
+"}\n"
+"QSlider::groove:horizontal {\n"
 "border: 1px solid #bbb;\n"
 "background: rgb(160,160,160);\n"
 "height:6px;\n"
@@ -2660,7 +2723,7 @@ class Ui_WidgetVideoFilter(object):
 "\n"
 "QSlider::add-page:horizontal {\n"
 "border: 1px solid rgb(75,75,75);\n"
-"background: rgb(100,100,100);\n"
+"background: rgb(70,70,70);\n"
 "}\n"
 "\n"
 "QSlider::handle:horizontal {\n"
@@ -2771,7 +2834,7 @@ class Ui_WidgetVideoFilter(object):
         self.btnAccept.setFont(font)
         self.btnAccept.setStyleSheet("QPushButton{\n"
 "    border:1px solid rgb(70,70,70);\n"
-"    background-color: rgb(40,40,40);\n"
+"    background-color: rgb(35,35,35);\n"
 "    color: #fffafa;\n"
 "}\n"
 "\n"
@@ -2784,6 +2847,26 @@ class Ui_WidgetVideoFilter(object):
 "}\n"
 "")
         self.btnAccept.setObjectName("btnAccept")
+        self.btnResetAll = QtWidgets.QPushButton(WidgetVideoFilter)
+        self.btnResetAll.setGeometry(QtCore.QRect(250, 50, 91, 21))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(9)
+        self.btnResetAll.setFont(font)
+        self.btnResetAll.setStyleSheet("QPushButton\n"
+"{\n"
+"color:  rgb(200,200, 200);\n"
+"border: 0px;\n"
+"border-bottom: 1px dotted rgb(200, 200, 200);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"color: red;\n"
+"border-bottom: 1px dotted red;\n"
+"}\n"
+"")
+        self.btnResetAll.setObjectName("btnResetAll")
 
         self.retranslateUi(WidgetVideoFilter)
         self.toolBoxVidFilter.layout().setSpacing(3)
@@ -3066,6 +3149,7 @@ class Ui_WidgetVideoFilter(object):
         self.toolBoxVidFilter.setItemText(self.toolBoxVidFilter.indexOf(self.length), _translate("WidgetVideoFilter", "Длина видеокарты"))
         self.lbErr.setText(_translate("WidgetVideoFilter", "Настройка фильтров"))
         self.btnAccept.setText(_translate("WidgetVideoFilter", "Применить"))
+        self.btnResetAll.setText(_translate("WidgetVideoFilter", "Сбросить всё"))
 
 
 if __name__ == "__main__":
