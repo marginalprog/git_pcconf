@@ -1,1 +1,1 @@
-pyuic5.exe -x E:\pcconf\ui\addChVidWidg.ui -o  E:\pcconf\ui\addChVidWidg.py
+pyuic5.exe -x E:\pcconf\ui\add\addChVidWidg.ui -o  E:\pcconf\ui\add\addChVidWidg.py

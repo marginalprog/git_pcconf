@@ -112,7 +112,7 @@ class Ui_WidgetVideoFilter(object):
         self.tbFrameVideo = QtWidgets.QFrame(self.price)
         self.tbFrameVideo.setGeometry(QtCore.QRect(0, 0, 311, 191))
         self.tbFrameVideo.setStyleSheet("QFrame{\n"
-"    background-color: rgb(10, 10, 10);\n"
+"    background-color: #101010;\n"
 "}")
         self.tbFrameVideo.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.tbFrameVideo.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -175,7 +175,7 @@ class Ui_WidgetVideoFilter(object):
 "border: 1px solid #aaa;\n"
 "border-radius: 4px;\n"
 "}")
-        self.sliderPriceMin.setProperty("value", 50)
+        self.sliderPriceMin.setProperty("value", 0)
         self.sliderPriceMin.setTracking(True)
         self.sliderPriceMin.setOrientation(QtCore.Qt.Horizontal)
         self.sliderPriceMin.setInvertedAppearance(False)
@@ -246,7 +246,7 @@ class Ui_WidgetVideoFilter(object):
 "border: 1px solid #aaa;\n"
 "border-radius: 4px;\n"
 "}")
-        self.sliderPriceMax.setProperty("value", 50)
+        self.sliderPriceMax.setProperty("value", 0)
         self.sliderPriceMax.setOrientation(QtCore.Qt.Horizontal)
         self.sliderPriceMax.setInvertedAppearance(False)
         self.sliderPriceMax.setInvertedControls(False)
@@ -350,7 +350,7 @@ class Ui_WidgetVideoFilter(object):
         self.frameBrand = QtWidgets.QFrame(self.brand)
         self.frameBrand.setGeometry(QtCore.QRect(0, 0, 311, 191))
         self.frameBrand.setStyleSheet("QFrame{\n"
-"    background-color: rgb(10, 10, 10);\n"
+"    background-color: #101010;\n"
 "}\n"
 "")
         self.frameBrand.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -574,7 +574,7 @@ class Ui_WidgetVideoFilter(object):
         self.frameProizv = QtWidgets.QFrame(self.proizvoditel)
         self.frameProizv.setGeometry(QtCore.QRect(0, 0, 311, 191))
         self.frameProizv.setStyleSheet("QFrame{\n"
-"    background-color: rgb(10, 10, 10);\n"
+"    background-color: #101010;\n"
 "}\n"
 "")
         self.frameProizv.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -797,7 +797,7 @@ class Ui_WidgetVideoFilter(object):
         self.frameGraphProc = QtWidgets.QFrame(self.graphProc)
         self.frameGraphProc.setGeometry(QtCore.QRect(0, 0, 311, 191))
         self.frameGraphProc.setStyleSheet("QFrame{\n"
-"    background-color: rgb(10, 10, 10);\n"
+"    background-color: #101010;\n"
 "}\n"
 "")
         self.frameGraphProc.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -1018,7 +1018,7 @@ class Ui_WidgetVideoFilter(object):
         self.frameVolume = QtWidgets.QFrame(self.volume)
         self.frameVolume.setGeometry(QtCore.QRect(0, 0, 311, 191))
         self.frameVolume.setStyleSheet("QFrame{\n"
-"    background-color: rgb(10, 10, 10);\n"
+"    background-color: #101010;\n"
 "}\n"
 "")
         self.frameVolume.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -1240,7 +1240,7 @@ class Ui_WidgetVideoFilter(object):
         self.frameType = QtWidgets.QFrame(self.type)
         self.frameType.setGeometry(QtCore.QRect(0, 0, 311, 191))
         self.frameType.setStyleSheet("QFrame{\n"
-"    background-color: rgb(10, 10, 10);\n"
+"    background-color: #101010;\n"
 "}\n"
 "")
         self.frameType.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -1461,7 +1461,7 @@ class Ui_WidgetVideoFilter(object):
         self.frameFreq = QtWidgets.QFrame(self.frequency)
         self.frameFreq.setGeometry(QtCore.QRect(0, 0, 311, 191))
         self.frameFreq.setStyleSheet("QFrame{\n"
-"    background-color: rgb(10, 10, 10);\n"
+"    background-color: #101010;\n"
 "}\n"
 "")
         self.frameFreq.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -1682,7 +1682,7 @@ class Ui_WidgetVideoFilter(object):
         self.frameInterface = QtWidgets.QFrame(self.vidInterface)
         self.frameInterface.setGeometry(QtCore.QRect(0, 0, 311, 191))
         self.frameInterface.setStyleSheet("QFrame{\n"
-"    background-color: rgb(10, 10, 10);\n"
+"    background-color: #101010;\n"
 "}\n"
 "")
         self.frameInterface.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -1903,7 +1903,7 @@ class Ui_WidgetVideoFilter(object):
         self.frameMonitor = QtWidgets.QFrame(self.monitor)
         self.frameMonitor.setGeometry(QtCore.QRect(0, 0, 311, 191))
         self.frameMonitor.setStyleSheet("QFrame{\n"
-"    background-color: rgb(10, 10, 10);\n"
+"    background-color: #101010;\n"
 "}\n"
 "")
         self.frameMonitor.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -2127,7 +2127,7 @@ class Ui_WidgetVideoFilter(object):
         self.frameResolution = QtWidgets.QFrame(self.resolution)
         self.frameResolution.setGeometry(QtCore.QRect(0, 0, 311, 191))
         self.frameResolution.setStyleSheet("QFrame{\n"
-"    background-color: rgb(10, 10, 10);\n"
+"    background-color: #101010;\n"
 "}\n"
 "")
         self.frameResolution.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -2348,7 +2348,7 @@ class Ui_WidgetVideoFilter(object):
         self.frameTdp = QtWidgets.QFrame(self.tdp)
         self.frameTdp.setGeometry(QtCore.QRect(0, 0, 311, 191))
         self.frameTdp.setStyleSheet("QFrame{\n"
-"    background-color: rgb(10, 10, 10);\n"
+"    background-color: #101010;\n"
 "}\n"
 "")
         self.frameTdp.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -2433,7 +2433,7 @@ class Ui_WidgetVideoFilter(object):
 "border: 1px solid #aaa;\n"
 "border-radius: 4px;\n"
 "}")
-        self.sliderTdpMax.setProperty("value", 50)
+        self.sliderTdpMax.setProperty("value", 0)
         self.sliderTdpMax.setOrientation(QtCore.Qt.Horizontal)
         self.sliderTdpMax.setInvertedAppearance(False)
         self.sliderTdpMax.setInvertedControls(False)
@@ -2497,7 +2497,7 @@ class Ui_WidgetVideoFilter(object):
 "border: 1px solid #aaa;\n"
 "border-radius: 4px;\n"
 "}")
-        self.sliderTdpMin.setProperty("value", 50)
+        self.sliderTdpMin.setProperty("value", 0)
         self.sliderTdpMin.setOrientation(QtCore.Qt.Horizontal)
         self.sliderTdpMin.setInvertedAppearance(False)
         self.sliderTdpMin.setInvertedControls(False)
@@ -2580,7 +2580,7 @@ class Ui_WidgetVideoFilter(object):
         self.framLen = QtWidgets.QFrame(self.length)
         self.framLen.setGeometry(QtCore.QRect(0, 0, 311, 191))
         self.framLen.setStyleSheet("QFrame{\n"
-"    background-color: rgb(10, 10, 10);\n"
+"    background-color: #101010;\n"
 "}\n"
 "")
         self.framLen.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -2671,7 +2671,7 @@ class Ui_WidgetVideoFilter(object):
 "border: 1px solid #aaa;\n"
 "border-radius: 4px;\n"
 "}")
-        self.sliderLenMin.setProperty("value", 50)
+        self.sliderLenMin.setProperty("value", 0)
         self.sliderLenMin.setOrientation(QtCore.Qt.Horizontal)
         self.sliderLenMin.setInvertedAppearance(False)
         self.sliderLenMin.setInvertedControls(False)
@@ -2759,7 +2759,7 @@ class Ui_WidgetVideoFilter(object):
 "border: 1px solid #aaa;\n"
 "border-radius: 4px;\n"
 "}")
-        self.sliderLenMax.setProperty("value", 50)
+        self.sliderLenMax.setProperty("value", 0)
         self.sliderLenMax.setOrientation(QtCore.Qt.Horizontal)
         self.sliderLenMax.setInvertedAppearance(False)
         self.sliderLenMax.setInvertedControls(False)
@@ -2870,7 +2870,7 @@ class Ui_WidgetVideoFilter(object):
 
         self.retranslateUi(WidgetVideoFilter)
         self.toolBoxVidFilter.layout().setSpacing(3)
-        self.btnClose.clicked.connect(WidgetVideoFilter.close)
+        self.btnClose.clicked.connect(WidgetVideoFilter.hide)
         QtCore.QMetaObject.connectSlotsByName(WidgetVideoFilter)
 
     def retranslateUi(self, WidgetVideoFilter):

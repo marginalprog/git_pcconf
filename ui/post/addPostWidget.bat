@@ -1,0 +1,1 @@
+pyuic5.exe -x E:\pcconf\ui\post\addPostWidget.ui -o  E:\pcconf\ui\post\addPostWidget.py

@@ -92,29 +92,2123 @@ class Ui_MainWindow(object):
 "")
         self.lbNavPanel.setAlignment(QtCore.Qt.AlignCenter)
         self.lbNavPanel.setObjectName("lbNavPanel")
-        self.btnSkladFilter = QtWidgets.QPushButton(self.sklad)
-        self.btnSkladFilter.setGeometry(QtCore.QRect(1160, 30, 131, 21))
+        self.btnAdd = QtWidgets.QPushButton(self.sklad)
+        self.btnAdd.setGeometry(QtCore.QRect(530, 580, 161, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
-        font.setUnderline(False)
-        self.btnSkladFilter.setFont(font)
-        self.btnSkladFilter.setStyleSheet("QPushButton\n"
-"{\n"
-"color:  rgb(230,230, 230);\n"
-"border: 0px;\n"
-"/*border-bottom: 1px solid rgb(200, 200, 200);*/\n"
+        self.btnAdd.setFont(font)
+        self.btnAdd.setStyleSheet("QPushButton{\n"
+"    border:1px solid rgb(70,70,70);\n"
+"    background-color: rgb(40,40,40);\n"
+"    color: #fffafa;\n"
 "}\n"
 "\n"
 "QPushButton::hover\n"
 "{\n"
-"color: red;\n"
-"border-bottom: 1px solid red;\n"
+"    border:1px;\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-color: rgb(40,40,40);\n"
+"    border-bottom: 1px solid   rgb(0, 255, 8);\n"
 "}\n"
 "")
-        self.btnSkladFilter.setObjectName("btnSkladFilter")
-        self.twSklad = QtWidgets.QTableWidget(self.sklad)
-        self.twSklad.setGeometry(QtCore.QRect(350, 60, 941, 501))
+        self.btnAdd.setObjectName("btnAdd")
+        self.btnDelete = QtWidgets.QPushButton(self.sklad)
+        self.btnDelete.setGeometry(QtCore.QRect(950, 580, 161, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnDelete.setFont(font)
+        self.btnDelete.setStyleSheet("QPushButton{\n"
+"    border:1px solid rgb(70,70,70);\n"
+"    background-color: rgb(40,40,40);\n"
+"    color: #fffafa;\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    border:1px;\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-color: rgb(40,40,40);\n"
+"    border-bottom: 1px solid  red;\n"
+"    color: red;\n"
+"}\n"
+"")
+        self.btnDelete.setObjectName("btnDelete")
+        self.btnChange = QtWidgets.QPushButton(self.sklad)
+        self.btnChange.setGeometry(QtCore.QRect(740, 620, 161, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnChange.setFont(font)
+        self.btnChange.setStyleSheet("QPushButton{\n"
+"background-color: rgb(20,20,20);\n"
+"color: #fffafa;\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"background-color: rgb(40,40,40);\n"
+"border-color: rgb(40,40,40);\n"
+"border-bottom: 1px solid  yellow;\n"
+"}")
+        self.btnChange.setObjectName("btnChange")
+        self.toolBoxNavigation = QtWidgets.QToolBox(self.sklad)
+        self.toolBoxNavigation.setGeometry(QtCore.QRect(11, 51, 301, 571))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(12)
+        self.toolBoxNavigation.setFont(font)
+        self.toolBoxNavigation.setAccessibleName("")
+        self.toolBoxNavigation.setStyleSheet("QToolBox\n"
+"{\n"
+"    background: rgb(30, 30, 30);\n"
+"    border: 1px solid rgb(195, 0, 0);\n"
+"    margin: 1px;\n"
+"    icon-size: 23px;\n"
+"}\n"
+"\n"
+"QToolBox::tab\n"
+"{\n"
+"    background: rgb(30, 30, 30);\n"
+"    margin-left: 1px;\n"
+"    left: -1px;\n"
+"    color: rgb(235, 235, 235);\n"
+"    border-top: 1px solid;\n"
+"    border-bottom: 3px solid;\n"
+"    \n"
+"}\n"
+"\n"
+"QToolBox::tab:selected\n"
+"{\n"
+"    background-color: rgb(50, 50, 50);\n"
+"    border-bottom: 2px solid  rgb(150, 0, 0);\n"
+"    color:white;\n"
+"    font-weight: bold;\n"
+"}\n"
+"\n"
+"QToolBox::tab:hover\n"
+"{\n"
+"    background-color: rgb(65, 65, 65);\n"
+"    border-bottom: 5px solid;\n"
+"    border-color: black;\n"
+"}")
+        self.toolBoxNavigation.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.toolBoxNavigation.setLineWidth(1)
+        self.toolBoxNavigation.setObjectName("toolBoxNavigation")
+        self.pageVideo = QtWidgets.QWidget()
+        self.pageVideo.setGeometry(QtCore.QRect(0, 0, 297, 243))
+        self.pageVideo.setObjectName("pageVideo")
+        self.tbFrameVideo = QtWidgets.QFrame(self.pageVideo)
+        self.tbFrameVideo.setGeometry(QtCore.QRect(0, 0, 301, 261))
+        self.tbFrameVideo.setStyleSheet("background-color: #101010;\n"
+"\n"
+"QFrame{\n"
+"    color:  white;\n"
+"    border: 1px;\n"
+"}")
+        self.tbFrameVideo.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.tbFrameVideo.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.tbFrameVideo.setObjectName("tbFrameVideo")
+        self.lbVideoPost = QtWidgets.QLabel(self.tbFrameVideo)
+        self.lbVideoPost.setGeometry(QtCore.QRect(60, 0, 171, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        self.lbVideoPost.setFont(font)
+        self.lbVideoPost.setStyleSheet("border: 0px;\n"
+"border-bottom: 1px solid rgb(100, 100, 100);")
+        self.lbVideoPost.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbVideoPost.setObjectName("lbVideoPost")
+        self.btnNewVideoPost = QtWidgets.QPushButton(self.tbFrameVideo)
+        self.btnNewVideoPost.setGeometry(QtCore.QRect(10, 190, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnNewVideoPost.setFont(font)
+        self.btnNewVideoPost.setStyleSheet("QPushButton\n"
+"{\n"
+"    color:  white;\n"
+"    border: 1px solid rgb(100, 100, 100);\n"
+"    background-color: rgb(40,40,40);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-bottom: 1px solid rgb(0, 255, 8);\n"
+"}\n"
+"")
+        self.btnNewVideoPost.setObjectName("btnNewVideoPost")
+        self.btnDelVideoPost = QtWidgets.QPushButton(self.tbFrameVideo)
+        self.btnDelVideoPost.setGeometry(QtCore.QRect(190, 190, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnDelVideoPost.setFont(font)
+        self.btnDelVideoPost.setStyleSheet("QPushButton\n"
+"{\n"
+"    color:  white;\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px solid rgb(100, 100, 100);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(60,60,60);\n"
+"    color: red;\n"
+"    border-bottom: 1px solid red;\n"
+"}\n"
+"")
+        self.btnDelVideoPost.setObjectName("btnDelVideoPost")
+        self.tableVideoPost = QtWidgets.QTableWidget(self.tbFrameVideo)
+        self.tableVideoPost.setEnabled(True)
+        self.tableVideoPost.setGeometry(QtCore.QRect(60, 30, 171, 141))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
+        self.tableVideoPost.setFont(font)
+        self.tableVideoPost.setMouseTracking(True)
+        self.tableVideoPost.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.tableVideoPost.setAutoFillBackground(False)
+        self.tableVideoPost.setStyleSheet("QTableWidget::item\n"
+"{\n"
+"     border-bottom: 1px solid rgb(60,60,60); \n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"}\n"
+"\n"
+"QTableView\n"
+"{\n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border-top: 1px solid #434343;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-bottom:1px solid #434343;\n"
+"}\n"
+"\n"
+"QTableWidget::item:hover {\n"
+"    color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}      \n"
+"\n"
+"QTableWidget::item:selected\n"
+"{\n"
+"     color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background-color: #151515;\n"
+"    width: 8px;\n"
+"    margin: 15px 0 15px 0;\n"
+"    border-radius: 0px;\n"
+" }\n"
+"\n"
+"/*  HANDLE BAR VERTICAL */\n"
+"QScrollBar::handle:vertical {    \n"
+"    background-color: #151515;\n"
+"    min-height: 30px;\n"
+"    border-radius: 0px;\n"
+"    border: 1px solid;\n"
+"    border-right: 0px;\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:hover{    \n"
+"    background-color:  rgb(50,50,50);\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);\n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border: 1px solid;\n"
+"    border-top:1px solid rgb(180, 0, 0);\n"
+"    border-right: 0px;\n"
+"    border-bottom: 0px;\n"
+"}\n"
+"QScrollBar::add-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
+"}")
+        self.tableVideoPost.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableVideoPost.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.tableVideoPost.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableVideoPost.setShowGrid(False)
+        self.tableVideoPost.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableVideoPost.setObjectName("tableVideoPost")
+        self.tableVideoPost.setColumnCount(3)
+        self.tableVideoPost.setRowCount(3)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableVideoPost.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableVideoPost.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableVideoPost.setVerticalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableVideoPost.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableVideoPost.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableVideoPost.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableVideoPost.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableVideoPost.setItem(0, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableVideoPost.setItem(0, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableVideoPost.setItem(1, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableVideoPost.setItem(1, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableVideoPost.setItem(1, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableVideoPost.setItem(2, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableVideoPost.setItem(2, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableVideoPost.setItem(2, 2, item)
+        self.tableVideoPost.horizontalHeader().setVisible(False)
+        self.tableVideoPost.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableVideoPost.horizontalHeader().setDefaultSectionSize(50)
+        self.tableVideoPost.horizontalHeader().setHighlightSections(False)
+        self.tableVideoPost.horizontalHeader().setMinimumSectionSize(15)
+        self.tableVideoPost.horizontalHeader().setSortIndicatorShown(True)
+        self.tableVideoPost.horizontalHeader().setStretchLastSection(False)
+        self.tableVideoPost.verticalHeader().setVisible(False)
+        self.tableVideoPost.verticalHeader().setCascadingSectionResizes(False)
+        self.tableVideoPost.verticalHeader().setMinimumSectionSize(10)
+        self.btnCngVideoPost = QtWidgets.QPushButton(self.tbFrameVideo)
+        self.btnCngVideoPost.setGeometry(QtCore.QRect(100, 190, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnCngVideoPost.setFont(font)
+        self.btnCngVideoPost.setStyleSheet("QPushButton\n"
+"{\n"
+"    color:  white;\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px solid rgb(100, 100, 100);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-bottom: 1px solid rgb(255, 247, 0);\n"
+"}\n"
+"")
+        self.btnCngVideoPost.setObjectName("btnCngVideoPost")
+        self.btnCngVideoPost.raise_()
+        self.lbVideoPost.raise_()
+        self.btnNewVideoPost.raise_()
+        self.btnDelVideoPost.raise_()
+        self.tableVideoPost.raise_()
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/graphics-card.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.toolBoxNavigation.addItem(self.pageVideo, icon, "")
+        self.pageProc = QtWidgets.QWidget()
+        self.pageProc.setGeometry(QtCore.QRect(0, 0, 297, 243))
+        self.pageProc.setObjectName("pageProc")
+        self.tbFrameProc = QtWidgets.QFrame(self.pageProc)
+        self.tbFrameProc.setGeometry(QtCore.QRect(0, 0, 301, 251))
+        self.tbFrameProc.setStyleSheet("QFrame{\n"
+"    background-color: #101010;\n"
+"    color:  white;\n"
+"    border: 1px;\n"
+"}")
+        self.tbFrameProc.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.tbFrameProc.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.tbFrameProc.setObjectName("tbFrameProc")
+        self.lbProcPost = QtWidgets.QLabel(self.tbFrameProc)
+        self.lbProcPost.setGeometry(QtCore.QRect(70, 0, 161, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        self.lbProcPost.setFont(font)
+        self.lbProcPost.setStyleSheet("border: 0px;\n"
+"border-bottom: 1px solid rgb(100, 100, 100);")
+        self.lbProcPost.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbProcPost.setObjectName("lbProcPost")
+        self.btnNewProcPost = QtWidgets.QPushButton(self.tbFrameProc)
+        self.btnNewProcPost.setGeometry(QtCore.QRect(10, 190, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnNewProcPost.setFont(font)
+        self.btnNewProcPost.setStyleSheet("QPushButton\n"
+"{\n"
+"    color:  white;\n"
+"    border: 1px solid rgb(100, 100, 100);\n"
+"    background-color: rgb(40,40,40);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-bottom: 1px solid rgb(0, 255, 8);\n"
+"}\n"
+"")
+        self.btnNewProcPost.setObjectName("btnNewProcPost")
+        self.btnDelProcPost = QtWidgets.QPushButton(self.tbFrameProc)
+        self.btnDelProcPost.setGeometry(QtCore.QRect(190, 190, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnDelProcPost.setFont(font)
+        self.btnDelProcPost.setStyleSheet("QPushButton\n"
+"{\n"
+"    color:  white;\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px solid rgb(100, 100, 100);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(60,60,60);\n"
+"    color: red;    \n"
+"    border-bottom: 1px solid red;\n"
+"}\n"
+"")
+        self.btnDelProcPost.setObjectName("btnDelProcPost")
+        self.tableProcPost = QtWidgets.QTableWidget(self.tbFrameProc)
+        self.tableProcPost.setEnabled(True)
+        self.tableProcPost.setGeometry(QtCore.QRect(60, 30, 181, 141))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
+        self.tableProcPost.setFont(font)
+        self.tableProcPost.setMouseTracking(True)
+        self.tableProcPost.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.tableProcPost.setAutoFillBackground(False)
+        self.tableProcPost.setStyleSheet("QTableWidget::item\n"
+"{\n"
+"     border-bottom: 1px solid rgb(60,60,60); \n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"}\n"
+"\n"
+"QTableView\n"
+"{\n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border-top: 1px solid #434343;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-bottom:1px solid #434343;\n"
+"}\n"
+"\n"
+"QTableWidget::item:hover {\n"
+"    color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}      \n"
+"\n"
+"QTableWidget::item:selected\n"
+"{\n"
+"     color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background-color: #151515;\n"
+"    width: 8px;\n"
+"    margin: 15px 0 15px 0;\n"
+"    border-radius: 0px;\n"
+" }\n"
+"\n"
+"/*  HANDLE BAR VERTICAL */\n"
+"QScrollBar::handle:vertical {    \n"
+"    background-color: #151515;\n"
+"    min-height: 30px;\n"
+"    border-radius: 0px;\n"
+"    border: 1px solid;\n"
+"    border-right: 0px;\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:hover{    \n"
+"    background-color:  rgb(50,50,50);\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);\n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border: 1px solid;\n"
+"    border-top:1px solid rgb(180, 0, 0);\n"
+"    border-right: 0px;\n"
+"    border-bottom: 0px;\n"
+"}\n"
+"QScrollBar::add-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
+"}")
+        self.tableProcPost.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableProcPost.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.tableProcPost.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableProcPost.setShowGrid(False)
+        self.tableProcPost.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableProcPost.setObjectName("tableProcPost")
+        self.tableProcPost.setColumnCount(3)
+        self.tableProcPost.setRowCount(3)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableProcPost.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableProcPost.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableProcPost.setVerticalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableProcPost.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableProcPost.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableProcPost.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableProcPost.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableProcPost.setItem(0, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableProcPost.setItem(1, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableProcPost.setItem(1, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableProcPost.setItem(2, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableProcPost.setItem(2, 2, item)
+        self.tableProcPost.horizontalHeader().setVisible(False)
+        self.tableProcPost.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableProcPost.horizontalHeader().setDefaultSectionSize(50)
+        self.tableProcPost.horizontalHeader().setHighlightSections(False)
+        self.tableProcPost.horizontalHeader().setMinimumSectionSize(15)
+        self.tableProcPost.horizontalHeader().setSortIndicatorShown(True)
+        self.tableProcPost.horizontalHeader().setStretchLastSection(False)
+        self.tableProcPost.verticalHeader().setVisible(False)
+        self.tableProcPost.verticalHeader().setCascadingSectionResizes(False)
+        self.tableProcPost.verticalHeader().setMinimumSectionSize(10)
+        self.btnCngProcPost = QtWidgets.QPushButton(self.tbFrameProc)
+        self.btnCngProcPost.setGeometry(QtCore.QRect(100, 190, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnCngProcPost.setFont(font)
+        self.btnCngProcPost.setStyleSheet("QPushButton\n"
+"{\n"
+"    color:  white;\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px solid rgb(100, 100, 100);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-bottom: 1px solid rgb(255, 247, 0);\n"
+"}\n"
+"")
+        self.btnCngProcPost.setObjectName("btnCngProcPost")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/cpu-tower.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.toolBoxNavigation.addItem(self.pageProc, icon1, "")
+        self.pageMother = QtWidgets.QWidget()
+        self.pageMother.setGeometry(QtCore.QRect(0, 0, 297, 243))
+        self.pageMother.setObjectName("pageMother")
+        self.tbFrameMother = QtWidgets.QFrame(self.pageMother)
+        self.tbFrameMother.setGeometry(QtCore.QRect(0, 0, 301, 261))
+        self.tbFrameMother.setStyleSheet("QFrame{\n"
+"    background-color: #101010;\n"
+"    color:  white;\n"
+"    border: 1px;\n"
+"}")
+        self.tbFrameMother.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.tbFrameMother.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.tbFrameMother.setObjectName("tbFrameMother")
+        self.lbMotherPost = QtWidgets.QLabel(self.tbFrameMother)
+        self.lbMotherPost.setGeometry(QtCore.QRect(60, 0, 161, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        self.lbMotherPost.setFont(font)
+        self.lbMotherPost.setStyleSheet("border: 0px;\n"
+"border-bottom: 1px solid rgb(100, 100, 100);")
+        self.lbMotherPost.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbMotherPost.setObjectName("lbMotherPost")
+        self.btnNewMotherPost = QtWidgets.QPushButton(self.tbFrameMother)
+        self.btnNewMotherPost.setGeometry(QtCore.QRect(10, 190, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnNewMotherPost.setFont(font)
+        self.btnNewMotherPost.setStyleSheet("QPushButton\n"
+"{\n"
+"    color:  white;\n"
+"    border: 1px solid rgb(100, 100, 100);\n"
+"    background-color: rgb(40,40,40);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-bottom: 1px solid rgb(0, 255, 8);\n"
+"}\n"
+"")
+        self.btnNewMotherPost.setObjectName("btnNewMotherPost")
+        self.btnDelMotherPost = QtWidgets.QPushButton(self.tbFrameMother)
+        self.btnDelMotherPost.setGeometry(QtCore.QRect(190, 190, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnDelMotherPost.setFont(font)
+        self.btnDelMotherPost.setStyleSheet("QPushButton\n"
+"{\n"
+"    color:  white;\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px solid rgb(100, 100, 100);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(60,60,60);\n"
+"    color: red;\n"
+"    border-bottom: 1px solid red;\n"
+"}\n"
+"")
+        self.btnDelMotherPost.setObjectName("btnDelMotherPost")
+        self.tableMotherPost = QtWidgets.QTableWidget(self.tbFrameMother)
+        self.tableMotherPost.setEnabled(True)
+        self.tableMotherPost.setGeometry(QtCore.QRect(60, 30, 171, 141))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
+        self.tableMotherPost.setFont(font)
+        self.tableMotherPost.setMouseTracking(True)
+        self.tableMotherPost.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.tableMotherPost.setAutoFillBackground(False)
+        self.tableMotherPost.setStyleSheet("QTableWidget::item\n"
+"{\n"
+"     border-bottom: 1px solid rgb(60,60,60); \n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"}\n"
+"\n"
+"QTableView\n"
+"{\n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border-top: 1px solid #434343;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-bottom:1px solid #434343;\n"
+"}\n"
+"\n"
+"QTableWidget::item:hover {\n"
+"    color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}      \n"
+"\n"
+"QTableWidget::item:selected\n"
+"{\n"
+"     color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background-color: #151515;\n"
+"    width: 8px;\n"
+"    margin: 15px 0 15px 0;\n"
+"    border-radius: 0px;\n"
+" }\n"
+"\n"
+"/*  HANDLE BAR VERTICAL */\n"
+"QScrollBar::handle:vertical {    \n"
+"    background-color: #151515;\n"
+"    min-height: 30px;\n"
+"    border-radius: 0px;\n"
+"    border: 1px solid;\n"
+"    border-right: 0px;\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:hover{    \n"
+"    background-color:  rgb(50,50,50);\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);\n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border: 1px solid;\n"
+"    border-top:1px solid rgb(180, 0, 0);\n"
+"    border-right: 0px;\n"
+"    border-bottom: 0px;\n"
+"}\n"
+"QScrollBar::add-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
+"}")
+        self.tableMotherPost.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableMotherPost.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.tableMotherPost.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableMotherPost.setShowGrid(False)
+        self.tableMotherPost.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableMotherPost.setObjectName("tableMotherPost")
+        self.tableMotherPost.setColumnCount(3)
+        self.tableMotherPost.setRowCount(3)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableMotherPost.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableMotherPost.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableMotherPost.setVerticalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableMotherPost.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableMotherPost.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableMotherPost.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableMotherPost.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableMotherPost.setItem(0, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableMotherPost.setItem(1, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableMotherPost.setItem(1, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableMotherPost.setItem(2, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableMotherPost.setItem(2, 2, item)
+        self.tableMotherPost.horizontalHeader().setVisible(False)
+        self.tableMotherPost.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableMotherPost.horizontalHeader().setDefaultSectionSize(50)
+        self.tableMotherPost.horizontalHeader().setHighlightSections(False)
+        self.tableMotherPost.horizontalHeader().setMinimumSectionSize(15)
+        self.tableMotherPost.horizontalHeader().setSortIndicatorShown(True)
+        self.tableMotherPost.horizontalHeader().setStretchLastSection(False)
+        self.tableMotherPost.verticalHeader().setVisible(False)
+        self.tableMotherPost.verticalHeader().setCascadingSectionResizes(False)
+        self.tableMotherPost.verticalHeader().setMinimumSectionSize(10)
+        self.btnCngMotherPost = QtWidgets.QPushButton(self.tbFrameMother)
+        self.btnCngMotherPost.setGeometry(QtCore.QRect(100, 190, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnCngMotherPost.setFont(font)
+        self.btnCngMotherPost.setStyleSheet("QPushButton\n"
+"{\n"
+"    color:  white;\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px solid rgb(100, 100, 100);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-bottom: 1px solid rgb(255, 247, 0);\n"
+"}\n"
+"")
+        self.btnCngMotherPost.setObjectName("btnCngMotherPost")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/motherboard.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.toolBoxNavigation.addItem(self.pageMother, icon2, "")
+        self.pageCool = QtWidgets.QWidget()
+        self.pageCool.setGeometry(QtCore.QRect(0, 0, 297, 243))
+        self.pageCool.setObjectName("pageCool")
+        self.tbFrameCool = QtWidgets.QFrame(self.pageCool)
+        self.tbFrameCool.setGeometry(QtCore.QRect(0, 0, 301, 261))
+        self.tbFrameCool.setStyleSheet("QFrame{\n"
+"    background-color: #101010;\n"
+"    color:  white;\n"
+"    border: 1px;\n"
+"}")
+        self.tbFrameCool.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.tbFrameCool.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.tbFrameCool.setObjectName("tbFrameCool")
+        self.lbCoolPost = QtWidgets.QLabel(self.tbFrameCool)
+        self.lbCoolPost.setGeometry(QtCore.QRect(60, 0, 161, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        self.lbCoolPost.setFont(font)
+        self.lbCoolPost.setStyleSheet("border: 0px;\n"
+"border-bottom: 1px solid rgb(100, 100, 100);")
+        self.lbCoolPost.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbCoolPost.setObjectName("lbCoolPost")
+        self.btnNewCoolPost = QtWidgets.QPushButton(self.tbFrameCool)
+        self.btnNewCoolPost.setGeometry(QtCore.QRect(10, 190, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnNewCoolPost.setFont(font)
+        self.btnNewCoolPost.setStyleSheet("QPushButton\n"
+"{\n"
+"    color:  white;\n"
+"    border: 1px solid rgb(100, 100, 100);\n"
+"    background-color: rgb(40,40,40);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-bottom: 1px solid rgb(0, 255, 8);\n"
+"}\n"
+"")
+        self.btnNewCoolPost.setObjectName("btnNewCoolPost")
+        self.btnDelCoolPost = QtWidgets.QPushButton(self.tbFrameCool)
+        self.btnDelCoolPost.setGeometry(QtCore.QRect(190, 190, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnDelCoolPost.setFont(font)
+        self.btnDelCoolPost.setStyleSheet("QPushButton\n"
+"{\n"
+"    color:  white;\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px solid rgb(100, 100, 100);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(60,60,60);\n"
+"    color: red;\n"
+"    border-bottom: 1px solid red;\n"
+"}\n"
+"")
+        self.btnDelCoolPost.setObjectName("btnDelCoolPost")
+        self.tableCoolPost = QtWidgets.QTableWidget(self.tbFrameCool)
+        self.tableCoolPost.setEnabled(True)
+        self.tableCoolPost.setGeometry(QtCore.QRect(60, 30, 171, 141))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
+        self.tableCoolPost.setFont(font)
+        self.tableCoolPost.setMouseTracking(True)
+        self.tableCoolPost.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.tableCoolPost.setAutoFillBackground(False)
+        self.tableCoolPost.setStyleSheet("QTableWidget::item\n"
+"{\n"
+"     border-bottom: 1px solid rgb(60,60,60); \n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"}\n"
+"\n"
+"QTableView\n"
+"{\n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border-top: 1px solid #434343;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-bottom:1px solid #434343;\n"
+"}\n"
+"\n"
+"QTableWidget::item:hover {\n"
+"    color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}      \n"
+"\n"
+"QTableWidget::item:selected\n"
+"{\n"
+"     color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background-color: #151515;\n"
+"    width: 8px;\n"
+"    margin: 15px 0 15px 0;\n"
+"    border-radius: 0px;\n"
+" }\n"
+"\n"
+"/*  HANDLE BAR VERTICAL */\n"
+"QScrollBar::handle:vertical {    \n"
+"    background-color: #151515;\n"
+"    min-height: 30px;\n"
+"    border-radius: 0px;\n"
+"    border: 1px solid;\n"
+"    border-right: 0px;\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:hover{    \n"
+"    background-color:  rgb(50,50,50);\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);\n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border: 1px solid;\n"
+"    border-top:1px solid rgb(180, 0, 0);\n"
+"    border-right: 0px;\n"
+"    border-bottom: 0px;\n"
+"}\n"
+"QScrollBar::add-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
+"}")
+        self.tableCoolPost.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableCoolPost.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.tableCoolPost.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableCoolPost.setShowGrid(False)
+        self.tableCoolPost.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableCoolPost.setObjectName("tableCoolPost")
+        self.tableCoolPost.setColumnCount(3)
+        self.tableCoolPost.setRowCount(3)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableCoolPost.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableCoolPost.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableCoolPost.setVerticalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableCoolPost.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableCoolPost.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableCoolPost.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableCoolPost.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableCoolPost.setItem(0, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableCoolPost.setItem(1, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableCoolPost.setItem(1, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableCoolPost.setItem(2, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableCoolPost.setItem(2, 2, item)
+        self.tableCoolPost.horizontalHeader().setVisible(False)
+        self.tableCoolPost.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableCoolPost.horizontalHeader().setDefaultSectionSize(50)
+        self.tableCoolPost.horizontalHeader().setHighlightSections(False)
+        self.tableCoolPost.horizontalHeader().setMinimumSectionSize(15)
+        self.tableCoolPost.horizontalHeader().setSortIndicatorShown(True)
+        self.tableCoolPost.horizontalHeader().setStretchLastSection(False)
+        self.tableCoolPost.verticalHeader().setVisible(False)
+        self.tableCoolPost.verticalHeader().setCascadingSectionResizes(False)
+        self.tableCoolPost.verticalHeader().setMinimumSectionSize(10)
+        self.btnCngCoolPost = QtWidgets.QPushButton(self.tbFrameCool)
+        self.btnCngCoolPost.setGeometry(QtCore.QRect(100, 190, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnCngCoolPost.setFont(font)
+        self.btnCngCoolPost.setStyleSheet("QPushButton\n"
+"{\n"
+"    color:  white;\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px solid rgb(100, 100, 100);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-bottom: 1px solid rgb(255, 247, 0);\n"
+"}\n"
+"")
+        self.btnCngCoolPost.setObjectName("btnCngCoolPost")
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/cpucooling.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.toolBoxNavigation.addItem(self.pageCool, icon3, "")
+        self.pageRam = QtWidgets.QWidget()
+        self.pageRam.setGeometry(QtCore.QRect(0, 0, 297, 243))
+        self.pageRam.setObjectName("pageRam")
+        self.tbFrameRam = QtWidgets.QFrame(self.pageRam)
+        self.tbFrameRam.setGeometry(QtCore.QRect(0, 0, 301, 261))
+        self.tbFrameRam.setStyleSheet("QFrame{\n"
+"    background-color: #101010;\n"
+"    color:  white;\n"
+"    border: 1px;\n"
+"}")
+        self.tbFrameRam.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.tbFrameRam.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.tbFrameRam.setObjectName("tbFrameRam")
+        self.lbRamPost = QtWidgets.QLabel(self.tbFrameRam)
+        self.lbRamPost.setGeometry(QtCore.QRect(60, 0, 161, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        self.lbRamPost.setFont(font)
+        self.lbRamPost.setStyleSheet("border: 0px;\n"
+"border-bottom: 1px solid rgb(100, 100, 100);")
+        self.lbRamPost.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbRamPost.setObjectName("lbRamPost")
+        self.btnNewRamPost = QtWidgets.QPushButton(self.tbFrameRam)
+        self.btnNewRamPost.setGeometry(QtCore.QRect(10, 190, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnNewRamPost.setFont(font)
+        self.btnNewRamPost.setStyleSheet("QPushButton\n"
+"{\n"
+"    color:  white;\n"
+"    border: 1px solid rgb(100, 100, 100);\n"
+"    background-color: rgb(40,40,40);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-bottom: 1px solid rgb(0, 255, 8);\n"
+"}\n"
+"")
+        self.btnNewRamPost.setObjectName("btnNewRamPost")
+        self.btnDelRamPost = QtWidgets.QPushButton(self.tbFrameRam)
+        self.btnDelRamPost.setGeometry(QtCore.QRect(190, 190, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnDelRamPost.setFont(font)
+        self.btnDelRamPost.setStyleSheet("QPushButton\n"
+"{\n"
+"    color:  white;\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px solid rgb(100, 100, 100);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(60,60,60);\n"
+"    color: red;\n"
+"    border-bottom: 1px solid red;\n"
+"}\n"
+"")
+        self.btnDelRamPost.setObjectName("btnDelRamPost")
+        self.tableRamPost = QtWidgets.QTableWidget(self.tbFrameRam)
+        self.tableRamPost.setEnabled(True)
+        self.tableRamPost.setGeometry(QtCore.QRect(60, 30, 171, 141))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
+        self.tableRamPost.setFont(font)
+        self.tableRamPost.setMouseTracking(True)
+        self.tableRamPost.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.tableRamPost.setAutoFillBackground(False)
+        self.tableRamPost.setStyleSheet("QTableWidget::item\n"
+"{\n"
+"     border-bottom: 1px solid rgb(60,60,60); \n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"}\n"
+"\n"
+"QTableView\n"
+"{\n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border-top: 1px solid #434343;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-bottom:1px solid #434343;\n"
+"}\n"
+"\n"
+"QTableWidget::item:hover {\n"
+"    color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}      \n"
+"\n"
+"QTableWidget::item:selected\n"
+"{\n"
+"     color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background-color: #151515;\n"
+"    width: 8px;\n"
+"    margin: 15px 0 15px 0;\n"
+"    border-radius: 0px;\n"
+" }\n"
+"\n"
+"/*  HANDLE BAR VERTICAL */\n"
+"QScrollBar::handle:vertical {    \n"
+"    background-color: #151515;\n"
+"    min-height: 30px;\n"
+"    border-radius: 0px;\n"
+"    border: 1px solid;\n"
+"    border-right: 0px;\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:hover{    \n"
+"    background-color:  rgb(50,50,50);\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);\n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border: 1px solid;\n"
+"    border-top:1px solid rgb(180, 0, 0);\n"
+"    border-right: 0px;\n"
+"    border-bottom: 0px;\n"
+"}\n"
+"QScrollBar::add-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
+"}")
+        self.tableRamPost.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableRamPost.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.tableRamPost.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableRamPost.setShowGrid(False)
+        self.tableRamPost.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableRamPost.setObjectName("tableRamPost")
+        self.tableRamPost.setColumnCount(3)
+        self.tableRamPost.setRowCount(3)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableRamPost.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableRamPost.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableRamPost.setVerticalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableRamPost.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableRamPost.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableRamPost.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableRamPost.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableRamPost.setItem(0, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableRamPost.setItem(1, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableRamPost.setItem(1, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableRamPost.setItem(2, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableRamPost.setItem(2, 2, item)
+        self.tableRamPost.horizontalHeader().setVisible(False)
+        self.tableRamPost.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableRamPost.horizontalHeader().setDefaultSectionSize(50)
+        self.tableRamPost.horizontalHeader().setHighlightSections(False)
+        self.tableRamPost.horizontalHeader().setMinimumSectionSize(15)
+        self.tableRamPost.horizontalHeader().setSortIndicatorShown(True)
+        self.tableRamPost.horizontalHeader().setStretchLastSection(False)
+        self.tableRamPost.verticalHeader().setVisible(False)
+        self.tableRamPost.verticalHeader().setCascadingSectionResizes(False)
+        self.tableRamPost.verticalHeader().setMinimumSectionSize(10)
+        self.btnCngRamPost = QtWidgets.QPushButton(self.tbFrameRam)
+        self.btnCngRamPost.setGeometry(QtCore.QRect(100, 190, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnCngRamPost.setFont(font)
+        self.btnCngRamPost.setStyleSheet("QPushButton\n"
+"{\n"
+"    color:  white;\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px solid rgb(100, 100, 100);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(60,60,60);;    \n"
+"    border-bottom: 1px solid rgb(255, 247, 0);\n"
+"}\n"
+"")
+        self.btnCngRamPost.setObjectName("btnCngRamPost")
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/ram (1).png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.toolBoxNavigation.addItem(self.pageRam, icon4, "")
+        self.pageDisk = QtWidgets.QWidget()
+        self.pageDisk.setGeometry(QtCore.QRect(0, 0, 297, 243))
+        self.pageDisk.setObjectName("pageDisk")
+        self.tbFrameDisk = QtWidgets.QFrame(self.pageDisk)
+        self.tbFrameDisk.setGeometry(QtCore.QRect(0, 0, 301, 261))
+        self.tbFrameDisk.setStyleSheet("QFrame{\n"
+"    background-color: #101010;\n"
+"    color:  white;\n"
+"    border: 1px;\n"
+"}")
+        self.tbFrameDisk.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.tbFrameDisk.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.tbFrameDisk.setObjectName("tbFrameDisk")
+        self.lbDiskPost = QtWidgets.QLabel(self.tbFrameDisk)
+        self.lbDiskPost.setGeometry(QtCore.QRect(60, 0, 161, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        self.lbDiskPost.setFont(font)
+        self.lbDiskPost.setStyleSheet("border: 0px;\n"
+"border-bottom: 1px solid rgb(100, 100, 100);")
+        self.lbDiskPost.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbDiskPost.setObjectName("lbDiskPost")
+        self.btnNewDiskPost = QtWidgets.QPushButton(self.tbFrameDisk)
+        self.btnNewDiskPost.setGeometry(QtCore.QRect(10, 190, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnNewDiskPost.setFont(font)
+        self.btnNewDiskPost.setStyleSheet("QPushButton\n"
+"{\n"
+"    color:  white;\n"
+"    border: 1px solid rgb(100, 100, 100);\n"
+"    background-color: rgb(40,40,40);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-bottom: 1px solid rgb(0, 255, 8);\n"
+"}\n"
+"")
+        self.btnNewDiskPost.setObjectName("btnNewDiskPost")
+        self.btnDelDiskPost = QtWidgets.QPushButton(self.tbFrameDisk)
+        self.btnDelDiskPost.setGeometry(QtCore.QRect(190, 190, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnDelDiskPost.setFont(font)
+        self.btnDelDiskPost.setStyleSheet("QPushButton\n"
+"{\n"
+"    color:  white;\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px solid rgb(100, 100, 100);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(60,60,60);\n"
+"    color: red;\n"
+"    border-bottom: 1px solid red;\n"
+"}\n"
+"")
+        self.btnDelDiskPost.setObjectName("btnDelDiskPost")
+        self.tableDiskPost = QtWidgets.QTableWidget(self.tbFrameDisk)
+        self.tableDiskPost.setEnabled(True)
+        self.tableDiskPost.setGeometry(QtCore.QRect(60, 30, 171, 141))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
+        self.tableDiskPost.setFont(font)
+        self.tableDiskPost.setMouseTracking(True)
+        self.tableDiskPost.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.tableDiskPost.setAutoFillBackground(False)
+        self.tableDiskPost.setStyleSheet("QTableWidget::item\n"
+"{\n"
+"     border-bottom: 1px solid rgb(60,60,60); \n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"}\n"
+"\n"
+"QTableView\n"
+"{\n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border-top: 1px solid #434343;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-bottom:1px solid #434343;\n"
+"}\n"
+"\n"
+"QTableWidget::item:hover {\n"
+"    color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}      \n"
+"\n"
+"QTableWidget::item:selected\n"
+"{\n"
+"     color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background-color: #151515;\n"
+"    width: 8px;\n"
+"    margin: 15px 0 15px 0;\n"
+"    border-radius: 0px;\n"
+" }\n"
+"\n"
+"/*  HANDLE BAR VERTICAL */\n"
+"QScrollBar::handle:vertical {    \n"
+"    background-color: #151515;\n"
+"    min-height: 30px;\n"
+"    border-radius: 0px;\n"
+"    border: 1px solid;\n"
+"    border-right: 0px;\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:hover{    \n"
+"    background-color:  rgb(50,50,50);\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);\n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border: 1px solid;\n"
+"    border-top:1px solid rgb(180, 0, 0);\n"
+"    border-right: 0px;\n"
+"    border-bottom: 0px;\n"
+"}\n"
+"QScrollBar::add-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
+"}")
+        self.tableDiskPost.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableDiskPost.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.tableDiskPost.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableDiskPost.setShowGrid(False)
+        self.tableDiskPost.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableDiskPost.setObjectName("tableDiskPost")
+        self.tableDiskPost.setColumnCount(3)
+        self.tableDiskPost.setRowCount(3)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableDiskPost.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableDiskPost.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableDiskPost.setVerticalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableDiskPost.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableDiskPost.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableDiskPost.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableDiskPost.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableDiskPost.setItem(0, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableDiskPost.setItem(1, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableDiskPost.setItem(1, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableDiskPost.setItem(2, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableDiskPost.setItem(2, 2, item)
+        self.tableDiskPost.horizontalHeader().setVisible(False)
+        self.tableDiskPost.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableDiskPost.horizontalHeader().setDefaultSectionSize(50)
+        self.tableDiskPost.horizontalHeader().setHighlightSections(False)
+        self.tableDiskPost.horizontalHeader().setMinimumSectionSize(15)
+        self.tableDiskPost.horizontalHeader().setSortIndicatorShown(True)
+        self.tableDiskPost.horizontalHeader().setStretchLastSection(False)
+        self.tableDiskPost.verticalHeader().setVisible(False)
+        self.tableDiskPost.verticalHeader().setCascadingSectionResizes(False)
+        self.tableDiskPost.verticalHeader().setMinimumSectionSize(10)
+        self.btnCngDiskPost = QtWidgets.QPushButton(self.tbFrameDisk)
+        self.btnCngDiskPost.setGeometry(QtCore.QRect(100, 190, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnCngDiskPost.setFont(font)
+        self.btnCngDiskPost.setStyleSheet("QPushButton\n"
+"{\n"
+"    color:  white;\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px solid rgb(100, 100, 100);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-bottom: 1px solid rgb(255, 247, 0);\n"
+"}\n"
+"")
+        self.btnCngDiskPost.setObjectName("btnCngDiskPost")
+        icon5 = QtGui.QIcon()
+        icon5.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/hard-drive.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.toolBoxNavigation.addItem(self.pageDisk, icon5, "")
+        self.pagePower = QtWidgets.QWidget()
+        self.pagePower.setGeometry(QtCore.QRect(0, 0, 297, 243))
+        self.pagePower.setObjectName("pagePower")
+        self.tbFramePower = QtWidgets.QFrame(self.pagePower)
+        self.tbFramePower.setGeometry(QtCore.QRect(0, 0, 301, 261))
+        self.tbFramePower.setStyleSheet("QFrame{\n"
+"    background-color: #101010;\n"
+"    color:  white;\n"
+"    border: 1px;\n"
+"}")
+        self.tbFramePower.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.tbFramePower.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.tbFramePower.setObjectName("tbFramePower")
+        self.lbPowerPost = QtWidgets.QLabel(self.tbFramePower)
+        self.lbPowerPost.setGeometry(QtCore.QRect(60, 0, 161, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        self.lbPowerPost.setFont(font)
+        self.lbPowerPost.setStyleSheet("border: 0px;\n"
+"border-bottom: 1px solid rgb(100, 100, 100);")
+        self.lbPowerPost.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbPowerPost.setObjectName("lbPowerPost")
+        self.btnNewPowerPost = QtWidgets.QPushButton(self.tbFramePower)
+        self.btnNewPowerPost.setGeometry(QtCore.QRect(10, 190, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnNewPowerPost.setFont(font)
+        self.btnNewPowerPost.setStyleSheet("QPushButton\n"
+"{\n"
+"    color:  white;\n"
+"    border: 1px solid rgb(100, 100, 100);\n"
+"    background-color: rgb(40,40,40);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-bottom: 1px solid rgb(0, 255, 8);\n"
+"}\n"
+"")
+        self.btnNewPowerPost.setObjectName("btnNewPowerPost")
+        self.btnDelPowerPost = QtWidgets.QPushButton(self.tbFramePower)
+        self.btnDelPowerPost.setGeometry(QtCore.QRect(190, 190, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnDelPowerPost.setFont(font)
+        self.btnDelPowerPost.setStyleSheet("QPushButton\n"
+"{\n"
+"    color:  white;\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px solid rgb(100, 100, 100);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(60,60,60);\n"
+"    color: red;\n"
+"    border-bottom: 1px solid red;\n"
+"}\n"
+"")
+        self.btnDelPowerPost.setObjectName("btnDelPowerPost")
+        self.tablePowerPost = QtWidgets.QTableWidget(self.tbFramePower)
+        self.tablePowerPost.setEnabled(True)
+        self.tablePowerPost.setGeometry(QtCore.QRect(60, 30, 171, 141))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
+        self.tablePowerPost.setFont(font)
+        self.tablePowerPost.setMouseTracking(True)
+        self.tablePowerPost.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.tablePowerPost.setAutoFillBackground(False)
+        self.tablePowerPost.setStyleSheet("QTableWidget::item\n"
+"{\n"
+"     border-bottom: 1px solid rgb(60,60,60); \n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"}\n"
+"\n"
+"QTableView\n"
+"{\n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border-top: 1px solid #434343;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-bottom:1px solid #434343;\n"
+"}\n"
+"\n"
+"QTableWidget::item:hover {\n"
+"    color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}      \n"
+"\n"
+"QTableWidget::item:selected\n"
+"{\n"
+"     color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background-color: #151515;\n"
+"    width: 8px;\n"
+"    margin: 15px 0 15px 0;\n"
+"    border-radius: 0px;\n"
+" }\n"
+"\n"
+"/*  HANDLE BAR VERTICAL */\n"
+"QScrollBar::handle:vertical {    \n"
+"    background-color: #151515;\n"
+"    min-height: 30px;\n"
+"    border-radius: 0px;\n"
+"    border: 1px solid;\n"
+"    border-right: 0px;\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:hover{    \n"
+"    background-color:  rgb(50,50,50);\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);\n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border: 1px solid;\n"
+"    border-top:1px solid rgb(180, 0, 0);\n"
+"    border-right: 0px;\n"
+"    border-bottom: 0px;\n"
+"}\n"
+"QScrollBar::add-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
+"}")
+        self.tablePowerPost.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tablePowerPost.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.tablePowerPost.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tablePowerPost.setShowGrid(False)
+        self.tablePowerPost.setGridStyle(QtCore.Qt.SolidLine)
+        self.tablePowerPost.setObjectName("tablePowerPost")
+        self.tablePowerPost.setColumnCount(3)
+        self.tablePowerPost.setRowCount(3)
+        item = QtWidgets.QTableWidgetItem()
+        self.tablePowerPost.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tablePowerPost.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tablePowerPost.setVerticalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tablePowerPost.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tablePowerPost.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tablePowerPost.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tablePowerPost.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tablePowerPost.setItem(0, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tablePowerPost.setItem(1, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tablePowerPost.setItem(1, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tablePowerPost.setItem(2, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tablePowerPost.setItem(2, 2, item)
+        self.tablePowerPost.horizontalHeader().setVisible(False)
+        self.tablePowerPost.horizontalHeader().setCascadingSectionResizes(True)
+        self.tablePowerPost.horizontalHeader().setDefaultSectionSize(50)
+        self.tablePowerPost.horizontalHeader().setHighlightSections(False)
+        self.tablePowerPost.horizontalHeader().setMinimumSectionSize(15)
+        self.tablePowerPost.horizontalHeader().setSortIndicatorShown(True)
+        self.tablePowerPost.horizontalHeader().setStretchLastSection(False)
+        self.tablePowerPost.verticalHeader().setVisible(False)
+        self.tablePowerPost.verticalHeader().setCascadingSectionResizes(False)
+        self.tablePowerPost.verticalHeader().setMinimumSectionSize(10)
+        self.btnCngPowerPost = QtWidgets.QPushButton(self.tbFramePower)
+        self.btnCngPowerPost.setGeometry(QtCore.QRect(100, 190, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnCngPowerPost.setFont(font)
+        self.btnCngPowerPost.setStyleSheet("QPushButton\n"
+"{\n"
+"    color:  white;\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px solid rgb(100, 100, 100);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-bottom: 1px solid rgb(255, 247, 0);\n"
+"}\n"
+"")
+        self.btnCngPowerPost.setObjectName("btnCngPowerPost")
+        icon6 = QtGui.QIcon()
+        icon6.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/power.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.toolBoxNavigation.addItem(self.pagePower, icon6, "")
+        self.pageBody = QtWidgets.QWidget()
+        self.pageBody.setGeometry(QtCore.QRect(0, 0, 297, 243))
+        self.pageBody.setObjectName("pageBody")
+        self.tbFrameBody = QtWidgets.QFrame(self.pageBody)
+        self.tbFrameBody.setGeometry(QtCore.QRect(0, 0, 301, 261))
+        self.tbFrameBody.setStyleSheet("QFrame{\n"
+"    background-color: #101010;\n"
+"    color:  white;\n"
+"    border: 1px;\n"
+"}")
+        self.tbFrameBody.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.tbFrameBody.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.tbFrameBody.setObjectName("tbFrameBody")
+        self.lbBodyPost = QtWidgets.QLabel(self.tbFrameBody)
+        self.lbBodyPost.setGeometry(QtCore.QRect(60, 0, 161, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        self.lbBodyPost.setFont(font)
+        self.lbBodyPost.setStyleSheet("border: 0px;\n"
+"border-bottom: 1px solid rgb(100, 100, 100);")
+        self.lbBodyPost.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbBodyPost.setObjectName("lbBodyPost")
+        self.btnNewBodyPost = QtWidgets.QPushButton(self.tbFrameBody)
+        self.btnNewBodyPost.setGeometry(QtCore.QRect(10, 190, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnNewBodyPost.setFont(font)
+        self.btnNewBodyPost.setStyleSheet("QPushButton\n"
+"{\n"
+"    color:  white;\n"
+"    border: 1px solid rgb(100, 100, 100);\n"
+"    background-color: rgb(40,40,40);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-bottom: 1px solid rgb(0, 255, 8);\n"
+"}\n"
+"")
+        self.btnNewBodyPost.setObjectName("btnNewBodyPost")
+        self.btnDelBodyPost = QtWidgets.QPushButton(self.tbFrameBody)
+        self.btnDelBodyPost.setGeometry(QtCore.QRect(190, 190, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnDelBodyPost.setFont(font)
+        self.btnDelBodyPost.setStyleSheet("QPushButton\n"
+"{\n"
+"    color:  white;\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px solid rgb(100, 100, 100);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(60,60,60);\n"
+"    color: red;\n"
+"    border-bottom: 1px solid red;\n"
+"}\n"
+"")
+        self.btnDelBodyPost.setObjectName("btnDelBodyPost")
+        self.tableBodyPost = QtWidgets.QTableWidget(self.tbFrameBody)
+        self.tableBodyPost.setEnabled(True)
+        self.tableBodyPost.setGeometry(QtCore.QRect(60, 30, 171, 141))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
+        self.tableBodyPost.setFont(font)
+        self.tableBodyPost.setMouseTracking(True)
+        self.tableBodyPost.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.tableBodyPost.setAutoFillBackground(False)
+        self.tableBodyPost.setStyleSheet("QTableWidget::item\n"
+"{\n"
+"     border-bottom: 1px solid rgb(60,60,60); \n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"}\n"
+"\n"
+"QTableView\n"
+"{\n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border-top: 1px solid #434343;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-bottom:1px solid #434343;\n"
+"}\n"
+"\n"
+"QTableWidget::item:hover {\n"
+"    color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}      \n"
+"\n"
+"QTableWidget::item:selected\n"
+"{\n"
+"     color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background-color: #151515;\n"
+"    width: 8px;\n"
+"    margin: 15px 0 15px 0;\n"
+"    border-radius: 0px;\n"
+" }\n"
+"\n"
+"/*  HANDLE BAR VERTICAL */\n"
+"QScrollBar::handle:vertical {    \n"
+"    background-color: #151515;\n"
+"    min-height: 30px;\n"
+"    border-radius: 0px;\n"
+"    border: 1px solid;\n"
+"    border-right: 0px;\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:hover{    \n"
+"    background-color:  rgb(50,50,50);\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);\n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border: 1px solid;\n"
+"    border-top:1px solid rgb(180, 0, 0);\n"
+"    border-right: 0px;\n"
+"    border-bottom: 0px;\n"
+"}\n"
+"QScrollBar::add-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
+"}")
+        self.tableBodyPost.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableBodyPost.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.tableBodyPost.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableBodyPost.setShowGrid(False)
+        self.tableBodyPost.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableBodyPost.setObjectName("tableBodyPost")
+        self.tableBodyPost.setColumnCount(3)
+        self.tableBodyPost.setRowCount(3)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableBodyPost.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableBodyPost.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableBodyPost.setVerticalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableBodyPost.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableBodyPost.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableBodyPost.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableBodyPost.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableBodyPost.setItem(0, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableBodyPost.setItem(1, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableBodyPost.setItem(1, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableBodyPost.setItem(2, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableBodyPost.setItem(2, 2, item)
+        self.tableBodyPost.horizontalHeader().setVisible(False)
+        self.tableBodyPost.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableBodyPost.horizontalHeader().setDefaultSectionSize(50)
+        self.tableBodyPost.horizontalHeader().setHighlightSections(False)
+        self.tableBodyPost.horizontalHeader().setMinimumSectionSize(15)
+        self.tableBodyPost.horizontalHeader().setSortIndicatorShown(True)
+        self.tableBodyPost.horizontalHeader().setStretchLastSection(False)
+        self.tableBodyPost.verticalHeader().setVisible(False)
+        self.tableBodyPost.verticalHeader().setCascadingSectionResizes(False)
+        self.tableBodyPost.verticalHeader().setMinimumSectionSize(10)
+        self.btnCngBodyPost = QtWidgets.QPushButton(self.tbFrameBody)
+        self.btnCngBodyPost.setGeometry(QtCore.QRect(100, 190, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnCngBodyPost.setFont(font)
+        self.btnCngBodyPost.setStyleSheet("QPushButton\n"
+"{\n"
+"    color:  white;\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px solid rgb(100, 100, 100);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-bottom: 1px solid rgb(255, 247, 0);\n"
+"}\n"
+"")
+        self.btnCngBodyPost.setObjectName("btnCngBodyPost")
+        icon7 = QtGui.QIcon()
+        icon7.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/case.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.toolBoxNavigation.addItem(self.pageBody, icon7, "")
+        self.pageConf = QtWidgets.QWidget()
+        self.pageConf.setGeometry(QtCore.QRect(0, 0, 297, 243))
+        self.pageConf.setObjectName("pageConf")
+        self.tbFrameConf = QtWidgets.QFrame(self.pageConf)
+        self.tbFrameConf.setGeometry(QtCore.QRect(0, 0, 301, 261))
+        self.tbFrameConf.setStyleSheet("QFrame{\n"
+"    background-color: #101010;\n"
+"    color:  white;\n"
+"    border: 1px;\n"
+"}")
+        self.tbFrameConf.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.tbFrameConf.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.tbFrameConf.setObjectName("tbFrameConf")
+        self.label_10 = QtWidgets.QLabel(self.tbFrameConf)
+        self.label_10.setGeometry(QtCore.QRect(50, 80, 181, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        self.label_10.setFont(font)
+        self.label_10.setStyleSheet("border: 0px;\n"
+"border-bottom: 1px solid rgb(100, 100, 100);")
+        self.label_10.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_10.setObjectName("label_10")
+        self.btnNewVideoPost_10 = QtWidgets.QPushButton(self.tbFrameConf)
+        self.btnNewVideoPost_10.setGeometry(QtCore.QRect(10, 190, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnNewVideoPost_10.setFont(font)
+        self.btnNewVideoPost_10.setStyleSheet("QPushButton\n"
+"{\n"
+"    color:  white;\n"
+"    border: 1px solid rgb(100, 100, 100);\n"
+"    background-color: rgb(40,40,40);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-bottom: 1px solid rgb(0, 255, 8);\n"
+"}\n"
+"")
+        self.btnNewVideoPost_10.setObjectName("btnNewVideoPost_10")
+        self.btnDelBConfPost = QtWidgets.QPushButton(self.tbFrameConf)
+        self.btnDelBConfPost.setGeometry(QtCore.QRect(190, 190, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnDelBConfPost.setFont(font)
+        self.btnDelBConfPost.setStyleSheet("QPushButton\n"
+"{\n"
+"    color:  white;\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px solid rgb(100, 100, 100);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(60,60,60);\n"
+"    color: red;\n"
+"    border-bottom: 1px solid red;\n"
+"}\n"
+"")
+        self.btnDelBConfPost.setObjectName("btnDelBConfPost")
+        self.btnDelVideoPost_20 = QtWidgets.QPushButton(self.tbFrameConf)
+        self.btnDelVideoPost_20.setGeometry(QtCore.QRect(100, 190, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnDelVideoPost_20.setFont(font)
+        self.btnDelVideoPost_20.setStyleSheet("QPushButton\n"
+"{\n"
+"    color:  white;\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px solid rgb(100, 100, 100);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: rgb(60,60,60);\n"
+"    color: rgb(255, 247, 0);    \n"
+"    border-bottom: 1px solid rgb(255, 247, 0);\n"
+"}\n"
+"")
+        self.btnDelVideoPost_20.setObjectName("btnDelVideoPost_20")
+        icon8 = QtGui.QIcon()
+        icon8.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/conf.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.toolBoxNavigation.addItem(self.pageConf, icon8, "")
+        self.frameVideo_2 = QtWidgets.QFrame(self.sklad)
+        self.frameVideo_2.setGeometry(QtCore.QRect(340, 60, 981, 491))
+        self.frameVideo_2.setStyleSheet("background-color: #101010;\n"
+"border: 0px;")
+        self.frameVideo_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frameVideo_2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frameVideo_2.setObjectName("frameVideo_2")
+        self.twSklad = QtWidgets.QTableWidget(self.frameVideo_2)
+        self.twSklad.setGeometry(QtCore.QRect(0, 30, 981, 501))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -172,9 +2266,9 @@ class Ui_MainWindow(object):
 "\n"
 "QTableView\n"
 "{\n"
+"    border-top: 1px solid #434343;\n"
 "    background-color: #101010;\n"
 "    color: #dddddd;\n"
-"    border: 0px solid #434343;\n"
 "}\n"
 "\n"
 "QTableWidget::item:hover {\n"
@@ -275,21 +2369,11 @@ class Ui_MainWindow(object):
         self.twSklad.setCornerButtonEnabled(True)
         self.twSklad.setObjectName("twSklad")
         self.twSklad.setColumnCount(5)
-        self.twSklad.setRowCount(7)
+        self.twSklad.setRowCount(2)
         item = QtWidgets.QTableWidgetItem()
         self.twSklad.setVerticalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
         self.twSklad.setVerticalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setVerticalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setVerticalHeaderItem(3, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setVerticalHeaderItem(4, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setVerticalHeaderItem(5, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setVerticalHeaderItem(6, item)
         item = QtWidgets.QTableWidgetItem()
         font = QtGui.QFont()
         font.setFamily("MS Sans Serif")
@@ -329,2569 +2413,70 @@ class Ui_MainWindow(object):
         self.twSklad.verticalHeader().setVisible(False)
         self.twSklad.verticalHeader().setDefaultSectionSize(32)
         self.twSklad.verticalHeader().setMinimumSectionSize(10)
-        self.btnAdd = QtWidgets.QPushButton(self.sklad)
-        self.btnAdd.setGeometry(QtCore.QRect(530, 580, 161, 31))
+        self.tabWidgetSklad = QtWidgets.QTabWidget(self.frameVideo_2)
+        self.tabWidgetSklad.setEnabled(True)
+        self.tabWidgetSklad.setGeometry(QtCore.QRect(10, 0, 831, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnAdd.setFont(font)
-        self.btnAdd.setStyleSheet("QPushButton{\n"
-"    border:1px solid rgb(70,70,70);\n"
-"    background-color: rgb(40,40,40);\n"
-"    color: #fffafa;\n"
+        font.setPointSize(9)
+        self.tabWidgetSklad.setFont(font)
+        self.tabWidgetSklad.setStyleSheet("QTabWidget::pane\n"
+"{\n"
+"    background: #101010;\n"
+"    border-bottom: 1px solid rgb(60,60,60); \n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"        \n"
 "}\n"
 "\n"
-"QPushButton::hover\n"
+"QTabBar::tab\n"
 "{\n"
-"    border:1px;\n"
-"    background-color: rgb(60,60,60);\n"
-"    border-color: rgb(40,40,40);\n"
-"    border-bottom: 1px solid   rgb(0, 255, 8);\n"
-"    color:  rgb(0, 255, 8);\n"
-"}\n"
-"")
-        self.btnAdd.setObjectName("btnAdd")
-        self.btnDelete = QtWidgets.QPushButton(self.sklad)
-        self.btnDelete.setGeometry(QtCore.QRect(950, 580, 161, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnDelete.setFont(font)
-        self.btnDelete.setStyleSheet("QPushButton{\n"
-"    border:1px solid rgb(70,70,70);\n"
-"    background-color: rgb(40,40,40);\n"
-"    color: #fffafa;\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"    border:1px;\n"
-"    background-color: rgb(60,60,60);\n"
-"    border-color: rgb(40,40,40);\n"
-"    border-bottom: 1px solid  red;\n"
-"    color: red;\n"
-"}\n"
-"")
-        self.btnDelete.setObjectName("btnDelete")
-        self.btnChange = QtWidgets.QPushButton(self.sklad)
-        self.btnChange.setGeometry(QtCore.QRect(740, 620, 161, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnChange.setFont(font)
-        self.btnChange.setStyleSheet("QPushButton{\n"
-"background-color: rgb(20,20,20);\n"
-"color: #fffafa;\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"background-color: rgb(40,40,40);\n"
-"border-color: rgb(40,40,40);\n"
-"border-bottom: 1px solid  yellow;\n"
-"}")
-        self.btnChange.setObjectName("btnChange")
-        self.toolBoxNavigation = QtWidgets.QToolBox(self.sklad)
-        self.toolBoxNavigation.setGeometry(QtCore.QRect(11, 51, 301, 571))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(12)
-        self.toolBoxNavigation.setFont(font)
-        self.toolBoxNavigation.setAccessibleName("")
-        self.toolBoxNavigation.setStyleSheet("QToolBox\n"
-"{\n"
-"    background: rgb(30, 30, 30);\n"
-"    border: 1px solid rgb(195, 0, 0);\n"
-"    margin: 1px;\n"
-"    icon-size: 23px;\n"
-"}\n"
-"\n"
-"QToolBox::tab\n"
-"{\n"
-"    background: rgb(30, 30, 30);\n"
+"    background-color: #101010;\n"
+"    min-width: 100px;\n"
+"    min-height: 10ex;\n"
 "    margin-left: 1px;\n"
-"    left: -1px;\n"
-"    color: rgb(235, 235, 235);\n"
-"    border-top: 1px solid;\n"
-"    border-bottom: 3px solid;\n"
+"    color: #a2a2a2;\n"
+"    border-bottom: 1px solid rgb(60,60,60); \n"
 "    \n"
 "}\n"
-"\n"
-"QToolBox::tab:selected\n"
+"QTabBar::tab:selected\n"
 "{\n"
-"    background-color: rgb(50, 50, 50);\n"
-"    border-bottom: 2px solid  rgb(150, 0, 0);\n"
-"    color:white;\n"
-"    font-weight: bold;\n"
-"}\n"
-"\n"
-"QToolBox::tab:hover\n"
-"{\n"
-"    background-color: rgb(65, 65, 65);\n"
-"    border-bottom: 5px solid;\n"
-"    border-color: black;\n"
-"}")
-        self.toolBoxNavigation.setFrameShadow(QtWidgets.QFrame.Plain)
-        self.toolBoxNavigation.setLineWidth(1)
-        self.toolBoxNavigation.setObjectName("toolBoxNavigation")
-        self.pageVideo = QtWidgets.QWidget()
-        self.pageVideo.setGeometry(QtCore.QRect(0, 0, 297, 243))
-        self.pageVideo.setObjectName("pageVideo")
-        self.tbFrameVideo = QtWidgets.QFrame(self.pageVideo)
-        self.tbFrameVideo.setGeometry(QtCore.QRect(0, 0, 301, 261))
-        self.tbFrameVideo.setStyleSheet("QFrame{\n"
-"    background-color: rgb(10,10,10);\n"
-"    color:  white;\n"
-"    border: 1px;\n"
-"}")
-        self.tbFrameVideo.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.tbFrameVideo.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.tbFrameVideo.setObjectName("tbFrameVideo")
-        self.lbVideoPost = QtWidgets.QLabel(self.tbFrameVideo)
-        self.lbVideoPost.setGeometry(QtCore.QRect(70, 0, 161, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat SemiBold")
-        font.setPointSize(10)
-        self.lbVideoPost.setFont(font)
-        self.lbVideoPost.setStyleSheet("border: 0px;\n"
-"border-bottom: 1px solid rgb(100, 100, 100);")
-        self.lbVideoPost.setAlignment(QtCore.Qt.AlignCenter)
-        self.lbVideoPost.setObjectName("lbVideoPost")
-        self.btnNewVideoPost = QtWidgets.QPushButton(self.tbFrameVideo)
-        self.btnNewVideoPost.setGeometry(QtCore.QRect(10, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnNewVideoPost.setFont(font)
-        self.btnNewVideoPost.setStyleSheet("QPushButton\n"
-"{\n"
-"    color:  white;\n"
-"    border: 1px solid rgb(100, 100, 100);\n"
-"    background-color: rgb(40,40,40);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"    background-color: rgb(60,60,60);\n"
-"    color: rgb(0, 255, 8);\n"
-"    border-bottom: 1px solid rgb(0, 255, 8);\n"
-"}\n"
-"")
-        self.btnNewVideoPost.setObjectName("btnNewVideoPost")
-        self.btnDelVideoPost = QtWidgets.QPushButton(self.tbFrameVideo)
-        self.btnDelVideoPost.setGeometry(QtCore.QRect(190, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnDelVideoPost.setFont(font)
-        self.btnDelVideoPost.setStyleSheet("QPushButton\n"
-"{\n"
-"    color:  white;\n"
-"    background-color: rgb(40,40,40);\n"
-"    border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"    background-color: rgb(60,60,60);\n"
-"    color: red;\n"
-"    border-bottom: 1px solid red;\n"
-"}\n"
-"")
-        self.btnDelVideoPost.setObjectName("btnDelVideoPost")
-        self.tableVideoPost = QtWidgets.QTableWidget(self.tbFrameVideo)
-        self.tableVideoPost.setEnabled(True)
-        self.tableVideoPost.setGeometry(QtCore.QRect(0, 30, 291, 141))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
-        self.tableVideoPost.setFont(font)
-        self.tableVideoPost.setMouseTracking(True)
-        self.tableVideoPost.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.tableVideoPost.setAutoFillBackground(False)
-        self.tableVideoPost.setStyleSheet("QHeaderView\n"
-"{    \n"
-"    background-color: #101010;\n"
-"    color: #dddddd;\n"
-"    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
-"    min-height: 30px;\n"
-"}\n"
-"\n"
-"QHeaderView::section\n"
-"{\n"
-"    background-color: #101010;\n"
-"    min-width: 10px;    \n"
-"    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
-"    color: #dddddd;\n"
-"    font-size: 12px;\n"
-"}\n"
-"\n"
-"QHeaderView::section:hover {\n"
-"   color: white;\n"
-"    background-color: rgb(80,80,80);\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
 "    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section\n"
-"{\n"
-"    \n"
-"    background: rgb(80,80,80);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
-"{\n"
-"     border-bottom: 1px solid rgb(60,60,60); \n"
 "    border-right: 0px;\n"
 "    border-left: 0px;\n"
 "    border-top:0px;\n"
+"    border-bottom: 1px solid #FF0000;\n"
 "}\n"
-"\n"
-"QTableView\n"
+"QTabBar::tab:hover\n"
 "{\n"
-"    background-color: #101010;\n"
-"    color: #dddddd;\n"
-"    border-top: 1px solid #434343;\n"
-"    border-right: 0px;\n"
-"    border-left: 0px;\n"
-"    border-bottom: 0px;\n"
-"}\n"
-"\n"
-"QTableWidget::item:hover {\n"
-"    color: white;\n"
-"    border-bottom: 1px solid rgb(180,180,180);\n"
-"}      \n"
-"\n"
-"QTableWidget::item:selected\n"
-"{\n"
-"     color: white;\n"
-"    border-bottom: 1px solid rgb(180,180,180);\n"
-"}\n"
-"\n"
-"QScrollBar:vertical {\n"
-"    border: none;\n"
-"    background-color: #151515;\n"
-"    width: 8px;\n"
-"    margin: 15px 0 15px 0;\n"
-"    border-radius: 0px;\n"
-" }\n"
-"\n"
-"/*  HANDLE BAR VERTICAL */\n"
-"QScrollBar::handle:vertical {    \n"
-"    background-color: #151515;\n"
-"    min-height: 30px;\n"
-"    border-radius: 0px;\n"
-"    border: 1px solid;\n"
-"    border-right: 0px;\n"
-"    border-color: rgb(60,60,60);\n"
-"}\n"
-"QScrollBar::handle:vertical:hover{    \n"
-"    background-color:  rgb(50,50,50);\n"
-"    border-color: rgb(60,60,60);\n"
-"}\n"
-"QScrollBar::handle:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"\n"
-"/* BTN TOP - SCROLLBAR */\n"
-"QScrollBar::sub-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: top;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 0px;\n"
-"    border-bottom: 1px solid rgb(180, 0, 0);\n"
-"}\n"
-"QScrollBar::sub-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::sub-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"\n"
-"/* BTN BOTTOM - SCROLLBAR */\n"
-"QScrollBar::add-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: bottom;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 1px solid;\n"
-"    border-color: rgb(60,60,60);\n"
-"    border: 1px solid;\n"
-"    border-top:1px solid rgb(180, 0, 0);\n"
-"    border-right: 0px;\n"
-"    border-bottom: 0px;\n"
-"}\n"
-"QScrollBar::add-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::add-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"/* RESET ARROW */\n"
-"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"    background: none;\n"
-"}\n"
-"\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"    background: none;\n"
+"    color: #FF0000;\n"
+"    background: #252525;\n"
 "}")
-        self.tableVideoPost.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
-        self.tableVideoPost.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
-        self.tableVideoPost.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self.tableVideoPost.setShowGrid(False)
-        self.tableVideoPost.setGridStyle(QtCore.Qt.SolidLine)
-        self.tableVideoPost.setObjectName("tableVideoPost")
-        self.tableVideoPost.setColumnCount(2)
-        self.tableVideoPost.setRowCount(3)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableVideoPost.setVerticalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableVideoPost.setVerticalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableVideoPost.setVerticalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableVideoPost.setHorizontalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableVideoPost.setHorizontalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableVideoPost.setItem(0, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableVideoPost.setItem(0, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableVideoPost.setItem(1, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableVideoPost.setItem(1, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableVideoPost.setItem(2, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableVideoPost.setItem(2, 1, item)
-        self.tableVideoPost.horizontalHeader().setVisible(False)
-        self.tableVideoPost.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableVideoPost.horizontalHeader().setDefaultSectionSize(120)
-        self.tableVideoPost.horizontalHeader().setHighlightSections(False)
-        self.tableVideoPost.horizontalHeader().setMinimumSectionSize(15)
-        self.tableVideoPost.horizontalHeader().setSortIndicatorShown(True)
-        self.tableVideoPost.horizontalHeader().setStretchLastSection(False)
-        self.tableVideoPost.verticalHeader().setVisible(False)
-        self.tableVideoPost.verticalHeader().setCascadingSectionResizes(False)
-        self.tableVideoPost.verticalHeader().setMinimumSectionSize(10)
-        self.btnCngVideoPost = QtWidgets.QPushButton(self.tbFrameVideo)
-        self.btnCngVideoPost.setGeometry(QtCore.QRect(100, 190, 91, 41))
+        self.tabWidgetSklad.setObjectName("tabWidgetSklad")
+        self.all_2 = QtWidgets.QWidget()
+        self.all_2.setObjectName("all_2")
+        self.tabWidgetSklad.addTab(self.all_2, "")
+        self.btnSkladFilter = QtWidgets.QPushButton(self.sklad)
+        self.btnSkladFilter.setGeometry(QtCore.QRect(1180, 31, 131, 20))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
-        self.btnCngVideoPost.setFont(font)
-        self.btnCngVideoPost.setStyleSheet("QPushButton\n"
+        font.setUnderline(False)
+        self.btnSkladFilter.setFont(font)
+        self.btnSkladFilter.setStyleSheet("QPushButton\n"
 "{\n"
-"    color:  white;\n"
-"    background-color: rgb(40,40,40);\n"
-"    border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"    background-color: rgb(60,60,60);\n"
-"    color: rgb(255, 247, 0);    \n"
-"    border-bottom: 1px solid rgb(255, 247, 0);\n"
-"}\n"
-"")
-        self.btnCngVideoPost.setObjectName("btnCngVideoPost")
-        self.btnCngVideoPost.raise_()
-        self.lbVideoPost.raise_()
-        self.btnNewVideoPost.raise_()
-        self.btnDelVideoPost.raise_()
-        self.tableVideoPost.raise_()
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/graphics-card.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.toolBoxNavigation.addItem(self.pageVideo, icon, "")
-        self.pageProc = QtWidgets.QWidget()
-        self.pageProc.setGeometry(QtCore.QRect(0, 0, 100, 30))
-        self.pageProc.setObjectName("pageProc")
-        self.tbFrameProc = QtWidgets.QFrame(self.pageProc)
-        self.tbFrameProc.setGeometry(QtCore.QRect(0, 0, 301, 251))
-        self.tbFrameProc.setStyleSheet("QFrame{\n"
-"    background-color: rgb(10,10,10);\n"
-"    color:  white;\n"
-"    border: 1px;\n"
-"}")
-        self.tbFrameProc.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.tbFrameProc.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.tbFrameProc.setObjectName("tbFrameProc")
-        self.lbProcPost = QtWidgets.QLabel(self.tbFrameProc)
-        self.lbProcPost.setGeometry(QtCore.QRect(70, 0, 161, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat SemiBold")
-        font.setPointSize(10)
-        self.lbProcPost.setFont(font)
-        self.lbProcPost.setStyleSheet("border: 0px;\n"
-"border-bottom: 1px solid rgb(100, 100, 100);")
-        self.lbProcPost.setAlignment(QtCore.Qt.AlignCenter)
-        self.lbProcPost.setObjectName("lbProcPost")
-        self.btnNewProcPost = QtWidgets.QPushButton(self.tbFrameProc)
-        self.btnNewProcPost.setGeometry(QtCore.QRect(10, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnNewProcPost.setFont(font)
-        self.btnNewProcPost.setStyleSheet("QPushButton\n"
-"{\n"
-"color:  white;\n"
-"border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"background-color: rgb(40, 40, 40);\n"
-"color: rgb(0, 255, 8);\n"
-"border: 1px solid rgb(0, 255, 8);\n"
-"}\n"
-"")
-        self.btnNewProcPost.setObjectName("btnNewProcPost")
-        self.btnDelProcPost = QtWidgets.QPushButton(self.tbFrameProc)
-        self.btnDelProcPost.setGeometry(QtCore.QRect(190, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnDelProcPost.setFont(font)
-        self.btnDelProcPost.setStyleSheet("QPushButton\n"
-"{\n"
-"color:  white;\n"
-"border: 1px solid rgb(100, 100, 100);\n"
+"color:  rgb(230,230, 230);\n"
+"border: 0px;\n"
 "}\n"
 "\n"
 "QPushButton::hover\n"
 "{\n"
 "color: red;\n"
-"border: 1px solid red;\n"
+"border-bottom: 1px solid red;\n"
 "}\n"
 "")
-        self.btnDelProcPost.setObjectName("btnDelProcPost")
-        self.tableProcPost = QtWidgets.QTableWidget(self.tbFrameProc)
-        self.tableProcPost.setEnabled(True)
-        self.tableProcPost.setGeometry(QtCore.QRect(0, 30, 291, 141))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
-        self.tableProcPost.setFont(font)
-        self.tableProcPost.setMouseTracking(True)
-        self.tableProcPost.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.tableProcPost.setAutoFillBackground(False)
-        self.tableProcPost.setStyleSheet("QHeaderView\n"
-"{    \n"
-"    background-color: #101010;\n"
-"    color: #dddddd;\n"
-"    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
-"    min-height: 30px;\n"
-"}\n"
-"\n"
-"QHeaderView::section\n"
-"{\n"
-"    background-color: #101010;\n"
-"    min-width: 10px;    \n"
-"    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
-"    color: #dddddd;\n"
-"    font-size: 12px;\n"
-"}\n"
-"\n"
-"QHeaderView::section:hover {\n"
-"   color: white;\n"
-"    background-color: rgb(80,80,80);\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section\n"
-"{\n"
-"    \n"
-"    background: rgb(80,80,80);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
-"{\n"
-"     border-bottom: 1px solid rgb(60,60,60); \n"
-"    border-right: 0px;\n"
-"    border-left: 0px;\n"
-"    border-top:0px;\n"
-"}\n"
-"\n"
-"QTableView\n"
-"{\n"
-"    background-color: #101010;\n"
-"    color: #dddddd;\n"
-"    border-top: 1px solid #434343;\n"
-"    border-right: 0px;\n"
-"    border-left: 0px;\n"
-"    border-bottom: 0px;\n"
-"}\n"
-"\n"
-"QTableWidget::item:hover {\n"
-"    color: white;\n"
-"    border-bottom: 1px solid rgb(180,180,180);\n"
-"}      \n"
-"\n"
-"QTableWidget::item:selected\n"
-"{\n"
-"     color: white;\n"
-"    border-bottom: 1px solid rgb(180,180,180);\n"
-"}\n"
-"\n"
-"QScrollBar:vertical {\n"
-"    border: none;\n"
-"    background-color: #151515;\n"
-"    width: 8px;\n"
-"    margin: 15px 0 15px 0;\n"
-"    border-radius: 0px;\n"
-" }\n"
-"\n"
-"/*  HANDLE BAR VERTICAL */\n"
-"QScrollBar::handle:vertical {    \n"
-"    background-color: #151515;\n"
-"    min-height: 30px;\n"
-"    border-radius: 0px;\n"
-"    border: 1px solid;\n"
-"    border-right: 0px;\n"
-"    border-color: rgb(60,60,60);\n"
-"}\n"
-"QScrollBar::handle:vertical:hover{    \n"
-"    background-color:  rgb(50,50,50);\n"
-"    border-color: rgb(60,60,60);\n"
-"}\n"
-"QScrollBar::handle:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"\n"
-"/* BTN TOP - SCROLLBAR */\n"
-"QScrollBar::sub-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: top;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 0px;\n"
-"    border-bottom: 1px solid rgb(180, 0, 0);\n"
-"}\n"
-"QScrollBar::sub-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::sub-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"\n"
-"/* BTN BOTTOM - SCROLLBAR */\n"
-"QScrollBar::add-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: bottom;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 1px solid;\n"
-"    border-color: rgb(60,60,60);\n"
-"    border: 1px solid;\n"
-"    border-top:1px solid rgb(180, 0, 0);\n"
-"    border-right: 0px;\n"
-"    border-bottom: 0px;\n"
-"}\n"
-"QScrollBar::add-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::add-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"/* RESET ARROW */\n"
-"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"    background: none;\n"
-"}\n"
-"\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"    background: none;\n"
-"}")
-        self.tableProcPost.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
-        self.tableProcPost.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
-        self.tableProcPost.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self.tableProcPost.setShowGrid(False)
-        self.tableProcPost.setGridStyle(QtCore.Qt.SolidLine)
-        self.tableProcPost.setObjectName("tableProcPost")
-        self.tableProcPost.setColumnCount(2)
-        self.tableProcPost.setRowCount(3)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableProcPost.setVerticalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableProcPost.setVerticalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableProcPost.setVerticalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableProcPost.setHorizontalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableProcPost.setHorizontalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableProcPost.setItem(0, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableProcPost.setItem(0, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableProcPost.setItem(1, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableProcPost.setItem(1, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableProcPost.setItem(2, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableProcPost.setItem(2, 1, item)
-        self.tableProcPost.horizontalHeader().setVisible(False)
-        self.tableProcPost.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableProcPost.horizontalHeader().setDefaultSectionSize(120)
-        self.tableProcPost.horizontalHeader().setHighlightSections(False)
-        self.tableProcPost.horizontalHeader().setMinimumSectionSize(15)
-        self.tableProcPost.horizontalHeader().setSortIndicatorShown(True)
-        self.tableProcPost.horizontalHeader().setStretchLastSection(False)
-        self.tableProcPost.verticalHeader().setVisible(False)
-        self.tableProcPost.verticalHeader().setCascadingSectionResizes(False)
-        self.tableProcPost.verticalHeader().setMinimumSectionSize(10)
-        self.btnCngProcPost = QtWidgets.QPushButton(self.tbFrameProc)
-        self.btnCngProcPost.setGeometry(QtCore.QRect(100, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnCngProcPost.setFont(font)
-        self.btnCngProcPost.setStyleSheet("QPushButton\n"
-"{\n"
-"color:  white;\n"
-"border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"color: rgb(255, 247, 0);\n"
-"border: 1px solid rgb(255, 247, 0);\n"
-"}\n"
-"")
-        self.btnCngProcPost.setObjectName("btnCngProcPost")
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/cpu-tower.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.toolBoxNavigation.addItem(self.pageProc, icon1, "")
-        self.pageMother = QtWidgets.QWidget()
-        self.pageMother.setGeometry(QtCore.QRect(0, 0, 100, 30))
-        self.pageMother.setObjectName("pageMother")
-        self.tbFrameMother = QtWidgets.QFrame(self.pageMother)
-        self.tbFrameMother.setGeometry(QtCore.QRect(0, 0, 301, 261))
-        self.tbFrameMother.setStyleSheet("QFrame{\n"
-"    background-color: rgb(10,10,10);\n"
-"    color:  white;\n"
-"    border: 1px;\n"
-"}")
-        self.tbFrameMother.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.tbFrameMother.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.tbFrameMother.setObjectName("tbFrameMother")
-        self.lbMotherPost = QtWidgets.QLabel(self.tbFrameMother)
-        self.lbMotherPost.setGeometry(QtCore.QRect(70, 0, 161, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat SemiBold")
-        font.setPointSize(10)
-        self.lbMotherPost.setFont(font)
-        self.lbMotherPost.setStyleSheet("border: 0px;\n"
-"border-bottom: 1px solid rgb(100, 100, 100);")
-        self.lbMotherPost.setAlignment(QtCore.Qt.AlignCenter)
-        self.lbMotherPost.setObjectName("lbMotherPost")
-        self.btnNewMotherPost = QtWidgets.QPushButton(self.tbFrameMother)
-        self.btnNewMotherPost.setGeometry(QtCore.QRect(10, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnNewMotherPost.setFont(font)
-        self.btnNewMotherPost.setStyleSheet("QPushButton\n"
-"{\n"
-"color:  white;\n"
-"border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"background-color: rgb(40, 40, 40);\n"
-"color: rgb(0, 255, 8);\n"
-"border: 1px solid rgb(0, 255, 8);\n"
-"}\n"
-"")
-        self.btnNewMotherPost.setObjectName("btnNewMotherPost")
-        self.btnDelMotherPost = QtWidgets.QPushButton(self.tbFrameMother)
-        self.btnDelMotherPost.setGeometry(QtCore.QRect(190, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnDelMotherPost.setFont(font)
-        self.btnDelMotherPost.setStyleSheet("QPushButton\n"
-"{\n"
-"color:  white;\n"
-"border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"color: red;\n"
-"border: 1px solid red;\n"
-"}\n"
-"")
-        self.btnDelMotherPost.setObjectName("btnDelMotherPost")
-        self.tableMotherPost = QtWidgets.QTableWidget(self.tbFrameMother)
-        self.tableMotherPost.setEnabled(True)
-        self.tableMotherPost.setGeometry(QtCore.QRect(0, 30, 291, 141))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
-        self.tableMotherPost.setFont(font)
-        self.tableMotherPost.setMouseTracking(True)
-        self.tableMotherPost.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.tableMotherPost.setAutoFillBackground(False)
-        self.tableMotherPost.setStyleSheet("QHeaderView\n"
-"{    \n"
-"    background-color: #101010;\n"
-"    color: #dddddd;\n"
-"    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
-"    min-height: 30px;\n"
-"}\n"
-"\n"
-"QHeaderView::section\n"
-"{\n"
-"    background-color: #101010;\n"
-"    min-width: 10px;    \n"
-"    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
-"    color: #dddddd;\n"
-"    font-size: 12px;\n"
-"}\n"
-"\n"
-"QHeaderView::section:hover {\n"
-"   color: white;\n"
-"    background-color: rgb(80,80,80);\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section\n"
-"{\n"
-"    \n"
-"    background: rgb(80,80,80);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
-"{\n"
-"     border-bottom: 1px solid rgb(60,60,60); \n"
-"    border-right: 0px;\n"
-"    border-left: 0px;\n"
-"    border-top:0px;\n"
-"}\n"
-"\n"
-"QTableView\n"
-"{\n"
-"    background-color: #101010;\n"
-"    color: #dddddd;\n"
-"    border-top: 1px solid #434343;\n"
-"    border-right: 0px;\n"
-"    border-left: 0px;\n"
-"    border-bottom: 0px;\n"
-"}\n"
-"\n"
-"QTableWidget::item:hover {\n"
-"    color: white;\n"
-"    border-bottom: 1px solid rgb(180,180,180);\n"
-"}      \n"
-"\n"
-"QTableWidget::item:selected\n"
-"{\n"
-"     color: white;\n"
-"    border-bottom: 1px solid rgb(180,180,180);\n"
-"}\n"
-"\n"
-"QScrollBar:vertical {\n"
-"    border: none;\n"
-"    background-color: #151515;\n"
-"    width: 8px;\n"
-"    margin: 15px 0 15px 0;\n"
-"    border-radius: 0px;\n"
-" }\n"
-"\n"
-"/*  HANDLE BAR VERTICAL */\n"
-"QScrollBar::handle:vertical {    \n"
-"    background-color: #151515;\n"
-"    min-height: 30px;\n"
-"    border-radius: 0px;\n"
-"    border: 1px solid;\n"
-"    border-right: 0px;\n"
-"    border-color: rgb(60,60,60);\n"
-"}\n"
-"QScrollBar::handle:vertical:hover{    \n"
-"    background-color:  rgb(50,50,50);\n"
-"    border-color: rgb(60,60,60);\n"
-"}\n"
-"QScrollBar::handle:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"\n"
-"/* BTN TOP - SCROLLBAR */\n"
-"QScrollBar::sub-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: top;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 0px;\n"
-"    border-bottom: 1px solid rgb(180, 0, 0);\n"
-"}\n"
-"QScrollBar::sub-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::sub-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"\n"
-"/* BTN BOTTOM - SCROLLBAR */\n"
-"QScrollBar::add-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: bottom;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 1px solid;\n"
-"    border-color: rgb(60,60,60);\n"
-"    border: 1px solid;\n"
-"    border-top:1px solid rgb(180, 0, 0);\n"
-"    border-right: 0px;\n"
-"    border-bottom: 0px;\n"
-"}\n"
-"QScrollBar::add-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::add-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"/* RESET ARROW */\n"
-"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"    background: none;\n"
-"}\n"
-"\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"    background: none;\n"
-"}")
-        self.tableMotherPost.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
-        self.tableMotherPost.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
-        self.tableMotherPost.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self.tableMotherPost.setShowGrid(False)
-        self.tableMotherPost.setGridStyle(QtCore.Qt.SolidLine)
-        self.tableMotherPost.setObjectName("tableMotherPost")
-        self.tableMotherPost.setColumnCount(2)
-        self.tableMotherPost.setRowCount(3)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableMotherPost.setVerticalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableMotherPost.setVerticalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableMotherPost.setVerticalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableMotherPost.setHorizontalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableMotherPost.setHorizontalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableMotherPost.setItem(0, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableMotherPost.setItem(0, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableMotherPost.setItem(1, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableMotherPost.setItem(1, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableMotherPost.setItem(2, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableMotherPost.setItem(2, 1, item)
-        self.tableMotherPost.horizontalHeader().setVisible(False)
-        self.tableMotherPost.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableMotherPost.horizontalHeader().setDefaultSectionSize(120)
-        self.tableMotherPost.horizontalHeader().setHighlightSections(False)
-        self.tableMotherPost.horizontalHeader().setMinimumSectionSize(15)
-        self.tableMotherPost.horizontalHeader().setSortIndicatorShown(True)
-        self.tableMotherPost.horizontalHeader().setStretchLastSection(False)
-        self.tableMotherPost.verticalHeader().setVisible(False)
-        self.tableMotherPost.verticalHeader().setCascadingSectionResizes(False)
-        self.tableMotherPost.verticalHeader().setMinimumSectionSize(10)
-        self.btnCngMotherPost = QtWidgets.QPushButton(self.tbFrameMother)
-        self.btnCngMotherPost.setGeometry(QtCore.QRect(100, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnCngMotherPost.setFont(font)
-        self.btnCngMotherPost.setStyleSheet("QPushButton\n"
-"{\n"
-"color:  white;\n"
-"border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"color: rgb(255, 247, 0);\n"
-"border: 1px solid rgb(255, 247, 0);\n"
-"}\n"
-"")
-        self.btnCngMotherPost.setObjectName("btnCngMotherPost")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/motherboard.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.toolBoxNavigation.addItem(self.pageMother, icon2, "")
-        self.pageCooling = QtWidgets.QWidget()
-        self.pageCooling.setGeometry(QtCore.QRect(0, 0, 100, 30))
-        self.pageCooling.setObjectName("pageCooling")
-        self.tbFrameCooling = QtWidgets.QFrame(self.pageCooling)
-        self.tbFrameCooling.setGeometry(QtCore.QRect(0, 0, 301, 261))
-        self.tbFrameCooling.setStyleSheet("QFrame{\n"
-"    background-color: rgb(10,10,10);\n"
-"    color:  white;\n"
-"    border: 1px;\n"
-"}")
-        self.tbFrameCooling.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.tbFrameCooling.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.tbFrameCooling.setObjectName("tbFrameCooling")
-        self.lbCooligPost = QtWidgets.QLabel(self.tbFrameCooling)
-        self.lbCooligPost.setGeometry(QtCore.QRect(70, 0, 161, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat SemiBold")
-        font.setPointSize(10)
-        self.lbCooligPost.setFont(font)
-        self.lbCooligPost.setStyleSheet("border: 0px;\n"
-"border-bottom: 1px solid rgb(100, 100, 100);")
-        self.lbCooligPost.setAlignment(QtCore.Qt.AlignCenter)
-        self.lbCooligPost.setObjectName("lbCooligPost")
-        self.btnNewCoolingPost = QtWidgets.QPushButton(self.tbFrameCooling)
-        self.btnNewCoolingPost.setGeometry(QtCore.QRect(10, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnNewCoolingPost.setFont(font)
-        self.btnNewCoolingPost.setStyleSheet("QPushButton\n"
-"{\n"
-"color:  white;\n"
-"border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"background-color: rgb(40, 40, 40);\n"
-"color: rgb(0, 255, 8);\n"
-"border: 1px solid rgb(0, 255, 8);\n"
-"}\n"
-"")
-        self.btnNewCoolingPost.setObjectName("btnNewCoolingPost")
-        self.btnDelCoolingPost = QtWidgets.QPushButton(self.tbFrameCooling)
-        self.btnDelCoolingPost.setGeometry(QtCore.QRect(190, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnDelCoolingPost.setFont(font)
-        self.btnDelCoolingPost.setStyleSheet("QPushButton\n"
-"{\n"
-"color:  white;\n"
-"border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"color: red;\n"
-"border: 1px solid red;\n"
-"}\n"
-"")
-        self.btnDelCoolingPost.setObjectName("btnDelCoolingPost")
-        self.tableCoolingPost = QtWidgets.QTableWidget(self.tbFrameCooling)
-        self.tableCoolingPost.setEnabled(True)
-        self.tableCoolingPost.setGeometry(QtCore.QRect(0, 30, 291, 141))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
-        self.tableCoolingPost.setFont(font)
-        self.tableCoolingPost.setMouseTracking(True)
-        self.tableCoolingPost.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.tableCoolingPost.setAutoFillBackground(False)
-        self.tableCoolingPost.setStyleSheet("QHeaderView\n"
-"{    \n"
-"    background-color: #101010;\n"
-"    color: #dddddd;\n"
-"    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
-"    min-height: 30px;\n"
-"}\n"
-"\n"
-"QHeaderView::section\n"
-"{\n"
-"    background-color: #101010;\n"
-"    min-width: 10px;    \n"
-"    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
-"    color: #dddddd;\n"
-"    font-size: 12px;\n"
-"}\n"
-"\n"
-"QHeaderView::section:hover {\n"
-"   color: white;\n"
-"    background-color: rgb(80,80,80);\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section\n"
-"{\n"
-"    \n"
-"    background: rgb(80,80,80);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
-"{\n"
-"     border-bottom: 1px solid rgb(60,60,60); \n"
-"    border-right: 0px;\n"
-"    border-left: 0px;\n"
-"    border-top:0px;\n"
-"}\n"
-"\n"
-"QTableView\n"
-"{\n"
-"    background-color: #101010;\n"
-"    color: #dddddd;\n"
-"    border-top: 1px solid #434343;\n"
-"    border-right: 0px;\n"
-"    border-left: 0px;\n"
-"    border-bottom: 0px;\n"
-"}\n"
-"\n"
-"QTableWidget::item:hover {\n"
-"    color: white;\n"
-"    border-bottom: 1px solid rgb(180,180,180);\n"
-"}      \n"
-"\n"
-"QTableWidget::item:selected\n"
-"{\n"
-"     color: white;\n"
-"    border-bottom: 1px solid rgb(180,180,180);\n"
-"}\n"
-"\n"
-"QScrollBar:vertical {\n"
-"    border: none;\n"
-"    background-color: #151515;\n"
-"    width: 8px;\n"
-"    margin: 15px 0 15px 0;\n"
-"    border-radius: 0px;\n"
-" }\n"
-"\n"
-"/*  HANDLE BAR VERTICAL */\n"
-"QScrollBar::handle:vertical {    \n"
-"    background-color: #151515;\n"
-"    min-height: 30px;\n"
-"    border-radius: 0px;\n"
-"    border: 1px solid;\n"
-"    border-right: 0px;\n"
-"    border-color: rgb(60,60,60);\n"
-"}\n"
-"QScrollBar::handle:vertical:hover{    \n"
-"    background-color:  rgb(50,50,50);\n"
-"    border-color: rgb(60,60,60);\n"
-"}\n"
-"QScrollBar::handle:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"\n"
-"/* BTN TOP - SCROLLBAR */\n"
-"QScrollBar::sub-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: top;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 0px;\n"
-"    border-bottom: 1px solid rgb(180, 0, 0);\n"
-"}\n"
-"QScrollBar::sub-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::sub-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"\n"
-"/* BTN BOTTOM - SCROLLBAR */\n"
-"QScrollBar::add-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: bottom;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 1px solid;\n"
-"    border-color: rgb(60,60,60);\n"
-"    border: 1px solid;\n"
-"    border-top:1px solid rgb(180, 0, 0);\n"
-"    border-right: 0px;\n"
-"    border-bottom: 0px;\n"
-"}\n"
-"QScrollBar::add-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::add-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"/* RESET ARROW */\n"
-"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"    background: none;\n"
-"}\n"
-"\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"    background: none;\n"
-"}")
-        self.tableCoolingPost.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
-        self.tableCoolingPost.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
-        self.tableCoolingPost.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self.tableCoolingPost.setShowGrid(False)
-        self.tableCoolingPost.setGridStyle(QtCore.Qt.SolidLine)
-        self.tableCoolingPost.setObjectName("tableCoolingPost")
-        self.tableCoolingPost.setColumnCount(2)
-        self.tableCoolingPost.setRowCount(3)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableCoolingPost.setVerticalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableCoolingPost.setVerticalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableCoolingPost.setVerticalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableCoolingPost.setHorizontalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableCoolingPost.setHorizontalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableCoolingPost.setItem(0, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableCoolingPost.setItem(0, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableCoolingPost.setItem(1, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableCoolingPost.setItem(1, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableCoolingPost.setItem(2, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableCoolingPost.setItem(2, 1, item)
-        self.tableCoolingPost.horizontalHeader().setVisible(False)
-        self.tableCoolingPost.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableCoolingPost.horizontalHeader().setDefaultSectionSize(120)
-        self.tableCoolingPost.horizontalHeader().setHighlightSections(False)
-        self.tableCoolingPost.horizontalHeader().setMinimumSectionSize(15)
-        self.tableCoolingPost.horizontalHeader().setSortIndicatorShown(True)
-        self.tableCoolingPost.horizontalHeader().setStretchLastSection(False)
-        self.tableCoolingPost.verticalHeader().setVisible(False)
-        self.tableCoolingPost.verticalHeader().setCascadingSectionResizes(False)
-        self.tableCoolingPost.verticalHeader().setMinimumSectionSize(10)
-        self.btnCngCoolingPost = QtWidgets.QPushButton(self.tbFrameCooling)
-        self.btnCngCoolingPost.setGeometry(QtCore.QRect(100, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnCngCoolingPost.setFont(font)
-        self.btnCngCoolingPost.setStyleSheet("QPushButton\n"
-"{\n"
-"color:  white;\n"
-"border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"color: rgb(255, 247, 0);\n"
-"border: 1px solid rgb(255, 247, 0);\n"
-"}\n"
-"")
-        self.btnCngCoolingPost.setObjectName("btnCngCoolingPost")
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/cpucooling.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.toolBoxNavigation.addItem(self.pageCooling, icon3, "")
-        self.pageRam = QtWidgets.QWidget()
-        self.pageRam.setGeometry(QtCore.QRect(0, 0, 100, 30))
-        self.pageRam.setObjectName("pageRam")
-        self.tbFrameRam = QtWidgets.QFrame(self.pageRam)
-        self.tbFrameRam.setGeometry(QtCore.QRect(0, 0, 301, 261))
-        self.tbFrameRam.setStyleSheet("QFrame{\n"
-"    background-color: rgb(10,10,10);\n"
-"    color:  white;\n"
-"    border: 1px;\n"
-"}")
-        self.tbFrameRam.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.tbFrameRam.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.tbFrameRam.setObjectName("tbFrameRam")
-        self.lbRamPost = QtWidgets.QLabel(self.tbFrameRam)
-        self.lbRamPost.setGeometry(QtCore.QRect(70, 0, 161, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat SemiBold")
-        font.setPointSize(10)
-        self.lbRamPost.setFont(font)
-        self.lbRamPost.setStyleSheet("border: 0px;\n"
-"border-bottom: 1px solid rgb(100, 100, 100);")
-        self.lbRamPost.setAlignment(QtCore.Qt.AlignCenter)
-        self.lbRamPost.setObjectName("lbRamPost")
-        self.btnNewRamPost = QtWidgets.QPushButton(self.tbFrameRam)
-        self.btnNewRamPost.setGeometry(QtCore.QRect(10, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnNewRamPost.setFont(font)
-        self.btnNewRamPost.setStyleSheet("QPushButton\n"
-"{\n"
-"color:  white;\n"
-"border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"background-color: rgb(40, 40, 40);\n"
-"color: rgb(0, 255, 8);\n"
-"border: 1px solid rgb(0, 255, 8);\n"
-"}\n"
-"")
-        self.btnNewRamPost.setObjectName("btnNewRamPost")
-        self.btnDelRamPost = QtWidgets.QPushButton(self.tbFrameRam)
-        self.btnDelRamPost.setGeometry(QtCore.QRect(190, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnDelRamPost.setFont(font)
-        self.btnDelRamPost.setStyleSheet("QPushButton\n"
-"{\n"
-"color:  white;\n"
-"border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"color: red;\n"
-"border: 1px solid red;\n"
-"}\n"
-"")
-        self.btnDelRamPost.setObjectName("btnDelRamPost")
-        self.tableRamPost = QtWidgets.QTableWidget(self.tbFrameRam)
-        self.tableRamPost.setEnabled(True)
-        self.tableRamPost.setGeometry(QtCore.QRect(0, 30, 291, 141))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
-        self.tableRamPost.setFont(font)
-        self.tableRamPost.setMouseTracking(True)
-        self.tableRamPost.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.tableRamPost.setAutoFillBackground(False)
-        self.tableRamPost.setStyleSheet("QHeaderView\n"
-"{    \n"
-"    background-color: #101010;\n"
-"    color: #dddddd;\n"
-"    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
-"    min-height: 30px;\n"
-"}\n"
-"\n"
-"QHeaderView::section\n"
-"{\n"
-"    background-color: #101010;\n"
-"    min-width: 10px;    \n"
-"    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
-"    color: #dddddd;\n"
-"    font-size: 12px;\n"
-"}\n"
-"\n"
-"QHeaderView::section:hover {\n"
-"   color: white;\n"
-"    background-color: rgb(80,80,80);\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section\n"
-"{\n"
-"    \n"
-"    background: rgb(80,80,80);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
-"{\n"
-"     border-bottom: 1px solid rgb(60,60,60); \n"
-"    border-right: 0px;\n"
-"    border-left: 0px;\n"
-"    border-top:0px;\n"
-"}\n"
-"\n"
-"QTableView\n"
-"{\n"
-"    background-color: #101010;\n"
-"    color: #dddddd;\n"
-"    border-top: 1px solid #434343;\n"
-"    border-right: 0px;\n"
-"    border-left: 0px;\n"
-"    border-bottom: 0px;\n"
-"}\n"
-"\n"
-"QTableWidget::item:hover {\n"
-"    color: white;\n"
-"    border-bottom: 1px solid rgb(180,180,180);\n"
-"}      \n"
-"\n"
-"QTableWidget::item:selected\n"
-"{\n"
-"     color: white;\n"
-"    border-bottom: 1px solid rgb(180,180,180);\n"
-"}\n"
-"\n"
-"QScrollBar:vertical {\n"
-"    border: none;\n"
-"    background-color: #151515;\n"
-"    width: 8px;\n"
-"    margin: 15px 0 15px 0;\n"
-"    border-radius: 0px;\n"
-" }\n"
-"\n"
-"/*  HANDLE BAR VERTICAL */\n"
-"QScrollBar::handle:vertical {    \n"
-"    background-color: #151515;\n"
-"    min-height: 30px;\n"
-"    border-radius: 0px;\n"
-"    border: 1px solid;\n"
-"    border-right: 0px;\n"
-"    border-color: rgb(60,60,60);\n"
-"}\n"
-"QScrollBar::handle:vertical:hover{    \n"
-"    background-color:  rgb(50,50,50);\n"
-"    border-color: rgb(60,60,60);\n"
-"}\n"
-"QScrollBar::handle:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"\n"
-"/* BTN TOP - SCROLLBAR */\n"
-"QScrollBar::sub-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: top;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 0px;\n"
-"    border-bottom: 1px solid rgb(180, 0, 0);\n"
-"}\n"
-"QScrollBar::sub-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::sub-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"\n"
-"/* BTN BOTTOM - SCROLLBAR */\n"
-"QScrollBar::add-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: bottom;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 1px solid;\n"
-"    border-color: rgb(60,60,60);\n"
-"    border: 1px solid;\n"
-"    border-top:1px solid rgb(180, 0, 0);\n"
-"    border-right: 0px;\n"
-"    border-bottom: 0px;\n"
-"}\n"
-"QScrollBar::add-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::add-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"/* RESET ARROW */\n"
-"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"    background: none;\n"
-"}\n"
-"\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"    background: none;\n"
-"}")
-        self.tableRamPost.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
-        self.tableRamPost.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
-        self.tableRamPost.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self.tableRamPost.setShowGrid(False)
-        self.tableRamPost.setGridStyle(QtCore.Qt.SolidLine)
-        self.tableRamPost.setObjectName("tableRamPost")
-        self.tableRamPost.setColumnCount(2)
-        self.tableRamPost.setRowCount(3)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableRamPost.setVerticalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableRamPost.setVerticalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableRamPost.setVerticalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableRamPost.setHorizontalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableRamPost.setHorizontalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableRamPost.setItem(0, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableRamPost.setItem(0, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableRamPost.setItem(1, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableRamPost.setItem(1, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableRamPost.setItem(2, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableRamPost.setItem(2, 1, item)
-        self.tableRamPost.horizontalHeader().setVisible(False)
-        self.tableRamPost.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableRamPost.horizontalHeader().setDefaultSectionSize(120)
-        self.tableRamPost.horizontalHeader().setHighlightSections(False)
-        self.tableRamPost.horizontalHeader().setMinimumSectionSize(15)
-        self.tableRamPost.horizontalHeader().setSortIndicatorShown(True)
-        self.tableRamPost.horizontalHeader().setStretchLastSection(False)
-        self.tableRamPost.verticalHeader().setVisible(False)
-        self.tableRamPost.verticalHeader().setCascadingSectionResizes(False)
-        self.tableRamPost.verticalHeader().setMinimumSectionSize(10)
-        self.btnCngRamPost = QtWidgets.QPushButton(self.tbFrameRam)
-        self.btnCngRamPost.setGeometry(QtCore.QRect(100, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnCngRamPost.setFont(font)
-        self.btnCngRamPost.setStyleSheet("QPushButton\n"
-"{\n"
-"color:  white;\n"
-"border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"color: rgb(255, 247, 0);\n"
-"border: 1px solid rgb(255, 247, 0);\n"
-"}\n"
-"")
-        self.btnCngRamPost.setObjectName("btnCngRamPost")
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/ram (1).png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.toolBoxNavigation.addItem(self.pageRam, icon4, "")
-        self.pageDisk = QtWidgets.QWidget()
-        self.pageDisk.setGeometry(QtCore.QRect(0, 0, 100, 30))
-        self.pageDisk.setObjectName("pageDisk")
-        self.tbFrameDisk = QtWidgets.QFrame(self.pageDisk)
-        self.tbFrameDisk.setGeometry(QtCore.QRect(0, 0, 301, 261))
-        self.tbFrameDisk.setStyleSheet("QFrame{\n"
-"    background-color: rgb(10,10,10);\n"
-"    color:  white;\n"
-"    border: 1px;\n"
-"}")
-        self.tbFrameDisk.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.tbFrameDisk.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.tbFrameDisk.setObjectName("tbFrameDisk")
-        self.lbDiskPost = QtWidgets.QLabel(self.tbFrameDisk)
-        self.lbDiskPost.setGeometry(QtCore.QRect(70, 0, 161, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat SemiBold")
-        font.setPointSize(10)
-        self.lbDiskPost.setFont(font)
-        self.lbDiskPost.setStyleSheet("border: 0px;\n"
-"border-bottom: 1px solid rgb(100, 100, 100);")
-        self.lbDiskPost.setAlignment(QtCore.Qt.AlignCenter)
-        self.lbDiskPost.setObjectName("lbDiskPost")
-        self.btnNewDiskPost = QtWidgets.QPushButton(self.tbFrameDisk)
-        self.btnNewDiskPost.setGeometry(QtCore.QRect(10, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnNewDiskPost.setFont(font)
-        self.btnNewDiskPost.setStyleSheet("QPushButton\n"
-"{\n"
-"color:  white;\n"
-"border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"background-color: rgb(40, 40, 40);\n"
-"color: rgb(0, 255, 8);\n"
-"border: 1px solid rgb(0, 255, 8);\n"
-"}\n"
-"")
-        self.btnNewDiskPost.setObjectName("btnNewDiskPost")
-        self.btnDelDiskPost = QtWidgets.QPushButton(self.tbFrameDisk)
-        self.btnDelDiskPost.setGeometry(QtCore.QRect(190, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnDelDiskPost.setFont(font)
-        self.btnDelDiskPost.setStyleSheet("QPushButton\n"
-"{\n"
-"color:  white;\n"
-"border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"color: red;\n"
-"border: 1px solid red;\n"
-"}\n"
-"")
-        self.btnDelDiskPost.setObjectName("btnDelDiskPost")
-        self.tableDiskPost = QtWidgets.QTableWidget(self.tbFrameDisk)
-        self.tableDiskPost.setEnabled(True)
-        self.tableDiskPost.setGeometry(QtCore.QRect(0, 30, 291, 141))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
-        self.tableDiskPost.setFont(font)
-        self.tableDiskPost.setMouseTracking(True)
-        self.tableDiskPost.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.tableDiskPost.setAutoFillBackground(False)
-        self.tableDiskPost.setStyleSheet("QHeaderView\n"
-"{    \n"
-"    background-color: #101010;\n"
-"    color: #dddddd;\n"
-"    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
-"    min-height: 30px;\n"
-"}\n"
-"\n"
-"QHeaderView::section\n"
-"{\n"
-"    background-color: #101010;\n"
-"    min-width: 10px;    \n"
-"    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
-"    color: #dddddd;\n"
-"    font-size: 12px;\n"
-"}\n"
-"\n"
-"QHeaderView::section:hover {\n"
-"   color: white;\n"
-"    background-color: rgb(80,80,80);\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section\n"
-"{\n"
-"    \n"
-"    background: rgb(80,80,80);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
-"{\n"
-"     border-bottom: 1px solid rgb(60,60,60); \n"
-"    border-right: 0px;\n"
-"    border-left: 0px;\n"
-"    border-top:0px;\n"
-"}\n"
-"\n"
-"QTableView\n"
-"{\n"
-"    background-color: #101010;\n"
-"    color: #dddddd;\n"
-"    border-top: 1px solid #434343;\n"
-"    border-right: 0px;\n"
-"    border-left: 0px;\n"
-"    border-bottom: 0px;\n"
-"}\n"
-"\n"
-"QTableWidget::item:hover {\n"
-"    color: white;\n"
-"    border-bottom: 1px solid rgb(180,180,180);\n"
-"}      \n"
-"\n"
-"QTableWidget::item:selected\n"
-"{\n"
-"     color: white;\n"
-"    border-bottom: 1px solid rgb(180,180,180);\n"
-"}\n"
-"\n"
-"QScrollBar:vertical {\n"
-"    border: none;\n"
-"    background-color: #151515;\n"
-"    width: 8px;\n"
-"    margin: 15px 0 15px 0;\n"
-"    border-radius: 0px;\n"
-" }\n"
-"\n"
-"/*  HANDLE BAR VERTICAL */\n"
-"QScrollBar::handle:vertical {    \n"
-"    background-color: #151515;\n"
-"    min-height: 30px;\n"
-"    border-radius: 0px;\n"
-"    border: 1px solid;\n"
-"    border-right: 0px;\n"
-"    border-color: rgb(60,60,60);\n"
-"}\n"
-"QScrollBar::handle:vertical:hover{    \n"
-"    background-color:  rgb(50,50,50);\n"
-"    border-color: rgb(60,60,60);\n"
-"}\n"
-"QScrollBar::handle:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"\n"
-"/* BTN TOP - SCROLLBAR */\n"
-"QScrollBar::sub-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: top;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 0px;\n"
-"    border-bottom: 1px solid rgb(180, 0, 0);\n"
-"}\n"
-"QScrollBar::sub-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::sub-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"\n"
-"/* BTN BOTTOM - SCROLLBAR */\n"
-"QScrollBar::add-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: bottom;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 1px solid;\n"
-"    border-color: rgb(60,60,60);\n"
-"    border: 1px solid;\n"
-"    border-top:1px solid rgb(180, 0, 0);\n"
-"    border-right: 0px;\n"
-"    border-bottom: 0px;\n"
-"}\n"
-"QScrollBar::add-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::add-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"/* RESET ARROW */\n"
-"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"    background: none;\n"
-"}\n"
-"\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"    background: none;\n"
-"}")
-        self.tableDiskPost.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
-        self.tableDiskPost.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
-        self.tableDiskPost.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self.tableDiskPost.setShowGrid(False)
-        self.tableDiskPost.setGridStyle(QtCore.Qt.SolidLine)
-        self.tableDiskPost.setObjectName("tableDiskPost")
-        self.tableDiskPost.setColumnCount(2)
-        self.tableDiskPost.setRowCount(3)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableDiskPost.setVerticalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableDiskPost.setVerticalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableDiskPost.setVerticalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableDiskPost.setHorizontalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableDiskPost.setHorizontalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableDiskPost.setItem(0, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableDiskPost.setItem(0, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableDiskPost.setItem(1, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableDiskPost.setItem(1, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableDiskPost.setItem(2, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableDiskPost.setItem(2, 1, item)
-        self.tableDiskPost.horizontalHeader().setVisible(False)
-        self.tableDiskPost.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableDiskPost.horizontalHeader().setDefaultSectionSize(120)
-        self.tableDiskPost.horizontalHeader().setHighlightSections(False)
-        self.tableDiskPost.horizontalHeader().setMinimumSectionSize(15)
-        self.tableDiskPost.horizontalHeader().setSortIndicatorShown(True)
-        self.tableDiskPost.horizontalHeader().setStretchLastSection(False)
-        self.tableDiskPost.verticalHeader().setVisible(False)
-        self.tableDiskPost.verticalHeader().setCascadingSectionResizes(False)
-        self.tableDiskPost.verticalHeader().setMinimumSectionSize(10)
-        self.btnCngDiskPost = QtWidgets.QPushButton(self.tbFrameDisk)
-        self.btnCngDiskPost.setGeometry(QtCore.QRect(100, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnCngDiskPost.setFont(font)
-        self.btnCngDiskPost.setStyleSheet("QPushButton\n"
-"{\n"
-"color:  white;\n"
-"border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"color: rgb(255, 247, 0);\n"
-"border: 1px solid rgb(255, 247, 0);\n"
-"}\n"
-"")
-        self.btnCngDiskPost.setObjectName("btnCngDiskPost")
-        icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/hard-drive.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.toolBoxNavigation.addItem(self.pageDisk, icon5, "")
-        self.pagePower = QtWidgets.QWidget()
-        self.pagePower.setGeometry(QtCore.QRect(0, 0, 100, 30))
-        self.pagePower.setObjectName("pagePower")
-        self.tbFramePower = QtWidgets.QFrame(self.pagePower)
-        self.tbFramePower.setGeometry(QtCore.QRect(0, 0, 301, 261))
-        self.tbFramePower.setStyleSheet("QFrame{\n"
-"    background-color: rgb(10,10,10);\n"
-"    color:  white;\n"
-"    border: 1px;\n"
-"}")
-        self.tbFramePower.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.tbFramePower.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.tbFramePower.setObjectName("tbFramePower")
-        self.lbPowerPost = QtWidgets.QLabel(self.tbFramePower)
-        self.lbPowerPost.setGeometry(QtCore.QRect(70, 0, 161, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat SemiBold")
-        font.setPointSize(10)
-        self.lbPowerPost.setFont(font)
-        self.lbPowerPost.setStyleSheet("border: 0px;\n"
-"border-bottom: 1px solid rgb(100, 100, 100);")
-        self.lbPowerPost.setAlignment(QtCore.Qt.AlignCenter)
-        self.lbPowerPost.setObjectName("lbPowerPost")
-        self.btnNewPowerPost = QtWidgets.QPushButton(self.tbFramePower)
-        self.btnNewPowerPost.setGeometry(QtCore.QRect(10, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnNewPowerPost.setFont(font)
-        self.btnNewPowerPost.setStyleSheet("QPushButton\n"
-"{\n"
-"color:  white;\n"
-"border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"background-color: rgb(40, 40, 40);\n"
-"color: rgb(0, 255, 8);\n"
-"border: 1px solid rgb(0, 255, 8);\n"
-"}\n"
-"")
-        self.btnNewPowerPost.setObjectName("btnNewPowerPost")
-        self.btnDelPowerPost = QtWidgets.QPushButton(self.tbFramePower)
-        self.btnDelPowerPost.setGeometry(QtCore.QRect(190, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnDelPowerPost.setFont(font)
-        self.btnDelPowerPost.setStyleSheet("QPushButton\n"
-"{\n"
-"color:  white;\n"
-"border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"color: red;\n"
-"border: 1px solid red;\n"
-"}\n"
-"")
-        self.btnDelPowerPost.setObjectName("btnDelPowerPost")
-        self.tablePowerPost = QtWidgets.QTableWidget(self.tbFramePower)
-        self.tablePowerPost.setEnabled(True)
-        self.tablePowerPost.setGeometry(QtCore.QRect(0, 30, 291, 141))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
-        self.tablePowerPost.setFont(font)
-        self.tablePowerPost.setMouseTracking(True)
-        self.tablePowerPost.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.tablePowerPost.setAutoFillBackground(False)
-        self.tablePowerPost.setStyleSheet("QHeaderView\n"
-"{    \n"
-"    background-color: #101010;\n"
-"    color: #dddddd;\n"
-"    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
-"    min-height: 30px;\n"
-"}\n"
-"\n"
-"QHeaderView::section\n"
-"{\n"
-"    background-color: #101010;\n"
-"    min-width: 10px;    \n"
-"    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
-"    color: #dddddd;\n"
-"    font-size: 12px;\n"
-"}\n"
-"\n"
-"QHeaderView::section:hover {\n"
-"   color: white;\n"
-"    background-color: rgb(80,80,80);\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section\n"
-"{\n"
-"    \n"
-"    background: rgb(80,80,80);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
-"{\n"
-"     border-bottom: 1px solid rgb(60,60,60); \n"
-"    border-right: 0px;\n"
-"    border-left: 0px;\n"
-"    border-top:0px;\n"
-"}\n"
-"\n"
-"QTableView\n"
-"{\n"
-"    background-color: #101010;\n"
-"    color: #dddddd;\n"
-"    border-top: 1px solid #434343;\n"
-"    border-right: 0px;\n"
-"    border-left: 0px;\n"
-"    border-bottom: 0px;\n"
-"}\n"
-"\n"
-"QTableWidget::item:hover {\n"
-"    color: white;\n"
-"    border-bottom: 1px solid rgb(180,180,180);\n"
-"}      \n"
-"\n"
-"QTableWidget::item:selected\n"
-"{\n"
-"     color: white;\n"
-"    border-bottom: 1px solid rgb(180,180,180);\n"
-"}\n"
-"\n"
-"QScrollBar:vertical {\n"
-"    border: none;\n"
-"    background-color: #151515;\n"
-"    width: 8px;\n"
-"    margin: 15px 0 15px 0;\n"
-"    border-radius: 0px;\n"
-" }\n"
-"\n"
-"/*  HANDLE BAR VERTICAL */\n"
-"QScrollBar::handle:vertical {    \n"
-"    background-color: #151515;\n"
-"    min-height: 30px;\n"
-"    border-radius: 0px;\n"
-"    border: 1px solid;\n"
-"    border-right: 0px;\n"
-"    border-color: rgb(60,60,60);\n"
-"}\n"
-"QScrollBar::handle:vertical:hover{    \n"
-"    background-color:  rgb(50,50,50);\n"
-"    border-color: rgb(60,60,60);\n"
-"}\n"
-"QScrollBar::handle:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"\n"
-"/* BTN TOP - SCROLLBAR */\n"
-"QScrollBar::sub-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: top;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 0px;\n"
-"    border-bottom: 1px solid rgb(180, 0, 0);\n"
-"}\n"
-"QScrollBar::sub-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::sub-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"\n"
-"/* BTN BOTTOM - SCROLLBAR */\n"
-"QScrollBar::add-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: bottom;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 1px solid;\n"
-"    border-color: rgb(60,60,60);\n"
-"    border: 1px solid;\n"
-"    border-top:1px solid rgb(180, 0, 0);\n"
-"    border-right: 0px;\n"
-"    border-bottom: 0px;\n"
-"}\n"
-"QScrollBar::add-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::add-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"/* RESET ARROW */\n"
-"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"    background: none;\n"
-"}\n"
-"\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"    background: none;\n"
-"}")
-        self.tablePowerPost.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
-        self.tablePowerPost.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
-        self.tablePowerPost.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self.tablePowerPost.setShowGrid(False)
-        self.tablePowerPost.setGridStyle(QtCore.Qt.SolidLine)
-        self.tablePowerPost.setObjectName("tablePowerPost")
-        self.tablePowerPost.setColumnCount(2)
-        self.tablePowerPost.setRowCount(3)
-        item = QtWidgets.QTableWidgetItem()
-        self.tablePowerPost.setVerticalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tablePowerPost.setVerticalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tablePowerPost.setVerticalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tablePowerPost.setHorizontalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tablePowerPost.setHorizontalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tablePowerPost.setItem(0, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tablePowerPost.setItem(0, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tablePowerPost.setItem(1, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tablePowerPost.setItem(1, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tablePowerPost.setItem(2, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tablePowerPost.setItem(2, 1, item)
-        self.tablePowerPost.horizontalHeader().setVisible(False)
-        self.tablePowerPost.horizontalHeader().setCascadingSectionResizes(True)
-        self.tablePowerPost.horizontalHeader().setDefaultSectionSize(120)
-        self.tablePowerPost.horizontalHeader().setHighlightSections(False)
-        self.tablePowerPost.horizontalHeader().setMinimumSectionSize(15)
-        self.tablePowerPost.horizontalHeader().setSortIndicatorShown(True)
-        self.tablePowerPost.horizontalHeader().setStretchLastSection(False)
-        self.tablePowerPost.verticalHeader().setVisible(False)
-        self.tablePowerPost.verticalHeader().setCascadingSectionResizes(False)
-        self.tablePowerPost.verticalHeader().setMinimumSectionSize(10)
-        self.btnCngPowerPost = QtWidgets.QPushButton(self.tbFramePower)
-        self.btnCngPowerPost.setGeometry(QtCore.QRect(100, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnCngPowerPost.setFont(font)
-        self.btnCngPowerPost.setStyleSheet("QPushButton\n"
-"{\n"
-"color:  white;\n"
-"border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"color: rgb(255, 247, 0);\n"
-"border: 1px solid rgb(255, 247, 0);\n"
-"}\n"
-"")
-        self.btnCngPowerPost.setObjectName("btnCngPowerPost")
-        icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/power.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.toolBoxNavigation.addItem(self.pagePower, icon6, "")
-        self.pageBody = QtWidgets.QWidget()
-        self.pageBody.setGeometry(QtCore.QRect(0, 0, 100, 30))
-        self.pageBody.setObjectName("pageBody")
-        self.tbFrameBody = QtWidgets.QFrame(self.pageBody)
-        self.tbFrameBody.setGeometry(QtCore.QRect(0, 0, 301, 261))
-        self.tbFrameBody.setStyleSheet("QFrame{\n"
-"    background-color: rgb(10,10,10);\n"
-"    color:  white;\n"
-"    border: 1px;\n"
-"}")
-        self.tbFrameBody.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.tbFrameBody.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.tbFrameBody.setObjectName("tbFrameBody")
-        self.lbBodyPost = QtWidgets.QLabel(self.tbFrameBody)
-        self.lbBodyPost.setGeometry(QtCore.QRect(70, 0, 161, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat SemiBold")
-        font.setPointSize(10)
-        self.lbBodyPost.setFont(font)
-        self.lbBodyPost.setStyleSheet("border: 0px;\n"
-"border-bottom: 1px solid rgb(100, 100, 100);")
-        self.lbBodyPost.setAlignment(QtCore.Qt.AlignCenter)
-        self.lbBodyPost.setObjectName("lbBodyPost")
-        self.btnNewBodyPost = QtWidgets.QPushButton(self.tbFrameBody)
-        self.btnNewBodyPost.setGeometry(QtCore.QRect(10, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnNewBodyPost.setFont(font)
-        self.btnNewBodyPost.setStyleSheet("QPushButton\n"
-"{\n"
-"color:  white;\n"
-"border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"background-color: rgb(40, 40, 40);\n"
-"color: rgb(0, 255, 8);\n"
-"border: 1px solid rgb(0, 255, 8);\n"
-"}\n"
-"")
-        self.btnNewBodyPost.setObjectName("btnNewBodyPost")
-        self.btnDelBodyPost = QtWidgets.QPushButton(self.tbFrameBody)
-        self.btnDelBodyPost.setGeometry(QtCore.QRect(190, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnDelBodyPost.setFont(font)
-        self.btnDelBodyPost.setStyleSheet("QPushButton\n"
-"{\n"
-"color:  white;\n"
-"border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"color: red;\n"
-"border: 1px solid red;\n"
-"}\n"
-"")
-        self.btnDelBodyPost.setObjectName("btnDelBodyPost")
-        self.tableBodyPost = QtWidgets.QTableWidget(self.tbFrameBody)
-        self.tableBodyPost.setEnabled(True)
-        self.tableBodyPost.setGeometry(QtCore.QRect(0, 30, 291, 141))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
-        self.tableBodyPost.setFont(font)
-        self.tableBodyPost.setMouseTracking(True)
-        self.tableBodyPost.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.tableBodyPost.setAutoFillBackground(False)
-        self.tableBodyPost.setStyleSheet("QHeaderView\n"
-"{    \n"
-"    background-color: #101010;\n"
-"    color: #dddddd;\n"
-"    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
-"    min-height: 30px;\n"
-"}\n"
-"\n"
-"QHeaderView::section\n"
-"{\n"
-"    background-color: #101010;\n"
-"    min-width: 10px;    \n"
-"    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
-"    color: #dddddd;\n"
-"    font-size: 12px;\n"
-"}\n"
-"\n"
-"QHeaderView::section:hover {\n"
-"   color: white;\n"
-"    background-color: rgb(80,80,80);\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section\n"
-"{\n"
-"    \n"
-"    background: rgb(80,80,80);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
-"{\n"
-"     border-bottom: 1px solid rgb(60,60,60); \n"
-"    border-right: 0px;\n"
-"    border-left: 0px;\n"
-"    border-top:0px;\n"
-"}\n"
-"\n"
-"QTableView\n"
-"{\n"
-"    background-color: #101010;\n"
-"    color: #dddddd;\n"
-"    border-top: 1px solid #434343;\n"
-"    border-right: 0px;\n"
-"    border-left: 0px;\n"
-"    border-bottom: 0px;\n"
-"}\n"
-"\n"
-"QTableWidget::item:hover {\n"
-"    color: white;\n"
-"    border-bottom: 1px solid rgb(180,180,180);\n"
-"}      \n"
-"\n"
-"QTableWidget::item:selected\n"
-"{\n"
-"     color: white;\n"
-"    border-bottom: 1px solid rgb(180,180,180);\n"
-"}\n"
-"\n"
-"QScrollBar:vertical {\n"
-"    border: none;\n"
-"    background-color: #151515;\n"
-"    width: 8px;\n"
-"    margin: 15px 0 15px 0;\n"
-"    border-radius: 0px;\n"
-" }\n"
-"\n"
-"/*  HANDLE BAR VERTICAL */\n"
-"QScrollBar::handle:vertical {    \n"
-"    background-color: #151515;\n"
-"    min-height: 30px;\n"
-"    border-radius: 0px;\n"
-"    border: 1px solid;\n"
-"    border-right: 0px;\n"
-"    border-color: rgb(60,60,60);\n"
-"}\n"
-"QScrollBar::handle:vertical:hover{    \n"
-"    background-color:  rgb(50,50,50);\n"
-"    border-color: rgb(60,60,60);\n"
-"}\n"
-"QScrollBar::handle:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"\n"
-"/* BTN TOP - SCROLLBAR */\n"
-"QScrollBar::sub-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: top;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 0px;\n"
-"    border-bottom: 1px solid rgb(180, 0, 0);\n"
-"}\n"
-"QScrollBar::sub-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::sub-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"\n"
-"/* BTN BOTTOM - SCROLLBAR */\n"
-"QScrollBar::add-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: bottom;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 1px solid;\n"
-"    border-color: rgb(60,60,60);\n"
-"    border: 1px solid;\n"
-"    border-top:1px solid rgb(180, 0, 0);\n"
-"    border-right: 0px;\n"
-"    border-bottom: 0px;\n"
-"}\n"
-"QScrollBar::add-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::add-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"/* RESET ARROW */\n"
-"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"    background: none;\n"
-"}\n"
-"\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"    background: none;\n"
-"}")
-        self.tableBodyPost.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
-        self.tableBodyPost.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
-        self.tableBodyPost.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self.tableBodyPost.setShowGrid(False)
-        self.tableBodyPost.setGridStyle(QtCore.Qt.SolidLine)
-        self.tableBodyPost.setObjectName("tableBodyPost")
-        self.tableBodyPost.setColumnCount(2)
-        self.tableBodyPost.setRowCount(3)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableBodyPost.setVerticalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableBodyPost.setVerticalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableBodyPost.setVerticalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableBodyPost.setHorizontalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableBodyPost.setHorizontalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableBodyPost.setItem(0, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableBodyPost.setItem(0, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableBodyPost.setItem(1, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableBodyPost.setItem(1, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableBodyPost.setItem(2, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableBodyPost.setItem(2, 1, item)
-        self.tableBodyPost.horizontalHeader().setVisible(False)
-        self.tableBodyPost.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableBodyPost.horizontalHeader().setDefaultSectionSize(120)
-        self.tableBodyPost.horizontalHeader().setHighlightSections(False)
-        self.tableBodyPost.horizontalHeader().setMinimumSectionSize(15)
-        self.tableBodyPost.horizontalHeader().setSortIndicatorShown(True)
-        self.tableBodyPost.horizontalHeader().setStretchLastSection(False)
-        self.tableBodyPost.verticalHeader().setVisible(False)
-        self.tableBodyPost.verticalHeader().setCascadingSectionResizes(False)
-        self.tableBodyPost.verticalHeader().setMinimumSectionSize(10)
-        self.btnCngBodyPost = QtWidgets.QPushButton(self.tbFrameBody)
-        self.btnCngBodyPost.setGeometry(QtCore.QRect(100, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnCngBodyPost.setFont(font)
-        self.btnCngBodyPost.setStyleSheet("QPushButton\n"
-"{\n"
-"color:  white;\n"
-"border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"color: rgb(255, 247, 0);\n"
-"border: 1px solid rgb(255, 247, 0);\n"
-"}\n"
-"")
-        self.btnCngBodyPost.setObjectName("btnCngBodyPost")
-        icon7 = QtGui.QIcon()
-        icon7.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/case.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.toolBoxNavigation.addItem(self.pageBody, icon7, "")
-        self.pageConf = QtWidgets.QWidget()
-        self.pageConf.setGeometry(QtCore.QRect(0, 0, 100, 30))
-        self.pageConf.setObjectName("pageConf")
-        self.tbFrameConf = QtWidgets.QFrame(self.pageConf)
-        self.tbFrameConf.setGeometry(QtCore.QRect(0, 0, 301, 261))
-        self.tbFrameConf.setStyleSheet("QFrame{\n"
-"    background-color: rgb(10,10,10);\n"
-"    color:  white;\n"
-"    border: 1px;\n"
-"}")
-        self.tbFrameConf.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.tbFrameConf.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.tbFrameConf.setObjectName("tbFrameConf")
-        self.label_10 = QtWidgets.QLabel(self.tbFrameConf)
-        self.label_10.setGeometry(QtCore.QRect(70, 0, 161, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat SemiBold")
-        font.setPointSize(10)
-        self.label_10.setFont(font)
-        self.label_10.setStyleSheet("border: 0px;\n"
-"border-bottom: 1px solid rgb(100, 100, 100);")
-        self.label_10.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_10.setObjectName("label_10")
-        self.btnNewVideoPost_10 = QtWidgets.QPushButton(self.tbFrameConf)
-        self.btnNewVideoPost_10.setGeometry(QtCore.QRect(10, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnNewVideoPost_10.setFont(font)
-        self.btnNewVideoPost_10.setStyleSheet("QPushButton\n"
-"{\n"
-"color:  white;\n"
-"border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"background-color: rgb(40, 40, 40);\n"
-"color: rgb(0, 255, 8);\n"
-"border: 1px solid rgb(0, 255, 8);\n"
-"}\n"
-"")
-        self.btnNewVideoPost_10.setObjectName("btnNewVideoPost_10")
-        self.btnDelBConfPost = QtWidgets.QPushButton(self.tbFrameConf)
-        self.btnDelBConfPost.setGeometry(QtCore.QRect(190, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnDelBConfPost.setFont(font)
-        self.btnDelBConfPost.setStyleSheet("QPushButton\n"
-"{\n"
-"color:  white;\n"
-"border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"color: red;\n"
-"border: 1px solid red;\n"
-"}\n"
-"")
-        self.btnDelBConfPost.setObjectName("btnDelBConfPost")
-        self.tbconfigs_name = QtWidgets.QTableWidget(self.tbFrameConf)
-        self.tbconfigs_name.setEnabled(True)
-        self.tbconfigs_name.setGeometry(QtCore.QRect(0, 30, 291, 141))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
-        self.tbconfigs_name.setFont(font)
-        self.tbconfigs_name.setMouseTracking(True)
-        self.tbconfigs_name.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.tbconfigs_name.setAutoFillBackground(False)
-        self.tbconfigs_name.setStyleSheet("QHeaderView\n"
-"{    \n"
-"    background-color: #101010;\n"
-"    color: #dddddd;\n"
-"    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
-"    min-height: 30px;\n"
-"}\n"
-"\n"
-"QHeaderView::section\n"
-"{\n"
-"    background-color: #101010;\n"
-"    min-width: 10px;    \n"
-"    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
-"    color: #dddddd;\n"
-"    font-size: 12px;\n"
-"}\n"
-"\n"
-"QHeaderView::section:hover {\n"
-"   color: white;\n"
-"    background-color: rgb(80,80,80);\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section\n"
-"{\n"
-"    \n"
-"    background: rgb(80,80,80);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
-"{\n"
-"     border-bottom: 1px solid rgb(60,60,60); \n"
-"    border-right: 0px;\n"
-"    border-left: 0px;\n"
-"    border-top:0px;\n"
-"}\n"
-"\n"
-"QTableView\n"
-"{\n"
-"    background-color: #101010;\n"
-"    color: #dddddd;\n"
-"    border-top: 1px solid #434343;\n"
-"    border-right: 0px;\n"
-"    border-left: 0px;\n"
-"    border-bottom: 0px;\n"
-"}\n"
-"\n"
-"QTableWidget::item:hover {\n"
-"    color: white;\n"
-"    border-bottom: 1px solid rgb(180,180,180);\n"
-"}      \n"
-"\n"
-"QTableWidget::item:selected\n"
-"{\n"
-"     color: white;\n"
-"    border-bottom: 1px solid rgb(180,180,180);\n"
-"}\n"
-"\n"
-"QScrollBar:vertical {\n"
-"    border: none;\n"
-"    background-color: #151515;\n"
-"    width: 8px;\n"
-"    margin: 15px 0 15px 0;\n"
-"    border-radius: 0px;\n"
-" }\n"
-"\n"
-"/*  HANDLE BAR VERTICAL */\n"
-"QScrollBar::handle:vertical {    \n"
-"    background-color: #151515;\n"
-"    min-height: 30px;\n"
-"    border-radius: 0px;\n"
-"    border: 1px solid;\n"
-"    border-right: 0px;\n"
-"    border-color: rgb(60,60,60);\n"
-"}\n"
-"QScrollBar::handle:vertical:hover{    \n"
-"    background-color:  rgb(50,50,50);\n"
-"    border-color: rgb(60,60,60);\n"
-"}\n"
-"QScrollBar::handle:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"\n"
-"/* BTN TOP - SCROLLBAR */\n"
-"QScrollBar::sub-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: top;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 0px;\n"
-"    border-bottom: 1px solid rgb(180, 0, 0);\n"
-"}\n"
-"QScrollBar::sub-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::sub-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"\n"
-"/* BTN BOTTOM - SCROLLBAR */\n"
-"QScrollBar::add-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: bottom;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 1px solid;\n"
-"    border-color: rgb(60,60,60);\n"
-"    border: 1px solid;\n"
-"    border-top:1px solid rgb(180, 0, 0);\n"
-"    border-right: 0px;\n"
-"    border-bottom: 0px;\n"
-"}\n"
-"QScrollBar::add-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::add-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"/* RESET ARROW */\n"
-"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"    background: none;\n"
-"}\n"
-"\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"    background: none;\n"
-"}")
-        self.tbconfigs_name.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
-        self.tbconfigs_name.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
-        self.tbconfigs_name.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self.tbconfigs_name.setShowGrid(False)
-        self.tbconfigs_name.setGridStyle(QtCore.Qt.SolidLine)
-        self.tbconfigs_name.setObjectName("tbconfigs_name")
-        self.tbconfigs_name.setColumnCount(2)
-        self.tbconfigs_name.setRowCount(3)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbconfigs_name.setVerticalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbconfigs_name.setVerticalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbconfigs_name.setVerticalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbconfigs_name.setHorizontalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbconfigs_name.setHorizontalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbconfigs_name.setItem(0, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbconfigs_name.setItem(0, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbconfigs_name.setItem(1, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbconfigs_name.setItem(1, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbconfigs_name.setItem(2, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbconfigs_name.setItem(2, 1, item)
-        self.tbconfigs_name.horizontalHeader().setVisible(False)
-        self.tbconfigs_name.horizontalHeader().setCascadingSectionResizes(True)
-        self.tbconfigs_name.horizontalHeader().setDefaultSectionSize(120)
-        self.tbconfigs_name.horizontalHeader().setHighlightSections(False)
-        self.tbconfigs_name.horizontalHeader().setMinimumSectionSize(15)
-        self.tbconfigs_name.horizontalHeader().setSortIndicatorShown(True)
-        self.tbconfigs_name.horizontalHeader().setStretchLastSection(False)
-        self.tbconfigs_name.verticalHeader().setVisible(False)
-        self.tbconfigs_name.verticalHeader().setCascadingSectionResizes(False)
-        self.tbconfigs_name.verticalHeader().setMinimumSectionSize(10)
-        self.btnDelVideoPost_20 = QtWidgets.QPushButton(self.tbFrameConf)
-        self.btnDelVideoPost_20.setGeometry(QtCore.QRect(100, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnDelVideoPost_20.setFont(font)
-        self.btnDelVideoPost_20.setStyleSheet("QPushButton\n"
-"{\n"
-"color:  white;\n"
-"border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"color: rgb(255, 247, 0);\n"
-"border: 1px solid rgb(255, 247, 0);\n"
-"}\n"
-"")
-        self.btnDelVideoPost_20.setObjectName("btnDelVideoPost_20")
-        icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/conf.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.toolBoxNavigation.addItem(self.pageConf, icon8, "")
+        self.btnSkladFilter.setObjectName("btnSkladFilter")
         self.tabWidget.addTab(self.sklad, "")
         self.configurator = QtWidgets.QWidget()
         self.configurator.setStyleSheet("border:0px;")
@@ -3157,7 +2742,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
         self.scrollAreaWidgetContents.setEnabled(True)
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -310, 1035, 2518))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1035, 2518))
         self.scrollAreaWidgetContents.setAutoFillBackground(False)
         self.scrollAreaWidgetContents.setInputMethodHints(QtCore.Qt.ImhNone)
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
@@ -4720,7 +4305,7 @@ class Ui_MainWindow(object):
         self.lbDisk.setAlignment(QtCore.Qt.AlignCenter)
         self.lbDisk.setObjectName("lbDisk")
         self.btnDiskFilter = QtWidgets.QPushButton(self.frame_3)
-        self.btnDiskFilter.setGeometry(QtCore.QRect(320, 1560, 131, 20))
+        self.btnDiskFilter.setGeometry(QtCore.QRect(330, 1560, 131, 20))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -5085,12 +4670,6 @@ class Ui_MainWindow(object):
         self.allPower = QtWidgets.QWidget()
         self.allPower.setObjectName("allPower")
         self.tabWidgetPower.addTab(self.allPower, "")
-        self.tabPower1 = QtWidgets.QWidget()
-        self.tabPower1.setObjectName("tabPower1")
-        self.tabWidgetPower.addTab(self.tabPower1, "")
-        self.tabPower2 = QtWidgets.QWidget()
-        self.tabPower2.setObjectName("tabPower2")
-        self.tabWidgetPower.addTab(self.tabPower2, "")
         self.tableConfPower = QtWidgets.QTableWidget(self.framePower)
         self.tableConfPower.setEnabled(True)
         self.tableConfPower.setGeometry(QtCore.QRect(0, 30, 631, 211))
@@ -5599,7 +5178,7 @@ class Ui_MainWindow(object):
         self.gridLayout.addWidget(self.frame_3, 0, 0, 1, 1)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.frame_cart = QtWidgets.QFrame(self.configurator)
-        self.frame_cart.setGeometry(QtCore.QRect(1030, 120, 261, 401))
+        self.frame_cart.setGeometry(QtCore.QRect(1030, 120, 271, 401))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -5612,7 +5191,7 @@ class Ui_MainWindow(object):
         self.frame_cart.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_cart.setObjectName("frame_cart")
         self.lb_preview = QtWidgets.QLabel(self.frame_cart)
-        self.lb_preview.setGeometry(QtCore.QRect(60, 10, 141, 31))
+        self.lb_preview.setGeometry(QtCore.QRect(70, 10, 131, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(11)
@@ -5625,7 +5204,7 @@ class Ui_MainWindow(object):
         self.lb_preview.setAlignment(QtCore.Qt.AlignCenter)
         self.lb_preview.setObjectName("lb_preview")
         self.lb_price = QtWidgets.QLabel(self.frame_cart)
-        self.lb_price.setGeometry(QtCore.QRect(10, 50, 241, 31))
+        self.lb_price.setGeometry(QtCore.QRect(10, 50, 251, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(12)
@@ -5638,7 +5217,7 @@ class Ui_MainWindow(object):
         self.lb_price.setAlignment(QtCore.Qt.AlignCenter)
         self.lb_price.setObjectName("lb_price")
         self.lb_config = QtWidgets.QLabel(self.frame_cart)
-        self.lb_config.setGeometry(QtCore.QRect(10, 140, 241, 31))
+        self.lb_config.setGeometry(QtCore.QRect(10, 140, 251, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat ExtraBold")
         font.setPointSize(11)
@@ -5653,7 +5232,7 @@ class Ui_MainWindow(object):
         self.lb_config.setAlignment(QtCore.Qt.AlignCenter)
         self.lb_config.setObjectName("lb_config")
         self.btn_purcashe = QtWidgets.QPushButton(self.frame_cart)
-        self.btn_purcashe.setGeometry(QtCore.QRect(20, 90, 221, 31))
+        self.btn_purcashe.setGeometry(QtCore.QRect(30, 90, 221, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -5677,7 +5256,7 @@ class Ui_MainWindow(object):
 "}")
         self.btn_purcashe.setObjectName("btn_purcashe")
         self.table_config = QtWidgets.QTableWidget(self.frame_cart)
-        self.table_config.setGeometry(QtCore.QRect(10, 170, 241, 201))
+        self.table_config.setGeometry(QtCore.QRect(10, 170, 251, 201))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -5695,6 +5274,7 @@ class Ui_MainWindow(object):
 "    color:  rgb(220,220,220);\n"
 "    border: 0px;\n"
 "    border-top: 1px solid rgb(70,70,70);\n"
+"    border-bottom: 1px solid rgb(70,70,70);\n"
 "\n"
 "}\n"
 "\n"
@@ -5706,7 +5286,7 @@ class Ui_MainWindow(object):
 "QScrollBar:vertical {\n"
 "    border: none;\n"
 "    background-color: #151515;\n"
-"    width: 12px;\n"
+"    width: 9px;\n"
 "    margin: 15px 0 15px 0;\n"
 "    border-radius: 0px;\n"
 " }\n"
@@ -5816,6 +5396,12 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.btnResetConfig.setObjectName("btnResetConfig")
+        self.btnResetConfig.raise_()
+        self.lb_preview.raise_()
+        self.lb_price.raise_()
+        self.lb_config.raise_()
+        self.btn_purcashe.raise_()
+        self.table_config.raise_()
         self.scrollArea.raise_()
         self.progressBar.raise_()
         self.treeWidget.raise_()
@@ -5832,15 +5418,16 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
         self.toolBoxNavigation.layout().setSpacing(5)
+        self.tabWidgetSklad.setCurrentIndex(0)
         self.tabWidgetVideo.setCurrentIndex(0)
         self.tabWidgetProc.setCurrentIndex(0)
         self.tabWidgetMothet.setCurrentIndex(0)
         self.tabWidgetCool.setCurrentIndex(0)
         self.tabWidgetRam.setCurrentIndex(0)
         self.tabWidgetDisk.setCurrentIndex(0)
-        self.tabWidgetPower.setCurrentIndex(2)
+        self.tabWidgetPower.setCurrentIndex(0)
         self.tabWidgetBody.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -5848,21 +5435,315 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.lbNavPanel.setText(_translate("MainWindow", "Панель навигации"))
-        self.btnSkladFilter.setText(_translate("MainWindow", "Настроить фильтр"))
+        self.btnAdd.setText(_translate("MainWindow", "Новый заказ"))
+        self.btnDelete.setText(_translate("MainWindow", "Удалить"))
+        self.btnChange.setText(_translate("MainWindow", "Изменить параметры"))
+        self.lbVideoPost.setText(_translate("MainWindow", "Поставщики:"))
+        self.btnNewVideoPost.setText(_translate("MainWindow", "Новый\n"
+"поставщик"))
+        self.btnDelVideoPost.setText(_translate("MainWindow", "Удалить\n"
+"выбранного"))
+        self.tableVideoPost.setSortingEnabled(True)
+        item = self.tableVideoPost.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", "w"))
+        item = self.tableVideoPost.verticalHeaderItem(1)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableVideoPost.verticalHeaderItem(2)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableVideoPost.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Договор"))
+        item = self.tableVideoPost.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Состояние"))
+        item = self.tableVideoPost.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Название"))
+        __sortingEnabled = self.tableVideoPost.isSortingEnabled()
+        self.tableVideoPost.setSortingEnabled(False)
+        item = self.tableVideoPost.item(0, 0)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tableVideoPost.item(0, 1)
+        item.setText(_translate("MainWindow", "True"))
+        item = self.tableVideoPost.item(0, 2)
+        item.setText(_translate("MainWindow", "Gigabyte"))
+        item = self.tableVideoPost.item(1, 0)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tableVideoPost.item(1, 1)
+        item.setText(_translate("MainWindow", "True"))
+        item = self.tableVideoPost.item(1, 2)
+        item.setText(_translate("MainWindow", "Asus"))
+        item = self.tableVideoPost.item(2, 0)
+        item.setText(_translate("MainWindow", "-"))
+        item = self.tableVideoPost.item(2, 1)
+        item.setText(_translate("MainWindow", "False"))
+        item = self.tableVideoPost.item(2, 2)
+        item.setText(_translate("MainWindow", "Nvidia"))
+        self.tableVideoPost.setSortingEnabled(__sortingEnabled)
+        self.btnCngVideoPost.setText(_translate("MainWindow", "Изменить\n"
+"договор"))
+        self.toolBoxNavigation.setItemText(self.toolBoxNavigation.indexOf(self.pageVideo), _translate("MainWindow", "Видеокарты"))
+        self.lbProcPost.setText(_translate("MainWindow", "Поставщики:"))
+        self.btnNewProcPost.setText(_translate("MainWindow", "Новый\n"
+"поставщик"))
+        self.btnDelProcPost.setText(_translate("MainWindow", "Удалить\n"
+"выбранного"))
+        self.tableProcPost.setSortingEnabled(True)
+        item = self.tableProcPost.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", "w"))
+        item = self.tableProcPost.verticalHeaderItem(1)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableProcPost.verticalHeaderItem(2)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableProcPost.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Договор"))
+        item = self.tableProcPost.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Состояние"))
+        item = self.tableProcPost.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Название"))
+        __sortingEnabled = self.tableProcPost.isSortingEnabled()
+        self.tableProcPost.setSortingEnabled(False)
+        item = self.tableProcPost.item(0, 0)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tableProcPost.item(0, 2)
+        item.setText(_translate("MainWindow", "Gigabyte"))
+        item = self.tableProcPost.item(1, 0)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tableProcPost.item(1, 2)
+        item.setText(_translate("MainWindow", "Asus"))
+        item = self.tableProcPost.item(2, 0)
+        item.setText(_translate("MainWindow", "-"))
+        item = self.tableProcPost.item(2, 2)
+        item.setText(_translate("MainWindow", "Nvidia"))
+        self.tableProcPost.setSortingEnabled(__sortingEnabled)
+        self.btnCngProcPost.setText(_translate("MainWindow", "Изменить\n"
+"договор"))
+        self.toolBoxNavigation.setItemText(self.toolBoxNavigation.indexOf(self.pageProc), _translate("MainWindow", "Процессоры"))
+        self.lbMotherPost.setText(_translate("MainWindow", "Поставщики:"))
+        self.btnNewMotherPost.setText(_translate("MainWindow", "Новый\n"
+"поставщик"))
+        self.btnDelMotherPost.setText(_translate("MainWindow", "Удалить\n"
+"выбранного"))
+        self.tableMotherPost.setSortingEnabled(True)
+        item = self.tableMotherPost.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", "w"))
+        item = self.tableMotherPost.verticalHeaderItem(1)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableMotherPost.verticalHeaderItem(2)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableMotherPost.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Договор"))
+        item = self.tableMotherPost.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Состояние"))
+        item = self.tableMotherPost.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Название"))
+        __sortingEnabled = self.tableMotherPost.isSortingEnabled()
+        self.tableMotherPost.setSortingEnabled(False)
+        item = self.tableMotherPost.item(0, 0)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tableMotherPost.item(0, 2)
+        item.setText(_translate("MainWindow", "Gigabyte"))
+        item = self.tableMotherPost.item(1, 0)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tableMotherPost.item(1, 2)
+        item.setText(_translate("MainWindow", "Asus"))
+        item = self.tableMotherPost.item(2, 0)
+        item.setText(_translate("MainWindow", "-"))
+        item = self.tableMotherPost.item(2, 2)
+        item.setText(_translate("MainWindow", "Nvidia"))
+        self.tableMotherPost.setSortingEnabled(__sortingEnabled)
+        self.btnCngMotherPost.setText(_translate("MainWindow", "Изменить\n"
+"договор"))
+        self.toolBoxNavigation.setItemText(self.toolBoxNavigation.indexOf(self.pageMother), _translate("MainWindow", "Материнские платы"))
+        self.lbCoolPost.setText(_translate("MainWindow", "Поставщики:"))
+        self.btnNewCoolPost.setText(_translate("MainWindow", "Новый\n"
+"поставщик"))
+        self.btnDelCoolPost.setText(_translate("MainWindow", "Удалить\n"
+"выбранного"))
+        self.tableCoolPost.setSortingEnabled(True)
+        item = self.tableCoolPost.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", "w"))
+        item = self.tableCoolPost.verticalHeaderItem(1)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableCoolPost.verticalHeaderItem(2)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableCoolPost.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Договор"))
+        item = self.tableCoolPost.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Состояние"))
+        item = self.tableCoolPost.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Название"))
+        __sortingEnabled = self.tableCoolPost.isSortingEnabled()
+        self.tableCoolPost.setSortingEnabled(False)
+        item = self.tableCoolPost.item(0, 0)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tableCoolPost.item(0, 2)
+        item.setText(_translate("MainWindow", "Gigabyte"))
+        item = self.tableCoolPost.item(1, 0)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tableCoolPost.item(1, 2)
+        item.setText(_translate("MainWindow", "Asus"))
+        item = self.tableCoolPost.item(2, 0)
+        item.setText(_translate("MainWindow", "-"))
+        item = self.tableCoolPost.item(2, 2)
+        item.setText(_translate("MainWindow", "Nvidia"))
+        self.tableCoolPost.setSortingEnabled(__sortingEnabled)
+        self.btnCngCoolPost.setText(_translate("MainWindow", "Изменить\n"
+"договор"))
+        self.toolBoxNavigation.setItemText(self.toolBoxNavigation.indexOf(self.pageCool), _translate("MainWindow", "Охлаждение"))
+        self.lbRamPost.setText(_translate("MainWindow", "Поставщики:"))
+        self.btnNewRamPost.setText(_translate("MainWindow", "Новый\n"
+"поставщик"))
+        self.btnDelRamPost.setText(_translate("MainWindow", "Удалить\n"
+"выбранного"))
+        self.tableRamPost.setSortingEnabled(True)
+        item = self.tableRamPost.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", "w"))
+        item = self.tableRamPost.verticalHeaderItem(1)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableRamPost.verticalHeaderItem(2)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableRamPost.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Договор"))
+        item = self.tableRamPost.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Состояние"))
+        item = self.tableRamPost.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Название"))
+        __sortingEnabled = self.tableRamPost.isSortingEnabled()
+        self.tableRamPost.setSortingEnabled(False)
+        item = self.tableRamPost.item(0, 0)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tableRamPost.item(0, 2)
+        item.setText(_translate("MainWindow", "Gigabyte"))
+        item = self.tableRamPost.item(1, 0)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tableRamPost.item(1, 2)
+        item.setText(_translate("MainWindow", "Asus"))
+        item = self.tableRamPost.item(2, 0)
+        item.setText(_translate("MainWindow", "-"))
+        item = self.tableRamPost.item(2, 2)
+        item.setText(_translate("MainWindow", "Nvidia"))
+        self.tableRamPost.setSortingEnabled(__sortingEnabled)
+        self.btnCngRamPost.setText(_translate("MainWindow", "Изменить\n"
+"договор"))
+        self.toolBoxNavigation.setItemText(self.toolBoxNavigation.indexOf(self.pageRam), _translate("MainWindow", "Оперативная память"))
+        self.lbDiskPost.setText(_translate("MainWindow", "Поставщики:"))
+        self.btnNewDiskPost.setText(_translate("MainWindow", "Новый\n"
+"поставщик"))
+        self.btnDelDiskPost.setText(_translate("MainWindow", "Удалить\n"
+"выбранного"))
+        self.tableDiskPost.setSortingEnabled(True)
+        item = self.tableDiskPost.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", "w"))
+        item = self.tableDiskPost.verticalHeaderItem(1)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableDiskPost.verticalHeaderItem(2)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableDiskPost.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Договор"))
+        item = self.tableDiskPost.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Состояние"))
+        item = self.tableDiskPost.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Название"))
+        __sortingEnabled = self.tableDiskPost.isSortingEnabled()
+        self.tableDiskPost.setSortingEnabled(False)
+        item = self.tableDiskPost.item(0, 0)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tableDiskPost.item(0, 2)
+        item.setText(_translate("MainWindow", "Gigabyte"))
+        item = self.tableDiskPost.item(1, 0)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tableDiskPost.item(1, 2)
+        item.setText(_translate("MainWindow", "Asus"))
+        item = self.tableDiskPost.item(2, 0)
+        item.setText(_translate("MainWindow", "-"))
+        item = self.tableDiskPost.item(2, 2)
+        item.setText(_translate("MainWindow", "Nvidia"))
+        self.tableDiskPost.setSortingEnabled(__sortingEnabled)
+        self.btnCngDiskPost.setText(_translate("MainWindow", "Изменить\n"
+"договор"))
+        self.toolBoxNavigation.setItemText(self.toolBoxNavigation.indexOf(self.pageDisk), _translate("MainWindow", "Накопители"))
+        self.lbPowerPost.setText(_translate("MainWindow", "Поставщики:"))
+        self.btnNewPowerPost.setText(_translate("MainWindow", "Новый\n"
+"поставщик"))
+        self.btnDelPowerPost.setText(_translate("MainWindow", "Удалить\n"
+"выбранного"))
+        self.tablePowerPost.setSortingEnabled(True)
+        item = self.tablePowerPost.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", "w"))
+        item = self.tablePowerPost.verticalHeaderItem(1)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tablePowerPost.verticalHeaderItem(2)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tablePowerPost.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Договор"))
+        item = self.tablePowerPost.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Состояние"))
+        item = self.tablePowerPost.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Название"))
+        __sortingEnabled = self.tablePowerPost.isSortingEnabled()
+        self.tablePowerPost.setSortingEnabled(False)
+        item = self.tablePowerPost.item(0, 0)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tablePowerPost.item(0, 2)
+        item.setText(_translate("MainWindow", "Gigabyte"))
+        item = self.tablePowerPost.item(1, 0)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tablePowerPost.item(1, 2)
+        item.setText(_translate("MainWindow", "Asus"))
+        item = self.tablePowerPost.item(2, 0)
+        item.setText(_translate("MainWindow", "-"))
+        item = self.tablePowerPost.item(2, 2)
+        item.setText(_translate("MainWindow", "Nvidia"))
+        self.tablePowerPost.setSortingEnabled(__sortingEnabled)
+        self.btnCngPowerPost.setText(_translate("MainWindow", "Изменить\n"
+"договор"))
+        self.toolBoxNavigation.setItemText(self.toolBoxNavigation.indexOf(self.pagePower), _translate("MainWindow", "Питание"))
+        self.lbBodyPost.setText(_translate("MainWindow", "Поставщики:"))
+        self.btnNewBodyPost.setText(_translate("MainWindow", "Новый\n"
+"поставщик"))
+        self.btnDelBodyPost.setText(_translate("MainWindow", "Удалить\n"
+"выбранного"))
+        self.tableBodyPost.setSortingEnabled(True)
+        item = self.tableBodyPost.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", "w"))
+        item = self.tableBodyPost.verticalHeaderItem(1)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableBodyPost.verticalHeaderItem(2)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableBodyPost.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Договор"))
+        item = self.tableBodyPost.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Состояние"))
+        item = self.tableBodyPost.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Название"))
+        __sortingEnabled = self.tableBodyPost.isSortingEnabled()
+        self.tableBodyPost.setSortingEnabled(False)
+        item = self.tableBodyPost.item(0, 0)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tableBodyPost.item(0, 2)
+        item.setText(_translate("MainWindow", "Gigabyte"))
+        item = self.tableBodyPost.item(1, 0)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tableBodyPost.item(1, 2)
+        item.setText(_translate("MainWindow", "Asus"))
+        item = self.tableBodyPost.item(2, 0)
+        item.setText(_translate("MainWindow", "-"))
+        item = self.tableBodyPost.item(2, 2)
+        item.setText(_translate("MainWindow", "Nvidia"))
+        self.tableBodyPost.setSortingEnabled(__sortingEnabled)
+        self.btnCngBodyPost.setText(_translate("MainWindow", "Изменить\n"
+"договор"))
+        self.toolBoxNavigation.setItemText(self.toolBoxNavigation.indexOf(self.pageBody), _translate("MainWindow", "Корпусы"))
+        self.label_10.setText(_translate("MainWindow", "Готовые конфигурации"))
+        self.btnNewVideoPost_10.setText(_translate("MainWindow", "Новый\n"
+"поставщик"))
+        self.btnDelBConfPost.setText(_translate("MainWindow", "Удалить\n"
+"выбранного"))
+        self.btnDelVideoPost_20.setText(_translate("MainWindow", "Изменить\n"
+"договор"))
+        self.toolBoxNavigation.setItemText(self.toolBoxNavigation.indexOf(self.pageConf), _translate("MainWindow", "Конфигурации"))
         item = self.twSklad.verticalHeaderItem(0)
         item.setText(_translate("MainWindow", "1"))
         item = self.twSklad.verticalHeaderItem(1)
         item.setText(_translate("MainWindow", "2"))
-        item = self.twSklad.verticalHeaderItem(2)
-        item.setText(_translate("MainWindow", "3"))
-        item = self.twSklad.verticalHeaderItem(3)
-        item.setText(_translate("MainWindow", "4"))
-        item = self.twSklad.verticalHeaderItem(4)
-        item.setText(_translate("MainWindow", "5"))
-        item = self.twSklad.verticalHeaderItem(5)
-        item.setText(_translate("MainWindow", "6"))
-        item = self.twSklad.verticalHeaderItem(6)
-        item.setText(_translate("MainWindow", "7777"))
         item = self.twSklad.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "New Column"))
         item = self.twSklad.horizontalHeaderItem(1)
@@ -5896,315 +5777,8 @@ class Ui_MainWindow(object):
         item = self.twSklad.item(1, 4)
         item.setText(_translate("MainWindow", "2222111"))
         self.twSklad.setSortingEnabled(__sortingEnabled)
-        self.btnAdd.setText(_translate("MainWindow", "Новый заказ"))
-        self.btnDelete.setText(_translate("MainWindow", "Удалить"))
-        self.btnChange.setText(_translate("MainWindow", "Изменить параметры"))
-        self.lbVideoPost.setText(_translate("MainWindow", "Поставщики:"))
-        self.btnNewVideoPost.setText(_translate("MainWindow", "Новый\n"
-"поставщик"))
-        self.btnDelVideoPost.setText(_translate("MainWindow", "Удалить\n"
-"выбранного"))
-        self.tableVideoPost.setSortingEnabled(True)
-        item = self.tableVideoPost.verticalHeaderItem(0)
-        item.setText(_translate("MainWindow", "w"))
-        item = self.tableVideoPost.verticalHeaderItem(1)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableVideoPost.verticalHeaderItem(2)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableVideoPost.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Название"))
-        item = self.tableVideoPost.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Договор"))
-        __sortingEnabled = self.tableVideoPost.isSortingEnabled()
-        self.tableVideoPost.setSortingEnabled(False)
-        item = self.tableVideoPost.item(0, 0)
-        item.setText(_translate("MainWindow", "Gigabyte"))
-        item = self.tableVideoPost.item(0, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tableVideoPost.item(1, 0)
-        item.setText(_translate("MainWindow", "Asus"))
-        item = self.tableVideoPost.item(1, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tableVideoPost.item(2, 0)
-        item.setText(_translate("MainWindow", "Nvidia"))
-        item = self.tableVideoPost.item(2, 1)
-        item.setText(_translate("MainWindow", "-"))
-        self.tableVideoPost.setSortingEnabled(__sortingEnabled)
-        self.btnCngVideoPost.setText(_translate("MainWindow", "Изменить\n"
-"договор"))
-        self.toolBoxNavigation.setItemText(self.toolBoxNavigation.indexOf(self.pageVideo), _translate("MainWindow", "Видеокарты"))
-        self.lbProcPost.setText(_translate("MainWindow", "Поставщики:"))
-        self.btnNewProcPost.setText(_translate("MainWindow", "Новый\n"
-"поставщик"))
-        self.btnDelProcPost.setText(_translate("MainWindow", "Удалить\n"
-"выбранного"))
-        self.tableProcPost.setSortingEnabled(True)
-        item = self.tableProcPost.verticalHeaderItem(0)
-        item.setText(_translate("MainWindow", "w"))
-        item = self.tableProcPost.verticalHeaderItem(1)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableProcPost.verticalHeaderItem(2)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableProcPost.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Название"))
-        item = self.tableProcPost.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Договор"))
-        __sortingEnabled = self.tableProcPost.isSortingEnabled()
-        self.tableProcPost.setSortingEnabled(False)
-        item = self.tableProcPost.item(0, 0)
-        item.setText(_translate("MainWindow", "Gigabyte"))
-        item = self.tableProcPost.item(0, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tableProcPost.item(1, 0)
-        item.setText(_translate("MainWindow", "Asus"))
-        item = self.tableProcPost.item(1, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tableProcPost.item(2, 0)
-        item.setText(_translate("MainWindow", "Nvidia"))
-        item = self.tableProcPost.item(2, 1)
-        item.setText(_translate("MainWindow", "-"))
-        self.tableProcPost.setSortingEnabled(__sortingEnabled)
-        self.btnCngProcPost.setText(_translate("MainWindow", "Изменить\n"
-"договор"))
-        self.toolBoxNavigation.setItemText(self.toolBoxNavigation.indexOf(self.pageProc), _translate("MainWindow", "Процессоры"))
-        self.lbMotherPost.setText(_translate("MainWindow", "Поставщики:"))
-        self.btnNewMotherPost.setText(_translate("MainWindow", "Новый\n"
-"поставщик"))
-        self.btnDelMotherPost.setText(_translate("MainWindow", "Удалить\n"
-"выбранного"))
-        self.tableMotherPost.setSortingEnabled(True)
-        item = self.tableMotherPost.verticalHeaderItem(0)
-        item.setText(_translate("MainWindow", "w"))
-        item = self.tableMotherPost.verticalHeaderItem(1)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableMotherPost.verticalHeaderItem(2)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableMotherPost.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Название"))
-        item = self.tableMotherPost.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Договор"))
-        __sortingEnabled = self.tableMotherPost.isSortingEnabled()
-        self.tableMotherPost.setSortingEnabled(False)
-        item = self.tableMotherPost.item(0, 0)
-        item.setText(_translate("MainWindow", "Gigabyte"))
-        item = self.tableMotherPost.item(0, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tableMotherPost.item(1, 0)
-        item.setText(_translate("MainWindow", "Asus"))
-        item = self.tableMotherPost.item(1, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tableMotherPost.item(2, 0)
-        item.setText(_translate("MainWindow", "Nvidia"))
-        item = self.tableMotherPost.item(2, 1)
-        item.setText(_translate("MainWindow", "-"))
-        self.tableMotherPost.setSortingEnabled(__sortingEnabled)
-        self.btnCngMotherPost.setText(_translate("MainWindow", "Изменить\n"
-"договор"))
-        self.toolBoxNavigation.setItemText(self.toolBoxNavigation.indexOf(self.pageMother), _translate("MainWindow", "Материнские платы"))
-        self.lbCooligPost.setText(_translate("MainWindow", "Поставщики:"))
-        self.btnNewCoolingPost.setText(_translate("MainWindow", "Новый\n"
-"поставщик"))
-        self.btnDelCoolingPost.setText(_translate("MainWindow", "Удалить\n"
-"выбранного"))
-        self.tableCoolingPost.setSortingEnabled(True)
-        item = self.tableCoolingPost.verticalHeaderItem(0)
-        item.setText(_translate("MainWindow", "w"))
-        item = self.tableCoolingPost.verticalHeaderItem(1)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableCoolingPost.verticalHeaderItem(2)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableCoolingPost.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Название"))
-        item = self.tableCoolingPost.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Договор"))
-        __sortingEnabled = self.tableCoolingPost.isSortingEnabled()
-        self.tableCoolingPost.setSortingEnabled(False)
-        item = self.tableCoolingPost.item(0, 0)
-        item.setText(_translate("MainWindow", "Gigabyte"))
-        item = self.tableCoolingPost.item(0, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tableCoolingPost.item(1, 0)
-        item.setText(_translate("MainWindow", "Asus"))
-        item = self.tableCoolingPost.item(1, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tableCoolingPost.item(2, 0)
-        item.setText(_translate("MainWindow", "Nvidia"))
-        item = self.tableCoolingPost.item(2, 1)
-        item.setText(_translate("MainWindow", "-"))
-        self.tableCoolingPost.setSortingEnabled(__sortingEnabled)
-        self.btnCngCoolingPost.setText(_translate("MainWindow", "Изменить\n"
-"договор"))
-        self.toolBoxNavigation.setItemText(self.toolBoxNavigation.indexOf(self.pageCooling), _translate("MainWindow", "Охлаждение"))
-        self.lbRamPost.setText(_translate("MainWindow", "Поставщики:"))
-        self.btnNewRamPost.setText(_translate("MainWindow", "Новый\n"
-"поставщик"))
-        self.btnDelRamPost.setText(_translate("MainWindow", "Удалить\n"
-"выбранного"))
-        self.tableRamPost.setSortingEnabled(True)
-        item = self.tableRamPost.verticalHeaderItem(0)
-        item.setText(_translate("MainWindow", "w"))
-        item = self.tableRamPost.verticalHeaderItem(1)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableRamPost.verticalHeaderItem(2)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableRamPost.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Название"))
-        item = self.tableRamPost.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Договор"))
-        __sortingEnabled = self.tableRamPost.isSortingEnabled()
-        self.tableRamPost.setSortingEnabled(False)
-        item = self.tableRamPost.item(0, 0)
-        item.setText(_translate("MainWindow", "Gigabyte"))
-        item = self.tableRamPost.item(0, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tableRamPost.item(1, 0)
-        item.setText(_translate("MainWindow", "Asus"))
-        item = self.tableRamPost.item(1, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tableRamPost.item(2, 0)
-        item.setText(_translate("MainWindow", "Nvidia"))
-        item = self.tableRamPost.item(2, 1)
-        item.setText(_translate("MainWindow", "-"))
-        self.tableRamPost.setSortingEnabled(__sortingEnabled)
-        self.btnCngRamPost.setText(_translate("MainWindow", "Изменить\n"
-"договор"))
-        self.toolBoxNavigation.setItemText(self.toolBoxNavigation.indexOf(self.pageRam), _translate("MainWindow", "Оперативная память"))
-        self.lbDiskPost.setText(_translate("MainWindow", "Поставщики:"))
-        self.btnNewDiskPost.setText(_translate("MainWindow", "Новый\n"
-"поставщик"))
-        self.btnDelDiskPost.setText(_translate("MainWindow", "Удалить\n"
-"выбранного"))
-        self.tableDiskPost.setSortingEnabled(True)
-        item = self.tableDiskPost.verticalHeaderItem(0)
-        item.setText(_translate("MainWindow", "w"))
-        item = self.tableDiskPost.verticalHeaderItem(1)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableDiskPost.verticalHeaderItem(2)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableDiskPost.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Название"))
-        item = self.tableDiskPost.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Договор"))
-        __sortingEnabled = self.tableDiskPost.isSortingEnabled()
-        self.tableDiskPost.setSortingEnabled(False)
-        item = self.tableDiskPost.item(0, 0)
-        item.setText(_translate("MainWindow", "Gigabyte"))
-        item = self.tableDiskPost.item(0, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tableDiskPost.item(1, 0)
-        item.setText(_translate("MainWindow", "Asus"))
-        item = self.tableDiskPost.item(1, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tableDiskPost.item(2, 0)
-        item.setText(_translate("MainWindow", "Nvidia"))
-        item = self.tableDiskPost.item(2, 1)
-        item.setText(_translate("MainWindow", "-"))
-        self.tableDiskPost.setSortingEnabled(__sortingEnabled)
-        self.btnCngDiskPost.setText(_translate("MainWindow", "Изменить\n"
-"договор"))
-        self.toolBoxNavigation.setItemText(self.toolBoxNavigation.indexOf(self.pageDisk), _translate("MainWindow", "Накопители"))
-        self.lbPowerPost.setText(_translate("MainWindow", "Поставщики:"))
-        self.btnNewPowerPost.setText(_translate("MainWindow", "Новый\n"
-"поставщик"))
-        self.btnDelPowerPost.setText(_translate("MainWindow", "Удалить\n"
-"выбранного"))
-        self.tablePowerPost.setSortingEnabled(True)
-        item = self.tablePowerPost.verticalHeaderItem(0)
-        item.setText(_translate("MainWindow", "w"))
-        item = self.tablePowerPost.verticalHeaderItem(1)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tablePowerPost.verticalHeaderItem(2)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tablePowerPost.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Название"))
-        item = self.tablePowerPost.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Договор"))
-        __sortingEnabled = self.tablePowerPost.isSortingEnabled()
-        self.tablePowerPost.setSortingEnabled(False)
-        item = self.tablePowerPost.item(0, 0)
-        item.setText(_translate("MainWindow", "Gigabyte"))
-        item = self.tablePowerPost.item(0, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tablePowerPost.item(1, 0)
-        item.setText(_translate("MainWindow", "Asus"))
-        item = self.tablePowerPost.item(1, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tablePowerPost.item(2, 0)
-        item.setText(_translate("MainWindow", "Nvidia"))
-        item = self.tablePowerPost.item(2, 1)
-        item.setText(_translate("MainWindow", "-"))
-        self.tablePowerPost.setSortingEnabled(__sortingEnabled)
-        self.btnCngPowerPost.setText(_translate("MainWindow", "Изменить\n"
-"договор"))
-        self.toolBoxNavigation.setItemText(self.toolBoxNavigation.indexOf(self.pagePower), _translate("MainWindow", "Питание"))
-        self.lbBodyPost.setText(_translate("MainWindow", "Поставщики:"))
-        self.btnNewBodyPost.setText(_translate("MainWindow", "Новый\n"
-"поставщик"))
-        self.btnDelBodyPost.setText(_translate("MainWindow", "Удалить\n"
-"выбранного"))
-        self.tableBodyPost.setSortingEnabled(True)
-        item = self.tableBodyPost.verticalHeaderItem(0)
-        item.setText(_translate("MainWindow", "w"))
-        item = self.tableBodyPost.verticalHeaderItem(1)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableBodyPost.verticalHeaderItem(2)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableBodyPost.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Название"))
-        item = self.tableBodyPost.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Договор"))
-        __sortingEnabled = self.tableBodyPost.isSortingEnabled()
-        self.tableBodyPost.setSortingEnabled(False)
-        item = self.tableBodyPost.item(0, 0)
-        item.setText(_translate("MainWindow", "Gigabyte"))
-        item = self.tableBodyPost.item(0, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tableBodyPost.item(1, 0)
-        item.setText(_translate("MainWindow", "Asus"))
-        item = self.tableBodyPost.item(1, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tableBodyPost.item(2, 0)
-        item.setText(_translate("MainWindow", "Nvidia"))
-        item = self.tableBodyPost.item(2, 1)
-        item.setText(_translate("MainWindow", "-"))
-        self.tableBodyPost.setSortingEnabled(__sortingEnabled)
-        self.btnCngBodyPost.setText(_translate("MainWindow", "Изменить\n"
-"договор"))
-        self.toolBoxNavigation.setItemText(self.toolBoxNavigation.indexOf(self.pageBody), _translate("MainWindow", "Корпусы"))
-        self.label_10.setText(_translate("MainWindow", "?????"))
-        self.btnNewVideoPost_10.setText(_translate("MainWindow", "Новый\n"
-"поставщик"))
-        self.btnDelBConfPost.setText(_translate("MainWindow", "Удалить\n"
-"выбранного"))
-        self.tbconfigs_name.setSortingEnabled(True)
-        item = self.tbconfigs_name.verticalHeaderItem(0)
-        item.setText(_translate("MainWindow", "w"))
-        item = self.tbconfigs_name.verticalHeaderItem(1)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tbconfigs_name.verticalHeaderItem(2)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tbconfigs_name.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Название"))
-        item = self.tbconfigs_name.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Договор"))
-        __sortingEnabled = self.tbconfigs_name.isSortingEnabled()
-        self.tbconfigs_name.setSortingEnabled(False)
-        item = self.tbconfigs_name.item(0, 0)
-        item.setText(_translate("MainWindow", "Gigabyte"))
-        item = self.tbconfigs_name.item(0, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tbconfigs_name.item(1, 0)
-        item.setText(_translate("MainWindow", "Asus"))
-        item = self.tbconfigs_name.item(1, 1)
-        item.setText(_translate("MainWindow", "+"))
-        item = self.tbconfigs_name.item(2, 0)
-        item.setText(_translate("MainWindow", "Nvidia"))
-        item = self.tbconfigs_name.item(2, 1)
-        item.setText(_translate("MainWindow", "-"))
-        self.tbconfigs_name.setSortingEnabled(__sortingEnabled)
-        self.btnDelVideoPost_20.setText(_translate("MainWindow", "Изменить\n"
-"договор"))
-        self.toolBoxNavigation.setItemText(self.toolBoxNavigation.indexOf(self.pageConf), _translate("MainWindow", "Конфигурации"))
+        self.tabWidgetSklad.setTabText(self.tabWidgetSklad.indexOf(self.all_2), _translate("MainWindow", "Все"))
+        self.btnSkladFilter.setText(_translate("MainWindow", "Настроить фильтр"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.sklad), _translate("MainWindow", "Склад"))
         self.progressBar.setFormat(_translate("MainWindow", "%v / %m"))
         self.treeWidget.setSortingEnabled(False)
@@ -6397,8 +5971,6 @@ class Ui_MainWindow(object):
         self.lbPower.setText(_translate("MainWindow", "Питание"))
         self.btnPowerFilter.setText(_translate("MainWindow", "Настроить фильтр"))
         self.tabWidgetPower.setTabText(self.tabWidgetPower.indexOf(self.allPower), _translate("MainWindow", "Все"))
-        self.tabWidgetPower.setTabText(self.tabWidgetPower.indexOf(self.tabPower1), _translate("MainWindow", "NVIDIA"))
-        self.tabWidgetPower.setTabText(self.tabWidgetPower.indexOf(self.tabPower2), _translate("MainWindow", "AMD"))
         self.tableConfPower.setSortingEnabled(True)
         item = self.tableConfPower.verticalHeaderItem(0)
         item.setText(_translate("MainWindow", "w"))

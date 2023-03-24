@@ -7,16 +7,32 @@ from ui import main_interface, warningWin
 from ui.add import adding  # импорт файла со всеми окнами добавления
 from ui.help import helping  # импорт файла со всеми окнами помощи
 from ui.filter import filters  # импорт файла со всеми фильтрами
+from ui.post import addPostWidget  # импорт файла (виджета) добавления поставщика
 
 
 # Класс диалогового окна с кнопкой
 class DialogOk(QDialog, warningWin.Ui_warningDialog):
-    def __init__(self, text):
+    def __init__(self, error_win_title, error_text):
         QDialog.__init__(self)
         self.setupUi(self)
-        self.setWindowTitle("Ошибка")
-        self.lbErrDescription.setText(text)
+        self.setWindowTitle(error_win_title)
+        self.lbErrDescription.setText(error_text)
         self.btnCancel.clicked.connect(lambda: self.close())
+
+
+# Класс окна с добавлением поставщика
+class AddPost(QtWidgets.QWidget, addPostWidget.Ui_addPostWidget):
+    def __init__(self, text_complect):
+        super().__init__()
+        self.setupUi(self)
+        self.labelComplect.setText(text_complect)
+        self.btnPostSave.clicked.connect(lambda: self.createPostQuery(text_complect, self.lePostName.text()))
+        self.btnPostSave.clicked.connect(lambda: self.close())
+
+    def createPostQuery(self, text_complect, post_name):
+        match text_complect:
+            case "Поставщик видеокарт":
+                print(f"INSERT INTO Post_videocard (exist, name) VALUES (True, {post_name});")
 
 
 class RadioButton(QtWidgets.QRadioButton):
@@ -42,14 +58,16 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         super(MainWindow, self).__init__()
         self.setupUi(self)
         self.setWindowTitle("Конфигуратор ПК")
-
-        self.treeWidget.itemClicked.connect(lambda: self.treeNavigation())
+        # =============================== Надстройки вкладки "Склад"================================
+        self.twSklad.horizontalHeader().setDefaultAlignment(QtCore.Qt.AlignVCenter | QtCore.Qt.AlignHCenter)
+        self.twSklad.verticalHeader().setDefaultAlignment(QtCore.Qt.AlignVCenter | QtCore.Qt.AlignHCenter)
         #  self.toolBoxNavigation.currentChanged.connect(lambda: self.toolBoxNavigation.currentIndex())
         self.btnAdd.clicked.connect(lambda: self.tbChanged(
             self.toolBoxNavigation.currentIndex(),
             True,
             self.twSklad.currentRow())
                                     )
+        # Кнопка будет удалена
         self.btnChange.clicked.connect(lambda: self.tbChanged(
             self.toolBoxNavigation.currentIndex(),
             False,
@@ -57,6 +75,42 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 self.twSklad.currentRow(),
                 self.twSklad.columnCount()))
                                        )
+
+        self.tableVideoPost.setColumnWidth(0, 30)
+        self.tableVideoPost.setColumnWidth(1, 0)
+        self.tableVideoPost.setColumnWidth(2, 140)
+        self.tableProcPost.setColumnWidth(0, 30)
+        self.tableProcPost.setColumnWidth(1, 0)
+        self.tableProcPost.setColumnWidth(2, 140)
+        self.tableMotherPost.setColumnWidth(0, 30)
+        self.tableMotherPost.setColumnWidth(1, 0)
+        self.tableMotherPost.setColumnWidth(2, 140)
+        self.tableCoolPost.setColumnWidth(0, 30)
+        self.tableCoolPost.setColumnWidth(1, 0)
+        self.tableCoolPost.setColumnWidth(2, 140)
+        self.tableRamPost.setColumnWidth(0, 30)
+        self.tableRamPost.setColumnWidth(1, 0)
+        self.tableRamPost.setColumnWidth(2, 140)
+        self.tableDiskPost.setColumnWidth(0, 30)
+        self.tableDiskPost.setColumnWidth(1, 0)
+        self.tableDiskPost.setColumnWidth(2, 140)
+        self.tablePowerPost.setColumnWidth(0, 30)
+        self.tablePowerPost.setColumnWidth(1, 0)
+        self.tablePowerPost.setColumnWidth(2, 140)
+        self.tableBodyPost.setColumnWidth(0, 30)
+        self.tableBodyPost.setColumnWidth(1, 0)
+        self.tableBodyPost.setColumnWidth(2, 140)
+
+        for i in range(self.tableVideoPost.rowCount()):  # заполнить столбец с бд и вызвать в цикле метод.
+            self.paste_existence(self.tableVideoPost, i, True, 1)
+
+        self.btnNewVideoPost.clicked.connect(lambda: AddPost("Поставщик видеокарт").show())  # x8
+
+        self.btnCngVideoPost.clicked.connect(lambda: self.changePost(self.tableVideoPost.currentRow(), self.tableVideoPost))
+        # ==========================================================================================
+
+        # =========================== Надстройки вкладки "Конфигуратор"=============================
+        self.treeWidget.itemClicked.connect(lambda: self.treeNavigation())
         # ----------------------Заполнение таблиц RB---------------------------
         self.dict_button_group = {}  # Словарь для хранения групп RB и таблиц, в которых они находятся
         self.row_selected = None
@@ -85,9 +139,6 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         self.btnResetConfig.clicked.connect(self.resetAll)
         # ---------------------------------------------------------------------
 
-        self.twSklad.horizontalHeader().setDefaultAlignment(QtCore.Qt.AlignVCenter | QtCore.Qt.AlignHCenter)
-        self.twSklad.verticalHeader().setDefaultAlignment(QtCore.Qt.AlignVCenter | QtCore.Qt.AlignHCenter)
-
         self.table_config.setColumnWidth(0, 0)
         self.table_config.setColumnWidth(1, 170)
         self.table_config.setColumnWidth(2, 55)
@@ -106,6 +157,30 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
             lambda row, column, table=self.tableConfProc:
             self.cell_row(row, column, table))
 
+        self.tableConfMother.cellClicked.connect(
+            lambda row, column, table=self.tableConfMother:
+            self.cell_row(row, column, table))
+
+        self.tableConfCool.cellClicked.connect(
+            lambda row, column, table=self.tableConfCool:
+            self.cell_row(row, column, table))
+
+        self.tableConfRam.cellClicked.connect(
+            lambda row, column, table=self.tableConfRam:
+            self.cell_row(row, column, table))
+
+        self.tableConfDisk.cellClicked.connect(
+            lambda row, column, table=self.tableConfDisk:
+            self.cell_row(row, column, table))
+
+        self.tableConfPower.cellClicked.connect(
+            lambda row, column, table=self.tableConfPower:
+            self.cell_row(row, column, table))
+
+        self.tableConfBody.cellClicked.connect(
+            lambda row, column, table=self.tableConfBody:
+            self.cell_row(row, column, table))
+
         self.video_tabs = ["RADEON", "NVIDIA", "INTEL"]  # список с названиями (принимается с БД)
         self.processor_tabs = ["INTEL", "AMD"]
         self. fill_tabs(self.video_tabs, self.tabWidgetVideo)
@@ -116,40 +191,28 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         ''' в дальнейшем existence будет из строк БД принимать true|false
          и вставлять соответствующее в таблицу состояние комплектующего
          Или if kol > 0 then... '''
-        self.existence(self.tableConfVideo, True)
-        self.existence(self.tableConfProc, True)
+        for i in range(self.tableConfVideo.rowCount()):
+            self.paste_existence(self.tableConfVideo, i, True, 2)
+        # self.paste_existence(self.tableConfProc, True, 2)
+        # self.paste_existence(self.tableVideoPost, True, 1)
 
-    # Метод для заполнения tabWidget-ов переданными
-    def fill_tabs(self, list_names, tab_widget):
-        count_tab = len(list_names)
-
-        for i in range(1, count_tab + 1):  # первая вкладка должна остаться
-            tab = QtWidgets.QWidget()
-            tab_widget.addTab(tab, list_names[i - 1])
-
-    def click_tab(self, tab_index, tab_widget):
-        tab_name = tab_widget.tabText(tab_index)
-        print(f"SELECT FROM TABLE WHERE FIELD1 ='{tab_name}'")
-
-    def treeNavigation(self):
-        index = self.treeWidget.currentIndex().row()
-        match index:
-            case 0:
-                self.scrollArea.verticalScrollBar().setValue(0)
-            case 1:
-                self.scrollArea.verticalScrollBar().setValue(310)
-            case 2:
-                self.scrollArea.verticalScrollBar().setValue(620)
-            case 3:
-                self.scrollArea.verticalScrollBar().setValue(930)
-            case 4:
-                self.scrollArea.verticalScrollBar().setValue(1240)
-            case 5:
-                self.scrollArea.verticalScrollBar().setValue(1550)
-            case 6:
-                self.scrollArea.verticalScrollBar().setValue(1860)
-            case 7:
-                self.scrollArea.verticalScrollBar().setValue(1860)
+    # изменение состояния в таблице поставщика
+    def changePost(self, cur_row, table):
+        if cur_row == -1:
+            err = "Выберите поставщика для изменения"
+            self.dialog = DialogOk("Ошибка", err)
+            self.dialog.show()
+            if self.dialog.exec():
+                pass
+        else:
+            if table.item(cur_row, 1).text() == "True":
+                self.paste_existence(table, cur_row, False, 1)
+                table.item(cur_row, 1).setText("False")  # Изменяем состояние в таблице
+                # здесь запрос в БД на изменение состояние поставщика (false->true)
+            else:
+                self.paste_existence(table, cur_row, True, 1)
+                table.item(cur_row, 1).setText("True")
+            # здесь запрос в БД на изменение состояние поставщика (false->true)
 
     # чтение выбранной строки в таблце для редактирования
     def readSklad(self, cur_row, count_col):
@@ -167,11 +230,10 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
             case 0:  # 0-9 - вкладки ToolBox (меню навигации)
                 if button:  # Если True - добавляем новую запись: открываем пустое окно
                     self.win_add_change = adding.AddChangeVideoWindow()
-                    self.win_add_change.setWindowTitle("Создание заказа")
                     self.win_add_change.show()
                 else:  # Есил False - изменяем выбранную запись
                     if type(row) is str:  # Если пришел не список, а строка(ошибка) - вывод окна с ошибкой
-                        self.dialog = DialogOk(row)
+                        self.dialog = DialogOk("Ошибка", row)
                         self.dialog.show()
                         if self.dialog.exec():
                             pass
@@ -213,6 +275,38 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                     self.win_add_change = adding.AddChangeVideoWindow()
                     self.win_add_change.show()
 
+    # Метод для заполнения tabWidget-ов переданными
+    def fill_tabs(self, list_names, tab_widget):
+        count_tab = len(list_names)
+
+        for i in range(1, count_tab + 1):  # первая вкладка должна остаться
+            tab = QtWidgets.QWidget()
+            tab_widget.addTab(tab, list_names[i - 1])
+
+    def click_tab(self, tab_index, tab_widget):
+        tab_name = tab_widget.tabText(tab_index)
+        print(f"SELECT FROM TABLE WHERE FIELD1 ='{tab_name}'")
+
+    def treeNavigation(self):
+        index = self.treeWidget.currentIndex().row()
+        match index:
+            case 0:
+                self.scrollArea.verticalScrollBar().setValue(0)
+            case 1:
+                self.scrollArea.verticalScrollBar().setValue(310)
+            case 2:
+                self.scrollArea.verticalScrollBar().setValue(620)
+            case 3:
+                self.scrollArea.verticalScrollBar().setValue(930)
+            case 4:
+                self.scrollArea.verticalScrollBar().setValue(1240)
+            case 5:
+                self.scrollArea.verticalScrollBar().setValue(1550)
+            case 6:
+                self.scrollArea.verticalScrollBar().setValue(1860)
+            case 7:
+                self.scrollArea.verticalScrollBar().setValue(1860)
+
     #  метод создания индикатора состояния комплектующего
     def create_existence(self, png_way):
         widget = QtWidgets.QWidget()
@@ -226,14 +320,20 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         widget.setLayout(pLayout)
         return widget
 
-    # метод заполнения ячейки с состоянием
-    def existence(self, table, bool_sklad):
+    # метод заполнения ячейки наличием товара\поставщика
+    def paste_existence(self, table, row, bool_, type_table):
         row_count = table.rowCount()
-        for i in range(row_count):  # потом вызов построчно. (цикл уйдет)
-            if bool_sklad:
-                table.setCellWidget(i, 1, self.create_existence("E:/pcconf/images/have.png"))
-            else:
-                table.setCellWidget(i, 1, self.create_existence("E:/pcconf/images/unhave.png"))
+        match type_table:  # Если тип тиаблицы 1 (склад) - заполняем в 1 столбец. Если 2 (конфигуратор) - 2 столбец.
+            case 1:
+                if bool_:
+                    table.setCellWidget(row, 0, self.create_existence("E:/pcconf/images/have.png"))
+                else:
+                    table.setCellWidget(row, 0, self.create_existence("E:/pcconf/images/nothave.png"))
+            case 2:
+                if bool_:
+                    table.setCellWidget(row, 1, self.create_existence("E:/pcconf/images/have.png"))
+                else:
+                    table.setCellWidget(row, 1, self.create_existence("E:/pcconf/images/nothave.png"))
 
     # Метод создания рб на виджете
     def create_radioButton(self):
@@ -251,6 +351,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         self.resetRadioButton(self.tableConfVideo)
         self.resetRadioButton(self.tableConfProc)
         self.resetRadioButton(self.tableConfMother)
+        self.resetRadioButton(self.tableConfCool)
         self.resetRadioButton(self.tableConfRam)
         self.resetRadioButton(self.tableConfDisk)
         self.resetRadioButton(self.tableConfPower)
