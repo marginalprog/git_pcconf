@@ -2477,6 +2477,9 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.btnSkladFilter.setObjectName("btnSkladFilter")
+        self.lineEdit = QtWidgets.QLineEdit(self.sklad)
+        self.lineEdit.setGeometry(QtCore.QRect(480, 30, 113, 20))
+        self.lineEdit.setObjectName("lineEdit")
         self.tabWidget.addTab(self.sklad, "")
         self.configurator = QtWidgets.QWidget()
         self.configurator.setStyleSheet("border:0px;")

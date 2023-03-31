@@ -4169,6 +4169,16 @@ border-bottom: 1px solid red;
          <string>Настроить фильтр</string>
         </property>
        </widget>
+       <widget class="QLineEdit" name="lineEdit">
+        <property name="geometry">
+         <rect>
+          <x>480</x>
+          <y>30</y>
+          <width>113</width>
+          <height>20</height>
+         </rect>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="configurator">
        <property name="styleSheet">

@@ -1,0 +1,1 @@
+pyuic5.exe -x E:\pcconf\ui\acceptionWin.ui -o  E:\pcconf\ui\acceptionWin.py

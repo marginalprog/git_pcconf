@@ -10,7 +10,7 @@ from ui import warningWin
 
 # Класс диалогового окна с кнопкой
 class DialogOk(QDialog, warningWin.Ui_warningDialog):
-    def __init__(self, error_win_title, error_text):
+    def __init__(self, error_win_title, error_text, parent=None):
         QDialog.__init__(self)
         self.setupUi(self)
         self.setWindowTitle(error_win_title)
@@ -37,9 +37,11 @@ class CheckBox(QtWidgets.QCheckBox):
 
 
 class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
-    def __init__(self):
+    def __init__(self, page, parent):
         super().__init__()
         self.setupUi(self)
+        self.parent = parent
+        self.page = page  # Где было создано окно фильтрации - в конфигураторе или на складе
         # -------------Сигналы обновления значений в полях при движении слайдера------------
         self.sliderPriceMin.valueChanged.connect(lambda value: self.updateFieldValue(self.leMinPrice, value))
         self.sliderPriceMax.valueChanged.connect(lambda value: self.updateFieldValue(self.leMaxPrice, value))
@@ -115,7 +117,6 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
         self.pasteCheckBoxes()
 
         #
-        self.query = ""
         self.btnAccept.clicked.connect(self.clickAccept)
 
     # Метод обновления значений в поле при движении слайдера
@@ -266,6 +267,10 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
         query += self.getCheckBoxes(self.tableBrand)
         query += self.getCheckBoxes(self.tableProizv)
         query += self.getCheckBoxes(self.tableGraphProc)
-        print(query)
-        self.hide()
-
+        if self.page == 0:  # 0 - склад, 1 - конфигуратор
+            self.parent.query += query
+            self.parent.send_sql_sklad()
+        else:
+            self.parent.query += query
+            self.parent.send_sql_conf()
+        self.close()

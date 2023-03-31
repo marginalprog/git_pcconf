@@ -3,14 +3,14 @@ import sys
 from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtWidgets import QDialog, QTableWidgetItem
 from PyQt5.QtGui import QPixmap
-from ui import main_interface, warningWin
+from ui import main_interface, warningWin, acceptionWin
 from ui.add import adding  # импорт файла со всеми окнами добавления
 from ui.help import helping  # импорт файла со всеми окнами помощи
 from ui.filter import filters  # импорт файла со всеми фильтрами
 from ui.post import addPostWidget  # импорт файла (виджета) добавления поставщика
 
 
-# Класс диалогового окна с кнопкой
+# Класс окна с одной кнопкой
 class DialogOk(QDialog, warningWin.Ui_warningDialog):
     def __init__(self, error_win_title, error_text):
         QDialog.__init__(self)
@@ -18,6 +18,19 @@ class DialogOk(QDialog, warningWin.Ui_warningDialog):
         self.setWindowTitle(error_win_title)
         self.lbErrDescription.setText(error_text)
         self.btnCancel.clicked.connect(lambda: self.close())
+
+
+# Класс окна с одной кнопкой
+class AcceptionWin(QDialog, acceptionWin.Ui_Dialog):
+    def __init__(self, attention_win_title, attention_text):
+        QDialog.__init__(self)
+        self.setupUi(self)
+        self.setWindowTitle(attention_win_title)
+        self.lbAttDescription.setText(attention_text)
+        self.buttonBox.accepted.connect(self.accept)
+        self.buttonBox.rejected.connect(self.reject)
+        self.buttonBox.button(QtWidgets.QDialogButtonBox.Ok).setText("Подтвердить")
+        self.buttonBox.button(QtWidgets.QDialogButtonBox.Cancel).setText("Отмена")
 
 
 # Класс окна с добавлением поставщика
@@ -75,6 +88,8 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 self.twSklad.currentRow(),
                 self.twSklad.columnCount()))
                                        )
+        # По нажатии на кнопку запускается метод, который принимает выбранную вклдку ТБ и открывает нужное окно фильтра
+        self.btnSkladFilter.clicked.connect(lambda: self.tbClickFilter(self.toolBoxNavigation.currentIndex()))
 
         self.tableVideoPost.setColumnWidth(0, 30)
         self.tableVideoPost.setColumnWidth(1, 0)
@@ -101,12 +116,12 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         self.tableBodyPost.setColumnWidth(1, 0)
         self.tableBodyPost.setColumnWidth(2, 140)
 
-        for i in range(self.tableVideoPost.rowCount()):  # заполнить столбец с бд и вызвать в цикле метод.
-            self.paste_existence(self.tableVideoPost, i, True, 1)
-
         self.btnNewVideoPost.clicked.connect(lambda: AddPost("Поставщик видеокарт").show())  # x8
 
         self.btnCngVideoPost.clicked.connect(lambda: self.changePost(self.tableVideoPost.currentRow(), self.tableVideoPost))
+
+        self.insert_existence(self.tableVideoPost)
+        self.query = ""
         # ==========================================================================================
 
         # =========================== Надстройки вкладки "Конфигуратор"=============================
@@ -131,7 +146,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         # ---------------------------------------------------------------------
 
         # ---------------------Кнопки с фильтрами------------------------------
-        self.btnVidFilter.clicked.connect(lambda: filters.VideoFilter().show())
+        self.btnVidFilter.clicked.connect(lambda: filters.VideoFilter(1, self).show())
 
         # ---------------------------------------------------------------------
 
@@ -202,17 +217,22 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
             err = "Выберите поставщика для изменения"
             self.dialog = DialogOk("Ошибка", err)
             self.dialog.show()
-            if self.dialog.exec():
-                pass
         else:
-            if table.item(cur_row, 1).text() == "True":
-                self.paste_existence(table, cur_row, False, 1)
-                table.item(cur_row, 1).setText("False")  # Изменяем состояние в таблице
-                # здесь запрос в БД на изменение состояние поставщика (false->true)
+            att = "Вы действительно хотите изменить договор поставок?"
+            self.dialog = AcceptionWin("Подтвердите действие", att)
+            self.dialog.show()
+            if self.dialog.exec():
+                if table.item(cur_row, 1).text() == "True":
+                    self.paste_existence(table, cur_row, False, 1)
+                    table.item(cur_row, 1).setText("False")  # Изменяем состояние в таблице
+                    # здесь запрос в БД на изменение состояние поставщика (false->true)
+                else:
+                    self.paste_existence(table, cur_row, True, 1)
+                    table.item(cur_row, 1).setText("True")
+                    # здесь запрос в БД на изменение состояние поставщика (false->true)
+                table.clearSelection()
             else:
-                self.paste_existence(table, cur_row, True, 1)
-                table.item(cur_row, 1).setText("True")
-            # здесь запрос в БД на изменение состояние поставщика (false->true)
+                table.clearSelection()
 
     # чтение выбранной строки в таблце для редактирования
     def readSklad(self, cur_row, count_col):
@@ -275,6 +295,34 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                     self.win_add_change = adding.AddChangeVideoWindow()
                     self.win_add_change.show()
 
+    # Метод, отвечающий за открытие окна фильтрации на складе. Принимает id вкладки ToolBox
+    def tbClickFilter(self, page):  # Отделить фильтрацию вызванную для склада и фильтрацию вызванную для конфигуратора
+        match page:  # Передать в  конструктора класса параметры "склад" или "Конфигуратор"? Либо создать еще 8 окон...
+            case 0:  # 0-9 - вкладки ToolBox (меню навигации)
+                filters.VideoFilter(0, self).show()
+            case 1:
+                filters.VideoFilter(0, self).show()  # фильтр процессора и тп
+            case 2:
+                filters.VideoFilter(0, self).show()
+            case 3:
+                filters.VideoFilter(0, self).show()
+            case 4:
+                filters.VideoFilter(0, self).show()
+            case 5:
+                filters.VideoFilter(0, self).show()
+            case 6:
+                filters.VideoFilter(0, self).show()
+            case 7:
+                filters.VideoFilter(0, self).show()
+            case 8:
+                filters.VideoFilter(0, self).show()
+
+    def send_sql_sklad(self):
+        print(self.query)
+
+    def send_sql_conf(self):
+        print(self.query)
+
     # Метод для заполнения tabWidget-ов переданными
     def fill_tabs(self, list_names, tab_widget):
         count_tab = len(list_names)
@@ -334,6 +382,13 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                     table.setCellWidget(row, 1, self.create_existence("E:/pcconf/images/have.png"))
                 else:
                     table.setCellWidget(row, 1, self.create_existence("E:/pcconf/images/nothave.png"))
+
+    def insert_existence(self, table):
+        for i in range(table.rowCount()):  # заполнить столбец с бд и вызвать в цикле метод.
+            if table.item(i, 1).text() == "True":
+                self.paste_existence(table, i, True, 1)
+            else:
+                self.paste_existence(table, i, False, 1)
 
     # Метод создания рб на виджете
     def create_radioButton(self):
