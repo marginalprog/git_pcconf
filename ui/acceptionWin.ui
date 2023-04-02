@@ -139,9 +139,9 @@ border: 1px solid rgb(180, 0, 0);</string>
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>60</x>
      <y>160</y>
-     <width>241</width>
+     <width>231</width>
      <height>31</height>
     </rect>
    </property>
@@ -149,16 +149,18 @@ border: 1px solid rgb(180, 0, 0);</string>
     <font>
      <family>Montserrat Medium</family>
      <pointsize>12</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
     </font>
    </property>
    <property name="styleSheet">
     <string notr="true">
-
 QPushButton{
 	border:1px solid rgb(70,70,70);
 	background-color: rgb(35,35,35);
 	color: #fffafa;
-	padding: 100px;
+	padding: 80px;
+	width:50px;
 }
 
 QPushButton::hover
@@ -171,6 +173,9 @@ QPushButton::hover
    </property>
    <property name="standardButtons">
     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+   </property>
+   <property name="centerButtons">
+    <bool>false</bool>
    </property>
   </widget>
   <zorder>line_2</zorder>

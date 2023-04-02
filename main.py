@@ -1,4 +1,5 @@
 import sys
+import psycopg2
 
 from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtWidgets import QDialog, QTableWidgetItem
@@ -39,10 +40,10 @@ class AddPost(QtWidgets.QWidget, addPostWidget.Ui_addPostWidget):
         super().__init__()
         self.setupUi(self)
         self.labelComplect.setText(text_complect)
-        self.btnPostSave.clicked.connect(lambda: self.createPostQuery(text_complect, self.lePostName.text()))
+        self.btnPostSave.clicked.connect(lambda: self.create_post_query(text_complect, self.lePostName.text()))
         self.btnPostSave.clicked.connect(lambda: self.close())
 
-    def createPostQuery(self, text_complect, post_name):
+    def create_post_query(self, text_complect, post_name):
         match text_complect:
             case "Поставщик видеокарт":
                 print(f"INSERT INTO Post_videocard (exist, name) VALUES (True, {post_name});")
@@ -75,21 +76,26 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         self.twSklad.horizontalHeader().setDefaultAlignment(QtCore.Qt.AlignVCenter | QtCore.Qt.AlignHCenter)
         self.twSklad.verticalHeader().setDefaultAlignment(QtCore.Qt.AlignVCenter | QtCore.Qt.AlignHCenter)
         #  self.toolBoxNavigation.currentChanged.connect(lambda: self.toolBoxNavigation.currentIndex())
-        self.btnAdd.clicked.connect(lambda: self.tbChanged(
+        self.btnAdd.clicked.connect(lambda: self.tb_new_komplekt(
             self.toolBoxNavigation.currentIndex(),
             True,
             self.twSklad.currentRow())
                                     )
         # Кнопка будет удалена
-        self.btnChange.clicked.connect(lambda: self.tbChanged(
+        self.btnChange.clicked.connect(lambda: self.tb_new_komplekt(
             self.toolBoxNavigation.currentIndex(),
             False,
-            self.readSklad(
+            self.read_sklad(
                 self.twSklad.currentRow(),
                 self.twSklad.columnCount()))
                                        )
+
         # По нажатии на кнопку запускается метод, который принимает выбранную вклдку ТБ и открывает нужное окно фильтра
-        self.btnSkladFilter.clicked.connect(lambda: self.tbClickFilter(self.toolBoxNavigation.currentIndex()))
+        self.btnSkladFilter.clicked.connect(lambda: self.tb_sklad_filter(self.toolBoxNavigation.currentIndex()))
+        # =================================Окна фильтрации комплектующих на складе=========================
+        self.vidSkladFilter = filters.VideoFilter(0, self)  # Создаётся отдельный экземпляр для сохранения внесённых д-х
+        # .......инициализация других окон фильтрации.......
+        # =================================================================================================
 
         self.tableVideoPost.setColumnWidth(0, 30)
         self.tableVideoPost.setColumnWidth(1, 0)
@@ -118,10 +124,11 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
 
         self.btnNewVideoPost.clicked.connect(lambda: AddPost("Поставщик видеокарт").show())  # x8
 
-        self.btnCngVideoPost.clicked.connect(lambda: self.changePost(self.tableVideoPost.currentRow(), self.tableVideoPost))
+        self.btnCngVideoPost.clicked.connect(lambda: self.change_post(self.tableVideoPost.currentRow(), self.tableVideoPost))
 
         self.insert_existence(self.tableVideoPost)
-        self.query = ""
+        self.query_sklad = ""
+        self.query_conf = ""
         # ==========================================================================================
 
         # =========================== Надстройки вкладки "Конфигуратор"=============================
@@ -146,12 +153,13 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         # ---------------------------------------------------------------------
 
         # ---------------------Кнопки с фильтрами------------------------------
-        self.btnVidFilter.clicked.connect(lambda: filters.VideoFilter(1, self).show())
+        self.vidConfFilter = filters.VideoFilter(1, self)  # Создаётся отдельный экземпляр для сохранения внесённых д-х
+        self.btnVidFilter.clicked.connect(lambda: self.vidConfFilter.show())
 
         # ---------------------------------------------------------------------
 
         # -----------------------Кнопка сброса---------------------------------
-        self.btnResetConfig.clicked.connect(self.resetAll)
+        self.btnResetConfig.clicked.connect(self.reset_all)
         # ---------------------------------------------------------------------
 
         self.table_config.setColumnWidth(0, 0)
@@ -212,7 +220,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         # self.paste_existence(self.tableVideoPost, True, 1)
 
     # изменение состояния в таблице поставщика
-    def changePost(self, cur_row, table):
+    def change_post(self, cur_row, table):
         if cur_row == -1:
             err = "Выберите поставщика для изменения"
             self.dialog = DialogOk("Ошибка", err)
@@ -235,7 +243,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 table.clearSelection()
 
     # чтение выбранной строки в таблце для редактирования
-    def readSklad(self, cur_row, count_col):
+    def read_sklad(self, cur_row, count_col):
         data_row = []
         if cur_row == -1:
             err = "Выберите строку для изменения"
@@ -245,7 +253,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 data_row.append(self.twSklad.item(cur_row, i).text())
             return data_row
 
-    def tbChanged(self, page, button, row):
+    def tb_new_komplekt(self, page, button, row):
         match page:
             case 0:  # 0-9 - вкладки ToolBox (меню навигации)
                 if button:  # Если True - добавляем новую запись: открываем пустое окно
@@ -296,32 +304,40 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                     self.win_add_change.show()
 
     # Метод, отвечающий за открытие окна фильтрации на складе. Принимает id вкладки ToolBox
-    def tbClickFilter(self, page):  # Отделить фильтрацию вызванную для склада и фильтрацию вызванную для конфигуратора
-        match page:  # Передать в  конструктора класса параметры "склад" или "Конфигуратор"? Либо создать еще 8 окон...
+    def tb_sklad_filter(self, page):
+        match page:
             case 0:  # 0-9 - вкладки ToolBox (меню навигации)
-                filters.VideoFilter(0, self).show()
+                self.vidSkladFilter.show()  # Отображение экземпляра класса
             case 1:
-                filters.VideoFilter(0, self).show()  # фильтр процессора и тп
+                pass
+                # self.vidSkladFilter.show()  # Отображение экземпляра класса
             case 2:
-                filters.VideoFilter(0, self).show()
+                pass
+                # self.vidSkladFilter.show()  # Отображение экземпляра класса
             case 3:
-                filters.VideoFilter(0, self).show()
+                pass
+                # self.vidSkladFilter.show()  # Отображение экземпляра класса
             case 4:
-                filters.VideoFilter(0, self).show()
+                pass
+                # self.vidSkladFilter.show()  # Отображение экземпляра класса
             case 5:
-                filters.VideoFilter(0, self).show()
+                pass
+                # self.vidSkladFilter.show()  # Отображение экземпляра класса
             case 6:
-                filters.VideoFilter(0, self).show()
+                pass
+                # self.vidSkladFilter.show()  # Отображение экземпляра класса
             case 7:
-                filters.VideoFilter(0, self).show()
+                pass
+                # self.vidSkladFilter.show()  # Отображение экземпляра класса
             case 8:
-                filters.VideoFilter(0, self).show()
+                pass
+                # self.vidSkladFilter.show()  # Отображение экземпляра класса
 
-    def send_sql_sklad(self):
-        print(self.query)
+    def send_sql_sklad(self, get_query):
+        print(get_query)
 
-    def send_sql_conf(self):
-        print(self.query)
+    def send_sql_conf(self, get_query):
+        print(get_query)
 
     # Метод для заполнения tabWidget-ов переданными
     def fill_tabs(self, list_names, tab_widget):
@@ -370,7 +386,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
 
     # метод заполнения ячейки наличием товара\поставщика
     def paste_existence(self, table, row, bool_, type_table):
-        row_count = table.rowCount()
+        # row_count = table.rowCount()
         match type_table:  # Если тип тиаблицы 1 (склад) - заполняем в 1 столбец. Если 2 (конфигуратор) - 2 столбец.
             case 1:
                 if bool_:
@@ -391,7 +407,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 self.paste_existence(table, i, False, 1)
 
     # Метод создания рб на виджете
-    def create_radioButton(self):
+    def create_radiobutton(self):
         widget = QtWidgets.QWidget()
         rb = RadioButton()
         pLayout = QtWidgets.QHBoxLayout(widget)
@@ -402,18 +418,18 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         return widget, rb
 
     # Метод, обнуляющий собранную конфигурацию
-    def resetAll(self):
-        self.resetRadioButton(self.tableConfVideo)
-        self.resetRadioButton(self.tableConfProc)
-        self.resetRadioButton(self.tableConfMother)
-        self.resetRadioButton(self.tableConfCool)
-        self.resetRadioButton(self.tableConfRam)
-        self.resetRadioButton(self.tableConfDisk)
-        self.resetRadioButton(self.tableConfPower)
-        self.resetRadioButton(self.tableConfBody)
+    def reset_all(self):
+        self.reset_radiobutton(self.tableConfVideo)
+        self.reset_radiobutton(self.tableConfProc)
+        self.reset_radiobutton(self.tableConfMother)
+        self.reset_radiobutton(self.tableConfCool)
+        self.reset_radiobutton(self.tableConfRam)
+        self.reset_radiobutton(self.tableConfDisk)
+        self.reset_radiobutton(self.tableConfPower)
+        self.reset_radiobutton(self.tableConfBody)
 
     # Метод, обнуляющий RadioButton в таблице комплектующих, а также очищающий таблицу с предпросмотром
-    def resetRadioButton(self, table):
+    def reset_radiobutton(self, table):
         button_group = self.dict_button_group[table.objectName()]
         button_group.setExclusive(False)
         for i in range(table.rowCount()):
@@ -438,22 +454,22 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         button_group.setExclusive(True)
 
         for i in range(row_count):
-            widget, radio = self.create_radioButton()
+            widget, radio = self.create_radiobutton()
             radio.toggled.connect(
-                lambda ch, row=i: self.currentPos(ch, row, table))
+                lambda ch, row=i: self.current_pos(ch, row, table))
             table.setCellWidget(i, 0, widget)
             button_group.addButton(radio)
             button_group.setId(radio, i)
         self.dict_button_group[table.objectName()] = button_group
 
     def cell_row(self, row, column, table):
-        #print(f'\n row={row}; column={column}')
+        # print(f'\n row={row}; column={column}')
         button_group = self.dict_button_group[table.objectName()]
         rb = button_group.button(row)
         rb.click()
 
-    def currentPos(self, ch, row, table):
-        #print(f' row = {row} -- {ch}')
+    def current_pos(self, ch, row, table):
+        # print(f' row = {row} -- {ch}')
         if ch:
             table.selectRow(row)
             self.fill_cart(table)
