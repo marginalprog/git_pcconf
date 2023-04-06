@@ -171,6 +171,8 @@ QPushButton::hover
          <font>
           <family>Montserrat Medium</family>
           <pointsize>10</pointsize>
+          <underline>false</underline>
+          <strikeout>true</strikeout>
          </font>
         </property>
         <property name="styleSheet">
@@ -194,11 +196,11 @@ QPushButton::hover
          <string>Удалить</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="btnChange">
+       <widget class="QPushButton" name="btnRepeat">
         <property name="geometry">
          <rect>
           <x>740</x>
-          <y>620</y>
+          <y>580</y>
           <width>161</width>
           <height>31</height>
          </rect>
@@ -211,19 +213,22 @@ QPushButton::hover
         </property>
         <property name="styleSheet">
          <string notr="true">QPushButton{
-background-color: rgb(20,20,20);
-color: #fffafa;
+	border:1px solid rgb(70,70,70);
+	background-color: rgb(40,40,40);
+	color: #fffafa;
 }
 
 QPushButton::hover
 {
-background-color: rgb(40,40,40);
-border-color: rgb(40,40,40);
-border-bottom: 1px solid  yellow;
-}</string>
+	border:1px;
+	background-color: rgb(60,60,60);
+	border-color: rgb(40,40,40);
+	border-bottom: 1px solid  rgb(255, 255, 0);
+}
+</string>
         </property>
         <property name="text">
-         <string>Изменить параметры</string>
+         <string>Повторить заказ</string>
         </property>
        </widget>
        <widget class="QToolBox" name="toolBoxNavigation">
@@ -327,7 +332,7 @@ QFrame{
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QLabel" name="lbVideoPost">
+          <widget class="QLabel" name="lbVideoProizv">
            <property name="geometry">
             <rect>
              <x>60</x>
@@ -347,13 +352,13 @@ QFrame{
 border-bottom: 1px solid rgb(100, 100, 100);</string>
            </property>
            <property name="text">
-            <string>Поставщики:</string>
+            <string>Производители:</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
            </property>
           </widget>
-          <widget class="QPushButton" name="btnNewVideoPost">
+          <widget class="QPushButton" name="btnNewVideoProizv">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -388,7 +393,7 @@ QPushButton::hover
 поставщик</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="btnDelVideoPost">
+          <widget class="QPushButton" name="btnDelVideoProizv">
            <property name="geometry">
             <rect>
              <x>190</x>
@@ -424,7 +429,7 @@ QPushButton::hover
 выбранного</string>
            </property>
           </widget>
-          <widget class="QTableWidget" name="tableVideoPost">
+          <widget class="QTableWidget" name="tableVideoProizv">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -676,7 +681,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
             </property>
            </item>
           </widget>
-          <widget class="QPushButton" name="btnCngVideoPost">
+          <widget class="QPushButton" name="btnCngVideoProizv">
            <property name="geometry">
             <rect>
              <x>100</x>
@@ -711,11 +716,11 @@ QPushButton::hover
 договор</string>
            </property>
           </widget>
-          <zorder>btnCngVideoPost</zorder>
-          <zorder>lbVideoPost</zorder>
-          <zorder>btnNewVideoPost</zorder>
-          <zorder>btnDelVideoPost</zorder>
-          <zorder>tableVideoPost</zorder>
+          <zorder>btnCngVideoProizv</zorder>
+          <zorder>lbVideoProizv</zorder>
+          <zorder>btnNewVideoProizv</zorder>
+          <zorder>btnDelVideoProizv</zorder>
+          <zorder>tableVideoProizv</zorder>
          </widget>
         </widget>
         <widget class="QWidget" name="pageProc">
@@ -756,7 +761,7 @@ QPushButton::hover
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QLabel" name="lbProcPost">
+          <widget class="QLabel" name="lbProcProizv">
            <property name="geometry">
             <rect>
              <x>70</x>
@@ -776,13 +781,13 @@ QPushButton::hover
 border-bottom: 1px solid rgb(100, 100, 100);</string>
            </property>
            <property name="text">
-            <string>Поставщики:</string>
+            <string>Производители:</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
            </property>
           </widget>
-          <widget class="QPushButton" name="btnNewProcPost">
+          <widget class="QPushButton" name="btnNewProcProizv">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -817,7 +822,7 @@ QPushButton::hover
 поставщик</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="btnDelProcPost">
+          <widget class="QPushButton" name="btnDelProcProizv">
            <property name="geometry">
             <rect>
              <x>190</x>
@@ -853,7 +858,7 @@ QPushButton::hover
 выбранного</string>
            </property>
           </widget>
-          <widget class="QTableWidget" name="tableProcPost">
+          <widget class="QTableWidget" name="tableProcProizv">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -1090,7 +1095,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
             </property>
            </item>
           </widget>
-          <widget class="QPushButton" name="btnCngProcPost">
+          <widget class="QPushButton" name="btnCngProcProizv">
            <property name="geometry">
             <rect>
              <x>100</x>
@@ -1165,7 +1170,7 @@ QPushButton::hover
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QLabel" name="lbMotherPost">
+          <widget class="QLabel" name="lbMotherProizv">
            <property name="geometry">
             <rect>
              <x>60</x>
@@ -1185,13 +1190,13 @@ QPushButton::hover
 border-bottom: 1px solid rgb(100, 100, 100);</string>
            </property>
            <property name="text">
-            <string>Поставщики:</string>
+            <string>Производители:</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
            </property>
           </widget>
-          <widget class="QPushButton" name="btnNewMotherPost">
+          <widget class="QPushButton" name="btnNewMotherProizv">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -1226,7 +1231,7 @@ QPushButton::hover
 поставщик</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="btnDelMotherPost">
+          <widget class="QPushButton" name="btnDelMotherProizv">
            <property name="geometry">
             <rect>
              <x>190</x>
@@ -1262,7 +1267,7 @@ QPushButton::hover
 выбранного</string>
            </property>
           </widget>
-          <widget class="QTableWidget" name="tableMotherPost">
+          <widget class="QTableWidget" name="tableMotherProizv">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -1499,7 +1504,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
             </property>
            </item>
           </widget>
-          <widget class="QPushButton" name="btnCngMotherPost">
+          <widget class="QPushButton" name="btnCngMotherProizv">
            <property name="geometry">
             <rect>
              <x>100</x>
@@ -1574,7 +1579,7 @@ QPushButton::hover
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QLabel" name="lbCoolPost">
+          <widget class="QLabel" name="lbCoolProizv">
            <property name="geometry">
             <rect>
              <x>60</x>
@@ -1594,13 +1599,13 @@ QPushButton::hover
 border-bottom: 1px solid rgb(100, 100, 100);</string>
            </property>
            <property name="text">
-            <string>Поставщики:</string>
+            <string>Производители:</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
            </property>
           </widget>
-          <widget class="QPushButton" name="btnNewCoolPost">
+          <widget class="QPushButton" name="btnNewCoolProizv">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -1635,7 +1640,7 @@ QPushButton::hover
 поставщик</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="btnDelCoolPost">
+          <widget class="QPushButton" name="btnDelCoolProizv">
            <property name="geometry">
             <rect>
              <x>190</x>
@@ -1671,7 +1676,7 @@ QPushButton::hover
 выбранного</string>
            </property>
           </widget>
-          <widget class="QTableWidget" name="tableCoolPost">
+          <widget class="QTableWidget" name="tableCoolProizv">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -1908,7 +1913,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
             </property>
            </item>
           </widget>
-          <widget class="QPushButton" name="btnCngCoolPost">
+          <widget class="QPushButton" name="btnCngCoolProizv">
            <property name="geometry">
             <rect>
              <x>100</x>
@@ -1983,7 +1988,7 @@ QPushButton::hover
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QLabel" name="lbRamPost">
+          <widget class="QLabel" name="lbRamProizv">
            <property name="geometry">
             <rect>
              <x>60</x>
@@ -2003,13 +2008,13 @@ QPushButton::hover
 border-bottom: 1px solid rgb(100, 100, 100);</string>
            </property>
            <property name="text">
-            <string>Поставщики:</string>
+            <string>Производители:</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
            </property>
           </widget>
-          <widget class="QPushButton" name="btnNewRamPost">
+          <widget class="QPushButton" name="btnNewRamProizv">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -2044,7 +2049,7 @@ QPushButton::hover
 поставщик</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="btnDelRamPost">
+          <widget class="QPushButton" name="btnDelRamProizv">
            <property name="geometry">
             <rect>
              <x>190</x>
@@ -2080,7 +2085,7 @@ QPushButton::hover
 выбранного</string>
            </property>
           </widget>
-          <widget class="QTableWidget" name="tableRamPost">
+          <widget class="QTableWidget" name="tableRamProizv">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -2317,7 +2322,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
             </property>
            </item>
           </widget>
-          <widget class="QPushButton" name="btnCngRamPost">
+          <widget class="QPushButton" name="btnCngRamProizv">
            <property name="geometry">
             <rect>
              <x>100</x>
@@ -2392,7 +2397,7 @@ QPushButton::hover
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QLabel" name="lbDiskPost">
+          <widget class="QLabel" name="lbDiskProizv">
            <property name="geometry">
             <rect>
              <x>60</x>
@@ -2412,13 +2417,13 @@ QPushButton::hover
 border-bottom: 1px solid rgb(100, 100, 100);</string>
            </property>
            <property name="text">
-            <string>Поставщики:</string>
+            <string>Производители:</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
            </property>
           </widget>
-          <widget class="QPushButton" name="btnNewDiskPost">
+          <widget class="QPushButton" name="btnNewDiskProizv">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -2453,7 +2458,7 @@ QPushButton::hover
 поставщик</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="btnDelDiskPost">
+          <widget class="QPushButton" name="btnDelDiskProizv">
            <property name="geometry">
             <rect>
              <x>190</x>
@@ -2489,7 +2494,7 @@ QPushButton::hover
 выбранного</string>
            </property>
           </widget>
-          <widget class="QTableWidget" name="tableDiskPost">
+          <widget class="QTableWidget" name="tableDiskProizv">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -2726,7 +2731,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
             </property>
            </item>
           </widget>
-          <widget class="QPushButton" name="btnCngDiskPost">
+          <widget class="QPushButton" name="btnCngDiskProizv">
            <property name="geometry">
             <rect>
              <x>100</x>
@@ -2801,7 +2806,7 @@ QPushButton::hover
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QLabel" name="lbPowerPost">
+          <widget class="QLabel" name="lbPowerProizv">
            <property name="geometry">
             <rect>
              <x>60</x>
@@ -2821,13 +2826,13 @@ QPushButton::hover
 border-bottom: 1px solid rgb(100, 100, 100);</string>
            </property>
            <property name="text">
-            <string>Поставщики:</string>
+            <string>Производители:</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
            </property>
           </widget>
-          <widget class="QPushButton" name="btnNewPowerPost">
+          <widget class="QPushButton" name="btnNewPowerProizv">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -2862,7 +2867,7 @@ QPushButton::hover
 поставщик</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="btnDelPowerPost">
+          <widget class="QPushButton" name="btnDelPowerProizv">
            <property name="geometry">
             <rect>
              <x>190</x>
@@ -2898,7 +2903,7 @@ QPushButton::hover
 выбранного</string>
            </property>
           </widget>
-          <widget class="QTableWidget" name="tablePowerPost">
+          <widget class="QTableWidget" name="tablePowerProizv">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -3135,7 +3140,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
             </property>
            </item>
           </widget>
-          <widget class="QPushButton" name="btnCngPowerPost">
+          <widget class="QPushButton" name="btnCngPowerProizv">
            <property name="geometry">
             <rect>
              <x>100</x>
@@ -3210,7 +3215,7 @@ QPushButton::hover
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QLabel" name="lbBodyPost">
+          <widget class="QLabel" name="lbBodyProizv">
            <property name="geometry">
             <rect>
              <x>60</x>
@@ -3230,13 +3235,13 @@ QPushButton::hover
 border-bottom: 1px solid rgb(100, 100, 100);</string>
            </property>
            <property name="text">
-            <string>Поставщики:</string>
+            <string>Производители:</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
            </property>
           </widget>
-          <widget class="QPushButton" name="btnNewBodyPost">
+          <widget class="QPushButton" name="btnNewBodyProizv">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -3271,7 +3276,7 @@ QPushButton::hover
 поставщик</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="btnDelBodyPost">
+          <widget class="QPushButton" name="btnDelBodyProizv">
            <property name="geometry">
             <rect>
              <x>190</x>
@@ -3307,7 +3312,7 @@ QPushButton::hover
 выбранного</string>
            </property>
           </widget>
-          <widget class="QTableWidget" name="tableBodyPost">
+          <widget class="QTableWidget" name="tableBodyProizv">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -3544,7 +3549,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
             </property>
            </item>
           </widget>
-          <widget class="QPushButton" name="btnCngBodyPost">
+          <widget class="QPushButton" name="btnCngBodyProizv">
            <property name="geometry">
             <rect>
              <x>100</x>
@@ -3645,7 +3650,7 @@ border-bottom: 1px solid rgb(100, 100, 100);</string>
             <set>Qt::AlignCenter</set>
            </property>
           </widget>
-          <widget class="QPushButton" name="btnNewVideoPost_10">
+          <widget class="QPushButton" name="btnNewVideoProizv_10">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -3680,7 +3685,7 @@ QPushButton::hover
 поставщик</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="btnDelBConfPost">
+          <widget class="QPushButton" name="btnDelBConfProizv">
            <property name="geometry">
             <rect>
              <x>190</x>
@@ -3716,7 +3721,7 @@ QPushButton::hover
 выбранного</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="btnDelVideoPost_20">
+          <widget class="QPushButton" name="btnDelVideoProizv_2">
            <property name="geometry">
             <rect>
              <x>100</x>
@@ -4167,16 +4172,6 @@ border-bottom: 1px solid red;
         </property>
         <property name="text">
          <string>Настроить фильтр</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit">
-        <property name="geometry">
-         <rect>
-          <x>480</x>
-          <y>30</y>
-          <width>113</width>
-          <height>20</height>
-         </rect>
         </property>
        </widget>
       </widget>

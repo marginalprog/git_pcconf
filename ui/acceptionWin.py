@@ -63,25 +63,26 @@ class Ui_Dialog(object):
         self.line.setObjectName("line")
         self.rectangle = QtWidgets.QFrame(Dialog)
         self.rectangle.setGeometry(QtCore.QRect(10, 10, 61, 16))
-        self.rectangle.setStyleSheet("border:0px;\n"
-"background-color: rgb(180, 0, 0);\n"
-"border: 1px solid rgb(180, 0, 0);")
+        self.rectangle.setStyleSheet("background-color: rgb(210, 0, 0);\n"
+"border: 1px solid rgb(210, 0, 0);")
         self.rectangle.setFrameShape(QtWidgets.QFrame.HLine)
         self.rectangle.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.rectangle.setObjectName("rectangle")
         self.buttonBox = QtWidgets.QDialogButtonBox(Dialog)
-        self.buttonBox.setGeometry(QtCore.QRect(50, 160, 241, 31))
+        self.buttonBox.setGeometry(QtCore.QRect(60, 160, 231, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(12)
+        font.setBold(False)
+        font.setWeight(50)
         self.buttonBox.setFont(font)
         self.buttonBox.setStyleSheet("\n"
-"\n"
 "QPushButton{\n"
 "    border:1px solid rgb(70,70,70);\n"
 "    background-color: rgb(35,35,35);\n"
 "    color: #fffafa;\n"
-"    padding: 100px;\n"
+"    padding: 110px;\n"
+"    width:50px;\n"
 "}\n"
 "\n"
 "QPushButton::hover\n"
@@ -92,6 +93,7 @@ class Ui_Dialog(object):
 "}\n"
 "")
         self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
+        self.buttonBox.setCenterButtons(False)
         self.buttonBox.setObjectName("buttonBox")
         self.line_2.raise_()
         self.lbAttention.raise_()

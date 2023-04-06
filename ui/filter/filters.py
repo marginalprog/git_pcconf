@@ -111,6 +111,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
         self.btnResetVolume.clicked.connect(lambda: self.reset_checkboxes(self.tableVolume))
         self.btnResetType.clicked.connect(lambda: self.reset_checkboxes(self.tableType))
         self.btnResetFreq.clicked.connect(lambda: self.reset_checkboxes(self.tableFreq))
+        self.btnResetBus.clicked.connect(lambda: self.reset_checkboxes(self.tableBus))
         self.btnResetInterface.clicked.connect(lambda: self.reset_checkboxes(self.tableInterface))
         self.btnResetMonitor.clicked.connect(lambda: self.reset_checkboxes(self.tableMonitor))
         self.btnResetResolution.clicked.connect(lambda: self.reset_checkboxes(self.tableResolution))
@@ -177,6 +178,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
         self.insert_cb(self.tableVolume)
         self.insert_cb(self.tableType)
         self.insert_cb(self.tableFreq)
+        self.insert_cb(self.tableBus)
         self.insert_cb(self.tableInterface)
         self.insert_cb(self.tableMonitor)
         self.insert_cb(self.tableResolution)
@@ -209,6 +211,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
         self.reset_checkboxes(self.tableVolume)
         self.reset_checkboxes(self.tableType)
         self.reset_checkboxes(self.tableFreq)
+        self.reset_checkboxes(self.tableBus)
         self.reset_checkboxes(self.tableInterface)
         self.reset_checkboxes(self.tableMonitor)
         self.reset_checkboxes(self.tableResolution)
@@ -284,7 +287,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
             else:
                 query += self.check_min_max(min_len, max_len, "Length")
 
-            if query == "SELECT * FROM Videocard WHERE (":  # ЕСЛИ МЫ НЕ ВЫБРАЛИ ФИЛЬТРА ЦЕН!!!
+            if query == "SELECT * FROM Videocard WHERE (":  # Если не выбран фильтр цен
                 # query += self.getCheckBoxes(self.tableProizv, "")
                 query1 = self.get_checkboxes(self.tableChipCreator, "chipcreator")
                 query += query1
@@ -326,29 +329,40 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
                     query += "AND " + query5
 
             if query5 == "":
-                query6 = self.get_checkboxes(self.tableInterface, "interface")
+                query6 = self.get_checkboxes(self.tableBus, "bus")
                 query += query6
             else:
-                query6 = self.get_checkboxes(self.tableInterface, "interface")
+                query6 = self.get_checkboxes(self.tableFreq, "bus")
                 if query6 != "":
                     query += "AND " + query6
 
             if query6 == "":
-                query7 = self.get_checkboxes(self.tableMonitor, "monitor")
+                query7 = self.get_checkboxes(self.tableInterface, "interface")
                 query += query7
             else:
-                query7 = self.get_checkboxes(self.tableMonitor, "monitor")
+                query7 = self.get_checkboxes(self.tableInterface, "interface")
                 if query7 != "":
                     query += "AND " + query7
 
             if query7 == "":
-                query8 = self.get_checkboxes(self.tableResolution, "resolution")
+                query8 = self.get_checkboxes(self.tableMonitor, "monitor")
                 query += query8
             else:
-                query8 = self.get_checkboxes(self.tableResolution, "resolution")
+                query8 = self.get_checkboxes(self.tableMonitor, "monitor")
                 if query8 != "":
                     query += "AND " + query8
+
+            if query8 == "":
+                query9 = self.get_checkboxes(self.tableResolution, "resolution")
+                query += query9
+            else:
+                query9 = self.get_checkboxes(self.tableResolution, "resolution")
+                if query9 != "":
+                    query += "AND " + query9
             query += ')'
+
+            if query == "SELECT * FROM Videocard WHERE ()":  # не очень профессионально
+                query = "SELECT * FROM Videocard"  # Если ничего не выбрано (или убраны все фильтры) - выводим всё
 
             if self.page == 0:  # 0 - склад, 1 - конфигуратор
                 # self.parent.query_sklad += query

@@ -8,7 +8,7 @@ from ui import main_interface, warningWin, acceptionWin
 from ui.add import adding  # импорт файла со всеми окнами добавления
 from ui.help import helping  # импорт файла со всеми окнами помощи
 from ui.filter import filters  # импорт файла со всеми фильтрами
-from ui.post import addPostWidget  # импорт файла (виджета) добавления поставщика
+from ui.proizv import addProizvWidget  # импорт файла (виджета) добавления производителя
 
 
 # Класс окна с одной кнопкой
@@ -35,18 +35,19 @@ class AcceptionWin(QDialog, acceptionWin.Ui_Dialog):
 
 
 # Класс окна с добавлением поставщика
-class AddPost(QtWidgets.QWidget, addPostWidget.Ui_addPostWidget):
+class AddProizv(QtWidgets.QWidget, addProizvWidget.Ui_addProizvWidget):
     def __init__(self, text_complect):
         super().__init__()
         self.setupUi(self)
         self.labelComplect.setText(text_complect)
-        self.btnPostSave.clicked.connect(lambda: self.create_post_query(text_complect, self.lePostName.text()))
-        self.btnPostSave.clicked.connect(lambda: self.close())
+        self.btnProizvSave.clicked.connect(lambda: self.create_proizv_query(text_complect, self.leProzivName.text()))
 
-    def create_post_query(self, text_complect, post_name):
+        self.btnProizvSave.clicked.connect(lambda: self.close())
+
+    def create_proizv_query(self, text_complect, proizv_name):
         match text_complect:
             case "Поставщик видеокарт":
-                print(f"INSERT INTO Post_videocard (exist, name) VALUES (True, {post_name});")
+                print(f"INSERT INTO Proizv_videocard (name) VALUES ({proizv_name});")
 
 
 class RadioButton(QtWidgets.QRadioButton):
@@ -81,8 +82,8 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
             True,
             self.twSklad.currentRow())
                                     )
-        # Кнопка будет удалена
-        self.btnChange.clicked.connect(lambda: self.tb_new_komplekt(
+        # Кнопка повтора заказа уже имеющегося (выбранного) комплектующего
+        self.btnRepeat.clicked.connect(lambda: self.tb_new_komplekt(
             self.toolBoxNavigation.currentIndex(),
             False,
             self.read_sklad(
@@ -97,36 +98,36 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         # .......инициализация других окон фильтрации.......
         # =================================================================================================
 
-        self.tableVideoPost.setColumnWidth(0, 30)
-        self.tableVideoPost.setColumnWidth(1, 0)
-        self.tableVideoPost.setColumnWidth(2, 140)
-        self.tableProcPost.setColumnWidth(0, 30)
-        self.tableProcPost.setColumnWidth(1, 0)
-        self.tableProcPost.setColumnWidth(2, 140)
-        self.tableMotherPost.setColumnWidth(0, 30)
-        self.tableMotherPost.setColumnWidth(1, 0)
-        self.tableMotherPost.setColumnWidth(2, 140)
-        self.tableCoolPost.setColumnWidth(0, 30)
-        self.tableCoolPost.setColumnWidth(1, 0)
-        self.tableCoolPost.setColumnWidth(2, 140)
-        self.tableRamPost.setColumnWidth(0, 30)
-        self.tableRamPost.setColumnWidth(1, 0)
-        self.tableRamPost.setColumnWidth(2, 140)
-        self.tableDiskPost.setColumnWidth(0, 30)
-        self.tableDiskPost.setColumnWidth(1, 0)
-        self.tableDiskPost.setColumnWidth(2, 140)
-        self.tablePowerPost.setColumnWidth(0, 30)
-        self.tablePowerPost.setColumnWidth(1, 0)
-        self.tablePowerPost.setColumnWidth(2, 140)
-        self.tableBodyPost.setColumnWidth(0, 30)
-        self.tableBodyPost.setColumnWidth(1, 0)
-        self.tableBodyPost.setColumnWidth(2, 140)
+        self.tableVideoProizv.setColumnWidth(0, 30)
+        self.tableVideoProizv.setColumnWidth(1, 0)
+        self.tableVideoProizv.setColumnWidth(2, 140)
+        self.tableProcProizv.setColumnWidth(0, 30)
+        self.tableProcProizv.setColumnWidth(1, 0)
+        self.tableProcProizv.setColumnWidth(2, 140)
+        self.tableMotherProizv.setColumnWidth(0, 30)
+        self.tableMotherProizv.setColumnWidth(1, 0)
+        self.tableMotherProizv.setColumnWidth(2, 140)
+        self.tableCoolProizv.setColumnWidth(0, 30)
+        self.tableCoolProizv.setColumnWidth(1, 0)
+        self.tableCoolProizv.setColumnWidth(2, 140)
+        self.tableRamProizv.setColumnWidth(0, 30)
+        self.tableRamProizv.setColumnWidth(1, 0)
+        self.tableRamProizv.setColumnWidth(2, 140)
+        self.tableDiskProizv.setColumnWidth(0, 30)
+        self.tableDiskProizv.setColumnWidth(1, 0)
+        self.tableDiskProizv.setColumnWidth(2, 140)
+        self.tablePowerProizv.setColumnWidth(0, 30)
+        self.tablePowerProizv.setColumnWidth(1, 0)
+        self.tablePowerProizv.setColumnWidth(2, 140)
+        self.tableBodyProizv.setColumnWidth(0, 30)
+        self.tableBodyProizv.setColumnWidth(1, 0)
+        self.tableBodyProizv.setColumnWidth(2, 140)
 
-        self.btnNewVideoPost.clicked.connect(lambda: AddPost("Поставщик видеокарт").show())  # x8
+        self.btnNewVideoProizv.clicked.connect(lambda: AddProizv("Поставщик видеокарт").show())  # x8
 
-        self.btnCngVideoPost.clicked.connect(lambda: self.change_post(self.tableVideoPost.currentRow(), self.tableVideoPost))
+        self.btnCngVideoProizv.clicked.connect(lambda: self.change_proizv(self.tableVideoProizv.currentRow(), self.tableVideoProizv))
 
-        self.insert_existence(self.tableVideoPost)
+        self.insert_existence(self.tableVideoProizv)
         self.query_sklad = ""
         self.query_conf = ""
         # ==========================================================================================
@@ -158,7 +159,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
 
         # ---------------------------------------------------------------------
 
-        # -----------------------Кнопка сброса---------------------------------
+        # -----------------------Кнопка сброса сборки--------------------------
         self.btnResetConfig.clicked.connect(self.reset_all)
         # ---------------------------------------------------------------------
 
@@ -217,10 +218,10 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         for i in range(self.tableConfVideo.rowCount()):
             self.paste_existence(self.tableConfVideo, i, True, 2)
         # self.paste_existence(self.tableConfProc, True, 2)
-        # self.paste_existence(self.tableVideoPost, True, 1)
+        # self.paste_existence(self.tableVideoProizv, True, 1)
 
     # изменение состояния в таблице поставщика
-    def change_post(self, cur_row, table):
+    def change_proizv(self, cur_row, table):
         if cur_row == -1:
             err = "Выберите поставщика для изменения"
             self.dialog = DialogOk("Ошибка", err)
@@ -242,7 +243,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
             else:
                 table.clearSelection()
 
-    # чтение выбранной строки в таблце для редактирования
+    # Чтение выбранной строки в таблце для передачи в перезаказ
     def read_sklad(self, cur_row, count_col):
         data_row = []
         if cur_row == -1:
@@ -253,11 +254,32 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 data_row.append(self.twSklad.item(cur_row, i).text())
             return data_row
 
-    def tb_new_komplekt(self, page, button, row):
+    # Метод, заполняющий и блокирующий поле  ввода данных lineEdit
+    def block_line_edit(self, field, parameter):
+        field.setText(parameter)
+        field.setDisabled(True)
+        field.setStyleSheet("color:gray; border: 1px dotted rgb(120,120,120);")
+
+    # # Метод, заполняющий и блокирующий поле  ввода данных comboBox
+    def block_combo_box(self, field, parameter):
+        field.setItemText(0, parameter)
+        field.setDisabled(True)
+        field.setStyleSheet("QComboBox{color:gray; border: 1px dotted rgb(120,120,120);}"
+                            " QComboBox::drop-down{border: 0px;}"
+                            '''QComboBox::down-arrow {
+                                border-image: url("E:/pcconf/images/down-arrow-gray.png");
+                                width: 17px;
+                                height: 17px;
+                                margin-right: 5px;}''')
+
+    # Метод, завязанный на выбранном в toolbox комплектующем на складе (page).
+    # При нажатии на кнопку добавить или изменить передается true\false (new_bool).
+    # Если true - добавляем новое комплектующее. Если false - создаём заказ на существующее комплектующее
+    def tb_new_komplekt(self, page, new_bool, row):
         match page:
             case 0:  # 0-9 - вкладки ToolBox (меню навигации)
-                if button:  # Если True - добавляем новую запись: открываем пустое окно
-                    self.win_add_change = adding.AddChangeVideoWindow()
+                if new_bool:  # Если True - добавляем новую запись: открываем пустое окно
+                    self.win_add_change = adding.AddChangeVideoWindow(new_bool)
                     self.win_add_change.show()
                 else:  # Есил False - изменяем выбранную запись
                     if type(row) is str:  # Если пришел не список, а строка(ошибка) - вывод окна с ошибкой
@@ -265,41 +287,40 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                         self.dialog.show()
                         if self.dialog.exec():
                             pass
-                        '''Убрал кнопку с изменением данных товара! теперь проверка неактуальна'''
-                    '''else:  # Если пришел список - заполняем окно.
-                        self.win_add_change = AddChangeVideoWindow()
-                        self.win_add_change.setWindowTitle("Изменить запись")
-                        self.win_add_change.teVidName.setText(row[0])
-                        self.win_add_change.teVidChip.setText(row[1])
-                        self.win_add_change.teVidType.setText(row[2])
-                        self.win_add_change.show()'''
+                    else:  # Если пришел список - заполняем окно.
+                        self.win_add_change = adding.AddChangeVideoWindow(new_bool)
+                        self.block_line_edit(self.win_add_change.leVidName, row[0])
+                        self.block_line_edit(self.win_add_change.leVidChipName, row[1])
+                        self.block_line_edit(self.win_add_change.leVidType, row[2])
+                        self.block_combo_box(self.win_add_change.comBoxVidChipCr, row[2])
+                        self.win_add_change.show()
             case 1:
-                if button:  # Если True - добавляем новую запись: открываем пустое окно
+                if new_bool:  # Если True - добавляем новую запись: открываем пустое окно
                     self.win_add_change = adding.AddChangeVideoWindow()
                     #  self.win_add_change.radioButton = RadioButton()
                     self.win_add_change.show()
             case 2:
-                if button:  # Если True - добавляем новую запись: открываем пустое окно
+                if new_bool:  # Если True - добавляем новую запись: открываем пустое окно
                     self.win_add_change = adding.AddChangeVideoWindow()
                     self.win_add_change.show()
             case 3:
-                if button:  # Если True - добавляем новую запись: открываем пустое окно
+                if new_bool:  # Если True - добавляем новую запись: открываем пустое окно
                     self.win_add_change = adding.AddChangeVideoWindow()
                     self.win_add_change.show()
             case 4:
-                if button:  # Если True - добавляем новую запись: открываем пустое окно
+                if new_bool:  # Если True - добавляем новую запись: открываем пустое окно
                     self.win_add_change = adding.AddChangeVideoWindow()
                     self.win_add_change.show()
             case 5:
-                if button:  # Если True - добавляем новую запись: открываем пустое окно
+                if new_bool:  # Если True - добавляем новую запись: открываем пустое окно
                     self.win_add_change = adding.AddChangeVideoWindow()
                     self.win_add_change.show()
             case 6:
-                if button:  # Если True - добавляем новую запись: открываем пустое окно
+                if new_bool:  # Если True - добавляем новую запись: открываем пустое окно
                     self.win_add_change = adding.AddChangeVideoWindow()
                     self.win_add_change.show()
             case 7:
-                if button:  # Если True - добавляем новую запись: открываем пустое окно
+                if new_bool:  # Если True - добавляем новую запись: открываем пустое окно
                     self.win_add_change = adding.AddChangeVideoWindow()
                     self.win_add_change.show()
 

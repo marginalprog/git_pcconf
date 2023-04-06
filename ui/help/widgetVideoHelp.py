@@ -47,9 +47,8 @@ class Ui_widgetVideoHelp(object):
         self.lbHowVidTxt.setObjectName("lbHowVidTxt")
         self.rectangle = QtWidgets.QFrame(widgetVideoHelp)
         self.rectangle.setGeometry(QtCore.QRect(10, 10, 61, 16))
-        self.rectangle.setStyleSheet("border:0px;\n"
-"background-color: rgb(180, 0, 0);\n"
-"border: 1px solid rgb(180, 0, 0);")
+        self.rectangle.setStyleSheet("background-color: rgb(210, 0, 0);\n"
+"border: 1px solid rgb(210, 0, 0);")
         self.rectangle.setFrameShape(QtWidgets.QFrame.HLine)
         self.rectangle.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.rectangle.setObjectName("rectangle")
@@ -119,28 +118,28 @@ class Ui_widgetVideoHelp(object):
         self.line = QtWidgets.QFrame(widgetVideoHelp)
         self.line.setGeometry(QtCore.QRect(10, 340, 20, 211))
         self.line.setStyleSheet("border: 0px;\n"
-"border-right: 1px solid rgb(180, 0, 0);")
+"border-right: 1px solid rgb(210, 0, 0);")
         self.line.setFrameShape(QtWidgets.QFrame.VLine)
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
         self.line_2 = QtWidgets.QFrame(widgetVideoHelp)
         self.line_2.setGeometry(QtCore.QRect(10, 190, 20, 81))
         self.line_2.setStyleSheet("border: 0px;\n"
-"border-right: 1px solid rgb(180, 0, 0);")
+"border-right: 1px solid rgb(210, 0, 0);")
         self.line_2.setFrameShape(QtWidgets.QFrame.VLine)
         self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_2.setObjectName("line_2")
         self.line_3 = QtWidgets.QFrame(widgetVideoHelp)
         self.line_3.setGeometry(QtCore.QRect(460, 340, 20, 211))
         self.line_3.setStyleSheet("border: 0px;\n"
-"border-right: 1px solid rgb(180, 0, 0);")
+"border-right: 1px solid rgb(210, 0, 0);")
         self.line_3.setFrameShape(QtWidgets.QFrame.VLine)
         self.line_3.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_3.setObjectName("line_3")
         self.line_4 = QtWidgets.QFrame(widgetVideoHelp)
         self.line_4.setGeometry(QtCore.QRect(10, 80, 20, 81))
         self.line_4.setStyleSheet("border: 0px;\n"
-"border-right: 1px solid rgb(180, 0, 0);")
+"border-right: 1px solid rgb(210, 0, 0);")
         self.line_4.setFrameShape(QtWidgets.QFrame.VLine)
         self.line_4.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_4.setObjectName("line_4")
