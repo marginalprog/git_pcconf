@@ -70,6 +70,10 @@ class Ui_addProizvWidget(object):
         self.line_2.setObjectName("line_2")
         self.leProzivName = QtWidgets.QLineEdit(addProizvWidget)
         self.leProzivName.setGeometry(QtCore.QRect(110, 130, 191, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.leProzivName.setFont(font)
         self.leProzivName.setStyleSheet("QLineEdit{\n"
 "    padding-left: 5px;\n"
 "    border: 1px solid rgb(20,20,20);\n"
@@ -125,6 +129,7 @@ class Ui_addProizvWidget(object):
         self.lbName.setObjectName("lbName")
 
         self.retranslateUi(addProizvWidget)
+        self.btnProizvCancel.clicked.connect(addProizvWidget.close)
         QtCore.QMetaObject.connectSlotsByName(addProizvWidget)
 
     def retranslateUi(self, addProizvWidget):

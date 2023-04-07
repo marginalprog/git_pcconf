@@ -89,7 +89,7 @@ QRadioButton::indicator:unchecked {
     <rect>
      <x>20</x>
      <y>170</y>
-     <width>201</width>
+     <width>221</width>
      <height>21</height>
     </rect>
    </property>
@@ -100,7 +100,7 @@ QRadioButton::indicator:unchecked {
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">border:0px;</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string>Наименование видеокарты</string>
@@ -117,7 +117,7 @@ QRadioButton::indicator:unchecked {
    </property>
    <property name="styleSheet">
     <string notr="true">border:0px;
-border-top: 1px solid rgb(180, 0, 0);</string>
+border-top: 1px solid rgb(220, 0, 0);</string>
    </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
@@ -134,13 +134,13 @@ border-top: 1px solid rgb(180, 0, 0);</string>
    </property>
    <property name="styleSheet">
     <string notr="true">border:0px;
-border-top: 1px solid rgb(180, 0, 0);</string>
+border-top: 1px solid rgb(220, 0, 0);</string>
    </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
-  <widget class="QComboBox" name="comBoxVidProizv">
+  <widget class="QComboBox" name="cbProizv">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -262,7 +262,7 @@ QComboBox QAbstractItemView {
     <string>Производитель</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="lbComplect">
    <property name="geometry">
     <rect>
      <x>750</x>
@@ -363,12 +363,12 @@ QPushButton::hover
     <bool>false</bool>
    </property>
   </widget>
-  <widget class="QLabel" name="label_4">
+  <widget class="QLabel" name="lbVolume">
    <property name="geometry">
     <rect>
      <x>20</x>
      <y>250</y>
-     <width>141</width>
+     <width>151</width>
      <height>21</height>
     </rect>
    </property>
@@ -385,7 +385,7 @@ QPushButton::hover
     <string>Объём памяти [Мб]</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_5">
+  <widget class="QLabel" name="lbType">
    <property name="geometry">
     <rect>
      <x>170</x>
@@ -407,12 +407,12 @@ QPushButton::hover
     <string>Тип памяти</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_6">
+  <widget class="QLabel" name="lbFreq">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>490</x>
      <y>250</y>
-     <width>191</width>
+     <width>211</width>
      <height>21</height>
     </rect>
    </property>
@@ -429,12 +429,12 @@ QPushButton::hover
     <string>Частота процессора [МГц]</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_7">
+  <widget class="QLabel" name="lbInterface">
    <property name="geometry">
     <rect>
      <x>20</x>
      <y>350</y>
-     <width>121</width>
+     <width>141</width>
      <height>21</height>
     </rect>
    </property>
@@ -451,7 +451,7 @@ QPushButton::hover
     <string>Тип интерфейса</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_8">
+  <widget class="QLabel" name="lbMonitor">
    <property name="geometry">
     <rect>
      <x>170</x>
@@ -473,7 +473,7 @@ QPushButton::hover
     <string>Мониторы</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_9">
+  <widget class="QLabel" name="lbResolution">
    <property name="geometry">
     <rect>
      <x>320</x>
@@ -495,10 +495,10 @@ QPushButton::hover
     <string>Разрешение</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_10">
+  <widget class="QLabel" name="lbLength">
    <property name="geometry">
     <rect>
-     <x>640</x>
+     <x>660</x>
      <y>350</y>
      <width>111</width>
      <height>21</height>
@@ -517,10 +517,10 @@ QPushButton::hover
     <string>Длина [см]</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_11">
+  <widget class="QLabel" name="lbTdp">
    <property name="geometry">
     <rect>
-     <x>470</x>
+     <x>490</x>
      <y>350</y>
      <width>161</width>
      <height>21</height>
@@ -539,12 +539,12 @@ QPushButton::hover
     <string>Тепловыделение (TDP)</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_12">
+  <widget class="QLabel" name="lbKol">
    <property name="geometry">
     <rect>
      <x>20</x>
      <y>440</y>
-     <width>111</width>
+     <width>121</width>
      <height>21</height>
     </rect>
    </property>
@@ -561,7 +561,7 @@ QPushButton::hover
     <string>Количество</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_13">
+  <widget class="QLabel" name="lbPrice">
    <property name="geometry">
     <rect>
      <x>170</x>
@@ -594,13 +594,13 @@ QPushButton::hover
    </property>
    <property name="styleSheet">
     <string notr="true">border:0px;
-border-top: 1px solid rgb(180, 0, 0);</string>
+border-top: 1px solid rgb(220, 0, 0);</string>
    </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
-  <widget class="QComboBox" name="comBoxVidInterface">
+  <widget class="QComboBox" name="cbInterface">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -682,6 +682,11 @@ QComboBox QAbstractItemView {
    </item>
    <item>
     <property name="text">
+     <string>PCI-E 2.1</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
      <string>PCI-E 3.0</string>
     </property>
    </item>
@@ -690,13 +695,8 @@ QComboBox QAbstractItemView {
      <string>PCI-E 4.0</string>
     </property>
    </item>
-   <item>
-    <property name="text">
-     <string>PCI-E 5.0</string>
-    </property>
-   </item>
   </widget>
-  <widget class="QComboBox" name="comBoxVidMonitor">
+  <widget class="QComboBox" name="cbMonitor">
    <property name="geometry">
     <rect>
      <x>170</x>
@@ -795,7 +795,7 @@ QComboBox QAbstractItemView {
   <widget class="QLabel" name="lbChipName">
    <property name="geometry">
     <rect>
-     <x>520</x>
+     <x>490</x>
      <y>170</y>
      <width>171</width>
      <height>21</height>
@@ -831,10 +831,10 @@ border: 1px solid rgb(210, 0, 0);</string>
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
-  <widget class="QLineEdit" name="leVidChipName">
+  <widget class="QLineEdit" name="leChipName">
    <property name="geometry">
     <rect>
-     <x>520</x>
+     <x>490</x>
      <y>200</y>
      <width>211</width>
      <height>31</height>
@@ -861,7 +861,7 @@ QLineEdit:hover{
 }</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="leVidName">
+  <widget class="QLineEdit" name="leFullName">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -891,7 +891,7 @@ QLineEdit:hover{
 }</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="leVidVolue">
+  <widget class="QLineEdit" name="leVolume">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -920,8 +920,11 @@ QLineEdit:hover{
 	border-bottom: 1px solid  red;
 }</string>
    </property>
+   <property name="inputMask">
+    <string/>
+   </property>
   </widget>
-  <widget class="QLineEdit" name="leVidType">
+  <widget class="QLineEdit" name="leType">
    <property name="geometry">
     <rect>
      <x>170</x>
@@ -951,10 +954,10 @@ QLineEdit:hover{
 }</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="leVidFreq">
+  <widget class="QLineEdit" name="leFreq">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>490</x>
      <y>280</y>
      <width>111</width>
      <height>31</height>
@@ -980,8 +983,11 @@ QLineEdit:hover{
 	border-bottom: 1px solid  red;
 }</string>
    </property>
+   <property name="inputMask">
+    <string/>
+   </property>
   </widget>
-  <widget class="QLineEdit" name="leVidKol">
+  <widget class="QLineEdit" name="leKol">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -1010,8 +1016,11 @@ QLineEdit:hover{
 	border-bottom: 1px solid  red;
 }</string>
    </property>
+   <property name="inputMask">
+    <string/>
+   </property>
   </widget>
-  <widget class="QLineEdit" name="leVidPrice">
+  <widget class="QLineEdit" name="lePrice">
    <property name="geometry">
     <rect>
      <x>170</x>
@@ -1040,8 +1049,11 @@ QLineEdit:hover{
 	border-bottom: 1px solid  red;
 }</string>
    </property>
+   <property name="inputMask">
+    <string/>
+   </property>
   </widget>
-  <widget class="QLineEdit" name="leVidResolution">
+  <widget class="QLineEdit" name="leResolution">
    <property name="geometry">
     <rect>
      <x>320</x>
@@ -1071,16 +1083,22 @@ QLineEdit:hover{
 }</string>
    </property>
    <property name="inputMask">
-    <string>0000x0000</string>
+    <string/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="frame">
+    <bool>true</bool>
    </property>
    <property name="placeholderText">
     <string>1920x1080</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="leVidTdp">
+  <widget class="QLineEdit" name="leTdp">
    <property name="geometry">
     <rect>
-     <x>470</x>
+     <x>490</x>
      <y>380</y>
      <width>111</width>
      <height>31</height>
@@ -1113,10 +1131,10 @@ QLineEdit:hover{
     <string/>
    </property>
   </widget>
-  <widget class="QLineEdit" name="leVidLen">
+  <widget class="QLineEdit" name="leLength">
    <property name="geometry">
     <rect>
-     <x>640</x>
+     <x>660</x>
      <y>380</y>
      <width>111</width>
      <height>31</height>
@@ -1160,18 +1178,18 @@ QLineEdit:hover{
    </property>
    <property name="styleSheet">
     <string notr="true">border:0px;
-border-top: 1px solid rgb(180, 0, 0);</string>
+border-top: 1px solid rgb(220, 0, 0);</string>
    </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
-  <widget class="QLabel" name="lbChipCr">
+  <widget class="QLabel" name="lbChipCreator">
    <property name="geometry">
     <rect>
      <x>320</x>
      <y>170</y>
-     <width>151</width>
+     <width>161</width>
      <height>21</height>
     </rect>
    </property>
@@ -1188,7 +1206,7 @@ border-top: 1px solid rgb(180, 0, 0);</string>
     <string>Производитель чипа</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="comBoxVidChipCr">
+  <widget class="QComboBox" name="cbChipCreator">
    <property name="geometry">
     <rect>
      <x>320</x>
@@ -1283,10 +1301,10 @@ QComboBox::QAbstractItemView {
     </property>
    </item>
   </widget>
-  <widget class="QLabel" name="label_14">
+  <widget class="QLabel" name="lbDate">
    <property name="geometry">
     <rect>
-     <x>640</x>
+     <x>660</x>
      <y>450</y>
      <width>111</width>
      <height>21</height>
@@ -1305,10 +1323,10 @@ QComboBox::QAbstractItemView {
     <string>Дата заказа</string>
    </property>
   </widget>
-  <widget class="QDateEdit" name="dateEdit_2">
+  <widget class="QDateEdit" name="dateEdit">
    <property name="geometry">
     <rect>
-     <x>640</x>
+     <x>660</x>
      <y>480</y>
      <width>111</width>
      <height>31</height>
@@ -1352,6 +1370,13 @@ QDateEdit::down-arrow:on {
 
 QDateEdit:on{
 	border: 2px solid rgb(100,0,0);
+}
+
+QDateEdit::up-arrow {
+	border-image: url(&quot;E:/pcconf/images/up-arrow-gray.png&quot;);
+	width: 17px;
+	height: 17px;
+	margin-right: 5px;
 }
 
 QCalendarWidget QWidget#qt_calendar_navigationbar { background-color: rgb(40,40,40); }
@@ -1447,11 +1472,18 @@ QCalendarWidget QAbstractItemView:disabled { color: rgb(80, 80, 80); }</string>
    <property name="calendarPopup">
     <bool>true</bool>
    </property>
+   <property name="date">
+    <date>
+     <year>2023</year>
+     <month>1</month>
+     <day>1</day>
+    </date>
+   </property>
   </widget>
-  <widget class="QLineEdit" name="leVidBus">
+  <widget class="QLineEdit" name="leBus">
    <property name="geometry">
     <rect>
-     <x>520</x>
+     <x>320</x>
      <y>280</y>
      <width>111</width>
      <height>31</height>
@@ -1477,13 +1509,16 @@ QLineEdit:hover{
 	border-bottom: 1px solid  red;
 }</string>
    </property>
+   <property name="inputMask">
+    <string/>
+   </property>
   </widget>
-  <widget class="QLabel" name="label_15">
+  <widget class="QLabel" name="lbBus">
    <property name="geometry">
     <rect>
-     <x>520</x>
+     <x>320</x>
      <y>250</y>
-     <width>231</width>
+     <width>151</width>
      <height>21</height>
     </rect>
    </property>
@@ -1497,51 +1532,68 @@ QLineEdit:hover{
     <string notr="true">border:0px;</string>
    </property>
    <property name="text">
-    <string>Разрядность шины памяти [бит]</string>
+    <string>Шина памяти [бит]</string>
    </property>
   </widget>
   <zorder>radioButton</zorder>
   <zorder>lbFullName</zorder>
   <zorder>line</zorder>
   <zorder>line_2</zorder>
-  <zorder>comBoxVidProizv</zorder>
+  <zorder>cbProizv</zorder>
   <zorder>lbVidProizv</zorder>
-  <zorder>label_3</zorder>
+  <zorder>lbComplect</zorder>
   <zorder>btnVidSave</zorder>
   <zorder>btnVidCancel</zorder>
-  <zorder>label_4</zorder>
-  <zorder>label_6</zorder>
-  <zorder>label_7</zorder>
-  <zorder>label_8</zorder>
-  <zorder>label_9</zorder>
-  <zorder>label_10</zorder>
-  <zorder>label_11</zorder>
-  <zorder>label_12</zorder>
-  <zorder>label_13</zorder>
+  <zorder>lbVolume</zorder>
+  <zorder>lbFreq</zorder>
+  <zorder>lbInterface</zorder>
+  <zorder>lbMonitor</zorder>
+  <zorder>lbResolution</zorder>
+  <zorder>lbLength</zorder>
+  <zorder>lbTdp</zorder>
+  <zorder>lbKol</zorder>
+  <zorder>lbPrice</zorder>
   <zorder>line_3</zorder>
-  <zorder>label_5</zorder>
-  <zorder>comBoxVidInterface</zorder>
-  <zorder>comBoxVidMonitor</zorder>
+  <zorder>lbType</zorder>
+  <zorder>cbInterface</zorder>
+  <zorder>cbMonitor</zorder>
   <zorder>lbChipName</zorder>
   <zorder>rectangle</zorder>
-  <zorder>leVidChipName</zorder>
-  <zorder>leVidName</zorder>
-  <zorder>leVidVolue</zorder>
-  <zorder>leVidType</zorder>
-  <zorder>leVidFreq</zorder>
-  <zorder>leVidKol</zorder>
-  <zorder>leVidPrice</zorder>
-  <zorder>leVidResolution</zorder>
-  <zorder>leVidTdp</zorder>
-  <zorder>leVidLen</zorder>
+  <zorder>leChipName</zorder>
+  <zorder>leFullName</zorder>
+  <zorder>leVolume</zorder>
+  <zorder>leType</zorder>
+  <zorder>leFreq</zorder>
+  <zorder>leKol</zorder>
+  <zorder>lePrice</zorder>
+  <zorder>leResolution</zorder>
+  <zorder>leTdp</zorder>
+  <zorder>leLength</zorder>
   <zorder>line_4</zorder>
-  <zorder>lbChipCr</zorder>
-  <zorder>comBoxVidChipCr</zorder>
-  <zorder>label_14</zorder>
-  <zorder>dateEdit_2</zorder>
-  <zorder>leVidBus</zorder>
-  <zorder>label_15</zorder>
+  <zorder>lbChipCreator</zorder>
+  <zorder>cbChipCreator</zorder>
+  <zorder>lbDate</zorder>
+  <zorder>dateEdit</zorder>
+  <zorder>leBus</zorder>
+  <zorder>lbBus</zorder>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>btnVidCancel</sender>
+   <signal>clicked()</signal>
+   <receiver>addChVidWidg</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>515</x>
+     <y>565</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>440</x>
+     <y>301</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

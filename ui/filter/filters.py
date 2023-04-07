@@ -71,12 +71,22 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
         # -------------------Задание ограничений для полей ввода-------------------
         only_int = QIntValidator()
         only_int.setRange(0, 999999)
-        self.leMinPrice.setValidator(only_int)
-        self.leMaxPrice.setValidator(only_int)
-        self.leMinTdp.setValidator(only_int)
-        self.leMaxTdp.setValidator(only_int)
-        self.leMinLen.setValidator(only_int)
-        self.leMaxLen.setValidator(only_int)
+
+        two_digits_int = QIntValidator()
+        two_digits_int.setRange(0, 99)
+
+        three_digits_int = QIntValidator()
+        three_digits_int.setRange(0, 999)
+
+        six_digits_int = QIntValidator()
+        six_digits_int.setRange(0, 999999)
+
+        self.leMinPrice.setValidator(six_digits_int)
+        self.leMaxPrice.setValidator(six_digits_int)
+        self.leMinTdp.setValidator(three_digits_int)
+        self.leMaxTdp.setValidator(three_digits_int)
+        self.leMinLen.setValidator(two_digits_int)
+        self.leMaxLen.setValidator(two_digits_int)
         # -------------------Задание ограничений для полей ввода-------------------
 
         # -------------------Установка ширины столбцов для таблиц-------------------

@@ -128,6 +128,12 @@ border-top: 1px solid rgb(180, 0, 0);</string>
      <height>31</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Montserrat Medium</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
    <property name="styleSheet">
     <string notr="true">QLineEdit{
 	padding-left: 5px;
@@ -229,5 +235,22 @@ QPushButton::hover
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>btnProizvCancel</sender>
+   <signal>clicked()</signal>
+   <receiver>addProizvWidget</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>295</x>
+     <y>255</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>216</x>
+     <y>149</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

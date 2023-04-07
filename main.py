@@ -11,7 +11,7 @@ from ui.filter import filters  # импорт файла со всеми фил�
 from ui.proizv import addProizvWidget  # импорт файла (виджета) добавления производителя
 
 
-# Класс окна с одной кнопкой
+# Класс диалогового окна с одной кнопкой
 class DialogOk(QDialog, warningWin.Ui_warningDialog):
     def __init__(self, error_win_title, error_text):
         QDialog.__init__(self)
@@ -42,12 +42,17 @@ class AddProizv(QtWidgets.QWidget, addProizvWidget.Ui_addProizvWidget):
         self.labelComplect.setText(text_complect)
         self.btnProizvSave.clicked.connect(lambda: self.create_proizv_query(text_complect, self.leProzivName.text()))
 
-        self.btnProizvSave.clicked.connect(lambda: self.close())
-
     def create_proizv_query(self, text_complect, proizv_name):
         match text_complect:
-            case "Поставщик видеокарт":
-                print(f"INSERT INTO Proizv_videocard (name) VALUES ({proizv_name});")
+            case "Производитель видеокарт":
+                if proizv_name != "":
+                    print(f"SELECT insert_proizv('{proizv_name}');")
+                    self.close()
+                else:
+                    self.dialog = DialogOk("Ошибка", "Введите наименование поставщика")
+                    self.dialog.show()
+                    if self.dialog.exec():
+                        pass
 
 
 class RadioButton(QtWidgets.QRadioButton):
@@ -123,13 +128,25 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         self.tableBodyProizv.setColumnWidth(1, 0)
         self.tableBodyProizv.setColumnWidth(2, 140)
 
-        self.btnNewVideoProizv.clicked.connect(lambda: AddProizv("Поставщик видеокарт").show())  # x8
+        self.btnNewVideoProizv.clicked.connect(lambda: AddProizv("Производитель видеокарт").show())  # x8
 
-        self.btnCngVideoProizv.clicked.connect(lambda: self.change_proizv(self.tableVideoProizv.currentRow(), self.tableVideoProizv))
+        self.btnCngVideoProizv.clicked.connect(lambda:
+                                               self.change_proizv(self.tableVideoProizv.currentRow(),
+                                                                  self.tableVideoProizv))
 
         self.insert_existence(self.tableVideoProizv)
         self.query_sklad = ""
         self.query_conf = ""
+        # Словари для хранения пар ключ(id)-производитель(название)
+        self.dict_proizv_videocard = {}
+        self.dict_proizv_processor = {}
+        self.dict_proizv_mother = {}
+        self.dict_proizv_cool = {}
+        self.dict_proizv_ram = {}
+        self.dict_proizv_disk = {}
+        self.dict_proizv_power = {}
+        self.dict_proizv_body = {}
+        # self.dict_proizv_configs = {} ??
         # ==========================================================================================
 
         # =========================== Надстройки вкладки "Конфигуратор"=============================
@@ -289,39 +306,39 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                             pass
                     else:  # Если пришел список - заполняем окно.
                         self.win_add_change = adding.AddChangeVideoWindow(new_bool)
-                        self.block_line_edit(self.win_add_change.leVidName, row[0])
-                        self.block_line_edit(self.win_add_change.leVidChipName, row[1])
-                        self.block_line_edit(self.win_add_change.leVidType, row[2])
-                        self.block_combo_box(self.win_add_change.comBoxVidChipCr, row[2])
+                        self.block_line_edit(self.win_add_change.leFullName, row[0])
+                        self.block_line_edit(self.win_add_change.leChipName, row[1])
+                        self.block_line_edit(self.win_add_change.leType, row[2])
+                        self.block_combo_box(self.win_add_change.cbChipCreator, row[2])
                         self.win_add_change.show()
             case 1:
                 if new_bool:  # Если True - добавляем новую запись: открываем пустое окно
-                    self.win_add_change = adding.AddChangeVideoWindow()
+                    self.win_add_change = adding.AddChangeVideoWindow(new_bool)
                     #  self.win_add_change.radioButton = RadioButton()
                     self.win_add_change.show()
             case 2:
                 if new_bool:  # Если True - добавляем новую запись: открываем пустое окно
-                    self.win_add_change = adding.AddChangeVideoWindow()
+                    self.win_add_change = adding.AddChangeVideoWindow(new_bool)
                     self.win_add_change.show()
             case 3:
                 if new_bool:  # Если True - добавляем новую запись: открываем пустое окно
-                    self.win_add_change = adding.AddChangeVideoWindow()
+                    self.win_add_change = adding.AddChangeVideoWindow(new_bool)
                     self.win_add_change.show()
             case 4:
                 if new_bool:  # Если True - добавляем новую запись: открываем пустое окно
-                    self.win_add_change = adding.AddChangeVideoWindow()
+                    self.win_add_change = adding.AddChangeVideoWindow(new_bool)
                     self.win_add_change.show()
             case 5:
                 if new_bool:  # Если True - добавляем новую запись: открываем пустое окно
-                    self.win_add_change = adding.AddChangeVideoWindow()
+                    self.win_add_change = adding.AddChangeVideoWindow(new_bool)
                     self.win_add_change.show()
             case 6:
                 if new_bool:  # Если True - добавляем новую запись: открываем пустое окно
-                    self.win_add_change = adding.AddChangeVideoWindow()
+                    self.win_add_change = adding.AddChangeVideoWindow(new_bool)
                     self.win_add_change.show()
             case 7:
                 if new_bool:  # Если True - добавляем новую запись: открываем пустое окно
-                    self.win_add_change = adding.AddChangeVideoWindow()
+                    self.win_add_change = adding.AddChangeVideoWindow(new_bool)
                     self.win_add_change.show()
 
     # Метод, отвечающий за открытие окна фильтрации на складе. Принимает id вкладки ToolBox
