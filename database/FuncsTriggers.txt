@@ -89,6 +89,24 @@ FOR EACH ROW
 EXECUTE PROCEDURE update_skladvideo();
 
 
+CREATE OR REPLACE FUNCTION get_proizv_videocard()
+RETURNS TABLE(id INT, exist BOOLEAN, name VARCHAR(50)) AS $$
+	SELECT * FROM proizv_videocard
+$$ LANGUAGE sql;
+
+
+CREATE FUNCTION update_video_dogovor(int, bool) 
+RETURNS void AS $$
+BEGIN
+	UPDATE proizv_videocard SET exist = $2 WHERE id = $1;
+END;
+$$ LANGUAGE plpgsql;
+
+
+
+select  get_proizv_videocard()
+
+
 SELECT insert_proizv('GIGABYTE')
 SELECT insert_videocard(1,'GIGABYTE GeForce RTX 3050 EAGLE OC', 'Nvidia', 'RTX 3050', 8, 'GDDR6', 1552, 256, 'PCI-E 4.0', 4, '7680x4320', 130, 28, 29250);
 SELECT insert_order_videocard(5, 2, '05.04.2023')

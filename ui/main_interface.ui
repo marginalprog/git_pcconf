@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1367</width>
-    <height>728</height>
+    <height>726</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -622,12 +622,12 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
            </row>
            <column>
             <property name="text">
-             <string>Договор</string>
+             <string>Состояние</string>
             </property>
            </column>
            <column>
             <property name="text">
-             <string>Состояние</string>
+             <string>Договор</string>
             </property>
            </column>
            <column>
@@ -637,12 +637,12 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
            </column>
            <item row="0" column="0">
             <property name="text">
-             <string>+</string>
+             <string>True</string>
             </property>
            </item>
            <item row="0" column="1">
             <property name="text">
-             <string>True</string>
+             <string>+</string>
             </property>
            </item>
            <item row="0" column="2">
@@ -652,12 +652,12 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
            </item>
            <item row="1" column="0">
             <property name="text">
-             <string>+</string>
+             <string>True</string>
             </property>
            </item>
            <item row="1" column="1">
             <property name="text">
-             <string>True</string>
+             <string>+</string>
             </property>
            </item>
            <item row="1" column="2">
@@ -667,12 +667,12 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
            </item>
            <item row="2" column="0">
             <property name="text">
-             <string>-</string>
+             <string>False</string>
             </property>
            </item>
            <item row="2" column="1">
             <property name="text">
-             <string>False</string>
+             <string>-</string>
             </property>
            </item>
            <item row="2" column="2">
@@ -1051,12 +1051,12 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
            </row>
            <column>
             <property name="text">
-             <string>Договор</string>
+             <string>Состояние</string>
             </property>
            </column>
            <column>
             <property name="text">
-             <string>Состояние</string>
+             <string>Договор</string>
             </property>
            </column>
            <column>
@@ -1064,7 +1064,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              <string>Название</string>
             </property>
            </column>
-           <item row="0" column="0">
+           <item row="0" column="1">
             <property name="text">
              <string>+</string>
             </property>
@@ -1074,7 +1074,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              <string>Gigabyte</string>
             </property>
            </item>
-           <item row="1" column="0">
+           <item row="1" column="1">
             <property name="text">
              <string>+</string>
             </property>
@@ -1084,7 +1084,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              <string>Asus</string>
             </property>
            </item>
-           <item row="2" column="0">
+           <item row="2" column="1">
             <property name="text">
              <string>-</string>
             </property>
@@ -1460,12 +1460,12 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
            </row>
            <column>
             <property name="text">
-             <string>Договор</string>
+             <string>Состояние</string>
             </property>
            </column>
            <column>
             <property name="text">
-             <string>Состояние</string>
+             <string>Договор</string>
             </property>
            </column>
            <column>
@@ -1473,7 +1473,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              <string>Название</string>
             </property>
            </column>
-           <item row="0" column="0">
+           <item row="0" column="1">
             <property name="text">
              <string>+</string>
             </property>
@@ -1483,7 +1483,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              <string>Gigabyte</string>
             </property>
            </item>
-           <item row="1" column="0">
+           <item row="1" column="1">
             <property name="text">
              <string>+</string>
             </property>
@@ -1493,7 +1493,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              <string>Asus</string>
             </property>
            </item>
-           <item row="2" column="0">
+           <item row="2" column="1">
             <property name="text">
              <string>-</string>
             </property>
@@ -1869,12 +1869,12 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
            </row>
            <column>
             <property name="text">
-             <string>Договор</string>
+             <string>Состояние</string>
             </property>
            </column>
            <column>
             <property name="text">
-             <string>Состояние</string>
+             <string>Договор</string>
             </property>
            </column>
            <column>
@@ -1882,7 +1882,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              <string>Название</string>
             </property>
            </column>
-           <item row="0" column="0">
+           <item row="0" column="1">
             <property name="text">
              <string>+</string>
             </property>
@@ -1892,7 +1892,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              <string>Gigabyte</string>
             </property>
            </item>
-           <item row="1" column="0">
+           <item row="1" column="1">
             <property name="text">
              <string>+</string>
             </property>
@@ -1902,7 +1902,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              <string>Asus</string>
             </property>
            </item>
-           <item row="2" column="0">
+           <item row="2" column="1">
             <property name="text">
              <string>-</string>
             </property>
@@ -2278,12 +2278,12 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
            </row>
            <column>
             <property name="text">
-             <string>Договор</string>
+             <string>Состояние</string>
             </property>
            </column>
            <column>
             <property name="text">
-             <string>Состояние</string>
+             <string>Договор</string>
             </property>
            </column>
            <column>
@@ -2291,7 +2291,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              <string>Название</string>
             </property>
            </column>
-           <item row="0" column="0">
+           <item row="0" column="1">
             <property name="text">
              <string>+</string>
             </property>
@@ -2301,7 +2301,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              <string>Gigabyte</string>
             </property>
            </item>
-           <item row="1" column="0">
+           <item row="1" column="1">
             <property name="text">
              <string>+</string>
             </property>
@@ -2311,7 +2311,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              <string>Asus</string>
             </property>
            </item>
-           <item row="2" column="0">
+           <item row="2" column="1">
             <property name="text">
              <string>-</string>
             </property>
@@ -2687,12 +2687,12 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
            </row>
            <column>
             <property name="text">
-             <string>Договор</string>
+             <string>Состояние</string>
             </property>
            </column>
            <column>
             <property name="text">
-             <string>Состояние</string>
+             <string>Договор</string>
             </property>
            </column>
            <column>
@@ -2700,7 +2700,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              <string>Название</string>
             </property>
            </column>
-           <item row="0" column="0">
+           <item row="0" column="1">
             <property name="text">
              <string>+</string>
             </property>
@@ -2710,7 +2710,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              <string>Gigabyte</string>
             </property>
            </item>
-           <item row="1" column="0">
+           <item row="1" column="1">
             <property name="text">
              <string>+</string>
             </property>
@@ -2720,7 +2720,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              <string>Asus</string>
             </property>
            </item>
-           <item row="2" column="0">
+           <item row="2" column="1">
             <property name="text">
              <string>-</string>
             </property>
@@ -3096,12 +3096,12 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
            </row>
            <column>
             <property name="text">
-             <string>Договор</string>
+             <string>Состояние</string>
             </property>
            </column>
            <column>
             <property name="text">
-             <string>Состояние</string>
+             <string>Договор</string>
             </property>
            </column>
            <column>
@@ -3109,7 +3109,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              <string>Название</string>
             </property>
            </column>
-           <item row="0" column="0">
+           <item row="0" column="1">
             <property name="text">
              <string>+</string>
             </property>
@@ -3119,7 +3119,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              <string>Gigabyte</string>
             </property>
            </item>
-           <item row="1" column="0">
+           <item row="1" column="1">
             <property name="text">
              <string>+</string>
             </property>
@@ -3129,7 +3129,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              <string>Asus</string>
             </property>
            </item>
-           <item row="2" column="0">
+           <item row="2" column="1">
             <property name="text">
              <string>-</string>
             </property>
@@ -3505,12 +3505,12 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
            </row>
            <column>
             <property name="text">
-             <string>Договор</string>
+             <string>Состояние</string>
             </property>
            </column>
            <column>
             <property name="text">
-             <string>Состояние</string>
+             <string>Договор</string>
             </property>
            </column>
            <column>
@@ -3518,7 +3518,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              <string>Название</string>
             </property>
            </column>
-           <item row="0" column="0">
+           <item row="0" column="1">
             <property name="text">
              <string>+</string>
             </property>
@@ -3528,7 +3528,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              <string>Gigabyte</string>
             </property>
            </item>
-           <item row="1" column="0">
+           <item row="1" column="1">
             <property name="text">
              <string>+</string>
             </property>
@@ -3538,7 +3538,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              <string>Asus</string>
             </property>
            </item>
-           <item row="2" column="0">
+           <item row="2" column="1">
             <property name="text">
              <string>-</string>
             </property>

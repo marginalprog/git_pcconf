@@ -36,23 +36,28 @@ class AcceptionWin(QDialog, acceptionWin.Ui_Dialog):
 
 # Класс окна с добавлением поставщика
 class AddProizv(QtWidgets.QWidget, addProizvWidget.Ui_addProizvWidget):
-    def __init__(self, text_complect):
+    def __init__(self, text_complect, dict_proizv):
         super().__init__()
         self.setupUi(self)
         self.labelComplect.setText(text_complect)
-        self.btnProizvSave.clicked.connect(lambda: self.create_proizv_query(text_complect, self.leProzivName.text()))
+        self.btnProizvSave.clicked.connect(lambda: self.create_proizv_query(text_complect, self.leProzivName.text(), dict_proizv))
 
-    def create_proizv_query(self, text_complect, proizv_name):
+    def create_proizv_query(self, text_complect, proizv_name, dict_proizv):
         match text_complect:
             case "Производитель видеокарт":
-                if proizv_name != "":
-                    print(f"SELECT insert_proizv('{proizv_name}');")
-                    self.close()
-                else:
+                if proizv_name == "":
                     self.dialog = DialogOk("Ошибка", "Введите наименование поставщика")
                     self.dialog.show()
                     if self.dialog.exec():
                         pass
+                elif proizv_name in dict_proizv.values():
+                    self.dialog = DialogOk("Ошибка", "Данный поставщик уже есть в базе данных")
+                    self.dialog.show()
+                    if self.dialog.exec():
+                        pass
+                else:
+                    print(f"SELECT insert_proizv('{proizv_name}');")
+                    self.close()
 
 
 class RadioButton(QtWidgets.QRadioButton):
@@ -78,6 +83,24 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         super(MainWindow, self).__init__()
         self.setupUi(self)
         self.setWindowTitle("Конфигуратор ПК")
+        # Словари для хранения пар ключ(id производителя)-название
+        self.dict_proizv_videocard = {}
+
+        # Словари для хранения пар ключ(id видеокарты)-производитель(название)
+        self.dict_videocard_proizv = {}
+        self.dict_processor_proizv = {}
+        self.dict_mother_proizv = {}
+        self.dict_cool_proizv = {}
+        self.dict_ram_proizv = {}
+        self.dict_disk_proizv = {}
+        self.dict_power_proizv = {}
+        self.dict_body_proizv = {}
+        # self.dict_proizv_configs = {} ??
+        # Словари для хранения пар ключ(id компл.)- количество
+        self.dict_videocard_kol = {}
+        self.query_sklad = ""
+        self.query_conf = ""
+
         # =============================== Надстройки вкладки "Склад"================================
         self.twSklad.horizontalHeader().setDefaultAlignment(QtCore.Qt.AlignVCenter | QtCore.Qt.AlignHCenter)
         self.twSklad.verticalHeader().setDefaultAlignment(QtCore.Qt.AlignVCenter | QtCore.Qt.AlignHCenter)
@@ -98,58 +121,51 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
 
         # По нажатии на кнопку запускается метод, который принимает выбранную вклдку ТБ и открывает нужное окно фильтра
         self.btnSkladFilter.clicked.connect(lambda: self.tb_sklad_filter(self.toolBoxNavigation.currentIndex()))
+
+        self.update_proizv_videocard()
         # =================================Окна фильтрации комплектующих на складе=========================
         self.vidSkladFilter = filters.VideoFilter(0, self)  # Создаётся отдельный экземпляр для сохранения внесённых д-х
         # .......инициализация других окон фильтрации.......
         # =================================================================================================
 
-        self.tableVideoProizv.setColumnWidth(0, 30)
-        self.tableVideoProizv.setColumnWidth(1, 0)
+        self.tableVideoProizv.setColumnWidth(0, 0)
+        self.tableVideoProizv.setColumnWidth(1, 30)
         self.tableVideoProizv.setColumnWidth(2, 140)
-        self.tableProcProizv.setColumnWidth(0, 30)
-        self.tableProcProizv.setColumnWidth(1, 0)
+        self.tableProcProizv.setColumnWidth(0, 0)
+        self.tableProcProizv.setColumnWidth(1, 30)
         self.tableProcProizv.setColumnWidth(2, 140)
-        self.tableMotherProizv.setColumnWidth(0, 30)
-        self.tableMotherProizv.setColumnWidth(1, 0)
+        self.tableMotherProizv.setColumnWidth(0, 0)
+        self.tableMotherProizv.setColumnWidth(1, 30)
         self.tableMotherProizv.setColumnWidth(2, 140)
-        self.tableCoolProizv.setColumnWidth(0, 30)
-        self.tableCoolProizv.setColumnWidth(1, 0)
+        self.tableCoolProizv.setColumnWidth(0, 0)
+        self.tableCoolProizv.setColumnWidth(1, 30)
         self.tableCoolProizv.setColumnWidth(2, 140)
-        self.tableRamProizv.setColumnWidth(0, 30)
-        self.tableRamProizv.setColumnWidth(1, 0)
+        self.tableRamProizv.setColumnWidth(0, 0)
+        self.tableRamProizv.setColumnWidth(1, 30)
         self.tableRamProizv.setColumnWidth(2, 140)
-        self.tableDiskProizv.setColumnWidth(0, 30)
-        self.tableDiskProizv.setColumnWidth(1, 0)
+        self.tableDiskProizv.setColumnWidth(0, 0)
+        self.tableDiskProizv.setColumnWidth(1, 30)
         self.tableDiskProizv.setColumnWidth(2, 140)
-        self.tablePowerProizv.setColumnWidth(0, 30)
-        self.tablePowerProizv.setColumnWidth(1, 0)
+        self.tablePowerProizv.setColumnWidth(0, 0)
+        self.tablePowerProizv.setColumnWidth(1, 30)
         self.tablePowerProizv.setColumnWidth(2, 140)
-        self.tableBodyProizv.setColumnWidth(0, 30)
-        self.tableBodyProizv.setColumnWidth(1, 0)
+        self.tableBodyProizv.setColumnWidth(0, 0)
+        self.tableBodyProizv.setColumnWidth(1, 30)
         self.tableBodyProizv.setColumnWidth(2, 140)
 
-        self.btnNewVideoProizv.clicked.connect(lambda: AddProizv("Производитель видеокарт").show())  # x8
+        # Кнопка создания нового производителя видеокарты
+        self.btnNewVideoProizv.clicked.connect(lambda:
+                                               AddProizv("Производитель видеокарт",
+                                                         self.dict_proizv_videocard).show())  # x8
 
         self.btnCngVideoProizv.clicked.connect(lambda:
                                                self.change_proizv(self.tableVideoProizv.currentRow(),
                                                                   self.tableVideoProizv))
 
-        self.insert_existence(self.tableVideoProizv)
-        self.query_sklad = ""
-        self.query_conf = ""
-        # Словари для хранения пар ключ(id)-производитель(название)
-        self.dict_proizv_videocard = {}
-        self.dict_proizv_processor = {}
-        self.dict_proizv_mother = {}
-        self.dict_proizv_cool = {}
-        self.dict_proizv_ram = {}
-        self.dict_proizv_disk = {}
-        self.dict_proizv_power = {}
-        self.dict_proizv_body = {}
-        # self.dict_proizv_configs = {} ??
         # ==========================================================================================
 
         # =========================== Надстройки вкладки "Конфигуратор"=============================
+
         self.treeWidget.itemClicked.connect(lambda: self.treeNavigation())
         # ----------------------Заполнение таблиц RB---------------------------
         self.dict_button_group = {}  # Словарь для хранения групп RB и таблиц, в которых они находятся
@@ -232,10 +248,64 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         ''' в дальнейшем existence будет из строк БД принимать true|false
          и вставлять соответствующее в таблицу состояние комплектующего
          Или if kol > 0 then... '''
-        for i in range(self.tableConfVideo.rowCount()):
-            self.paste_existence(self.tableConfVideo, i, True, 2)
+        # self.insert_existence(self.tableConfVideo)
         # self.paste_existence(self.tableConfProc, True, 2)
         # self.paste_existence(self.tableVideoProizv, True, 1)
+
+    # Метод обновления таблицы производителей из БД
+    def update_proizv_videocard(self):
+        self.tableVideoProizv.clear()
+        self.tableVideoProizv.clearSelection()
+        self.dict_proizv_videocard.clear()
+        conn = psycopg2.connect(database="confPc",
+                                user="postgres",
+                                password="2001",
+                                host="localhost",
+                                port="5432")
+        cur = conn.cursor()
+        cur.callproc("get_proizv_videocard")
+        row_count = 0
+        for row in cur:
+            self.tableVideoProizv.setRowCount(row_count + 1)
+            self.tableVideoProizv.setItem(row_count, 0, QtWidgets.QTableWidgetItem(str(row[1])))
+            self.dict_proizv_videocard[row[0]] = row[2]
+            self.tableVideoProizv.setItem(row_count, 2, QtWidgets.QTableWidgetItem(row[2]))
+            row_count += 1
+        cur.close()
+        conn.close()
+        self.insert_existence_proizv(self.tableVideoProizv)
+
+    # Метод принимает для вставки таблицу, строку и булевое значение для индикатора
+    def paste_existence(self, table, row, bool_):
+        if bool_:
+            table.setCellWidget(row, 1, self.create_existence("E:/pcconf/images/have.png"))
+        else:
+            table.setCellWidget(row, 1, self.create_existence("E:/pcconf/images/nothave.png"))
+
+    # Метод принимает на вход таблицу и заполняет столбец индикаторами
+    def insert_existence_proizv(self, table):
+        """
+        Данный метод заполняет всю таблицу производителя индикаторами
+        наличия с ним договора
+        """
+        for i in range(table.rowCount()):
+            if table.item(i, 0).text() == "True":
+                self.paste_existence(table, i, True)
+            else:
+                self.paste_existence(table, i, False)
+
+        # Метод принимает на вход таблицу и заполняет столбец индикаторами
+
+    def insert_existence_complect(self, table):
+        """
+        Данный метод заполняет всю таблицу с комплектующими индикаторами
+        наличия их на складе (при количестве > 0)
+        """
+        for i in range(table.rowCount()):
+            if int(table.item(i, 0).text()) > 0:
+                self.paste_existence(table, i, True)
+            else:
+                self.paste_existence(table, i, False)
 
     # изменение состояния в таблице поставщика
     def change_proizv(self, cur_row, table):
@@ -249,18 +319,18 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
             self.dialog.show()
             if self.dialog.exec():
                 if table.item(cur_row, 1).text() == "True":
-                    self.paste_existence(table, cur_row, False, 1)
+                    self.paste_existence(table, cur_row, False)
                     table.item(cur_row, 1).setText("False")  # Изменяем состояние в таблице
                     # здесь запрос в БД на изменение состояние поставщика (false->true)
                 else:
-                    self.paste_existence(table, cur_row, True, 1)
+                    self.paste_existence(table, cur_row, True)
                     table.item(cur_row, 1).setText("True")
                     # здесь запрос в БД на изменение состояние поставщика (false->true)
                 table.clearSelection()
             else:
                 table.clearSelection()
 
-    # Чтение выбранной строки в таблце для передачи в перезаказ
+    # Чтение выбранной строки в таблце для передачи в перезаказ (current_sklad?)
     def read_sklad(self, cur_row, count_col):
         data_row = []
         if cur_row == -1:
@@ -421,28 +491,6 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         pLayout.setContentsMargins(0, 0, 0, 0)
         widget.setLayout(pLayout)
         return widget
-
-    # метод заполнения ячейки наличием товара\поставщика
-    def paste_existence(self, table, row, bool_, type_table):
-        # row_count = table.rowCount()
-        match type_table:  # Если тип тиаблицы 1 (склад) - заполняем в 1 столбец. Если 2 (конфигуратор) - 2 столбец.
-            case 1:
-                if bool_:
-                    table.setCellWidget(row, 0, self.create_existence("E:/pcconf/images/have.png"))
-                else:
-                    table.setCellWidget(row, 0, self.create_existence("E:/pcconf/images/nothave.png"))
-            case 2:
-                if bool_:
-                    table.setCellWidget(row, 1, self.create_existence("E:/pcconf/images/have.png"))
-                else:
-                    table.setCellWidget(row, 1, self.create_existence("E:/pcconf/images/nothave.png"))
-
-    def insert_existence(self, table):
-        for i in range(table.rowCount()):  # заполнить столбец с бд и вызвать в цикле метод.
-            if table.item(i, 1).text() == "True":
-                self.paste_existence(table, i, True, 1)
-            else:
-                self.paste_existence(table, i, False, 1)
 
     # Метод создания рб на виджете
     def create_radiobutton(self):
