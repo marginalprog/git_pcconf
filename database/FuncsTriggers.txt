@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION insert_proizv(
+CREATE OR REPLACE FUNCTION insert_proizv_video(
 	VARCHAR(50))
 RETURNS void AS $$
 BEGIN
@@ -91,14 +91,14 @@ EXECUTE PROCEDURE update_skladvideo();
 
 CREATE OR REPLACE FUNCTION get_proizv_videocard()
 RETURNS TABLE(id INT, exist BOOLEAN, name VARCHAR(50)) AS $$
-	SELECT * FROM proizv_videocard
+	SELECT * FROM proizv_videocard ORDER BY name ASC, exist ASC
 $$ LANGUAGE sql;
 
 
-CREATE FUNCTION update_video_dogovor(int, bool) 
+CREATE OR REPLACE FUNCTION update_video_dogovor(BOOL, VARCHAR) 
 RETURNS void AS $$
 BEGIN
-	UPDATE proizv_videocard SET exist = $2 WHERE id = $1;
+	UPDATE proizv_videocard SET exist = $1 WHERE name = $2;
 END;
 $$ LANGUAGE plpgsql;
 

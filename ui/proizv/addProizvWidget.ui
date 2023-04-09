@@ -71,7 +71,7 @@ border-top: 1px solid rgb(180, 0, 0);</string>
   <widget class="QPushButton" name="btnProizvSave">
    <property name="geometry">
     <rect>
-     <x>60</x>
+     <x>80</x>
      <y>240</y>
      <width>131</width>
      <height>31</height>
@@ -122,7 +122,7 @@ border-top: 1px solid rgb(180, 0, 0);</string>
   <widget class="QLineEdit" name="leProzivName">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>120</x>
      <y>130</y>
      <width>191</width>
      <height>31</height>
@@ -169,7 +169,7 @@ border: 1px solid rgb(210, 0, 0);</string>
   <widget class="QPushButton" name="btnProizvCancel">
    <property name="geometry">
     <rect>
-     <x>230</x>
+     <x>220</x>
      <y>240</y>
      <width>131</width>
      <height>31</height>
@@ -214,7 +214,7 @@ QPushButton::hover
   <widget class="QLabel" name="lbName">
    <property name="geometry">
     <rect>
-     <x>100</x>
+     <x>110</x>
      <y>100</y>
      <width>221</width>
      <height>21</height>

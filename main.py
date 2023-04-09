@@ -36,28 +36,53 @@ class AcceptionWin(QDialog, acceptionWin.Ui_Dialog):
 
 # Класс окна с добавлением поставщика
 class AddProizv(QtWidgets.QWidget, addProizvWidget.Ui_addProizvWidget):
-    def __init__(self, text_complect, dict_proizv):
+    def __init__(self, mainwindow, text_complect, dict_proizv):
         super().__init__()
         self.setupUi(self)
         self.labelComplect.setText(text_complect)
-        self.btnProizvSave.clicked.connect(lambda: self.create_proizv_query(text_complect, self.leProzivName.text(), dict_proizv))
+        self.btnProizvSave.clicked.connect(lambda:
+                                           self.create_proizv_query(mainwindow,
+                                                                    text_complect,
+                                                                    self.leProzivName.text(),
+                                                                    dict_proizv))
 
-    def create_proizv_query(self, text_complect, proizv_name, dict_proizv):
-        match text_complect:
-            case "Производитель видеокарт":
-                if proizv_name == "":
-                    self.dialog = DialogOk("Ошибка", "Введите наименование поставщика")
-                    self.dialog.show()
-                    if self.dialog.exec():
-                        pass
-                elif proizv_name in dict_proizv.values():
-                    self.dialog = DialogOk("Ошибка", "Данный поставщик уже есть в базе данных")
-                    self.dialog.show()
-                    if self.dialog.exec():
-                        pass
-                else:
-                    print(f"SELECT insert_proizv('{proizv_name}');")
-                    self.close()
+    def create_proizv_query(self, mainwindow, text_complect, proizv_name, dict_proizv):
+        if proizv_name == "":
+            self.dialog = DialogOk("Ошибка", "Введите наименование поставщика")
+            self.dialog.show()
+            if self.dialog.exec():
+                pass
+        elif proizv_name.casefold() in str(dict_proizv.values()).casefold():
+            self.dialog = DialogOk("Ошибка", "Данный поставщик уже есть в базе данных")
+            self.dialog.show()
+            if self.dialog.exec():
+                pass
+        else:
+            conn = None
+            cur = None
+            try:
+                conn = psycopg2.connect(database="confPc",
+                                        user="postgres",
+                                        password="2001",
+                                        host="localhost",
+                                        port="5432")
+                cur = conn.cursor()
+                match text_complect:  # Определение запроса к БД по названию переданного label
+                    case "Производитель видеокарт":
+                        cur.callproc('insert_proizv_videocard', [proizv_name])
+                    # case2 case3......
+
+            except (Exception, psycopg2.DatabaseError) as error:
+                self.dialog = DialogOk("Ошибка", error)
+                self.dialog.show()
+
+            finally:
+                if conn:
+                    conn.commit()
+                    cur.close()
+                    conn.close()
+                mainwindow.load_proizv_videocard()  # Загрузка обновлённой таблицы из БД
+                self.close()
 
 
 class RadioButton(QtWidgets.QRadioButton):
@@ -83,8 +108,8 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         super(MainWindow, self).__init__()
         self.setupUi(self)
         self.setWindowTitle("Конфигуратор ПК")
-        # Словари для хранения пар ключ(id производителя)-название
-        self.dict_proizv_videocard = {}
+        # Словари для хранения пар ключ(id производителя)-наименование производителя
+        self.dict_proizv_vid_name = {}
 
         # Словари для хранения пар ключ(id видеокарты)-производитель(название)
         self.dict_videocard_proizv = {}
@@ -122,7 +147,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         # По нажатии на кнопку запускается метод, который принимает выбранную вклдку ТБ и открывает нужное окно фильтра
         self.btnSkladFilter.clicked.connect(lambda: self.tb_sklad_filter(self.toolBoxNavigation.currentIndex()))
 
-        self.update_proizv_videocard()
+        self.load_proizv_videocard()
         # =================================Окна фильтрации комплектующих на складе=========================
         self.vidSkladFilter = filters.VideoFilter(0, self)  # Создаётся отдельный экземпляр для сохранения внесённых д-х
         # .......инициализация других окон фильтрации.......
@@ -155,8 +180,8 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
 
         # Кнопка создания нового производителя видеокарты
         self.btnNewVideoProizv.clicked.connect(lambda:
-                                               AddProizv("Производитель видеокарт",
-                                                         self.dict_proizv_videocard).show())  # x8
+                                               AddProizv(self, "Производитель видеокарт",
+                                                         self.dict_proizv_vid_name).show())  # x8
 
         self.btnCngVideoProizv.clicked.connect(lambda:
                                                self.change_proizv(self.tableVideoProizv.currentRow(),
@@ -248,32 +273,39 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         ''' в дальнейшем existence будет из строк БД принимать true|false
          и вставлять соответствующее в таблицу состояние комплектующего
          Или if kol > 0 then... '''
-        # self.insert_existence(self.tableConfVideo)
-        # self.paste_existence(self.tableConfProc, True, 2)
-        # self.paste_existence(self.tableVideoProizv, True, 1)
 
-    # Метод обновления таблицы производителей из БД
-    def update_proizv_videocard(self):
+    # Метод загрузки таблицы производителей видеокарт из БД
+    def load_proizv_videocard(self):
         self.tableVideoProizv.clear()
         self.tableVideoProizv.clearSelection()
-        self.dict_proizv_videocard.clear()
-        conn = psycopg2.connect(database="confPc",
-                                user="postgres",
-                                password="2001",
-                                host="localhost",
-                                port="5432")
-        cur = conn.cursor()
-        cur.callproc("get_proizv_videocard")
-        row_count = 0
-        for row in cur:
-            self.tableVideoProizv.setRowCount(row_count + 1)
-            self.tableVideoProizv.setItem(row_count, 0, QtWidgets.QTableWidgetItem(str(row[1])))
-            self.dict_proizv_videocard[row[0]] = row[2]
-            self.tableVideoProizv.setItem(row_count, 2, QtWidgets.QTableWidgetItem(row[2]))
-            row_count += 1
-        cur.close()
-        conn.close()
-        self.insert_existence_proizv(self.tableVideoProizv)
+        self.dict_proizv_vid_name.clear()
+        conn = None
+        cur = None
+        try:
+            conn = psycopg2.connect(database="confPc",
+                                    user="postgres",
+                                    password="2001",
+                                    host="localhost",
+                                    port="5432")
+            cur = conn.cursor()
+            cur.callproc("get_proizv_videocard")
+            row_count = 0
+            for row in cur:
+                self.tableVideoProizv.setRowCount(row_count + 1)
+                self.tableVideoProizv.setItem(row_count, 0, QtWidgets.QTableWidgetItem(str(row[1])))
+                self.dict_proizv_vid_name[row[0]] = row[2]
+                self.tableVideoProizv.setItem(row_count, 2, QtWidgets.QTableWidgetItem(row[2]))
+                row_count += 1
+
+        except (Exception, psycopg2.DatabaseError) as error:
+            self.dialog = DialogOk("Ошибка", error)
+            self.dialog.show()
+
+        finally:
+            if conn:
+                cur.close()
+                conn.close()
+            self.insert_existence_proizv(self.tableVideoProizv)
 
     # Метод принимает для вставки таблицу, строку и булевое значение для индикатора
     def paste_existence(self, table, row, bool_):
@@ -282,11 +314,10 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         else:
             table.setCellWidget(row, 1, self.create_existence("E:/pcconf/images/nothave.png"))
 
-    # Метод принимает на вход таблицу и заполняет столбец индикаторами
     def insert_existence_proizv(self, table):
         """
-        Данный метод заполняет всю таблицу производителя индикаторами
-        наличия с ним договора
+        Метод принимает на вход таблицу и построчно вызывает метод вставки индикатора наличия договора
+        :param table: Таблица, в которую требуется вставить индикатор
         """
         for i in range(table.rowCount()):
             if table.item(i, 0).text() == "True":
@@ -298,8 +329,8 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
 
     def insert_existence_complect(self, table):
         """
-        Данный метод заполняет всю таблицу с комплектующими индикаторами
-        наличия их на складе (при количестве > 0)
+        Данный метод заполняет всю таблицу с комплектующими индикаторами наличия их на складе (при количестве > 0)
+        :param table: Таблица, в которую требуется вставить индикатор
         """
         for i in range(table.rowCount()):
             if int(table.item(i, 0).text()) > 0:
@@ -318,17 +349,43 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
             self.dialog = AcceptionWin("Подтвердите действие", att)
             self.dialog.show()
             if self.dialog.exec():
-                if table.item(cur_row, 1).text() == "True":
-                    self.paste_existence(table, cur_row, False)
-                    table.item(cur_row, 1).setText("False")  # Изменяем состояние в таблице
-                    # здесь запрос в БД на изменение состояние поставщика (false->true)
+                if table.item(cur_row, 0).text() == "True":
+                    # self.paste_existence(table, cur_row, False)
+                    # table.item(cur_row, 1).setText("False")  # Изменяем состояние в таблице
+                    self.rewrite_proizv_videocard(False, table.item(cur_row, 2).text())  # Перезаписываем значение в БД и обновляем таблицу
                 else:
-                    self.paste_existence(table, cur_row, True)
-                    table.item(cur_row, 1).setText("True")
-                    # здесь запрос в БД на изменение состояние поставщика (false->true)
+                    # self.paste_existence(table, cur_row, True)
+                    # table.item(cur_row, 1).setText("True")
+                    self.rewrite_proizv_videocard(True, table.item(cur_row, 2).text())
                 table.clearSelection()
             else:
                 table.clearSelection()
+
+    # Метод перезаписи данных о производителях видеокарты
+    def rewrite_proizv_videocard(self, contract, name):
+        conn = None
+        cur = None
+        try:
+            conn = psycopg2.connect(database="confPc",
+                                    user="postgres",
+                                    password="2001",
+                                    host="localhost",
+                                    port="5432")
+            cur = conn.cursor()
+            # for row in range(self.tableVideoProizv.rowCount()):  # Проход по строке производителей
+            # id_pr = {i for i in self.dict_proizv_vid_name
+            # if self.dict_proizv_vid_name[i] == self.tableVideoProizv.item(row, 2).text()}
+            cur.callproc('update_video_dogovor', [contract, name])
+
+        except (Exception, psycopg2.DatabaseError) as error:
+            self.dialog = DialogOk("Ошибка", error)
+            self.dialog.show()
+        finally:
+            if conn:
+                conn.commit()
+                cur.close()
+                conn.close()
+            self.load_proizv_videocard()  # Загрузка обновлённой таблицы из БД
 
     # Чтение выбранной строки в таблце для передачи в перезаказ (current_sklad?)
     def read_sklad(self, cur_row, count_col):
@@ -342,13 +399,13 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
             return data_row
 
     # Метод, заполняющий и блокирующий поле  ввода данных lineEdit
-    def block_line_edit(self, field, parameter):
+    def block_lineedit(self, field, parameter):
         field.setText(parameter)
         field.setDisabled(True)
         field.setStyleSheet("color:gray; border: 1px dotted rgb(120,120,120);")
 
     # # Метод, заполняющий и блокирующий поле  ввода данных comboBox
-    def block_combo_box(self, field, parameter):
+    def block_combobox(self, field, parameter):
         field.setItemText(0, parameter)
         field.setDisabled(True)
         field.setStyleSheet("QComboBox{color:gray; border: 1px dotted rgb(120,120,120);}"
@@ -359,27 +416,44 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                                 height: 17px;
                                 margin-right: 5px;}''')
 
-    # Метод, завязанный на выбранном в toolbox комплектующем на складе (page).
-    # При нажатии на кнопку добавить или изменить передается true\false (new_bool).
-    # Если true - добавляем новое комплектующее. Если false - создаём заказ на существующее комплектующее
+    def get_list_proizvoditel(self, table):
+        """
+        :param table: Таблица производителей, данные которой нужно передать в окно добавления комплектующего
+        :return: Список производителей, с которыми есть договор о поставках
+        """
+        list_proizvoditel = []
+        for i in range(table.rowCount()):
+            if table.item(i, 0).text() == "True":
+                list_proizvoditel.append(table.item(i, 2).text())
+        return list_proizvoditel
+
     def tb_new_komplekt(self, page, new_bool, row):
+        """
+        Метод, завязанный на выбранном в toolbox комплектующем на складе (page).
+        При нажатии на кнопку добавить или изменить передается true/false (new_bool).
+        Если true - добавляем новое комплектующее. Если false - создаём заказ на существующее комплектующее
+        :param page: Порядковый номер выбранной в toolBox страницы на складе
+        :param new_bool: Флаг. True - добавление нового комплектующего. False - создание заказа на выбранное компл.
+        :param row: Строка, на которую нажал пользователь
+        """
         match page:
             case 0:  # 0-9 - вкладки ToolBox (меню навигации)
                 if new_bool:  # Если True - добавляем новую запись: открываем пустое окно
-                    self.win_add_change = adding.AddChangeVideoWindow(new_bool)
+                    list_pr = self.get_list_proizvoditel(self.tableVideoProizv)
+                    self.win_add_change = adding.AddChangeVideoWindow(new_bool, list_pr)
                     self.win_add_change.show()
                 else:  # Есил False - изменяем выбранную запись
-                    if type(row) is str:  # Если пришел не список, а строка(ошибка) - вывод окна с ошибкой
+                    if type(row) is str:  # Если пришел не кортеж, а строка(ошибка) - вывод окна с ошибкой
                         self.dialog = DialogOk("Ошибка", row)
                         self.dialog.show()
                         if self.dialog.exec():
                             pass
                     else:  # Если пришел список - заполняем окно.
                         self.win_add_change = adding.AddChangeVideoWindow(new_bool)
-                        self.block_line_edit(self.win_add_change.leFullName, row[0])
-                        self.block_line_edit(self.win_add_change.leChipName, row[1])
-                        self.block_line_edit(self.win_add_change.leType, row[2])
-                        self.block_combo_box(self.win_add_change.cbChipCreator, row[2])
+                        self.block_lineedit(self.win_add_change.leFullName, row[0])
+                        self.block_lineedit(self.win_add_change.leChipName, row[1])
+                        self.block_lineedit(self.win_add_change.leType, row[2])
+                        self.block_combobox(self.win_add_change.cbChipCreator, row[2])
                         self.win_add_change.show()
             case 1:
                 if new_bool:  # Если True - добавляем новую запись: открываем пустое окно

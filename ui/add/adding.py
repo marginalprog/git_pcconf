@@ -21,7 +21,7 @@ class DialogOk(QDialog, warningWin.Ui_warningDialog):
 
 # Класс окна с добавлением\редактированием видеокарты
 class AddChangeVideoWindow(QtWidgets.QWidget, addChVidWidg.Ui_addChVidWidg):
-    def __init__(self, new_bool):
+    def __init__(self, new_bool, list_valid_proizv):
         super().__init__()
         self.setupUi(self)
         if new_bool:
@@ -55,6 +55,8 @@ class AddChangeVideoWindow(QtWidgets.QWidget, addChVidWidg.Ui_addChVidWidg):
         self.leLength.setValidator(two_digits_int)
         self.leKol.setValidator(four_digits_int)
         self.lePrice.setValidator(six_digits_int)
+        self.cbProizv.clear()
+        self.cbProizv.addItems(list_valid_proizv)
 
     # Проверяет и окрашивает название поле, если то заполнено неверно (не заполнено вовсе)
     def mark_labels(self, line_edit, label):
