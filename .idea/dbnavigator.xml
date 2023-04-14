@@ -29,7 +29,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="4f460324-69bf-4ee7-a71b-ca5924efcbb0">
-      <console name="confPc" type="STANDARD" schema="public" session="Main"><![CDATA[select * from videocard]]></console>
+      <console name="confPc" type="STANDARD" schema="public" session="Main"><![CDATA[select * from sklad_videocard]]></console>
       <console name="Connection" type="STANDARD" schema="postgres" session="Main" />
     </connection>
   </component>

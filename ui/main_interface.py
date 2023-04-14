@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1367, 728)
+        MainWindow.resize(1367, 726)
         icon = QtGui.QIcon.fromTheme("E:\\pcconf\\images\\pcconf.png")
         MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet("background: rgb(30, 30, 30);\n"
@@ -187,7 +187,7 @@ class Ui_MainWindow(object):
 "QToolBox::tab:selected\n"
 "{\n"
 "    background-color: rgb(50, 50, 50);\n"
-"    border-bottom: 2px solid  rgb(150, 0, 0);\n"
+"    border-bottom: 2px solid  rgb(200, 0, 0);\n"
 "    color:white;\n"
 "    font-weight: bold;\n"
 "}\n"
@@ -268,7 +268,7 @@ class Ui_MainWindow(object):
         self.btnDelVideoProizv.setObjectName("btnDelVideoProizv")
         self.tableVideoProizv = QtWidgets.QTableWidget(self.tbFrameVideo)
         self.tableVideoProizv.setEnabled(True)
-        self.tableVideoProizv.setGeometry(QtCore.QRect(60, 30, 171, 141))
+        self.tableVideoProizv.setGeometry(QtCore.QRect(50, 30, 191, 141))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
@@ -381,8 +381,8 @@ class Ui_MainWindow(object):
         self.tableVideoProizv.setShowGrid(False)
         self.tableVideoProizv.setGridStyle(QtCore.Qt.SolidLine)
         self.tableVideoProizv.setObjectName("tableVideoProizv")
-        self.tableVideoProizv.setColumnCount(3)
-        self.tableVideoProizv.setRowCount(3)
+        self.tableVideoProizv.setColumnCount(4)
+        self.tableVideoProizv.setRowCount(7)
         item = QtWidgets.QTableWidgetItem()
         self.tableVideoProizv.setVerticalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
@@ -390,32 +390,42 @@ class Ui_MainWindow(object):
         item = QtWidgets.QTableWidgetItem()
         self.tableVideoProizv.setVerticalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
+        self.tableVideoProizv.setVerticalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableVideoProizv.setVerticalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableVideoProizv.setVerticalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableVideoProizv.setVerticalHeaderItem(6, item)
+        item = QtWidgets.QTableWidgetItem()
         self.tableVideoProizv.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableVideoProizv.setHorizontalHeaderItem(1, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableVideoProizv.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableVideoProizv.setItem(0, 0, item)
+        self.tableVideoProizv.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableVideoProizv.setItem(0, 1, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableVideoProizv.setItem(0, 2, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableVideoProizv.setItem(1, 0, item)
+        self.tableVideoProizv.setItem(0, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableVideoProizv.setItem(1, 1, item)
+        self.tableVideoProizv.setItem(5, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableVideoProizv.setItem(1, 2, item)
+        self.tableVideoProizv.setItem(5, 2, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableVideoProizv.setItem(2, 0, item)
+        self.tableVideoProizv.setItem(5, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableVideoProizv.setItem(2, 1, item)
+        self.tableVideoProizv.setItem(6, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableVideoProizv.setItem(2, 2, item)
+        self.tableVideoProizv.setItem(6, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableVideoProizv.setItem(6, 3, item)
         self.tableVideoProizv.horizontalHeader().setVisible(False)
         self.tableVideoProizv.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableVideoProizv.horizontalHeader().setDefaultSectionSize(50)
+        self.tableVideoProizv.horizontalHeader().setDefaultSectionSize(40)
         self.tableVideoProizv.horizontalHeader().setHighlightSections(False)
         self.tableVideoProizv.horizontalHeader().setMinimumSectionSize(15)
         self.tableVideoProizv.horizontalHeader().setSortIndicatorShown(True)
@@ -517,7 +527,7 @@ class Ui_MainWindow(object):
         self.btnDelProcProizv.setObjectName("btnDelProcProizv")
         self.tableProcProizv = QtWidgets.QTableWidget(self.tbFrameProc)
         self.tableProcProizv.setEnabled(True)
-        self.tableProcProizv.setGeometry(QtCore.QRect(60, 30, 181, 141))
+        self.tableProcProizv.setGeometry(QtCore.QRect(50, 30, 201, 141))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
@@ -630,7 +640,7 @@ class Ui_MainWindow(object):
         self.tableProcProizv.setShowGrid(False)
         self.tableProcProizv.setGridStyle(QtCore.Qt.SolidLine)
         self.tableProcProizv.setObjectName("tableProcProizv")
-        self.tableProcProizv.setColumnCount(3)
+        self.tableProcProizv.setColumnCount(4)
         self.tableProcProizv.setRowCount(3)
         item = QtWidgets.QTableWidgetItem()
         self.tableProcProizv.setVerticalHeaderItem(0, item)
@@ -645,20 +655,22 @@ class Ui_MainWindow(object):
         item = QtWidgets.QTableWidgetItem()
         self.tableProcProizv.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableProcProizv.setItem(0, 0, item)
+        self.tableProcProizv.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableProcProizv.setItem(0, 2, item)
+        self.tableProcProizv.setItem(0, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableProcProizv.setItem(1, 0, item)
+        self.tableProcProizv.setItem(0, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableProcProizv.setItem(1, 2, item)
+        self.tableProcProizv.setItem(1, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableProcProizv.setItem(2, 0, item)
+        self.tableProcProizv.setItem(1, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableProcProizv.setItem(2, 2, item)
+        self.tableProcProizv.setItem(2, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableProcProizv.setItem(2, 3, item)
         self.tableProcProizv.horizontalHeader().setVisible(False)
         self.tableProcProizv.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableProcProizv.horizontalHeader().setDefaultSectionSize(50)
+        self.tableProcProizv.horizontalHeader().setDefaultSectionSize(40)
         self.tableProcProizv.horizontalHeader().setHighlightSections(False)
         self.tableProcProizv.horizontalHeader().setMinimumSectionSize(15)
         self.tableProcProizv.horizontalHeader().setSortIndicatorShown(True)
@@ -755,7 +767,7 @@ class Ui_MainWindow(object):
         self.btnDelMotherProizv.setObjectName("btnDelMotherProizv")
         self.tableMotherProizv = QtWidgets.QTableWidget(self.tbFrameMother)
         self.tableMotherProizv.setEnabled(True)
-        self.tableMotherProizv.setGeometry(QtCore.QRect(60, 30, 171, 141))
+        self.tableMotherProizv.setGeometry(QtCore.QRect(50, 30, 191, 141))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
@@ -868,7 +880,7 @@ class Ui_MainWindow(object):
         self.tableMotherProizv.setShowGrid(False)
         self.tableMotherProizv.setGridStyle(QtCore.Qt.SolidLine)
         self.tableMotherProizv.setObjectName("tableMotherProizv")
-        self.tableMotherProizv.setColumnCount(3)
+        self.tableMotherProizv.setColumnCount(4)
         self.tableMotherProizv.setRowCount(3)
         item = QtWidgets.QTableWidgetItem()
         self.tableMotherProizv.setVerticalHeaderItem(0, item)
@@ -883,20 +895,22 @@ class Ui_MainWindow(object):
         item = QtWidgets.QTableWidgetItem()
         self.tableMotherProizv.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableMotherProizv.setItem(0, 0, item)
+        self.tableMotherProizv.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableMotherProizv.setItem(0, 2, item)
+        self.tableMotherProizv.setItem(0, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableMotherProizv.setItem(1, 0, item)
+        self.tableMotherProizv.setItem(0, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableMotherProizv.setItem(1, 2, item)
+        self.tableMotherProizv.setItem(1, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableMotherProizv.setItem(2, 0, item)
+        self.tableMotherProizv.setItem(1, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableMotherProizv.setItem(2, 2, item)
+        self.tableMotherProizv.setItem(2, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableMotherProizv.setItem(2, 3, item)
         self.tableMotherProizv.horizontalHeader().setVisible(False)
         self.tableMotherProizv.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableMotherProizv.horizontalHeader().setDefaultSectionSize(50)
+        self.tableMotherProizv.horizontalHeader().setDefaultSectionSize(40)
         self.tableMotherProizv.horizontalHeader().setHighlightSections(False)
         self.tableMotherProizv.horizontalHeader().setMinimumSectionSize(15)
         self.tableMotherProizv.horizontalHeader().setSortIndicatorShown(True)
@@ -993,7 +1007,7 @@ class Ui_MainWindow(object):
         self.btnDelCoolProizv.setObjectName("btnDelCoolProizv")
         self.tableCoolProizv = QtWidgets.QTableWidget(self.tbFrameCool)
         self.tableCoolProizv.setEnabled(True)
-        self.tableCoolProizv.setGeometry(QtCore.QRect(60, 30, 171, 141))
+        self.tableCoolProizv.setGeometry(QtCore.QRect(50, 30, 191, 141))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
@@ -1106,7 +1120,7 @@ class Ui_MainWindow(object):
         self.tableCoolProizv.setShowGrid(False)
         self.tableCoolProizv.setGridStyle(QtCore.Qt.SolidLine)
         self.tableCoolProizv.setObjectName("tableCoolProizv")
-        self.tableCoolProizv.setColumnCount(3)
+        self.tableCoolProizv.setColumnCount(4)
         self.tableCoolProizv.setRowCount(3)
         item = QtWidgets.QTableWidgetItem()
         self.tableCoolProizv.setVerticalHeaderItem(0, item)
@@ -1121,20 +1135,22 @@ class Ui_MainWindow(object):
         item = QtWidgets.QTableWidgetItem()
         self.tableCoolProizv.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableCoolProizv.setItem(0, 0, item)
+        self.tableCoolProizv.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableCoolProizv.setItem(0, 2, item)
+        self.tableCoolProizv.setItem(0, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableCoolProizv.setItem(1, 0, item)
+        self.tableCoolProizv.setItem(0, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableCoolProizv.setItem(1, 2, item)
+        self.tableCoolProizv.setItem(1, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableCoolProizv.setItem(2, 0, item)
+        self.tableCoolProizv.setItem(1, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableCoolProizv.setItem(2, 2, item)
+        self.tableCoolProizv.setItem(2, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableCoolProizv.setItem(2, 3, item)
         self.tableCoolProizv.horizontalHeader().setVisible(False)
         self.tableCoolProizv.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableCoolProizv.horizontalHeader().setDefaultSectionSize(50)
+        self.tableCoolProizv.horizontalHeader().setDefaultSectionSize(40)
         self.tableCoolProizv.horizontalHeader().setHighlightSections(False)
         self.tableCoolProizv.horizontalHeader().setMinimumSectionSize(15)
         self.tableCoolProizv.horizontalHeader().setSortIndicatorShown(True)
@@ -1231,7 +1247,7 @@ class Ui_MainWindow(object):
         self.btnDelRamProizv.setObjectName("btnDelRamProizv")
         self.tableRamProizv = QtWidgets.QTableWidget(self.tbFrameRam)
         self.tableRamProizv.setEnabled(True)
-        self.tableRamProizv.setGeometry(QtCore.QRect(60, 30, 171, 141))
+        self.tableRamProizv.setGeometry(QtCore.QRect(50, 30, 191, 141))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
@@ -1344,7 +1360,7 @@ class Ui_MainWindow(object):
         self.tableRamProizv.setShowGrid(False)
         self.tableRamProizv.setGridStyle(QtCore.Qt.SolidLine)
         self.tableRamProizv.setObjectName("tableRamProizv")
-        self.tableRamProizv.setColumnCount(3)
+        self.tableRamProizv.setColumnCount(4)
         self.tableRamProizv.setRowCount(3)
         item = QtWidgets.QTableWidgetItem()
         self.tableRamProizv.setVerticalHeaderItem(0, item)
@@ -1359,20 +1375,22 @@ class Ui_MainWindow(object):
         item = QtWidgets.QTableWidgetItem()
         self.tableRamProizv.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableRamProizv.setItem(0, 0, item)
+        self.tableRamProizv.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableRamProizv.setItem(0, 2, item)
+        self.tableRamProizv.setItem(0, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableRamProizv.setItem(1, 0, item)
+        self.tableRamProizv.setItem(0, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableRamProizv.setItem(1, 2, item)
+        self.tableRamProizv.setItem(1, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableRamProizv.setItem(2, 0, item)
+        self.tableRamProizv.setItem(1, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableRamProizv.setItem(2, 2, item)
+        self.tableRamProizv.setItem(2, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableRamProizv.setItem(2, 3, item)
         self.tableRamProizv.horizontalHeader().setVisible(False)
         self.tableRamProizv.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableRamProizv.horizontalHeader().setDefaultSectionSize(50)
+        self.tableRamProizv.horizontalHeader().setDefaultSectionSize(40)
         self.tableRamProizv.horizontalHeader().setHighlightSections(False)
         self.tableRamProizv.horizontalHeader().setMinimumSectionSize(15)
         self.tableRamProizv.horizontalHeader().setSortIndicatorShown(True)
@@ -1469,7 +1487,7 @@ class Ui_MainWindow(object):
         self.btnDelDiskProizv.setObjectName("btnDelDiskProizv")
         self.tableDiskProizv = QtWidgets.QTableWidget(self.tbFrameDisk)
         self.tableDiskProizv.setEnabled(True)
-        self.tableDiskProizv.setGeometry(QtCore.QRect(60, 30, 171, 141))
+        self.tableDiskProizv.setGeometry(QtCore.QRect(50, 30, 191, 141))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
@@ -1582,7 +1600,7 @@ class Ui_MainWindow(object):
         self.tableDiskProizv.setShowGrid(False)
         self.tableDiskProizv.setGridStyle(QtCore.Qt.SolidLine)
         self.tableDiskProizv.setObjectName("tableDiskProizv")
-        self.tableDiskProizv.setColumnCount(3)
+        self.tableDiskProizv.setColumnCount(4)
         self.tableDiskProizv.setRowCount(3)
         item = QtWidgets.QTableWidgetItem()
         self.tableDiskProizv.setVerticalHeaderItem(0, item)
@@ -1597,20 +1615,22 @@ class Ui_MainWindow(object):
         item = QtWidgets.QTableWidgetItem()
         self.tableDiskProizv.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableDiskProizv.setItem(0, 0, item)
+        self.tableDiskProizv.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableDiskProizv.setItem(0, 2, item)
+        self.tableDiskProizv.setItem(0, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableDiskProizv.setItem(1, 0, item)
+        self.tableDiskProizv.setItem(0, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableDiskProizv.setItem(1, 2, item)
+        self.tableDiskProizv.setItem(1, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableDiskProizv.setItem(2, 0, item)
+        self.tableDiskProizv.setItem(1, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableDiskProizv.setItem(2, 2, item)
+        self.tableDiskProizv.setItem(2, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableDiskProizv.setItem(2, 3, item)
         self.tableDiskProizv.horizontalHeader().setVisible(False)
         self.tableDiskProizv.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableDiskProizv.horizontalHeader().setDefaultSectionSize(50)
+        self.tableDiskProizv.horizontalHeader().setDefaultSectionSize(40)
         self.tableDiskProizv.horizontalHeader().setHighlightSections(False)
         self.tableDiskProizv.horizontalHeader().setMinimumSectionSize(15)
         self.tableDiskProizv.horizontalHeader().setSortIndicatorShown(True)
@@ -1707,7 +1727,7 @@ class Ui_MainWindow(object):
         self.btnDelPowerProizv.setObjectName("btnDelPowerProizv")
         self.tablePowerProizv = QtWidgets.QTableWidget(self.tbFramePower)
         self.tablePowerProizv.setEnabled(True)
-        self.tablePowerProizv.setGeometry(QtCore.QRect(60, 30, 171, 141))
+        self.tablePowerProizv.setGeometry(QtCore.QRect(50, 30, 191, 141))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
@@ -1820,7 +1840,7 @@ class Ui_MainWindow(object):
         self.tablePowerProizv.setShowGrid(False)
         self.tablePowerProizv.setGridStyle(QtCore.Qt.SolidLine)
         self.tablePowerProizv.setObjectName("tablePowerProizv")
-        self.tablePowerProizv.setColumnCount(3)
+        self.tablePowerProizv.setColumnCount(4)
         self.tablePowerProizv.setRowCount(3)
         item = QtWidgets.QTableWidgetItem()
         self.tablePowerProizv.setVerticalHeaderItem(0, item)
@@ -1835,20 +1855,22 @@ class Ui_MainWindow(object):
         item = QtWidgets.QTableWidgetItem()
         self.tablePowerProizv.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tablePowerProizv.setItem(0, 0, item)
+        self.tablePowerProizv.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tablePowerProizv.setItem(0, 2, item)
+        self.tablePowerProizv.setItem(0, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tablePowerProizv.setItem(1, 0, item)
+        self.tablePowerProizv.setItem(0, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tablePowerProizv.setItem(1, 2, item)
+        self.tablePowerProizv.setItem(1, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tablePowerProizv.setItem(2, 0, item)
+        self.tablePowerProizv.setItem(1, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tablePowerProizv.setItem(2, 2, item)
+        self.tablePowerProizv.setItem(2, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tablePowerProizv.setItem(2, 3, item)
         self.tablePowerProizv.horizontalHeader().setVisible(False)
         self.tablePowerProizv.horizontalHeader().setCascadingSectionResizes(True)
-        self.tablePowerProizv.horizontalHeader().setDefaultSectionSize(50)
+        self.tablePowerProizv.horizontalHeader().setDefaultSectionSize(40)
         self.tablePowerProizv.horizontalHeader().setHighlightSections(False)
         self.tablePowerProizv.horizontalHeader().setMinimumSectionSize(15)
         self.tablePowerProizv.horizontalHeader().setSortIndicatorShown(True)
@@ -1945,7 +1967,7 @@ class Ui_MainWindow(object):
         self.btnDelBodyProizv.setObjectName("btnDelBodyProizv")
         self.tableBodyProizv = QtWidgets.QTableWidget(self.tbFrameBody)
         self.tableBodyProizv.setEnabled(True)
-        self.tableBodyProizv.setGeometry(QtCore.QRect(60, 30, 171, 141))
+        self.tableBodyProizv.setGeometry(QtCore.QRect(50, 30, 191, 141))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
@@ -2058,7 +2080,7 @@ class Ui_MainWindow(object):
         self.tableBodyProizv.setShowGrid(False)
         self.tableBodyProizv.setGridStyle(QtCore.Qt.SolidLine)
         self.tableBodyProizv.setObjectName("tableBodyProizv")
-        self.tableBodyProizv.setColumnCount(3)
+        self.tableBodyProizv.setColumnCount(4)
         self.tableBodyProizv.setRowCount(3)
         item = QtWidgets.QTableWidgetItem()
         self.tableBodyProizv.setVerticalHeaderItem(0, item)
@@ -2073,20 +2095,22 @@ class Ui_MainWindow(object):
         item = QtWidgets.QTableWidgetItem()
         self.tableBodyProizv.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableBodyProizv.setItem(0, 0, item)
+        self.tableBodyProizv.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableBodyProizv.setItem(0, 2, item)
+        self.tableBodyProizv.setItem(0, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableBodyProizv.setItem(1, 0, item)
+        self.tableBodyProizv.setItem(0, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableBodyProizv.setItem(1, 2, item)
+        self.tableBodyProizv.setItem(1, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableBodyProizv.setItem(2, 0, item)
+        self.tableBodyProizv.setItem(1, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableBodyProizv.setItem(2, 2, item)
+        self.tableBodyProizv.setItem(2, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableBodyProizv.setItem(2, 3, item)
         self.tableBodyProizv.horizontalHeader().setVisible(False)
         self.tableBodyProizv.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableBodyProizv.horizontalHeader().setDefaultSectionSize(50)
+        self.tableBodyProizv.horizontalHeader().setDefaultSectionSize(40)
         self.tableBodyProizv.horizontalHeader().setHighlightSections(False)
         self.tableBodyProizv.horizontalHeader().setMinimumSectionSize(15)
         self.tableBodyProizv.horizontalHeader().setSortIndicatorShown(True)
@@ -2206,14 +2230,14 @@ class Ui_MainWindow(object):
         icon8.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/conf.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBoxNavigation.addItem(self.pageConf, icon8, "")
         self.frameVideo_2 = QtWidgets.QFrame(self.sklad)
-        self.frameVideo_2.setGeometry(QtCore.QRect(340, 60, 981, 491))
+        self.frameVideo_2.setGeometry(QtCore.QRect(340, 60, 981, 501))
         self.frameVideo_2.setStyleSheet("background-color: #101010;\n"
 "border: 0px;")
         self.frameVideo_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frameVideo_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frameVideo_2.setObjectName("frameVideo_2")
-        self.twSklad = QtWidgets.QTableWidget(self.frameVideo_2)
-        self.twSklad.setGeometry(QtCore.QRect(0, 30, 981, 501))
+        self.tableSklad = QtWidgets.QTableWidget(self.frameVideo_2)
+        self.tableSklad.setGeometry(QtCore.QRect(0, 30, 981, 471))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -2221,10 +2245,11 @@ class Ui_MainWindow(object):
         font.setUnderline(False)
         font.setWeight(50)
         font.setKerning(True)
-        self.twSklad.setFont(font)
-        self.twSklad.setMouseTracking(True)
-        self.twSklad.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.twSklad.setStyleSheet("QHeaderView\n"
+        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
+        self.tableSklad.setFont(font)
+        self.tableSklad.setMouseTracking(True)
+        self.tableSklad.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.tableSklad.setStyleSheet("QHeaderView\n"
 "{    \n"
 "    background-color: #101010;\n"
 "    color: #dddddd;\n"
@@ -2273,7 +2298,7 @@ class Ui_MainWindow(object):
 "{\n"
 "    border-top: 1px solid #434343;\n"
 "    background-color: #101010;\n"
-"    color: #dddddd;\n"
+"    color: #d5d5d5\n"
 "}\n"
 "\n"
 "QTableWidget::item:hover {\n"
@@ -2289,44 +2314,65 @@ class Ui_MainWindow(object):
 "\n"
 "QScrollBar:vertical {\n"
 "    border: none;\n"
-"    background-color: #151515;\n"
-"    width: 16px;\n"
+"    background-color: #202020;\n"
+"    width: 12px;\n"
 "    margin: 15px 0 15px 0;\n"
-"    border-radius: 0px;\n"
 " }\n"
+"\n"
+"QScrollBar:horizontal {\n"
+"    border: none;\n"
+"    background-color: #202020;\n"
+"    height: 12px;\n"
+"    margin: 0 15px 0 15px;\n"
+" }\n"
+"\n"
 "\n"
 "/*  HANDLE BAR VERTICAL */\n"
 "QScrollBar::handle:vertical {    \n"
-"    background-color: rgb(35, 35, 35);\n"
+"    background-color: #151515;\n"
 "    min-height: 30px;\n"
-"    border-radius: 1px;\n"
+"    border-radius: 0px;\n"
 "    border: 1px solid;\n"
-"    border-color: qlineargradient(spread:pad, x1:0.528604, y1:0.034, x2:0.528, y2:1, stop:0 rgba(227, 0, 0, 255), stop:0.238636 rgba(142, 47, 47, 255), stop:0.517045 rgba(192, 0, 0, 255), stop:0.767045 rgba(135, 0, 0, 255), stop:1 rgba(255, 0, 0, 255));\n"
-"    border-top-color: #FF0000;    \n"
-"    border-bottom-color: #FF0000;\n"
-"\n"
+"    border-right: 0px;\n"
+"    border-color: rgb(60,60,60);\n"
 "}\n"
+"\n"
 "QScrollBar::handle:vertical:hover{    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
+"    background-color:  rgb(50,50,50);\n"
+"    border-color: rgb(60,60,60);\n"
 "}\n"
 "QScrollBar::handle:vertical:pressed {    \n"
 "    background-color: rgb(120, 0, 2);\n"
 "}\n"
 "\n"
+"\n"
+"/*  HANDLE BAR HORIZONTAL */\n"
+"QScrollBar::handle:horizontal {    \n"
+"    background-color: #151515;\n"
+"    min-width: 30px;\n"
+"    border: 1px solid;\n"
+"    border-bottom: 0px;\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"\n"
+"QScrollBar::handle:horizontal:hover{    \n"
+"    background-color:  rgb(50,50,50);\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"\n"
 "/* BTN TOP - SCROLLBAR */\n"
 "QScrollBar::sub-line:vertical {\n"
-"    background-color: rgb(35, 35, 35);\n"
+"    background-color: #151515;\n"
 "    height: 15px;\n"
-"    border-top-left-radius: 1px;\n"
-"    border-top-right-radius: 1px;\n"
 "    subcontrol-position: top;\n"
 "    subcontrol-origin: margin;\n"
-"    border: 1px solid;\n"
-"    border-color: #FF0000;    \n"
-"    border-color: qlineargradient(spread:pad, x1:0.5, y1:0, x2:0.517, y2:1, stop:0 rgba(0, 0, 0, 255), stop:0.965909 rgba(227, 0, 0, 255));\n"
-"    border-top-color:   #3d3d3d;\n"
-"    border-bottom-color: rgb(227, 0, 0, 255);\n"
+"    border: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);    \n"
+"    border-top: 1px solid rgb(180, 0, 0);    \n"
 "}\n"
 "QScrollBar::sub-line:vertical:hover {    \n"
 "    background-color: #575757;\n"
@@ -2336,19 +2382,37 @@ class Ui_MainWindow(object):
 "    background-color: rgb(120, 0, 2);\n"
 "}\n"
 "\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:horizontal {\n"
+"    background-color: #151515;\n"
+"    width: 15px;\n"
+"    subcontrol-position: left;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-left: 1px solid rgb(180, 0, 0);    \n"
+"    border-right: 1px solid rgb(180, 0, 0);    \n"
+"}\n"
+"QScrollBar::sub-line:horizontal:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"\n"
 "/* BTN BOTTOM - SCROLLBAR */\n"
 "QScrollBar::add-line:vertical {\n"
-"    background-color: rgb(35, 35, 35);\n"
+"    background-color: #151515;\n"
 "    height: 15px;\n"
-"    border-top-left-radius: 1px;\n"
-"    border-top-right-radius: 1px;\n"
 "    subcontrol-position: bottom;\n"
 "    subcontrol-origin: margin;\n"
 "    border: 1px solid;\n"
-"    border-color: #FF0000;    \n"
-"    border-color: qlineargradient(spread:pad, x1:0.506, y1:1, x2:0.528, y2:0, stop:0 rgba(0, 0, 0, 255), stop:0.965909 rgba(227, 0, 0, 255));\n"
-"    border-top-color:  rgb(227, 0, 0, 255);\n"
-"    border-bottom-color: #3d3d3d;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border-top:1px solid rgb(180, 0, 0);\n"
+"    border-right: 0px;\n"
+"    border-bottom: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);    \n"
 "}\n"
 "QScrollBar::add-line:vertical:hover {    \n"
 "    background-color: #575757;\n"
@@ -2357,6 +2421,31 @@ class Ui_MainWindow(object):
 "QScrollBar::add-line:vertical:pressed {    \n"
 "    background-color: rgb(120, 0, 2);\n"
 "}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:horizontal {\n"
+"    /*border-image: url(\"E:/pcconf/images/right-arrow.png\") 0;*/\n"
+"    background-color: #151515;\n"
+"    width: 15px;\n"
+"    subcontrol-position: right;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border-left:1px solid rgb(180, 0, 0);\n"
+"    border-top: 0px;\n"
+"    border-bottom: 0px;\n"
+"    border-right: 1px solid rgb(180, 0, 0);    \n"
+"\n"
+"}\n"
+"QScrollBar::add-line:horizontal:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"\n"
 "/* RESET ARROW */\n"
 "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
 "    background: none;\n"
@@ -2364,60 +2453,36 @@ class Ui_MainWindow(object):
 "\n"
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
-"}")
-        self.twSklad.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
-        self.twSklad.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
-        self.twSklad.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self.twSklad.setTextElideMode(QtCore.Qt.ElideLeft)
-        self.twSklad.setShowGrid(False)
-        self.twSklad.setGridStyle(QtCore.Qt.SolidLine)
-        self.twSklad.setCornerButtonEnabled(True)
-        self.twSklad.setObjectName("twSklad")
-        self.twSklad.setColumnCount(5)
-        self.twSklad.setRowCount(2)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setVerticalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setVerticalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        font = QtGui.QFont()
-        font.setFamily("MS Sans Serif")
-        item.setFont(font)
-        self.twSklad.setHorizontalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setHorizontalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setHorizontalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setHorizontalHeaderItem(3, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setHorizontalHeaderItem(4, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setItem(0, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setItem(0, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setItem(0, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setItem(0, 3, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setItem(0, 4, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setItem(1, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setItem(1, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setItem(1, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setItem(1, 3, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.twSklad.setItem(1, 4, item)
-        self.twSklad.horizontalHeader().setCascadingSectionResizes(True)
-        self.twSklad.horizontalHeader().setDefaultSectionSize(90)
-        self.twSklad.horizontalHeader().setMinimumSectionSize(44)
-        self.twSklad.verticalHeader().setVisible(False)
-        self.twSklad.verticalHeader().setDefaultSectionSize(32)
-        self.twSklad.verticalHeader().setMinimumSectionSize(10)
+"}\n"
+"\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"")
+        self.tableSklad.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.tableSklad.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.tableSklad.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableSklad.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.tableSklad.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableSklad.setTextElideMode(QtCore.Qt.ElideLeft)
+        self.tableSklad.setShowGrid(False)
+        self.tableSklad.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableSklad.setCornerButtonEnabled(True)
+        self.tableSklad.setRowCount(0)
+        self.tableSklad.setColumnCount(0)
+        self.tableSklad.setObjectName("tableSklad")
+        self.tableSklad.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableSklad.horizontalHeader().setDefaultSectionSize(90)
+        self.tableSklad.horizontalHeader().setMinimumSectionSize(44)
+        self.tableSklad.verticalHeader().setVisible(False)
+        self.tableSklad.verticalHeader().setDefaultSectionSize(32)
+        self.tableSklad.verticalHeader().setMinimumSectionSize(10)
         self.tabWidgetSklad = QtWidgets.QTabWidget(self.frameVideo_2)
         self.tabWidgetSklad.setEnabled(True)
         self.tabWidgetSklad.setGeometry(QtCore.QRect(10, 0, 831, 31))
@@ -2482,6 +2547,48 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.btnSkladFilter.setObjectName("btnSkladFilter")
+        self.rbSklad = QtWidgets.QRadioButton(self.sklad)
+        self.rbSklad.setGeometry(QtCore.QRect(650, 20, 281, 21))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.rbSklad.sizePolicy().hasHeightForWidth())
+        self.rbSklad.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(11)
+        font.setStrikeOut(False)
+        self.rbSklad.setFont(font)
+        self.rbSklad.setStyleSheet("QRadioButton{\n"
+"    color: rgb(190,190,190);\n"
+"}\n"
+"QRadioButton:hover{\n"
+"    color: white;\n"
+"}\n"
+"QRadioButton:selected\n"
+"{\n"
+"    color: white;\n"
+"}\n"
+"QRadioButton::indicator {\n"
+"    width: 45px;\n"
+"    height: 18px;\n"
+"    margin-top: 3px\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:checked {\n"
+"    width: 45px;\n"
+"    height: 18px;\n"
+"     border-image: url(\"E:/pcconf/images/switch-on.png\") 0;\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:unchecked {\n"
+"    width: 45px;\n"
+"    height: 18px;\n"
+"     border-image: url(\"E:/pcconf/images/switch-off.png\") 0;\n"
+"    color: rgb(190,190,190);\n"
+"}")
+        self.rbSklad.setObjectName("rbSklad")
         self.tabWidget.addTab(self.sklad, "")
         self.configurator = QtWidgets.QWidget()
         self.configurator.setStyleSheet("border:0px;")
@@ -2682,8 +2789,7 @@ class Ui_MainWindow(object):
 "\n"
 "}\n"
 "QScrollBar::handle:vertical:hover{    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
+"    background-color: #404040;\n"
 "}\n"
 "QScrollBar::handle:vertical:pressed {    \n"
 "    background-color: rgb(120, 0, 2);\n"
@@ -2704,8 +2810,7 @@ class Ui_MainWindow(object):
 "    border-bottom-color: rgb(227, 0, 0, 255);\n"
 "}\n"
 "QScrollBar::sub-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
+"    background-color: #404040;\n"
 "}\n"
 "QScrollBar::sub-line:vertical:pressed {    \n"
 "    background-color: rgb(120, 0, 2);\n"
@@ -2726,8 +2831,7 @@ class Ui_MainWindow(object):
 "    border-bottom-color: #3d3d3d;\n"
 "}\n"
 "QScrollBar::add-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
+"    background-color: #404040;\n"
 "}\n"
 "QScrollBar::add-line:vertical:pressed {    \n"
 "    background-color: rgb(120, 0, 2);\n"
@@ -2883,7 +2987,7 @@ class Ui_MainWindow(object):
 "QTableView\n"
 "{\n"
 "    background-color: #101010;\n"
-"    color: #dddddd;\n"
+"    color: #d5d5d5;\n"
 "    border-top: 1px solid #434343;\n"
 "    border-right: 0px;\n"
 "    border-left: 0px;\n"
@@ -2971,6 +3075,81 @@ class Ui_MainWindow(object):
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}\n"
+"\n"
+"QScrollBar:horizontal {\n"
+"    border: none;\n"
+"    background-color: #202020;\n"
+"    height: 12px;\n"
+"    margin: 0 15px 0 15px;\n"
+" }\n"
+"\n"
+"/*  HANDLE BAR HORIZONTAL */\n"
+"QScrollBar::handle:horizontal {    \n"
+"    background-color: #151515;\n"
+"    min-width: 30px;\n"
+"    border: 1px solid;\n"
+"    border-bottom: 0px;\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"\n"
+"QScrollBar::handle:horizontal:hover{    \n"
+"    background-color:  rgb(50,50,50);\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:horizontal {\n"
+"    background-color: #151515;\n"
+"    width: 15px;\n"
+"    subcontrol-position: left;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-left: 1px solid rgb(180, 0, 0);    \n"
+"    border-right: 1px solid rgb(180, 0, 0);    \n"
+"}\n"
+"QScrollBar::sub-line:horizontal:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:horizontal {\n"
+"    /*border-image: url(\"E:/pcconf/images/right-arrow.png\") 0;*/\n"
+"    background-color: #151515;\n"
+"    width: 15px;\n"
+"    subcontrol-position: right;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border-left:1px solid rgb(180, 0, 0);\n"
+"    border-top: 0px;\n"
+"    border-bottom: 0px;\n"
+"    border-right: 1px solid rgb(180, 0, 0);    \n"
+"\n"
+"}\n"
+"QScrollBar::add-line:horizontal:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {\n"
+"    background: none;\n"
+"}\n"
+"\n"
 "")
         self.tableConfVideo.setEditTriggers(QtWidgets.QAbstractItemView.SelectedClicked)
         self.tableConfVideo.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
@@ -3214,7 +3393,7 @@ class Ui_MainWindow(object):
 "QTableView\n"
 "{\n"
 "    background-color: #101010;\n"
-"    color: #dddddd;\n"
+"    color: #d5d5d5;\n"
 "    border-top: 1px solid #434343;\n"
 "    border-right: 0px;\n"
 "    border-left: 0px;\n"
@@ -3302,6 +3481,81 @@ class Ui_MainWindow(object):
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}\n"
+"\n"
+"QScrollBar:horizontal {\n"
+"    border: none;\n"
+"    background-color: #202020;\n"
+"    height: 12px;\n"
+"    margin: 0 15px 0 15px;\n"
+" }\n"
+"\n"
+"/*  HANDLE BAR HORIZONTAL */\n"
+"QScrollBar::handle:horizontal {    \n"
+"    background-color: #151515;\n"
+"    min-width: 30px;\n"
+"    border: 1px solid;\n"
+"    border-bottom: 0px;\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"\n"
+"QScrollBar::handle:horizontal:hover{    \n"
+"    background-color:  rgb(50,50,50);\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:horizontal {\n"
+"    background-color: #151515;\n"
+"    width: 15px;\n"
+"    subcontrol-position: left;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-left: 1px solid rgb(180, 0, 0);    \n"
+"    border-right: 1px solid rgb(180, 0, 0);    \n"
+"}\n"
+"QScrollBar::sub-line:horizontal:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:horizontal {\n"
+"    /*border-image: url(\"E:/pcconf/images/right-arrow.png\") 0;*/\n"
+"    background-color: #151515;\n"
+"    width: 15px;\n"
+"    subcontrol-position: right;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border-left:1px solid rgb(180, 0, 0);\n"
+"    border-top: 0px;\n"
+"    border-bottom: 0px;\n"
+"    border-right: 1px solid rgb(180, 0, 0);    \n"
+"\n"
+"}\n"
+"QScrollBar::add-line:horizontal:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {\n"
+"    background: none;\n"
+"}\n"
+"\n"
 "")
         self.tableConfProc.setEditTriggers(QtWidgets.QAbstractItemView.SelectedClicked)
         self.tableConfProc.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
@@ -3575,7 +3829,7 @@ class Ui_MainWindow(object):
 "QTableView\n"
 "{\n"
 "    background-color: #101010;\n"
-"    color: #dddddd;\n"
+"    color: #d5d5d5;\n"
 "    border-top: 1px solid #434343;\n"
 "    border-right: 0px;\n"
 "    border-left: 0px;\n"
@@ -3870,7 +4124,7 @@ class Ui_MainWindow(object):
 "QTableView\n"
 "{\n"
 "    background-color: #101010;\n"
-"    color: #dddddd;\n"
+"    color: #d5d5d5;\n"
 "    border-top: 1px solid #434343;\n"
 "    border-right: 0px;\n"
 "    border-left: 0px;\n"
@@ -4165,7 +4419,7 @@ class Ui_MainWindow(object):
 "QTableView\n"
 "{\n"
 "    background-color: #101010;\n"
-"    color: #dddddd;\n"
+"    color: #d5d5d5;\n"
 "    border-top: 1px solid #434343;\n"
 "    border-right: 0px;\n"
 "    border-left: 0px;\n"
@@ -4440,7 +4694,7 @@ class Ui_MainWindow(object):
 "QTableView\n"
 "{\n"
 "    background-color: #101010;\n"
-"    color: #dddddd;\n"
+"    color: #d5d5d5;\n"
 "    border-top: 1px solid #434343;\n"
 "    border-right: 0px;\n"
 "    border-left: 0px;\n"
@@ -4735,7 +4989,7 @@ class Ui_MainWindow(object):
 "QTableView\n"
 "{\n"
 "    background-color: #101010;\n"
-"    color: #dddddd;\n"
+"    color: #d5d5d5;\n"
 "    border-top: 1px solid #434343;\n"
 "    border-right: 0px;\n"
 "    border-left: 0px;\n"
@@ -5036,7 +5290,7 @@ class Ui_MainWindow(object):
 "QTableView\n"
 "{\n"
 "    background-color: #101010;\n"
-"    color: #dddddd;\n"
+"    color: #d5d5d5;\n"
 "    border-top: 1px solid #434343;\n"
 "    border-right: 0px;\n"
 "    border-left: 0px;\n"
@@ -5407,10 +5661,58 @@ class Ui_MainWindow(object):
         self.lb_config.raise_()
         self.btn_purcashe.raise_()
         self.table_config.raise_()
+        self.frame_rb = QtWidgets.QFrame(self.configurator)
+        self.frame_rb.setGeometry(QtCore.QRect(1020, 30, 291, 41))
+        self.frame_rb.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_rb.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_rb.setObjectName("frame_rb")
+        self.rb_have_conf = QtWidgets.QRadioButton(self.frame_rb)
+        self.rb_have_conf.setGeometry(QtCore.QRect(10, 10, 271, 21))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.rb_have_conf.sizePolicy().hasHeightForWidth())
+        self.rb_have_conf.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(11)
+        font.setStrikeOut(False)
+        self.rb_have_conf.setFont(font)
+        self.rb_have_conf.setStyleSheet("QRadioButton{\n"
+"    color: rgb(190,190,190);\n"
+"}\n"
+"QRadioButton:hover{\n"
+"    color: white;\n"
+"}\n"
+"QRadioButton:selected\n"
+"{\n"
+"    color: white;\n"
+"}\n"
+"QRadioButton::indicator {\n"
+"    width: 45px;\n"
+"    height: 18px;\n"
+"    margin-top: 3px\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:checked {\n"
+"    width: 45px;\n"
+"    height: 18px;\n"
+"     border-image: url(\"E:/pcconf/images/switch-on.png\") 0;\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:unchecked {\n"
+"    width: 45px;\n"
+"    height: 18px;\n"
+"     border-image: url(\"E:/pcconf/images/switch-off.png\") 0;\n"
+"    color: rgb(190,190,190);\n"
+"}")
+        self.rb_have_conf.setObjectName("rb_have_conf")
         self.scrollArea.raise_()
         self.progressBar.raise_()
         self.treeWidget.raise_()
         self.frame_cart.raise_()
+        self.frame_rb.raise_()
         self.tabWidget.addTab(self.configurator, "")
         self.verticalLayout.addWidget(self.tabWidget)
         MainWindow.setCentralWidget(self.centralwidget)
@@ -5423,7 +5725,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
         self.toolBoxNavigation.layout().setSpacing(5)
         self.tabWidgetSklad.setCurrentIndex(0)
         self.tabWidgetVideo.setCurrentIndex(0)
@@ -5455,31 +5757,41 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "New Row"))
         item = self.tableVideoProizv.verticalHeaderItem(2)
         item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableVideoProizv.verticalHeaderItem(3)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableVideoProizv.verticalHeaderItem(4)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableVideoProizv.verticalHeaderItem(5)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableVideoProizv.verticalHeaderItem(6)
+        item.setText(_translate("MainWindow", "New Row"))
         item = self.tableVideoProizv.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Договор"))
+        item.setText(_translate("MainWindow", "Выбор"))
         item = self.tableVideoProizv.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Состояние"))
+        item.setText(_translate("MainWindow", "Индикатор"))
         item = self.tableVideoProizv.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Состояние"))
+        item = self.tableVideoProizv.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "Название"))
         __sortingEnabled = self.tableVideoProizv.isSortingEnabled()
         self.tableVideoProizv.setSortingEnabled(False)
-        item = self.tableVideoProizv.item(0, 0)
-        item.setText(_translate("MainWindow", "+"))
         item = self.tableVideoProizv.item(0, 1)
-        item.setText(_translate("MainWindow", "True"))
-        item = self.tableVideoProizv.item(0, 2)
-        item.setText(_translate("MainWindow", "Gigabyte"))
-        item = self.tableVideoProizv.item(1, 0)
         item.setText(_translate("MainWindow", "+"))
-        item = self.tableVideoProizv.item(1, 1)
+        item = self.tableVideoProizv.item(0, 2)
         item.setText(_translate("MainWindow", "True"))
-        item = self.tableVideoProizv.item(1, 2)
+        item = self.tableVideoProizv.item(0, 3)
+        item.setText(_translate("MainWindow", "Gigabyte"))
+        item = self.tableVideoProizv.item(5, 1)
+        item.setText(_translate("MainWindow", "+"))
+        item = self.tableVideoProizv.item(5, 2)
+        item.setText(_translate("MainWindow", "True"))
+        item = self.tableVideoProizv.item(5, 3)
         item.setText(_translate("MainWindow", "Asus"))
-        item = self.tableVideoProizv.item(2, 0)
+        item = self.tableVideoProizv.item(6, 1)
         item.setText(_translate("MainWindow", "-"))
-        item = self.tableVideoProizv.item(2, 1)
+        item = self.tableVideoProizv.item(6, 2)
         item.setText(_translate("MainWindow", "False"))
-        item = self.tableVideoProizv.item(2, 2)
+        item = self.tableVideoProizv.item(6, 3)
         item.setText(_translate("MainWindow", "Nvidia"))
         self.tableVideoProizv.setSortingEnabled(__sortingEnabled)
         self.btnCngVideoProizv.setText(_translate("MainWindow", "Изменить\n"
@@ -5498,24 +5810,26 @@ class Ui_MainWindow(object):
         item = self.tableProcProizv.verticalHeaderItem(2)
         item.setText(_translate("MainWindow", "New Row"))
         item = self.tableProcProizv.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Договор"))
+        item.setText(_translate("MainWindow", "Выбор"))
         item = self.tableProcProizv.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Состояние"))
+        item.setText(_translate("MainWindow", "Индикатор"))
         item = self.tableProcProizv.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Состояние"))
+        item = self.tableProcProizv.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "Название"))
         __sortingEnabled = self.tableProcProizv.isSortingEnabled()
         self.tableProcProizv.setSortingEnabled(False)
-        item = self.tableProcProizv.item(0, 0)
+        item = self.tableProcProizv.item(0, 1)
         item.setText(_translate("MainWindow", "+"))
-        item = self.tableProcProizv.item(0, 2)
+        item = self.tableProcProizv.item(0, 3)
         item.setText(_translate("MainWindow", "Gigabyte"))
-        item = self.tableProcProizv.item(1, 0)
+        item = self.tableProcProizv.item(1, 1)
         item.setText(_translate("MainWindow", "+"))
-        item = self.tableProcProizv.item(1, 2)
+        item = self.tableProcProizv.item(1, 3)
         item.setText(_translate("MainWindow", "Asus"))
-        item = self.tableProcProizv.item(2, 0)
+        item = self.tableProcProizv.item(2, 1)
         item.setText(_translate("MainWindow", "-"))
-        item = self.tableProcProizv.item(2, 2)
+        item = self.tableProcProizv.item(2, 3)
         item.setText(_translate("MainWindow", "Nvidia"))
         self.tableProcProizv.setSortingEnabled(__sortingEnabled)
         self.btnCngProcProizv.setText(_translate("MainWindow", "Изменить\n"
@@ -5534,24 +5848,26 @@ class Ui_MainWindow(object):
         item = self.tableMotherProizv.verticalHeaderItem(2)
         item.setText(_translate("MainWindow", "New Row"))
         item = self.tableMotherProizv.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Договор"))
+        item.setText(_translate("MainWindow", "Выбор"))
         item = self.tableMotherProizv.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Состояние"))
+        item.setText(_translate("MainWindow", "Договор"))
         item = self.tableMotherProizv.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Состояние"))
+        item = self.tableMotherProizv.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "Название"))
         __sortingEnabled = self.tableMotherProizv.isSortingEnabled()
         self.tableMotherProizv.setSortingEnabled(False)
-        item = self.tableMotherProizv.item(0, 0)
+        item = self.tableMotherProizv.item(0, 1)
         item.setText(_translate("MainWindow", "+"))
-        item = self.tableMotherProizv.item(0, 2)
+        item = self.tableMotherProizv.item(0, 3)
         item.setText(_translate("MainWindow", "Gigabyte"))
-        item = self.tableMotherProizv.item(1, 0)
+        item = self.tableMotherProizv.item(1, 1)
         item.setText(_translate("MainWindow", "+"))
-        item = self.tableMotherProizv.item(1, 2)
+        item = self.tableMotherProizv.item(1, 3)
         item.setText(_translate("MainWindow", "Asus"))
-        item = self.tableMotherProizv.item(2, 0)
+        item = self.tableMotherProizv.item(2, 1)
         item.setText(_translate("MainWindow", "-"))
-        item = self.tableMotherProizv.item(2, 2)
+        item = self.tableMotherProizv.item(2, 3)
         item.setText(_translate("MainWindow", "Nvidia"))
         self.tableMotherProizv.setSortingEnabled(__sortingEnabled)
         self.btnCngMotherProizv.setText(_translate("MainWindow", "Изменить\n"
@@ -5570,24 +5886,26 @@ class Ui_MainWindow(object):
         item = self.tableCoolProizv.verticalHeaderItem(2)
         item.setText(_translate("MainWindow", "New Row"))
         item = self.tableCoolProizv.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Договор"))
+        item.setText(_translate("MainWindow", "Выбор"))
         item = self.tableCoolProizv.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Состояние"))
+        item.setText(_translate("MainWindow", "Договор"))
         item = self.tableCoolProizv.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Состояние"))
+        item = self.tableCoolProizv.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "Название"))
         __sortingEnabled = self.tableCoolProizv.isSortingEnabled()
         self.tableCoolProizv.setSortingEnabled(False)
-        item = self.tableCoolProizv.item(0, 0)
+        item = self.tableCoolProizv.item(0, 1)
         item.setText(_translate("MainWindow", "+"))
-        item = self.tableCoolProizv.item(0, 2)
+        item = self.tableCoolProizv.item(0, 3)
         item.setText(_translate("MainWindow", "Gigabyte"))
-        item = self.tableCoolProizv.item(1, 0)
+        item = self.tableCoolProizv.item(1, 1)
         item.setText(_translate("MainWindow", "+"))
-        item = self.tableCoolProizv.item(1, 2)
+        item = self.tableCoolProizv.item(1, 3)
         item.setText(_translate("MainWindow", "Asus"))
-        item = self.tableCoolProizv.item(2, 0)
+        item = self.tableCoolProizv.item(2, 1)
         item.setText(_translate("MainWindow", "-"))
-        item = self.tableCoolProizv.item(2, 2)
+        item = self.tableCoolProizv.item(2, 3)
         item.setText(_translate("MainWindow", "Nvidia"))
         self.tableCoolProizv.setSortingEnabled(__sortingEnabled)
         self.btnCngCoolProizv.setText(_translate("MainWindow", "Изменить\n"
@@ -5606,24 +5924,26 @@ class Ui_MainWindow(object):
         item = self.tableRamProizv.verticalHeaderItem(2)
         item.setText(_translate("MainWindow", "New Row"))
         item = self.tableRamProizv.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Договор"))
+        item.setText(_translate("MainWindow", "Выбор"))
         item = self.tableRamProizv.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Состояние"))
+        item.setText(_translate("MainWindow", "Договор"))
         item = self.tableRamProizv.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Состояние"))
+        item = self.tableRamProizv.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "Название"))
         __sortingEnabled = self.tableRamProizv.isSortingEnabled()
         self.tableRamProizv.setSortingEnabled(False)
-        item = self.tableRamProizv.item(0, 0)
+        item = self.tableRamProizv.item(0, 1)
         item.setText(_translate("MainWindow", "+"))
-        item = self.tableRamProizv.item(0, 2)
+        item = self.tableRamProizv.item(0, 3)
         item.setText(_translate("MainWindow", "Gigabyte"))
-        item = self.tableRamProizv.item(1, 0)
+        item = self.tableRamProizv.item(1, 1)
         item.setText(_translate("MainWindow", "+"))
-        item = self.tableRamProizv.item(1, 2)
+        item = self.tableRamProizv.item(1, 3)
         item.setText(_translate("MainWindow", "Asus"))
-        item = self.tableRamProizv.item(2, 0)
+        item = self.tableRamProizv.item(2, 1)
         item.setText(_translate("MainWindow", "-"))
-        item = self.tableRamProizv.item(2, 2)
+        item = self.tableRamProizv.item(2, 3)
         item.setText(_translate("MainWindow", "Nvidia"))
         self.tableRamProizv.setSortingEnabled(__sortingEnabled)
         self.btnCngRamProizv.setText(_translate("MainWindow", "Изменить\n"
@@ -5642,24 +5962,26 @@ class Ui_MainWindow(object):
         item = self.tableDiskProizv.verticalHeaderItem(2)
         item.setText(_translate("MainWindow", "New Row"))
         item = self.tableDiskProizv.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Договор"))
+        item.setText(_translate("MainWindow", "Выбор"))
         item = self.tableDiskProizv.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Состояние"))
+        item.setText(_translate("MainWindow", "Договор"))
         item = self.tableDiskProizv.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Состояние"))
+        item = self.tableDiskProizv.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "Название"))
         __sortingEnabled = self.tableDiskProizv.isSortingEnabled()
         self.tableDiskProizv.setSortingEnabled(False)
-        item = self.tableDiskProizv.item(0, 0)
+        item = self.tableDiskProizv.item(0, 1)
         item.setText(_translate("MainWindow", "+"))
-        item = self.tableDiskProizv.item(0, 2)
+        item = self.tableDiskProizv.item(0, 3)
         item.setText(_translate("MainWindow", "Gigabyte"))
-        item = self.tableDiskProizv.item(1, 0)
+        item = self.tableDiskProizv.item(1, 1)
         item.setText(_translate("MainWindow", "+"))
-        item = self.tableDiskProizv.item(1, 2)
+        item = self.tableDiskProizv.item(1, 3)
         item.setText(_translate("MainWindow", "Asus"))
-        item = self.tableDiskProizv.item(2, 0)
+        item = self.tableDiskProizv.item(2, 1)
         item.setText(_translate("MainWindow", "-"))
-        item = self.tableDiskProizv.item(2, 2)
+        item = self.tableDiskProizv.item(2, 3)
         item.setText(_translate("MainWindow", "Nvidia"))
         self.tableDiskProizv.setSortingEnabled(__sortingEnabled)
         self.btnCngDiskProizv.setText(_translate("MainWindow", "Изменить\n"
@@ -5678,24 +6000,26 @@ class Ui_MainWindow(object):
         item = self.tablePowerProizv.verticalHeaderItem(2)
         item.setText(_translate("MainWindow", "New Row"))
         item = self.tablePowerProizv.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Договор"))
+        item.setText(_translate("MainWindow", "Выбор"))
         item = self.tablePowerProizv.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Состояние"))
+        item.setText(_translate("MainWindow", "Договор"))
         item = self.tablePowerProizv.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Состояние"))
+        item = self.tablePowerProizv.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "Название"))
         __sortingEnabled = self.tablePowerProizv.isSortingEnabled()
         self.tablePowerProizv.setSortingEnabled(False)
-        item = self.tablePowerProizv.item(0, 0)
+        item = self.tablePowerProizv.item(0, 1)
         item.setText(_translate("MainWindow", "+"))
-        item = self.tablePowerProizv.item(0, 2)
+        item = self.tablePowerProizv.item(0, 3)
         item.setText(_translate("MainWindow", "Gigabyte"))
-        item = self.tablePowerProizv.item(1, 0)
+        item = self.tablePowerProizv.item(1, 1)
         item.setText(_translate("MainWindow", "+"))
-        item = self.tablePowerProizv.item(1, 2)
+        item = self.tablePowerProizv.item(1, 3)
         item.setText(_translate("MainWindow", "Asus"))
-        item = self.tablePowerProizv.item(2, 0)
+        item = self.tablePowerProizv.item(2, 1)
         item.setText(_translate("MainWindow", "-"))
-        item = self.tablePowerProizv.item(2, 2)
+        item = self.tablePowerProizv.item(2, 3)
         item.setText(_translate("MainWindow", "Nvidia"))
         self.tablePowerProizv.setSortingEnabled(__sortingEnabled)
         self.btnCngPowerProizv.setText(_translate("MainWindow", "Изменить\n"
@@ -5714,24 +6038,26 @@ class Ui_MainWindow(object):
         item = self.tableBodyProizv.verticalHeaderItem(2)
         item.setText(_translate("MainWindow", "New Row"))
         item = self.tableBodyProizv.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Договор"))
+        item.setText(_translate("MainWindow", "Выбор"))
         item = self.tableBodyProizv.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Состояние"))
+        item.setText(_translate("MainWindow", "Договор"))
         item = self.tableBodyProizv.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Состояние"))
+        item = self.tableBodyProizv.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "Название"))
         __sortingEnabled = self.tableBodyProizv.isSortingEnabled()
         self.tableBodyProizv.setSortingEnabled(False)
-        item = self.tableBodyProizv.item(0, 0)
+        item = self.tableBodyProizv.item(0, 1)
         item.setText(_translate("MainWindow", "+"))
-        item = self.tableBodyProizv.item(0, 2)
+        item = self.tableBodyProizv.item(0, 3)
         item.setText(_translate("MainWindow", "Gigabyte"))
-        item = self.tableBodyProizv.item(1, 0)
+        item = self.tableBodyProizv.item(1, 1)
         item.setText(_translate("MainWindow", "+"))
-        item = self.tableBodyProizv.item(1, 2)
+        item = self.tableBodyProizv.item(1, 3)
         item.setText(_translate("MainWindow", "Asus"))
-        item = self.tableBodyProizv.item(2, 0)
+        item = self.tableBodyProizv.item(2, 1)
         item.setText(_translate("MainWindow", "-"))
-        item = self.tableBodyProizv.item(2, 2)
+        item = self.tableBodyProizv.item(2, 3)
         item.setText(_translate("MainWindow", "Nvidia"))
         self.tableBodyProizv.setSortingEnabled(__sortingEnabled)
         self.btnCngBodyProizv.setText(_translate("MainWindow", "Изменить\n"
@@ -5745,45 +6071,10 @@ class Ui_MainWindow(object):
         self.btnDelVideoProizv_2.setText(_translate("MainWindow", "Изменить\n"
 "договор"))
         self.toolBoxNavigation.setItemText(self.toolBoxNavigation.indexOf(self.pageConf), _translate("MainWindow", "Конфигурации"))
-        item = self.twSklad.verticalHeaderItem(0)
-        item.setText(_translate("MainWindow", "1"))
-        item = self.twSklad.verticalHeaderItem(1)
-        item.setText(_translate("MainWindow", "2"))
-        item = self.twSklad.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "New Column"))
-        item = self.twSklad.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "New Column"))
-        item = self.twSklad.horizontalHeaderItem(2)
-        item.setText(_translate("MainWindow", "New Column"))
-        item = self.twSklad.horizontalHeaderItem(3)
-        item.setText(_translate("MainWindow", "New Column"))
-        item = self.twSklad.horizontalHeaderItem(4)
-        item.setText(_translate("MainWindow", "New Column"))
-        __sortingEnabled = self.twSklad.isSortingEnabled()
-        self.twSklad.setSortingEnabled(False)
-        item = self.twSklad.item(0, 0)
-        item.setText(_translate("MainWindow", "sttt"))
-        item = self.twSklad.item(0, 1)
-        item.setText(_translate("MainWindow", "tqweq"))
-        item = self.twSklad.item(0, 2)
-        item.setText(_translate("MainWindow", "2511"))
-        item = self.twSklad.item(0, 3)
-        item.setText(_translate("MainWindow", "ggggg"))
-        item = self.twSklad.item(0, 4)
-        item.setText(_translate("MainWindow", "weqwe661"))
-        item = self.twSklad.item(1, 0)
-        item.setText(_translate("MainWindow", "zzzzzzz"))
-        item = self.twSklad.item(1, 1)
-        item.setText(_translate("MainWindow", "xxxxxxxx"))
-        item = self.twSklad.item(1, 2)
-        item.setText(_translate("MainWindow", "ccccccccc"))
-        item = self.twSklad.item(1, 3)
-        item.setText(_translate("MainWindow", "611111"))
-        item = self.twSklad.item(1, 4)
-        item.setText(_translate("MainWindow", "2222111"))
-        self.twSklad.setSortingEnabled(__sortingEnabled)
+        self.tableSklad.setSortingEnabled(True)
         self.tabWidgetSklad.setTabText(self.tabWidgetSklad.indexOf(self.all_2), _translate("MainWindow", "Все"))
         self.btnSkladFilter.setText(_translate("MainWindow", "Настроить фильтр"))
+        self.rbSklad.setText(_translate("MainWindow", "Комплектующие на складе"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.sklad), _translate("MainWindow", "Склад"))
         self.progressBar.setFormat(_translate("MainWindow", "%v / %m"))
         self.treeWidget.setSortingEnabled(False)
@@ -6042,6 +6333,7 @@ class Ui_MainWindow(object):
         item = self.table_config.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "рубль"))
         self.btnResetConfig.setText(_translate("MainWindow", "Сброс конфигурации"))
+        self.rb_have_conf.setText(_translate("MainWindow", "Комплектующие в наличии"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.configurator), _translate("MainWindow", "Конфигуратор"))
 
 

@@ -35,55 +35,6 @@
 }
 </string>
   </property>
-  <widget class="QRadioButton" name="radioButton">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>40</y>
-     <width>221</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat Medium</family>
-     <pointsize>10</pointsize>
-     <strikeout>true</strikeout>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QRadioButton:hover{
-	color: rgb(210,0,0);
-}
-
-QRadioButton::indicator {
-    width: 13px;
-    height: 13px;
- 	border-image: url(&quot;E:/pcconf/images/off.png&quot;) 0;
-}
-
-QRadioButton::indicator:checked {
-    width: 13px;
-    height: 13px;
- 	border-image: url(&quot;E:/pcconf/images/on.png&quot;) 0;
-}
-
-QRadioButton::indicator:unchecked {
-    width: 13px;
-    height: 13px;
- 	border-image: url(&quot;E:/pcconf/images/off.png&quot;) 0;
-}</string>
-   </property>
-   <property name="text">
-    <string>Товар доступен на складе</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="lbFullName">
    <property name="geometry">
     <rect>
@@ -103,7 +54,7 @@ QRadioButton::indicator:unchecked {
     <string notr="true"/>
    </property>
    <property name="text">
-    <string>Наименование видеокарты</string>
+    <string>Название видеокарты</string>
    </property>
   </widget>
   <widget class="Line" name="line">
@@ -811,7 +762,7 @@ QComboBox QAbstractItemView {
     <string notr="true">border:0px;</string>
    </property>
    <property name="text">
-    <string>Наименование чипа</string>
+    <string>Название чипа</string>
    </property>
   </widget>
   <widget class="Line" name="rectangle">
@@ -1535,7 +1486,6 @@ QLineEdit:hover{
     <string>Шина памяти [бит]</string>
    </property>
   </widget>
-  <zorder>radioButton</zorder>
   <zorder>lbFullName</zorder>
   <zorder>line</zorder>
   <zorder>line_2</zorder>

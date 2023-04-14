@@ -1,4 +1,5 @@
 import sys
+import psycopg2
 
 from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtCore import QDateTime
@@ -15,13 +16,13 @@ class DialogOk(QDialog, warningWin.Ui_warningDialog):
         QDialog.__init__(self)
         self.setupUi(self)
         self.setWindowTitle(error_win_title)
-        self.lbErrDescription.setText(error_text)
+        self.lbErrDescription.setText(str(error_text))
         self.btnCancel.clicked.connect(lambda: self.close())
 
 
 # Класс окна с добавлением\редактированием видеокарты
 class AddChangeVideoWindow(QtWidgets.QWidget, addChVidWidg.Ui_addChVidWidg):
-    def __init__(self, new_bool, list_valid_proizv):
+    def __init__(self, mainwindow, new_bool, list_valid_proizv, dict_proizv, dict_videocard):
         super().__init__()
         self.setupUi(self)
         if new_bool:
@@ -31,7 +32,7 @@ class AddChangeVideoWindow(QtWidgets.QWidget, addChVidWidg.Ui_addChVidWidg):
         self.dateEdit.setDateTime(QDateTime.currentDateTime())
         #  временные рамки заказа?
         # Вызов метода проверки корректности заполнения полей
-        self.btnVidSave.clicked.connect(self.sql_insert_videocard)
+        self.btnVidSave.clicked.connect(lambda: self.sql_insert_videocard(new_bool, mainwindow, dict_proizv, dict_videocard))
 
         two_digits_int = QIntValidator()
         two_digits_int.setRange(0, 99)
@@ -56,7 +57,11 @@ class AddChangeVideoWindow(QtWidgets.QWidget, addChVidWidg.Ui_addChVidWidg):
         self.leKol.setValidator(four_digits_int)
         self.lePrice.setValidator(six_digits_int)
         self.cbProizv.clear()
-        self.cbProizv.addItems(list_valid_proizv)
+        if type(list_valid_proizv) == str:  # Если передан 1 параметр в виде строки
+            one_list = [list_valid_proizv]
+            self.cbProizv.addItems(one_list)
+        else:
+            self.cbProizv.addItems(list_valid_proizv)
 
     # Проверяет и окрашивает название поле, если то заполнено неверно (не заполнено вовсе)
     def mark_labels(self, line_edit, label):
@@ -70,7 +75,8 @@ class AddChangeVideoWindow(QtWidgets.QWidget, addChVidWidg.Ui_addChVidWidg):
                 label.setStyleSheet("color: rgb(240,0,0);")
 
     # Метод отправки запроса в БД на создание записи. выдаёт ошибку, если есть пустые поля
-    def sql_insert_videocard(self):
+    # Окрашивает надписи к полям, которые не заполнены (cb заполнены всегда, поэтому их не красит)
+    def sql_insert_videocard(self, new_bool, mainwindow, dict_proizv, dict_videocard):
         self.mark_labels(self.leFullName, self.lbFullName)
         self.mark_labels(self.leChipName, self.lbChipName)
         self.mark_labels(self.leVolume, self.lbVolume)
@@ -87,7 +93,52 @@ class AddChangeVideoWindow(QtWidgets.QWidget, addChVidWidg.Ui_addChVidWidg):
                 or self.lePrice == "":
             self.dialog = DialogOk("Ошибка", "Все поля должны быть заполнены")
             self.dialog.show()
-        else:
-            print(f"SELECT insert_videocard(2,'MSI AMD Radeon RX 6600', 'AMD', 'RX 6600',"
-                  f" 8, 'GDDR6', 2044, 128, 'PCI-E 4.0', 4, '7680x4320', 132, 33, 26490);")
-            self.close()
+        else:  # Подтверждение создания заказа?
+            conn = None
+            cur = None
+            try:
+                conn = psycopg2.connect(database="confPc",
+                                        user="postgres",
+                                        password="2001",
+                                        host="localhost",
+                                        port="5432")
+                cur = conn.cursor()
+                id_pr = {i for i in dict_proizv
+                         if dict_proizv[i] == self.cbProizv.currentText()}
+                if new_bool:  # Если создаём новый заказ - вызываем 2 процедуры и заполняем их
+                    cur.callproc('insert_videocard', [id_pr.pop(),
+                                                      self.leFullName.text(),
+                                                      self.cbChipCreator.currentText(),
+                                                      self.leChipName.text(),
+                                                      int(self.leVolume.text()),
+                                                      self.leType.text(),
+                                                      int(self.leFreq.text()),
+                                                      int(self.leBus.text()),
+                                                      self.cbInterface.currentText(),
+                                                      int(self.cbMonitor.currentText()),
+                                                      int(self.leResolution.text()),
+                                                      int(self.leTdp.text()),
+                                                      int(self.leLength.text()),
+                                                      float(self.lePrice.text())])
+                    id_izd = {i for i in dict_videocard
+                              if dict_videocard[i] == self.leFullName.text()}
+                    cur.callproc('insert_order_videocard', [id_izd.pop(),
+                                                            self.leKol.text(),
+                                                            self.dateEdit.dateTime()])
+                else:  # Если повтряем заказ - вызываем 1 процедуру и заполняем её
+                    id_izd = {i for i in dict_videocard
+                              if dict_videocard[i] == self.leFullName.text()}
+                    cur.callproc('insert_order_videocard', [id_izd.pop(),
+                                                            int(self.leKol.text()),
+                                                            self.dateEdit.dateTime().toString("yyyy-MM-dd")])
+
+            except (Exception, psycopg2.DatabaseError) as error:
+                self.dialog = DialogOk("Ошибка", error)
+                self.dialog.show()
+            finally:
+                if conn:
+                    conn.commit()
+                    cur.close()
+                    conn.close()
+                    mainwindow.load_videocard()  # Загрузка обновлённой таблицы из БД
+                    self.close()

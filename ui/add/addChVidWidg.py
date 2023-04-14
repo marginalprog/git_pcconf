@@ -30,40 +30,6 @@ class Ui_addChVidWidg(object):
 "\n"
 "}\n"
 "")
-        self.radioButton = QtWidgets.QRadioButton(addChVidWidg)
-        self.radioButton.setGeometry(QtCore.QRect(20, 40, 221, 17))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.radioButton.sizePolicy().hasHeightForWidth())
-        self.radioButton.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        font.setStrikeOut(True)
-        self.radioButton.setFont(font)
-        self.radioButton.setStyleSheet("QRadioButton:hover{\n"
-"    color: rgb(210,0,0);\n"
-"}\n"
-"\n"
-"QRadioButton::indicator {\n"
-"    width: 13px;\n"
-"    height: 13px;\n"
-"     border-image: url(\"E:/pcconf/images/off.png\") 0;\n"
-"}\n"
-"\n"
-"QRadioButton::indicator:checked {\n"
-"    width: 13px;\n"
-"    height: 13px;\n"
-"     border-image: url(\"E:/pcconf/images/on.png\") 0;\n"
-"}\n"
-"\n"
-"QRadioButton::indicator:unchecked {\n"
-"    width: 13px;\n"
-"    height: 13px;\n"
-"     border-image: url(\"E:/pcconf/images/off.png\") 0;\n"
-"}")
-        self.radioButton.setObjectName("radioButton")
         self.lbFullName = QtWidgets.QLabel(addChVidWidg)
         self.lbFullName.setGeometry(QtCore.QRect(20, 170, 221, 21))
         font = QtGui.QFont()
@@ -863,7 +829,6 @@ class Ui_addChVidWidg(object):
         self.lbBus.setFont(font)
         self.lbBus.setStyleSheet("border:0px;")
         self.lbBus.setObjectName("lbBus")
-        self.radioButton.raise_()
         self.lbFullName.raise_()
         self.line.raise_()
         self.line_2.raise_()
@@ -912,8 +877,7 @@ class Ui_addChVidWidg(object):
     def retranslateUi(self, addChVidWidg):
         _translate = QtCore.QCoreApplication.translate
         addChVidWidg.setWindowTitle(_translate("addChVidWidg", "Добавление"))
-        self.radioButton.setText(_translate("addChVidWidg", "Товар доступен на складе"))
-        self.lbFullName.setText(_translate("addChVidWidg", "Наименование видеокарты"))
+        self.lbFullName.setText(_translate("addChVidWidg", "Название видеокарты"))
         self.cbProizv.setItemText(0, _translate("addChVidWidg", "Gigabyte"))
         self.cbProizv.setItemText(1, _translate("addChVidWidg", "Asus"))
         self.cbProizv.setItemText(2, _translate("addChVidWidg", "Nvidia"))
@@ -939,7 +903,7 @@ class Ui_addChVidWidg(object):
         self.cbMonitor.setItemText(1, _translate("addChVidWidg", "2"))
         self.cbMonitor.setItemText(2, _translate("addChVidWidg", "3"))
         self.cbMonitor.setItemText(3, _translate("addChVidWidg", "4"))
-        self.lbChipName.setText(_translate("addChVidWidg", "Наименование чипа"))
+        self.lbChipName.setText(_translate("addChVidWidg", "Название чипа"))
         self.leResolution.setPlaceholderText(_translate("addChVidWidg", "1920x1080"))
         self.lbChipCreator.setText(_translate("addChVidWidg", "Производитель чипа"))
         self.cbChipCreator.setItemText(0, _translate("addChVidWidg", "NVIDIA"))
