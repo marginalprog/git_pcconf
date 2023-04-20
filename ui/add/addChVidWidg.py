@@ -532,28 +532,6 @@ class Ui_addChVidWidg(object):
 "}")
         self.lePrice.setInputMask("")
         self.lePrice.setObjectName("lePrice")
-        self.leResolution = QtWidgets.QLineEdit(addChVidWidg)
-        self.leResolution.setGeometry(QtCore.QRect(320, 380, 111, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.leResolution.setFont(font)
-        self.leResolution.setStyleSheet("QLineEdit{\n"
-"    padding-left: 5px;\n"
-"    border: 1px solid rgb(20,20,20);\n"
-"    background-color: rgb(40,40,40);\n"
-"    border-bottom: 1px solid  rgb(120,120,120);\n"
-"    selection-background-color: rgb(105, 0, 0);\n"
-"}\n"
-"\n"
-"QLineEdit:hover{\n"
-"    background-color: rgb(55,55,55);\n"
-"    border-bottom: 1px solid  red;\n"
-"}")
-        self.leResolution.setInputMask("")
-        self.leResolution.setText("")
-        self.leResolution.setFrame(True)
-        self.leResolution.setObjectName("leResolution")
         self.leTdp = QtWidgets.QLineEdit(addChVidWidg)
         self.leTdp.setGeometry(QtCore.QRect(490, 380, 111, 31))
         font = QtGui.QFont()
@@ -829,6 +807,65 @@ class Ui_addChVidWidg(object):
         self.lbBus.setFont(font)
         self.lbBus.setStyleSheet("border:0px;")
         self.lbBus.setObjectName("lbBus")
+        self.cbResolution = QtWidgets.QComboBox(addChVidWidg)
+        self.cbResolution.setGeometry(QtCore.QRect(320, 380, 111, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.cbResolution.setFont(font)
+        self.cbResolution.setStyleSheet("QComboBox{\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px;\n"
+"    border-bottom: 1px solid rgb(120,120,120);\n"
+"    padding-left: 5px;\n"
+"}\n"
+"\n"
+"QComboBox:hover{\n"
+"    background-color: rgb(55,55,55);\n"
+"    border-bottom: 1px solid red;\n"
+"}\n"
+"\n"
+"QComboBox::drop-down{\n"
+"border: 0px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow {\n"
+"border-image: url(\"E:/pcconf/images/down-arrow-gray.png\");\n"
+"width: 17px;\n"
+"height: 17px;\n"
+"margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow:on {\n"
+"    border-image: url(\"E:/pcconf/images/up-arrow.png\");\n"
+"    width: 17px;\n"
+"    height: 17px;\n"
+"    margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox:on{\n"
+"border: 2px solid rgb(100,0,0);\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    background: rgb(250, 250, 250);\n"
+"    border-width: 1px;\n"
+"    border-style: solid;\n"
+"    border-color: rgb(235, 235, 235);\n"
+"    selection-background-color: rgb(240, 240, 240);\n"
+"    selection-color: rgb(25, 25, 25);\n"
+"}\n"
+"")
+        self.cbResolution.setIconSize(QtCore.QSize(20, 20))
+        self.cbResolution.setDuplicatesEnabled(False)
+        self.cbResolution.setFrame(True)
+        self.cbResolution.setModelColumn(0)
+        self.cbResolution.setObjectName("cbResolution")
+        self.cbResolution.addItem("")
+        self.cbResolution.addItem("")
+        self.cbResolution.addItem("")
+        self.cbResolution.addItem("")
+        self.cbResolution.addItem("")
         self.lbFullName.raise_()
         self.line.raise_()
         self.line_2.raise_()
@@ -859,7 +896,6 @@ class Ui_addChVidWidg(object):
         self.leFreq.raise_()
         self.leKol.raise_()
         self.lePrice.raise_()
-        self.leResolution.raise_()
         self.leTdp.raise_()
         self.leLength.raise_()
         self.line_4.raise_()
@@ -869,6 +905,7 @@ class Ui_addChVidWidg(object):
         self.dateEdit.raise_()
         self.leBus.raise_()
         self.lbBus.raise_()
+        self.cbResolution.raise_()
 
         self.retranslateUi(addChVidWidg)
         self.btnVidCancel.clicked.connect(addChVidWidg.close)
@@ -895,22 +932,26 @@ class Ui_addChVidWidg(object):
         self.lbTdp.setText(_translate("addChVidWidg", "Тепловыделение (TDP)"))
         self.lbKol.setText(_translate("addChVidWidg", "Количество"))
         self.lbPrice.setText(_translate("addChVidWidg", "Цена [руб.]"))
-        self.cbInterface.setItemText(0, _translate("addChVidWidg", "PCI-E 2.0"))
-        self.cbInterface.setItemText(1, _translate("addChVidWidg", "PCI-E 2.1"))
-        self.cbInterface.setItemText(2, _translate("addChVidWidg", "PCI-E 3.0"))
-        self.cbInterface.setItemText(3, _translate("addChVidWidg", "PCI-E 4.0"))
-        self.cbMonitor.setItemText(0, _translate("addChVidWidg", "1"))
-        self.cbMonitor.setItemText(1, _translate("addChVidWidg", "2"))
-        self.cbMonitor.setItemText(2, _translate("addChVidWidg", "3"))
-        self.cbMonitor.setItemText(3, _translate("addChVidWidg", "4"))
+        self.cbInterface.setItemText(0, _translate("addChVidWidg", "PCI-E 4.0"))
+        self.cbInterface.setItemText(1, _translate("addChVidWidg", "PCI-E 3.0"))
+        self.cbInterface.setItemText(2, _translate("addChVidWidg", "PCI-E 2.1"))
+        self.cbInterface.setItemText(3, _translate("addChVidWidg", "PCI-E 2.0"))
+        self.cbMonitor.setItemText(0, _translate("addChVidWidg", "4"))
+        self.cbMonitor.setItemText(1, _translate("addChVidWidg", "3"))
+        self.cbMonitor.setItemText(2, _translate("addChVidWidg", "2"))
+        self.cbMonitor.setItemText(3, _translate("addChVidWidg", "1"))
         self.lbChipName.setText(_translate("addChVidWidg", "Название чипа"))
-        self.leResolution.setPlaceholderText(_translate("addChVidWidg", "1920x1080"))
         self.lbChipCreator.setText(_translate("addChVidWidg", "Производитель чипа"))
-        self.cbChipCreator.setItemText(0, _translate("addChVidWidg", "NVIDIA"))
-        self.cbChipCreator.setItemText(1, _translate("addChVidWidg", "AMD"))
+        self.cbChipCreator.setItemText(0, _translate("addChVidWidg", "AMD"))
+        self.cbChipCreator.setItemText(1, _translate("addChVidWidg", "NVIDIA"))
         self.cbChipCreator.setItemText(2, _translate("addChVidWidg", "Intel"))
         self.lbDate.setText(_translate("addChVidWidg", "Дата заказа"))
         self.lbBus.setText(_translate("addChVidWidg", "Шина памяти [бит]"))
+        self.cbResolution.setItemText(0, _translate("addChVidWidg", "7680x4320"))
+        self.cbResolution.setItemText(1, _translate("addChVidWidg", "5120x2880"))
+        self.cbResolution.setItemText(2, _translate("addChVidWidg", "4096x2160"))
+        self.cbResolution.setItemText(3, _translate("addChVidWidg", "3840x2160"))
+        self.cbResolution.setItemText(4, _translate("addChVidWidg", "2560x1600"))
 
 
 if __name__ == "__main__":

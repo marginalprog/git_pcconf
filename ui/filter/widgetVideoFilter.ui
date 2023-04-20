@@ -33,7 +33,7 @@
    <property name="geometry">
     <rect>
      <x>190</x>
-     <y>780</y>
+     <y>790</y>
      <width>121</width>
      <height>31</height>
     </rect>
@@ -70,7 +70,7 @@ QPushButton::hover
     <rect>
      <x>30</x>
      <y>90</y>
-     <width>301</width>
+     <width>311</width>
      <height>671</height>
     </rect>
    </property>
@@ -142,7 +142,7 @@ QToolBox::tab:hover
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>297</width>
+      <width>307</width>
       <height>186</height>
      </rect>
     </property>
@@ -548,7 +548,7 @@ QLineEdit:hover{
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>297</width>
+      <width>307</width>
       <height>186</height>
      </rect>
     </property>
@@ -886,24 +886,6 @@ QPushButton::hover
        <string>Сбросить</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>80</y>
-        <width>291</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Это нужно тащить по id с видеокарты</string>
-      </property>
-     </widget>
     </widget>
    </widget>
    <widget class="QWidget" name="chipCreator">
@@ -911,7 +893,7 @@ QPushButton::hover
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>297</width>
+      <width>307</width>
       <height>186</height>
      </rect>
     </property>
@@ -1255,7 +1237,7 @@ QPushButton::hover
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>297</width>
+      <width>307</width>
       <height>186</height>
      </rect>
     </property>
@@ -1599,7 +1581,7 @@ QPushButton::hover
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>297</width>
+      <width>307</width>
       <height>186</height>
      </rect>
     </property>
@@ -1608,7 +1590,7 @@ QPushButton::hover
       <normaloff>../../images/down-arrow.png</normaloff>../../images/down-arrow.png</iconset>
     </attribute>
     <attribute name="label">
-     <string>Объём памяти</string>
+     <string>Объём памяти [Мб]</string>
     </attribute>
     <widget class="QFrame" name="frameVolume">
      <property name="geometry">
@@ -1944,7 +1926,7 @@ QPushButton::hover
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>297</width>
+      <width>307</width>
       <height>186</height>
      </rect>
     </property>
@@ -2288,7 +2270,7 @@ border-bottom: 1px dotted red;
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>297</width>
+      <width>307</width>
       <height>186</height>
      </rect>
     </property>
@@ -2297,7 +2279,7 @@ border-bottom: 1px dotted red;
       <normaloff>../../images/down-arrow.png</normaloff>../../images/down-arrow.png</iconset>
     </attribute>
     <attribute name="label">
-     <string>Частота видеочипа</string>
+     <string>Частота видеочипа [Гц]</string>
     </attribute>
     <widget class="QFrame" name="frameFreq">
      <property name="geometry">
@@ -2628,6 +2610,14 @@ border-bottom: 1px dotted red;
     </widget>
    </widget>
    <widget class="QWidget" name="bus">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>307</width>
+      <height>186</height>
+     </rect>
+    </property>
     <attribute name="icon">
      <iconset>
       <normaloff>../../images/down-arrow.png</normaloff>../../images/down-arrow.png</iconset>
@@ -2968,7 +2958,7 @@ border-bottom: 1px dotted red;
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>297</width>
+      <width>307</width>
       <height>186</height>
      </rect>
     </property>
@@ -3312,7 +3302,7 @@ border-bottom: 1px dotted red;
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>297</width>
+      <width>307</width>
       <height>186</height>
      </rect>
     </property>
@@ -3657,7 +3647,7 @@ border-bottom: 1px dotted red;
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>297</width>
+      <width>307</width>
       <height>186</height>
      </rect>
     </property>
@@ -4001,7 +3991,7 @@ border-bottom: 1px dotted red;
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>297</width>
+      <width>307</width>
       <height>186</height>
      </rect>
     </property>
@@ -4010,7 +4000,7 @@ border-bottom: 1px dotted red;
       <normaloff>../../images/down-arrow.png</normaloff>../../images/down-arrow.png</iconset>
     </attribute>
     <attribute name="label">
-     <string>Тепловыделение</string>
+     <string>Тепловыделение [Вт]</string>
     </attribute>
     <widget class="QFrame" name="frameTdp">
      <property name="geometry">
@@ -4377,7 +4367,7 @@ QLineEdit:hover{
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>297</width>
+      <width>307</width>
       <height>186</height>
      </rect>
     </property>
@@ -4386,7 +4376,7 @@ QLineEdit:hover{
       <normaloff>../../images/down-arrow.png</normaloff>../../images/down-arrow.png</iconset>
     </attribute>
     <attribute name="label">
-     <string>Длина видеокарты</string>
+     <string>Длина видеокарты [см]</string>
     </attribute>
     <widget class="QFrame" name="framLen">
      <property name="geometry">
@@ -4806,7 +4796,7 @@ border-top: 1px solid red;</string>
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>780</y>
+     <y>790</y>
      <width>121</width>
      <height>31</height>
     </rect>

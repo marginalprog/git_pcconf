@@ -135,8 +135,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         self.dict_button_group = {}  # Словарь для хранения групп RB и таблиц, в которых они находятся
         # =============================== Надстройки вкладки "Склад"================================
         self.tableSklad.horizontalHeader().setDefaultAlignment(QtCore.Qt.AlignVCenter | QtCore.Qt.AlignHCenter)
-
-        self.toolBoxNavigation.currentChanged.connect(lambda index: self.load_all_sklad(index))
+        self.toolBoxNavigation.currentChanged.connect(lambda index: self.load_sklad(index))
         # таблицы и менять вкладки
 
         self.tabWidgetSklad.tabBarClicked.connect(
@@ -160,8 +159,12 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         # По нажатии на кнопку запускается метод, который принимает выбранную вклдку ТБ и открывает нужное окно фильтра
         self.btnSkladFilter.clicked.connect(lambda: self.tb_sklad_filter(self.toolBoxNavigation.currentIndex()))
 
+        # По нажатии на кнопку наличия запускается метод, отправляющий в
+        self.rbSklad.toggled.connect(
+            lambda have: self.rb_click_having_sklad(have, self.toolBoxNavigation.currentIndex()))
+
         self.load_proizv_videocard()
-        self.load_all_sklad(0)  # Первоначальная загрузка всех видеокарт из бд
+        self.load_sklad(0)  # Первоначальная загрузка всех видеокарт из бд
         # =================================Окна фильтрации комплектующих на складе=========================
         self.vidSkladFilter = filters.VideoFilter(0, self)  # Создаётся отдельный экземпляр для сохранения внесённых д-х
         # .......инициализация других окон фильтрации.......
@@ -220,18 +223,12 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         # =========================== Надстройки вкладки "Конфигуратор"=============================
 
         self.treeWidget.itemClicked.connect(lambda: self.treeNavigation())
-        # ----------------------Заполнение таблиц RB---------------------------
+        # ------------------------Заполнение таблиц при инициализации-----------------------
 
         self.row_selected = None
-        self.insert_rb(self.tableConfVideo)
-        self.insert_rb(self.tableConfProc)
-        self.insert_rb(self.tableConfMother)
-        self.insert_rb(self.tableConfCool)
-        self.insert_rb(self.tableConfRam)
-        self.insert_rb(self.tableConfDisk)
-        self.insert_rb(self.tableConfPower)
-        self.insert_rb(self.tableConfBody)
-        # ---------------------------------------------------------------------
+        for i in range(1):
+            self.load_all_conf(i)
+        # -----------------------------------------------------------------------------
 
         # ---------------------Кнопки с помощью--------------------------------
         self.vHelp = helping.VideoHelp()
@@ -254,10 +251,6 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         self.table_config.setColumnWidth(2, 55)
         self.table_config.setColumnWidth(3, 15)
         #####
-        self.tableConfVideo.setColumnWidth(0, 50)
-        self.tableConfVideo.setColumnWidth(1, 40)
-        self.tableConfVideo.setColumnWidth(2, 180)
-        self.tableConfVideo.setColumnWidth(3, 180)
 
         self.tableConfVideo.cellClicked.connect(
             lambda row, column, table=self.tableConfVideo:
@@ -293,8 +286,8 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
 
         self.video_tabs = ["RADEON", "NVIDIA", "INTEL"]  # список с названиями (принимается с БД)
         self.processor_tabs = ["INTEL", "AMD"]
-        #self.fill_tabs(self.video_tabs, self.tabWidgetVideo)
-        #self.fill_tabs(self.processor_tabs, self.tabWidgetProc)
+        # self.fill_tabs(self.video_tabs, self.tabWidgetVideo)
+        # self.fill_tabs(self.processor_tabs, self.tabWidgetProc)
         self.tabWidgetVideo.tabBarClicked.connect(lambda index: self.click_tab_conf(index, self.tabWidgetVideo))
         self.tabWidgetProc.tabBarClicked.connect(lambda index: self.click_tab_conf(index, self.tabWidgetProc))
 
@@ -384,7 +377,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
             self.load_proizv_videocard()  # Загрузка обновлённой таблицы из БД
 
     # Метод загрузки всех видеокарт из БД с заполнением словарей (x8)
-    def load_all_sklad(self, page):
+    def load_sklad(self, page):
         conn = None
         cur = None
         try:
@@ -396,17 +389,22 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
             cur = conn.cursor()
             match page:
                 case 0:
-                    self.dict_videocard_kol.clear()
-                    self.dict_videocard_proizv.clear()
-                    self.dict_videocard_name.clear()
-                    cur.callproc("get_videocard")  # Получаем данные о всех видеокартах
-                    self.fill_table_sklad(page, cur)  # Заполняем таблицу
-                    self.fill_tabs(page, self.tabWidgetSklad)
-                    cur.callproc("get_videocard")
-                    for row in cur:  # Заполняем словари данными о видеокартах
-                        self.dict_videocard_proizv[row[2]] = row[3]
-                        self.dict_videocard_name[row[2]] = row[4]
-                        self.dict_videocard_kol[2] = row[1]
+                    if self.rbSklad.isChecked():
+                        cur.callproc("get_having_videocard")  # Получаем данные о имеющихся видеокартах
+                        self.fill_table_sklad(page, cur)  # Заполняем таблицу
+                        self.fill_tabs(page, self.tabWidgetSklad)
+                    else:
+                        self.dict_videocard_kol.clear()
+                        self.dict_videocard_proizv.clear()
+                        self.dict_videocard_name.clear()
+                        cur.callproc("get_all_videocard")  # Получаем данные о всех видеокартах
+                        self.fill_table_sklad(page, cur)  # Заполняем таблицу
+                        self.fill_tabs(page, self.tabWidgetSklad)
+                        cur.callproc("get_all_videocard")
+                        for row in cur:  # Заполняем словари данными о видеокартах
+                            self.dict_videocard_proizv[row[2]] = row[3]
+                            self.dict_videocard_name[row[2]] = row[4]
+                            self.dict_videocard_kol[2] = row[1]
 
                 case 1:
                     print("Заполнение таблицы процессорами")
@@ -435,6 +433,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
     def fill_table_sklad(self, page, cur):
         self.tableSklad.clear()
         self.tableSklad.clearSelection()
+        self.tableSklad.setSortingEnabled(False)
         row_count = 0
         match page:
             case 0:  # Заполнение таблицы видеокартами
@@ -468,9 +467,78 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 self.tableSklad.resizeColumnsToContents()
             case 1:
                 print("Заполнение таблицы из БД процессоров")
+        self.tableSklad.setSortingEnabled(True)
 
-    def fill_table_config(self, table):
-        table.clearContents()  # хедеры оставляем, меняем только содержимое
+    # Метод загрузки всех видеокарт из БД с заполнением словарей (x8)
+    def load_all_conf(self, page):
+        conn = None
+        cur = None
+        try:
+            conn = psycopg2.connect(database="confPc",
+                                    user="postgres",
+                                    password="2001",
+                                    host="localhost",
+                                    port="5432")
+            cur = conn.cursor()
+            match page:
+                case 0:
+                    cur.callproc("get_all_videocard")  # Получаем данные о всех видеокартах
+                    self.fill_table_conf(page, cur)  # Заполняем таблицу
+                    self.fill_tabs(page, self.tabWidgetVideo)
+
+                case 1:
+                    print("Заполнение таблицы конфигуратора процессорами")
+                    # self.fill_tabs(page, self.tableConfProc)
+                    """self.dict_processor_kol.clear()
+                    self.dict_processor_proizv.clear()
+                    self.dict_processor_name.clear()
+                    cur.callproc("get_processors")  # Получаем данные о всех процессорах
+                    self.fill_table_sklad(page, cur)  # Заполняем таблицу
+                    cur.callproc("get_processors")
+                    for row in cur:  # Заполняем словари данными о процессорах
+                        self.dict_processor_proizv[row[2]] = row[3]
+                        self.dict_processor_name[row[2]] = row[4]
+                        self.dict_processor_kol[2] = row[1]"""
+
+        except (Exception, psycopg2.DatabaseError) as error:
+            self.dialog = DialogOk("Ошибка", str(error))
+            self.dialog.show()
+
+        finally:
+            if conn:
+                cur.close()
+                conn.close()
+
+    # Метод заполнения таблиц во вкладке конфигуратора
+    def fill_table_conf(self, type, cur):
+        row_count = 0
+        match type:
+            case 0:  # Заполнение таблицы видеокартами
+                self.tableConfVideo.clear()
+                self.tableConfVideo.clearSelection()
+                self.tableConfVideo.setColumnCount(13)  # Число столбцов в видеокарте конфигуратора
+                for row in cur:
+                    self.tableConfVideo.setRowCount(row_count + 1)
+                    self.insert_existence_complect(self.tableConfVideo, row_count, row[1])
+                    # self.tableConfVideo.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[3])))
+                    self.tableConfVideo.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[4])))
+                    self.tableConfVideo.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[5])))
+                    self.tableConfVideo.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[6])))
+                    self.tableConfVideo.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[7])))
+                    self.tableConfVideo.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[8])))
+                    self.tableConfVideo.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[9])))
+                    self.tableConfVideo.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[10])))
+                    self.tableConfVideo.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[11])))
+                    # self.tableConfVideo.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[12])))
+                    # self.tableConfVideo.setItem(row_count, 12, QtWidgets.QTableWidgetItem(str(row[13])))
+                    self.tableConfVideo.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[14])))
+                    self.tableConfVideo.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[15])))
+                    self.tableConfVideo.setItem(row_count, 12, QtWidgets.QTableWidgetItem(str(row[16])))
+                    self.insert_rb(self.tableConfVideo)
+                    row_count += 1
+                self.tableConfVideo.resizeColumnsToContents()
+            case 1:
+                print("Заполнение таблицы из БД процессоров")
 
     # Метод принимает для вставки таблицу, строку и булевое значение для индикатора
     def paste_existence(self, table, row, col, bool_):
@@ -565,6 +633,8 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                     self.win_add_change = adding.AddChangeVideoWindow(self, new_bool, list_pr,
                                                                       self.dict_proizv_vid_name,
                                                                       self.dict_videocard_name)
+                    self.block_lineedit(self.win_add_change.leKol, "")
+
                     self.win_add_change.show()
                 else:  # Есил False - изменяем выбранную запись
                     if type(row) is str:  # Если пришел не кортеж, а строка(ошибка) - вывод окна с ошибкой
@@ -586,7 +656,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                         self.block_lineedit(self.win_add_change.leBus, row[8])
                         self.block_combobox(self.win_add_change.cbInterface, row[9])
                         self.block_combobox(self.win_add_change.cbMonitor, row[10])
-                        self.block_lineedit(self.win_add_change.leResolution, row[11])
+                        self.block_combobox(self.win_add_change.cbResolution, row[11])
                         self.block_lineedit(self.win_add_change.leTdp, row[12])
                         self.block_lineedit(self.win_add_change.leLength, row[13])
                         self.block_lineedit(self.win_add_change.lePrice, row[14])
@@ -665,14 +735,107 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 pass
                 # self.vidSkladFilter.show()  # Отображение экземпляра класса
 
-    def send_sql_sklad(self, get_query):
+    def apply_filter_sklad(self, get_query, page):
         print(get_query)
+        conn = None
+        cur = None
+        try:
+            conn = psycopg2.connect(database="confPc",
+                                    user="postgres",
+                                    password="2001",
+                                    host="localhost",
+                                    port="5432")
+            cur = conn.cursor()
+            cur.execute(get_query)
+            match page:
+                case 0:
+                    self.fill_table_sklad(page, cur)
+                case 1:
+                    self.fill_table_sklad(page, cur)
+        except (Exception, psycopg2.DatabaseError) as error:
+            self.dialog = DialogOk("Ошибка", error)
+            self.dialog.show()
 
-    def send_sql_conf(self, get_query):
+        finally:
+            if conn:
+                cur.close()
+                conn.close()
+
+    def apply_filter_conf(self, get_query, page):
         print(get_query)
+        conn = None
+        cur = None
+        try:
+            conn = psycopg2.connect(database="confPc",
+                                    user="postgres",
+                                    password="2001",
+                                    host="localhost",
+                                    port="5432")
+            cur = conn.cursor()
+            cur.execute(get_query)
+            match page:
+                case 0:
+                    self.fill_table_conf(page, cur)
+                case 1:
+                    self.fill_table_conf(page, cur)
+        except (Exception, psycopg2.DatabaseError) as error:
+            self.dialog = DialogOk("Ошибка", error)
+            self.dialog.show()
+
+        finally:
+            if conn:
+                cur.close()
+                conn.close()
+
+    def rb_click_having_sklad(self, have, page):
+        conn = None
+        cur = None
+        try:
+            conn = psycopg2.connect(database="confPc",
+                                    user="postgres",
+                                    password="2001",
+                                    host="localhost",
+                                    port="5432")
+            cur = conn.cursor()
+            match page:  # Определение запроса к БД по типу комплектующего
+                case 0:
+                    if have:
+                        cur.callproc("get_having_videocard")
+                        self.fill_table_sklad(page, cur)
+                        self.fill_tabs(page, self.tabWidgetSklad)
+                    else:
+                        cur.callproc("get_all_videocard")
+                        self.fill_table_sklad(page, cur)
+                        self.fill_tabs(page, self.tabWidgetSklad)
+                case 1:
+                    if have:
+                        print("Вывод имеющихся процессоров")
+                    else:
+                        print("Вывод ВСЕХ процессоров")
+                case 2:
+                    pass
+                case 3:
+                    pass
+                case 4:
+                    pass
+                case 5:
+                    pass
+                case 6:
+                    pass
+                case 7:
+                    pass
+
+        except (Exception, psycopg2.DatabaseError) as error:
+            self.dialog = DialogOk("Ошибка", error)
+            self.dialog.show()
+
+        finally:
+            if conn:
+                cur.close()
+                conn.close()
 
     # Метод, возвращающий из БД производителей комплектуюшего
-    def get_having_proizv(self, complect):
+    def get_proizv(self, complect, have):
         conn = None
         cur = None
         list_proizv = []
@@ -685,14 +848,19 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
             cur = conn.cursor()
             match complect:  # Определение запроса к БД по типу комплектующего
                 case "Videocard":
-                    cur.callproc('get_having_videoproizv')
-                    for name in cur:
-                        list_proizv.append(name[0])
+                    if have:
+                        cur.callproc('get_having_videoproizv')
+                        for name in cur:
+                            list_proizv.append(name[0])
+                    else:
+                        cur.callproc('get_inbase_videoproizv')
+                        for name in cur:
+                            list_proizv.append(name[0])
                 case "Processor":
-                    #cur.callproc('get_having_videoproizv')
+                    # cur.callproc('get_having_videoproizv')
                     list_proizv.append("Intel")
-                    #for name in cur:
-                        #list_proizv.append(name[0])
+                    # for name in cur:
+                    # list_proizv.append(name[0])
                 case "Motherboard":
                     cur.callproc('get_having_videoproizv')
                     for name in cur:
@@ -726,37 +894,48 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 conn.commit()
                 cur.close()
                 conn.close()
-            list_proizv.insert(0, "Все")
             return list_proizv
 
     # Метод для заполнения tabWidget-ов переданными производителями
     # На складе разные page и одинаковый tab_widget (таблица скалада 1, виджет так же 1)
     # В конфигураторе передаём сюда и страницу и соответствующий виджет конфигурирования
     def fill_tabs(self, page, tab_widget):
-        #if tab_widget.count() > 1:
-        #    for i in range(1, tab_widget.count()):  # Удаление старых вкладок
-        #        tab_widget.removeTab(i)
-        tab_widget.clear()
+        if tab_widget.count() > 1:
+            for i in range(tab_widget.count() - 1):  # Удаление старых вкладок
+                tab_widget.removeTab(1)
+        # tab_widget.clear()
         match page:
             case 0:
-                list_names = self.get_having_proizv("Videocard")
-                count_tab = len(list_names)
-                for i in range(0, count_tab):  # первая вкладка должна остаться
-                    tab = QtWidgets.QWidget()
-                    tab_widget.addTab(tab, list_names[i])
+                if self.rbSklad.isChecked():
+                    list_names = self.get_proizv("Videocard", True)
+                    count_tab = len(list_names)
+                    for i in range(0, count_tab):  # первая вкладка должна остаться
+                        tab = QtWidgets.QWidget()
+                        tab_widget.addTab(tab, list_names[i])
+                else:
+                    list_names = self.get_proizv("Videocard", False)
+                    count_tab = len(list_names)
+                    for i in range(0, count_tab):  # первая вкладка должна остаться
+                        tab = QtWidgets.QWidget()
+                        tab_widget.addTab(tab, list_names[i])
             case 1:
-                list_names = self.get_having_proizv("Processor")
-                count_tab = len(list_names)
-                for i in range(0, count_tab):  # первая вкладка должна остаться
-                    tab = QtWidgets.QWidget()
-                    tab_widget.addTab(tab, list_names[i])
+                if self.rbSklad.isChecked():
+                    list_names = self.get_proizv("Processor", True)
+                    count_tab = len(list_names)
+                    for i in range(0, count_tab):  # первая вкладка должна остаться
+                        tab = QtWidgets.QWidget()
+                        tab_widget.addTab(tab, list_names[i])
+                else:
+                    list_names = self.get_proizv("Processor", False)
+                    count_tab = len(list_names)
+                    for i in range(0, count_tab):  # первая вкладка должна остаться
+                        tab = QtWidgets.QWidget()
+                        tab_widget.addTab(tab, list_names[i])
 
     def click_tab_sklad(self, page, tab_index, tab_widget):
         conn = None
         cur = None
         tab_name = tab_widget.tabText(tab_index)
-        print(tab_index)
-        print(f"tab_widget.tabText(tab_index) {tab_widget.tabText(tab_index)}")
         try:
             conn = psycopg2.connect(database="confPc",
                                     user="postgres",
@@ -766,15 +945,18 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
             cur = conn.cursor()
             match page:
                 case 0:
-                    if tab_name == "Все":
-                        cur.callproc('get_videocard')
+                    if tab_name == "Все" and self.rbSklad.isChecked():
+                        cur.callproc('get_having_videocard')
+                        self.fill_table_sklad(page, cur)
+                    elif tab_name == "Все":
+                        cur.callproc('get_all_videocard')
                         self.fill_table_sklad(page, cur)
                     else:
                         cur.callproc('get_videocard_by_name', [tab_name])
                         self.fill_table_sklad(page, cur)
-                case 1:
+                case 1:  # Здесь так же 3 условия, но для процессора
                     if tab_name == "Все":
-                        cur.callproc('get_videocard')
+                        cur.callproc('get_all_videocard')
                         self.fill_table_sklad(page, cur)
                     else:
                         cur.callproc('get_videocard_by_name', [tab_name])
@@ -851,17 +1033,18 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
 
     # Метод, обнуляющий RadioButton в таблице
     def reset_radiobutton(self, table):
-        button_group = self.dict_button_group[table.objectName()]
-        button_group.setExclusive(False)
-        for i in range(table.rowCount()):
-            widget = table.cellWidget(i, 0)
-            if widget is not None:
-                rad_but = widget.findChild(RadioButton)
-                if rad_but is not None and rad_but.isChecked():
-                    rad_but.setChecked(False)
-        table.clearSelection()
-        button_group.setExclusive(True)
-        self.clear_cart(table)
+        if table.objectName() in self.dict_button_group:  # Если пара таблица-группа были добавлены
+            button_group = self.dict_button_group[table.objectName()]
+            button_group.setExclusive(False)
+            for i in range(table.rowCount()):
+                widget = table.cellWidget(i, 0)
+                if widget is not None:
+                    rad_but = widget.findChild(RadioButton)
+                    if rad_but is not None and rad_but.isChecked():
+                        rad_but.setChecked(False)
+            table.clearSelection()
+            button_group.setExclusive(True)
+            self.clear_cart(table)
 
     #  Метод очистки корзины (таблицы) предпросмотра заказа
     def clear_cart(self, table):
@@ -898,6 +1081,8 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
             widget, radio = self.create_radiobutton()
             radio.toggled.connect(
                 lambda ch, row=i: self.current_pos_sklad(ch, row, table))
+            radio.toggled.connect(
+                lambda ch, row=i: self.current_pos_sklad(ch, row, table))
             table.setCellWidget(i, 0, widget)
             button_group.addButton(radio)
             button_group.setId(radio, i)
@@ -905,26 +1090,50 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
 
     def cell_row(self, row, column, table):
         # print(f'\n row={row}; column={column}')
-        button_group = self.dict_button_group[table.objectName()]
-        rb = button_group.button(row)
-        rb.click()
+        if table.objectName() in self.dict_button_group:  # Если пара таблица-группа были добавлены
+            button_group = self.dict_button_group[table.objectName()]
+
+            # Способ переключения RB по нахождению в словарю (за каждой кнопкой своя строка)
+            # rb = button_group.button(row)
+            # rb.click()
+
+            # Способ переключения RB по поиску его в кликнутой строке
+            button_group.setExclusive(False)
+            for i in range(table.rowCount()):
+                widget = table.cellWidget(i, 0)
+                if widget is not None:
+                    radio_but = widget.findChild(RadioButton)
+                    if radio_but is not None and radio_but.isChecked():
+                        radio_but.setChecked(False)
+                    if i == row:
+                        radio_but.setChecked(True)
+            button_group.setExclusive(True)
 
     def current_pos(self, ch, row, table):
-        # print(f' row = {row} -- {ch}')
         if ch:
             table.selectRow(row)
             self.fill_cart(table)
 
     def current_pos_sklad(self, ch, row, table):
-        # print(f' row = {row} -- {ch}')
+        print(f' row = {row} -- {ch}')
         if ch:
-            table.selectRow(row)
+            # table.selectRow(row)
+            pass
 
     # Метод заполнения корзины выбранных комплектующих (принимает таблицу, из которой был вызван, имя и цену)
     def fill_cart(self, table):
-        name = table.item(table.currentRow(), 2).text()  # Далее - заменить на столбец с именем !!!
-        price = table.item(table.currentRow(), 3).text()  # Далее - заменить на столбец с ценой!!!
         row_count = self.table_config.rowCount()
+        name = ""
+        price = ""
+        match table:  # Определяем имя и цену для записи в корзину по кликнутной таблице
+            case self.tableConfVideo:
+                name = table.item(table.currentRow(), 2).text()
+                price = table.item(table.currentRow(), 12).text()
+            case self.tableConfProc:
+                name = table.item(table.currentRow(), 3).text()
+                price = table.item(table.currentRow(), 4).text()
+            # case.............
+
         insert_row = self.check_cart(table)
         if insert_row == -1:  # если не найдена запись
             self.table_config.setRowCount(row_count + 1)

@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1367, 726)
+        MainWindow.resize(1367, 724)
         icon = QtGui.QIcon.fromTheme("E:\\pcconf\\images\\pcconf.png")
         MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet("background: rgb(30, 30, 30);\n"
@@ -27,7 +27,7 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
+        self.tabWidgetMain = QtWidgets.QTabWidget(self.centralwidget)
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(12)
@@ -35,9 +35,9 @@ class Ui_MainWindow(object):
         font.setItalic(False)
         font.setUnderline(False)
         font.setWeight(50)
-        self.tabWidget.setFont(font)
-        self.tabWidget.setMouseTracking(False)
-        self.tabWidget.setStyleSheet("QFrame{\n"
+        self.tabWidgetMain.setFont(font)
+        self.tabWidgetMain.setMouseTracking(False)
+        self.tabWidgetMain.setStyleSheet("QFrame{\n"
 "    border:0px;\n"
 "}\n"
 "\n"
@@ -73,8 +73,8 @@ class Ui_MainWindow(object):
 "    border-bottom: 1px solid;\n"
 "    border-color: black;\n"
 "}")
-        self.tabWidget.setTabsClosable(False)
-        self.tabWidget.setObjectName("tabWidget")
+        self.tabWidgetMain.setTabsClosable(False)
+        self.tabWidgetMain.setObjectName("tabWidgetMain")
         self.sklad = QtWidgets.QWidget()
         self.sklad.setStyleSheet("border:0px;")
         self.sklad.setObjectName("sklad")
@@ -93,7 +93,7 @@ class Ui_MainWindow(object):
         self.lbNavPanel.setAlignment(QtCore.Qt.AlignCenter)
         self.lbNavPanel.setObjectName("lbNavPanel")
         self.btnAdd = QtWidgets.QPushButton(self.sklad)
-        self.btnAdd.setGeometry(QtCore.QRect(530, 580, 161, 31))
+        self.btnAdd.setGeometry(QtCore.QRect(630, 580, 171, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -109,36 +109,12 @@ class Ui_MainWindow(object):
 "    border:1px;\n"
 "    background-color: rgb(60,60,60);\n"
 "    border-color: rgb(40,40,40);\n"
-"    border-bottom: 1px solid   rgb(0, 255, 8);\n"
+"    border-bottom: 1px solid  red;\n"
 "}\n"
 "")
         self.btnAdd.setObjectName("btnAdd")
-        self.btnDelete = QtWidgets.QPushButton(self.sklad)
-        self.btnDelete.setGeometry(QtCore.QRect(950, 580, 161, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        font.setUnderline(False)
-        font.setStrikeOut(True)
-        self.btnDelete.setFont(font)
-        self.btnDelete.setStyleSheet("QPushButton{\n"
-"    border:1px solid rgb(70,70,70);\n"
-"    background-color: rgb(40,40,40);\n"
-"    color: #fffafa;\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"    border:1px;\n"
-"    background-color: rgb(60,60,60);\n"
-"    border-color: rgb(40,40,40);\n"
-"    border-bottom: 1px solid  red;\n"
-"    color: red;\n"
-"}\n"
-"")
-        self.btnDelete.setObjectName("btnDelete")
         self.btnRepeat = QtWidgets.QPushButton(self.sklad)
-        self.btnRepeat.setGeometry(QtCore.QRect(740, 580, 161, 31))
+        self.btnRepeat.setGeometry(QtCore.QRect(870, 580, 171, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -154,7 +130,7 @@ class Ui_MainWindow(object):
 "    border:1px;\n"
 "    background-color: rgb(60,60,60);\n"
 "    border-color: rgb(40,40,40);\n"
-"    border-bottom: 1px solid  rgb(255, 255, 0);\n"
+"    border-bottom: 1px solid  red;\n"
 "}\n"
 "")
         self.btnRepeat.setObjectName("btnRepeat")
@@ -375,7 +351,7 @@ class Ui_MainWindow(object):
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}")
-        self.tableVideoProizv.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableVideoProizv.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableVideoProizv.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.tableVideoProizv.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tableVideoProizv.setShowGrid(False)
@@ -634,7 +610,7 @@ class Ui_MainWindow(object):
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}")
-        self.tableProcProizv.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableProcProizv.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableProcProizv.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.tableProcProizv.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tableProcProizv.setShowGrid(False)
@@ -874,7 +850,7 @@ class Ui_MainWindow(object):
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}")
-        self.tableMotherProizv.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableMotherProizv.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableMotherProizv.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.tableMotherProizv.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tableMotherProizv.setShowGrid(False)
@@ -1114,7 +1090,7 @@ class Ui_MainWindow(object):
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}")
-        self.tableCoolProizv.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableCoolProizv.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableCoolProizv.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.tableCoolProizv.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tableCoolProizv.setShowGrid(False)
@@ -1354,7 +1330,7 @@ class Ui_MainWindow(object):
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}")
-        self.tableRamProizv.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableRamProizv.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableRamProizv.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.tableRamProizv.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tableRamProizv.setShowGrid(False)
@@ -1594,7 +1570,7 @@ class Ui_MainWindow(object):
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}")
-        self.tableDiskProizv.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableDiskProizv.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableDiskProizv.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.tableDiskProizv.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tableDiskProizv.setShowGrid(False)
@@ -1834,7 +1810,7 @@ class Ui_MainWindow(object):
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}")
-        self.tablePowerProizv.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tablePowerProizv.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tablePowerProizv.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.tablePowerProizv.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tablePowerProizv.setShowGrid(False)
@@ -2074,7 +2050,7 @@ class Ui_MainWindow(object):
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}")
-        self.tableBodyProizv.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableBodyProizv.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableBodyProizv.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.tableBodyProizv.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tableBodyProizv.setShowGrid(False)
@@ -2467,7 +2443,7 @@ class Ui_MainWindow(object):
 "")
         self.tableSklad.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
         self.tableSklad.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
-        self.tableSklad.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableSklad.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableSklad.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.tableSklad.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tableSklad.setTextElideMode(QtCore.Qt.ElideLeft)
@@ -2589,7 +2565,15 @@ class Ui_MainWindow(object):
 "    color: rgb(190,190,190);\n"
 "}")
         self.rbSklad.setObjectName("rbSklad")
-        self.tabWidget.addTab(self.sklad, "")
+        self.line = QtWidgets.QFrame(self.sklad)
+        self.line.setGeometry(QtCore.QRect(450, 60, 16, 31))
+        self.line.setStyleSheet("border: 0px;\n"
+"background: transparent;\n"
+"border-left: 1px solid rgb(60, 60, 60);")
+        self.line.setFrameShape(QtWidgets.QFrame.VLine)
+        self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line.setObjectName("line")
+        self.tabWidgetMain.addTab(self.sklad, "")
         self.configurator = QtWidgets.QWidget()
         self.configurator.setStyleSheet("border:0px;")
         self.configurator.setObjectName("configurator")
@@ -2762,7 +2746,7 @@ class Ui_MainWindow(object):
         self.treeWidget.header().setSortIndicatorShown(False)
         self.treeWidget.header().setStretchLastSection(True)
         self.scrollArea = QtWidgets.QScrollArea(self.configurator)
-        self.scrollArea.setGeometry(QtCore.QRect(290, 10, 1051, 621))
+        self.scrollArea.setGeometry(QtCore.QRect(290, 0, 1051, 621))
         self.scrollArea.setStyleSheet("QWidget{\n"
 "    border: 0px;\n"
 "} \n"
@@ -3151,45 +3135,24 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.tableConfVideo.setEditTriggers(QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableConfVideo.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableConfVideo.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.tableConfVideo.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tableConfVideo.setShowGrid(False)
         self.tableConfVideo.setGridStyle(QtCore.Qt.SolidLine)
         self.tableConfVideo.setObjectName("tableConfVideo")
-        self.tableConfVideo.setColumnCount(4)
-        self.tableConfVideo.setRowCount(2)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableConfVideo.setVerticalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableConfVideo.setVerticalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableConfVideo.setHorizontalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableConfVideo.setHorizontalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableConfVideo.setHorizontalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableConfVideo.setHorizontalHeaderItem(3, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableConfVideo.setItem(0, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableConfVideo.setItem(0, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableConfVideo.setItem(0, 3, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableConfVideo.setItem(1, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableConfVideo.setItem(1, 3, item)
+        self.tableConfVideo.setColumnCount(0)
+        self.tableConfVideo.setRowCount(0)
         self.tableConfVideo.horizontalHeader().setVisible(False)
         self.tableConfVideo.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableConfVideo.horizontalHeader().setDefaultSectionSize(30)
-        self.tableConfVideo.horizontalHeader().setHighlightSections(False)
-        self.tableConfVideo.horizontalHeader().setMinimumSectionSize(15)
+        self.tableConfVideo.horizontalHeader().setDefaultSectionSize(90)
+        self.tableConfVideo.horizontalHeader().setHighlightSections(True)
+        self.tableConfVideo.horizontalHeader().setMinimumSectionSize(40)
         self.tableConfVideo.horizontalHeader().setSortIndicatorShown(True)
         self.tableConfVideo.horizontalHeader().setStretchLastSection(False)
         self.tableConfVideo.verticalHeader().setVisible(False)
         self.tableConfVideo.verticalHeader().setCascadingSectionResizes(False)
+        self.tableConfVideo.verticalHeader().setDefaultSectionSize(32)
         self.tableConfVideo.verticalHeader().setMinimumSectionSize(10)
         self.tableConfVideo.raise_()
         self.tabWidgetVideo.raise_()
@@ -3557,7 +3520,7 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.tableConfProc.setEditTriggers(QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableConfProc.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableConfProc.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.tableConfProc.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tableConfProc.setShowGrid(False)
@@ -3699,7 +3662,7 @@ class Ui_MainWindow(object):
 "")
         self.btnMotherHelp.setObjectName("btnMotherHelp")
         self.btnVidHelp = QtWidgets.QPushButton(self.frame_3)
-        self.btnVidHelp.setGeometry(QtCore.QRect(490, 20, 191, 20))
+        self.btnVidHelp.setGeometry(QtCore.QRect(480, 20, 201, 20))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -3918,7 +3881,7 @@ class Ui_MainWindow(object):
 "    background: none;\n"
 "}\n"
 "")
-        self.tableConfMother.setEditTriggers(QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableConfMother.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableConfMother.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.tableConfMother.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tableConfMother.setShowGrid(False)
@@ -4213,7 +4176,7 @@ class Ui_MainWindow(object):
 "    background: none;\n"
 "}\n"
 "")
-        self.tableConfCool.setEditTriggers(QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableConfCool.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableConfCool.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.tableConfCool.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tableConfCool.setShowGrid(False)
@@ -4508,7 +4471,7 @@ class Ui_MainWindow(object):
 "    background: none;\n"
 "}\n"
 "")
-        self.tableConfRam.setEditTriggers(QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableConfRam.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableConfRam.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.tableConfRam.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tableConfRam.setShowGrid(False)
@@ -4783,7 +4746,7 @@ class Ui_MainWindow(object):
 "    background: none;\n"
 "}\n"
 "")
-        self.tableConfDisk.setEditTriggers(QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableConfDisk.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableConfDisk.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.tableConfDisk.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tableConfDisk.setShowGrid(False)
@@ -5077,7 +5040,7 @@ class Ui_MainWindow(object):
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}")
-        self.tableConfPower.setEditTriggers(QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableConfPower.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableConfPower.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.tableConfPower.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tableConfPower.setShowGrid(False)
@@ -5379,7 +5342,7 @@ class Ui_MainWindow(object):
 "    background: none;\n"
 "}\n"
 "")
-        self.tableConfBody.setEditTriggers(QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableConfBody.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableConfBody.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.tableConfBody.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tableConfBody.setShowGrid(False)
@@ -5434,6 +5397,70 @@ class Ui_MainWindow(object):
 "")
         self.lbBody.setAlignment(QtCore.Qt.AlignCenter)
         self.lbBody.setObjectName("lbBody")
+        self.line_2 = QtWidgets.QFrame(self.frame_3)
+        self.line_2.setGeometry(QtCore.QRect(160, 50, 16, 31))
+        self.line_2.setStyleSheet("border: 0px;\n"
+"background: transparent;\n"
+"border-left: 1px solid rgb(60, 60, 60);")
+        self.line_2.setFrameShape(QtWidgets.QFrame.VLine)
+        self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_2.setObjectName("line_2")
+        self.line_3 = QtWidgets.QFrame(self.frame_3)
+        self.line_3.setGeometry(QtCore.QRect(160, 360, 16, 31))
+        self.line_3.setStyleSheet("border: 0px;\n"
+"background: transparent;\n"
+"border-left: 1px solid rgb(60, 60, 60);")
+        self.line_3.setFrameShape(QtWidgets.QFrame.VLine)
+        self.line_3.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_3.setObjectName("line_3")
+        self.line_4 = QtWidgets.QFrame(self.frame_3)
+        self.line_4.setGeometry(QtCore.QRect(160, 670, 16, 31))
+        self.line_4.setStyleSheet("border: 0px;\n"
+"background: transparent;\n"
+"border-left: 1px solid rgb(60, 60, 60);")
+        self.line_4.setFrameShape(QtWidgets.QFrame.VLine)
+        self.line_4.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_4.setObjectName("line_4")
+        self.line_5 = QtWidgets.QFrame(self.frame_3)
+        self.line_5.setGeometry(QtCore.QRect(160, 980, 16, 31))
+        self.line_5.setStyleSheet("border: 0px;\n"
+"background: transparent;\n"
+"border-left: 1px solid rgb(60, 60, 60);")
+        self.line_5.setFrameShape(QtWidgets.QFrame.VLine)
+        self.line_5.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_5.setObjectName("line_5")
+        self.line_6 = QtWidgets.QFrame(self.frame_3)
+        self.line_6.setGeometry(QtCore.QRect(160, 1280, 16, 31))
+        self.line_6.setStyleSheet("border: 0px;\n"
+"background: transparent;\n"
+"border-left: 1px solid rgb(60, 60, 60);")
+        self.line_6.setFrameShape(QtWidgets.QFrame.VLine)
+        self.line_6.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_6.setObjectName("line_6")
+        self.line_7 = QtWidgets.QFrame(self.frame_3)
+        self.line_7.setGeometry(QtCore.QRect(160, 1590, 16, 31))
+        self.line_7.setStyleSheet("border: 0px;\n"
+"background: transparent;\n"
+"border-left: 1px solid rgb(60, 60, 60);")
+        self.line_7.setFrameShape(QtWidgets.QFrame.VLine)
+        self.line_7.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_7.setObjectName("line_7")
+        self.line_8 = QtWidgets.QFrame(self.frame_3)
+        self.line_8.setGeometry(QtCore.QRect(160, 1900, 16, 31))
+        self.line_8.setStyleSheet("border: 0px;\n"
+"background: transparent;\n"
+"border-left: 1px solid rgb(60, 60, 60);")
+        self.line_8.setFrameShape(QtWidgets.QFrame.VLine)
+        self.line_8.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_8.setObjectName("line_8")
+        self.line_9 = QtWidgets.QFrame(self.frame_3)
+        self.line_9.setGeometry(QtCore.QRect(160, 2210, 16, 31))
+        self.line_9.setStyleSheet("border: 0px;\n"
+"background: transparent;\n"
+"border-left: 1px solid rgb(60, 60, 60);")
+        self.line_9.setFrameShape(QtWidgets.QFrame.VLine)
+        self.line_9.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_9.setObjectName("line_9")
         self.gridLayout.addWidget(self.frame_3, 0, 0, 1, 1)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.frame_cart = QtWidgets.QFrame(self.configurator)
@@ -5667,7 +5694,7 @@ class Ui_MainWindow(object):
         self.frame_rb.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_rb.setObjectName("frame_rb")
         self.rb_have_conf = QtWidgets.QRadioButton(self.frame_rb)
-        self.rb_have_conf.setGeometry(QtCore.QRect(10, 10, 271, 21))
+        self.rb_have_conf.setGeometry(QtCore.QRect(40, 10, 191, 21))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -5713,8 +5740,8 @@ class Ui_MainWindow(object):
         self.treeWidget.raise_()
         self.frame_cart.raise_()
         self.frame_rb.raise_()
-        self.tabWidget.addTab(self.configurator, "")
-        self.verticalLayout.addWidget(self.tabWidget)
+        self.tabWidgetMain.addTab(self.configurator, "")
+        self.verticalLayout.addWidget(self.tabWidgetMain)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1367, 23))
@@ -5725,7 +5752,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidgetMain.setCurrentIndex(0)
         self.toolBoxNavigation.layout().setSpacing(5)
         self.tabWidgetSklad.setCurrentIndex(0)
         self.tabWidgetVideo.setCurrentIndex(0)
@@ -5742,9 +5769,8 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.lbNavPanel.setText(_translate("MainWindow", "Панель навигации"))
-        self.btnAdd.setText(_translate("MainWindow", "Новый заказ"))
-        self.btnDelete.setText(_translate("MainWindow", "Удалить"))
-        self.btnRepeat.setText(_translate("MainWindow", "Повторить заказ"))
+        self.btnAdd.setText(_translate("MainWindow", "Новое комплектующее"))
+        self.btnRepeat.setText(_translate("MainWindow", "Заказать"))
         self.lbVideoProizv.setText(_translate("MainWindow", "Производители:"))
         self.btnNewVideoProizv.setText(_translate("MainWindow", "Новый\n"
 "поставщик"))
@@ -6074,8 +6100,8 @@ class Ui_MainWindow(object):
         self.tableSklad.setSortingEnabled(True)
         self.tabWidgetSklad.setTabText(self.tabWidgetSklad.indexOf(self.all_2), _translate("MainWindow", "Все"))
         self.btnSkladFilter.setText(_translate("MainWindow", "Настроить фильтр"))
-        self.rbSklad.setText(_translate("MainWindow", "Комплектующие на складе"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.sklad), _translate("MainWindow", "Склад"))
+        self.rbSklad.setText(_translate("MainWindow", "Только в наличии"))
+        self.tabWidgetMain.setTabText(self.tabWidgetMain.indexOf(self.sklad), _translate("MainWindow", "Склад"))
         self.progressBar.setFormat(_translate("MainWindow", "%v / %m"))
         self.treeWidget.setSortingEnabled(False)
         self.treeWidget.headerItem().setText(0, _translate("MainWindow", "Комплектующие"))
@@ -6093,29 +6119,6 @@ class Ui_MainWindow(object):
         self.lbVideo.setText(_translate("MainWindow", "Видеокарта"))
         self.tabWidgetVideo.setTabText(self.tabWidgetVideo.indexOf(self.all), _translate("MainWindow", "Все"))
         self.tableConfVideo.setSortingEnabled(True)
-        item = self.tableConfVideo.verticalHeaderItem(0)
-        item.setText(_translate("MainWindow", "w"))
-        item = self.tableConfVideo.verticalHeaderItem(1)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableConfVideo.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Выбор"))
-        item = self.tableConfVideo.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Склад"))
-        item = self.tableConfVideo.horizontalHeaderItem(2)
-        item.setText(_translate("MainWindow", "Название"))
-        item = self.tableConfVideo.horizontalHeaderItem(3)
-        item.setText(_translate("MainWindow", "др. параметры"))
-        __sortingEnabled = self.tableConfVideo.isSortingEnabled()
-        self.tableConfVideo.setSortingEnabled(False)
-        item = self.tableConfVideo.item(0, 2)
-        item.setText(_translate("MainWindow", "w"))
-        item = self.tableConfVideo.item(0, 3)
-        item.setText(_translate("MainWindow", "ffssssrrrwrwer3333222234"))
-        item = self.tableConfVideo.item(1, 2)
-        item.setText(_translate("MainWindow", "NVIDIA RTX 4080"))
-        item = self.tableConfVideo.item(1, 3)
-        item.setText(_translate("MainWindow", "2878913412"))
-        self.tableConfVideo.setSortingEnabled(__sortingEnabled)
         self.lbProc.setText(_translate("MainWindow", "Процессор"))
         self.btnVidFilter.setText(_translate("MainWindow", "Настроить фильтр"))
         self.tabWidgetProc.setTabText(self.tabWidgetProc.indexOf(self.allProc), _translate("MainWindow", "Все"))
@@ -6333,8 +6336,8 @@ class Ui_MainWindow(object):
         item = self.table_config.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "рубль"))
         self.btnResetConfig.setText(_translate("MainWindow", "Сброс конфигурации"))
-        self.rb_have_conf.setText(_translate("MainWindow", "Комплектующие в наличии"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.configurator), _translate("MainWindow", "Конфигуратор"))
+        self.rb_have_conf.setText(_translate("MainWindow", "Только в наличии"))
+        self.tabWidgetMain.setTabText(self.tabWidgetMain.indexOf(self.configurator), _translate("MainWindow", "Конфигуратор"))
 
 
 if __name__ == "__main__":

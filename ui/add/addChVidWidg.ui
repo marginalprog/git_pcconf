@@ -628,12 +628,7 @@ QComboBox QAbstractItemView {
    </property>
    <item>
     <property name="text">
-     <string>PCI-E 2.0</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>PCI-E 2.1</string>
+     <string>PCI-E 4.0</string>
     </property>
    </item>
    <item>
@@ -643,7 +638,12 @@ QComboBox QAbstractItemView {
    </item>
    <item>
     <property name="text">
-     <string>PCI-E 4.0</string>
+     <string>PCI-E 2.1</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>PCI-E 2.0</string>
     </property>
    </item>
   </widget>
@@ -724,12 +724,7 @@ QComboBox QAbstractItemView {
    </property>
    <item>
     <property name="text">
-     <string>1</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>2</string>
+     <string>4</string>
     </property>
    </item>
    <item>
@@ -739,7 +734,12 @@ QComboBox QAbstractItemView {
    </item>
    <item>
     <property name="text">
-     <string>4</string>
+     <string>2</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1</string>
     </property>
    </item>
   </widget>
@@ -1004,48 +1004,6 @@ QLineEdit:hover{
     <string/>
    </property>
   </widget>
-  <widget class="QLineEdit" name="leResolution">
-   <property name="geometry">
-    <rect>
-     <x>320</x>
-     <y>380</y>
-     <width>111</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat Medium</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLineEdit{
-	padding-left: 5px;
-	border: 1px solid rgb(20,20,20);
-	background-color: rgb(40,40,40);
-	border-bottom: 1px solid  rgb(120,120,120);
-	selection-background-color: rgb(105, 0, 0);
-}
-
-QLineEdit:hover{
-	background-color: rgb(55,55,55);
-	border-bottom: 1px solid  red;
-}</string>
-   </property>
-   <property name="inputMask">
-    <string/>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="frame">
-    <bool>true</bool>
-   </property>
-   <property name="placeholderText">
-    <string>1920x1080</string>
-   </property>
-  </widget>
   <widget class="QLineEdit" name="leTdp">
    <property name="geometry">
     <rect>
@@ -1238,12 +1196,12 @@ QComboBox::QAbstractItemView {
    </property>
    <item>
     <property name="text">
-     <string>NVIDIA</string>
+     <string>AMD</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>AMD</string>
+     <string>NVIDIA</string>
     </property>
    </item>
    <item>
@@ -1486,6 +1444,107 @@ QLineEdit:hover{
     <string>Шина памяти [бит]</string>
    </property>
   </widget>
+  <widget class="QComboBox" name="cbResolution">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>380</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat Medium</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QComboBox{
+	background-color: rgb(40,40,40);
+	border: 1px;
+	border-bottom: 1px solid rgb(120,120,120);
+	padding-left: 5px;
+}
+
+QComboBox:hover{
+	background-color: rgb(55,55,55);
+	border-bottom: 1px solid red;
+}
+
+QComboBox::drop-down{
+border: 0px;
+}
+
+QComboBox::down-arrow {
+border-image: url(&quot;E:/pcconf/images/down-arrow-gray.png&quot;);
+width: 17px;
+height: 17px;
+margin-right: 5px;
+}
+
+QComboBox::down-arrow:on {
+	border-image: url(&quot;E:/pcconf/images/up-arrow.png&quot;);
+	width: 17px;
+	height: 17px;
+	margin-right: 5px;
+}
+
+QComboBox:on{
+border: 2px solid rgb(100,0,0);
+}
+
+QComboBox QAbstractItemView {
+	background: rgb(250, 250, 250);
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(235, 235, 235);
+	selection-background-color: rgb(240, 240, 240);
+	selection-color: rgb(25, 25, 25);
+}
+</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>20</height>
+    </size>
+   </property>
+   <property name="duplicatesEnabled">
+    <bool>false</bool>
+   </property>
+   <property name="frame">
+    <bool>true</bool>
+   </property>
+   <property name="modelColumn">
+    <number>0</number>
+   </property>
+   <item>
+    <property name="text">
+     <string>7680x4320</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>5120x2880</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>4096x2160</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>3840x2160</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2560x1600</string>
+    </property>
+   </item>
+  </widget>
   <zorder>lbFullName</zorder>
   <zorder>line</zorder>
   <zorder>line_2</zorder>
@@ -1516,7 +1575,6 @@ QLineEdit:hover{
   <zorder>leFreq</zorder>
   <zorder>leKol</zorder>
   <zorder>lePrice</zorder>
-  <zorder>leResolution</zorder>
   <zorder>leTdp</zorder>
   <zorder>leLength</zorder>
   <zorder>line_4</zorder>
@@ -1526,6 +1584,7 @@ QLineEdit:hover{
   <zorder>dateEdit</zorder>
   <zorder>leBus</zorder>
   <zorder>lbBus</zorder>
+  <zorder>cbResolution</zorder>
  </widget>
  <resources/>
  <connections>

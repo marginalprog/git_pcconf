@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1367</width>
-    <height>726</height>
+    <height>724</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -28,7 +28,7 @@ border-color: #434343;
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QTabWidget" name="tabWidget">
+     <widget class="QTabWidget" name="tabWidgetMain">
       <property name="font">
        <font>
         <family>Montserrat Medium</family>
@@ -126,9 +126,9 @@ border-bottom: 1px solid  rgb(95,95,95);
        <widget class="QPushButton" name="btnAdd">
         <property name="geometry">
          <rect>
-          <x>530</x>
+          <x>630</x>
           <y>580</y>
-          <width>161</width>
+          <width>171</width>
           <height>31</height>
          </rect>
         </property>
@@ -136,43 +136,6 @@ border-bottom: 1px solid  rgb(95,95,95);
          <font>
           <family>Montserrat Medium</family>
           <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton{
-	border:1px solid rgb(70,70,70);
-	background-color: rgb(40,40,40);
-	color: #fffafa;
-}
-
-QPushButton::hover
-{
-	border:1px;
-	background-color: rgb(60,60,60);
-	border-color: rgb(40,40,40);
-	border-bottom: 1px solid   rgb(0, 255, 8);
-}
-</string>
-        </property>
-        <property name="text">
-         <string>Новый заказ</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="btnDelete">
-        <property name="geometry">
-         <rect>
-          <x>950</x>
-          <y>580</y>
-          <width>161</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Montserrat Medium</family>
-          <pointsize>10</pointsize>
-          <underline>false</underline>
-          <strikeout>true</strikeout>
          </font>
         </property>
         <property name="styleSheet">
@@ -188,20 +151,19 @@ QPushButton::hover
 	background-color: rgb(60,60,60);
 	border-color: rgb(40,40,40);
 	border-bottom: 1px solid  red;
-	color: red;
 }
 </string>
         </property>
         <property name="text">
-         <string>Удалить</string>
+         <string>Новое комплектующее</string>
         </property>
        </widget>
        <widget class="QPushButton" name="btnRepeat">
         <property name="geometry">
          <rect>
-          <x>740</x>
+          <x>870</x>
           <y>580</y>
-          <width>161</width>
+          <width>171</width>
           <height>31</height>
          </rect>
         </property>
@@ -223,12 +185,12 @@ QPushButton::hover
 	border:1px;
 	background-color: rgb(60,60,60);
 	border-color: rgb(40,40,40);
-	border-bottom: 1px solid  rgb(255, 255, 0);
+	border-bottom: 1px solid  red;
 }
 </string>
         </property>
         <property name="text">
-         <string>Повторить заказ</string>
+         <string>Заказать</string>
         </property>
        </widget>
        <widget class="QToolBox" name="toolBoxNavigation">
@@ -558,7 +520,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 }</string>
            </property>
            <property name="editTriggers">
-            <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
+            <set>QAbstractItemView::NoEditTriggers</set>
            </property>
            <property name="selectionMode">
             <enum>QAbstractItemView::SingleSelection</enum>
@@ -1012,7 +974,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 }</string>
            </property>
            <property name="editTriggers">
-            <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
+            <set>QAbstractItemView::NoEditTriggers</set>
            </property>
            <property name="selectionMode">
             <enum>QAbstractItemView::SingleSelection</enum>
@@ -1426,7 +1388,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 }</string>
            </property>
            <property name="editTriggers">
-            <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
+            <set>QAbstractItemView::NoEditTriggers</set>
            </property>
            <property name="selectionMode">
             <enum>QAbstractItemView::SingleSelection</enum>
@@ -1840,7 +1802,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 }</string>
            </property>
            <property name="editTriggers">
-            <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
+            <set>QAbstractItemView::NoEditTriggers</set>
            </property>
            <property name="selectionMode">
             <enum>QAbstractItemView::SingleSelection</enum>
@@ -2254,7 +2216,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 }</string>
            </property>
            <property name="editTriggers">
-            <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
+            <set>QAbstractItemView::NoEditTriggers</set>
            </property>
            <property name="selectionMode">
             <enum>QAbstractItemView::SingleSelection</enum>
@@ -2668,7 +2630,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 }</string>
            </property>
            <property name="editTriggers">
-            <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
+            <set>QAbstractItemView::NoEditTriggers</set>
            </property>
            <property name="selectionMode">
             <enum>QAbstractItemView::SingleSelection</enum>
@@ -3082,7 +3044,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 }</string>
            </property>
            <property name="editTriggers">
-            <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
+            <set>QAbstractItemView::NoEditTriggers</set>
            </property>
            <property name="selectionMode">
             <enum>QAbstractItemView::SingleSelection</enum>
@@ -3496,7 +3458,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 }</string>
            </property>
            <property name="editTriggers">
-            <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
+            <set>QAbstractItemView::NoEditTriggers</set>
            </property>
            <property name="selectionMode">
             <enum>QAbstractItemView::SingleSelection</enum>
@@ -4090,7 +4052,7 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
           <enum>Qt::ScrollBarAsNeeded</enum>
          </property>
          <property name="editTriggers">
-          <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
+          <set>QAbstractItemView::NoEditTriggers</set>
          </property>
          <property name="selectionMode">
           <enum>QAbstractItemView::SingleSelection</enum>
@@ -4289,7 +4251,25 @@ QRadioButton::indicator:unchecked {
 }</string>
         </property>
         <property name="text">
-         <string>Комплектующие на складе</string>
+         <string>Только в наличии</string>
+        </property>
+       </widget>
+       <widget class="Line" name="line">
+        <property name="geometry">
+         <rect>
+          <x>450</x>
+          <y>60</y>
+          <width>16</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 0px;
+background: transparent;
+border-left: 1px solid rgb(60, 60, 60);</string>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
         </property>
        </widget>
       </widget>
@@ -4687,7 +4667,7 @@ QTreeView{
         <property name="geometry">
          <rect>
           <x>290</x>
-          <y>10</y>
+          <y>0</y>
           <width>1051</width>
           <height>621</height>
          </rect>
@@ -5177,7 +5157,7 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
 </string>
               </property>
               <property name="editTriggers">
-               <set>QAbstractItemView::SelectedClicked</set>
+               <set>QAbstractItemView::NoEditTriggers</set>
               </property>
               <property name="selectionMode">
                <enum>QAbstractItemView::SingleSelection</enum>
@@ -5201,13 +5181,13 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
                <bool>true</bool>
               </attribute>
               <attribute name="horizontalHeaderDefaultSectionSize">
-               <number>30</number>
+               <number>90</number>
               </attribute>
               <attribute name="horizontalHeaderHighlightSections">
-               <bool>false</bool>
+               <bool>true</bool>
               </attribute>
               <attribute name="horizontalHeaderMinimumSectionSize">
-               <number>15</number>
+               <number>40</number>
               </attribute>
               <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
                <bool>true</bool>
@@ -5221,64 +5201,12 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
               <attribute name="verticalHeaderCascadingSectionResizes">
                <bool>false</bool>
               </attribute>
+              <attribute name="verticalHeaderDefaultSectionSize">
+               <number>32</number>
+              </attribute>
               <attribute name="verticalHeaderMinimumSectionSize">
                <number>10</number>
               </attribute>
-              <row>
-               <property name="text">
-                <string>w</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <column>
-               <property name="text">
-                <string>Выбор</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>Склад</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>Название</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>др. параметры</string>
-               </property>
-              </column>
-              <item row="0" column="0">
-               <property name="text">
-                <string/>
-               </property>
-              </item>
-              <item row="0" column="2">
-               <property name="text">
-                <string>w</string>
-               </property>
-              </item>
-              <item row="0" column="3">
-               <property name="text">
-                <string>ffssssrrrwrwer3333222234</string>
-               </property>
-              </item>
-              <item row="1" column="2">
-               <property name="text">
-                <string>NVIDIA RTX 4080</string>
-               </property>
-              </item>
-              <item row="1" column="3">
-               <property name="text">
-                <string>2878913412</string>
-               </property>
-              </item>
              </widget>
              <zorder>tableConfVideo</zorder>
              <zorder>tabWidgetVideo</zorder>
@@ -5831,7 +5759,7 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
 </string>
               </property>
               <property name="editTriggers">
-               <set>QAbstractItemView::SelectedClicked</set>
+               <set>QAbstractItemView::NoEditTriggers</set>
               </property>
               <property name="selectionMode">
                <enum>QAbstractItemView::SingleSelection</enum>
@@ -6120,9 +6048,9 @@ border-bottom: 1px dashed white;
             <widget class="QPushButton" name="btnVidHelp">
              <property name="geometry">
               <rect>
-               <x>490</x>
+               <x>480</x>
                <y>20</y>
-               <width>191</width>
+               <width>201</width>
                <height>20</height>
               </rect>
              </property>
@@ -6401,7 +6329,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 </string>
               </property>
               <property name="editTriggers">
-               <set>QAbstractItemView::SelectedClicked</set>
+               <set>QAbstractItemView::NoEditTriggers</set>
               </property>
               <property name="selectionMode">
                <enum>QAbstractItemView::SingleSelection</enum>
@@ -6854,7 +6782,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 </string>
               </property>
               <property name="editTriggers">
-               <set>QAbstractItemView::SelectedClicked</set>
+               <set>QAbstractItemView::NoEditTriggers</set>
               </property>
               <property name="selectionMode">
                <enum>QAbstractItemView::SingleSelection</enum>
@@ -7307,7 +7235,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 </string>
               </property>
               <property name="editTriggers">
-               <set>QAbstractItemView::SelectedClicked</set>
+               <set>QAbstractItemView::NoEditTriggers</set>
               </property>
               <property name="selectionMode">
                <enum>QAbstractItemView::SingleSelection</enum>
@@ -7726,7 +7654,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 </string>
               </property>
               <property name="editTriggers">
-               <set>QAbstractItemView::SelectedClicked</set>
+               <set>QAbstractItemView::NoEditTriggers</set>
               </property>
               <property name="selectionMode">
                <enum>QAbstractItemView::SingleSelection</enum>
@@ -8178,7 +8106,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 }</string>
               </property>
               <property name="editTriggers">
-               <set>QAbstractItemView::SelectedClicked</set>
+               <set>QAbstractItemView::NoEditTriggers</set>
               </property>
               <property name="selectionMode">
                <enum>QAbstractItemView::SingleSelection</enum>
@@ -8636,7 +8564,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 </string>
               </property>
               <property name="editTriggers">
-               <set>QAbstractItemView::SelectedClicked</set>
+               <set>QAbstractItemView::NoEditTriggers</set>
               </property>
               <property name="selectionMode">
                <enum>QAbstractItemView::SingleSelection</enum>
@@ -8769,6 +8697,150 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="Line" name="line_2">
+             <property name="geometry">
+              <rect>
+               <x>160</x>
+               <y>50</y>
+               <width>16</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">border: 0px;
+background: transparent;
+border-left: 1px solid rgb(60, 60, 60);</string>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+            <widget class="Line" name="line_3">
+             <property name="geometry">
+              <rect>
+               <x>160</x>
+               <y>360</y>
+               <width>16</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">border: 0px;
+background: transparent;
+border-left: 1px solid rgb(60, 60, 60);</string>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+            <widget class="Line" name="line_4">
+             <property name="geometry">
+              <rect>
+               <x>160</x>
+               <y>670</y>
+               <width>16</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">border: 0px;
+background: transparent;
+border-left: 1px solid rgb(60, 60, 60);</string>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+            <widget class="Line" name="line_5">
+             <property name="geometry">
+              <rect>
+               <x>160</x>
+               <y>980</y>
+               <width>16</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">border: 0px;
+background: transparent;
+border-left: 1px solid rgb(60, 60, 60);</string>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+            <widget class="Line" name="line_6">
+             <property name="geometry">
+              <rect>
+               <x>160</x>
+               <y>1280</y>
+               <width>16</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">border: 0px;
+background: transparent;
+border-left: 1px solid rgb(60, 60, 60);</string>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+            <widget class="Line" name="line_7">
+             <property name="geometry">
+              <rect>
+               <x>160</x>
+               <y>1590</y>
+               <width>16</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">border: 0px;
+background: transparent;
+border-left: 1px solid rgb(60, 60, 60);</string>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+            <widget class="Line" name="line_8">
+             <property name="geometry">
+              <rect>
+               <x>160</x>
+               <y>1900</y>
+               <width>16</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">border: 0px;
+background: transparent;
+border-left: 1px solid rgb(60, 60, 60);</string>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+            <widget class="Line" name="line_9">
+             <property name="geometry">
+              <rect>
+               <x>160</x>
+               <y>2210</y>
+               <width>16</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">border: 0px;
+background: transparent;
+border-left: 1px solid rgb(60, 60, 60);</string>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
              </property>
             </widget>
            </widget>
@@ -9155,9 +9227,9 @@ border-bottom: 1px dashed red;
         <widget class="QRadioButton" name="rb_have_conf">
          <property name="geometry">
           <rect>
-           <x>10</x>
+           <x>40</x>
            <y>10</y>
-           <width>271</width>
+           <width>191</width>
            <height>21</height>
           </rect>
          </property>
@@ -9206,7 +9278,7 @@ QRadioButton::indicator:unchecked {
 }</string>
          </property>
          <property name="text">
-          <string>Комплектующие в наличии</string>
+          <string>Только в наличии</string>
          </property>
         </widget>
        </widget>

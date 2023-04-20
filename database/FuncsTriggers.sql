@@ -27,7 +27,7 @@ CREATE OR REPLACE FUNCTION insert_videocard(
 	VARCHAR(25),
 	INT,
 	INT,
-	NUMERIC (8,2))
+	INT)
 	RETURNS void AS $$
 BEGIN
 	INSERT INTO videocard(id_proizv,fullname, chipcreator, chipname, vram, 
@@ -38,7 +38,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 --- Функция вывода данных о видеокартах
-CREATE OR REPLACE FUNCTION get_videocard()
+CREATE OR REPLACE FUNCTION get_all_videocard()
 RETURNS TABLE(
 	kol INT, 
 	videocard_exist BOOL,
@@ -56,16 +56,43 @@ RETURNS TABLE(
 	resolution VARCHAR, 
 	tdp INT, 
 	length INT, 
-	price NUMERIC(8,2)
+	price INT
 ) AS $$
-	SELECT kol, videocard.exist, videocard.id, proizv_videocard.name, fullname, chipcreator, chipname, vram, typevram, frequency, bus, interface, monitor, resolution, tdp, length, price
+	SELECT sklad_videocard.kol, videocard.exist, videocard.id, proizv_videocard.name, fullname, chipcreator, chipname, vram, typevram, frequency, bus, interface, monitor, resolution, tdp, length, price
 	FROM videocard, sklad_videocard, proizv_videocard
 	WHERE videocard.id = sklad_videocard.id_izd AND videocard.id_proizv = proizv_videocard.id
-	ORDER BY exist ASC
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+CREATE OR REPLACE FUNCTION get_having_videocard()
+RETURNS TABLE(
+	kol INT, 
+	videocard_exist BOOL,
+	videocard_Id INT,   
+	proizv_name VARCHAR, 
+	fullname VARCHAR, 
+	chipcreator VARCHAR, 
+	chipname VARCHAR, 
+	vram INT, 
+	typevram VARCHAR, 
+	frequency INT, 
+	bus INT, 
+	interface VARCHAR, 
+	monitor INT, 
+	resolution VARCHAR, 
+	tdp INT, 
+	length INT, 
+	price INT
+) AS $$
+	SELECT sklad_videocard.kol, videocard.exist, videocard.id, proizv_videocard.name, fullname, chipcreator, chipname, vram, typevram, frequency, bus, interface, monitor, resolution, tdp, length, price
+	FROM videocard, sklad_videocard, proizv_videocard
+	WHERE videocard.id = sklad_videocard.id_izd AND videocard.id_proizv = proizv_videocard.id
+	AND videocard.exist = True
+	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
 -- Функция для фильтрации видеокарт по производителю
-CREATE OR REPLACE FUNCTION get_videocard_by_idpr(name_pr VARCHAR)
+CREATE OR REPLACE FUNCTION get_videocard_by_name(name_pr VARCHAR)
 RETURNS TABLE(
 	kol INT, 
 	videocard_exist BOOL,
@@ -83,22 +110,32 @@ RETURNS TABLE(
 	resolution VARCHAR, 
 	tdp INT, 
 	length INT, 
-	price NUMERIC(8,2)
+	price INT
 ) AS $$
 	SELECT kol, videocard.exist, videocard.id, proizv_videocard.name, fullname, chipcreator, chipname, vram, typevram, frequency, bus, interface, monitor, resolution, tdp, length, price
 	FROM videocard, sklad_videocard, proizv_videocard
 	WHERE videocard.id = sklad_videocard.id_izd AND videocard.id_proizv = proizv_videocard.id AND name = name_pr
-	ORDER BY exist ASC
+	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
 
--- Функция вывода производителей, чьи видеокарты имеются в наличии (для заполнения фильтрующих вкладок tabwidget)
-CREATE OR REPLACE FUNCTION get_having_videoproizv()
+-- Функция вывода всех производителей, чьи видеокарты есть в базе (для заполнения фильтрующих вкладок tabwidget)
+CREATE OR REPLACE FUNCTION get_inbase_videoproizv()
 RETURNS TABLE(name VARCHAR) AS $$
 	SELECT DISTINCT name FROM proizv_videocard, videocard
 	WHERE proizv_videocard.id = videocard.id_proizv
 	ORDER BY name ASC
 $$ LANGUAGE sql;
+
+-- Функция вывода производителей, чьи видеокарты В НАЛИЧИИ (для заполнения фильтрующих вкладок tabwidget)
+CREATE OR REPLACE FUNCTION get_having_videoproizv()
+RETURNS TABLE(name VARCHAR) AS $$
+	SELECT DISTINCT name FROM proizv_videocard, videocard
+	WHERE proizv_videocard.id = videocard.id_proizv
+	AND videocard.exist = True
+	ORDER BY name ASC
+$$ LANGUAGE sql;
+
 
 -- Триггер создания новой видеокарты (с созданием нового поля на складе
 CREATE OR REPLACE FUNCTION insert_skladvideo()
@@ -158,7 +195,7 @@ EXECUTE PROCEDURE update_skladvideo();
 -- Функция вывода производителей видеокарты
 CREATE OR REPLACE FUNCTION get_proizv_videocard()
 RETURNS TABLE(id INT, exist BOOLEAN, name VARCHAR(50)) AS $$
-	SELECT * FROM proizv_videocard ORDER BY name ASC, exist ASC
+	SELECT * FROM proizv_videocard ORDER BY exist DESC, name ASC
 $$ LANGUAGE sql;
 
 -- Функция обновления договора производителя видеокарты
@@ -200,11 +237,11 @@ select  get_proizv_videocard()
 
 
 SELECT insert_proizv('GIGABYTE')
-SELECT insert_videocard(1,'GIGABYTE GeForce RTX 3050 EAGLE OC', 'NVIDIA', 'RTX 3050', 8, 'GDDR6', 1552, 256, 'PCI-E 4.0', 4, '7680x4320', 130, 28, 29250);
+SELECT insert_videocard(1,'GIGABYTE GeForce RTX 3050 EAGLE OC', 'NVIDIA', 'RTX 3050', 8192, 'GDDR6', 1552, 256, 'PCI-E 4.0', 4, '7680x4320', 130, 28, 29250);
 SELECT insert_order_videocard(5, 2, '05.04.2023')
 
 SELECT insert_proizv('MSI')
-SELECT insert_videocard(2,'MSI AMD Radeon RX 6600', 'AMD', 'RX 6600', 8, 'GDDR6', 2044, 128, 'PCI-E 4.0', 4, '7680x4320', 132, 33, 26490);
+SELECT insert_videocard(2,'MSI AMD Radeon RX 6600', 'AMD', 'RX 6600', 8192, 'GDDR6', 2044, 128, 'PCI-E 4.0', 4, '7680x4320', 132, 33, 26490);
 SELECT insert_order_videocard(6, 2, '05.04.2023')
 
 

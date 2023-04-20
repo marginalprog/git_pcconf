@@ -22,17 +22,26 @@ class DialogOk(QDialog, warningWin.Ui_warningDialog):
 
 # Класс окна с добавлением\редактированием видеокарты
 class AddChangeVideoWindow(QtWidgets.QWidget, addChVidWidg.Ui_addChVidWidg):
-    def __init__(self, mainwindow, new_bool, list_valid_proizv, dict_proizv, dict_videocard):
+    def __init__(self, mainWindow, new_bool, list_valid_proizv, dict_proizv, dict_videocard):
         super().__init__()
         self.setupUi(self)
         if new_bool:
-            self.setWindowTitle("Создание заказа")
+            self.setWindowTitle("Добавление видеокарты")
+            self.dateEdit.setDisabled(True)
+            self.dateEdit.setStyleSheet("QDateEdit{color:gray; border: 1px dotted rgb(120,120,120); padding-left: 5px;}"
+                                        " QDateEdit::drop-down{border: 0px;}"
+                                        '''QDateEdit::down-arrow {
+                                        border-image: url("E:/pcconf/images/down-arrow-gray.png");
+                                        width: 17px;
+                                        height: 17px;
+                                        margin-right: 5px;}''')
         else:
-            self.setWindowTitle("Повторный заказ")
+            self.setWindowTitle("Создание заказа")
         self.dateEdit.setDateTime(QDateTime.currentDateTime())
         #  временные рамки заказа?
         # Вызов метода проверки корректности заполнения полей
-        self.btnVidSave.clicked.connect(lambda: self.sql_insert_videocard(new_bool, mainwindow, dict_proizv, dict_videocard))
+        self.btnVidSave.clicked.connect(
+            lambda: self.sql_insert_videocard(new_bool, mainWindow, dict_proizv, dict_videocard))
 
         two_digits_int = QIntValidator()
         two_digits_int.setRange(0, 99)
@@ -76,21 +85,20 @@ class AddChangeVideoWindow(QtWidgets.QWidget, addChVidWidg.Ui_addChVidWidg):
 
     # Метод отправки запроса в БД на создание записи. выдаёт ошибку, если есть пустые поля
     # Окрашивает надписи к полям, которые не заполнены (cb заполнены всегда, поэтому их не красит)
-    def sql_insert_videocard(self, new_bool, mainwindow, dict_proizv, dict_videocard):
+    def sql_insert_videocard(self, new_bool, mainWindow, dict_proizv, dict_videocard):
         self.mark_labels(self.leFullName, self.lbFullName)
         self.mark_labels(self.leChipName, self.lbChipName)
         self.mark_labels(self.leVolume, self.lbVolume)
         self.mark_labels(self.leType, self.lbType)
         self.mark_labels(self.leBus, self.lbBus)
         self.mark_labels(self.leFreq, self.lbFreq)
-        self.mark_labels(self.leResolution, self.lbResolution)
+        self.mark_labels(self.leTdp, self.lbTdp)
         self.mark_labels(self.leLength, self.lbLength)
-        self.mark_labels(self.leKol, self.lbKol)
         self.mark_labels(self.lePrice, self.lbPrice)
         if self.leFullName.text() == "" or self.leChipName.text() == "" or self.leVolume.text() == "" or \
                 self.leType.text() == "" or self.leBus.text() == "" or self.leFreq.text() == "" or \
-                self.leResolution.text() == "" or self.leLength.text() == "" or self.leKol.text() == "" \
-                or self.lePrice == "":
+                self.leResolution.text() == "" or self.leLength.text() == "" \
+                or self.leTdp.text() == "" or self.lePrice == "":
             self.dialog = DialogOk("Ошибка", "Все поля должны быть заполнены")
             self.dialog.show()
         else:  # Подтверждение создания заказа?
@@ -116,16 +124,16 @@ class AddChangeVideoWindow(QtWidgets.QWidget, addChVidWidg.Ui_addChVidWidg):
                                                       int(self.leBus.text()),
                                                       self.cbInterface.currentText(),
                                                       int(self.cbMonitor.currentText()),
-                                                      int(self.leResolution.text()),
+                                                      self.cbResolution.currentText(),
                                                       int(self.leTdp.text()),
                                                       int(self.leLength.text()),
-                                                      float(self.lePrice.text())])
-                    id_izd = {i for i in dict_videocard
+                                                      int(self.lePrice.text())])
+                    """id_izd = {i for i in dict_videocard
                               if dict_videocard[i] == self.leFullName.text()}
                     cur.callproc('insert_order_videocard', [id_izd.pop(),
                                                             self.leKol.text(),
-                                                            self.dateEdit.dateTime()])
-                else:  # Если повтряем заказ - вызываем 1 процедуру и заполняем её
+                                                            self.dateEdit.dateTime()])"""
+                else:  # Если повторяем заказ - вызываем 1 процедуру и заполняем её
                     id_izd = {i for i in dict_videocard
                               if dict_videocard[i] == self.leFullName.text()}
                     cur.callproc('insert_order_videocard', [id_izd.pop(),
@@ -140,5 +148,5 @@ class AddChangeVideoWindow(QtWidgets.QWidget, addChVidWidg.Ui_addChVidWidg):
                     conn.commit()
                     cur.close()
                     conn.close()
-                    mainwindow.load_videocard()  # Загрузка обновлённой таблицы из БД
+                    mainWindow.load_all_sklad(0)  # Загрузка обновлённой таблицы из БД с 0 страницей (0 - видеокарты)
                     self.close()
