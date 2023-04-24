@@ -1,12 +1,11 @@
-import sys
 import psycopg2
 
-from PyQt5 import QtWidgets, QtCore, QtGui
+from PyQt5 import QtWidgets
 from PyQt5.QtCore import QDateTime
 from PyQt5.QtGui import QIntValidator
-from PyQt5.QtWidgets import QDialog, QTableWidgetItem
+from PyQt5.QtWidgets import QDialog
 # ----------файлы интерфейса---------------
-from ui import warningWin, acceptionWin
+from ui import warningWin
 from ui.add import addChVidWidg
 
 
@@ -97,8 +96,7 @@ class AddChangeVideoWindow(QtWidgets.QWidget, addChVidWidg.Ui_addChVidWidg):
         self.mark_labels(self.lePrice, self.lbPrice)
         if self.leFullName.text() == "" or self.leChipName.text() == "" or self.leVolume.text() == "" or \
                 self.leType.text() == "" or self.leBus.text() == "" or self.leFreq.text() == "" or \
-                self.leResolution.text() == "" or self.leLength.text() == "" \
-                or self.leTdp.text() == "" or self.lePrice == "":
+                self.leLength.text() == "" or self.leTdp.text() == "" or self.lePrice == "":
             self.dialog = DialogOk("Ошибка", "Все поля должны быть заполнены")
             self.dialog.show()
         else:  # Подтверждение создания заказа?
@@ -148,5 +146,6 @@ class AddChangeVideoWindow(QtWidgets.QWidget, addChVidWidg.Ui_addChVidWidg):
                     conn.commit()
                     cur.close()
                     conn.close()
-                    mainWindow.load_all_sklad(0)  # Загрузка обновлённой таблицы из БД с 0 страницей (0 - видеокарты)
+                    mainWindow.load_sklad(0)  # Загрузка обновлённой таблицы ВИДЕОКАРТ из БД на склад
+                    mainWindow.load_conf(0)  # Загрузка обновлённой таблицы ВИДЕОКАРТ из БД в конфигуратор
                     self.close()

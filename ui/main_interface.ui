@@ -567,41 +567,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
            <attribute name="verticalHeaderMinimumSectionSize">
             <number>10</number>
            </attribute>
-           <row>
-            <property name="text">
-             <string>w</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>New Row</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>New Row</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>New Row</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>New Row</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>New Row</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>New Row</string>
-            </property>
-           </row>
            <column>
             <property name="text">
              <string>Выбор</string>
@@ -622,51 +587,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              <string>Название</string>
             </property>
            </column>
-           <item row="0" column="1">
-            <property name="text">
-             <string>+</string>
-            </property>
-           </item>
-           <item row="0" column="2">
-            <property name="text">
-             <string>True</string>
-            </property>
-           </item>
-           <item row="0" column="3">
-            <property name="text">
-             <string>Gigabyte</string>
-            </property>
-           </item>
-           <item row="5" column="1">
-            <property name="text">
-             <string>+</string>
-            </property>
-           </item>
-           <item row="5" column="2">
-            <property name="text">
-             <string>True</string>
-            </property>
-           </item>
-           <item row="5" column="3">
-            <property name="text">
-             <string>Asus</string>
-            </property>
-           </item>
-           <item row="6" column="1">
-            <property name="text">
-             <string>-</string>
-            </property>
-           </item>
-           <item row="6" column="2">
-            <property name="text">
-             <string>False</string>
-            </property>
-           </item>
-           <item row="6" column="3">
-            <property name="text">
-             <string>Nvidia</string>
-            </property>
-           </item>
           </widget>
           <widget class="QPushButton" name="btnCngVideoProizv">
            <property name="geometry">
@@ -1021,21 +941,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
            <attribute name="verticalHeaderMinimumSectionSize">
             <number>10</number>
            </attribute>
-           <row>
-            <property name="text">
-             <string>w</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>New Row</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>New Row</string>
-            </property>
-           </row>
            <column>
             <property name="text">
              <string>Выбор</string>
@@ -1056,36 +961,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              <string>Название</string>
             </property>
            </column>
-           <item row="0" column="1">
-            <property name="text">
-             <string>+</string>
-            </property>
-           </item>
-           <item row="0" column="3">
-            <property name="text">
-             <string>Gigabyte</string>
-            </property>
-           </item>
-           <item row="1" column="1">
-            <property name="text">
-             <string>+</string>
-            </property>
-           </item>
-           <item row="1" column="3">
-            <property name="text">
-             <string>Asus</string>
-            </property>
-           </item>
-           <item row="2" column="1">
-            <property name="text">
-             <string>-</string>
-            </property>
-           </item>
-           <item row="2" column="3">
-            <property name="text">
-             <string>Nvidia</string>
-            </property>
-           </item>
           </widget>
           <widget class="QPushButton" name="btnCngProcProizv">
            <property name="geometry">
@@ -1435,21 +1310,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
            <attribute name="verticalHeaderMinimumSectionSize">
             <number>10</number>
            </attribute>
-           <row>
-            <property name="text">
-             <string>w</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>New Row</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>New Row</string>
-            </property>
-           </row>
            <column>
             <property name="text">
              <string>Выбор</string>
@@ -1470,36 +1330,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              <string>Название</string>
             </property>
            </column>
-           <item row="0" column="1">
-            <property name="text">
-             <string>+</string>
-            </property>
-           </item>
-           <item row="0" column="3">
-            <property name="text">
-             <string>Gigabyte</string>
-            </property>
-           </item>
-           <item row="1" column="1">
-            <property name="text">
-             <string>+</string>
-            </property>
-           </item>
-           <item row="1" column="3">
-            <property name="text">
-             <string>Asus</string>
-            </property>
-           </item>
-           <item row="2" column="1">
-            <property name="text">
-             <string>-</string>
-            </property>
-           </item>
-           <item row="2" column="3">
-            <property name="text">
-             <string>Nvidia</string>
-            </property>
-           </item>
           </widget>
           <widget class="QPushButton" name="btnCngMotherProizv">
            <property name="geometry">
@@ -1849,21 +1679,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
            <attribute name="verticalHeaderMinimumSectionSize">
             <number>10</number>
            </attribute>
-           <row>
-            <property name="text">
-             <string>w</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>New Row</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>New Row</string>
-            </property>
-           </row>
            <column>
             <property name="text">
              <string>Выбор</string>
@@ -1884,36 +1699,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              <string>Название</string>
             </property>
            </column>
-           <item row="0" column="1">
-            <property name="text">
-             <string>+</string>
-            </property>
-           </item>
-           <item row="0" column="3">
-            <property name="text">
-             <string>Gigabyte</string>
-            </property>
-           </item>
-           <item row="1" column="1">
-            <property name="text">
-             <string>+</string>
-            </property>
-           </item>
-           <item row="1" column="3">
-            <property name="text">
-             <string>Asus</string>
-            </property>
-           </item>
-           <item row="2" column="1">
-            <property name="text">
-             <string>-</string>
-            </property>
-           </item>
-           <item row="2" column="3">
-            <property name="text">
-             <string>Nvidia</string>
-            </property>
-           </item>
           </widget>
           <widget class="QPushButton" name="btnCngCoolProizv">
            <property name="geometry">
@@ -2263,21 +2048,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
            <attribute name="verticalHeaderMinimumSectionSize">
             <number>10</number>
            </attribute>
-           <row>
-            <property name="text">
-             <string>w</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>New Row</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>New Row</string>
-            </property>
-           </row>
            <column>
             <property name="text">
              <string>Выбор</string>
@@ -2298,36 +2068,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              <string>Название</string>
             </property>
            </column>
-           <item row="0" column="1">
-            <property name="text">
-             <string>+</string>
-            </property>
-           </item>
-           <item row="0" column="3">
-            <property name="text">
-             <string>Gigabyte</string>
-            </property>
-           </item>
-           <item row="1" column="1">
-            <property name="text">
-             <string>+</string>
-            </property>
-           </item>
-           <item row="1" column="3">
-            <property name="text">
-             <string>Asus</string>
-            </property>
-           </item>
-           <item row="2" column="1">
-            <property name="text">
-             <string>-</string>
-            </property>
-           </item>
-           <item row="2" column="3">
-            <property name="text">
-             <string>Nvidia</string>
-            </property>
-           </item>
           </widget>
           <widget class="QPushButton" name="btnCngRamProizv">
            <property name="geometry">
@@ -2677,21 +2417,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
            <attribute name="verticalHeaderMinimumSectionSize">
             <number>10</number>
            </attribute>
-           <row>
-            <property name="text">
-             <string>w</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>New Row</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>New Row</string>
-            </property>
-           </row>
            <column>
             <property name="text">
              <string>Выбор</string>
@@ -2712,36 +2437,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              <string>Название</string>
             </property>
            </column>
-           <item row="0" column="1">
-            <property name="text">
-             <string>+</string>
-            </property>
-           </item>
-           <item row="0" column="3">
-            <property name="text">
-             <string>Gigabyte</string>
-            </property>
-           </item>
-           <item row="1" column="1">
-            <property name="text">
-             <string>+</string>
-            </property>
-           </item>
-           <item row="1" column="3">
-            <property name="text">
-             <string>Asus</string>
-            </property>
-           </item>
-           <item row="2" column="1">
-            <property name="text">
-             <string>-</string>
-            </property>
-           </item>
-           <item row="2" column="3">
-            <property name="text">
-             <string>Nvidia</string>
-            </property>
-           </item>
           </widget>
           <widget class="QPushButton" name="btnCngDiskProizv">
            <property name="geometry">
@@ -3091,21 +2786,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
            <attribute name="verticalHeaderMinimumSectionSize">
             <number>10</number>
            </attribute>
-           <row>
-            <property name="text">
-             <string>w</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>New Row</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>New Row</string>
-            </property>
-           </row>
            <column>
             <property name="text">
              <string>Выбор</string>
@@ -3126,36 +2806,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              <string>Название</string>
             </property>
            </column>
-           <item row="0" column="1">
-            <property name="text">
-             <string>+</string>
-            </property>
-           </item>
-           <item row="0" column="3">
-            <property name="text">
-             <string>Gigabyte</string>
-            </property>
-           </item>
-           <item row="1" column="1">
-            <property name="text">
-             <string>+</string>
-            </property>
-           </item>
-           <item row="1" column="3">
-            <property name="text">
-             <string>Asus</string>
-            </property>
-           </item>
-           <item row="2" column="1">
-            <property name="text">
-             <string>-</string>
-            </property>
-           </item>
-           <item row="2" column="3">
-            <property name="text">
-             <string>Nvidia</string>
-            </property>
-           </item>
           </widget>
           <widget class="QPushButton" name="btnCngPowerProizv">
            <property name="geometry">
@@ -3505,21 +3155,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
            <attribute name="verticalHeaderMinimumSectionSize">
             <number>10</number>
            </attribute>
-           <row>
-            <property name="text">
-             <string>w</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>New Row</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>New Row</string>
-            </property>
-           </row>
            <column>
             <property name="text">
              <string>Выбор</string>
@@ -3540,36 +3175,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              <string>Название</string>
             </property>
            </column>
-           <item row="0" column="1">
-            <property name="text">
-             <string>+</string>
-            </property>
-           </item>
-           <item row="0" column="3">
-            <property name="text">
-             <string>Gigabyte</string>
-            </property>
-           </item>
-           <item row="1" column="1">
-            <property name="text">
-             <string>+</string>
-            </property>
-           </item>
-           <item row="1" column="3">
-            <property name="text">
-             <string>Asus</string>
-            </property>
-           </item>
-           <item row="2" column="1">
-            <property name="text">
-             <string>-</string>
-            </property>
-           </item>
-           <item row="2" column="3">
-            <property name="text">
-             <string>Nvidia</string>
-            </property>
-           </item>
           </widget>
           <widget class="QPushButton" name="btnCngBodyProizv">
            <property name="geometry">
@@ -4200,9 +3805,9 @@ border-bottom: 1px solid red;
        <widget class="QRadioButton" name="rbSklad">
         <property name="geometry">
          <rect>
-          <x>650</x>
+          <x>730</x>
           <y>20</y>
-          <width>281</width>
+          <width>201</width>
           <height>21</height>
          </rect>
         </property>
@@ -4226,7 +3831,7 @@ border-bottom: 1px solid red;
 QRadioButton:hover{
 	color: white;
 }
-QRadioButton:selected
+QRadioButton:checked
 {
 	color: white;
 }
@@ -5806,21 +5411,6 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
               <attribute name="verticalHeaderMinimumSectionSize">
                <number>10</number>
               </attribute>
-              <row>
-               <property name="text">
-                <string>w</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
               <column>
                <property name="text">
                 <string>Выбор</string>
@@ -5841,41 +5431,6 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
                 <string>др. параметры</string>
                </property>
               </column>
-              <item row="0" column="0">
-               <property name="text">
-                <string/>
-               </property>
-              </item>
-              <item row="0" column="2">
-               <property name="text">
-                <string>w</string>
-               </property>
-              </item>
-              <item row="0" column="3">
-               <property name="text">
-                <string>ffssssrrrwrwer3333222234</string>
-               </property>
-              </item>
-              <item row="1" column="2">
-               <property name="text">
-                <string>NVIDIA RTX 4080</string>
-               </property>
-              </item>
-              <item row="1" column="3">
-               <property name="text">
-                <string>2878913412</string>
-               </property>
-              </item>
-              <item row="2" column="2">
-               <property name="text">
-                <string>324122</string>
-               </property>
-              </item>
-              <item row="2" column="3">
-               <property name="text">
-                <string>erttttt</string>
-               </property>
-              </item>
              </widget>
              <zorder>tableConfProc</zorder>
              <zorder>tabWidgetProc</zorder>
@@ -6098,7 +5653,7 @@ border: 0px;</string>
              <property name="frameShadow">
               <enum>QFrame::Raised</enum>
              </property>
-             <widget class="QTabWidget" name="tabWidgetMothet">
+             <widget class="QTabWidget" name="tabWidgetMother">
               <property name="enabled">
                <bool>true</bool>
               </property>
@@ -6376,16 +5931,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
               <attribute name="verticalHeaderMinimumSectionSize">
                <number>10</number>
               </attribute>
-              <row>
-               <property name="text">
-                <string>w</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
               <column>
                <property name="text">
                 <string>Выбор</string>
@@ -6406,34 +5951,9 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                 <string>др. параметры</string>
                </property>
               </column>
-              <item row="0" column="0">
-               <property name="text">
-                <string/>
-               </property>
-              </item>
-              <item row="0" column="2">
-               <property name="text">
-                <string>w</string>
-               </property>
-              </item>
-              <item row="0" column="3">
-               <property name="text">
-                <string>ffssssrrrwrwer3333222234</string>
-               </property>
-              </item>
-              <item row="1" column="2">
-               <property name="text">
-                <string>NVIDIA RTX 4080</string>
-               </property>
-              </item>
-              <item row="1" column="3">
-               <property name="text">
-                <string>2878913412</string>
-               </property>
-              </item>
              </widget>
              <zorder>tableConfMother</zorder>
-             <zorder>tabWidgetMothet</zorder>
+             <zorder>tabWidgetMother</zorder>
             </widget>
             <widget class="QLabel" name="lbCooling">
              <property name="geometry">
@@ -6829,16 +6349,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
               <attribute name="verticalHeaderMinimumSectionSize">
                <number>10</number>
               </attribute>
-              <row>
-               <property name="text">
-                <string>w</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
               <column>
                <property name="text">
                 <string>Выбор</string>
@@ -6859,31 +6369,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                 <string>др. параметры</string>
                </property>
               </column>
-              <item row="0" column="0">
-               <property name="text">
-                <string/>
-               </property>
-              </item>
-              <item row="0" column="2">
-               <property name="text">
-                <string>w</string>
-               </property>
-              </item>
-              <item row="0" column="3">
-               <property name="text">
-                <string>ffssssrrrwrwer3333222234</string>
-               </property>
-              </item>
-              <item row="1" column="2">
-               <property name="text">
-                <string>NVIDIA RTX 4080</string>
-               </property>
-              </item>
-              <item row="1" column="3">
-               <property name="text">
-                <string>2878913412</string>
-               </property>
-              </item>
              </widget>
              <zorder>tableConfCool</zorder>
              <zorder>tabWidgetCool</zorder>
@@ -7282,16 +6767,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
               <attribute name="verticalHeaderMinimumSectionSize">
                <number>10</number>
               </attribute>
-              <row>
-               <property name="text">
-                <string>w</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
               <column>
                <property name="text">
                 <string>Выбор</string>
@@ -7312,31 +6787,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                 <string>др. параметры</string>
                </property>
               </column>
-              <item row="0" column="0">
-               <property name="text">
-                <string/>
-               </property>
-              </item>
-              <item row="0" column="2">
-               <property name="text">
-                <string>w</string>
-               </property>
-              </item>
-              <item row="0" column="3">
-               <property name="text">
-                <string>ffssssrrrwrwer3333222234</string>
-               </property>
-              </item>
-              <item row="1" column="2">
-               <property name="text">
-                <string>NVIDIA RTX 4080</string>
-               </property>
-              </item>
-              <item row="1" column="3">
-               <property name="text">
-                <string>2878913412</string>
-               </property>
-              </item>
              </widget>
              <zorder>tableConfRam</zorder>
              <zorder>tabWidgetRam</zorder>
@@ -7701,16 +7151,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
               <attribute name="verticalHeaderMinimumSectionSize">
                <number>10</number>
               </attribute>
-              <row>
-               <property name="text">
-                <string>w</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
               <column>
                <property name="text">
                 <string>Выбор</string>
@@ -7731,31 +7171,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                 <string>др. параметры</string>
                </property>
               </column>
-              <item row="0" column="0">
-               <property name="text">
-                <string/>
-               </property>
-              </item>
-              <item row="0" column="2">
-               <property name="text">
-                <string>w</string>
-               </property>
-              </item>
-              <item row="0" column="3">
-               <property name="text">
-                <string>ffssssrrrwrwer3333222234</string>
-               </property>
-              </item>
-              <item row="1" column="2">
-               <property name="text">
-                <string>NVIDIA RTX 4080</string>
-               </property>
-              </item>
-              <item row="1" column="3">
-               <property name="text">
-                <string>2878913412</string>
-               </property>
-              </item>
              </widget>
              <zorder>tableConfDisk</zorder>
              <zorder>tabWidgetDisk</zorder>
@@ -8153,16 +7568,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
               <attribute name="verticalHeaderMinimumSectionSize">
                <number>10</number>
               </attribute>
-              <row>
-               <property name="text">
-                <string>w</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
               <column>
                <property name="text">
                 <string>Выбор</string>
@@ -8183,31 +7588,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                 <string>др. параметры</string>
                </property>
               </column>
-              <item row="0" column="0">
-               <property name="text">
-                <string/>
-               </property>
-              </item>
-              <item row="0" column="2">
-               <property name="text">
-                <string>w</string>
-               </property>
-              </item>
-              <item row="0" column="3">
-               <property name="text">
-                <string>ffssssrrrwrwer3333222234</string>
-               </property>
-              </item>
-              <item row="1" column="2">
-               <property name="text">
-                <string>NVIDIA RTX 4080</string>
-               </property>
-              </item>
-              <item row="1" column="3">
-               <property name="text">
-                <string>2878913412</string>
-               </property>
-              </item>
              </widget>
              <zorder>tableConfPower</zorder>
              <zorder>tabWidgetPower</zorder>
@@ -8611,16 +7991,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
               <attribute name="verticalHeaderMinimumSectionSize">
                <number>10</number>
               </attribute>
-              <row>
-               <property name="text">
-                <string>w</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
               <column>
                <property name="text">
                 <string>Выбор</string>
@@ -8641,31 +8011,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                 <string>др. параметры</string>
                </property>
               </column>
-              <item row="0" column="0">
-               <property name="text">
-                <string/>
-               </property>
-              </item>
-              <item row="0" column="2">
-               <property name="text">
-                <string>w</string>
-               </property>
-              </item>
-              <item row="0" column="3">
-               <property name="text">
-                <string>ffssssrrrwrwer3333222234</string>
-               </property>
-              </item>
-              <item row="1" column="2">
-               <property name="text">
-                <string>NVIDIA RTX 4080</string>
-               </property>
-              </item>
-              <item row="1" column="3">
-               <property name="text">
-                <string>2878913412</string>
-               </property>
-              </item>
              </widget>
              <zorder>tableConfBody</zorder>
              <zorder>tabWidgetBody</zorder>
@@ -9224,7 +8569,7 @@ border-bottom: 1px dashed red;
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <widget class="QRadioButton" name="rb_have_conf">
+        <widget class="QRadioButton" name="rbConf">
          <property name="geometry">
           <rect>
            <x>40</x>

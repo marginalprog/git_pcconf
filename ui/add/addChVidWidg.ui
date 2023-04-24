@@ -449,7 +449,7 @@ QPushButton::hover
   <widget class="QLabel" name="lbLength">
    <property name="geometry">
     <rect>
-     <x>660</x>
+     <x>670</x>
      <y>350</y>
      <width>111</width>
      <height>21</height>
@@ -473,7 +473,7 @@ QPushButton::hover
     <rect>
      <x>490</x>
      <y>350</y>
-     <width>161</width>
+     <width>171</width>
      <height>21</height>
     </rect>
    </property>
@@ -1043,7 +1043,7 @@ QLineEdit:hover{
   <widget class="QLineEdit" name="leLength">
    <property name="geometry">
     <rect>
-     <x>660</x>
+     <x>670</x>
      <y>380</y>
      <width>111</width>
      <height>31</height>
@@ -1213,7 +1213,7 @@ QComboBox::QAbstractItemView {
   <widget class="QLabel" name="lbDate">
    <property name="geometry">
     <rect>
-     <x>660</x>
+     <x>670</x>
      <y>450</y>
      <width>111</width>
      <height>21</height>
@@ -1235,7 +1235,7 @@ QComboBox::QAbstractItemView {
   <widget class="QDateEdit" name="dateEdit">
    <property name="geometry">
     <rect>
-     <x>660</x>
+     <x>670</x>
      <y>480</y>
      <width>111</width>
      <height>31</height>
