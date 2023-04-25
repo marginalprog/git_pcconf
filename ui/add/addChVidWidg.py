@@ -132,13 +132,13 @@ class Ui_addChVidWidg(object):
         self.lbComplect.setFont(font)
         self.lbComplect.setStyleSheet("border:0px;")
         self.lbComplect.setObjectName("lbComplect")
-        self.btnVidSave = QtWidgets.QPushButton(addChVidWidg)
-        self.btnVidSave.setGeometry(QtCore.QRect(250, 550, 151, 31))
+        self.btnSave = QtWidgets.QPushButton(addChVidWidg)
+        self.btnSave.setGeometry(QtCore.QRect(250, 550, 151, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
-        self.btnVidSave.setFont(font)
-        self.btnVidSave.setStyleSheet("QPushButton{\n"
+        self.btnSave.setFont(font)
+        self.btnSave.setStyleSheet("QPushButton{\n"
 "    border:1px solid rgb(70,70,70);\n"
 "    background-color: rgb(35,35,35);\n"
 "    color: #fffafa;\n"
@@ -151,14 +151,14 @@ class Ui_addChVidWidg(object):
 "    border-bottom: 1px solid rgb(0, 255, 8);\n"
 "}\n"
 "")
-        self.btnVidSave.setObjectName("btnVidSave")
-        self.btnVidCancel = QtWidgets.QPushButton(addChVidWidg)
-        self.btnVidCancel.setGeometry(QtCore.QRect(440, 550, 151, 31))
+        self.btnSave.setObjectName("btnSave")
+        self.btnCancel = QtWidgets.QPushButton(addChVidWidg)
+        self.btnCancel.setGeometry(QtCore.QRect(440, 550, 151, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
-        self.btnVidCancel.setFont(font)
-        self.btnVidCancel.setStyleSheet("QPushButton{\n"
+        self.btnCancel.setFont(font)
+        self.btnCancel.setStyleSheet("QPushButton{\n"
 "    border:1px solid rgb(70,70,70);\n"
 "    background-color: rgb(35,35,35);\n"
 "    color: #fffafa;\n"
@@ -173,10 +173,10 @@ class Ui_addChVidWidg(object):
 "    color: red;\n"
 "}\n"
 "")
-        self.btnVidCancel.setAutoDefault(False)
-        self.btnVidCancel.setDefault(False)
-        self.btnVidCancel.setFlat(False)
-        self.btnVidCancel.setObjectName("btnVidCancel")
+        self.btnCancel.setAutoDefault(False)
+        self.btnCancel.setDefault(False)
+        self.btnCancel.setFlat(False)
+        self.btnCancel.setObjectName("btnCancel")
         self.lbVolume = QtWidgets.QLabel(addChVidWidg)
         self.lbVolume.setGeometry(QtCore.QRect(20, 250, 151, 21))
         font = QtGui.QFont()
@@ -226,7 +226,7 @@ class Ui_addChVidWidg(object):
         self.lbResolution.setStyleSheet("border:0px;")
         self.lbResolution.setObjectName("lbResolution")
         self.lbLength = QtWidgets.QLabel(addChVidWidg)
-        self.lbLength.setGeometry(QtCore.QRect(660, 350, 111, 21))
+        self.lbLength.setGeometry(QtCore.QRect(670, 350, 111, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -234,7 +234,7 @@ class Ui_addChVidWidg(object):
         self.lbLength.setStyleSheet("border:0px;")
         self.lbLength.setObjectName("lbLength")
         self.lbTdp = QtWidgets.QLabel(addChVidWidg)
-        self.lbTdp.setGeometry(QtCore.QRect(490, 350, 161, 21))
+        self.lbTdp.setGeometry(QtCore.QRect(490, 350, 171, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -554,7 +554,7 @@ class Ui_addChVidWidg(object):
         self.leTdp.setPlaceholderText("")
         self.leTdp.setObjectName("leTdp")
         self.leLength = QtWidgets.QLineEdit(addChVidWidg)
-        self.leLength.setGeometry(QtCore.QRect(660, 380, 111, 31))
+        self.leLength.setGeometry(QtCore.QRect(670, 380, 111, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -651,7 +651,7 @@ class Ui_addChVidWidg(object):
         self.cbChipCreator.addItem("")
         self.cbChipCreator.addItem("")
         self.lbDate = QtWidgets.QLabel(addChVidWidg)
-        self.lbDate.setGeometry(QtCore.QRect(660, 450, 111, 21))
+        self.lbDate.setGeometry(QtCore.QRect(670, 450, 111, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -659,7 +659,7 @@ class Ui_addChVidWidg(object):
         self.lbDate.setStyleSheet("border:0px;")
         self.lbDate.setObjectName("lbDate")
         self.dateEdit = QtWidgets.QDateEdit(addChVidWidg)
-        self.dateEdit.setGeometry(QtCore.QRect(660, 480, 111, 31))
+        self.dateEdit.setGeometry(QtCore.QRect(670, 480, 111, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(11)
@@ -872,8 +872,8 @@ class Ui_addChVidWidg(object):
         self.cbProizv.raise_()
         self.lbVidProizv.raise_()
         self.lbComplect.raise_()
-        self.btnVidSave.raise_()
-        self.btnVidCancel.raise_()
+        self.btnSave.raise_()
+        self.btnCancel.raise_()
         self.lbVolume.raise_()
         self.lbFreq.raise_()
         self.lbInterface.raise_()
@@ -908,7 +908,7 @@ class Ui_addChVidWidg(object):
         self.cbResolution.raise_()
 
         self.retranslateUi(addChVidWidg)
-        self.btnVidCancel.clicked.connect(addChVidWidg.close)
+        self.btnCancel.clicked.connect(addChVidWidg.close)
         QtCore.QMetaObject.connectSlotsByName(addChVidWidg)
 
     def retranslateUi(self, addChVidWidg):
@@ -920,8 +920,8 @@ class Ui_addChVidWidg(object):
         self.cbProizv.setItemText(2, _translate("addChVidWidg", "Nvidia"))
         self.lbVidProizv.setText(_translate("addChVidWidg", "Производитель"))
         self.lbComplect.setText(_translate("addChVidWidg", "Видеокарта"))
-        self.btnVidSave.setText(_translate("addChVidWidg", "Сохранить"))
-        self.btnVidCancel.setText(_translate("addChVidWidg", "Отмена"))
+        self.btnSave.setText(_translate("addChVidWidg", "Сохранить"))
+        self.btnCancel.setText(_translate("addChVidWidg", "Отмена"))
         self.lbVolume.setText(_translate("addChVidWidg", "Объём памяти [Мб]"))
         self.lbType.setText(_translate("addChVidWidg", "Тип памяти"))
         self.lbFreq.setText(_translate("addChVidWidg", "Частота процессора [МГц]"))

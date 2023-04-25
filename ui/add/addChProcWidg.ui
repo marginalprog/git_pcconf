@@ -1,26 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>addChVidWidg</class>
- <widget class="QWidget" name="addChVidWidg">
-  <property name="windowModality">
-   <enum>Qt::WindowModal</enum>
-  </property>
+ <class>addChProcWidg</class>
+ <widget class="QWidget" name="addChProcWidg">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>881</width>
+    <width>880</width>
     <height>603</height>
    </rect>
   </property>
-  <property name="font">
-   <font>
-    <family>Montserrat Medium</family>
-    <pointsize>10</pointsize>
-   </font>
-  </property>
   <property name="windowTitle">
-   <string>Добавление</string>
+   <string>Form</string>
   </property>
   <property name="windowIcon">
    <iconset>
@@ -35,12 +26,12 @@
 }
 </string>
   </property>
-  <widget class="QLabel" name="lbFullName">
+  <widget class="QLabel" name="lbSocket">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>490</x>
      <y>170</y>
-     <width>221</width>
+     <width>101</width>
      <height>21</height>
     </rect>
    </property>
@@ -51,10 +42,363 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true">border:0px;</string>
    </property>
    <property name="text">
-    <string>Название видеокарты</string>
+    <string>Сокет</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbFreq">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>250</y>
+     <width>211</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat SemiBold</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;</string>
+   </property>
+   <property name="text">
+    <string>Частота процессора [МГц]</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbComplect">
+   <property name="geometry">
+    <rect>
+     <x>750</x>
+     <y>40</y>
+     <width>111</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat SemiBold</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;</string>
+   </property>
+   <property name="text">
+    <string>Процессор</string>
+   </property>
+  </widget>
+  <widget class="Line" name="line_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>330</y>
+     <width>841</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;
+border-top: 1px solid rgb(220, 0, 0);</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnSave">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>550</y>
+     <width>151</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat Medium</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	border:1px solid rgb(70,70,70);
+	background-color: rgb(35,35,35);
+	color: #fffafa;
+}
+
+QPushButton::hover
+{
+	border:1px;
+	background-color: rgb(60,60,60);
+	border-bottom: 1px solid rgb(0, 255, 8);
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Сохранить</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnCancel">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>550</y>
+     <width>151</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat Medium</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	border:1px solid rgb(70,70,70);
+	background-color: rgb(35,35,35);
+	color: #fffafa;
+}
+
+QPushButton::hover
+{
+	border:1px;
+	background-color: rgb(60,60,60);
+	border-color: rgb(40,40,40);
+	border-bottom: 1px solid  red;
+	color: red;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Отмена</string>
+   </property>
+   <property name="autoDefault">
+    <bool>false</bool>
+   </property>
+   <property name="default">
+    <bool>false</bool>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbCore">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>250</y>
+     <width>111</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat SemiBold</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;</string>
+   </property>
+   <property name="text">
+    <string>Ядро</string>
+   </property>
+  </widget>
+  <widget class="Line" name="line_4">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>520</y>
+     <width>841</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;
+border-top: 1px solid rgb(220, 0, 0);</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_3">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>430</y>
+     <width>841</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;
+border-top: 1px solid rgb(220, 0, 0);</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbGraphics">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>350</y>
+     <width>171</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat SemiBold</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;</string>
+   </property>
+   <property name="text">
+    <string>Встроенная графика</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbPrice">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>440</y>
+     <width>111</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat SemiBold</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;</string>
+   </property>
+   <property name="text">
+    <string>Цена [руб.]</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="leTdp">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>380</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat Medium</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit{
+	padding-left: 5px;
+	border: 1px solid rgb(20,20,20);
+	background-color: rgb(40,40,40);
+	border-bottom: 1px solid  rgb(120,120,120);
+	selection-background-color: rgb(105, 0, 0);
+}
+
+QLineEdit:hover{
+	background-color: rgb(55,55,55);
+	border-bottom: 1px solid  red;
+}</string>
+   </property>
+   <property name="inputMask">
+    <string/>
+   </property>
+   <property name="placeholderText">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbProcProizv">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>90</y>
+     <width>111</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat SemiBold</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;</string>
+   </property>
+   <property name="text">
+    <string>Производитель</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbNcores">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>250</y>
+     <width>141</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat SemiBold</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;</string>
+   </property>
+   <property name="text">
+    <string>Количество ядер</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lePrice">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>470</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat Medium</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit{
+	padding-left: 5px;
+	border: 1px solid rgb(20,20,20);
+	background-color: rgb(40,40,40);
+	border-bottom: 1px solid  rgb(120,120,120);
+	selection-background-color: rgb(105, 0, 0);
+}
+
+QLineEdit:hover{
+	background-color: rgb(55,55,55);
+	border-bottom: 1px solid  red;
+}</string>
+   </property>
+   <property name="inputMask">
+    <string/>
    </property>
   </widget>
   <widget class="Line" name="line">
@@ -74,21 +418,290 @@ border-top: 1px solid rgb(220, 0, 0);</string>
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
-  <widget class="Line" name="line_2">
+  <widget class="Line" name="rectangle">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>330</y>
-     <width>841</width>
+     <y>10</y>
+     <width>61</width>
      <height>16</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border:0px;
-border-top: 1px solid rgb(220, 0, 0);</string>
+    <string notr="true">background-color: rgb(210, 0, 0);
+border: 1px solid rgb(210, 0, 0);</string>
    </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbKol">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>440</y>
+     <width>121</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat SemiBold</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;</string>
+   </property>
+   <property name="text">
+    <string>Количество</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="leCore">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>280</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat Medium</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit{
+	padding-left: 5px;
+	border: 1px solid rgb(20,20,20);
+	background-color: rgb(40,40,40);
+	border-bottom: 1px solid  rgb(120,120,120);
+	selection-background-color: rgb(105, 0, 0);
+}
+
+QLineEdit:hover{
+	background-color: rgb(55,55,55);
+	border-bottom: 1px solid  red;
+}</string>
+   </property>
+   <property name="inputMask">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbDate">
+   <property name="geometry">
+    <rect>
+     <x>670</x>
+     <y>450</y>
+     <width>111</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat SemiBold</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;</string>
+   </property>
+   <property name="text">
+    <string>Дата заказа</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="leBus">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>280</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat Medium</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit{
+	padding-left: 5px;
+	border: 1px solid rgb(20,20,20);
+	background-color: rgb(40,40,40);
+	border-bottom: 1px solid  rgb(120,120,120);
+	selection-background-color: rgb(105, 0, 0);
+}
+
+QLineEdit:hover{
+	background-color: rgb(55,55,55);
+	border-bottom: 1px solid  red;
+}</string>
+   </property>
+   <property name="inputMask">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbTdp">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>350</y>
+     <width>171</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat SemiBold</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;</string>
+   </property>
+   <property name="text">
+    <string>Тепловыделение (TDP)</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="leSocket">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>200</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat Medium</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit{
+	padding-left: 5px;
+	border: 1px solid rgb(20,20,20);
+	background-color: rgb(40,40,40);
+	border-bottom: 1px solid  rgb(120,120,120);
+	selection-background-color: rgb(105, 0, 0);
+}
+
+QLineEdit:hover{
+	background-color: rgb(55,55,55);
+	border-bottom: 1px solid  red;
+}</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbBus">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>250</y>
+     <width>151</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat SemiBold</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;</string>
+   </property>
+   <property name="text">
+    <string>Шина памяти [бит]</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbFullName">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>170</y>
+     <width>221</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat SemiBold</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>Название процессора</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="leFreq">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>280</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat Medium</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit{
+	padding-left: 5px;
+	border: 1px solid rgb(20,20,20);
+	background-color: rgb(40,40,40);
+	border-bottom: 1px solid  rgb(120,120,120);
+	selection-background-color: rgb(105, 0, 0);
+}
+
+QLineEdit:hover{
+	background-color: rgb(55,55,55);
+	border-bottom: 1px solid  red;
+}</string>
+   </property>
+   <property name="inputMask">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="leNcores">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>280</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat Medium</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit{
+	padding-left: 5px;
+	border: 1px solid rgb(20,20,20);
+	background-color: rgb(40,40,40);
+	border-bottom: 1px solid  rgb(120,120,120);
+	selection-background-color: rgb(105, 0, 0);
+}
+
+QLineEdit:hover{
+	background-color: rgb(55,55,55);
+	border-bottom: 1px solid  red;
+}</string>
    </property>
   </widget>
   <widget class="QComboBox" name="cbProizv">
@@ -177,766 +790,14 @@ QComboBox QAbstractItemView {
    </property>
    <item>
     <property name="text">
-     <string>Gigabyte</string>
+     <string>AMD</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>Asus</string>
+     <string>Intel</string>
     </property>
    </item>
-   <item>
-    <property name="text">
-     <string>Nvidia</string>
-    </property>
-   </item>
-  </widget>
-  <widget class="QLabel" name="lbVidProizv">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>90</y>
-     <width>111</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat SemiBold</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border:0px;</string>
-   </property>
-   <property name="text">
-    <string>Производитель</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="lbComplect">
-   <property name="geometry">
-    <rect>
-     <x>750</x>
-     <y>40</y>
-     <width>111</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat SemiBold</family>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border:0px;</string>
-   </property>
-   <property name="text">
-    <string>Видеокарта</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btnSave">
-   <property name="geometry">
-    <rect>
-     <x>250</x>
-     <y>550</y>
-     <width>151</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat Medium</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{
-	border:1px solid rgb(70,70,70);
-	background-color: rgb(35,35,35);
-	color: #fffafa;
-}
-
-QPushButton::hover
-{
-	border:1px;
-	background-color: rgb(60,60,60);
-	border-bottom: 1px solid rgb(0, 255, 8);
-}
-</string>
-   </property>
-   <property name="text">
-    <string>Сохранить</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btnCancel">
-   <property name="geometry">
-    <rect>
-     <x>440</x>
-     <y>550</y>
-     <width>151</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat Medium</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{
-	border:1px solid rgb(70,70,70);
-	background-color: rgb(35,35,35);
-	color: #fffafa;
-}
-
-QPushButton::hover
-{
-	border:1px;
-	background-color: rgb(60,60,60);
-	border-color: rgb(40,40,40);
-	border-bottom: 1px solid  red;
-	color: red;
-}
-</string>
-   </property>
-   <property name="text">
-    <string>Отмена</string>
-   </property>
-   <property name="autoDefault">
-    <bool>false</bool>
-   </property>
-   <property name="default">
-    <bool>false</bool>
-   </property>
-   <property name="flat">
-    <bool>false</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="lbVolume">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>250</y>
-     <width>151</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat SemiBold</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border:0px;</string>
-   </property>
-   <property name="text">
-    <string>Объём памяти [Мб]</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="lbType">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>250</y>
-     <width>111</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat SemiBold</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border:0px;</string>
-   </property>
-   <property name="text">
-    <string>Тип памяти</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="lbFreq">
-   <property name="geometry">
-    <rect>
-     <x>490</x>
-     <y>250</y>
-     <width>211</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat SemiBold</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border:0px;</string>
-   </property>
-   <property name="text">
-    <string>Частота процессора [МГц]</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="lbInterface">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>350</y>
-     <width>141</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat SemiBold</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border:0px;</string>
-   </property>
-   <property name="text">
-    <string>Тип интерфейса</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="lbMonitor">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>350</y>
-     <width>111</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat SemiBold</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border:0px;</string>
-   </property>
-   <property name="text">
-    <string>Мониторы</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="lbResolution">
-   <property name="geometry">
-    <rect>
-     <x>320</x>
-     <y>350</y>
-     <width>111</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat SemiBold</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border:0px;</string>
-   </property>
-   <property name="text">
-    <string>Разрешение</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="lbLength">
-   <property name="geometry">
-    <rect>
-     <x>670</x>
-     <y>350</y>
-     <width>111</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat SemiBold</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border:0px;</string>
-   </property>
-   <property name="text">
-    <string>Длина [см]</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="lbTdp">
-   <property name="geometry">
-    <rect>
-     <x>490</x>
-     <y>350</y>
-     <width>171</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat SemiBold</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border:0px;</string>
-   </property>
-   <property name="text">
-    <string>Тепловыделение (TDP)</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="lbKol">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>440</y>
-     <width>121</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat SemiBold</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border:0px;</string>
-   </property>
-   <property name="text">
-    <string>Количество</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="lbPrice">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>440</y>
-     <width>111</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat SemiBold</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border:0px;</string>
-   </property>
-   <property name="text">
-    <string>Цена [руб.]</string>
-   </property>
-  </widget>
-  <widget class="Line" name="line_3">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>430</y>
-     <width>841</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border:0px;
-border-top: 1px solid rgb(220, 0, 0);</string>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="cbInterface">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>380</y>
-     <width>111</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat Medium</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QComboBox{
-	background-color: rgb(40,40,40);
-	border: 1px;
-	border-bottom: 1px solid rgb(120,120,120);
-	padding-left: 5px;
-}
-
-QComboBox:hover{
-	background-color: rgb(55,55,55);
-	border-bottom: 1px solid red;
-}
-
-QComboBox::drop-down{
-border: 0px;
-}
-
-QComboBox::down-arrow {
-border-image: url(&quot;E:/pcconf/images/down-arrow-gray.png&quot;);
-width: 17px;
-height: 17px;
-margin-right: 5px;
-}
-
-QComboBox::down-arrow:on {
-	border-image: url(&quot;E:/pcconf/images/up-arrow.png&quot;);
-	width: 17px;
-	height: 17px;
-	margin-right: 5px;
-}
-
-QComboBox:on{
-border: 2px solid rgb(100,0,0);
-}
-
-QComboBox QAbstractItemView {
-	background: rgb(250, 250, 250);
-	border-width: 1px;
-	border-style: solid;
-	border-color: rgb(235, 235, 235);
-	selection-background-color: rgb(240, 240, 240);
-	selection-color: rgb(25, 25, 25);
-}
-</string>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>20</width>
-     <height>20</height>
-    </size>
-   </property>
-   <property name="duplicatesEnabled">
-    <bool>false</bool>
-   </property>
-   <property name="frame">
-    <bool>true</bool>
-   </property>
-   <property name="modelColumn">
-    <number>0</number>
-   </property>
-   <item>
-    <property name="text">
-     <string>PCI-E 4.0</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>PCI-E 3.0</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>PCI-E 2.1</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>PCI-E 2.0</string>
-    </property>
-   </item>
-  </widget>
-  <widget class="QComboBox" name="cbMonitor">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>380</y>
-     <width>111</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat Medium</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QComboBox{
-	background-color: rgb(40,40,40);
-	border: 1px;
-	border-bottom: 1px solid rgb(120,120,120);
-	padding-left: 5px;
-}
-
-QComboBox:hover{
-	background-color: rgb(55,55,55);
-	border-bottom: 1px solid red;
-}
-
-QComboBox::drop-down{
-border: 0px;
-}
-
-QComboBox::down-arrow {
-border-image: url(&quot;E:/pcconf/images/down-arrow-gray.png&quot;);
-width: 17px;
-height: 17px;
-margin-right: 5px;
-}
-
-QComboBox::down-arrow:on {
-	border-image: url(&quot;E:/pcconf/images/up-arrow.png&quot;);
-	width: 17px;
-	height: 17px;
-	margin-right: 5px;
-}
-
-QComboBox:on{
-border: 2px solid rgb(100,0,0);
-}
-
-QComboBox QAbstractItemView {
-	background: rgb(250, 250, 250);
-	border-width: 1px;
-	border-style: solid;
-	border-color: rgb(235, 235, 235);
-	selection-background-color: rgb(240, 240, 240);
-	selection-color: rgb(25, 25, 25);
-}
-</string>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>20</width>
-     <height>20</height>
-    </size>
-   </property>
-   <property name="duplicatesEnabled">
-    <bool>false</bool>
-   </property>
-   <property name="frame">
-    <bool>true</bool>
-   </property>
-   <property name="modelColumn">
-    <number>0</number>
-   </property>
-   <item>
-    <property name="text">
-     <string>4</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>3</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>2</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>1</string>
-    </property>
-   </item>
-  </widget>
-  <widget class="QLabel" name="lbChipName">
-   <property name="geometry">
-    <rect>
-     <x>490</x>
-     <y>170</y>
-     <width>171</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat SemiBold</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border:0px;</string>
-   </property>
-   <property name="text">
-    <string>Название чипа</string>
-   </property>
-  </widget>
-  <widget class="Line" name="rectangle">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>10</y>
-     <width>61</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(210, 0, 0);
-border: 1px solid rgb(210, 0, 0);</string>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="leChipName">
-   <property name="geometry">
-    <rect>
-     <x>490</x>
-     <y>200</y>
-     <width>211</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat Medium</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLineEdit{
-	padding-left: 5px;
-	border: 1px solid rgb(20,20,20);
-	background-color: rgb(40,40,40);
-	border-bottom: 1px solid  rgb(120,120,120);
-	selection-background-color: rgb(105, 0, 0);
-}
-
-QLineEdit:hover{
-	background-color: rgb(55,55,55);
-	border-bottom: 1px solid  red;
-}</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="leFullName">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>200</y>
-     <width>261</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat Medium</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLineEdit{
-	padding-left: 5px;
-	border: 1px solid rgb(20,20,20);
-	background-color: rgb(40,40,40);
-	border-bottom: 1px solid  rgb(120,120,120);
-	selection-background-color: rgb(105, 0, 0);
-}
-
-QLineEdit:hover{
-	background-color: rgb(55,55,55);
-	border-bottom: 1px solid  red;
-}</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="leVolume">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>280</y>
-     <width>111</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat Medium</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLineEdit{
-	padding-left: 5px;
-	border: 1px solid rgb(20,20,20);
-	background-color: rgb(40,40,40);
-	border-bottom: 1px solid  rgb(120,120,120);
-	selection-background-color: rgb(105, 0, 0);
-}
-
-QLineEdit:hover{
-	background-color: rgb(55,55,55);
-	border-bottom: 1px solid  red;
-}</string>
-   </property>
-   <property name="inputMask">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="leType">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>280</y>
-     <width>111</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat Medium</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLineEdit{
-	padding-left: 5px;
-	border: 1px solid rgb(20,20,20);
-	background-color: rgb(40,40,40);
-	border-bottom: 1px solid  rgb(120,120,120);
-	selection-background-color: rgb(105, 0, 0);
-}
-
-QLineEdit:hover{
-	background-color: rgb(55,55,55);
-	border-bottom: 1px solid  red;
-}</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="leFreq">
-   <property name="geometry">
-    <rect>
-     <x>490</x>
-     <y>280</y>
-     <width>111</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat Medium</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLineEdit{
-	padding-left: 5px;
-	border: 1px solid rgb(20,20,20);
-	background-color: rgb(40,40,40);
-	border-bottom: 1px solid  rgb(120,120,120);
-	selection-background-color: rgb(105, 0, 0);
-}
-
-QLineEdit:hover{
-	background-color: rgb(55,55,55);
-	border-bottom: 1px solid  red;
-}</string>
-   </property>
-   <property name="inputMask">
-    <string/>
-   </property>
   </widget>
   <widget class="QLineEdit" name="leKol">
    <property name="geometry">
@@ -971,134 +832,12 @@ QLineEdit:hover{
     <string/>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lePrice">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>470</y>
-     <width>111</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat Medium</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLineEdit{
-	padding-left: 5px;
-	border: 1px solid rgb(20,20,20);
-	background-color: rgb(40,40,40);
-	border-bottom: 1px solid  rgb(120,120,120);
-	selection-background-color: rgb(105, 0, 0);
-}
-
-QLineEdit:hover{
-	background-color: rgb(55,55,55);
-	border-bottom: 1px solid  red;
-}</string>
-   </property>
-   <property name="inputMask">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="leTdp">
-   <property name="geometry">
-    <rect>
-     <x>490</x>
-     <y>380</y>
-     <width>111</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat Medium</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLineEdit{
-	padding-left: 5px;
-	border: 1px solid rgb(20,20,20);
-	background-color: rgb(40,40,40);
-	border-bottom: 1px solid  rgb(120,120,120);
-	selection-background-color: rgb(105, 0, 0);
-}
-
-QLineEdit:hover{
-	background-color: rgb(55,55,55);
-	border-bottom: 1px solid  red;
-}</string>
-   </property>
-   <property name="inputMask">
-    <string/>
-   </property>
-   <property name="placeholderText">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="leLength">
-   <property name="geometry">
-    <rect>
-     <x>670</x>
-     <y>380</y>
-     <width>111</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat Medium</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLineEdit{
-	padding-left: 5px;
-	border: 1px solid rgb(20,20,20);
-	background-color: rgb(40,40,40);
-	border-bottom: 1px solid  rgb(120,120,120);
-	selection-background-color: rgb(105, 0, 0);
-}
-
-QLineEdit:hover{
-	background-color: rgb(55,55,55);
-	border-bottom: 1px solid  red;
-}</string>
-   </property>
-   <property name="inputMask">
-    <string/>
-   </property>
-   <property name="placeholderText">
-    <string/>
-   </property>
-  </widget>
-  <widget class="Line" name="line_4">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>520</y>
-     <width>841</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border:0px;
-border-top: 1px solid rgb(220, 0, 0);</string>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
-   </property>
-  </widget>
-  <widget class="QLabel" name="lbChipCreator">
+  <widget class="QLabel" name="lbSeries">
    <property name="geometry">
     <rect>
      <x>320</x>
      <y>170</y>
-     <width>161</width>
+     <width>101</width>
      <height>21</height>
     </rect>
    </property>
@@ -1112,14 +851,44 @@ border-top: 1px solid rgb(220, 0, 0);</string>
     <string notr="true">border:0px;</string>
    </property>
    <property name="text">
-    <string>Производитель чипа</string>
+    <string>Серия</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="cbChipCreator">
+  <widget class="QLineEdit" name="leFullName">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>20</x>
      <y>200</y>
+     <width>261</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat Medium</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit{
+	padding-left: 5px;
+	border: 1px solid rgb(20,20,20);
+	background-color: rgb(40,40,40);
+	border-bottom: 1px solid  rgb(120,120,120);
+	selection-background-color: rgb(105, 0, 0);
+}
+
+QLineEdit:hover{
+	background-color: rgb(55,55,55);
+	border-bottom: 1px solid  red;
+}</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="leTechproc">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>380</y>
      <width>111</width>
      <height>31</height>
     </rect>
@@ -1131,90 +900,31 @@ border-top: 1px solid rgb(220, 0, 0);</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QComboBox{
-	background-color: rgb(40,40,40);
-	border: 1px;
-	border-bottom: 1px solid rgb(120,120,120);
+    <string notr="true">QLineEdit{
 	padding-left: 5px;
+	border: 1px solid rgb(20,20,20);
+	background-color: rgb(40,40,40);
+	border-bottom: 1px solid  rgb(120,120,120);
+	selection-background-color: rgb(105, 0, 0);
 }
 
-QComboBox:hover{
+QLineEdit:hover{
 	background-color: rgb(55,55,55);
-	border-bottom: 1px solid red;
-}
-
-QComboBox::drop-down{
-border: 0px;
-}
-
-QComboBox::down-arrow {
-border-image: url(&quot;E:/pcconf/images/down-arrow-gray.png&quot;);
-width: 17px;
-height: 17px;
-margin-right: 5px;
-}
-
-QComboBox::down-arrow:on {
-	border-image: url(&quot;E:/pcconf/images/up-arrow.png&quot;);
-	width: 17px;
-	height: 17px;
-	margin-right: 5px;
-}
-
-QComboBox:on{
-border: 2px solid rgb(100,0,0);
-}
-
-
-QComboBox::QAbstractItemView {
-	background: rgb(250, 250, 250);
-	border-width: 1px;
-	border-style: solid;
-	border-color: rgb(235, 235, 235);
-	selection-background-color: rgb(240, 240, 240);
-	selection-color: rgb(25, 25, 25);
-	border: 2px solid darkgray;
-    selection-background-color: lightgray;
-}
-
-</string>
+	border-bottom: 1px solid  red;
+}</string>
    </property>
-   <property name="iconSize">
-    <size>
-     <width>20</width>
-     <height>20</height>
-    </size>
+   <property name="inputMask">
+    <string/>
    </property>
-   <property name="duplicatesEnabled">
-    <bool>false</bool>
+   <property name="placeholderText">
+    <string/>
    </property>
-   <property name="frame">
-    <bool>false</bool>
-   </property>
-   <property name="modelColumn">
-    <number>0</number>
-   </property>
-   <item>
-    <property name="text">
-     <string>AMD</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>NVIDIA</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Intel</string>
-    </property>
-   </item>
   </widget>
-  <widget class="QLabel" name="lbDate">
+  <widget class="QLabel" name="lbTechproc">
    <property name="geometry">
     <rect>
-     <x>670</x>
-     <y>450</y>
+     <x>20</x>
+     <y>350</y>
      <width>111</width>
      <height>21</height>
     </rect>
@@ -1229,7 +939,7 @@ QComboBox::QAbstractItemView {
     <string notr="true">border:0px;</string>
    </property>
    <property name="text">
-    <string>Дата заказа</string>
+    <string>Техпроцесс</string>
    </property>
   </widget>
   <widget class="QDateEdit" name="dateEdit">
@@ -1389,11 +1099,11 @@ QCalendarWidget QAbstractItemView:disabled { color: rgb(80, 80, 80); }</string>
     </date>
    </property>
   </widget>
-  <widget class="QLineEdit" name="leBus">
+  <widget class="QLineEdit" name="leSeries">
    <property name="geometry">
     <rect>
      <x>320</x>
-     <y>280</y>
+     <y>200</y>
      <width>111</width>
      <height>31</height>
     </rect>
@@ -1422,12 +1132,48 @@ QLineEdit:hover{
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="lbBus">
+  <widget class="QLineEdit" name="leGraphics">
    <property name="geometry">
     <rect>
-     <x>320</x>
-     <y>250</y>
-     <width>151</width>
+     <x>490</x>
+     <y>380</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat Medium</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit{
+	padding-left: 5px;
+	border: 1px solid rgb(20,20,20);
+	background-color: rgb(40,40,40);
+	border-bottom: 1px solid  rgb(120,120,120);
+	selection-background-color: rgb(105, 0, 0);
+}
+
+QLineEdit:hover{
+	background-color: rgb(55,55,55);
+	border-bottom: 1px solid  red;
+}</string>
+   </property>
+   <property name="inputMask">
+    <string/>
+   </property>
+   <property name="placeholderText">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbCache">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>350</y>
+     <width>111</width>
      <height>21</height>
     </rect>
    </property>
@@ -1441,13 +1187,13 @@ QLineEdit:hover{
     <string notr="true">border:0px;</string>
    </property>
    <property name="text">
-    <string>Шина памяти [бит]</string>
+    <string>Кэш [Мб]</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="cbResolution">
+  <widget class="QLineEdit" name="leCache">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>170</x>
      <y>380</y>
      <width>111</width>
      <height>31</height>
@@ -1460,138 +1206,30 @@ QLineEdit:hover{
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QComboBox{
-	background-color: rgb(40,40,40);
-	border: 1px;
-	border-bottom: 1px solid rgb(120,120,120);
+    <string notr="true">QLineEdit{
 	padding-left: 5px;
+	border: 1px solid rgb(20,20,20);
+	background-color: rgb(40,40,40);
+	border-bottom: 1px solid  rgb(120,120,120);
+	selection-background-color: rgb(105, 0, 0);
 }
 
-QComboBox:hover{
+QLineEdit:hover{
 	background-color: rgb(55,55,55);
-	border-bottom: 1px solid red;
-}
-
-QComboBox::drop-down{
-border: 0px;
-}
-
-QComboBox::down-arrow {
-border-image: url(&quot;E:/pcconf/images/down-arrow-gray.png&quot;);
-width: 17px;
-height: 17px;
-margin-right: 5px;
-}
-
-QComboBox::down-arrow:on {
-	border-image: url(&quot;E:/pcconf/images/up-arrow.png&quot;);
-	width: 17px;
-	height: 17px;
-	margin-right: 5px;
-}
-
-QComboBox:on{
-border: 2px solid rgb(100,0,0);
-}
-
-QComboBox QAbstractItemView {
-	background: rgb(250, 250, 250);
-	border-width: 1px;
-	border-style: solid;
-	border-color: rgb(235, 235, 235);
-	selection-background-color: rgb(240, 240, 240);
-	selection-color: rgb(25, 25, 25);
-}
-</string>
+	border-bottom: 1px solid  red;
+}</string>
    </property>
-   <property name="iconSize">
-    <size>
-     <width>20</width>
-     <height>20</height>
-    </size>
+   <property name="inputMask">
+    <string/>
    </property>
-   <property name="duplicatesEnabled">
-    <bool>false</bool>
-   </property>
-   <property name="frame">
-    <bool>true</bool>
-   </property>
-   <property name="modelColumn">
-    <number>0</number>
-   </property>
-   <item>
-    <property name="text">
-     <string>7680x4320</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>5120x2880</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>4096x2160</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>3840x2160</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>2560x1600</string>
-    </property>
-   </item>
   </widget>
-  <zorder>lbFullName</zorder>
-  <zorder>line</zorder>
-  <zorder>line_2</zorder>
-  <zorder>cbProizv</zorder>
-  <zorder>lbVidProizv</zorder>
-  <zorder>lbComplect</zorder>
-  <zorder>btnSave</zorder>
-  <zorder>btnCancel</zorder>
-  <zorder>lbVolume</zorder>
-  <zorder>lbFreq</zorder>
-  <zorder>lbInterface</zorder>
-  <zorder>lbMonitor</zorder>
-  <zorder>lbResolution</zorder>
-  <zorder>lbLength</zorder>
-  <zorder>lbTdp</zorder>
-  <zorder>lbKol</zorder>
-  <zorder>lbPrice</zorder>
-  <zorder>line_3</zorder>
-  <zorder>lbType</zorder>
-  <zorder>cbInterface</zorder>
-  <zorder>cbMonitor</zorder>
-  <zorder>lbChipName</zorder>
-  <zorder>rectangle</zorder>
-  <zorder>leChipName</zorder>
-  <zorder>leFullName</zorder>
-  <zorder>leVolume</zorder>
-  <zorder>leType</zorder>
-  <zorder>leFreq</zorder>
-  <zorder>leKol</zorder>
-  <zorder>lePrice</zorder>
-  <zorder>leTdp</zorder>
-  <zorder>leLength</zorder>
-  <zorder>line_4</zorder>
-  <zorder>lbChipCreator</zorder>
-  <zorder>cbChipCreator</zorder>
-  <zorder>lbDate</zorder>
-  <zorder>dateEdit</zorder>
-  <zorder>leBus</zorder>
-  <zorder>lbBus</zorder>
-  <zorder>cbResolution</zorder>
  </widget>
  <resources/>
  <connections>
   <connection>
    <sender>btnCancel</sender>
    <signal>clicked()</signal>
-   <receiver>addChVidWidg</receiver>
+   <receiver>addChProcWidg</receiver>
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1599,7 +1237,7 @@ QComboBox QAbstractItemView {
      <y>565</y>
     </hint>
     <hint type="destinationlabel">
-     <x>440</x>
+     <x>439</x>
      <y>301</y>
     </hint>
    </hints>

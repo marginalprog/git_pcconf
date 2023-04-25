@@ -1,0 +1,1 @@
+pyuic5.exe -x E:\pcconf\ui\add\addChProcWidg.ui -o  E:\pcconf\ui\add\addChProcWidg.py

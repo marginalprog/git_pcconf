@@ -2058,7 +2058,7 @@ class Ui_MainWindow(object):
         self.tableSklad.setGeometry(QtCore.QRect(0, 30, 981, 471))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
+        font.setPointSize(11)
         font.setBold(False)
         font.setUnderline(False)
         font.setWeight(50)
@@ -2677,7 +2677,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
         self.scrollAreaWidgetContents.setEnabled(True)
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1035, 2518))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -1897, 1035, 2518))
         self.scrollAreaWidgetContents.setAutoFillBackground(False)
         self.scrollAreaWidgetContents.setInputMethodHints(QtCore.Qt.ImhNone)
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
@@ -2758,6 +2758,7 @@ class Ui_MainWindow(object):
         self.tableConfVideo.setGeometry(QtCore.QRect(0, 30, 631, 211))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
         self.tableConfVideo.setFont(font)
         self.tableConfVideo.setMouseTracking(True)
@@ -3143,6 +3144,7 @@ class Ui_MainWindow(object):
         self.tableConfProc.setGeometry(QtCore.QRect(0, 30, 631, 211))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
         self.tableConfProc.setFont(font)
         self.tableConfProc.setMouseTracking(True)
@@ -3380,13 +3382,14 @@ class Ui_MainWindow(object):
         self.tableConfProc.setHorizontalHeaderItem(3, item)
         self.tableConfProc.horizontalHeader().setVisible(False)
         self.tableConfProc.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableConfProc.horizontalHeader().setDefaultSectionSize(30)
+        self.tableConfProc.horizontalHeader().setDefaultSectionSize(90)
         self.tableConfProc.horizontalHeader().setHighlightSections(False)
-        self.tableConfProc.horizontalHeader().setMinimumSectionSize(15)
+        self.tableConfProc.horizontalHeader().setMinimumSectionSize(40)
         self.tableConfProc.horizontalHeader().setSortIndicatorShown(True)
         self.tableConfProc.horizontalHeader().setStretchLastSection(False)
         self.tableConfProc.verticalHeader().setVisible(False)
         self.tableConfProc.verticalHeader().setCascadingSectionResizes(False)
+        self.tableConfProc.verticalHeader().setDefaultSectionSize(32)
         self.tableConfProc.verticalHeader().setMinimumSectionSize(10)
         self.tableConfProc.raise_()
         self.tabWidgetProc.raise_()
@@ -3559,6 +3562,7 @@ class Ui_MainWindow(object):
         self.tableConfMother.setGeometry(QtCore.QRect(0, 30, 631, 211))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
         self.tableConfMother.setFont(font)
         self.tableConfMother.setMouseTracking(True)
@@ -3702,6 +3706,81 @@ class Ui_MainWindow(object):
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}\n"
+"\n"
+"QScrollBar:horizontal {\n"
+"    border: none;\n"
+"    background-color: #202020;\n"
+"    height: 12px;\n"
+"    margin: 0 15px 0 15px;\n"
+" }\n"
+"\n"
+"/*  HANDLE BAR HORIZONTAL */\n"
+"QScrollBar::handle:horizontal {    \n"
+"    background-color: #151515;\n"
+"    min-width: 30px;\n"
+"    border: 1px solid;\n"
+"    border-bottom: 0px;\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"\n"
+"QScrollBar::handle:horizontal:hover{    \n"
+"    background-color:  rgb(50,50,50);\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:horizontal {\n"
+"    background-color: #151515;\n"
+"    width: 15px;\n"
+"    subcontrol-position: left;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-left: 1px solid rgb(180, 0, 0);    \n"
+"    border-right: 1px solid rgb(180, 0, 0);    \n"
+"}\n"
+"QScrollBar::sub-line:horizontal:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:horizontal {\n"
+"    /*border-image: url(\"E:/pcconf/images/right-arrow.png\") 0;*/\n"
+"    background-color: #151515;\n"
+"    width: 15px;\n"
+"    subcontrol-position: right;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border-left:1px solid rgb(180, 0, 0);\n"
+"    border-top: 0px;\n"
+"    border-bottom: 0px;\n"
+"    border-right: 1px solid rgb(180, 0, 0);    \n"
+"\n"
+"}\n"
+"QScrollBar::add-line:horizontal:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {\n"
+"    background: none;\n"
+"}\n"
+"\n"
 "")
         self.tableConfMother.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableConfMother.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
@@ -3721,13 +3800,14 @@ class Ui_MainWindow(object):
         self.tableConfMother.setHorizontalHeaderItem(3, item)
         self.tableConfMother.horizontalHeader().setVisible(False)
         self.tableConfMother.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableConfMother.horizontalHeader().setDefaultSectionSize(30)
+        self.tableConfMother.horizontalHeader().setDefaultSectionSize(90)
         self.tableConfMother.horizontalHeader().setHighlightSections(False)
-        self.tableConfMother.horizontalHeader().setMinimumSectionSize(15)
+        self.tableConfMother.horizontalHeader().setMinimumSectionSize(40)
         self.tableConfMother.horizontalHeader().setSortIndicatorShown(True)
         self.tableConfMother.horizontalHeader().setStretchLastSection(False)
         self.tableConfMother.verticalHeader().setVisible(False)
         self.tableConfMother.verticalHeader().setCascadingSectionResizes(False)
+        self.tableConfMother.verticalHeader().setDefaultSectionSize(32)
         self.tableConfMother.verticalHeader().setMinimumSectionSize(10)
         self.tableConfMother.raise_()
         self.tabWidgetMother.raise_()
@@ -3840,6 +3920,7 @@ class Ui_MainWindow(object):
         self.tableConfCool.setGeometry(QtCore.QRect(0, 30, 631, 211))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
         self.tableConfCool.setFont(font)
         self.tableConfCool.setMouseTracking(True)
@@ -3983,6 +4064,81 @@ class Ui_MainWindow(object):
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}\n"
+"\n"
+"QScrollBar:horizontal {\n"
+"    border: none;\n"
+"    background-color: #202020;\n"
+"    height: 12px;\n"
+"    margin: 0 15px 0 15px;\n"
+" }\n"
+"\n"
+"/*  HANDLE BAR HORIZONTAL */\n"
+"QScrollBar::handle:horizontal {    \n"
+"    background-color: #151515;\n"
+"    min-width: 30px;\n"
+"    border: 1px solid;\n"
+"    border-bottom: 0px;\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"\n"
+"QScrollBar::handle:horizontal:hover{    \n"
+"    background-color:  rgb(50,50,50);\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:horizontal {\n"
+"    background-color: #151515;\n"
+"    width: 15px;\n"
+"    subcontrol-position: left;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-left: 1px solid rgb(180, 0, 0);    \n"
+"    border-right: 1px solid rgb(180, 0, 0);    \n"
+"}\n"
+"QScrollBar::sub-line:horizontal:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:horizontal {\n"
+"    /*border-image: url(\"E:/pcconf/images/right-arrow.png\") 0;*/\n"
+"    background-color: #151515;\n"
+"    width: 15px;\n"
+"    subcontrol-position: right;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border-left:1px solid rgb(180, 0, 0);\n"
+"    border-top: 0px;\n"
+"    border-bottom: 0px;\n"
+"    border-right: 1px solid rgb(180, 0, 0);    \n"
+"\n"
+"}\n"
+"QScrollBar::add-line:horizontal:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {\n"
+"    background: none;\n"
+"}\n"
+"\n"
 "")
         self.tableConfCool.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableConfCool.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
@@ -4002,13 +4158,14 @@ class Ui_MainWindow(object):
         self.tableConfCool.setHorizontalHeaderItem(3, item)
         self.tableConfCool.horizontalHeader().setVisible(False)
         self.tableConfCool.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableConfCool.horizontalHeader().setDefaultSectionSize(30)
+        self.tableConfCool.horizontalHeader().setDefaultSectionSize(90)
         self.tableConfCool.horizontalHeader().setHighlightSections(False)
-        self.tableConfCool.horizontalHeader().setMinimumSectionSize(15)
+        self.tableConfCool.horizontalHeader().setMinimumSectionSize(40)
         self.tableConfCool.horizontalHeader().setSortIndicatorShown(True)
         self.tableConfCool.horizontalHeader().setStretchLastSection(False)
         self.tableConfCool.verticalHeader().setVisible(False)
         self.tableConfCool.verticalHeader().setCascadingSectionResizes(False)
+        self.tableConfCool.verticalHeader().setDefaultSectionSize(32)
         self.tableConfCool.verticalHeader().setMinimumSectionSize(10)
         self.tableConfCool.raise_()
         self.tabWidgetCool.raise_()
@@ -4121,6 +4278,7 @@ class Ui_MainWindow(object):
         self.tableConfRam.setGeometry(QtCore.QRect(0, 30, 631, 211))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
         self.tableConfRam.setFont(font)
         self.tableConfRam.setMouseTracking(True)
@@ -4264,6 +4422,81 @@ class Ui_MainWindow(object):
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}\n"
+"\n"
+"QScrollBar:horizontal {\n"
+"    border: none;\n"
+"    background-color: #202020;\n"
+"    height: 12px;\n"
+"    margin: 0 15px 0 15px;\n"
+" }\n"
+"\n"
+"/*  HANDLE BAR HORIZONTAL */\n"
+"QScrollBar::handle:horizontal {    \n"
+"    background-color: #151515;\n"
+"    min-width: 30px;\n"
+"    border: 1px solid;\n"
+"    border-bottom: 0px;\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"\n"
+"QScrollBar::handle:horizontal:hover{    \n"
+"    background-color:  rgb(50,50,50);\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:horizontal {\n"
+"    background-color: #151515;\n"
+"    width: 15px;\n"
+"    subcontrol-position: left;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-left: 1px solid rgb(180, 0, 0);    \n"
+"    border-right: 1px solid rgb(180, 0, 0);    \n"
+"}\n"
+"QScrollBar::sub-line:horizontal:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:horizontal {\n"
+"    /*border-image: url(\"E:/pcconf/images/right-arrow.png\") 0;*/\n"
+"    background-color: #151515;\n"
+"    width: 15px;\n"
+"    subcontrol-position: right;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border-left:1px solid rgb(180, 0, 0);\n"
+"    border-top: 0px;\n"
+"    border-bottom: 0px;\n"
+"    border-right: 1px solid rgb(180, 0, 0);    \n"
+"\n"
+"}\n"
+"QScrollBar::add-line:horizontal:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {\n"
+"    background: none;\n"
+"}\n"
+"\n"
 "")
         self.tableConfRam.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableConfRam.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
@@ -4283,13 +4516,14 @@ class Ui_MainWindow(object):
         self.tableConfRam.setHorizontalHeaderItem(3, item)
         self.tableConfRam.horizontalHeader().setVisible(False)
         self.tableConfRam.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableConfRam.horizontalHeader().setDefaultSectionSize(30)
+        self.tableConfRam.horizontalHeader().setDefaultSectionSize(90)
         self.tableConfRam.horizontalHeader().setHighlightSections(False)
-        self.tableConfRam.horizontalHeader().setMinimumSectionSize(15)
+        self.tableConfRam.horizontalHeader().setMinimumSectionSize(40)
         self.tableConfRam.horizontalHeader().setSortIndicatorShown(True)
         self.tableConfRam.horizontalHeader().setStretchLastSection(False)
         self.tableConfRam.verticalHeader().setVisible(False)
         self.tableConfRam.verticalHeader().setCascadingSectionResizes(False)
+        self.tableConfRam.verticalHeader().setDefaultSectionSize(32)
         self.tableConfRam.verticalHeader().setMinimumSectionSize(10)
         self.tableConfRam.raise_()
         self.tabWidgetRam.raise_()
@@ -4382,6 +4616,7 @@ class Ui_MainWindow(object):
         self.tableConfDisk.setGeometry(QtCore.QRect(0, 30, 631, 211))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
         self.tableConfDisk.setFont(font)
         self.tableConfDisk.setMouseTracking(True)
@@ -4525,6 +4760,81 @@ class Ui_MainWindow(object):
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}\n"
+"\n"
+"QScrollBar:horizontal {\n"
+"    border: none;\n"
+"    background-color: #202020;\n"
+"    height: 12px;\n"
+"    margin: 0 15px 0 15px;\n"
+" }\n"
+"\n"
+"/*  HANDLE BAR HORIZONTAL */\n"
+"QScrollBar::handle:horizontal {    \n"
+"    background-color: #151515;\n"
+"    min-width: 30px;\n"
+"    border: 1px solid;\n"
+"    border-bottom: 0px;\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"\n"
+"QScrollBar::handle:horizontal:hover{    \n"
+"    background-color:  rgb(50,50,50);\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:horizontal {\n"
+"    background-color: #151515;\n"
+"    width: 15px;\n"
+"    subcontrol-position: left;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-left: 1px solid rgb(180, 0, 0);    \n"
+"    border-right: 1px solid rgb(180, 0, 0);    \n"
+"}\n"
+"QScrollBar::sub-line:horizontal:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:horizontal {\n"
+"    /*border-image: url(\"E:/pcconf/images/right-arrow.png\") 0;*/\n"
+"    background-color: #151515;\n"
+"    width: 15px;\n"
+"    subcontrol-position: right;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border-left:1px solid rgb(180, 0, 0);\n"
+"    border-top: 0px;\n"
+"    border-bottom: 0px;\n"
+"    border-right: 1px solid rgb(180, 0, 0);    \n"
+"\n"
+"}\n"
+"QScrollBar::add-line:horizontal:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {\n"
+"    background: none;\n"
+"}\n"
+"\n"
 "")
         self.tableConfDisk.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableConfDisk.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
@@ -4544,13 +4854,14 @@ class Ui_MainWindow(object):
         self.tableConfDisk.setHorizontalHeaderItem(3, item)
         self.tableConfDisk.horizontalHeader().setVisible(False)
         self.tableConfDisk.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableConfDisk.horizontalHeader().setDefaultSectionSize(30)
+        self.tableConfDisk.horizontalHeader().setDefaultSectionSize(90)
         self.tableConfDisk.horizontalHeader().setHighlightSections(False)
-        self.tableConfDisk.horizontalHeader().setMinimumSectionSize(15)
+        self.tableConfDisk.horizontalHeader().setMinimumSectionSize(40)
         self.tableConfDisk.horizontalHeader().setSortIndicatorShown(True)
         self.tableConfDisk.horizontalHeader().setStretchLastSection(False)
         self.tableConfDisk.verticalHeader().setVisible(False)
         self.tableConfDisk.verticalHeader().setCascadingSectionResizes(False)
+        self.tableConfDisk.verticalHeader().setDefaultSectionSize(32)
         self.tableConfDisk.verticalHeader().setMinimumSectionSize(10)
         self.tableConfDisk.raise_()
         self.tabWidgetDisk.raise_()
@@ -4663,6 +4974,7 @@ class Ui_MainWindow(object):
         self.tableConfPower.setGeometry(QtCore.QRect(0, 30, 631, 211))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
         self.tableConfPower.setFont(font)
         self.tableConfPower.setMouseTracking(True)
@@ -4805,7 +5117,83 @@ class Ui_MainWindow(object):
 "\n"
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
-"}")
+"}\n"
+"\n"
+"QScrollBar:horizontal {\n"
+"    border: none;\n"
+"    background-color: #202020;\n"
+"    height: 12px;\n"
+"    margin: 0 15px 0 15px;\n"
+" }\n"
+"\n"
+"/*  HANDLE BAR HORIZONTAL */\n"
+"QScrollBar::handle:horizontal {    \n"
+"    background-color: #151515;\n"
+"    min-width: 30px;\n"
+"    border: 1px solid;\n"
+"    border-bottom: 0px;\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"\n"
+"QScrollBar::handle:horizontal:hover{    \n"
+"    background-color:  rgb(50,50,50);\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:horizontal {\n"
+"    background-color: #151515;\n"
+"    width: 15px;\n"
+"    subcontrol-position: left;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-left: 1px solid rgb(180, 0, 0);    \n"
+"    border-right: 1px solid rgb(180, 0, 0);    \n"
+"}\n"
+"QScrollBar::sub-line:horizontal:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:horizontal {\n"
+"    /*border-image: url(\"E:/pcconf/images/right-arrow.png\") 0;*/\n"
+"    background-color: #151515;\n"
+"    width: 15px;\n"
+"    subcontrol-position: right;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border-left:1px solid rgb(180, 0, 0);\n"
+"    border-top: 0px;\n"
+"    border-bottom: 0px;\n"
+"    border-right: 1px solid rgb(180, 0, 0);    \n"
+"\n"
+"}\n"
+"QScrollBar::add-line:horizontal:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"")
         self.tableConfPower.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableConfPower.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.tableConfPower.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
@@ -4824,13 +5212,14 @@ class Ui_MainWindow(object):
         self.tableConfPower.setHorizontalHeaderItem(3, item)
         self.tableConfPower.horizontalHeader().setVisible(False)
         self.tableConfPower.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableConfPower.horizontalHeader().setDefaultSectionSize(30)
+        self.tableConfPower.horizontalHeader().setDefaultSectionSize(90)
         self.tableConfPower.horizontalHeader().setHighlightSections(False)
-        self.tableConfPower.horizontalHeader().setMinimumSectionSize(15)
+        self.tableConfPower.horizontalHeader().setMinimumSectionSize(40)
         self.tableConfPower.horizontalHeader().setSortIndicatorShown(True)
         self.tableConfPower.horizontalHeader().setStretchLastSection(False)
         self.tableConfPower.verticalHeader().setVisible(False)
         self.tableConfPower.verticalHeader().setCascadingSectionResizes(False)
+        self.tableConfPower.verticalHeader().setDefaultSectionSize(32)
         self.tableConfPower.verticalHeader().setMinimumSectionSize(10)
         self.tableConfPower.raise_()
         self.tabWidgetPower.raise_()
@@ -4950,6 +5339,7 @@ class Ui_MainWindow(object):
         self.tableConfBody.setGeometry(QtCore.QRect(0, 30, 631, 211))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
         self.tableConfBody.setFont(font)
         self.tableConfBody.setMouseTracking(True)
@@ -5093,6 +5483,81 @@ class Ui_MainWindow(object):
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}\n"
+"\n"
+"QScrollBar:horizontal {\n"
+"    border: none;\n"
+"    background-color: #202020;\n"
+"    height: 12px;\n"
+"    margin: 0 15px 0 15px;\n"
+" }\n"
+"\n"
+"/*  HANDLE BAR HORIZONTAL */\n"
+"QScrollBar::handle:horizontal {    \n"
+"    background-color: #151515;\n"
+"    min-width: 30px;\n"
+"    border: 1px solid;\n"
+"    border-bottom: 0px;\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"\n"
+"QScrollBar::handle:horizontal:hover{    \n"
+"    background-color:  rgb(50,50,50);\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:horizontal {\n"
+"    background-color: #151515;\n"
+"    width: 15px;\n"
+"    subcontrol-position: left;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-left: 1px solid rgb(180, 0, 0);    \n"
+"    border-right: 1px solid rgb(180, 0, 0);    \n"
+"}\n"
+"QScrollBar::sub-line:horizontal:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:horizontal {\n"
+"    /*border-image: url(\"E:/pcconf/images/right-arrow.png\") 0;*/\n"
+"    background-color: #151515;\n"
+"    width: 15px;\n"
+"    subcontrol-position: right;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border-left:1px solid rgb(180, 0, 0);\n"
+"    border-top: 0px;\n"
+"    border-bottom: 0px;\n"
+"    border-right: 1px solid rgb(180, 0, 0);    \n"
+"\n"
+"}\n"
+"QScrollBar::add-line:horizontal:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {\n"
+"    background: none;\n"
+"}\n"
+"\n"
 "")
         self.tableConfBody.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableConfBody.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
@@ -5112,13 +5577,14 @@ class Ui_MainWindow(object):
         self.tableConfBody.setHorizontalHeaderItem(3, item)
         self.tableConfBody.horizontalHeader().setVisible(False)
         self.tableConfBody.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableConfBody.horizontalHeader().setDefaultSectionSize(30)
+        self.tableConfBody.horizontalHeader().setDefaultSectionSize(90)
         self.tableConfBody.horizontalHeader().setHighlightSections(False)
-        self.tableConfBody.horizontalHeader().setMinimumSectionSize(15)
+        self.tableConfBody.horizontalHeader().setMinimumSectionSize(40)
         self.tableConfBody.horizontalHeader().setSortIndicatorShown(True)
         self.tableConfBody.horizontalHeader().setStretchLastSection(False)
         self.tableConfBody.verticalHeader().setVisible(False)
         self.tableConfBody.verticalHeader().setCascadingSectionResizes(False)
+        self.tableConfBody.verticalHeader().setDefaultSectionSize(32)
         self.tableConfBody.verticalHeader().setMinimumSectionSize(10)
         self.tableConfBody.raise_()
         self.tabWidgetBody.raise_()
@@ -5228,7 +5694,7 @@ class Ui_MainWindow(object):
         self.lb_preview.setAlignment(QtCore.Qt.AlignCenter)
         self.lb_preview.setObjectName("lb_preview")
         self.lb_price = QtWidgets.QLabel(self.frame_cart)
-        self.lb_price.setGeometry(QtCore.QRect(10, 50, 251, 31))
+        self.lb_price.setGeometry(QtCore.QRect(110, 50, 81, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(12)
@@ -5420,12 +5886,40 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.btnResetConfig.setObjectName("btnResetConfig")
+        self.lb_price_2 = QtWidgets.QLabel(self.frame_cart)
+        self.lb_price_2.setGeometry(QtCore.QRect(50, 50, 61, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(12)
+        font.setKerning(True)
+        self.lb_price_2.setFont(font)
+        self.lb_price_2.setStyleSheet("QLabel{\n"
+"border: 0px;\n"
+"\n"
+"}")
+        self.lb_price_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.lb_price_2.setObjectName("lb_price_2")
+        self.lb_price_3 = QtWidgets.QLabel(self.frame_cart)
+        self.lb_price_3.setGeometry(QtCore.QRect(190, 50, 21, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(12)
+        font.setKerning(True)
+        self.lb_price_3.setFont(font)
+        self.lb_price_3.setStyleSheet("QLabel{\n"
+"border: 0px;\n"
+"\n"
+"}")
+        self.lb_price_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.lb_price_3.setObjectName("lb_price_3")
         self.btnResetConfig.raise_()
         self.lb_preview.raise_()
         self.lb_price.raise_()
         self.lb_config.raise_()
         self.btn_purcashe.raise_()
         self.table_config.raise_()
+        self.lb_price_2.raise_()
+        self.lb_price_3.raise_()
         self.frame_rb = QtWidgets.QFrame(self.configurator)
         self.frame_rb.setGeometry(QtCore.QRect(1020, 30, 291, 41))
         self.frame_rb.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -5490,7 +5984,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidgetMain.setCurrentIndex(0)
+        self.tabWidgetMain.setCurrentIndex(1)
         self.toolBoxNavigation.layout().setSpacing(5)
         self.tabWidgetSklad.setCurrentIndex(0)
         self.tabWidgetVideo.setCurrentIndex(0)
@@ -5769,7 +6263,7 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "др. параметры"))
         self.lbBody.setText(_translate("MainWindow", "Корпус"))
         self.lb_preview.setText(_translate("MainWindow", "Предпросмотр"))
-        self.lb_price.setText(_translate("MainWindow", "Цена: 000 000 ₽"))
+        self.lb_price.setText(_translate("MainWindow", "000 000"))
         self.lb_config.setText(_translate("MainWindow", "Конфигурация"))
         self.btn_purcashe.setText(_translate("MainWindow", "Оформить заказ"))
         item = self.table_config.horizontalHeaderItem(0)
@@ -5781,6 +6275,8 @@ class Ui_MainWindow(object):
         item = self.table_config.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "рубль"))
         self.btnResetConfig.setText(_translate("MainWindow", "Сброс конфигурации"))
+        self.lb_price_2.setText(_translate("MainWindow", "Цена:"))
+        self.lb_price_3.setText(_translate("MainWindow", " ₽"))
         self.rbConf.setText(_translate("MainWindow", "Только в наличии"))
         self.tabWidgetMain.setTabText(self.tabWidgetMain.indexOf(self.configurator), _translate("MainWindow", "Конфигуратор"))
 
