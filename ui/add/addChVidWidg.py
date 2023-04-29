@@ -286,6 +286,13 @@ class Ui_addChVidWidg(object):
 "border: 0px;\n"
 "}\n"
 "\n"
+"QComboBox::down-arrow:hover {\n"
+"border-image: url(\"E:/pcconf/images/down-arrow.png\");\n"
+"width: 17px;\n"
+"height: 17px;\n"
+"margin-right: 5px;\n"
+"}\n"
+"\n"
 "QComboBox::down-arrow {\n"
 "border-image: url(\"E:/pcconf/images/down-arrow-gray.png\");\n"
 "width: 17px;\n"
@@ -343,6 +350,14 @@ class Ui_addChVidWidg(object):
 "QComboBox::drop-down{\n"
 "border: 0px;\n"
 "}\n"
+"\n"
+"QComboBox::down-arrow:hover {\n"
+"border-image: url(\"E:/pcconf/images/down-arrow.png\");\n"
+"width: 17px;\n"
+"height: 17px;\n"
+"margin-right: 5px;\n"
+"}\n"
+"\n"
 "\n"
 "QComboBox::down-arrow {\n"
 "border-image: url(\"E:/pcconf/images/down-arrow-gray.png\");\n"
@@ -607,6 +622,14 @@ class Ui_addChVidWidg(object):
 "    border-bottom: 1px solid red;\n"
 "}\n"
 "\n"
+"QComboBox::down-arrow:hover {\n"
+"border-image: url(\"E:/pcconf/images/down-arrow.png\");\n"
+"width: 17px;\n"
+"height: 17px;\n"
+"margin-right: 5px;\n"
+"}\n"
+"\n"
+"\n"
 "QComboBox::drop-down{\n"
 "border: 0px;\n"
 "}\n"
@@ -829,6 +852,13 @@ class Ui_addChVidWidg(object):
 "border: 0px;\n"
 "}\n"
 "\n"
+"QComboBox::down-arrow:hover {\n"
+"border-image: url(\"E:/pcconf/images/down-arrow.png\");\n"
+"width: 17px;\n"
+"height: 17px;\n"
+"margin-right: 5px;\n"
+"}\n"
+"\n"
 "QComboBox::down-arrow {\n"
 "border-image: url(\"E:/pcconf/images/down-arrow-gray.png\");\n"
 "width: 17px;\n"
@@ -866,6 +896,85 @@ class Ui_addChVidWidg(object):
         self.cbResolution.addItem("")
         self.cbResolution.addItem("")
         self.cbResolution.addItem("")
+        self.cbGaming = QtWidgets.QComboBox(addChVidWidg)
+        self.cbGaming.setGeometry(QtCore.QRect(490, 120, 101, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.cbGaming.setFont(font)
+        self.cbGaming.setStyleSheet("QComboBox{\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px;\n"
+"    border-bottom: 1px solid rgb(120,120,120);\n"
+"    padding-left: 5px;\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QComboBox QListView{\n"
+"    border: 1px solid red;\n"
+"    padding-left: 5px;\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QComboBox:hover{\n"
+"    background-color: rgb(55,55,55);\n"
+"    border-bottom: 1px solid red;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow:hover {\n"
+"border-image: url(\"E:/pcconf/images/down-arrow.png\");\n"
+"width: 17px;\n"
+"height: 17px;\n"
+"margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox::drop-down{\n"
+"border: 0px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow {\n"
+"border-image: url(\"E:/pcconf/images/down-arrow-gray.png\");\n"
+"width: 17px;\n"
+"height: 17px;\n"
+"margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow:on {\n"
+"    border-image: url(\"E:/pcconf/images/up-arrow.png\");\n"
+"    width: 17px;\n"
+"    height: 17px;\n"
+"    margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox:on{\n"
+"border: 2px solid rgb(100,0,0);\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    background: rgb(250, 250, 250);\n"
+"    border-width: 1px;\n"
+"    border-style: solid;\n"
+"    border-color: rgb(235, 235, 235);\n"
+"    selection-background-color: rgb(240, 240, 240);\n"
+"    selection-color: rgb(25, 25, 25);\n"
+"}\n"
+"")
+        self.cbGaming.setEditable(False)
+        self.cbGaming.setIconSize(QtCore.QSize(20, 20))
+        self.cbGaming.setDuplicatesEnabled(False)
+        self.cbGaming.setFrame(False)
+        self.cbGaming.setModelColumn(0)
+        self.cbGaming.setObjectName("cbGaming")
+        self.cbGaming.addItem("")
+        self.cbGaming.addItem("")
+        self.lbProcGaming = QtWidgets.QLabel(addChVidWidg)
+        self.lbProcGaming.setGeometry(QtCore.QRect(490, 90, 191, 21))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        self.lbProcGaming.setFont(font)
+        self.lbProcGaming.setStyleSheet("border:0px;")
+        self.lbProcGaming.setObjectName("lbProcGaming")
         self.lbFullName.raise_()
         self.line.raise_()
         self.line_2.raise_()
@@ -906,6 +1015,8 @@ class Ui_addChVidWidg(object):
         self.leBus.raise_()
         self.lbBus.raise_()
         self.cbResolution.raise_()
+        self.cbGaming.raise_()
+        self.lbProcGaming.raise_()
 
         self.retranslateUi(addChVidWidg)
         self.btnCancel.clicked.connect(addChVidWidg.close)
@@ -952,6 +1063,9 @@ class Ui_addChVidWidg(object):
         self.cbResolution.setItemText(2, _translate("addChVidWidg", "4096x2160"))
         self.cbResolution.setItemText(3, _translate("addChVidWidg", "3840x2160"))
         self.cbResolution.setItemText(4, _translate("addChVidWidg", "2560x1600"))
+        self.cbGaming.setItemText(0, _translate("addChVidWidg", "Да"))
+        self.cbGaming.setItemText(1, _translate("addChVidWidg", "Нет"))
+        self.lbProcGaming.setText(_translate("addChVidWidg", "Игровое комплектующее"))
 
 
 if __name__ == "__main__":

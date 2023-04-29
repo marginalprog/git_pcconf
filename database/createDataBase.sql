@@ -1,4 +1,4 @@
--- Last modification date: 2023-04-25 14:02:48.864
+-- Last modification date: 2023-04-26 12:35:39.159
 
 -- tables
 -- Table: Body
@@ -7,8 +7,11 @@ CREATE TABLE Body (
     id_proizv serial  NOT NULL,
     exist boolean  NOT NULL DEFAULT false,
     fullname varchar(50)  NOT NULL,
-    formfactor varchar(30)  NOT NULL,
+    gaming boolean  NOT NULL,
+    formfactor varchar(255)  NOT NULL,
+    formfactorpower varchar(255)  NOT NULL,
     lengthvideo int  NOT NULL,
+    lengthcool int  NOT NULL,
     weight decimal(5,2)  NOT NULL,
     color int  NOT NULL,
     price int  NOT NULL,
@@ -35,6 +38,7 @@ CREATE TABLE Cool (
     id_proizv serial  NOT NULL,
     exist boolean  NOT NULL DEFAULT false,
     fullname varchar(50)  NOT NULL,
+    lengthcool int  NOT NULL,
     tdp int  NOT NULL,
     socket varchar(255)  NOT NULL,
     connect varchar(15)  NOT NULL,
@@ -66,6 +70,7 @@ CREATE TABLE Motherboard (
     id_proizv serial  NOT NULL,
     exist boolean  NOT NULL DEFAULT false,
     fullname varchar(50)  NOT NULL,
+    gaming boolean  NOT NULL,
     socket varchar(255)  NOT NULL,
     chipset varchar(20)  NOT NULL,
     formfactor varchar(30)  NOT NULL,
@@ -166,6 +171,7 @@ CREATE TABLE Power (
     id_proizv serial  NOT NULL,
     exist boolean  NOT NULL DEFAULT false,
     fullname varchar(50)  NOT NULL,
+    formfactor varchar(255)  NOT NULL,
     power int  NOT NULL,
     certificate varchar(15)  NOT NULL,
     pincpu int  NOT NULL,
@@ -182,6 +188,7 @@ CREATE TABLE Processor (
     id_proizv serial  NOT NULL,
     exist boolean  NOT NULL DEFAULT false,
     fullname varchar(50)  NOT NULL,
+    gaming boolean  NOT NULL,
     series varchar(50)  NOT NULL,
     socket varchar(20)  NOT NULL,
     core varchar(30)  NOT NULL,
@@ -258,6 +265,7 @@ CREATE TABLE Ram (
     id_proizv serial  NOT NULL,
     exist boolean  NOT NULL DEFAULT false,
     fullname varchar(50)  NOT NULL,
+    gaming boolean  NOT NULL,
     type varchar(20)  NOT NULL,
     volume int  NOT NULL,
     frequency int  NOT NULL,
@@ -322,6 +330,7 @@ CREATE TABLE Videocard (
     id_proizv serial  NOT NULL,
     exist boolean  NOT NULL DEFAULT false,
     fullname varchar(50)  NOT NULL,
+    gaming boolean  NOT NULL,
     chipcreator varchar(25)  NOT NULL,
     chipname varchar(25)  NOT NULL,
     vram int  NOT NULL,

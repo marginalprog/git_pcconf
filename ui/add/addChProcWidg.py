@@ -26,7 +26,7 @@ class Ui_addChProcWidg(object):
 "}\n"
 "")
         self.lbSocket = QtWidgets.QLabel(addChProcWidg)
-        self.lbSocket.setGeometry(QtCore.QRect(490, 170, 101, 21))
+        self.lbSocket.setGeometry(QtCore.QRect(500, 170, 101, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -34,7 +34,7 @@ class Ui_addChProcWidg(object):
         self.lbSocket.setStyleSheet("border:0px;")
         self.lbSocket.setObjectName("lbSocket")
         self.lbFreq = QtWidgets.QLabel(addChProcWidg)
-        self.lbFreq.setGeometry(QtCore.QRect(490, 250, 211, 21))
+        self.lbFreq.setGeometry(QtCore.QRect(500, 250, 211, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -42,7 +42,7 @@ class Ui_addChProcWidg(object):
         self.lbFreq.setStyleSheet("border:0px;")
         self.lbFreq.setObjectName("lbFreq")
         self.lbComplect = QtWidgets.QLabel(addChProcWidg)
-        self.lbComplect.setGeometry(QtCore.QRect(750, 40, 111, 21))
+        self.lbComplect.setGeometry(QtCore.QRect(760, 40, 101, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(12)
@@ -124,7 +124,7 @@ class Ui_addChProcWidg(object):
         self.line_3.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_3.setObjectName("line_3")
         self.lbGraphics = QtWidgets.QLabel(addChProcWidg)
-        self.lbGraphics.setGeometry(QtCore.QRect(490, 350, 171, 21))
+        self.lbGraphics.setGeometry(QtCore.QRect(500, 350, 171, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -140,7 +140,7 @@ class Ui_addChProcWidg(object):
         self.lbPrice.setStyleSheet("border:0px;")
         self.lbPrice.setObjectName("lbPrice")
         self.leTdp = QtWidgets.QLineEdit(addChProcWidg)
-        self.leTdp.setGeometry(QtCore.QRect(310, 380, 111, 31))
+        self.leTdp.setGeometry(QtCore.QRect(320, 380, 111, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -239,20 +239,20 @@ class Ui_addChProcWidg(object):
         self.leCore.setInputMask("")
         self.leCore.setObjectName("leCore")
         self.lbDate = QtWidgets.QLabel(addChProcWidg)
-        self.lbDate.setGeometry(QtCore.QRect(670, 450, 111, 21))
+        self.lbDate.setGeometry(QtCore.QRect(670, 440, 111, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
         self.lbDate.setFont(font)
         self.lbDate.setStyleSheet("border:0px;")
         self.lbDate.setObjectName("lbDate")
-        self.leBus = QtWidgets.QLineEdit(addChProcWidg)
-        self.leBus.setGeometry(QtCore.QRect(320, 280, 111, 31))
+        self.leRamFreq = QtWidgets.QLineEdit(addChProcWidg)
+        self.leRamFreq.setGeometry(QtCore.QRect(320, 280, 111, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
-        self.leBus.setFont(font)
-        self.leBus.setStyleSheet("QLineEdit{\n"
+        self.leRamFreq.setFont(font)
+        self.leRamFreq.setStyleSheet("QLineEdit{\n"
 "    padding-left: 5px;\n"
 "    border: 1px solid rgb(20,20,20);\n"
 "    background-color: rgb(40,40,40);\n"
@@ -264,10 +264,10 @@ class Ui_addChProcWidg(object):
 "    background-color: rgb(55,55,55);\n"
 "    border-bottom: 1px solid  red;\n"
 "}")
-        self.leBus.setInputMask("")
-        self.leBus.setObjectName("leBus")
+        self.leRamFreq.setInputMask("")
+        self.leRamFreq.setObjectName("leRamFreq")
         self.lbTdp = QtWidgets.QLabel(addChProcWidg)
-        self.lbTdp.setGeometry(QtCore.QRect(310, 350, 171, 21))
+        self.lbTdp.setGeometry(QtCore.QRect(320, 350, 171, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -275,7 +275,7 @@ class Ui_addChProcWidg(object):
         self.lbTdp.setStyleSheet("border:0px;")
         self.lbTdp.setObjectName("lbTdp")
         self.leSocket = QtWidgets.QLineEdit(addChProcWidg)
-        self.leSocket.setGeometry(QtCore.QRect(490, 200, 111, 31))
+        self.leSocket.setGeometry(QtCore.QRect(500, 200, 111, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -293,14 +293,14 @@ class Ui_addChProcWidg(object):
 "    border-bottom: 1px solid  red;\n"
 "}")
         self.leSocket.setObjectName("leSocket")
-        self.lbBus = QtWidgets.QLabel(addChProcWidg)
-        self.lbBus.setGeometry(QtCore.QRect(320, 250, 151, 21))
+        self.lbRamFreq = QtWidgets.QLabel(addChProcWidg)
+        self.lbRamFreq.setGeometry(QtCore.QRect(320, 250, 151, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
-        self.lbBus.setFont(font)
-        self.lbBus.setStyleSheet("border:0px;")
-        self.lbBus.setObjectName("lbBus")
+        self.lbRamFreq.setFont(font)
+        self.lbRamFreq.setStyleSheet("border:0px;")
+        self.lbRamFreq.setObjectName("lbRamFreq")
         self.lbFullName = QtWidgets.QLabel(addChProcWidg)
         self.lbFullName.setGeometry(QtCore.QRect(20, 170, 221, 21))
         font = QtGui.QFont()
@@ -310,7 +310,7 @@ class Ui_addChProcWidg(object):
         self.lbFullName.setStyleSheet("")
         self.lbFullName.setObjectName("lbFullName")
         self.leFreq = QtWidgets.QLineEdit(addChProcWidg)
-        self.leFreq.setGeometry(QtCore.QRect(490, 280, 111, 31))
+        self.leFreq.setGeometry(QtCore.QRect(500, 280, 111, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -488,7 +488,7 @@ class Ui_addChProcWidg(object):
         self.lbTechproc.setStyleSheet("border:0px;")
         self.lbTechproc.setObjectName("lbTechproc")
         self.dateEdit = QtWidgets.QDateEdit(addChProcWidg)
-        self.dateEdit.setGeometry(QtCore.QRect(670, 480, 111, 31))
+        self.dateEdit.setGeometry(QtCore.QRect(670, 470, 111, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(11)
@@ -629,7 +629,7 @@ class Ui_addChProcWidg(object):
         self.leSeries.setInputMask("")
         self.leSeries.setObjectName("leSeries")
         self.leGraphics = QtWidgets.QLineEdit(addChProcWidg)
-        self.leGraphics.setGeometry(QtCore.QRect(490, 380, 201, 31))
+        self.leGraphics.setGeometry(QtCore.QRect(500, 380, 201, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -677,6 +677,85 @@ class Ui_addChProcWidg(object):
 "}")
         self.leCache.setInputMask("")
         self.leCache.setObjectName("leCache")
+        self.cbGaming = QtWidgets.QComboBox(addChProcWidg)
+        self.cbGaming.setGeometry(QtCore.QRect(500, 120, 111, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.cbGaming.setFont(font)
+        self.cbGaming.setStyleSheet("QComboBox{\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px;\n"
+"    border-bottom: 1px solid rgb(120,120,120);\n"
+"    padding-left: 5px;\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QComboBox QListView{\n"
+"    border: 1px solid red;\n"
+"    padding-left: 5px;\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QComboBox:hover{\n"
+"    background-color: rgb(55,55,55);\n"
+"    border-bottom: 1px solid red;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow:hover {\n"
+"border-image: url(\"E:/pcconf/images/down-arrow.png\");\n"
+"width: 17px;\n"
+"height: 17px;\n"
+"margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox::drop-down{\n"
+"border: 0px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow {\n"
+"border-image: url(\"E:/pcconf/images/down-arrow-gray.png\");\n"
+"width: 17px;\n"
+"height: 17px;\n"
+"margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow:on {\n"
+"    border-image: url(\"E:/pcconf/images/up-arrow.png\");\n"
+"    width: 17px;\n"
+"    height: 17px;\n"
+"    margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox:on{\n"
+"border: 2px solid rgb(100,0,0);\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    background: rgb(250, 250, 250);\n"
+"    border-width: 1px;\n"
+"    border-style: solid;\n"
+"    border-color: rgb(235, 235, 235);\n"
+"    selection-background-color: rgb(240, 240, 240);\n"
+"    selection-color: rgb(25, 25, 25);\n"
+"}\n"
+"")
+        self.cbGaming.setEditable(False)
+        self.cbGaming.setIconSize(QtCore.QSize(20, 20))
+        self.cbGaming.setDuplicatesEnabled(False)
+        self.cbGaming.setFrame(False)
+        self.cbGaming.setModelColumn(0)
+        self.cbGaming.setObjectName("cbGaming")
+        self.cbGaming.addItem("")
+        self.cbGaming.addItem("")
+        self.lbProcGaming = QtWidgets.QLabel(addChProcWidg)
+        self.lbProcGaming.setGeometry(QtCore.QRect(500, 90, 191, 21))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        self.lbProcGaming.setFont(font)
+        self.lbProcGaming.setStyleSheet("border:0px;")
+        self.lbProcGaming.setObjectName("lbProcGaming")
 
         self.retranslateUi(addChProcWidg)
         self.btnCancel.clicked.connect(addChProcWidg.close)
@@ -698,13 +777,16 @@ class Ui_addChProcWidg(object):
         self.lbKol.setText(_translate("addChProcWidg", "Количество"))
         self.lbDate.setText(_translate("addChProcWidg", "Дата заказа"))
         self.lbTdp.setText(_translate("addChProcWidg", "Тепловыделение (TDP)"))
-        self.lbBus.setText(_translate("addChProcWidg", "Шина памяти [бит]"))
+        self.lbRamFreq.setText(_translate("addChProcWidg", "Макс. частота ОЗУ"))
         self.lbFullName.setText(_translate("addChProcWidg", "Название процессора"))
         self.cbProizv.setItemText(0, _translate("addChProcWidg", "AMD"))
         self.cbProizv.setItemText(1, _translate("addChProcWidg", "Intel"))
         self.lbSeries.setText(_translate("addChProcWidg", "Серия"))
         self.lbTechproc.setText(_translate("addChProcWidg", "Техпроцесс"))
         self.lbCache.setText(_translate("addChProcWidg", "Кэш [Мб]"))
+        self.cbGaming.setItemText(0, _translate("addChProcWidg", "Да"))
+        self.cbGaming.setItemText(1, _translate("addChProcWidg", "Нет"))
+        self.lbProcGaming.setText(_translate("addChProcWidg", "Игровое комплектующее"))
 
 
 if __name__ == "__main__":

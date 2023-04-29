@@ -16,6 +16,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION insert_processor(
 	INT,
 	VARCHAR(50),
+	BOOL,
 	VARCHAR(50),
 	VARCHAR(20),
 	VARCHAR(30),
@@ -29,9 +30,9 @@ CREATE OR REPLACE FUNCTION insert_processor(
 	INT)
 	RETURNS void AS $$
 BEGIN
-	INSERT INTO processor(id_proizv, fullname, series, socket, core, ncores, 
+	INSERT INTO processor(id_proizv, fullname, gaming, series, socket, core, ncores, 
 						  cache, frequency, techproc, ramfreq, graphics, tdp, price)
-	VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13);
+	VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14);
 END;
 $$ LANGUAGE plpgsql;
 
@@ -43,6 +44,7 @@ RETURNS TABLE(
 	processor_id INT,   
 	proizv_name VARCHAR, 
 	fullname VARCHAR,
+	gaming BOOL,
 	series VARCHAR,
 	socket VARCHAR, 
 	core VARCHAR, 
@@ -55,7 +57,7 @@ RETURNS TABLE(
 	tdp INT, 
 	price INT
 ) AS $$
-	SELECT sklad_processor.kol, processor.exist, processor.id, proizv_processor.name, fullname, series, socket, core, ncores, cache, frequency, techproc, ramfreq, graphics, tdp, price
+	SELECT sklad_processor.kol, processor.exist, processor.id, proizv_processor.name, fullname, gaming, series, socket, core, ncores, cache, frequency, techproc, ramfreq, graphics, tdp, price
 	FROM processor, sklad_processor, proizv_processor
 	WHERE processor.id = sklad_processor.id_izd AND processor.id_proizv = proizv_processor.id
 	ORDER BY exist DESC
@@ -68,6 +70,7 @@ RETURNS TABLE(
 	processor_id INT,   
 	proizv_name VARCHAR, 
 	fullname VARCHAR,
+	gaming BOOL,
 	series VARCHAR,
 	socket VARCHAR, 
 	core VARCHAR, 
@@ -80,7 +83,7 @@ RETURNS TABLE(
 	tdp INT, 
 	price INT
 ) AS $$
-	SELECT sklad_processor.kol, processor.exist, processor.id, proizv_processor.name, fullname, series, socket, core, ncores, cache, frequency, techproc, ramfreq, graphics, tdp, price
+	SELECT sklad_processor.kol, processor.exist, processor.id, proizv_processor.name, fullname, gaming, series, socket, core, ncores, cache, frequency, techproc, ramfreq, graphics, tdp, price
 	FROM processor, sklad_processor, proizv_processor
 	WHERE processor.id = sklad_processor.id_izd AND processor.id_proizv = proizv_processor.id
 	AND processor.exist = True
@@ -94,7 +97,8 @@ RETURNS TABLE(
 	processor_exist BOOL,
 	processor_id INT,   
 	proizv_name VARCHAR, 
-	fullname VARCHAR,  
+	fullname VARCHAR,
+	gaming BOOL,
 	series VARCHAR,
 	socket VARCHAR, 
 	core VARCHAR, 
@@ -107,7 +111,7 @@ RETURNS TABLE(
 	tdp INT, 
 	price INT
 ) AS $$
-	SELECT sklad_processor.kol, processor.exist, processor.id, proizv_processor.name, fullname, series, socket, core, ncores, cache, frequency, techproc, ramfreq, graphics, tdp, price	
+	SELECT sklad_processor.kol, processor.exist, processor.id, proizv_processor.name, fullname, gaming, series, socket, core, ncores, cache, frequency, techproc, ramfreq, graphics, tdp, price	
 	FROM processor, sklad_processor, proizv_processor
 	WHERE processor.id = sklad_processor.id_izd AND processor.id_proizv = proizv_processor.id AND name = name_pr
 	ORDER BY exist DESC

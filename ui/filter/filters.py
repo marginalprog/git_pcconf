@@ -508,7 +508,6 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
         self.reset_checkboxes(self.tableResolution)
 
     # Метод, считывающий отмеченные CheckBox-ами строки из таблицы. Возвращает отмеченные строки
-    # Сделать лист и по кол-ву в цикле конкатенировать с OR
     def get_checkboxes(self, table, bd_column):
         selected_parameters = []
         result_selected = ""
@@ -566,7 +565,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
 
     # Метод, срабатывающий по нажатии на кнопку и отправляющий в БД запрос на фильтрацию данных
     def click_accept(self, mainWindow):
-        query = "SELECT kol, videocard.exist, videocard.id, proizv_videocard.name, fullname, chipcreator," \
+        query = "SELECT kol, videocard.exist, videocard.id, proizv_videocard.name, fullname, gaming, chipcreator," \
                 "chipname, vram, typevram, frequency, bus, interface, monitor, resolution, tdp, length, price" \
                 " FROM videocard, sklad_videocard, proizv_videocard WHERE "
 
@@ -671,7 +670,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
             mainWindow.tabWidgetSklad.setCurrentIndex(0)  # Устанавливаем вкладку перед фильтрацией на 0 место
 
             # Если изменений в фильтрации не было, то передаём changes = False
-            if query == "SELECT kol, videocard.exist, videocard.id, proizv_videocard.name, fullname, chipcreator," \
+            if query == "SELECT kol, videocard.exist, videocard.id, proizv_videocard.name, fullname, gaming, chipcreator," \
                         "chipname, vram, typevram, frequency, bus, interface, monitor, resolution, tdp, length, price" \
                         " FROM videocard, sklad_videocard, proizv_videocard WHERE ":
 
@@ -713,7 +712,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
         # Если фильтры не выбраны
         else:
             if having:
-                query = "SELECT kol, videocard.exist, videocard.id, proizv_videocard.name, fullname, chipcreator," \
+                query = "SELECT kol, videocard.exist, videocard.id, proizv_videocard.name, fullname, gaming, chipcreator," \
                         "chipname, vram, typevram, frequency, bus, interface, monitor, resolution, tdp, length, price" \
                         " FROM videocard, sklad_videocard, proizv_videocard" \
                         " WHERE videocard.id = sklad_videocard.id_izd AND videocard.id_proizv = proizv_videocard.id" \
@@ -721,7 +720,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
                         " ORDER BY exist DESC"
                 return query
             else:
-                query = "SELECT kol, videocard.exist, videocard.id, proizv_videocard.name, fullname, chipcreator," \
+                query = "SELECT kol, videocard.exist, videocard.id, proizv_videocard.name, fullname, gaming, chipcreator," \
                         "chipname, vram, typevram, frequency, bus, interface, monitor, resolution, tdp, length, price" \
                         " FROM videocard, sklad_videocard, proizv_videocard" \
                         " WHERE videocard.id = sklad_videocard.id_izd AND videocard.id_proizv = proizv_videocard.id" \

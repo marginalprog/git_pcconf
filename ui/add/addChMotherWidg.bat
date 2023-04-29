@@ -1,0 +1,1 @@
+pyuic5.exe -x E:\pcconf\ui\add\addChMotherWidg.ui -o  E:\pcconf\ui\add\addChMotherWidg.py

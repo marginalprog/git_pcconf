@@ -32,7 +32,7 @@ class Ui_addProizvWidget(object):
         font.setPointSize(12)
         self.labelComplect.setFont(font)
         self.labelComplect.setStyleSheet("border:0px;")
-        self.labelComplect.setAlignment(QtCore.Qt.AlignCenter)
+        self.labelComplect.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.labelComplect.setObjectName("labelComplect")
         self.line = QtWidgets.QFrame(addProizvWidget)
         self.line.setGeometry(QtCore.QRect(10, 60, 411, 16))

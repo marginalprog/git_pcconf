@@ -14,20 +14,32 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1367, 724)
+        MainWindow.setEnabled(True)
+        MainWindow.resize(1496, 677)
+        MainWindow.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
         icon = QtGui.QIcon.fromTheme("E:\\pcconf\\images\\pcconf.png")
         MainWindow.setWindowIcon(icon)
+        MainWindow.setToolTip("")
         MainWindow.setStyleSheet("background: rgb(30, 30, 30);\n"
 "color: white;\n"
 "border-style: solid;\n"
 "border-width: 1px;\n"
 "border-color: #434343;\n"
 "")
+        MainWindow.setToolButtonStyle(QtCore.Qt.ToolButtonIconOnly)
+        MainWindow.setDocumentMode(False)
+        MainWindow.setUnifiedTitleAndToolBarOnMac(False)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
-        self.verticalLayout.setObjectName("verticalLayout")
-        self.tabWidgetMain = QtWidgets.QTabWidget(self.centralwidget)
+        self.stackedWidget = QtWidgets.QStackedWidget(self.centralwidget)
+        self.stackedWidget.setGeometry(QtCore.QRect(0, -10, 1511, 681))
+        self.stackedWidget.setStyleSheet("border: 0px;\n"
+"background: rgb(25,25,25);")
+        self.stackedWidget.setObjectName("stackedWidget")
+        self.conf = QtWidgets.QWidget()
+        self.conf.setObjectName("conf")
+        self.tabWidgetMain = QtWidgets.QTabWidget(self.conf)
+        self.tabWidgetMain.setGeometry(QtCore.QRect(0, 10, 1501, 661))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(12)
@@ -52,8 +64,8 @@ class Ui_MainWindow(object):
 "QTabBar::tab\n"
 "{\n"
 "    background: rgb(45, 45, 45);\n"
-"    min-width: 673px;\n"
-"    min-height: 30px;\n"
+"    min-width: 680px;\n"
+"    min-height: 33px;\n"
 "    margin-left: 1px;\n"
 "    left: -1px;\n"
 "    color: white;\n"
@@ -93,7 +105,7 @@ class Ui_MainWindow(object):
         self.lbNavPanel.setAlignment(QtCore.Qt.AlignCenter)
         self.lbNavPanel.setObjectName("lbNavPanel")
         self.btnAdd = QtWidgets.QPushButton(self.sklad)
-        self.btnAdd.setGeometry(QtCore.QRect(630, 580, 171, 31))
+        self.btnAdd.setGeometry(QtCore.QRect(680, 580, 171, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -114,7 +126,7 @@ class Ui_MainWindow(object):
 "")
         self.btnAdd.setObjectName("btnAdd")
         self.btnRepeat = QtWidgets.QPushButton(self.sklad)
-        self.btnRepeat.setGeometry(QtCore.QRect(870, 580, 171, 31))
+        self.btnRepeat.setGeometry(QtCore.QRect(920, 580, 171, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -2048,14 +2060,14 @@ class Ui_MainWindow(object):
         icon8.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/conf.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBoxNavigation.addItem(self.pageConf, icon8, "")
         self.frameVideo_2 = QtWidgets.QFrame(self.sklad)
-        self.frameVideo_2.setGeometry(QtCore.QRect(340, 60, 981, 501))
+        self.frameVideo_2.setGeometry(QtCore.QRect(380, 60, 1051, 501))
         self.frameVideo_2.setStyleSheet("background-color: #101010;\n"
 "border: 0px;")
         self.frameVideo_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frameVideo_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frameVideo_2.setObjectName("frameVideo_2")
         self.tableSklad = QtWidgets.QTableWidget(self.frameVideo_2)
-        self.tableSklad.setGeometry(QtCore.QRect(0, 30, 981, 471))
+        self.tableSklad.setGeometry(QtCore.QRect(0, 30, 1051, 471))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(11)
@@ -2303,7 +2315,7 @@ class Ui_MainWindow(object):
         self.tableSklad.verticalHeader().setMinimumSectionSize(10)
         self.tabWidgetSklad = QtWidgets.QTabWidget(self.frameVideo_2)
         self.tabWidgetSklad.setEnabled(True)
-        self.tabWidgetSklad.setGeometry(QtCore.QRect(10, 0, 831, 31))
+        self.tabWidgetSklad.setGeometry(QtCore.QRect(10, 0, 981, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(9)
@@ -2346,7 +2358,7 @@ class Ui_MainWindow(object):
         self.all_2.setObjectName("all_2")
         self.tabWidgetSklad.addTab(self.all_2, "")
         self.btnSkladFilter = QtWidgets.QPushButton(self.sklad)
-        self.btnSkladFilter.setGeometry(QtCore.QRect(1180, 31, 131, 20))
+        self.btnSkladFilter.setGeometry(QtCore.QRect(1220, 31, 131, 20))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -2366,7 +2378,7 @@ class Ui_MainWindow(object):
 "")
         self.btnSkladFilter.setObjectName("btnSkladFilter")
         self.rbSklad = QtWidgets.QRadioButton(self.sklad)
-        self.rbSklad.setGeometry(QtCore.QRect(730, 20, 201, 21))
+        self.rbSklad.setGeometry(QtCore.QRect(770, 20, 201, 21))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -2408,19 +2420,41 @@ class Ui_MainWindow(object):
 "}")
         self.rbSklad.setObjectName("rbSklad")
         self.line = QtWidgets.QFrame(self.sklad)
-        self.line.setGeometry(QtCore.QRect(450, 60, 16, 31))
+        self.line.setGeometry(QtCore.QRect(490, 60, 16, 31))
         self.line.setStyleSheet("border: 0px;\n"
 "background: transparent;\n"
 "border-left: 1px solid rgb(60, 60, 60);")
         self.line.setFrameShape(QtWidgets.QFrame.VLine)
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
+        self.btnResetSklad = QtWidgets.QPushButton(self.sklad)
+        self.btnResetSklad.setGeometry(QtCore.QRect(1410, 29, 21, 21))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnResetSklad.setFont(font)
+        self.btnResetSklad.setStyleSheet("QPushButton\n"
+"{\n"
+"background: transparent;\n"
+"border:1px;\n"
+"border-image: url(\"E:/pcconf/images/reset-gray.png\") 0;\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"border: 0px;\n"
+"border-image: url(\"E:/pcconf/images/reset-red.png\") 0;\n"
+"}\n"
+"")
+        self.btnResetSklad.setText("")
+        self.btnResetSklad.setIconSize(QtCore.QSize(18, 18))
+        self.btnResetSklad.setObjectName("btnResetSklad")
         self.tabWidgetMain.addTab(self.sklad, "")
         self.configurator = QtWidgets.QWidget()
         self.configurator.setStyleSheet("border:0px;")
         self.configurator.setObjectName("configurator")
         self.progressBar = QtWidgets.QProgressBar(self.configurator)
-        self.progressBar.setGeometry(QtCore.QRect(10, 120, 51, 411))
+        self.progressBar.setGeometry(QtCore.QRect(30, 120, 51, 411))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(12)
@@ -2459,7 +2493,7 @@ class Ui_MainWindow(object):
         self.progressBar.setInvertedAppearance(False)
         self.progressBar.setObjectName("progressBar")
         self.treeWidget = QtWidgets.QTreeWidget(self.configurator)
-        self.treeWidget.setGeometry(QtCore.QRect(90, 120, 221, 411))
+        self.treeWidget.setGeometry(QtCore.QRect(120, 120, 221, 411))
         self.treeWidget.setMinimumSize(QtCore.QSize(0, 0))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
@@ -2588,7 +2622,7 @@ class Ui_MainWindow(object):
         self.treeWidget.header().setSortIndicatorShown(False)
         self.treeWidget.header().setStretchLastSection(True)
         self.scrollArea = QtWidgets.QScrollArea(self.configurator)
-        self.scrollArea.setGeometry(QtCore.QRect(290, 0, 1051, 621))
+        self.scrollArea.setGeometry(QtCore.QRect(330, 0, 1161, 621))
         self.scrollArea.setStyleSheet("QWidget{\n"
 "    border: 0px;\n"
 "} \n"
@@ -2677,7 +2711,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
         self.scrollAreaWidgetContents.setEnabled(True)
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -1897, 1035, 2518))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1145, 2518))
         self.scrollAreaWidgetContents.setAutoFillBackground(False)
         self.scrollAreaWidgetContents.setInputMethodHints(QtCore.Qt.ImhNone)
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
@@ -2703,7 +2737,7 @@ class Ui_MainWindow(object):
         self.lbVideo.setAlignment(QtCore.Qt.AlignCenter)
         self.lbVideo.setObjectName("lbVideo")
         self.frameVideo = QtWidgets.QFrame(self.frame_3)
-        self.frameVideo.setGeometry(QtCore.QRect(50, 50, 631, 241))
+        self.frameVideo.setGeometry(QtCore.QRect(50, 50, 681, 241))
         self.frameVideo.setStyleSheet("background-color: #101010;\n"
 "border: 0px;")
         self.frameVideo.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -2711,7 +2745,7 @@ class Ui_MainWindow(object):
         self.frameVideo.setObjectName("frameVideo")
         self.tabWidgetVideo = QtWidgets.QTabWidget(self.frameVideo)
         self.tabWidgetVideo.setEnabled(True)
-        self.tabWidgetVideo.setGeometry(QtCore.QRect(10, 0, 621, 31))
+        self.tabWidgetVideo.setGeometry(QtCore.QRect(10, 0, 671, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(9)
@@ -2755,7 +2789,7 @@ class Ui_MainWindow(object):
         self.tabWidgetVideo.addTab(self.all, "")
         self.tableConfVideo = QtWidgets.QTableWidget(self.frameVideo)
         self.tableConfVideo.setEnabled(True)
-        self.tableConfVideo.setGeometry(QtCore.QRect(0, 30, 631, 211))
+        self.tableConfVideo.setGeometry(QtCore.QRect(0, 30, 681, 211))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -3069,7 +3103,7 @@ class Ui_MainWindow(object):
         self.imgBody.setFrameShadow(QtWidgets.QFrame.Raised)
         self.imgBody.setObjectName("imgBody")
         self.btnVidFilter = QtWidgets.QPushButton(self.frame_3)
-        self.btnVidFilter.setGeometry(QtCore.QRect(340, 20, 131, 21))
+        self.btnVidFilter.setGeometry(QtCore.QRect(360, 20, 131, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -3089,7 +3123,7 @@ class Ui_MainWindow(object):
 "")
         self.btnVidFilter.setObjectName("btnVidFilter")
         self.frameProc = QtWidgets.QFrame(self.frame_3)
-        self.frameProc.setGeometry(QtCore.QRect(50, 360, 631, 241))
+        self.frameProc.setGeometry(QtCore.QRect(50, 360, 681, 241))
         self.frameProc.setStyleSheet("background-color: #101010;\n"
 "border: 0px;")
         self.frameProc.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -3097,7 +3131,7 @@ class Ui_MainWindow(object):
         self.frameProc.setObjectName("frameProc")
         self.tabWidgetProc = QtWidgets.QTabWidget(self.frameProc)
         self.tabWidgetProc.setEnabled(True)
-        self.tabWidgetProc.setGeometry(QtCore.QRect(10, 0, 621, 31))
+        self.tabWidgetProc.setGeometry(QtCore.QRect(10, 0, 671, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(9)
@@ -3141,7 +3175,7 @@ class Ui_MainWindow(object):
         self.tabWidgetProc.addTab(self.allProc, "")
         self.tableConfProc = QtWidgets.QTableWidget(self.frameProc)
         self.tableConfProc.setEnabled(True)
-        self.tableConfProc.setGeometry(QtCore.QRect(0, 30, 631, 211))
+        self.tableConfProc.setGeometry(QtCore.QRect(0, 30, 681, 211))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -3394,7 +3428,7 @@ class Ui_MainWindow(object):
         self.tableConfProc.raise_()
         self.tabWidgetProc.raise_()
         self.btnProcFilter = QtWidgets.QPushButton(self.frame_3)
-        self.btnProcFilter.setGeometry(QtCore.QRect(350, 330, 131, 21))
+        self.btnProcFilter.setGeometry(QtCore.QRect(370, 330, 131, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -3414,7 +3448,7 @@ class Ui_MainWindow(object):
 "")
         self.btnProcFilter.setObjectName("btnProcFilter")
         self.btnProcHelp = QtWidgets.QPushButton(self.frame_3)
-        self.btnProcHelp.setGeometry(QtCore.QRect(490, 330, 191, 20))
+        self.btnProcHelp.setGeometry(QtCore.QRect(510, 330, 191, 20))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -3447,7 +3481,7 @@ class Ui_MainWindow(object):
         self.lbMother.setAlignment(QtCore.Qt.AlignCenter)
         self.lbMother.setObjectName("lbMother")
         self.btnMotherFilter = QtWidgets.QPushButton(self.frame_3)
-        self.btnMotherFilter.setGeometry(QtCore.QRect(360, 641, 131, 20))
+        self.btnMotherFilter.setGeometry(QtCore.QRect(380, 641, 131, 20))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -3467,7 +3501,7 @@ class Ui_MainWindow(object):
 "")
         self.btnMotherFilter.setObjectName("btnMotherFilter")
         self.btnMotherHelp = QtWidgets.QPushButton(self.frame_3)
-        self.btnMotherHelp.setGeometry(QtCore.QRect(500, 640, 181, 20))
+        self.btnMotherHelp.setGeometry(QtCore.QRect(520, 640, 181, 20))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -3487,7 +3521,7 @@ class Ui_MainWindow(object):
 "")
         self.btnMotherHelp.setObjectName("btnMotherHelp")
         self.btnVidHelp = QtWidgets.QPushButton(self.frame_3)
-        self.btnVidHelp.setGeometry(QtCore.QRect(480, 20, 201, 20))
+        self.btnVidHelp.setGeometry(QtCore.QRect(500, 20, 201, 20))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -3507,7 +3541,7 @@ class Ui_MainWindow(object):
 "")
         self.btnVidHelp.setObjectName("btnVidHelp")
         self.frameMother = QtWidgets.QFrame(self.frame_3)
-        self.frameMother.setGeometry(QtCore.QRect(50, 670, 631, 241))
+        self.frameMother.setGeometry(QtCore.QRect(50, 670, 681, 241))
         self.frameMother.setStyleSheet("background-color: #101010;\n"
 "border: 0px;")
         self.frameMother.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -3515,7 +3549,7 @@ class Ui_MainWindow(object):
         self.frameMother.setObjectName("frameMother")
         self.tabWidgetMother = QtWidgets.QTabWidget(self.frameMother)
         self.tabWidgetMother.setEnabled(True)
-        self.tabWidgetMother.setGeometry(QtCore.QRect(10, 0, 621, 31))
+        self.tabWidgetMother.setGeometry(QtCore.QRect(10, 0, 671, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(9)
@@ -3559,7 +3593,7 @@ class Ui_MainWindow(object):
         self.tabWidgetMother.addTab(self.allMother, "")
         self.tableConfMother = QtWidgets.QTableWidget(self.frameMother)
         self.tableConfMother.setEnabled(True)
-        self.tableConfMother.setGeometry(QtCore.QRect(0, 30, 631, 211))
+        self.tableConfMother.setGeometry(QtCore.QRect(0, 30, 681, 211))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -3825,7 +3859,7 @@ class Ui_MainWindow(object):
         self.lbCooling.setAlignment(QtCore.Qt.AlignCenter)
         self.lbCooling.setObjectName("lbCooling")
         self.btnCoolHelp = QtWidgets.QPushButton(self.frame_3)
-        self.btnCoolHelp.setGeometry(QtCore.QRect(480, 950, 201, 20))
+        self.btnCoolHelp.setGeometry(QtCore.QRect(500, 950, 201, 20))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -3845,7 +3879,7 @@ class Ui_MainWindow(object):
 "")
         self.btnCoolHelp.setObjectName("btnCoolHelp")
         self.btnCoolFilter = QtWidgets.QPushButton(self.frame_3)
-        self.btnCoolFilter.setGeometry(QtCore.QRect(340, 951, 131, 20))
+        self.btnCoolFilter.setGeometry(QtCore.QRect(360, 951, 131, 20))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -3865,7 +3899,7 @@ class Ui_MainWindow(object):
 "")
         self.btnCoolFilter.setObjectName("btnCoolFilter")
         self.frameCool = QtWidgets.QFrame(self.frame_3)
-        self.frameCool.setGeometry(QtCore.QRect(50, 980, 631, 241))
+        self.frameCool.setGeometry(QtCore.QRect(50, 980, 681, 241))
         self.frameCool.setStyleSheet("background-color: #101010;\n"
 "border: 0px;")
         self.frameCool.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -3873,7 +3907,7 @@ class Ui_MainWindow(object):
         self.frameCool.setObjectName("frameCool")
         self.tabWidgetCool = QtWidgets.QTabWidget(self.frameCool)
         self.tabWidgetCool.setEnabled(True)
-        self.tabWidgetCool.setGeometry(QtCore.QRect(10, 0, 621, 31))
+        self.tabWidgetCool.setGeometry(QtCore.QRect(10, 0, 671, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(9)
@@ -3917,7 +3951,7 @@ class Ui_MainWindow(object):
         self.tabWidgetCool.addTab(self.allCool, "")
         self.tableConfCool = QtWidgets.QTableWidget(self.frameCool)
         self.tableConfCool.setEnabled(True)
-        self.tableConfCool.setGeometry(QtCore.QRect(0, 30, 631, 211))
+        self.tableConfCool.setGeometry(QtCore.QRect(0, 30, 681, 211))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -4170,7 +4204,7 @@ class Ui_MainWindow(object):
         self.tableConfCool.raise_()
         self.tabWidgetCool.raise_()
         self.btnRamHelp = QtWidgets.QPushButton(self.frame_3)
-        self.btnRamHelp.setGeometry(QtCore.QRect(540, 1250, 141, 20))
+        self.btnRamHelp.setGeometry(QtCore.QRect(560, 1250, 141, 20))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -4190,7 +4224,7 @@ class Ui_MainWindow(object):
 "")
         self.btnRamHelp.setObjectName("btnRamHelp")
         self.btnRamFilter = QtWidgets.QPushButton(self.frame_3)
-        self.btnRamFilter.setGeometry(QtCore.QRect(380, 1251, 131, 20))
+        self.btnRamFilter.setGeometry(QtCore.QRect(420, 1251, 131, 20))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -4223,7 +4257,7 @@ class Ui_MainWindow(object):
         self.lbRam.setAlignment(QtCore.Qt.AlignCenter)
         self.lbRam.setObjectName("lbRam")
         self.frameRam = QtWidgets.QFrame(self.frame_3)
-        self.frameRam.setGeometry(QtCore.QRect(50, 1280, 631, 241))
+        self.frameRam.setGeometry(QtCore.QRect(50, 1280, 681, 241))
         self.frameRam.setStyleSheet("background-color: #101010;\n"
 "border: 0px;")
         self.frameRam.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -4231,7 +4265,7 @@ class Ui_MainWindow(object):
         self.frameRam.setObjectName("frameRam")
         self.tabWidgetRam = QtWidgets.QTabWidget(self.frameRam)
         self.tabWidgetRam.setEnabled(True)
-        self.tabWidgetRam.setGeometry(QtCore.QRect(10, 0, 621, 31))
+        self.tabWidgetRam.setGeometry(QtCore.QRect(10, 0, 671, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(9)
@@ -4275,7 +4309,7 @@ class Ui_MainWindow(object):
         self.tabWidgetRam.addTab(self.allRam, "")
         self.tableConfRam = QtWidgets.QTableWidget(self.frameRam)
         self.tableConfRam.setEnabled(True)
-        self.tableConfRam.setGeometry(QtCore.QRect(0, 30, 631, 211))
+        self.tableConfRam.setGeometry(QtCore.QRect(0, 30, 681, 211))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -4541,7 +4575,7 @@ class Ui_MainWindow(object):
         self.lbDisk.setAlignment(QtCore.Qt.AlignCenter)
         self.lbDisk.setObjectName("lbDisk")
         self.btnDiskFilter = QtWidgets.QPushButton(self.frame_3)
-        self.btnDiskFilter.setGeometry(QtCore.QRect(330, 1560, 131, 20))
+        self.btnDiskFilter.setGeometry(QtCore.QRect(370, 1560, 131, 20))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -4561,7 +4595,7 @@ class Ui_MainWindow(object):
 "")
         self.btnDiskFilter.setObjectName("btnDiskFilter")
         self.frameDisk = QtWidgets.QFrame(self.frame_3)
-        self.frameDisk.setGeometry(QtCore.QRect(50, 1590, 631, 241))
+        self.frameDisk.setGeometry(QtCore.QRect(50, 1590, 681, 241))
         self.frameDisk.setStyleSheet("background-color: #101010;\n"
 "border: 0px;")
         self.frameDisk.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -4569,7 +4603,7 @@ class Ui_MainWindow(object):
         self.frameDisk.setObjectName("frameDisk")
         self.tabWidgetDisk = QtWidgets.QTabWidget(self.frameDisk)
         self.tabWidgetDisk.setEnabled(True)
-        self.tabWidgetDisk.setGeometry(QtCore.QRect(10, 0, 621, 31))
+        self.tabWidgetDisk.setGeometry(QtCore.QRect(10, 0, 671, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(9)
@@ -4613,7 +4647,7 @@ class Ui_MainWindow(object):
         self.tabWidgetDisk.addTab(self.allDisk, "")
         self.tableConfDisk = QtWidgets.QTableWidget(self.frameDisk)
         self.tableConfDisk.setEnabled(True)
-        self.tableConfDisk.setGeometry(QtCore.QRect(0, 30, 631, 211))
+        self.tableConfDisk.setGeometry(QtCore.QRect(0, 30, 681, 211))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -4866,7 +4900,7 @@ class Ui_MainWindow(object):
         self.tableConfDisk.raise_()
         self.tabWidgetDisk.raise_()
         self.btnDiskHelp = QtWidgets.QPushButton(self.frame_3)
-        self.btnDiskHelp.setGeometry(QtCore.QRect(490, 1560, 191, 20))
+        self.btnDiskHelp.setGeometry(QtCore.QRect(510, 1560, 191, 20))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -4899,7 +4933,7 @@ class Ui_MainWindow(object):
         self.lbPower.setAlignment(QtCore.Qt.AlignCenter)
         self.lbPower.setObjectName("lbPower")
         self.btnPowerFilter = QtWidgets.QPushButton(self.frame_3)
-        self.btnPowerFilter.setGeometry(QtCore.QRect(330, 1870, 131, 20))
+        self.btnPowerFilter.setGeometry(QtCore.QRect(350, 1870, 131, 20))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -4919,7 +4953,7 @@ class Ui_MainWindow(object):
 "")
         self.btnPowerFilter.setObjectName("btnPowerFilter")
         self.framePower = QtWidgets.QFrame(self.frame_3)
-        self.framePower.setGeometry(QtCore.QRect(50, 1900, 631, 241))
+        self.framePower.setGeometry(QtCore.QRect(50, 1900, 681, 241))
         self.framePower.setStyleSheet("background-color: #101010;\n"
 "border: 0px;")
         self.framePower.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -4927,7 +4961,7 @@ class Ui_MainWindow(object):
         self.framePower.setObjectName("framePower")
         self.tabWidgetPower = QtWidgets.QTabWidget(self.framePower)
         self.tabWidgetPower.setEnabled(True)
-        self.tabWidgetPower.setGeometry(QtCore.QRect(10, 0, 621, 31))
+        self.tabWidgetPower.setGeometry(QtCore.QRect(10, 0, 671, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(9)
@@ -4971,7 +5005,7 @@ class Ui_MainWindow(object):
         self.tabWidgetPower.addTab(self.allPower, "")
         self.tableConfPower = QtWidgets.QTableWidget(self.framePower)
         self.tableConfPower.setEnabled(True)
-        self.tableConfPower.setGeometry(QtCore.QRect(0, 30, 631, 211))
+        self.tableConfPower.setGeometry(QtCore.QRect(0, 30, 681, 211))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -5224,7 +5258,7 @@ class Ui_MainWindow(object):
         self.tableConfPower.raise_()
         self.tabWidgetPower.raise_()
         self.btnPowerHelp = QtWidgets.QPushButton(self.frame_3)
-        self.btnPowerHelp.setGeometry(QtCore.QRect(470, 1870, 211, 20))
+        self.btnPowerHelp.setGeometry(QtCore.QRect(490, 1870, 211, 20))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -5244,7 +5278,7 @@ class Ui_MainWindow(object):
 "")
         self.btnPowerHelp.setObjectName("btnPowerHelp")
         self.btnBodyFilter = QtWidgets.QPushButton(self.frame_3)
-        self.btnBodyFilter.setGeometry(QtCore.QRect(340, 2180, 131, 21))
+        self.btnBodyFilter.setGeometry(QtCore.QRect(400, 2180, 131, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -5264,7 +5298,7 @@ class Ui_MainWindow(object):
 "")
         self.btnBodyFilter.setObjectName("btnBodyFilter")
         self.btnBodyHelp = QtWidgets.QPushButton(self.frame_3)
-        self.btnBodyHelp.setGeometry(QtCore.QRect(520, 2180, 161, 20))
+        self.btnBodyHelp.setGeometry(QtCore.QRect(540, 2180, 161, 20))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -5284,7 +5318,7 @@ class Ui_MainWindow(object):
 "")
         self.btnBodyHelp.setObjectName("btnBodyHelp")
         self.frameBody = QtWidgets.QFrame(self.frame_3)
-        self.frameBody.setGeometry(QtCore.QRect(50, 2210, 631, 241))
+        self.frameBody.setGeometry(QtCore.QRect(50, 2210, 681, 241))
         self.frameBody.setStyleSheet("background-color: #101010;\n"
 "border: 0px;")
         self.frameBody.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -5292,7 +5326,7 @@ class Ui_MainWindow(object):
         self.frameBody.setObjectName("frameBody")
         self.tabWidgetBody = QtWidgets.QTabWidget(self.frameBody)
         self.tabWidgetBody.setEnabled(True)
-        self.tabWidgetBody.setGeometry(QtCore.QRect(10, 0, 621, 31))
+        self.tabWidgetBody.setGeometry(QtCore.QRect(10, 0, 671, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(9)
@@ -5336,7 +5370,7 @@ class Ui_MainWindow(object):
         self.tabWidgetBody.addTab(self.allBody, "")
         self.tableConfBody = QtWidgets.QTableWidget(self.frameBody)
         self.tableConfBody.setEnabled(True)
-        self.tableConfBody.setGeometry(QtCore.QRect(0, 30, 631, 211))
+        self.tableConfBody.setGeometry(QtCore.QRect(0, 30, 681, 211))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -5665,10 +5699,178 @@ class Ui_MainWindow(object):
         self.line_9.setFrameShape(QtWidgets.QFrame.VLine)
         self.line_9.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_9.setObjectName("line_9")
+        self.btnResetVideo = QtWidgets.QPushButton(self.frame_3)
+        self.btnResetVideo.setGeometry(QtCore.QRect(710, 20, 20, 20))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnResetVideo.setFont(font)
+        self.btnResetVideo.setStyleSheet("QPushButton\n"
+"{\n"
+"background: transparent;\n"
+"border: 1px;\n"
+"border-image: url(\"E:/pcconf/images/reset-gray.png\") 0;\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"border: 0px;\n"
+"border-image: url(\"E:/pcconf/images/reset-red.png\") 0;\n"
+"}\n"
+"")
+        self.btnResetVideo.setText("")
+        self.btnResetVideo.setObjectName("btnResetVideo")
+        self.btnResetProc = QtWidgets.QPushButton(self.frame_3)
+        self.btnResetProc.setGeometry(QtCore.QRect(710, 330, 20, 20))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnResetProc.setFont(font)
+        self.btnResetProc.setStyleSheet("QPushButton\n"
+"{\n"
+"background: transparent;\n"
+"border: 1px;\n"
+"border-image: url(\"E:/pcconf/images/reset-gray.png\") 0;\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"border: 0px;\n"
+"border-image: url(\"E:/pcconf/images/reset-red.png\") 0;\n"
+"}\n"
+"")
+        self.btnResetProc.setText("")
+        self.btnResetProc.setObjectName("btnResetProc")
+        self.btnResetCool = QtWidgets.QPushButton(self.frame_3)
+        self.btnResetCool.setGeometry(QtCore.QRect(710, 950, 20, 20))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnResetCool.setFont(font)
+        self.btnResetCool.setStyleSheet("QPushButton\n"
+"{\n"
+"background: transparent;\n"
+"border: 1px;\n"
+"border-image: url(\"E:/pcconf/images/reset-gray.png\") 0;\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"border: 0px;\n"
+"border-image: url(\"E:/pcconf/images/reset-red.png\") 0;\n"
+"}\n"
+"")
+        self.btnResetCool.setText("")
+        self.btnResetCool.setObjectName("btnResetCool")
+        self.btnResetMother = QtWidgets.QPushButton(self.frame_3)
+        self.btnResetMother.setGeometry(QtCore.QRect(710, 640, 20, 20))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnResetMother.setFont(font)
+        self.btnResetMother.setStyleSheet("QPushButton\n"
+"{\n"
+"background: transparent;\n"
+"border: 1px;\n"
+"border-image: url(\"E:/pcconf/images/reset-gray.png\") 0;\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"border: 0px;\n"
+"border-image: url(\"E:/pcconf/images/reset-red.png\") 0;\n"
+"}\n"
+"")
+        self.btnResetMother.setText("")
+        self.btnResetMother.setObjectName("btnResetMother")
+        self.btnResetRam = QtWidgets.QPushButton(self.frame_3)
+        self.btnResetRam.setGeometry(QtCore.QRect(710, 1250, 20, 20))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnResetRam.setFont(font)
+        self.btnResetRam.setStyleSheet("QPushButton\n"
+"{\n"
+"background: transparent;\n"
+"border: 1px;\n"
+"border-image: url(\"E:/pcconf/images/reset-gray.png\") 0;\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"border: 0px;\n"
+"border-image: url(\"E:/pcconf/images/reset-red.png\") 0;\n"
+"}\n"
+"")
+        self.btnResetRam.setText("")
+        self.btnResetRam.setObjectName("btnResetRam")
+        self.btnResetDisk = QtWidgets.QPushButton(self.frame_3)
+        self.btnResetDisk.setGeometry(QtCore.QRect(710, 1560, 20, 20))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnResetDisk.setFont(font)
+        self.btnResetDisk.setStyleSheet("QPushButton\n"
+"{\n"
+"background: transparent;\n"
+"border: 1px;\n"
+"border-image: url(\"E:/pcconf/images/reset-gray.png\") 0;\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"border: 0px;\n"
+"border-image: url(\"E:/pcconf/images/reset-red.png\") 0;\n"
+"}\n"
+"")
+        self.btnResetDisk.setText("")
+        self.btnResetDisk.setObjectName("btnResetDisk")
+        self.btnResetPower = QtWidgets.QPushButton(self.frame_3)
+        self.btnResetPower.setGeometry(QtCore.QRect(710, 1870, 20, 20))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnResetPower.setFont(font)
+        self.btnResetPower.setStyleSheet("QPushButton\n"
+"{\n"
+"background: transparent;\n"
+"border: 1px;\n"
+"border-image: url(\"E:/pcconf/images/reset-gray.png\") 0;\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"border: 0px;\n"
+"border-image: url(\"E:/pcconf/images/reset-red.png\") 0;\n"
+"}\n"
+"")
+        self.btnResetPower.setText("")
+        self.btnResetPower.setObjectName("btnResetPower")
+        self.btnResetBody = QtWidgets.QPushButton(self.frame_3)
+        self.btnResetBody.setGeometry(QtCore.QRect(710, 2180, 20, 20))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnResetBody.setFont(font)
+        self.btnResetBody.setStyleSheet("QPushButton\n"
+"{\n"
+"background: transparent;\n"
+"border: 1px;\n"
+"border-image: url(\"E:/pcconf/images/reset-gray.png\") 0;\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"border: 0px;\n"
+"border-image: url(\"E:/pcconf/images/reset-red.png\") 0;\n"
+"}\n"
+"")
+        self.btnResetBody.setText("")
+        self.btnResetBody.setObjectName("btnResetBody")
         self.gridLayout.addWidget(self.frame_3, 0, 0, 1, 1)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.frame_cart = QtWidgets.QFrame(self.configurator)
-        self.frame_cart.setGeometry(QtCore.QRect(1030, 120, 271, 401))
+        self.frame_cart.setGeometry(QtCore.QRect(1140, 120, 271, 451))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -5746,7 +5948,7 @@ class Ui_MainWindow(object):
 "}")
         self.btn_purcashe.setObjectName("btn_purcashe")
         self.table_config = QtWidgets.QTableWidget(self.frame_cart)
-        self.table_config.setGeometry(QtCore.QRect(10, 170, 251, 201))
+        self.table_config.setGeometry(QtCore.QRect(10, 170, 251, 241))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -5867,7 +6069,7 @@ class Ui_MainWindow(object):
         self.table_config.verticalHeader().setVisible(False)
         self.table_config.verticalHeader().setMinimumSectionSize(20)
         self.btnResetConfig = QtWidgets.QPushButton(self.frame_cart)
-        self.btnResetConfig.setGeometry(QtCore.QRect(60, 370, 151, 21))
+        self.btnResetConfig.setGeometry(QtCore.QRect(60, 420, 151, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -5921,12 +6123,12 @@ class Ui_MainWindow(object):
         self.lb_price_2.raise_()
         self.lb_price_3.raise_()
         self.frame_rb = QtWidgets.QFrame(self.configurator)
-        self.frame_rb.setGeometry(QtCore.QRect(1020, 30, 291, 41))
+        self.frame_rb.setGeometry(QtCore.QRect(1180, 50, 201, 41))
         self.frame_rb.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_rb.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_rb.setObjectName("frame_rb")
         self.rbConf = QtWidgets.QRadioButton(self.frame_rb)
-        self.rbConf.setGeometry(QtCore.QRect(40, 10, 191, 21))
+        self.rbConf.setGeometry(QtCore.QRect(0, 10, 201, 21))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -5943,7 +6145,7 @@ class Ui_MainWindow(object):
 "QRadioButton:hover{\n"
 "    color: white;\n"
 "}\n"
-"QRadioButton:selected\n"
+"QRadioButton:checked\n"
 "{\n"
 "    color: white;\n"
 "}\n"
@@ -5973,18 +6175,755 @@ class Ui_MainWindow(object):
         self.frame_cart.raise_()
         self.frame_rb.raise_()
         self.tabWidgetMain.addTab(self.configurator, "")
-        self.verticalLayout.addWidget(self.tabWidgetMain)
+        self.stackedWidget.addWidget(self.conf)
+        self.cabinet = QtWidgets.QWidget()
+        self.cabinet.setObjectName("cabinet")
+        self.lvCabinetMenu = QtWidgets.QListWidget(self.cabinet)
+        self.lvCabinetMenu.setGeometry(QtCore.QRect(80, 270, 151, 111))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(12)
+        self.lvCabinetMenu.setFont(font)
+        self.lvCabinetMenu.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.lvCabinetMenu.setStyleSheet("\n"
+" QListView::item\n"
+"{\n"
+"    color: rgb(200,200,200);\n"
+"    margin-bottom:13px;\n"
+"}\n"
+"\n"
+" QListView::item:hover\n"
+"{\n"
+"    border-bottom : 1px solid #FF0000;\n"
+"    color: white;\n"
+"    margin-left:5px;\n"
+"}\n"
+"\n"
+" QListView::item:selected\n"
+"{\n"
+"    border-bottom : 1px solid #FF0000;\n"
+"    color: white;\n"
+"    margin-left:5px;\n"
+"}")
+        self.lvCabinetMenu.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.lvCabinetMenu.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.lvCabinetMenu.setObjectName("lvCabinetMenu")
+        item = QtWidgets.QListWidgetItem()
+        self.lvCabinetMenu.addItem(item)
+        item = QtWidgets.QListWidgetItem()
+        self.lvCabinetMenu.addItem(item)
+        item = QtWidgets.QListWidgetItem()
+        self.lvCabinetMenu.addItem(item)
+        self.lineVMenu = QtWidgets.QFrame(self.cabinet)
+        self.lineVMenu.setGeometry(QtCore.QRect(180, 260, 61, 131))
+        self.lineVMenu.setStyleSheet("border: 0px;\n"
+"background: transparent;\n"
+"border-right: 1px solid rgb(80, 80, 80);")
+        self.lineVMenu.setFrameShape(QtWidgets.QFrame.VLine)
+        self.lineVMenu.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.lineVMenu.setObjectName("lineVMenu")
+        self.lineHMenu = QtWidgets.QFrame(self.cabinet)
+        self.lineHMenu.setGeometry(QtCore.QRect(70, 300, 171, 20))
+        self.lineHMenu.setStyleSheet("border: 0px;\n"
+"background: transparent;\n"
+"border-top: 1px solid rgb(80, 80, 80);\n"
+"margin-left:5px;\n"
+"")
+        self.lineHMenu.setFrameShape(QtWidgets.QFrame.HLine)
+        self.lineHMenu.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.lineHMenu.setObjectName("lineHMenu")
+        self.tabWidgetCabinet = QtWidgets.QTabWidget(self.cabinet)
+        self.tabWidgetCabinet.setGeometry(QtCore.QRect(250, 110, 1111, 471))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        self.tabWidgetCabinet.setFont(font)
+        self.tabWidgetCabinet.setStyleSheet("QTabWidget::pane\n"
+"{\n"
+"    background: rgb(30, 30, 30);\n"
+"    border: 0px;\n"
+"}\n"
+"\n"
+"QTabWidget::pane\n"
+"{\n"
+"    border:0px;\n"
+"}\n"
+"QTabBar::tab\n"
+"{\n"
+"    background:transparent;\n"
+"    color: transparent;\n"
+"}\n"
+"")
+        self.tabWidgetCabinet.setTabPosition(QtWidgets.QTabWidget.North)
+        self.tabWidgetCabinet.setTabShape(QtWidgets.QTabWidget.Rounded)
+        self.tabWidgetCabinet.setDocumentMode(False)
+        self.tabWidgetCabinet.setTabsClosable(False)
+        self.tabWidgetCabinet.setMovable(False)
+        self.tabWidgetCabinet.setTabBarAutoHide(False)
+        self.tabWidgetCabinet.setObjectName("tabWidgetCabinet")
+        self.tab_profile = QtWidgets.QWidget()
+        self.tab_profile.setObjectName("tab_profile")
+        self.lbName_2 = QtWidgets.QLabel(self.tab_profile)
+        self.lbName_2.setGeometry(QtCore.QRect(320, 26, 281, 20))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(14)
+        self.lbName_2.setFont(font)
+        self.lbName_2.setStyleSheet("")
+        self.lbName_2.setObjectName("lbName_2")
+        self.frame = QtWidgets.QFrame(self.tab_profile)
+        self.frame.setGeometry(QtCore.QRect(100, 20, 161, 151))
+        self.frame.setStyleSheet("border: 0px;\n"
+"border-image: url(\"E:/pcconf/images/user-place.png\") 0;")
+        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName("frame")
+        self.lineVMenu_2 = QtWidgets.QFrame(self.tab_profile)
+        self.lineVMenu_2.setGeometry(QtCore.QRect(210, 20, 61, 291))
+        self.lineVMenu_2.setStyleSheet("border: 0px;\n"
+"background: transparent;\n"
+"border-right: 1px solid rgb(70, 70, 70);")
+        self.lineVMenu_2.setFrameShape(QtWidgets.QFrame.VLine)
+        self.lineVMenu_2.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.lineVMenu_2.setObjectName("lineVMenu_2")
+        self.lbName_3 = QtWidgets.QLabel(self.tab_profile)
+        self.lbName_3.setGeometry(QtCore.QRect(100, 200, 141, 21))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(11)
+        self.lbName_3.setFont(font)
+        self.lbName_3.setStyleSheet("")
+        self.lbName_3.setObjectName("lbName_3")
+        self.lbName_4 = QtWidgets.QLabel(self.tab_profile)
+        self.lbName_4.setGeometry(QtCore.QRect(100, 220, 141, 21))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(11)
+        self.lbName_4.setFont(font)
+        self.lbName_4.setStyleSheet("color: rgb(200,200,200);")
+        self.lbName_4.setObjectName("lbName_4")
+        self.lbName_5 = QtWidgets.QLabel(self.tab_profile)
+        self.lbName_5.setGeometry(QtCore.QRect(320, 50, 281, 21))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(11)
+        self.lbName_5.setFont(font)
+        self.lbName_5.setStyleSheet("color: rgb(200,200,200);")
+        self.lbName_5.setObjectName("lbName_5")
+        self.lineHMenu_2 = QtWidgets.QFrame(self.tab_profile)
+        self.lineHMenu_2.setGeometry(QtCore.QRect(320, 80, 31, 20))
+        self.lineHMenu_2.setStyleSheet("border: 0px;\n"
+"background: transparent;\n"
+"border-top: 1px solid #FF0000;\n"
+"")
+        self.lineHMenu_2.setFrameShape(QtWidgets.QFrame.HLine)
+        self.lineHMenu_2.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.lineHMenu_2.setObjectName("lineHMenu_2")
+        self.lineHMenu_3 = QtWidgets.QFrame(self.tab_profile)
+        self.lineHMenu_3.setGeometry(QtCore.QRect(320, 180, 31, 21))
+        self.lineHMenu_3.setStyleSheet("border: 0px;\n"
+"background: transparent;\n"
+"border-top: 1px solid #FF0000;\n"
+"")
+        self.lineHMenu_3.setFrameShape(QtWidgets.QFrame.HLine)
+        self.lineHMenu_3.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.lineHMenu_3.setObjectName("lineHMenu_3")
+        self.lbName_6 = QtWidgets.QLabel(self.tab_profile)
+        self.lbName_6.setGeometry(QtCore.QRect(320, 151, 281, 21))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(11)
+        self.lbName_6.setFont(font)
+        self.lbName_6.setStyleSheet("color: rgb(200,200,200);")
+        self.lbName_6.setObjectName("lbName_6")
+        self.lbName_7 = QtWidgets.QLabel(self.tab_profile)
+        self.lbName_7.setGeometry(QtCore.QRect(320, 121, 281, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(14)
+        self.lbName_7.setFont(font)
+        self.lbName_7.setStyleSheet("")
+        self.lbName_7.setObjectName("lbName_7")
+        self.lbName_8 = QtWidgets.QLabel(self.tab_profile)
+        self.lbName_8.setGeometry(QtCore.QRect(320, 210, 281, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(14)
+        self.lbName_8.setFont(font)
+        self.lbName_8.setStyleSheet("")
+        self.lbName_8.setObjectName("lbName_8")
+        self.lbName_9 = QtWidgets.QLabel(self.tab_profile)
+        self.lbName_9.setGeometry(QtCore.QRect(320, 250, 281, 21))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(11)
+        self.lbName_9.setFont(font)
+        self.lbName_9.setStyleSheet("color: rgb(200,200,200);")
+        self.lbName_9.setObjectName("lbName_9")
+        self.lineHMenu_4 = QtWidgets.QFrame(self.tab_profile)
+        self.lineHMenu_4.setGeometry(QtCore.QRect(320, 280, 31, 21))
+        self.lineHMenu_4.setStyleSheet("border: 0px;\n"
+"background: transparent;\n"
+"border-top: 1px solid #FF0000;\n"
+"")
+        self.lineHMenu_4.setFrameShape(QtWidgets.QFrame.HLine)
+        self.lineHMenu_4.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.lineHMenu_4.setObjectName("lineHMenu_4")
+        self.lbName_2.raise_()
+        self.frame.raise_()
+        self.lineVMenu_2.raise_()
+        self.lbName_3.raise_()
+        self.lbName_4.raise_()
+        self.lbName_5.raise_()
+        self.lineHMenu_2.raise_()
+        self.lbName_6.raise_()
+        self.lbName_7.raise_()
+        self.lineHMenu_3.raise_()
+        self.lbName_8.raise_()
+        self.lbName_9.raise_()
+        self.lineHMenu_4.raise_()
+        self.tabWidgetCabinet.addTab(self.tab_profile, "")
+        self.tab_orders = QtWidgets.QWidget()
+        self.tab_orders.setObjectName("tab_orders")
+        self.tableOrders = QtWidgets.QTableWidget(self.tab_orders)
+        self.tableOrders.setGeometry(QtCore.QRect(130, 90, 931, 281))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setKerning(True)
+        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
+        self.tableOrders.setFont(font)
+        self.tableOrders.setMouseTracking(True)
+        self.tableOrders.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.tableOrders.setStyleSheet("QHeaderView\n"
+"{    \n"
+"    border: 0px;\n"
+"    background-color: #101010;\n"
+"    color: rgb(200,200,200);\n"
+"    border-bottom: 1px solid rgb(80,80,80);\n"
+"    min-width: 30px;    \n"
+"    min-height: 30px;\n"
+"    font-family: Montserrat SemiBold;\n"
+"}\n"
+"\n"
+"\n"
+"QHeaderView::section\n"
+"{\n"
+"    border: 0px;\n"
+"    background-color: #101010;\n"
+"    min-height: 25px;\n"
+"    color: rgb(200,200,200);\n"
+"    font-size: 13px;\n"
+"    selection-background-color:#ffc0cb;\n"
+"}\n"
+"\n"
+"QHeaderView::section:hover {\n"
+"   color: white;\n"
+"    background-color: rgb(80,80,80);\n"
+"}\n"
+"\n"
+"QTableWidget::item\n"
+"{\n"
+"     border-bottom: 1px solid rgb(60,60,60); \n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"QTableView\n"
+"{\n"
+"    background-color: #101010;\n"
+"    color: #d5d5d5\n"
+"}\n"
+"\n"
+"QTableWidget::item:hover {\n"
+"    color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}      \n"
+"\n"
+"QTableWidget::item:selected\n"
+"{\n"
+"     color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background-color: #202020;\n"
+"    width: 12px;\n"
+"    margin: 15px 0 15px 0;\n"
+" }\n"
+"\n"
+"QScrollBar:horizontal {\n"
+"    border: none;\n"
+"    background-color: #202020;\n"
+"    height: 12px;\n"
+"    margin: 0 15px 0 15px;\n"
+" }\n"
+"\n"
+"\n"
+"/*  HANDLE BAR VERTICAL */\n"
+"QScrollBar::handle:vertical {    \n"
+"    background-color: #151515;\n"
+"    min-height: 30px;\n"
+"    border-radius: 0px;\n"
+"    border: 1px solid;\n"
+"    border-right: 0px;\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical:hover{    \n"
+"    background-color:  rgb(50,50,50);\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"\n"
+"/*  HANDLE BAR HORIZONTAL */\n"
+"QScrollBar::handle:horizontal {    \n"
+"    background-color: #151515;\n"
+"    min-width: 30px;\n"
+"    border: 1px solid;\n"
+"    border-bottom: 0px;\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"\n"
+"QScrollBar::handle:horizontal:hover{    \n"
+"    background-color:  rgb(50,50,50);\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);    \n"
+"    border-top: 1px solid rgb(180, 0, 0);    \n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:horizontal {\n"
+"    background-color: #151515;\n"
+"    width: 15px;\n"
+"    subcontrol-position: left;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-left: 1px solid rgb(180, 0, 0);    \n"
+"    border-right: 1px solid rgb(180, 0, 0);    \n"
+"}\n"
+"QScrollBar::sub-line:horizontal:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border-top:1px solid rgb(180, 0, 0);\n"
+"    border-right: 0px;\n"
+"    border-bottom: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);    \n"
+"}\n"
+"QScrollBar::add-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:horizontal {\n"
+"    /*border-image: url(\"E:/pcconf/images/right-arrow.png\") 0;*/\n"
+"    background-color: #151515;\n"
+"    width: 15px;\n"
+"    subcontrol-position: right;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border-left:1px solid rgb(180, 0, 0);\n"
+"    border-top: 0px;\n"
+"    border-bottom: 0px;\n"
+"    border-right: 1px solid rgb(180, 0, 0);    \n"
+"\n"
+"}\n"
+"QScrollBar::add-line:horizontal:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"")
+        self.tableOrders.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.tableOrders.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.tableOrders.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableOrders.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.tableOrders.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableOrders.setTextElideMode(QtCore.Qt.ElideLeft)
+        self.tableOrders.setShowGrid(False)
+        self.tableOrders.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableOrders.setCornerButtonEnabled(True)
+        self.tableOrders.setRowCount(2)
+        self.tableOrders.setColumnCount(6)
+        self.tableOrders.setObjectName("tableOrders")
+        item = QtWidgets.QTableWidgetItem()
+        self.tableOrders.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableOrders.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableOrders.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableOrders.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableOrders.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableOrders.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableOrders.setHorizontalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableOrders.setHorizontalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableOrders.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableOrders.setItem(0, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableOrders.setItem(0, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableOrders.setItem(0, 3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableOrders.setItem(0, 4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableOrders.setItem(0, 5, item)
+        self.tableOrders.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableOrders.horizontalHeader().setDefaultSectionSize(135)
+        self.tableOrders.horizontalHeader().setMinimumSectionSize(135)
+        self.tableOrders.verticalHeader().setVisible(False)
+        self.tableOrders.verticalHeader().setCascadingSectionResizes(False)
+        self.tableOrders.verticalHeader().setDefaultSectionSize(50)
+        self.tableOrders.verticalHeader().setMinimumSectionSize(10)
+        self.lbSettings_2 = QtWidgets.QLabel(self.tab_orders)
+        self.lbSettings_2.setGeometry(QtCore.QRect(500, 20, 201, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(16)
+        self.lbSettings_2.setFont(font)
+        self.lbSettings_2.setStyleSheet("")
+        self.lbSettings_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbSettings_2.setObjectName("lbSettings_2")
+        self.tabWidgetCabinet.addTab(self.tab_orders, "")
+        self.tab_settings = QtWidgets.QWidget()
+        self.tab_settings.setObjectName("tab_settings")
+        self.lbName = QtWidgets.QLabel(self.tab_settings)
+        self.lbName.setGeometry(QtCore.QRect(370, 90, 161, 16))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(11)
+        self.lbName.setFont(font)
+        self.lbName.setStyleSheet("")
+        self.lbName.setObjectName("lbName")
+        self.leName = QtWidgets.QLineEdit(self.tab_settings)
+        self.leName.setGeometry(QtCore.QRect(580, 80, 211, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.leName.setFont(font)
+        self.leName.setStyleSheet("QLineEdit{\n"
+"    padding-left: 5px;\n"
+"    border: 1px solid rgb(20,20,20);\n"
+"    background-color: rgb(40,40,40);\n"
+"    border-bottom: 1px solid  rgb(120,120,120);\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QLineEdit:hover{\n"
+"    background-color: rgb(55,55,55);\n"
+"    border-bottom: 1px solid  red;\n"
+"}")
+        self.leName.setText("")
+        self.leName.setObjectName("leName")
+        self.leEmail = QtWidgets.QLineEdit(self.tab_settings)
+        self.leEmail.setGeometry(QtCore.QRect(580, 140, 211, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.leEmail.setFont(font)
+        self.leEmail.setStyleSheet("QLineEdit{\n"
+"    padding-left: 5px;\n"
+"    border: 1px solid rgb(20,20,20);\n"
+"    background-color: rgb(40,40,40);\n"
+"    border-bottom: 1px solid  rgb(120,120,120);\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QLineEdit:hover{\n"
+"    background-color: rgb(55,55,55);\n"
+"    border-bottom: 1px solid  red;\n"
+"}")
+        self.leEmail.setText("")
+        self.leEmail.setObjectName("leEmail")
+        self.lbEmail = QtWidgets.QLabel(self.tab_settings)
+        self.lbEmail.setGeometry(QtCore.QRect(370, 150, 151, 16))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(11)
+        self.lbEmail.setFont(font)
+        self.lbEmail.setStyleSheet("")
+        self.lbEmail.setObjectName("lbEmail")
+        self.lePassword = QtWidgets.QLineEdit(self.tab_settings)
+        self.lePassword.setGeometry(QtCore.QRect(580, 260, 211, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.lePassword.setFont(font)
+        self.lePassword.setStyleSheet("QLineEdit{\n"
+"    padding-left: 5px;\n"
+"    border: 1px solid rgb(20,20,20);\n"
+"    background-color: rgb(40,40,40);\n"
+"    border-bottom: 1px solid  rgb(120,120,120);\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QLineEdit:hover{\n"
+"    background-color: rgb(55,55,55);\n"
+"    border-bottom: 1px solid  red;\n"
+"}")
+        self.lePassword.setText("")
+        self.lePassword.setObjectName("lePassword")
+        self.lbPassword = QtWidgets.QLabel(self.tab_settings)
+        self.lbPassword.setGeometry(QtCore.QRect(370, 270, 151, 16))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(11)
+        self.lbPassword.setFont(font)
+        self.lbPassword.setStyleSheet("")
+        self.lbPassword.setObjectName("lbPassword")
+        self.lbSettings = QtWidgets.QLabel(self.tab_settings)
+        self.lbSettings.setGeometry(QtCore.QRect(370, 10, 421, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(16)
+        self.lbSettings.setFont(font)
+        self.lbSettings.setStyleSheet("")
+        self.lbSettings.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbSettings.setObjectName("lbSettings")
+        self.lePhone = QtWidgets.QLineEdit(self.tab_settings)
+        self.lePhone.setGeometry(QtCore.QRect(580, 200, 211, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.lePhone.setFont(font)
+        self.lePhone.setStyleSheet("QLineEdit{\n"
+"    padding-left: 5px;\n"
+"    border: 1px solid rgb(20,20,20);\n"
+"    background-color: rgb(40,40,40);\n"
+"    border-bottom: 1px solid  rgb(120,120,120);\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QLineEdit:hover{\n"
+"    background-color: rgb(55,55,55);\n"
+"    border-bottom: 1px solid  red;\n"
+"}")
+        self.lePhone.setText("")
+        self.lePhone.setObjectName("lePhone")
+        self.lbPhone = QtWidgets.QLabel(self.tab_settings)
+        self.lbPhone.setGeometry(QtCore.QRect(370, 210, 171, 16))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(11)
+        self.lbPhone.setFont(font)
+        self.lbPhone.setStyleSheet("")
+        self.lbPhone.setObjectName("lbPhone")
+        self.btn_accept_chngs = QtWidgets.QPushButton(self.tab_settings)
+        self.btn_accept_chngs.setGeometry(QtCore.QRect(480, 390, 221, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.btn_accept_chngs.setFont(font)
+        self.btn_accept_chngs.setStyleSheet("\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"color: white;\n"
+"background: #bf0000;\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton\n"
+"{\n"
+"background-color: #FF0000;\n"
+"color: white;\n"
+"border: 1px solid #bf0000;\n"
+"}")
+        self.btn_accept_chngs.setObjectName("btn_accept_chngs")
+        self.lePassword_2 = QtWidgets.QLineEdit(self.tab_settings)
+        self.lePassword_2.setGeometry(QtCore.QRect(580, 320, 211, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.lePassword_2.setFont(font)
+        self.lePassword_2.setStyleSheet("QLineEdit{\n"
+"    padding-left: 5px;\n"
+"    border: 1px solid rgb(20,20,20);\n"
+"    background-color: rgb(40,40,40);\n"
+"    border-bottom: 1px solid  rgb(120,120,120);\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QLineEdit:hover{\n"
+"    background-color: rgb(55,55,55);\n"
+"    border-bottom: 1px solid  red;\n"
+"}")
+        self.lePassword_2.setText("")
+        self.lePassword_2.setObjectName("lePassword_2")
+        self.lbPassword_2 = QtWidgets.QLabel(self.tab_settings)
+        self.lbPassword_2.setGeometry(QtCore.QRect(370, 320, 181, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(11)
+        self.lbPassword_2.setFont(font)
+        self.lbPassword_2.setStyleSheet("")
+        self.lbPassword_2.setObjectName("lbPassword_2")
+        self.tabWidgetCabinet.addTab(self.tab_settings, "")
+        self.stackedWidget.addWidget(self.cabinet)
+        self.line_10 = QtWidgets.QFrame(self.centralwidget)
+        self.line_10.setGeometry(QtCore.QRect(1346, 0, 16, 31))
+        self.line_10.setStyleSheet("border: 0px;\n"
+"background: transparent;\n"
+"border-right: 1px solid rgb(80, 80, 80);")
+        self.line_10.setFrameShape(QtWidgets.QFrame.VLine)
+        self.line_10.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_10.setObjectName("line_10")
+        self.line_11 = QtWidgets.QFrame(self.centralwidget)
+        self.line_11.setGeometry(QtCore.QRect(660, 0, 21, 31))
+        self.line_11.setStyleSheet("border: 0px;\n"
+"background: transparent;\n"
+"border-right: 1px solid rgb(80, 80, 80);")
+        self.line_11.setFrameShape(QtWidgets.QFrame.VLine)
+        self.line_11.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_11.setObjectName("line_11")
+        self.rbCabinet = QtWidgets.QRadioButton(self.centralwidget)
+        self.rbCabinet.setGeometry(QtCore.QRect(1360, 0, 131, 34))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.rbCabinet.sizePolicy().hasHeightForWidth())
+        self.rbCabinet.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(12)
+        font.setStrikeOut(False)
+        self.rbCabinet.setFont(font)
+        self.rbCabinet.setStyleSheet("QRadioButton\n"
+"{\n"
+"    border: 0px;\n"
+"    background: rgb(45, 45, 45);\n"
+"    margin-left: 1px;\n"
+"    left: -1px;\n"
+"    color: white;\n"
+"    border-bottom: 1px solid;\n"
+"    min-height: 33px;\n"
+"}\n"
+"\n"
+"QRadioButton:hover\n"
+"{\n"
+"    background: #404040;\n"
+"    border-bottom: 1px solid;\n"
+"    border-color: black;\n"
+"}\n"
+"\n"
+"QRadioButton:checked\n"
+"{\n"
+"    background: #151515;\n"
+"    border-bottom: 1px solid;\n"
+"    border-color: #FF0000;\n"
+"}\n"
+"QRadioButton::indicator {\n"
+"    width: 24px;\n"
+"    height: 24px;\n"
+"    margin-left: 11px;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:checked {\n"
+"    width: 24px;\n"
+"    height: 24px;\n"
+"     border-image: url(\"E:/pcconf/images/user-red.png\");\n"
+"    color: white;\n"
+"    margin-left: 11px;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:unchecked {\n"
+"    width: 24px;\n"
+"    height: 24px;\n"
+"     border-image:  url(\"E:/pcconf/images/user.png\");\n"
+"    margin-left: 11px;\n"
+"}")
+        self.rbCabinet.setChecked(False)
+        self.rbCabinet.setAutoExclusive(False)
+        self.rbCabinet.setObjectName("rbCabinet")
+        self.stackedWidget.raise_()
+        self.line_11.raise_()
+        self.rbCabinet.raise_()
+        self.line_10.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1367, 23))
-        self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidgetMain.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
+        self.tabWidgetMain.setCurrentIndex(0)
         self.toolBoxNavigation.layout().setSpacing(5)
         self.tabWidgetSklad.setCurrentIndex(0)
         self.tabWidgetVideo.setCurrentIndex(0)
@@ -5995,14 +6934,15 @@ class Ui_MainWindow(object):
         self.tabWidgetDisk.setCurrentIndex(0)
         self.tabWidgetPower.setCurrentIndex(0)
         self.tabWidgetBody.setCurrentIndex(0)
+        self.tabWidgetCabinet.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.lbNavPanel.setText(_translate("MainWindow", "Панель навигации"))
-        self.btnAdd.setText(_translate("MainWindow", "Новое комплектующее"))
-        self.btnRepeat.setText(_translate("MainWindow", "Заказать"))
+        self.btnAdd.setText(_translate("MainWindow", "Добавить новое"))
+        self.btnRepeat.setText(_translate("MainWindow", "Заказать на склад"))
         self.lbVideoProizv.setText(_translate("MainWindow", "Производители:"))
         self.btnNewVideoProizv.setText(_translate("MainWindow", "Новый\n"
 "поставщик"))
@@ -6279,6 +7219,68 @@ class Ui_MainWindow(object):
         self.lb_price_3.setText(_translate("MainWindow", " ₽"))
         self.rbConf.setText(_translate("MainWindow", "Только в наличии"))
         self.tabWidgetMain.setTabText(self.tabWidgetMain.indexOf(self.configurator), _translate("MainWindow", "Конфигуратор"))
+        __sortingEnabled = self.lvCabinetMenu.isSortingEnabled()
+        self.lvCabinetMenu.setSortingEnabled(False)
+        item = self.lvCabinetMenu.item(0)
+        item.setText(_translate("MainWindow", "Профиль"))
+        item = self.lvCabinetMenu.item(1)
+        item.setText(_translate("MainWindow", "Заказы"))
+        item = self.lvCabinetMenu.item(2)
+        item.setText(_translate("MainWindow", "Настройки"))
+        self.lvCabinetMenu.setSortingEnabled(__sortingEnabled)
+        self.lbName_2.setText(_translate("MainWindow", "User-228"))
+        self.lbName_3.setText(_translate("MainWindow", "Дата регистрации"))
+        self.lbName_4.setText(_translate("MainWindow", "22.01.2023"))
+        self.lbName_5.setText(_translate("MainWindow", "korkishko.v@bk.ru"))
+        self.lbName_6.setText(_translate("MainWindow", "+7953999999"))
+        self.lbName_7.setText(_translate("MainWindow", "Номер телефона"))
+        self.lbName_8.setText(_translate("MainWindow", "Количество заказов"))
+        self.lbName_9.setText(_translate("MainWindow", "7"))
+        self.tabWidgetCabinet.setTabText(self.tabWidgetCabinet.indexOf(self.tab_profile), _translate("MainWindow", "Profile"))
+        self.tableOrders.setSortingEnabled(True)
+        item = self.tableOrders.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableOrders.verticalHeaderItem(1)
+        item.setText(_translate("MainWindow", "New Row"))
+        item = self.tableOrders.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "№ Конфигурации"))
+        item = self.tableOrders.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Видеокарта"))
+        item = self.tableOrders.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Процессор"))
+        item = self.tableOrders.horizontalHeaderItem(3)
+        item.setText(_translate("MainWindow", "Цена"))
+        item = self.tableOrders.horizontalHeaderItem(4)
+        item.setText(_translate("MainWindow", "Дата создания"))
+        item = self.tableOrders.horizontalHeaderItem(5)
+        item.setText(_translate("MainWindow", "Подробнее"))
+        __sortingEnabled = self.tableOrders.isSortingEnabled()
+        self.tableOrders.setSortingEnabled(False)
+        item = self.tableOrders.item(0, 0)
+        item.setText(_translate("MainWindow", "1379"))
+        item = self.tableOrders.item(0, 1)
+        item.setText(_translate("MainWindow", "GIGABYTE GeForce RTX 3050 EAGLE OC"))
+        item = self.tableOrders.item(0, 2)
+        item.setText(_translate("MainWindow", "Intel Core i5-10700K"))
+        item = self.tableOrders.item(0, 3)
+        item.setText(_translate("MainWindow", "178500"))
+        item = self.tableOrders.item(0, 4)
+        item.setText(_translate("MainWindow", "29.04.2023"))
+        item = self.tableOrders.item(0, 5)
+        item.setText(_translate("MainWindow", "..."))
+        self.tableOrders.setSortingEnabled(__sortingEnabled)
+        self.lbSettings_2.setText(_translate("MainWindow", "Заказы"))
+        self.tabWidgetCabinet.setTabText(self.tabWidgetCabinet.indexOf(self.tab_orders), _translate("MainWindow", "Configs"))
+        self.lbName.setText(_translate("MainWindow", "Имя *"))
+        self.lbEmail.setText(_translate("MainWindow", "Адрес e-mail *"))
+        self.lbPassword.setText(_translate("MainWindow", "Пароль *"))
+        self.lbSettings.setText(_translate("MainWindow", "Редактировать профиль"))
+        self.lbPhone.setText(_translate("MainWindow", "Мобильный телефон"))
+        self.btn_accept_chngs.setText(_translate("MainWindow", "Подтвердить"))
+        self.lbPassword_2.setText(_translate("MainWindow", "Новый пароль \n"
+"(при необходимости)"))
+        self.tabWidgetCabinet.setTabText(self.tabWidgetCabinet.indexOf(self.tab_settings), _translate("MainWindow", "Settings"))
+        self.rbCabinet.setText(_translate("MainWindow", "Профиль"))
 
 
 if __name__ == "__main__":

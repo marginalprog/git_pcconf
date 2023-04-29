@@ -15,7 +15,7 @@ class Ui_widgetVideoHelp(object):
     def setupUi(self, widgetVideoHelp):
         widgetVideoHelp.setObjectName("widgetVideoHelp")
         widgetVideoHelp.setWindowModality(QtCore.Qt.NonModal)
-        widgetVideoHelp.resize(899, 629)
+        widgetVideoHelp.resize(899, 645)
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -42,8 +42,10 @@ class Ui_widgetVideoHelp(object):
         self.lbHowVidTxt.setFont(font)
         self.lbHowVidTxt.setStyleSheet("color: rgb(220,220,220);")
         self.lbHowVidTxt.setTextFormat(QtCore.Qt.PlainText)
+        self.lbHowVidTxt.setScaledContents(False)
         self.lbHowVidTxt.setAlignment(QtCore.Qt.AlignJustify|QtCore.Qt.AlignTop)
         self.lbHowVidTxt.setWordWrap(True)
+        self.lbHowVidTxt.setOpenExternalLinks(False)
         self.lbHowVidTxt.setObjectName("lbHowVidTxt")
         self.rectangle = QtWidgets.QFrame(widgetVideoHelp)
         self.rectangle.setGeometry(QtCore.QRect(10, 10, 61, 16))
@@ -63,7 +65,7 @@ class Ui_widgetVideoHelp(object):
         self.lbNvidia.setFont(font)
         self.lbNvidia.setObjectName("lbNvidia")
         self.lbGeForce = QtWidgets.QLabel(widgetVideoHelp)
-        self.lbGeForce.setGeometry(QtCore.QRect(40, 340, 381, 221))
+        self.lbGeForce.setGeometry(QtCore.QRect(40, 340, 381, 241))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -75,7 +77,7 @@ class Ui_widgetVideoHelp(object):
         self.lbGeForce.setWordWrap(True)
         self.lbGeForce.setObjectName("lbGeForce")
         self.lbRadeon = QtWidgets.QLabel(widgetVideoHelp)
-        self.lbRadeon.setGeometry(QtCore.QRect(490, 340, 381, 211))
+        self.lbRadeon.setGeometry(QtCore.QRect(490, 350, 381, 211))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -94,7 +96,7 @@ class Ui_widgetVideoHelp(object):
         self.lbAmd.setFont(font)
         self.lbAmd.setObjectName("lbAmd")
         self.btnClose = QtWidgets.QPushButton(widgetVideoHelp)
-        self.btnClose.setGeometry(QtCore.QRect(390, 580, 121, 31))
+        self.btnClose.setGeometry(QtCore.QRect(390, 600, 121, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -116,7 +118,7 @@ class Ui_widgetVideoHelp(object):
 "")
         self.btnClose.setObjectName("btnClose")
         self.line = QtWidgets.QFrame(widgetVideoHelp)
-        self.line.setGeometry(QtCore.QRect(10, 340, 20, 211))
+        self.line.setGeometry(QtCore.QRect(10, 340, 20, 231))
         self.line.setStyleSheet("border: 0px;\n"
 "border-right: 1px solid rgb(210, 0, 0);")
         self.line.setFrameShape(QtWidgets.QFrame.VLine)
@@ -130,7 +132,7 @@ class Ui_widgetVideoHelp(object):
         self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_2.setObjectName("line_2")
         self.line_3 = QtWidgets.QFrame(widgetVideoHelp)
-        self.line_3.setGeometry(QtCore.QRect(460, 340, 20, 211))
+        self.line_3.setGeometry(QtCore.QRect(460, 340, 20, 231))
         self.line_3.setStyleSheet("border: 0px;\n"
 "border-right: 1px solid rgb(210, 0, 0);")
         self.line_3.setFrameShape(QtWidgets.QFrame.VLine)
@@ -165,15 +167,15 @@ class Ui_widgetVideoHelp(object):
         widgetVideoHelp.setWindowTitle(_translate("widgetVideoHelp", "Подобрать видеокарту"))
         self.lbHowVid.setText(_translate("widgetVideoHelp", "Как подобрать видеокарту?"))
         self.lbHowVidTxt.setText(_translate("widgetVideoHelp", "Видеокарта – это устройство, преобразующее графический образ, хранящийся как содержимое памяти компьютера (или самого адаптера), в форму, пригодную для дальнейшего вывода на экран монитора.\n"
-"Наша компания предоставляет видеокарты NVIDIA GeForce и AMD Radeon.\n"
+"Наша компания предоставляет видеокарты с чипами от NVIDIA GeForce и AMD Radeon.\n"
 "\n"
 "При выборе видеокарты в первую очередь следует обратить внимание на её поколение, так как от этого зависит современность технологий, которые были применены и внедрены при производстве.\n"
-"Далее - выбирается оптимальный вариант по цене и справочным данным: объём памяти, разъём интерфейса, частота ядра памяти и и пр."))
+"Далее - выбирается оптимальный вариант по цене и справочным данным: объём памяти, разъём интерфейса, частота ядра памяти и пр."))
         self.lbNvidia.setText(_translate("widgetVideoHelp", "NVIDIA GeForce"))
-        self.lbGeForce.setText(_translate("widgetVideoHelp", "NVIDIA является лидером относительно разработки видеокарт, технологий и инновационных прорывов. \n"
-" Новейшие технологии, например: \n"
-"NVIDIA RTX. Аппаратное ускорение трассировки лучей, в идеале работающее и первое появившееся на видеокартах NVIDIA; \n"
-"NVIDIA DLSS. Высокотехнологичном апскейлинге до 4K из более низкого разрешения с применением нейросетей.\n"
+        self.lbGeForce.setText(_translate("widgetVideoHelp", "NVIDIA является лидером в разработке видеокарт, технологий и инновационных решений. \n"
+"Из последних достижений такие передовые технологии, как: \n"
+"-NVIDIA RTX. Аппаратное ускорение трассировки лучей, в работающее и впервые появившееся на видеокартах NVIDIA; \n"
+"-NVIDIA DLSS. Высокотехнологичный апскейлинг из более низкого разрешения  до 4K с применением нейросетей.\n"
 "Так, если требуется инновационная производительность и использование новейших технолгий, то следует выбирать продукты от NVIDIA"))
         self.lbRadeon.setText(_translate("widgetVideoHelp", "Продукцию AMD относят к более бюджетным вариантам. Большинство прорывов в области архитектуры графических процессоров остаётся за NVIDIA. Однако не всем пользователям необходимы последние инновационные технологии, плюс ко всему, часто AMD Radeon выигрывает в производительности у аналогов Nvidia. \n"
 "Так, если нет необходимости в самых последних графичских инновациях, а бюджет ограничен, то, часто без потери производительности, следует выбирать продукты от AMD."))

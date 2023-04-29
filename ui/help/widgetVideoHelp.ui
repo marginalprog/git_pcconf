@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>899</width>
-    <height>629</height>
+    <height>645</height>
    </rect>
   </property>
   <property name="font">
@@ -71,19 +71,25 @@
    </property>
    <property name="text">
     <string>Видеокарта – это устройство, преобразующее графический образ, хранящийся как содержимое памяти компьютера (или самого адаптера), в форму, пригодную для дальнейшего вывода на экран монитора.
-Наша компания предоставляет видеокарты NVIDIA GeForce и AMD Radeon.
+Наша компания предоставляет видеокарты с чипами от NVIDIA GeForce и AMD Radeon.
 
 При выборе видеокарты в первую очередь следует обратить внимание на её поколение, так как от этого зависит современность технологий, которые были применены и внедрены при производстве.
-Далее - выбирается оптимальный вариант по цене и справочным данным: объём памяти, разъём интерфейса, частота ядра памяти и и пр.</string>
+Далее - выбирается оптимальный вариант по цене и справочным данным: объём памяти, разъём интерфейса, частота ядра памяти и пр.</string>
    </property>
    <property name="textFormat">
     <enum>Qt::PlainText</enum>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
    </property>
    <property name="alignment">
     <set>Qt::AlignJustify|Qt::AlignTop</set>
    </property>
    <property name="wordWrap">
     <bool>true</bool>
+   </property>
+   <property name="openExternalLinks">
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="Line" name="rectangle">
@@ -131,7 +137,7 @@ border: 1px solid rgb(210, 0, 0);</string>
      <x>40</x>
      <y>340</y>
      <width>381</width>
-     <height>221</height>
+     <height>241</height>
     </rect>
    </property>
    <property name="font">
@@ -147,10 +153,10 @@ border: 1px solid rgb(210, 0, 0);</string>
     <string notr="true">color: rgb(220,220,220);</string>
    </property>
    <property name="text">
-    <string>NVIDIA является лидером относительно разработки видеокарт, технологий и инновационных прорывов. 
- Новейшие технологии, например: 
-NVIDIA RTX. Аппаратное ускорение трассировки лучей, в идеале работающее и первое появившееся на видеокартах NVIDIA; 
-NVIDIA DLSS. Высокотехнологичном апскейлинге до 4K из более низкого разрешения с применением нейросетей.
+    <string>NVIDIA является лидером в разработке видеокарт, технологий и инновационных решений. 
+Из последних достижений такие передовые технологии, как: 
+-NVIDIA RTX. Аппаратное ускорение трассировки лучей, в работающее и впервые появившееся на видеокартах NVIDIA; 
+-NVIDIA DLSS. Высокотехнологичный апскейлинг из более низкого разрешения  до 4K с применением нейросетей.
 Так, если требуется инновационная производительность и использование новейших технолгий, то следует выбирать продукты от NVIDIA</string>
    </property>
    <property name="textFormat">
@@ -167,7 +173,7 @@ NVIDIA DLSS. Высокотехнологичном апскейлинге до 
    <property name="geometry">
     <rect>
      <x>490</x>
-     <y>340</y>
+     <y>350</y>
      <width>381</width>
      <height>211</height>
     </rect>
@@ -221,7 +227,7 @@ NVIDIA DLSS. Высокотехнологичном апскейлинге до 
    <property name="geometry">
     <rect>
      <x>390</x>
-     <y>580</y>
+     <y>600</y>
      <width>121</width>
      <height>31</height>
     </rect>
@@ -259,7 +265,7 @@ QPushButton::hover
      <x>10</x>
      <y>340</y>
      <width>20</width>
-     <height>211</height>
+     <height>231</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -293,7 +299,7 @@ border-right: 1px solid rgb(210, 0, 0);</string>
      <x>460</x>
      <y>340</y>
      <width>20</width>
-     <height>211</height>
+     <height>231</height>
     </rect>
    </property>
    <property name="styleSheet">
