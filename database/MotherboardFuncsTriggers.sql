@@ -1,5 +1,5 @@
 
----------------------------------------------------Функции и триггеры процессора-----------------------------------------------------
+---------------------------------------------------Функции и триггеры мат. платы-----------------------------------------------------
 
 
 -- Функция создания нового производителя
@@ -125,14 +125,14 @@ $$ LANGUAGE sql;
 
 
 -- Функция вывода всех сокеты, что есть в базе материнских плат (для заполнения фильтрующих вкладок tabwidget)
-CREATE OR REPLACE FUNCTION get_inbase_socketmother()
+CREATE OR REPLACE FUNCTION get_inbase_mothersocket()
 RETURNS TABLE(socket VARCHAR) AS $$
 	SELECT DISTINCT socket FROM motherboard
 	ORDER BY socket ASC
 $$ LANGUAGE sql;
 
 -- Функция вывода материнских плат, с сокетами в НАЛИЧИИ (для заполнения фильтрующих вкладок tabwidget)
-CREATE OR REPLACE FUNCTION get_having_socketmother()
+CREATE OR REPLACE FUNCTION get_having_mothersocket()
 RETURNS TABLE(socket VARCHAR) AS $$
 	SELECT DISTINCT socket FROM motherboard
 	WHERE motherboard.exist = True
@@ -170,7 +170,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 
--- Триггер пересчёта количество видеокарт на складе
+-- Триггер пересчёта количество мат.плат на складе
 CREATE OR REPLACE FUNCTION update_skladmother()
 RETURNS trigger
 AS $$
@@ -201,7 +201,7 @@ RETURNS TABLE(id INT, exist BOOLEAN, name VARCHAR(50)) AS $$
 	SELECT * FROM proizv_motherboard ORDER BY exist DESC, name ASC
 $$ LANGUAGE sql;
 
--- Функция обновления договора производителя процессора
+-- Функция обновления договора производителя мат.плат
 CREATE OR REPLACE FUNCTION update_mother_dogovor(BOOL, VARCHAR) 
 RETURNS void AS $$
 BEGIN

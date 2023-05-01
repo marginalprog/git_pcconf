@@ -90,8 +90,8 @@ RETURNS TABLE(
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
--- Функция для фильтрации процессоров по производителю
-CREATE OR REPLACE FUNCTION get_processor_by_name(name_pr VARCHAR)
+-- Функция для фильтрации процессоров по серии
+CREATE OR REPLACE FUNCTION get_processor_by_series(series_in VARCHAR)
 RETURNS TABLE(
 	kol INT, 
 	processor_exist BOOL,
@@ -113,26 +113,24 @@ RETURNS TABLE(
 ) AS $$
 	SELECT sklad_processor.kol, processor.exist, processor.id, proizv_processor.name, fullname, gaming, series, socket, core, ncores, cache, frequency, techproc, ramfreq, graphics, tdp, price	
 	FROM processor, sklad_processor, proizv_processor
-	WHERE processor.id = sklad_processor.id_izd AND processor.id_proizv = proizv_processor.id AND name = name_pr
+	WHERE processor.id = sklad_processor.id_izd AND processor.id_proizv = proizv_processor.id AND series = series_in
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
 
--- Функция вывода всех производителей, чьи процессоры есть в базе (для заполнения фильтрующих вкладок tabwidget)
-CREATE OR REPLACE FUNCTION get_inbase_procproizv()
-RETURNS TABLE(name VARCHAR) AS $$
-	SELECT DISTINCT name FROM proizv_processor, processor
-	WHERE proizv_processor.id = processor.id_proizv
-	ORDER BY name ASC
+-- Функция вывода всех серий процессоров что есть базе (для заполнения фильтрующих вкладок tabwidget)
+CREATE OR REPLACE FUNCTION get_inbase_procseries()
+RETURNS TABLE(series VARCHAR) AS $$
+	SELECT DISTINCT series FROM processor
+	ORDER BY series ASC
 $$ LANGUAGE sql;
 
--- Функция вывода производителей, чьи процессоры В НАЛИЧИИ (для заполнения фильтрующих вкладок tabwidget)
-CREATE OR REPLACE FUNCTION get_having_procproizv()
-RETURNS TABLE(name VARCHAR) AS $$
-	SELECT DISTINCT name FROM proizv_processor, processor
-	WHERE proizv_processor.id = processor.id_proizv
-	AND processor.exist = True
-	ORDER BY name ASC
+-- Функция вывода серий процессоров которые В НАЛИЧИИ (для заполнения фильтрующих вкладок tabwidget)
+CREATE OR REPLACE FUNCTION get_having_procseries()
+RETURNS TABLE(series VARCHAR) AS $$
+	SELECT DISTINCT series FROM processor
+	WHERE processor.exist = True
+	ORDER BY series ASC
 $$ LANGUAGE sql;
 
 
