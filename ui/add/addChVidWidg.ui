@@ -29,7 +29,7 @@
   <property name="styleSheet">
    <string notr="true">QWidget
 {
-    background: rgb(30, 30, 30);
+    background: rgb(25, 25, 25);
 	color: white;
 
 }
@@ -233,6 +233,9 @@ QComboBox QAbstractItemView {
    </property>
    <property name="text">
     <string>Видеокарта</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
    </property>
   </widget>
   <widget class="QPushButton" name="btnSave">
@@ -465,7 +468,7 @@ QPushButton::hover
     <string notr="true">border:0px;</string>
    </property>
    <property name="text">
-    <string>Длина [см]</string>
+    <string>Длина [мм]</string>
    </property>
   </widget>
   <widget class="QLabel" name="lbTdp">

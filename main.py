@@ -281,21 +281,21 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         # ==========================================================================================
 
         # =========================== Надстройки вкладки "Конфигуратор"=============================
-        self.btnResetVideo.clicked.connect(lambda: self.reset_radiobutton(self.tableConfVideo))
-        self.btnResetProc.clicked.connect(lambda: self.reset_radiobutton(self.tableConfProc))
-        self.btnResetMother.clicked.connect(lambda: self.reset_radiobutton(self.tableConfMother))
-        self.btnResetCool.clicked.connect(lambda: self.reset_radiobutton(self.tableConfCool))
-        self.btnResetDisk.clicked.connect(lambda: self.reset_radiobutton(self.tableConfDisk))
-        self.btnResetBody.clicked.connect(lambda: self.reset_radiobutton(self.tableConfBody))
-        self.btnResetRam.clicked.connect(lambda: self.reset_radiobutton(self.tableConfRam))
-        self.btnResetPower.clicked.connect(lambda: self.reset_radiobutton(self.tableConfPower))
+        self.btnResetVideo.clicked.connect(lambda: self.click_reset_radiobutton(self.tableConfVideo))
+        self.btnResetProc.clicked.connect(lambda: self.click_reset_radiobutton(self.tableConfProc))
+        self.btnResetMother.clicked.connect(lambda: self.click_reset_radiobutton(self.tableConfMother))
+        self.btnResetCool.clicked.connect(lambda: self.click_reset_radiobutton(self.tableConfCool))
+        self.btnResetDisk.clicked.connect(lambda: self.click_reset_radiobutton(self.tableConfDisk))
+        self.btnResetBody.clicked.connect(lambda: self.click_reset_radiobutton(self.tableConfBody))
+        self.btnResetRam.clicked.connect(lambda: self.click_reset_radiobutton(self.tableConfRam))
+        self.btnResetPower.clicked.connect(lambda: self.click_reset_radiobutton(self.tableConfPower))
         self.treeWidget.itemClicked.connect(lambda: self.treeNavigation())
         # ------------------------Заполнение таблиц при инициализации-----------------------
 
         self.row_selected = None
         for i in range(3):
             self.load_conf(i)
-        self.fill_tabs_conf()
+        self.fill_all_tabs_conf()
         # -----------------------------------------------------------------------------
 
         # ---------------------Кнопки с помощью--------------------------------
@@ -1344,7 +1344,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 else:
                     self.clear_cart(self.tableConfMother)
 
-            self.fill_tabs_conf()
+            self.fill_all_tabs_conf()
 
             # И другие функции заполнения
             # self.reset_all_config()
@@ -1477,28 +1477,23 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                         tab = QtWidgets.QWidget()
                         tab_widget.addTab(tab, list_names[i])
 
-    def fill_tabs_configure(self, type_, list_names, tab_widget):
+    def fill_tabs_configure(self, list_names, tab_widget):
+        """
+        Заполняет зависимые от выбранного комплектующего (при срабатывании методов, завязанных на нажатии по комплект.)
+        таблицы вкладками, подходящими по выбранному компоненту. Например, заполняет вкладки мат.плат, если выбран проц.
+        :param list_names: список вкладок, которыми необходимо заполнить надтабличный фильтр
+        :param tab_widget: табвиджет, с которым требуется провести действия
+        :return:
+        """
         if tab_widget.count() > 1:
             for i in range(tab_widget.count() - 1):  # Удаление старых вкладок
                 tab_widget.removeTab(1)
-        match type_:
-            case 0:
-                count_tab = len(list_names)
-                for i in range(0, count_tab):  # первая вкладка должна остаться
-                    tab = QtWidgets.QWidget()
-                    tab_widget.addTab(tab, list_names[i])
-            case 1:
-                count_tab = len(list_names)
-                for i in range(0, count_tab):  # первая вкладка должна остаться
-                    tab = QtWidgets.QWidget()
-                    tab_widget.addTab(tab, list_names[i])
-            case 2:
-                count_tab = len(list_names)
-                for i in range(0, count_tab):  # первая вкладка должна остаться
-                    tab = QtWidgets.QWidget()
-                    tab_widget.addTab(tab, list_names[i])
+        count_tab = len(list_names)
+        for i in range(0, count_tab):  # первая вкладка должна остаться
+            tab = QtWidgets.QWidget()
+            tab_widget.addTab(tab, list_names[i])
 
-    def fill_tabs_conf(self):
+    def fill_all_tabs_conf(self):
         if self.tabWidgetVideo.count() > 1:
             for i in range(self.tabWidgetVideo.count() - 1):  # Удаление старых вкладок
                 self.tabWidgetVideo.removeTab(1)
@@ -1524,42 +1519,95 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
             for i in range(self.tabWidgetBody.count() - 1):
                 self.tabWidgetBody.removeTab(1)
 
-        if self.rbConf.isChecked():
-            list_names = self.get_tabs("Videocard", True)
-            count_tab = len(list_names)
-            for i in range(0, count_tab):
-                tab = QtWidgets.QWidget()
-                self.tabWidgetVideo.addTab(tab, list_names[i])
+        list_names = self.get_tabs("Videocard", self.rbConf.isChecked())
+        count_tab = len(list_names)
+        for i in range(0, count_tab):
+            tab = QtWidgets.QWidget()
+            self.tabWidgetVideo.addTab(tab, list_names[i])
 
-            list_names = self.get_tabs("Processor", True)
-            count_tab = len(list_names)
-            for i in range(0, count_tab):
-                tab = QtWidgets.QWidget()
-                self.tabWidgetProc.addTab(tab, list_names[i])
+        list_names = self.get_tabs("Processor", self.rbConf.isChecked())
+        count_tab = len(list_names)
+        for i in range(0, count_tab):
+            tab = QtWidgets.QWidget()
+            self.tabWidgetProc.addTab(tab, list_names[i])
 
-            list_names = self.get_tabs("Motherboard", True)
-            count_tab = len(list_names)
-            for i in range(0, count_tab):
-                tab = QtWidgets.QWidget()
-                self.tabWidgetMother.addTab(tab, list_names[i])
-        else:
-            list_names = self.get_tabs("Videocard", False)
-            count_tab = len(list_names)
-            for i in range(0, count_tab):
-                tab = QtWidgets.QWidget()
-                self.tabWidgetVideo.addTab(tab, list_names[i])
+        list_names = self.get_tabs("Motherboard", self.rbConf.isChecked())
+        count_tab = len(list_names)
+        for i in range(0, count_tab):
+            tab = QtWidgets.QWidget()
+            self.tabWidgetMother.addTab(tab, list_names[i])
 
-            list_names = self.get_tabs("Processor", False)
-            count_tab = len(list_names)
-            for i in range(0, count_tab):  # первая вкладка должна остаться
-                tab = QtWidgets.QWidget()
-                self.tabWidgetProc.addTab(tab, list_names[i])
+    # Метод заполнения одного табвиджета
+    def fill_one_tab(self, table):
+        """
+        Заполняет один tabwidget вкладками.
+        Данный метод в частности вызывается из кнопки обновления таблицы, поэтому он принимает таблицу, по ней
+        определяет надлежащий tabwidget и передаёт его циклу в конце метода
+        :param table: таблица, для которой было вызвано обновление и над которой нужно обновить вкладки
+        """
+        list_names = []
+        tab_widget = ""
+        match table:
+            case self.tableConfVideo:
+                if self.tabWidgetVideo.count() > 1:
+                    for i in range(self.tabWidgetVideo.count() - 1):  # Удаление старых вкладок
+                        self.tabWidgetVideo.removeTab(1)
+                list_names = self.get_tabs("Videocard", self.rbConf.isChecked())
+                tab_widget = self.tabWidgetVideo
 
-            list_names = self.get_tabs("Motherboard", False)
-            count_tab = len(list_names)
-            for i in range(0, count_tab):  # первая вкладка должна остаться
-                tab = QtWidgets.QWidget()
-                self.tabWidgetMother.addTab(tab, list_names[i])
+            case self.tableConfProc:
+                if self.tabWidgetProc.count() > 1:
+                    for i in range(self.tabWidgetProc.count() - 1):
+                        self.tabWidgetProc.removeTab(1)
+                list_names = self.get_tabs("Processor", self.rbConf.isChecked())
+                tab_widget = self.tabWidgetProc
+
+            case self.tableConfMother:
+                if self.tabWidgetMother.count() > 1:
+                    for i in range(self.tabWidgetMother.count() - 1):
+                        self.tabWidgetMother.removeTab(1)
+                list_names = self.get_tabs("Motherboard", self.rbConf.isChecked())
+                tab_widget = self.tabWidgetMother
+
+            case self.tableConfCool:
+                if self.tabWidgetCool.count() > 1:
+                    for i in range(self.tabWidgetCool.count() - 1):
+                        self.tabWidgetCool.removeTab(1)
+                list_names = self.get_tabs("Cooling", self.rbConf.isChecked())
+                tab_widget = self.tabWidgetCool
+
+            case self.tableConfRam:
+                if self.tabWidgetRam.count() > 1:
+                    for i in range(self.tabWidgetRam.count() - 1):
+                        self.tabWidgetRam.removeTab(1)
+                list_names = self.get_tabs("Ram", self.rbConf.isChecked())
+                tab_widget = self.tabWidgetRam
+
+            case self.tableConfDisk:
+                if self.tabWidgetDisk.count() > 1:
+                    for i in range(self.tabWidgetDisk.count() - 1):
+                        self.tabWidgetDisk.removeTab(1)
+                list_names = self.get_tabs("Disk", self.rbConf.isChecked())
+                tab_widget = self.tabWidgetDisk
+
+            case self.tableConfPower:
+                if self.tabWidgetPower.count() > 1:
+                    for i in range(self.tabWidgetPower.count() - 1):
+                        self.tabWidgetPower.removeTab(1)
+                list_names = self.get_tabs("Power", self.rbConf.isChecked())
+                tab_widget = self.tabWidgetPower
+
+            case self.tableConfBody:
+                if self.tabWidgetBody.count() > 1:
+                    for i in range(self.tabWidgetBody.count() - 1):
+                        self.tabWidgetBody.removeTab(1)
+                list_names = self.get_tabs("Motherboard", self.rbConf.isChecked())
+                tab_widget = self.tabWidgetMother
+
+        count_tab = len(list_names)
+        for i in range(0, count_tab):
+            tab = QtWidgets.QWidget()
+            tab_widget.addTab(tab, list_names[i])
 
     def click_tab_sklad(self, page, tab_index, tab_widget):
         conn = None
@@ -1763,17 +1811,14 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
 
     # Метод, обнуляющий собранную конфигурацию
     def reset_all_config(self):
-        for i in range(8):
-            self.load_conf(i)
-        self.fill_tabs_conf()
-        self.reset_radiobutton(self.tableConfVideo)
-        self.reset_radiobutton(self.tableConfProc)
-        self.reset_radiobutton(self.tableConfMother)
-        self.reset_radiobutton(self.tableConfCool)
-        self.reset_radiobutton(self.tableConfRam)
-        self.reset_radiobutton(self.tableConfDisk)
-        self.reset_radiobutton(self.tableConfPower)
-        self.reset_radiobutton(self.tableConfBody)
+        self.click_reset_radiobutton(self.tableConfVideo)
+        self.click_reset_radiobutton(self.tableConfProc)
+        self.click_reset_radiobutton(self.tableConfMother)
+        self.click_reset_radiobutton(self.tableConfCool)
+        self.click_reset_radiobutton(self.tableConfRam)
+        self.click_reset_radiobutton(self.tableConfDisk)
+        self.click_reset_radiobutton(self.tableConfPower)
+        self.click_reset_radiobutton(self.tableConfBody)
         self.lb_price.setText("000 000")
 
     # Метод, обнуляющий RadioButton в таблице
@@ -1791,11 +1836,38 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
             table.setCurrentCell(-1, -1)
             button_group.setExclusive(True)
 
-            '''if self.tableConfVideo.currentRow() != -1:  # Если была выбрана строка, то сохраняем её номер
-                index_row = self.tableConfVideo.currentRow()
-            if index_row < self.tableConfVideo.rowCount():  # Если была выбарана имеющаяся видеокарта, то выделяем снова
-                # Если была выбрана неимеющаяся карта, то она не будет выделена, тк они имеют бОльший индекс строки
-                self.tableConfVideo.selectRow(index_row)'''
+    # Метод, обнуляющий RadioButton в таблице по клику на кнопку
+    def click_reset_radiobutton(self, table):
+        if table.objectName() in self.dict_button_group:  # Если пара таблица-группа были добавлены
+            button_group = self.dict_button_group[table.objectName()]
+            button_group.setExclusive(False)
+            for i in range(table.rowCount()):
+                widget = table.cellWidget(i, 0)
+                if widget is not None:
+                    rad_but = widget.findChild(RadioButton)
+                    if rad_but is not None and rad_but.isChecked():
+                        rad_but.setChecked(False)
+            table.clearSelection()
+            table.setCurrentCell(-1, -1)
+            button_group.setExclusive(True)
+            self.fill_one_tab(table)
+            match table:  # Перезаполнение таблицы новыми записями
+                case self.tableConfVideo:
+                    self.load_conf(0)
+                case self.tableConfProc:
+                    self.load_conf(1)
+                case self.tableConfMother:
+                    self.load_conf(2)
+                case self.tableConfCool:
+                    self.load_conf(3)
+                case self.tableConfRam:
+                    self.load_conf(4)
+                case self.tableConfDisk:
+                    self.load_conf(5)
+                case self.tableConfPower:
+                    self.load_conf(6)
+                case self.tableConfBody:
+                    self.load_conf(7)
             self.clear_cart(table)
 
     #  Метод очистки всей корзины (таблицы) предпросмотра заказа
@@ -1935,7 +2007,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                         list_proizv = []
                         for name in cur:
                             list_proizv.append(name[0])
-                        self.fill_tabs_configure(2, list_proizv, self.tabWidgetMother)
+                        self.fill_tabs_configure(list_proizv, self.tabWidgetMother)
                 case self.tableConfMother:  # По выбранной мат. плате отсортировать процессоры и ОЗУ
                     if self.rbConf.isChecked():
                         pass
@@ -1964,7 +2036,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                         list_proizv = []
                         for name in cur:
                             list_proizv.append(name[0])
-                        self.fill_tabs_configure(1, list_proizv, self.tabWidgetProc)
+                        self.fill_tabs_configure(list_proizv, self.tabWidgetProc)
 
             # self.fill_tabs_conf()  # нужны отдельные функции заполнения табов по выбранному комплектующему
             # (можно здесь же сделать объединение с большим запросом с SELECT proizvname\сокет и тп DISTINCT) и заполнить табы
@@ -2000,6 +2072,8 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 self.cell_row_without_conf(j, 0, table)
                 return True
             checkable_row.clear()
+        # Если в отфильтрованной таблице нет выделенной ранее строки (метод не вернул true), то чистим корзину
+        self.clear_cart(table)
         return False
 
     def current_pos_sklad(self, ch, row, table):

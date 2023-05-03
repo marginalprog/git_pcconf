@@ -1,0 +1,1 @@
+pyuic5.exe -x E:\pcconf\ui\add\addChPowerWidg.ui -o  E:\pcconf\ui\add\addChPowerWidg.py
