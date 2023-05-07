@@ -13,10 +13,14 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../images/win_add_icon.png</normaloff>../../images/win_add_icon.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">QWidget
 {
-    background: rgb(25, 25, 25);
+    background: rgb(30, 30, 30);
 	color: white;
 }
 </string>
@@ -641,7 +645,7 @@ QComboBox QAbstractItemView {
   <widget class="QLabel" name="lbPinPcie">
    <property name="geometry">
     <rect>
-     <x>480</x>
+     <x>550</x>
      <y>350</y>
      <width>271</width>
      <height>25</height>
@@ -961,119 +965,6 @@ border-top: 1px solid rgb(220, 0, 0);</string>
    <property name="text">
     <string>Сертификат</string>
    </property>
-  </widget>
-  <widget class="QComboBox" name="cbPinPcie">
-   <property name="geometry">
-    <rect>
-     <x>480</x>
-     <y>380</y>
-     <width>111</width>
-     <height>35</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat Medium</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QComboBox{
-	background-color: rgb(40,40,40);
-	border: 1px;
-	border-bottom: 1px solid rgb(120,120,120);
-	padding-left: 5px;
-	selection-background-color: rgb(105, 0, 0);
-}
-
-QComboBox QListView{
-	border: 1px solid red;
-	padding-left: 5px;
-	selection-background-color: rgb(105, 0, 0);
-}
-
-QComboBox:hover{
-	background-color: rgb(55,55,55);
-	border-bottom: 1px solid red;
-}
-
-QComboBox::down-arrow:hover {
-border-image: url(&quot;E:/pcconf/images/down-arrow.png&quot;);
-width: 17px;
-height: 17px;
-margin-right: 5px;
-}
-
-QComboBox::drop-down{
-border: 0px;
-}
-
-QComboBox::down-arrow {
-border-image: url(&quot;E:/pcconf/images/down-arrow-gray.png&quot;);
-width: 17px;
-height: 17px;
-margin-right: 5px;
-}
-
-QComboBox::down-arrow:on {
-	border-image: url(&quot;E:/pcconf/images/up-arrow.png&quot;);
-	width: 17px;
-	height: 17px;
-	margin-right: 5px;
-}
-
-QComboBox:on{
-border: 2px solid rgb(100,0,0);
-}
-
-QComboBox QAbstractItemView {
-	background: rgb(250, 250, 250);
-	border-width: 1px;
-	border-style: solid;
-	border-color: rgb(235, 235, 235);
-	selection-background-color: rgb(240, 240, 240);
-	selection-color: rgb(25, 25, 25);
-}
-</string>
-   </property>
-   <property name="editable">
-    <bool>false</bool>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>20</width>
-     <height>20</height>
-    </size>
-   </property>
-   <property name="duplicatesEnabled">
-    <bool>false</bool>
-   </property>
-   <property name="frame">
-    <bool>false</bool>
-   </property>
-   <property name="modelColumn">
-    <number>0</number>
-   </property>
-   <item>
-    <property name="text">
-     <string>4</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>3</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>2</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>1</string>
-    </property>
-   </item>
   </widget>
   <widget class="QLineEdit" name="leKol">
    <property name="geometry">
@@ -1476,7 +1367,7 @@ QComboBox QAbstractItemView {
   <widget class="QLabel" name="lbLenPower">
    <property name="geometry">
     <rect>
-     <x>490</x>
+     <x>550</x>
      <y>170</y>
      <width>191</width>
      <height>25</height>
@@ -1498,8 +1389,41 @@ QComboBox QAbstractItemView {
   <widget class="QLineEdit" name="leLenPower">
    <property name="geometry">
     <rect>
-     <x>490</x>
+     <x>550</x>
      <y>200</y>
+     <width>111</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat Medium</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit{
+	padding-left: 5px;
+	border: 1px solid rgb(20,20,20);
+	background-color: rgb(40,40,40);
+	border-bottom: 1px solid  rgb(120,120,120);
+	selection-background-color: rgb(105, 0, 0);
+}
+
+QLineEdit:hover{
+	background-color: rgb(55,55,55);
+	border-bottom: 1px solid  red;
+}</string>
+   </property>
+   <property name="inputMask">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lePinPcie">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>380</y>
      <width>111</width>
      <height>35</height>
     </rect>
@@ -1550,7 +1474,6 @@ QLineEdit:hover{
   <zorder>dateEdit</zorder>
   <zorder>line</zorder>
   <zorder>lbCertificate</zorder>
-  <zorder>cbPinPcie</zorder>
   <zorder>leKol</zorder>
   <zorder>line_4</zorder>
   <zorder>lbDate</zorder>
@@ -1562,6 +1485,7 @@ QLineEdit:hover{
   <zorder>cbPinMain</zorder>
   <zorder>lbLenPower</zorder>
   <zorder>leLenPower</zorder>
+  <zorder>lePinPcie</zorder>
  </widget>
  <resources/>
  <connections>

@@ -15,9 +15,12 @@ class Ui_addChBodyWidg(object):
     def setupUi(self, addChBodyWidg):
         addChBodyWidg.setObjectName("addChBodyWidg")
         addChBodyWidg.resize(878, 602)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\add\\../../images/win_add_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        addChBodyWidg.setWindowIcon(icon)
         addChBodyWidg.setStyleSheet("QWidget\n"
 "{\n"
-"    background: rgb(25, 25, 25);\n"
+"    background: rgb(30, 30, 30);\n"
 "    color: white;\n"
 "}\n"
 "")
@@ -455,14 +458,6 @@ class Ui_addChBodyWidg(object):
         self.lbDate.setFont(font)
         self.lbDate.setStyleSheet("border:0px;")
         self.lbDate.setObjectName("lbDate")
-        self.lbConnect = QtWidgets.QLabel(addChBodyWidg)
-        self.lbConnect.setGeometry(QtCore.QRect(180, 350, 191, 25))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat SemiBold")
-        font.setPointSize(10)
-        self.lbConnect.setFont(font)
-        self.lbConnect.setStyleSheet("border:0px;")
-        self.lbConnect.setObjectName("lbConnect")
         self.cbType = QtWidgets.QComboBox(addChBodyWidg)
         self.cbType.setGeometry(QtCore.QRect(340, 200, 111, 35))
         font = QtGui.QFont()
@@ -786,84 +781,34 @@ class Ui_addChBodyWidg(object):
 "}")
         self.leWeight.setInputMask("")
         self.leWeight.setObjectName("leWeight")
-        self.cbFMother = QtWidgets.QComboBox(addChBodyWidg)
-        self.cbFMother.setGeometry(QtCore.QRect(180, 380, 111, 35))
+        self.lbFMother = QtWidgets.QLabel(addChBodyWidg)
+        self.lbFMother.setGeometry(QtCore.QRect(180, 350, 251, 25))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        self.lbFMother.setFont(font)
+        self.lbFMother.setStyleSheet("border:0px;")
+        self.lbFMother.setObjectName("lbFMother")
+        self.leFMother = QtWidgets.QLineEdit(addChBodyWidg)
+        self.leFMother.setGeometry(QtCore.QRect(180, 380, 261, 35))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
-        self.cbFMother.setFont(font)
-        self.cbFMother.setStyleSheet("QComboBox{\n"
+        self.leFMother.setFont(font)
+        self.leFMother.setStyleSheet("QLineEdit{\n"
+"    padding-left: 5px;\n"
+"    border: 1px solid rgb(20,20,20);\n"
 "    background-color: rgb(40,40,40);\n"
-"    border: 1px;\n"
-"    border-bottom: 1px solid rgb(120,120,120);\n"
-"    padding-left: 5px;\n"
+"    border-bottom: 1px solid  rgb(120,120,120);\n"
 "    selection-background-color: rgb(105, 0, 0);\n"
 "}\n"
 "\n"
-"QComboBox QListView{\n"
-"    border: 1px solid red;\n"
-"    padding-left: 5px;\n"
-"    selection-background-color: rgb(105, 0, 0);\n"
-"}\n"
-"\n"
-"QComboBox:hover{\n"
+"QLineEdit:hover{\n"
 "    background-color: rgb(55,55,55);\n"
-"    border-bottom: 1px solid red;\n"
-"}\n"
-"\n"
-"QComboBox::down-arrow:hover {\n"
-"border-image: url(\"E:/pcconf/images/down-arrow.png\");\n"
-"width: 17px;\n"
-"height: 17px;\n"
-"margin-right: 5px;\n"
-"}\n"
-"\n"
-"QComboBox::drop-down{\n"
-"border: 0px;\n"
-"}\n"
-"\n"
-"QComboBox::down-arrow {\n"
-"border-image: url(\"E:/pcconf/images/down-arrow-gray.png\");\n"
-"width: 17px;\n"
-"height: 17px;\n"
-"margin-right: 5px;\n"
-"}\n"
-"\n"
-"QComboBox::down-arrow:on {\n"
-"    border-image: url(\"E:/pcconf/images/up-arrow.png\");\n"
-"    width: 17px;\n"
-"    height: 17px;\n"
-"    margin-right: 5px;\n"
-"}\n"
-"\n"
-"QComboBox:on{\n"
-"border: 2px solid rgb(100,0,0);\n"
-"}\n"
-"\n"
-"QComboBox QAbstractItemView {\n"
-"    background: rgb(250, 250, 250);\n"
-"    border-width: 1px;\n"
-"    border-style: solid;\n"
-"    border-color: rgb(235, 235, 235);\n"
-"    selection-background-color: rgb(240, 240, 240);\n"
-"    selection-color: rgb(25, 25, 25);\n"
-"}\n"
-"")
-        self.cbFMother.setEditable(False)
-        self.cbFMother.setIconSize(QtCore.QSize(20, 20))
-        self.cbFMother.setDuplicatesEnabled(False)
-        self.cbFMother.setFrame(False)
-        self.cbFMother.setModelColumn(0)
-        self.cbFMother.setObjectName("cbFMother")
-        self.cbFMother.addItem("")
-        self.cbFMother.addItem("")
-        self.cbFMother.addItem("")
-        self.cbFMother.addItem("")
-        self.cbFMother.addItem("")
-        self.cbFMother.addItem("")
-        self.cbFMother.addItem("")
-        self.cbFMother.addItem("")
-        self.cbFMother.addItem("")
+"    border-bottom: 1px solid  red;\n"
+"}")
+        self.leFMother.setInputMask("")
+        self.leFMother.setObjectName("leFMother")
         self.line_3.raise_()
         self.line_4.raise_()
         self.leLenVideo.raise_()
@@ -886,7 +831,6 @@ class Ui_addChBodyWidg(object):
         self.line.raise_()
         self.rectangle.raise_()
         self.lbDate.raise_()
-        self.lbConnect.raise_()
         self.cbType.raise_()
         self.lbComplect.raise_()
         self.cbGaming.raise_()
@@ -899,7 +843,8 @@ class Ui_addChBodyWidg(object):
         self.leColor.raise_()
         self.lbWeight.raise_()
         self.leWeight.raise_()
-        self.cbFMother.raise_()
+        self.lbFMother.raise_()
+        self.leFMother.raise_()
 
         self.retranslateUi(addChBodyWidg)
         self.btnCancel.clicked.connect(addChBodyWidg.close)
@@ -920,7 +865,6 @@ class Ui_addChBodyWidg(object):
         self.lbFullName.setText(_translate("addChBodyWidg", "Название корпуса"))
         self.cbProizv.setItemText(0, _translate("addChBodyWidg", "Cougar"))
         self.lbDate.setText(_translate("addChBodyWidg", "Дата заказа"))
-        self.lbConnect.setText(_translate("addChBodyWidg", "Форм-фактор мат. платы"))
         self.cbType.setItemText(0, _translate("addChBodyWidg", "Mid-Tower"))
         self.cbType.setItemText(1, _translate("addChBodyWidg", "Mini-Tower"))
         self.cbType.setItemText(2, _translate("addChBodyWidg", "Ultra-Tower"))
@@ -940,16 +884,8 @@ class Ui_addChBodyWidg(object):
         self.cbFPower.setItemText(4, _translate("addChBodyWidg", "TFX"))
         self.lbFPower.setText(_translate("addChBodyWidg", "Форм-фактор блока питания"))
         self.lbLenPower.setText(_translate("addChBodyWidg", "Длина блока питания [мм]"))
-        self.lbWeight.setText(_translate("addChBodyWidg", "Масса"))
-        self.cbFMother.setItemText(0, _translate("addChBodyWidg", "Standart-ATX"))
-        self.cbFMother.setItemText(1, _translate("addChBodyWidg", "E-ATX"))
-        self.cbFMother.setItemText(2, _translate("addChBodyWidg", "Micro-ATX"))
-        self.cbFMother.setItemText(3, _translate("addChBodyWidg", "Mini-DTX"))
-        self.cbFMother.setItemText(4, _translate("addChBodyWidg", "Mini-ITX"))
-        self.cbFMother.setItemText(5, _translate("addChBodyWidg", "Mini-STX"))
-        self.cbFMother.setItemText(6, _translate("addChBodyWidg", "SSI-CEB"))
-        self.cbFMother.setItemText(7, _translate("addChBodyWidg", "XL-ATX"))
-        self.cbFMother.setItemText(8, _translate("addChBodyWidg", "UCFF"))
+        self.lbWeight.setText(_translate("addChBodyWidg", "Масса [кг]"))
+        self.lbFMother.setText(_translate("addChBodyWidg", "Форм-факторы материнских плат"))
 
 
 if __name__ == "__main__":

@@ -6,7 +6,8 @@ from PyQt5.QtGui import QIntValidator
 from PyQt5.QtWidgets import QDialog
 # ----------файлы интерфейса---------------
 from ui import warningWin
-from ui.add import addChVidWidg, addChProcWidg, addChMotherWidg
+from ui.add import addChVidWidg, addChProcWidg, addChMotherWidg, addChCoolWidg, addChRamWidg, addChDiskWidg, \
+    addChPowerWidg, addChBodyWidg
 
 
 # Проверяет и окрашивает название поле, если то заполнено неверно (не заполнено вовсе)
@@ -33,7 +34,7 @@ class DialogOk(QDialog, warningWin.Ui_warningDialog):
 
 # Класс окна с добавлением\редактированием видеокарты
 class AddChangeVideoWindow(QtWidgets.QWidget, addChVidWidg.Ui_addChVidWidg):
-    def __init__(self, mainWindow, new_bool, list_valid_proizv, dict_proizv, dict_videocard):
+    def __init__(self, main_window, new_bool, list_valid_proizv, dict_proizv, dict_videocard):
         super().__init__()
         self.setupUi(self)
         if new_bool:
@@ -52,10 +53,7 @@ class AddChangeVideoWindow(QtWidgets.QWidget, addChVidWidg.Ui_addChVidWidg):
         #  временные рамки заказа?
         # Вызов метода проверки корректности заполнения полей
         self.btnSave.clicked.connect(
-            lambda: self.sql_insert_videocard(new_bool, mainWindow, dict_proizv, dict_videocard))
-
-        two_digits_int = QIntValidator()
-        two_digits_int.setRange(0, 99)
+            lambda: self.sql_insert_videocard(new_bool, main_window, dict_proizv, dict_videocard))
 
         three_digits_int = QIntValidator()
         three_digits_int.setRange(0, 999)
@@ -73,7 +71,7 @@ class AddChangeVideoWindow(QtWidgets.QWidget, addChVidWidg.Ui_addChVidWidg):
         self.leBus.setValidator(four_digits_int)
         self.leFreq.setValidator(four_digits_int)
         self.leTdp.setValidator(three_digits_int)
-        self.leLength.setValidator(two_digits_int)
+        self.leLength.setValidator(three_digits_int)
         self.leKol.setValidator(four_digits_int)
         self.lePrice.setValidator(six_digits_int)
         self.cbProizv.clear()
@@ -85,7 +83,7 @@ class AddChangeVideoWindow(QtWidgets.QWidget, addChVidWidg.Ui_addChVidWidg):
 
     # Метод отправки запроса в БД на создание записи. выдаёт ошибку, если есть пустые поля
     # Окрашивает надписи к полям, которые не заполнены (cb заполнены всегда, поэтому их не красит)
-    def sql_insert_videocard(self, new_bool, mainWindow, dict_proizv, dict_videocard):
+    def sql_insert_videocard(self, new_bool, main_window, dict_proizv, dict_videocard):
         conn = None
         cur = None
         try:
@@ -110,8 +108,8 @@ class AddChangeVideoWindow(QtWidgets.QWidget, addChVidWidg.Ui_addChVidWidg):
                 if self.leFullName.text() == "" or self.leChipName.text() == "" or self.leVolume.text() == "" or \
                         self.leType.text() == "" or self.leBus.text() == "" or self.leFreq.text() == "" or \
                         self.leLength.text() == "" or self.leTdp.text() == "" or self.lePrice.text() == "":
-                    self.dialog = DialogOk("Ошибка", "Все поля должны быть заполнены")
-                    self.dialog.show()
+                    dialog = DialogOk("Ошибка", "Все поля должны быть заполнены")
+                    dialog.show()
                 else:
                     gaming = False
                     if self.cbGaming.currentText() == "Да": gaming = True
@@ -134,8 +132,8 @@ class AddChangeVideoWindow(QtWidgets.QWidget, addChVidWidg.Ui_addChVidWidg):
             else:  # Если повторяем заказ - вызываем 1 процедуру и заполняем её
                 mark_labels(self.leKol, self.lbKol)
                 if self.leKol.text() == "" or int(self.leKol.text()) < 1:
-                    self.dialog = DialogOk("Ошибка", "Заполните поле 'Количество' числом >= 1 ")
-                    self.dialog.show()
+                    dialog = DialogOk("Ошибка", "Заполните поле 'Количество' числом >= 1 ")
+                    dialog.show()
                 else:
                     id_izd = {i for i in dict_videocard
                               if dict_videocard[i] == self.leFullName.text()}
@@ -145,23 +143,23 @@ class AddChangeVideoWindow(QtWidgets.QWidget, addChVidWidg.Ui_addChVidWidg):
                     self.close()
 
         except (Exception, psycopg2.DatabaseError) as error:
-            self.dialog = DialogOk("Ошибка", error)
-            self.dialog.show()
+            dialog = DialogOk("Ошибка", error)
+            dialog.show()
         finally:
             if conn:
                 conn.commit()
                 cur.close()
                 conn.close()
-                mainWindow.load_sklad(0)  # Загрузка обновлённой таблицы ВИДЕОКАРТ из БД на склад
-                mainWindow.load_conf(0)  # Загрузка обновлённой таблицы ВИДЕОКАРТ из БД в конфигуратор
-                mainWindow.create_sklad_filter()  # Пересоздание экземпляра класса фильтра для отображения новых данных
-                mainWindow.create_conf_filter()  # Пересоздание экземпляра класса фильтра для отображения новых данных
-                mainWindow.reset_all_config()
+                main_window.load_sklad(0)  # Загрузка обновлённой таблицы ВИДЕОКАРТ из БД на склад
+                main_window.load_conf(0)  # Загрузка обновлённой таблицы ВИДЕОКАРТ из БД в конфигуратор
+                main_window.create_sklad_filter()  # Пересоздание экземпляра класса фильтра для отображения новых данных
+                main_window.create_conf_filter()  # Пересоздание экземпляра класса фильтра для отображения новых данных
+                main_window.reset_all_config()
 
 
 # Класс окна с добавлением\редактированием видеокарты
 class AddChangeProcWindow(QtWidgets.QWidget, addChProcWidg.Ui_addChProcWidg):
-    def __init__(self, mainWindow, new_bool, list_valid_proizv, dict_proizv, dict_processor):
+    def __init__(self, main_window, new_bool, list_valid_proizv, dict_proizv, dict_processor):
         super().__init__()
         self.setupUi(self)
         if new_bool:
@@ -180,7 +178,7 @@ class AddChangeProcWindow(QtWidgets.QWidget, addChProcWidg.Ui_addChProcWidg):
         #  временные рамки заказа?
         # Вызов метода проверки корректности заполнения полей
         self.btnSave.clicked.connect(
-            lambda: self.sql_insert_processor(new_bool, mainWindow, dict_proizv, dict_processor))
+            lambda: self.sql_insert_processor(new_bool, main_window, dict_proizv, dict_processor))
 
         two_digits_int = QIntValidator()
         two_digits_int.setRange(0, 99)
@@ -210,7 +208,7 @@ class AddChangeProcWindow(QtWidgets.QWidget, addChProcWidg.Ui_addChProcWidg):
         else:
             self.cbProizv.addItems(list_valid_proizv)
 
-    def sql_insert_processor(self, new_bool, mainWindow, dict_proizv, dict_processor):
+    def sql_insert_processor(self, new_bool, main_window, dict_proizv, dict_processor):
         conn = None
         cur = None
         try:
@@ -237,12 +235,14 @@ class AddChangeProcWindow(QtWidgets.QWidget, addChProcWidg.Ui_addChProcWidg):
                 if self.leFullName.text() == "" or self.leSeries.text() == "" or self.leSocket.text() == "" or \
                         self.leCore.text() == "" or self.leRamFreq.text() == "" or self.leFreq.text() == "" or \
                         self.leTechproc.text() == "" or self.leGraphics.text() == "" or self.leTdp.text() == "" \
-                        or self.leCache.text() == "" or self.lePrice == "":
+                        or self.leCache.text() == "" or self.lePrice.text() == "":
                     dialog = DialogOk("Ошибка", "Все поля должны быть заполнены")
                     dialog.show()
                 else:
                     gaming = False
+                    graphics = self.leGraphics.text()
                     if self.cbGaming.currentText() == "Да": gaming = True
+                    if graphics.lower() == "нет": graphics = "нет"  # Если ввели "Нет", то вставляем в нижнем регистре
                     cur.callproc('insert_processor', [id_pr.pop(),
                                                       self.leFullName.text(),
                                                       gaming,
@@ -254,7 +254,7 @@ class AddChangeProcWindow(QtWidgets.QWidget, addChProcWidg.Ui_addChProcWidg):
                                                       int(self.leFreq.text()),
                                                       self.leTechproc.text(),
                                                       int(self.leRamFreq.text()),
-                                                      self.leGraphics.text(),
+                                                      graphics,
                                                       int(self.leTdp.text()),
                                                       int(self.lePrice.text())])
                     self.close()
@@ -279,16 +279,16 @@ class AddChangeProcWindow(QtWidgets.QWidget, addChProcWidg.Ui_addChProcWidg):
                 conn.commit()
                 cur.close()
                 conn.close()
-                mainWindow.load_sklad(1)  # Загрузка обновлённой таблицы ПРОЦЕССОРОВ из БД на склад
-                mainWindow.load_conf(1)  # Загрузка обновлённой таблицы ПРОЦЕССОРОВ из БД в конфигуратор
-                mainWindow.create_sklad_filter()  # Пересоздание экземпляра класса фильтра для отображения новых данных
-                mainWindow.create_conf_filter()  # Пересоздание экземпляра класса фильтра для отображения новых данных
-                mainWindow.reset_all_config()
+                main_window.load_sklad(1)  # Загрузка обновлённой таблицы ПРОЦЕССОРОВ из БД на склад
+                main_window.load_conf(1)  # Загрузка обновлённой таблицы ПРОЦЕССОРОВ из БД в конфигуратор
+                main_window.create_sklad_filter()  # Пересоздание экземпляра класса фильтра для отображения новых данных
+                main_window.create_conf_filter()  # Пересоздание экземпляра класса фильтра для отображения новых данных
+                main_window.reset_all_config()
 
 
 # Класс окна с добавлением\редактированием видеокарты
 class AddChangeMotherWindow(QtWidgets.QWidget, addChMotherWidg.Ui_addChMotherWidg):
-    def __init__(self, mainWindow, new_bool, list_valid_proizv, dict_proizv, dict_motherboard):
+    def __init__(self, main_window, new_bool, list_valid_proizv, dict_proizv, dict_motherboard):
         super().__init__()
         self.setupUi(self)
         if new_bool:
@@ -307,7 +307,7 @@ class AddChangeMotherWindow(QtWidgets.QWidget, addChMotherWidg.Ui_addChMotherWid
         #  временные рамки заказа?
         # Вызов метода проверки корректности заполнения полей
         self.btnSave.clicked.connect(
-            lambda: self.sql_insert_processor(new_bool, mainWindow, dict_proizv, dict_motherboard))
+            lambda: self.sql_insert_mother(new_bool, main_window, dict_proizv, dict_motherboard))
 
         three_digits_int = QIntValidator()
         three_digits_int.setRange(0, 999)
@@ -328,7 +328,7 @@ class AddChangeMotherWindow(QtWidgets.QWidget, addChMotherWidg.Ui_addChMotherWid
         else:
             self.cbProizv.addItems(list_valid_proizv)
 
-    def sql_insert_processor(self, new_bool, mainWindow, dict_proizv, dict_motherboard):
+    def sql_insert_mother(self, new_bool, main_window, dict_proizv, dict_motherboard):
         conn = None
         cur = None
         try:
@@ -348,7 +348,7 @@ class AddChangeMotherWindow(QtWidgets.QWidget, addChMotherWidg.Ui_addChMotherWid
                 mark_labels(self.leRamMax, self.lbRamMax)
                 mark_labels(self.lePrice, self.lbPrice)
                 if self.leFullName.text() == "" or self.leChipset.text() == "" or self.leSocket.text() == "" or \
-                        self.leFreqMax.text() == "" or self.leRamMax.text() == "" or self.lePrice == "":
+                        self.leFreqMax.text() == "" or self.leRamMax.text() == "" or self.lePrice.text() == "":
                     dialog = DialogOk("Ошибка", "Все поля должны быть заполнены")
                     dialog.show()
                 else:
@@ -360,6 +360,7 @@ class AddChangeMotherWindow(QtWidgets.QWidget, addChMotherWidg.Ui_addChMotherWid
                                                         self.leSocket.text(),
                                                         self.leChipset.text(),
                                                         self.cbFactor.currentText(),
+                                                        self.cbPcie.currentText(),
                                                         self.cbRamType.currentText(),
                                                         self.cbRamSlots.currentText(),
                                                         self.leRamMax.text(),
@@ -389,9 +390,567 @@ class AddChangeMotherWindow(QtWidgets.QWidget, addChMotherWidg.Ui_addChMotherWid
                 conn.commit()
                 cur.close()
                 conn.close()
-                mainWindow.load_sklad(2)  # Загрузка обновлённой таблицы Материнских плат из БД на склад
-                mainWindow.load_conf(2)  # Загрузка обновлённой таблицы Материнских плат из БД в конфигуратор
-                mainWindow.create_sklad_filter()  # Пересоздание экземпляра класса фильтров для отображения новых данных
-                mainWindow.create_conf_filter()  # Пересоздание экземпляра класса фильтров для отображения новых данных
-                mainWindow.reset_all_config()
-                mainWindow.reset_radiobutton(mainWindow.tableSklad)
+                main_window.load_sklad(2)  # Загрузка обновлённой таблицы Материнских плат из БД на склад
+                main_window.load_conf(2)  # Загрузка обновлённой таблицы Материнских плат из БД в конфигуратор
+                main_window.create_sklad_filter()  # Пересоздание экземпляра класса для отображения новых данных
+                main_window.create_conf_filter()  # Пересоздание экземпляра класса для отображения новых данных
+                main_window.reset_all_config()
+                main_window.reset_radiobutton(main_window.tableSklad)
+
+
+# Класс окна с добавлением\редактированием видеокарты
+class AddChangeCoolWindow(QtWidgets.QWidget, addChCoolWidg.Ui_addChCoolWidg):
+    def __init__(self, main_window, new_bool, list_valid_proizv, dict_proizv, dict_cool):
+        super().__init__()
+        self.setupUi(self)
+        if new_bool:
+            self.setWindowTitle("Добавление охлаждения процессора")
+            self.dateEdit.setDisabled(True)
+            self.dateEdit.setStyleSheet("QDateEdit{color:gray; border: 1px dotted rgb(120,120,120); padding-left: 5px;}"
+                                        " QDateEdit::drop-down{border: 0px;}"
+                                        '''QDateEdit::down-arrow {
+                                        border-image: url("E:/pcconf/images/down-arrow-gray.png");
+                                        width: 17px;
+                                        height: 17px;
+                                        margin-right: 5px;}''')
+        else:
+            self.setWindowTitle("Создание заказа")
+        self.dateEdit.setDateTime(QDateTime.currentDateTime())
+        #  временные рамки заказа?
+        # Вызов метода проверки корректности заполнения полей
+        self.btnSave.clicked.connect(
+            lambda: self.sql_insert_cool(new_bool, main_window, dict_proizv, dict_cool))
+
+        three_digits_int = QIntValidator()
+        three_digits_int.setRange(0, 999)
+
+        four_digits_int = QIntValidator()
+        four_digits_int.setRange(0, 9999)
+        six_digits_int = QIntValidator()
+        six_digits_int.setRange(0, 999999)
+
+        self.leHeight.setValidator(three_digits_int)
+        self.leDisperse.setValidator(three_digits_int)
+        self.leKol.setValidator(four_digits_int)
+        self.lePrice.setValidator(six_digits_int)
+        self.cbProizv.clear()
+        if type(list_valid_proizv) == str:  # Если передан 1 параметр в виде строки
+            one_list = [list_valid_proizv]
+            self.cbProizv.addItems(one_list)
+        else:
+            self.cbProizv.addItems(list_valid_proizv)
+
+    def sql_insert_cool(self, new_bool, main_window, dict_proizv, dict_cool):
+        conn = None
+        cur = None
+        try:
+            conn = psycopg2.connect(database="confPc",
+                                    user="postgres",
+                                    password="2001",
+                                    host="localhost",
+                                    port="5432")
+            cur = conn.cursor()
+            id_pr = {i for i in dict_proizv
+                     if dict_proizv[i] == self.cbProizv.currentText()}
+            if new_bool:  # Если создаём новый заказ - вызываем 2 процедуры и заполняем их
+                mark_labels(self.leFullName, self.lbFullName)
+                mark_labels(self.leSocket, self.lbSocket)
+                mark_labels(self.leHeight, self.lbHeight)
+                mark_labels(self.leDisperse, self.lbDisperse)
+                mark_labels(self.lePrice, self.lbPrice)
+                if self.leFullName.text() == "" or self.leHeight.text() == "" or self.leSocket.text() == "" or \
+                        self.leDisperse.text() == "" or self.lePrice.text() == "":
+                    dialog = DialogOk("Ошибка", "Все поля должны быть заполнены")
+                    dialog.show()
+                else:
+                    cur.callproc('insert_cool', [id_pr.pop(),
+                                                 self.leFullName.text(),
+                                                 self.cbConstruction.currentText(),
+                                                 self.cbType.currentText(),
+                                                 self.leSocket.text(),
+                                                 self.cbPipe.currentText(),
+                                                 self.leHeight.text(),
+                                                 self.cbConnect.currentText(),
+                                                 self.leDisperse.text(),
+                                                 int(self.lePrice.text())])
+                    self.close()
+            else:  # Если повторяем заказ - вызываем 1 процедуру и заполняем её
+                mark_labels(self.leKol, self.lbKol)
+                if self.leKol.text() == "" or int(self.leKol.text()) < 1:
+                    dialog = DialogOk("Ошибка", "Заполните поле 'Количество' числом >= 1 ")
+                    dialog.show()
+                else:
+                    id_izd = {i for i in dict_cool
+                              if dict_cool[i] == self.leFullName.text()}
+                    cur.callproc('insert_order_cool', [id_izd.pop(),
+                                                       int(self.leKol.text()),
+                                                       self.dateEdit.dateTime().toString("yyyy-MM-dd")])
+                self.close()
+
+        except (Exception, psycopg2.DatabaseError) as error:
+            dialog = DialogOk("Ошибка", error)
+            dialog.show()
+        finally:
+            if conn:
+                conn.commit()
+                cur.close()
+                conn.close()
+                main_window.load_sklad(3)  # Загрузка обновлённой таблицы Материнских плат из БД на склад
+                main_window.load_conf(3)  # Загрузка обновлённой таблицы Материнских плат из БД в конфигуратор
+                main_window.create_sklad_filter()  # Пересоздание экземпляра класса фильтров для отображения новых данных
+                main_window.create_conf_filter()  # Пересоздание экземпляра класса фильтров для отображения новых данных
+                main_window.reset_all_config()
+                main_window.reset_radiobutton(main_window.tableSklad)
+
+
+# Класс окна с добавлением\редактированием видеокарты
+class AddChangeRamWindow(QtWidgets.QWidget, addChRamWidg.Ui_addChRamWidg):
+    def __init__(self, main_window, new_bool, list_valid_proizv, dict_proizv, dict_ram):
+        super().__init__()
+        self.setupUi(self)
+        if new_bool:
+            self.setWindowTitle("Добавление оперативной памяти")
+            self.dateEdit.setDisabled(True)
+            self.dateEdit.setStyleSheet(
+                "QDateEdit{color:gray; border: 1px dotted rgb(120,120,120); padding-left: 5px;}"
+                " QDateEdit::drop-down{border: 0px;}"
+                '''QDateEdit::down-arrow {
+                                        border-image: url("E:/pcconf/images/down-arrow-gray.png");
+                                        width: 17px;
+                                        height: 17px;
+                                        margin-right: 5px;}''')
+        else:
+            self.setWindowTitle("Создание заказа")
+        self.dateEdit.setDateTime(QDateTime.currentDateTime())
+        #  временные рамки заказа?
+        # Вызов метода проверки корректности заполнения полей
+        self.btnSave.clicked.connect(
+            lambda: self.sql_insert_ram(new_bool, main_window, dict_proizv, dict_ram))
+        # float_digits = QDoubleValidator()
+        two_digits_int = QIntValidator()
+        two_digits_int.setRange(0, 99)
+
+        three_digits_int = QIntValidator()
+        three_digits_int.setRange(0, 999)
+
+        four_digits_int = QIntValidator()
+        four_digits_int.setRange(0, 9999)
+        six_digits_int = QIntValidator()
+        six_digits_int.setRange(0, 999999)
+
+        self.leFreq.setValidator(four_digits_int)
+        self.leLatency.setValidator(two_digits_int)
+        # self.leVoltage.setValidator(float_digits)
+        self.leKol.setValidator(four_digits_int)
+        self.lePrice.setValidator(six_digits_int)
+        self.cbProizv.clear()
+        if type(list_valid_proizv) == str:  # Если передан 1 параметр в виде строки
+            one_list = [list_valid_proizv]
+            self.cbProizv.addItems(one_list)
+        else:
+            self.cbProizv.addItems(list_valid_proizv)
+
+    def sql_insert_ram(self, new_bool, main_window, dict_proizv, dict_ram):
+        conn = None
+        cur = None
+        try:
+            conn = psycopg2.connect(database="confPc",
+                                    user="postgres",
+                                    password="2001",
+                                    host="localhost",
+                                    port="5432")
+            cur = conn.cursor()
+            id_pr = {i for i in dict_proizv
+                     if dict_proizv[i] == self.cbProizv.currentText()}
+            if new_bool:  # Если создаём новый заказ - вызываем 2 процедуры и заполняем их
+                mark_labels(self.leFullName, self.lbFullName)
+                mark_labels(self.leFreq, self.lbFreq)
+                mark_labels(self.leLatency, self.lbLatency)
+                mark_labels(self.leVoltage, self.lbVoltage)
+                mark_labels(self.lePrice, self.lbPrice)
+                if self.leFullName.text() == "" or self.leFreq.text() == "" or \
+                        self.leLatency.text() == "" or self.leVoltage.text() == "" or self.lePrice.text() == "":
+                    dialog = DialogOk("Ошибка", "Все поля должны быть заполнены")
+                    dialog.show()
+                else:
+                    gaming = False
+                    if self.cbGaming.currentText() == "Да": gaming = True
+                    cur.callproc('insert_ram', [id_pr.pop(),
+                                                self.leFullName.text(),
+                                                gaming,
+                                                self.cbRamType.currentText(),
+                                                self.cbVolume.currentText(),
+                                                self.leFreq.text(),
+                                                self.cbModule.currentText(),
+                                                self.leLatency.text(),
+                                                float(self.leVoltage.text()),
+                                                int(self.lePrice.text())])
+                    self.close()
+            else:  # Если повторяем заказ - вызываем 1 процедуру и заполняем её
+                mark_labels(self.leKol, self.lbKol)
+                if self.leKol.text() == "" or int(self.leKol.text()) < 1:
+                    dialog = DialogOk("Ошибка", "Заполните поле 'Количество' числом >= 1 ")
+                    dialog.show()
+                else:
+                    id_izd = {i for i in dict_ram
+                              if dict_ram[i] == self.leFullName.text()}
+                    cur.callproc('insert_order_ram', [id_izd.pop(),
+                                                      int(self.leKol.text()),
+                                                      self.dateEdit.dateTime().toString("yyyy-MM-dd")])
+                self.close()
+
+        except (Exception, psycopg2.DatabaseError) as error:
+            dialog = DialogOk("Ошибка", error)
+            dialog.show()
+        finally:
+            if conn:
+                conn.commit()
+                cur.close()
+                conn.close()
+                main_window.load_sklad(4)
+                main_window.load_conf(4)
+                main_window.create_sklad_filter()
+                main_window.create_conf_filter()
+                main_window.reset_all_config()
+                main_window.reset_radiobutton(main_window.tableSklad)
+
+
+class AddChangeDiskWindow(QtWidgets.QWidget, addChDiskWidg.Ui_addChDiskWidg):
+    def __init__(self, main_window, new_bool, list_valid_proizv, dict_proizv, dict_disk):
+        super().__init__()
+        self.setupUi(self)
+        if new_bool:
+            self.setWindowTitle("Добавление накопителя")
+            self.dateEdit.setDisabled(True)
+            self.dateEdit.setStyleSheet(
+                "QDateEdit{color:gray; border: 1px dotted rgb(120,120,120); padding-left: 5px;}"
+                " QDateEdit::drop-down{border: 0px;}"
+                '''QDateEdit::down-arrow {
+                                        border-image: url("E:/pcconf/images/down-arrow-gray.png");
+                                        width: 17px;
+                                        height: 17px;
+                                        margin-right: 5px;}''')
+        else:
+            self.setWindowTitle("Создание заказа")
+        self.dateEdit.setDateTime(QDateTime.currentDateTime())
+        #  временные рамки заказа?
+        # Вызов метода проверки корректности заполнения полей
+        self.btnSave.clicked.connect(
+            lambda: self.sql_insert_disk(new_bool, main_window, dict_proizv, dict_disk))
+
+        # float_digits = QDoubleValidator()
+        # float_digits.setRange(0, 9)
+
+        two_digits_int = QIntValidator()
+        two_digits_int.setRange(0, 99)
+
+        three_digits_int = QIntValidator()
+        three_digits_int.setRange(0, 999)
+
+        four_digits_int = QIntValidator()
+        four_digits_int.setRange(0, 9999)
+        six_digits_int = QIntValidator()
+        six_digits_int.setRange(0, 999999)
+
+        self.leWrite.setValidator(four_digits_int)
+        self.leRead.setValidator(four_digits_int)
+        self.leVolume.setValidator(four_digits_int)
+        self.leKol.setValidator(four_digits_int)
+        self.lePrice.setValidator(six_digits_int)
+        self.cbProizv.clear()
+        if type(list_valid_proizv) == str:  # Если передан 1 параметр в виде строки
+            one_list = [list_valid_proizv]
+            self.cbProizv.addItems(one_list)
+        else:
+            self.cbProizv.addItems(list_valid_proizv)
+
+    def sql_insert_disk(self, new_bool, main_window, dict_proizv, dict_disk):
+        conn = None
+        cur = None
+        try:
+            conn = psycopg2.connect(database="confPc",
+                                    user="postgres",
+                                    password="2001",
+                                    host="localhost",
+                                    port="5432")
+            cur = conn.cursor()
+            id_pr = {i for i in dict_proizv
+                     if dict_proizv[i] == self.cbProizv.currentText()}
+            if new_bool:  # Если создаём новый заказ - вызываем 2 процедуры и заполняем их
+                mark_labels(self.leFullName, self.lbFullName)
+                mark_labels(self.leWrite, self.lbWrite)
+                mark_labels(self.leRead, self.lbRead)
+                mark_labels(self.leVolume, self.lbVolume)
+                mark_labels(self.lePrice, self.lbPrice)
+                if self.leFullName.text() == "" or self.leWrite.text() == "" or self.leVolume.text() == "" or \
+                        self.leRead.text() == "" or self.lePrice.text() == "":
+                    dialog = DialogOk("Ошибка", "Все поля должны быть заполнены")
+                    dialog.show()
+                else:
+                    cur.callproc('insert_disk', [id_pr.pop(),
+                                                 self.leFullName.text(),
+                                                 self.cbType.currentText(),
+                                                 self.leVolume.text(),
+                                                 self.cbConnect.currentText(),
+                                                 self.leRead.text(),
+                                                 self.leWrite.text(),
+                                                 self.cbRpm.currentText(),
+                                                 int(self.lePrice.text())])
+                    self.close()
+            else:  # Если повторяем заказ - вызываем 1 процедуру и заполняем её
+                mark_labels(self.leKol, self.lbKol)
+                if self.leKol.text() == "" or int(self.leKol.text()) < 1:
+                    dialog = DialogOk("Ошибка", "Заполните поле 'Количество' числом >= 1 ")
+                    dialog.show()
+                else:
+                    id_izd = {i for i in dict_disk
+                              if dict_disk[i] == self.leFullName.text()}
+                    cur.callproc('insert_order_disk', [id_izd.pop(),
+                                                       int(self.leKol.text()),
+                                                       self.dateEdit.dateTime().toString("yyyy-MM-dd")])
+                self.close()
+
+        except (Exception, psycopg2.DatabaseError) as error:
+            dialog = DialogOk("Ошибка", error)
+            dialog.show()
+        finally:
+            if conn:
+                conn.commit()
+                cur.close()
+                conn.close()
+                main_window.load_sklad(5)
+                main_window.load_conf(5)
+                main_window.create_sklad_filter()
+                main_window.create_conf_filter()
+                main_window.reset_all_config()
+                main_window.reset_radiobutton(main_window.tableSklad)
+
+
+class AddChangePowerWindow(QtWidgets.QWidget, addChPowerWidg.Ui_addChPowerWidg):
+    def __init__(self, main_window, new_bool, list_valid_proizv, dict_proizv, dict_power):
+        super().__init__()
+        self.setupUi(self)
+        if new_bool:
+            self.setWindowTitle("Добавление блока питания")
+            self.dateEdit.setDisabled(True)
+            self.dateEdit.setStyleSheet(
+                "QDateEdit{color:gray; border: 1px dotted rgb(120,120,120); padding-left: 5px;}"
+                " QDateEdit::drop-down{border: 0px;}"
+                '''QDateEdit::down-arrow {
+                                        border-image: url("E:/pcconf/images/down-arrow-gray.png");
+                                        width: 17px;
+                                        height: 17px;
+                                        margin-right: 5px;}''')
+        else:
+            self.setWindowTitle("Создание заказа")
+        self.dateEdit.setDateTime(QDateTime.currentDateTime())
+        #  временные рамки заказа?
+        # Вызов метода проверки корректности заполнения полей
+        self.btnSave.clicked.connect(
+            lambda: self.sql_insert_power(new_bool, main_window, dict_proizv, dict_power))
+
+        two_digits_int = QIntValidator()
+        two_digits_int.setRange(0, 99)
+
+        three_digits_int = QIntValidator()
+        three_digits_int.setRange(0, 999)
+
+        four_digits_int = QIntValidator()
+        four_digits_int.setRange(0, 9999)
+        six_digits_int = QIntValidator()
+        six_digits_int.setRange(0, 999999)
+
+        self.leLenPower.setValidator(three_digits_int)
+        self.lePower.setValidator(four_digits_int)
+        self.lePinSata.setValidator(two_digits_int)
+        self.leKol.setValidator(four_digits_int)
+        self.lePrice.setValidator(six_digits_int)
+        self.cbProizv.clear()
+        if type(list_valid_proizv) == str:  # Если передан 1 параметр в виде строки
+            one_list = [list_valid_proizv]
+            self.cbProizv.addItems(one_list)
+        else:
+            self.cbProizv.addItems(list_valid_proizv)
+
+    def sql_insert_power(self, new_bool, main_window, dict_proizv, dict_power):
+        conn = None
+        cur = None
+        try:
+            conn = psycopg2.connect(database="confPc",
+                                    user="postgres",
+                                    password="2001",
+                                    host="localhost",
+                                    port="5432")
+            cur = conn.cursor()
+            id_pr = {i for i in dict_proizv
+                     if dict_proizv[i] == self.cbProizv.currentText()}
+            if new_bool:  # Если создаём новый заказ - вызываем 2 процедуры и заполняем их
+                mark_labels(self.leFullName, self.lbFullName)
+                mark_labels(self.leLenPower, self.lbLenPower)
+                mark_labels(self.lePower, self.lbPower)
+                mark_labels(self.lePinPcie, self.lbPinPcie)
+                mark_labels(self.lePinSata, self.lbPinSata)
+                mark_labels(self.lePrice, self.lbPrice)
+                if self.leFullName.text() == "" or self.leLenPower.text() == "" or self.lePower.text() == "" or \
+                        self.lePinSata.text() == "" or self.lePinPcie.text() == "" or self.lePrice.text() == "":
+                    dialog = DialogOk("Ошибка", "Все поля должны быть заполнены")
+                    dialog.show()
+                else:
+                    cur.callproc('insert_power', [id_pr.pop(),
+                                                  self.leFullName.text(),
+                                                  self.cbFPower.currentText(),
+                                                  self.leLenPower.text(),
+                                                  self.lePower.text(),
+                                                  self.cbCertificate.currentText(),
+                                                  self.cbPinMain.currentText(),
+                                                  self.cbPinCpu.currentText(),
+                                                  self.lePinPcie.text(),
+                                                  int(self.lePinSata.text()),
+                                                  int(self.lePrice.text())])
+                    self.close()
+            else:  # Если повторяем заказ - вызываем 1 процедуру и заполняем её
+                mark_labels(self.leKol, self.lbKol)
+                if self.leKol.text() == "" or int(self.leKol.text()) < 1:
+                    dialog = DialogOk("Ошибка", "Заполните поле 'Количество' числом >= 1 ")
+                    dialog.show()
+                else:
+                    id_izd = {i for i in dict_power
+                              if dict_power[i] == self.leFullName.text()}
+                    cur.callproc('insert_order_power', [id_izd.pop(),
+                                                        int(self.leKol.text()),
+                                                        self.dateEdit.dateTime().toString("yyyy-MM-dd")])
+                self.close()
+
+        except (Exception, psycopg2.DatabaseError) as error:
+            dialog = DialogOk("Ошибка", error)
+            dialog.show()
+        finally:
+            if conn:
+                conn.commit()
+                cur.close()
+                conn.close()
+                main_window.load_sklad(6)
+                main_window.load_conf(6)
+                main_window.create_sklad_filter()
+                main_window.create_conf_filter()
+                main_window.reset_all_config()
+                main_window.reset_radiobutton(main_window.tableSklad)
+
+
+class AddChangeBodyWindow(QtWidgets.QWidget, addChBodyWidg.Ui_addChBodyWidg):
+    def __init__(self, main_window, new_bool, list_valid_proizv, dict_proizv, dict_body):
+        super().__init__()
+        self.setupUi(self)
+        if new_bool:
+            self.setWindowTitle("Добавление корпуса")
+            self.dateEdit.setDisabled(True)
+            self.dateEdit.setStyleSheet(
+                "QDateEdit{color:gray; border: 1px dotted rgb(120,120,120); padding-left: 5px;}"
+                " QDateEdit::drop-down{border: 0px;}"
+                '''QDateEdit::down-arrow {
+                                        border-image: url("E:/pcconf/images/down-arrow-gray.png");
+                                        width: 17px;
+                                        height: 17px;
+                                        margin-right: 5px;}''')
+        else:
+            self.setWindowTitle("Создание заказа")
+        self.dateEdit.setDateTime(QDateTime.currentDateTime())
+        #  временные рамки заказа?
+        # Вызов метода проверки корректности заполнения полей
+        self.btnSave.clicked.connect(
+            lambda: self.sql_insert_body(new_bool, main_window, dict_proizv, dict_body))
+
+        two_digits_int = QIntValidator()
+        two_digits_int.setRange(0, 99)
+
+        two_digits_int.setRange(0, 99)
+
+        three_digits_int = QIntValidator()
+        three_digits_int.setRange(0, 999)
+
+        four_digits_int = QIntValidator()
+        four_digits_int.setRange(0, 9999)
+        six_digits_int = QIntValidator()
+        six_digits_int.setRange(0, 999999)
+
+        self.leHeightCool.setValidator(three_digits_int)
+        self.leLenVideo.setValidator(three_digits_int)
+        self.leLenPower.setValidator(three_digits_int)
+        self.leKol.setValidator(four_digits_int)
+        self.lePrice.setValidator(six_digits_int)
+        self.cbProizv.clear()
+        if type(list_valid_proizv) == str:  # Если передан 1 параметр в виде строки
+            one_list = [list_valid_proizv]
+            self.cbProizv.addItems(one_list)
+        else:
+            self.cbProizv.addItems(list_valid_proizv)
+
+    def sql_insert_body(self, new_bool, main_window, dict_proizv, dict_body):
+        conn = None
+        cur = None
+        try:
+            conn = psycopg2.connect(database="confPc",
+                                    user="postgres",
+                                    password="2001",
+                                    host="localhost",
+                                    port="5432")
+            cur = conn.cursor()
+            id_pr = {i for i in dict_proizv
+                     if dict_proizv[i] == self.cbProizv.currentText()}
+            if new_bool:  # Если создаём новый заказ - вызываем 2 процедуры и заполняем их
+                mark_labels(self.leFullName, self.lbFullName)
+                mark_labels(self.leWeight, self.lbWeight)
+                mark_labels(self.leHeightCool, self.lbHeightCool)
+                mark_labels(self.leFMother, self.lbFMother)
+                mark_labels(self.leLenVideo, self.lbLenVideo)
+                mark_labels(self.leLenPower, self.lbLenPower)
+                mark_labels(self.leColor, self.lbColor)
+                mark_labels(self.lePrice, self.lbPrice)
+                if self.leFullName.text() == "" or self.leLenPower.text() == "" or self.leWeight.text() == "" or \
+                        self.leLenVideo.text() == "" or self.leHeightCool.text() == "" or self.leColor.text() == "" \
+                        or self.leFMother.text() == "" or self.lePrice.text() == "":
+                    dialog = DialogOk("Ошибка", "Все поля должны быть заполнены")
+                    dialog.show()
+                else:
+                    gaming = False
+                    if self.cbGaming.currentText() == "Да": gaming = True
+                    cur.callproc('insert_body', [id_pr.pop(),
+                                                 self.leFullName.text(),
+                                                 gaming,
+                                                 self.cbType.currentText(),
+                                                 self.leFMother.text(),
+                                                 self.cbFPower.currentText(),
+                                                 self.leLenVideo.text(),
+                                                 self.leHeightCool.text(),
+                                                 self.leLenPower.text(),
+                                                 float(self.leWeight.text()),
+                                                 self.leColor.text(),
+                                                 int(self.lePrice.text())])
+                    self.close()
+            else:  # Если повторяем заказ - вызываем 1 процедуру и заполняем её
+                mark_labels(self.leKol, self.lbKol)
+                if self.leKol.text() == "" or int(self.leKol.text()) < 1:
+                    dialog = DialogOk("Ошибка", "Заполните поле 'Количество' числом >= 1 ")
+                    dialog.show()
+                else:
+                    id_izd = {i for i in dict_body
+                              if dict_body[i] == self.leFullName.text()}
+                    cur.callproc('insert_order_body', [id_izd.pop(),
+                                                       int(self.leKol.text()),
+                                                       self.dateEdit.dateTime().toString("yyyy-MM-dd")])
+                self.close()
+
+        except (Exception, psycopg2.DatabaseError) as error:
+            dialog = DialogOk("Ошибка", error)
+            dialog.show()
+        finally:
+            if conn:
+                conn.commit()
+                cur.close()
+                conn.close()
+                main_window.load_sklad(7)
+                main_window.load_conf(7)
+                main_window.create_sklad_filter()
+                main_window.create_conf_filter()
+                main_window.reset_all_config()
+                main_window.reset_radiobutton(main_window.tableSklad)

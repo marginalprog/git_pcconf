@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../images/win_add_icon.png</normaloff>../../images/win_add_icon.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">QWidget
 {

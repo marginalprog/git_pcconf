@@ -164,7 +164,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 
--- Триггер пересчёта количество видеокарт на складе
+-- Триггер пересчёта количества процессоров на складе
 CREATE OR REPLACE FUNCTION update_skladproc()
 RETURNS trigger
 AS $$
@@ -226,20 +226,3 @@ CREATE TRIGGER update_processor_exist_trigger
 	AFTER UPDATE ON sklad_processor FOR EACH ROW
 	EXECUTE PROCEDURE update_processor_exist();
 	
-	
---------------------------------------------------------------------------------------------------------------------------------------
-
-
-select  get_proizv_processor()
-
-
-SELECT insert_proizv('GIGABYTE')
-SELECT insert_processor(1,'GIGABYTE GeForce RTX 3050 EAGLE OC', 'NVIDIA', 'RTX 3050', 8192, 'GDDR6', 1552, 256, 'PCI-E 4.0', 4, '7680x4320', 130, 28, 29250);
-SELECT insert_order_processor(5, 2, '05.04.2023')
-
-SELECT insert_proizv('MSI')
-SELECT insert_processor(2,'MSI AMD Radeon RX 6600', 'AMD', 'RX 6600', 8192, 'GDDR6', 2044, 128, 'PCI-E 4.0', 4, '7680x4320', 132, 33, 26490);
-SELECT insert_order_processor(6, 2, '05.04.2023')
-
-
-

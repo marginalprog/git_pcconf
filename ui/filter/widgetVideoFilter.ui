@@ -1755,7 +1755,7 @@ QPushButton::hover
       <normaloff>../../images/down-arrow.png</normaloff>../../images/down-arrow.png</iconset>
     </attribute>
     <attribute name="label">
-     <string>Тип памяти</string>
+     <string>Тип видеопамяти</string>
     </attribute>
     <widget class="QFrame" name="frameType">
      <property name="geometry">
@@ -3926,7 +3926,7 @@ QLineEdit:hover{
       <normaloff>../../images/down-arrow.png</normaloff>../../images/down-arrow.png</iconset>
     </attribute>
     <attribute name="label">
-     <string>Длина видеокарты [см]</string>
+     <string>Длина видеокарты [мм]</string>
     </attribute>
     <widget class="QFrame" name="framLen">
      <property name="geometry">
@@ -4103,7 +4103,7 @@ border-radius: 4px;
 </string>
       </property>
       <property name="text">
-       <string>макс., см:</string>
+       <string>макс., мм:</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -4132,7 +4132,7 @@ border-radius: 4px;
 </string>
       </property>
       <property name="text">
-       <string>мин., см:</string>
+       <string>мин., мм:</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -4247,7 +4247,7 @@ QLineEdit:hover{
 }</string>
       </property>
       <property name="placeholderText">
-       <string>до 40 см</string>
+       <string>до 40 мм</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="leMinLen">
@@ -4280,7 +4280,7 @@ QLineEdit:hover{
 }</string>
       </property>
       <property name="placeholderText">
-       <string>от 0 см</string>
+       <string>от 0 мм</string>
       </property>
      </widget>
     </widget>
@@ -4303,7 +4303,7 @@ border: 1px solid rgb(210, 0, 0);</string>
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
-  <widget class="QLabel" name="lbErr">
+  <widget class="QLabel" name="lbFilter">
    <property name="geometry">
     <rect>
      <x>40</x>

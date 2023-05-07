@@ -29,7 +29,7 @@
   <property name="styleSheet">
    <string notr="true">QWidget
 {
-    background: rgb(25, 25, 25);
+    background: rgb(30, 30, 30);
 	color: white;
 
 }
@@ -388,7 +388,7 @@ QPushButton::hover
     <rect>
      <x>20</x>
      <y>350</y>
-     <width>141</width>
+     <width>121</width>
      <height>21</height>
     </rect>
    </property>
@@ -402,7 +402,7 @@ QPushButton::hover
     <string notr="true">border:0px;</string>
    </property>
    <property name="text">
-    <string>Тип интерфейса</string>
+    <string>Версия PCI-E</string>
    </property>
   </widget>
   <widget class="QLabel" name="lbMonitor">
@@ -638,22 +638,27 @@ QComboBox QAbstractItemView {
    </property>
    <item>
     <property name="text">
-     <string>PCI-E 4.0</string>
+     <string>5.0</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>PCI-E 3.0</string>
+     <string>4.0</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>PCI-E 2.1</string>
+     <string>3.0</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>PCI-E 2.0</string>
+     <string>2.1</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2.0</string>
     </property>
    </item>
   </widget>

@@ -1,4 +1,4 @@
--- Last modification date: 2023-04-26 12:35:39.159
+-- Last modification date: 2023-05-06 15:51:03.047
 
 -- tables
 -- Table: Body
@@ -8,19 +8,33 @@ CREATE TABLE Body (
     exist boolean  NOT NULL DEFAULT false,
     fullname varchar(50)  NOT NULL,
     gaming boolean  NOT NULL,
-    formfactor varchar(255)  NOT NULL,
-    formfactorpower varchar(255)  NOT NULL,
+    type varchar(50)  NOT NULL,
+    ffmother varchar(255)  NOT NULL,
+    ffpower varchar(255)  NOT NULL,
     lengthvideo int  NOT NULL,
-    lengthcool int  NOT NULL,
+    heightcool int  NOT NULL,
+    lengthpower int  NOT NULL,
     weight decimal(5,2)  NOT NULL,
-    color int  NOT NULL,
+    color varchar(50)  NOT NULL,
     price int  NOT NULL,
     CONSTRAINT Body_pk PRIMARY KEY (id)
+);
+
+-- Table: Client
+CREATE TABLE Client (
+    id serial  NOT NULL,
+    email Varchar(50)  NOT NULL,
+    password Varchar(50)  NOT NULL,
+    name Varchar(50)  NOT NULL,
+    phone Varchar(20)  NOT NULL,
+    registration date  NOT NULL,
+    CONSTRAINT Client_pk PRIMARY KEY (id)
 );
 
 -- Table: Configuration
 CREATE TABLE Configuration (
     id serial  NOT NULL,
+    Client_id serial  NOT NULL,
     Power_id serial  NOT NULL,
     Body_id serial  NOT NULL,
     Videocard_id serial  NOT NULL,
@@ -29,6 +43,7 @@ CREATE TABLE Configuration (
     Motherboard_id serial  NOT NULL,
     Ram_id serial  NOT NULL,
     Disk_id serial  NOT NULL,
+    date_create date  NOT NULL,
     CONSTRAINT Configuration_pk PRIMARY KEY (id)
 );
 
@@ -38,12 +53,13 @@ CREATE TABLE Cool (
     id_proizv serial  NOT NULL,
     exist boolean  NOT NULL DEFAULT false,
     fullname varchar(50)  NOT NULL,
-    lengthcool int  NOT NULL,
-    tdp int  NOT NULL,
+    construction Varchar(50)  NOT NULL,
+    type varchar(50)  NOT NULL,
     socket varchar(255)  NOT NULL,
+    heatpipe int  NOT NULL,
+    height int  NOT NULL,
     connect varchar(15)  NOT NULL,
-    airflow decimal(5,2)  NOT NULL,
-    weight decimal(5,2)  NOT NULL,
+    disperse int  NOT NULL,
     price int  NOT NULL,
     CONSTRAINT Cool_pk PRIMARY KEY (id)
 );
@@ -54,9 +70,9 @@ CREATE TABLE Disk (
     id_proizv serial  NOT NULL,
     exist boolean  NOT NULL DEFAULT false,
     fullname varchar(50)  NOT NULL,
-    formfactor varchar(30)  NOT NULL,
+    type varchar(30)  NOT NULL,
     volume int  NOT NULL,
-    interface varchar(20)  NOT NULL,
+    connect varchar(20)  NOT NULL,
     read int  NOT NULL,
     write int  NOT NULL,
     rpm int  NOT NULL,
@@ -71,13 +87,13 @@ CREATE TABLE Motherboard (
     exist boolean  NOT NULL DEFAULT false,
     fullname varchar(50)  NOT NULL,
     gaming boolean  NOT NULL,
-    socket varchar(255)  NOT NULL,
+    socket varchar(20)  NOT NULL,
     chipset varchar(20)  NOT NULL,
     formfactor varchar(30)  NOT NULL,
+    pcie varchar(10)  NOT NULL,
     memorytype varchar(20)  NOT NULL,
     memoryslot int  NOT NULL,
     memorymax int  NOT NULL,
-    memoryfreqmin int  NOT NULL,
     memoryfreqmax int  NOT NULL,
     m2 int  NOT NULL,
     sata int  NOT NULL,
@@ -157,14 +173,6 @@ CREATE TABLE Order_videocard (
     CONSTRAINT Order_videocard_pk PRIMARY KEY (id)
 );
 
--- Table: Post_body
-CREATE TABLE Post_body (
-    id serial  NOT NULL,
-    exist boolean  NOT NULL DEFAULT true,
-    name varchar(50)  NOT NULL,
-    CONSTRAINT Post_body_pk PRIMARY KEY (id)
-);
-
 -- Table: Power
 CREATE TABLE Power (
     id serial  NOT NULL,
@@ -172,12 +180,13 @@ CREATE TABLE Power (
     exist boolean  NOT NULL DEFAULT false,
     fullname varchar(50)  NOT NULL,
     formfactor varchar(255)  NOT NULL,
+    length int  NOT NULL,
     power int  NOT NULL,
     certificate varchar(15)  NOT NULL,
-    pincpu int  NOT NULL,
-    pinpcie int  NOT NULL,
+    pinmain varchar(20)  NOT NULL,
+    pincpu varchar(20)  NOT NULL,
+    pinpcie varchar(20)  NOT NULL,
     pinsata int  NOT NULL,
-    weight decimal(5,2)  NOT NULL,
     price int  NOT NULL,
     CONSTRAINT Power_pk PRIMARY KEY (id)
 );
@@ -201,6 +210,14 @@ CREATE TABLE Processor (
     tdp int  NOT NULL,
     price int  NOT NULL,
     CONSTRAINT Processor_pk PRIMARY KEY (id)
+);
+
+-- Table: Proizv_body
+CREATE TABLE Proizv_body (
+    id serial  NOT NULL,
+    exist boolean  NOT NULL DEFAULT true,
+    name varchar(50)  NOT NULL,
+    CONSTRAINT Post_body_pk PRIMARY KEY (id)
 );
 
 -- Table: Proizv_cool
@@ -269,9 +286,9 @@ CREATE TABLE Ram (
     type varchar(20)  NOT NULL,
     volume int  NOT NULL,
     frequency int  NOT NULL,
-    throughput int  NOT NULL,
-    timing varchar(20)  NOT NULL,
-    tdp int  NOT NULL,
+    complect int  NOT NULL,
+    latency decimal(4,1)  NOT NULL,
+    voltage decimal(4,1)  NOT NULL,
     price int  NOT NULL,
     CONSTRAINT Ram_pk PRIMARY KEY (id)
 );
@@ -350,7 +367,7 @@ CREATE TABLE Videocard (
 -- Reference: Body_Post_body (table: Body)
 ALTER TABLE Body ADD CONSTRAINT Body_Post_body
     FOREIGN KEY (id_proizv)
-    REFERENCES Post_body (id)  
+    REFERENCES Proizv_body (id)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
@@ -359,6 +376,14 @@ ALTER TABLE Body ADD CONSTRAINT Body_Post_body
 ALTER TABLE Configuration ADD CONSTRAINT Configuration_Body
     FOREIGN KEY (Body_id)
     REFERENCES Body (id)  
+    NOT DEFERRABLE 
+    INITIALLY IMMEDIATE
+;
+
+-- Reference: Configuration_Client (table: Configuration)
+ALTER TABLE Configuration ADD CONSTRAINT Configuration_Client
+    FOREIGN KEY (Client_id)
+    REFERENCES Client (id)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;

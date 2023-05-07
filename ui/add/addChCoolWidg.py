@@ -15,6 +15,9 @@ class Ui_addChCoolWidg(object):
     def setupUi(self, addChCoolWidg):
         addChCoolWidg.setObjectName("addChCoolWidg")
         addChCoolWidg.resize(879, 602)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\add\\../../images/win_add_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        addChCoolWidg.setWindowIcon(icon)
         addChCoolWidg.setStyleSheet("QWidget\n"
 "{\n"
 "    background: rgb(25, 25, 25);\n"
@@ -291,14 +294,14 @@ class Ui_addChCoolWidg(object):
         self.lbSocket.setFont(font)
         self.lbSocket.setStyleSheet("border:0px;")
         self.lbSocket.setObjectName("lbSocket")
-        self.lbSata = QtWidgets.QLabel(addChCoolWidg)
-        self.lbSata.setGeometry(QtCore.QRect(20, 350, 131, 25))
+        self.lbPipe = QtWidgets.QLabel(addChCoolWidg)
+        self.lbPipe.setGeometry(QtCore.QRect(20, 350, 131, 25))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
-        self.lbSata.setFont(font)
-        self.lbSata.setStyleSheet("border:0px;")
-        self.lbSata.setObjectName("lbSata")
+        self.lbPipe.setFont(font)
+        self.lbPipe.setStyleSheet("border:0px;")
+        self.lbPipe.setObjectName("lbPipe")
         self.leSocket = QtWidgets.QLineEdit(addChCoolWidg)
         self.leSocket.setGeometry(QtCore.QRect(330, 200, 261, 35))
         font = QtGui.QFont()
@@ -502,13 +505,13 @@ class Ui_addChCoolWidg(object):
         self.line.setFrameShape(QtWidgets.QFrame.HLine)
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
-        self.cbSata = QtWidgets.QComboBox(addChCoolWidg)
-        self.cbSata.setGeometry(QtCore.QRect(20, 380, 111, 35))
+        self.cbPipe = QtWidgets.QComboBox(addChCoolWidg)
+        self.cbPipe.setGeometry(QtCore.QRect(20, 380, 111, 35))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
-        self.cbSata.setFont(font)
-        self.cbSata.setStyleSheet("QComboBox{\n"
+        self.cbPipe.setFont(font)
+        self.cbPipe.setStyleSheet("QComboBox{\n"
 "    background-color: rgb(40,40,40);\n"
 "    border: 1px;\n"
 "    border-bottom: 1px solid rgb(120,120,120);\n"
@@ -565,22 +568,22 @@ class Ui_addChCoolWidg(object):
 "    selection-color: rgb(25, 25, 25);\n"
 "}\n"
 "")
-        self.cbSata.setEditable(False)
-        self.cbSata.setIconSize(QtCore.QSize(20, 20))
-        self.cbSata.setDuplicatesEnabled(False)
-        self.cbSata.setFrame(False)
-        self.cbSata.setModelColumn(0)
-        self.cbSata.setObjectName("cbSata")
-        self.cbSata.addItem("")
-        self.cbSata.addItem("")
-        self.cbSata.addItem("")
-        self.cbSata.addItem("")
-        self.cbSata.addItem("")
-        self.cbSata.addItem("")
-        self.cbSata.addItem("")
-        self.cbSata.addItem("")
-        self.cbSata.addItem("")
-        self.cbSata.addItem("")
+        self.cbPipe.setEditable(False)
+        self.cbPipe.setIconSize(QtCore.QSize(20, 20))
+        self.cbPipe.setDuplicatesEnabled(False)
+        self.cbPipe.setFrame(False)
+        self.cbPipe.setModelColumn(0)
+        self.cbPipe.setObjectName("cbPipe")
+        self.cbPipe.addItem("")
+        self.cbPipe.addItem("")
+        self.cbPipe.addItem("")
+        self.cbPipe.addItem("")
+        self.cbPipe.addItem("")
+        self.cbPipe.addItem("")
+        self.cbPipe.addItem("")
+        self.cbPipe.addItem("")
+        self.cbPipe.addItem("")
+        self.cbPipe.addItem("")
         self.leKol = QtWidgets.QLineEdit(addChCoolWidg)
         self.leKol.setGeometry(QtCore.QRect(20, 470, 111, 35))
         font = QtGui.QFont()
@@ -724,6 +727,85 @@ class Ui_addChCoolWidg(object):
         self.cbConstruction.addItem("")
         self.cbConstruction.addItem("")
         self.cbConstruction.addItem("")
+        self.cbType = QtWidgets.QComboBox(addChCoolWidg)
+        self.cbType.setGeometry(QtCore.QRect(570, 280, 111, 35))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.cbType.setFont(font)
+        self.cbType.setStyleSheet("QComboBox{\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px;\n"
+"    border-bottom: 1px solid rgb(120,120,120);\n"
+"    padding-left: 5px;\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QComboBox QListView{\n"
+"    border: 1px solid red;\n"
+"    padding-left: 5px;\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QComboBox:hover{\n"
+"    background-color: rgb(55,55,55);\n"
+"    border-bottom: 1px solid red;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow:hover {\n"
+"border-image: url(\"E:/pcconf/images/down-arrow.png\");\n"
+"width: 17px;\n"
+"height: 17px;\n"
+"margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox::drop-down{\n"
+"border: 0px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow {\n"
+"border-image: url(\"E:/pcconf/images/down-arrow-gray.png\");\n"
+"width: 17px;\n"
+"height: 17px;\n"
+"margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow:on {\n"
+"    border-image: url(\"E:/pcconf/images/up-arrow.png\");\n"
+"    width: 17px;\n"
+"    height: 17px;\n"
+"    margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox:on{\n"
+"border: 2px solid rgb(100,0,0);\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    background: rgb(250, 250, 250);\n"
+"    border-width: 1px;\n"
+"    border-style: solid;\n"
+"    border-color: rgb(235, 235, 235);\n"
+"    selection-background-color: rgb(240, 240, 240);\n"
+"    selection-color: rgb(25, 25, 25);\n"
+"}\n"
+"")
+        self.cbType.setEditable(False)
+        self.cbType.setIconSize(QtCore.QSize(20, 20))
+        self.cbType.setDuplicatesEnabled(False)
+        self.cbType.setFrame(False)
+        self.cbType.setModelColumn(0)
+        self.cbType.setObjectName("cbType")
+        self.cbType.addItem("")
+        self.cbType.addItem("")
+        self.lbType = QtWidgets.QLabel(addChCoolWidg)
+        self.lbType.setGeometry(QtCore.QRect(570, 250, 131, 25))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        self.lbType.setFont(font)
+        self.lbType.setStyleSheet("border:0px;")
+        self.lbType.setObjectName("lbType")
         self.line_3.raise_()
         self.lbConnect.raise_()
         self.btnSave.raise_()
@@ -738,14 +820,14 @@ class Ui_addChCoolWidg(object):
         self.lbProcProizv.raise_()
         self.lbFullName.raise_()
         self.lbSocket.raise_()
-        self.lbSata.raise_()
+        self.lbPipe.raise_()
         self.leSocket.raise_()
         self.lbHeight.raise_()
         self.lbDisperse.raise_()
         self.btnCancel.raise_()
         self.dateEdit.raise_()
         self.line.raise_()
-        self.cbSata.raise_()
+        self.cbPipe.raise_()
         self.leKol.raise_()
         self.line_4.raise_()
         self.lbDate.raise_()
@@ -754,6 +836,8 @@ class Ui_addChCoolWidg(object):
         self.lbPrice.raise_()
         self.cbConstruction.raise_()
         self.lbConstruction.raise_()
+        self.cbType.raise_()
+        self.lbType.raise_()
 
         self.retranslateUi(addChCoolWidg)
         self.btnCancel.clicked.connect(addChCoolWidg.close)
@@ -774,27 +858,30 @@ class Ui_addChCoolWidg(object):
         self.lbProcProizv.setText(_translate("addChCoolWidg", "Производитель"))
         self.lbFullName.setText(_translate("addChCoolWidg", "Название кулера"))
         self.lbSocket.setText(_translate("addChCoolWidg", "Сокеты"))
-        self.lbSata.setText(_translate("addChCoolWidg", "Тепловые трубы"))
+        self.lbPipe.setText(_translate("addChCoolWidg", "Тепловые трубы"))
         self.lbHeight.setText(_translate("addChCoolWidg", "Высота кулера [мм]"))
         self.lbPrice.setText(_translate("addChCoolWidg", "Цена [руб.]"))
         self.lbDisperse.setText(_translate("addChCoolWidg", "Рассеиваемая мощность [Вт]"))
         self.btnCancel.setText(_translate("addChCoolWidg", "Отмена"))
-        self.cbSata.setItemText(0, _translate("addChCoolWidg", "9"))
-        self.cbSata.setItemText(1, _translate("addChCoolWidg", "8"))
-        self.cbSata.setItemText(2, _translate("addChCoolWidg", "7"))
-        self.cbSata.setItemText(3, _translate("addChCoolWidg", "6"))
-        self.cbSata.setItemText(4, _translate("addChCoolWidg", "5"))
-        self.cbSata.setItemText(5, _translate("addChCoolWidg", "4"))
-        self.cbSata.setItemText(6, _translate("addChCoolWidg", "3"))
-        self.cbSata.setItemText(7, _translate("addChCoolWidg", "2"))
-        self.cbSata.setItemText(8, _translate("addChCoolWidg", "1"))
-        self.cbSata.setItemText(9, _translate("addChCoolWidg", "нет"))
+        self.cbPipe.setItemText(0, _translate("addChCoolWidg", "9"))
+        self.cbPipe.setItemText(1, _translate("addChCoolWidg", "8"))
+        self.cbPipe.setItemText(2, _translate("addChCoolWidg", "7"))
+        self.cbPipe.setItemText(3, _translate("addChCoolWidg", "6"))
+        self.cbPipe.setItemText(4, _translate("addChCoolWidg", "5"))
+        self.cbPipe.setItemText(5, _translate("addChCoolWidg", "4"))
+        self.cbPipe.setItemText(6, _translate("addChCoolWidg", "3"))
+        self.cbPipe.setItemText(7, _translate("addChCoolWidg", "2"))
+        self.cbPipe.setItemText(8, _translate("addChCoolWidg", "1"))
+        self.cbPipe.setItemText(9, _translate("addChCoolWidg", "0"))
         self.lbDate.setText(_translate("addChCoolWidg", "Дата заказа"))
         self.lbKol.setText(_translate("addChCoolWidg", "Количество"))
         self.lbConstruction.setText(_translate("addChCoolWidg", "Конструкция"))
         self.cbConstruction.setItemText(0, _translate("addChCoolWidg", "Башенный"))
         self.cbConstruction.setItemText(1, _translate("addChCoolWidg", "Горизонтальный"))
         self.cbConstruction.setItemText(2, _translate("addChCoolWidg", "Смешанный"))
+        self.cbType.setItemText(0, _translate("addChCoolWidg", "Воздушное"))
+        self.cbType.setItemText(1, _translate("addChCoolWidg", "Водяное"))
+        self.lbType.setText(_translate("addChCoolWidg", "Тип охлаждения"))
 
 
 if __name__ == "__main__":

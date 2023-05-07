@@ -15,6 +15,9 @@ class Ui_addChPowerWidg(object):
     def setupUi(self, addChPowerWidg):
         addChPowerWidg.setObjectName("addChPowerWidg")
         addChPowerWidg.resize(877, 601)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\add\\../../images/win_add_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        addChPowerWidg.setWindowIcon(icon)
         addChPowerWidg.setStyleSheet("QWidget\n"
 "{\n"
 "    background: rgb(25, 25, 25);\n"
@@ -359,7 +362,7 @@ class Ui_addChPowerWidg(object):
         self.lbFullName.setStyleSheet("")
         self.lbFullName.setObjectName("lbFullName")
         self.lbPinPcie = QtWidgets.QLabel(addChPowerWidg)
-        self.lbPinPcie.setGeometry(QtCore.QRect(480, 350, 271, 25))
+        self.lbPinPcie.setGeometry(QtCore.QRect(490, 350, 271, 25))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -550,79 +553,6 @@ class Ui_addChPowerWidg(object):
         self.lbCertificate.setFont(font)
         self.lbCertificate.setStyleSheet("border:0px;")
         self.lbCertificate.setObjectName("lbCertificate")
-        self.cbPinPcie = QtWidgets.QComboBox(addChPowerWidg)
-        self.cbPinPcie.setGeometry(QtCore.QRect(480, 380, 111, 35))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.cbPinPcie.setFont(font)
-        self.cbPinPcie.setStyleSheet("QComboBox{\n"
-"    background-color: rgb(40,40,40);\n"
-"    border: 1px;\n"
-"    border-bottom: 1px solid rgb(120,120,120);\n"
-"    padding-left: 5px;\n"
-"    selection-background-color: rgb(105, 0, 0);\n"
-"}\n"
-"\n"
-"QComboBox QListView{\n"
-"    border: 1px solid red;\n"
-"    padding-left: 5px;\n"
-"    selection-background-color: rgb(105, 0, 0);\n"
-"}\n"
-"\n"
-"QComboBox:hover{\n"
-"    background-color: rgb(55,55,55);\n"
-"    border-bottom: 1px solid red;\n"
-"}\n"
-"\n"
-"QComboBox::down-arrow:hover {\n"
-"border-image: url(\"E:/pcconf/images/down-arrow.png\");\n"
-"width: 17px;\n"
-"height: 17px;\n"
-"margin-right: 5px;\n"
-"}\n"
-"\n"
-"QComboBox::drop-down{\n"
-"border: 0px;\n"
-"}\n"
-"\n"
-"QComboBox::down-arrow {\n"
-"border-image: url(\"E:/pcconf/images/down-arrow-gray.png\");\n"
-"width: 17px;\n"
-"height: 17px;\n"
-"margin-right: 5px;\n"
-"}\n"
-"\n"
-"QComboBox::down-arrow:on {\n"
-"    border-image: url(\"E:/pcconf/images/up-arrow.png\");\n"
-"    width: 17px;\n"
-"    height: 17px;\n"
-"    margin-right: 5px;\n"
-"}\n"
-"\n"
-"QComboBox:on{\n"
-"border: 2px solid rgb(100,0,0);\n"
-"}\n"
-"\n"
-"QComboBox QAbstractItemView {\n"
-"    background: rgb(250, 250, 250);\n"
-"    border-width: 1px;\n"
-"    border-style: solid;\n"
-"    border-color: rgb(235, 235, 235);\n"
-"    selection-background-color: rgb(240, 240, 240);\n"
-"    selection-color: rgb(25, 25, 25);\n"
-"}\n"
-"")
-        self.cbPinPcie.setEditable(False)
-        self.cbPinPcie.setIconSize(QtCore.QSize(20, 20))
-        self.cbPinPcie.setDuplicatesEnabled(False)
-        self.cbPinPcie.setFrame(False)
-        self.cbPinPcie.setModelColumn(0)
-        self.cbPinPcie.setObjectName("cbPinPcie")
-        self.cbPinPcie.addItem("")
-        self.cbPinPcie.addItem("")
-        self.cbPinPcie.addItem("")
-        self.cbPinPcie.addItem("")
         self.leKol = QtWidgets.QLineEdit(addChPowerWidg)
         self.leKol.setGeometry(QtCore.QRect(20, 470, 111, 35))
         font = QtGui.QFont()
@@ -886,6 +816,26 @@ class Ui_addChPowerWidg(object):
 "}")
         self.leLenPower.setInputMask("")
         self.leLenPower.setObjectName("leLenPower")
+        self.lePinPcie = QtWidgets.QLineEdit(addChPowerWidg)
+        self.lePinPcie.setGeometry(QtCore.QRect(490, 380, 111, 35))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.lePinPcie.setFont(font)
+        self.lePinPcie.setStyleSheet("QLineEdit{\n"
+"    padding-left: 5px;\n"
+"    border: 1px solid rgb(20,20,20);\n"
+"    background-color: rgb(40,40,40);\n"
+"    border-bottom: 1px solid  rgb(120,120,120);\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QLineEdit:hover{\n"
+"    background-color: rgb(55,55,55);\n"
+"    border-bottom: 1px solid  red;\n"
+"}")
+        self.lePinPcie.setInputMask("")
+        self.lePinPcie.setObjectName("lePinPcie")
         self.line_3.raise_()
         self.lbPinCpu.raise_()
         self.btnSave.raise_()
@@ -908,7 +858,6 @@ class Ui_addChPowerWidg(object):
         self.dateEdit.raise_()
         self.line.raise_()
         self.lbCertificate.raise_()
-        self.cbPinPcie.raise_()
         self.leKol.raise_()
         self.line_4.raise_()
         self.lbDate.raise_()
@@ -920,6 +869,7 @@ class Ui_addChPowerWidg(object):
         self.cbPinMain.raise_()
         self.lbLenPower.raise_()
         self.leLenPower.raise_()
+        self.lePinPcie.raise_()
 
         self.retranslateUi(addChPowerWidg)
         self.btnCancel.clicked.connect(addChPowerWidg.close)
@@ -956,10 +906,6 @@ class Ui_addChPowerWidg(object):
         self.lbPrice.setText(_translate("addChPowerWidg", "Цена [руб.]"))
         self.btnCancel.setText(_translate("addChPowerWidg", "Отмена"))
         self.lbCertificate.setText(_translate("addChPowerWidg", "Сертификат"))
-        self.cbPinPcie.setItemText(0, _translate("addChPowerWidg", "4"))
-        self.cbPinPcie.setItemText(1, _translate("addChPowerWidg", "3"))
-        self.cbPinPcie.setItemText(2, _translate("addChPowerWidg", "2"))
-        self.cbPinPcie.setItemText(3, _translate("addChPowerWidg", "1"))
         self.lbDate.setText(_translate("addChPowerWidg", "Дата заказа"))
         self.lbKol.setText(_translate("addChPowerWidg", "Количество"))
         self.lbFPower.setText(_translate("addChPowerWidg", "Форм-фактор"))

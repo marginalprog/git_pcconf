@@ -13,10 +13,14 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../images/win_add_icon.png</normaloff>../../images/win_add_icon.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">QWidget
 {
-    background: rgb(25, 25, 25);
+    background: rgb(30, 30, 30);
 	color: white;
 }
 </string>
@@ -792,28 +796,6 @@ border-top: 1px solid rgb(220, 0, 0);</string>
     <string>Дата заказа</string>
    </property>
   </widget>
-  <widget class="QLabel" name="lbConnect">
-   <property name="geometry">
-    <rect>
-     <x>180</x>
-     <y>350</y>
-     <width>191</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat SemiBold</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border:0px;</string>
-   </property>
-   <property name="text">
-    <string>Форм-фактор мат. платы</string>
-   </property>
-  </widget>
   <widget class="QComboBox" name="cbType">
    <property name="geometry">
     <rect>
@@ -1344,7 +1326,7 @@ QLineEdit:hover{
     <string notr="true">border:0px;</string>
    </property>
    <property name="text">
-    <string>Масса</string>
+    <string>Масса [кг]</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="leWeight">
@@ -1380,12 +1362,34 @@ QLineEdit:hover{
     <string/>
    </property>
   </widget>
-  <widget class="QComboBox" name="cbFMother">
+  <widget class="QLabel" name="lbFMother">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>350</y>
+     <width>251</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat SemiBold</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;</string>
+   </property>
+   <property name="text">
+    <string>Форм-факторы материнских плат</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="leFMother">
    <property name="geometry">
     <rect>
      <x>180</x>
      <y>380</y>
-     <width>111</width>
+     <width>261</width>
      <height>35</height>
     </rect>
    </property>
@@ -1396,127 +1400,22 @@ QLineEdit:hover{
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QComboBox{
+    <string notr="true">QLineEdit{
+	padding-left: 5px;
+	border: 1px solid rgb(20,20,20);
 	background-color: rgb(40,40,40);
-	border: 1px;
-	border-bottom: 1px solid rgb(120,120,120);
-	padding-left: 5px;
+	border-bottom: 1px solid  rgb(120,120,120);
 	selection-background-color: rgb(105, 0, 0);
 }
 
-QComboBox QListView{
-	border: 1px solid red;
-	padding-left: 5px;
-	selection-background-color: rgb(105, 0, 0);
-}
-
-QComboBox:hover{
+QLineEdit:hover{
 	background-color: rgb(55,55,55);
-	border-bottom: 1px solid red;
-}
-
-QComboBox::down-arrow:hover {
-border-image: url(&quot;E:/pcconf/images/down-arrow.png&quot;);
-width: 17px;
-height: 17px;
-margin-right: 5px;
-}
-
-QComboBox::drop-down{
-border: 0px;
-}
-
-QComboBox::down-arrow {
-border-image: url(&quot;E:/pcconf/images/down-arrow-gray.png&quot;);
-width: 17px;
-height: 17px;
-margin-right: 5px;
-}
-
-QComboBox::down-arrow:on {
-	border-image: url(&quot;E:/pcconf/images/up-arrow.png&quot;);
-	width: 17px;
-	height: 17px;
-	margin-right: 5px;
-}
-
-QComboBox:on{
-border: 2px solid rgb(100,0,0);
-}
-
-QComboBox QAbstractItemView {
-	background: rgb(250, 250, 250);
-	border-width: 1px;
-	border-style: solid;
-	border-color: rgb(235, 235, 235);
-	selection-background-color: rgb(240, 240, 240);
-	selection-color: rgb(25, 25, 25);
-}
-</string>
+	border-bottom: 1px solid  red;
+}</string>
    </property>
-   <property name="editable">
-    <bool>false</bool>
+   <property name="inputMask">
+    <string/>
    </property>
-   <property name="iconSize">
-    <size>
-     <width>20</width>
-     <height>20</height>
-    </size>
-   </property>
-   <property name="duplicatesEnabled">
-    <bool>false</bool>
-   </property>
-   <property name="frame">
-    <bool>false</bool>
-   </property>
-   <property name="modelColumn">
-    <number>0</number>
-   </property>
-   <item>
-    <property name="text">
-     <string>Standart-ATX</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>E-ATX</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Micro-ATX</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Mini-DTX</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Mini-ITX</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Mini-STX</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>SSI-CEB</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>XL-ATX</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>UCFF</string>
-    </property>
-   </item>
   </widget>
   <zorder>line_3</zorder>
   <zorder>line_4</zorder>
@@ -1540,7 +1439,6 @@ QComboBox QAbstractItemView {
   <zorder>line</zorder>
   <zorder>rectangle</zorder>
   <zorder>lbDate</zorder>
-  <zorder>lbConnect</zorder>
   <zorder>cbType</zorder>
   <zorder>lbComplect</zorder>
   <zorder>cbGaming</zorder>
@@ -1553,7 +1451,8 @@ QComboBox QAbstractItemView {
   <zorder>leColor</zorder>
   <zorder>lbWeight</zorder>
   <zorder>leWeight</zorder>
-  <zorder>cbFMother</zorder>
+  <zorder>lbFMother</zorder>
+  <zorder>leFMother</zorder>
  </widget>
  <resources/>
  <connections>

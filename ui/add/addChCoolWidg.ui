@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../images/win_add_icon.png</normaloff>../../images/win_add_icon.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">QWidget
 {
@@ -268,12 +272,12 @@ QComboBox QAbstractItemView {
    </item>
    <item>
     <property name="text">
-     <string>3 pin</string>
+     <string>4 pin x2</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>4 pin x2</string>
+     <string>3 pin</string>
     </property>
    </item>
    <item>
@@ -506,7 +510,7 @@ QComboBox QAbstractItemView {
     <string>Сокеты</string>
    </property>
   </widget>
-  <widget class="QLabel" name="lbSata">
+  <widget class="QLabel" name="lbPipe">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -860,7 +864,7 @@ border-top: 1px solid rgb(220, 0, 0);</string>
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
-  <widget class="QComboBox" name="cbSata">
+  <widget class="QComboBox" name="cbPipe">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -999,7 +1003,7 @@ QComboBox QAbstractItemView {
    </item>
    <item>
     <property name="text">
-     <string>нет</string>
+     <string>0</string>
     </property>
    </item>
   </widget>
@@ -1260,6 +1264,131 @@ QComboBox QAbstractItemView {
     </property>
    </item>
   </widget>
+  <widget class="QComboBox" name="cbType">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>280</y>
+     <width>111</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat Medium</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QComboBox{
+	background-color: rgb(40,40,40);
+	border: 1px;
+	border-bottom: 1px solid rgb(120,120,120);
+	padding-left: 5px;
+	selection-background-color: rgb(105, 0, 0);
+}
+
+QComboBox QListView{
+	border: 1px solid red;
+	padding-left: 5px;
+	selection-background-color: rgb(105, 0, 0);
+}
+
+QComboBox:hover{
+	background-color: rgb(55,55,55);
+	border-bottom: 1px solid red;
+}
+
+QComboBox::down-arrow:hover {
+border-image: url(&quot;E:/pcconf/images/down-arrow.png&quot;);
+width: 17px;
+height: 17px;
+margin-right: 5px;
+}
+
+QComboBox::drop-down{
+border: 0px;
+}
+
+QComboBox::down-arrow {
+border-image: url(&quot;E:/pcconf/images/down-arrow-gray.png&quot;);
+width: 17px;
+height: 17px;
+margin-right: 5px;
+}
+
+QComboBox::down-arrow:on {
+	border-image: url(&quot;E:/pcconf/images/up-arrow.png&quot;);
+	width: 17px;
+	height: 17px;
+	margin-right: 5px;
+}
+
+QComboBox:on{
+border: 2px solid rgb(100,0,0);
+}
+
+QComboBox QAbstractItemView {
+	background: rgb(250, 250, 250);
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(235, 235, 235);
+	selection-background-color: rgb(240, 240, 240);
+	selection-color: rgb(25, 25, 25);
+}
+</string>
+   </property>
+   <property name="editable">
+    <bool>false</bool>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>20</height>
+    </size>
+   </property>
+   <property name="duplicatesEnabled">
+    <bool>false</bool>
+   </property>
+   <property name="frame">
+    <bool>false</bool>
+   </property>
+   <property name="modelColumn">
+    <number>0</number>
+   </property>
+   <item>
+    <property name="text">
+     <string>Воздушное</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Водяное</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="lbType">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>250</y>
+     <width>131</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat SemiBold</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;</string>
+   </property>
+   <property name="text">
+    <string>Тип охлаждения</string>
+   </property>
+  </widget>
   <zorder>line_3</zorder>
   <zorder>lbConnect</zorder>
   <zorder>btnSave</zorder>
@@ -1274,14 +1403,14 @@ QComboBox QAbstractItemView {
   <zorder>lbProcProizv</zorder>
   <zorder>lbFullName</zorder>
   <zorder>lbSocket</zorder>
-  <zorder>lbSata</zorder>
+  <zorder>lbPipe</zorder>
   <zorder>leSocket</zorder>
   <zorder>lbHeight</zorder>
   <zorder>lbDisperse</zorder>
   <zorder>btnCancel</zorder>
   <zorder>dateEdit</zorder>
   <zorder>line</zorder>
-  <zorder>cbSata</zorder>
+  <zorder>cbPipe</zorder>
   <zorder>leKol</zorder>
   <zorder>line_4</zorder>
   <zorder>lbDate</zorder>
@@ -1290,6 +1419,8 @@ QComboBox QAbstractItemView {
   <zorder>lbPrice</zorder>
   <zorder>cbConstruction</zorder>
   <zorder>lbConstruction</zorder>
+  <zorder>cbType</zorder>
+  <zorder>lbType</zorder>
  </widget>
  <resources/>
  <connections>

@@ -20,9 +20,8 @@ class Ui_addChMotherWidg(object):
         addChMotherWidg.setWindowIcon(icon)
         addChMotherWidg.setStyleSheet("QWidget\n"
 "{\n"
-"    background: rgb(30, 30, 30);\n"
+"    background: rgb(25, 25, 25);\n"
 "    color: white;\n"
-"\n"
 "}\n"
 "")
         self.lbRamMax = QtWidgets.QLabel(addChMotherWidg)
@@ -548,6 +547,7 @@ class Ui_addChMotherWidg(object):
         font.setPointSize(12)
         self.lbComplect.setFont(font)
         self.lbComplect.setStyleSheet("border:0px;")
+        self.lbComplect.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.lbComplect.setObjectName("lbComplect")
         self.lbM2 = QtWidgets.QLabel(addChMotherWidg)
         self.lbM2.setGeometry(QtCore.QRect(20, 350, 131, 25))
@@ -696,6 +696,9 @@ class Ui_addChMotherWidg(object):
         self.cbFactor.setFrame(False)
         self.cbFactor.setModelColumn(0)
         self.cbFactor.setObjectName("cbFactor")
+        self.cbFactor.addItem("")
+        self.cbFactor.addItem("")
+        self.cbFactor.addItem("")
         self.cbFactor.addItem("")
         self.cbFactor.addItem("")
         self.cbFactor.addItem("")
@@ -995,6 +998,89 @@ class Ui_addChMotherWidg(object):
         self.cbSata.addItem("")
         self.cbSata.addItem("")
         self.cbSata.addItem("")
+        self.cbSata.addItem("")
+        self.cbSata.addItem("")
+        self.cbPcie = QtWidgets.QComboBox(addChMotherWidg)
+        self.cbPcie.setGeometry(QtCore.QRect(320, 380, 111, 35))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.cbPcie.setFont(font)
+        self.cbPcie.setStyleSheet("QComboBox{\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px;\n"
+"    border-bottom: 1px solid rgb(120,120,120);\n"
+"    padding-left: 5px;\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QComboBox QListView{\n"
+"    border: 1px solid red;\n"
+"    padding-left: 5px;\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QComboBox:hover{\n"
+"    background-color: rgb(55,55,55);\n"
+"    border-bottom: 1px solid red;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow:hover {\n"
+"border-image: url(\"E:/pcconf/images/down-arrow.png\");\n"
+"width: 17px;\n"
+"height: 17px;\n"
+"margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox::drop-down{\n"
+"border: 0px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow {\n"
+"border-image: url(\"E:/pcconf/images/down-arrow-gray.png\");\n"
+"width: 17px;\n"
+"height: 17px;\n"
+"margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow:on {\n"
+"    border-image: url(\"E:/pcconf/images/up-arrow.png\");\n"
+"    width: 17px;\n"
+"    height: 17px;\n"
+"    margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox:on{\n"
+"border: 2px solid rgb(100,0,0);\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    background: rgb(250, 250, 250);\n"
+"    border-width: 1px;\n"
+"    border-style: solid;\n"
+"    border-color: rgb(235, 235, 235);\n"
+"    selection-background-color: rgb(240, 240, 240);\n"
+"    selection-color: rgb(25, 25, 25);\n"
+"}\n"
+"")
+        self.cbPcie.setEditable(False)
+        self.cbPcie.setIconSize(QtCore.QSize(20, 20))
+        self.cbPcie.setDuplicatesEnabled(False)
+        self.cbPcie.setFrame(False)
+        self.cbPcie.setModelColumn(0)
+        self.cbPcie.setObjectName("cbPcie")
+        self.cbPcie.addItem("")
+        self.cbPcie.addItem("")
+        self.cbPcie.addItem("")
+        self.cbPcie.addItem("")
+        self.lbPcie = QtWidgets.QLabel(addChMotherWidg)
+        self.lbPcie.setGeometry(QtCore.QRect(320, 350, 111, 25))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        self.lbPcie.setFont(font)
+        self.lbPcie.setStyleSheet("border:0px;")
+        self.lbPcie.setObjectName("lbPcie")
         self.line_3.raise_()
         self.lbRamMax.raise_()
         self.lbFullName.raise_()
@@ -1033,6 +1119,8 @@ class Ui_addChMotherWidg(object):
         self.cbRamSlots.raise_()
         self.cbM2.raise_()
         self.cbSata.raise_()
+        self.cbPcie.raise_()
+        self.lbPcie.raise_()
 
         self.retranslateUi(addChMotherWidg)
         self.btnCancel.clicked.connect(addChMotherWidg.close)
@@ -1068,7 +1156,10 @@ class Ui_addChMotherWidg(object):
         self.cbFactor.setItemText(2, _translate("addChMotherWidg", "Micro-ATX"))
         self.cbFactor.setItemText(3, _translate("addChMotherWidg", "Mini-DTX"))
         self.cbFactor.setItemText(4, _translate("addChMotherWidg", "Mini-ITX"))
-        self.cbFactor.setItemText(5, _translate("addChMotherWidg", "SSI-CEB"))
+        self.cbFactor.setItemText(5, _translate("addChMotherWidg", "Mini-STX"))
+        self.cbFactor.setItemText(6, _translate("addChMotherWidg", "SSI-CEB"))
+        self.cbFactor.setItemText(7, _translate("addChMotherWidg", "XL-ATX"))
+        self.cbFactor.setItemText(8, _translate("addChMotherWidg", "UCFF"))
         self.cbRamType.setItemText(0, _translate("addChMotherWidg", "DDR5"))
         self.cbRamType.setItemText(1, _translate("addChMotherWidg", "DDR4"))
         self.cbRamType.setItemText(2, _translate("addChMotherWidg", "DDR3"))
@@ -1082,10 +1173,17 @@ class Ui_addChMotherWidg(object):
         self.cbM2.setItemText(1, _translate("addChMotherWidg", "3"))
         self.cbM2.setItemText(2, _translate("addChMotherWidg", "2"))
         self.cbM2.setItemText(3, _translate("addChMotherWidg", "1"))
-        self.cbSata.setItemText(0, _translate("addChMotherWidg", "4"))
-        self.cbSata.setItemText(1, _translate("addChMotherWidg", "3"))
-        self.cbSata.setItemText(2, _translate("addChMotherWidg", "2"))
-        self.cbSata.setItemText(3, _translate("addChMotherWidg", "1"))
+        self.cbSata.setItemText(0, _translate("addChMotherWidg", "6"))
+        self.cbSata.setItemText(1, _translate("addChMotherWidg", "5"))
+        self.cbSata.setItemText(2, _translate("addChMotherWidg", "4"))
+        self.cbSata.setItemText(3, _translate("addChMotherWidg", "3"))
+        self.cbSata.setItemText(4, _translate("addChMotherWidg", "2"))
+        self.cbSata.setItemText(5, _translate("addChMotherWidg", "1"))
+        self.cbPcie.setItemText(0, _translate("addChMotherWidg", "5.0"))
+        self.cbPcie.setItemText(1, _translate("addChMotherWidg", "4.0"))
+        self.cbPcie.setItemText(2, _translate("addChMotherWidg", "3.0"))
+        self.cbPcie.setItemText(3, _translate("addChMotherWidg", "2.0"))
+        self.lbPcie.setText(_translate("addChMotherWidg", "Версии PCI-E"))
 
 
 if __name__ == "__main__":

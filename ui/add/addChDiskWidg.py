@@ -15,6 +15,9 @@ class Ui_addChDiskWidg(object):
     def setupUi(self, addChDiskWidg):
         addChDiskWidg.setObjectName("addChDiskWidg")
         addChDiskWidg.resize(877, 599)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\add\\../../images/win_add_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        addChDiskWidg.setWindowIcon(icon)
         addChDiskWidg.setStyleSheet("QWidget\n"
 "{\n"
 "    background: rgb(25, 25, 25);\n"

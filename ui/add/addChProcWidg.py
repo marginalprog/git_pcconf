@@ -20,9 +20,8 @@ class Ui_addChProcWidg(object):
         addChProcWidg.setWindowIcon(icon)
         addChProcWidg.setStyleSheet("QWidget\n"
 "{\n"
-"    background: rgb(30, 30, 30);\n"
+"    background: rgb(25, 25, 25);\n"
 "    color: white;\n"
-"\n"
 "}\n"
 "")
         self.lbSocket = QtWidgets.QLabel(addChProcWidg)
@@ -48,6 +47,7 @@ class Ui_addChProcWidg(object):
         font.setPointSize(12)
         self.lbComplect.setFont(font)
         self.lbComplect.setStyleSheet("border:0px;")
+        self.lbComplect.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.lbComplect.setObjectName("lbComplect")
         self.line_2 = QtWidgets.QFrame(addChProcWidg)
         self.line_2.setGeometry(QtCore.QRect(20, 330, 841, 16))

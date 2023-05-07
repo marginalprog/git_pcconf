@@ -20,6 +20,7 @@ CREATE OR REPLACE FUNCTION insert_motherboard(
 	VARCHAR(20),
 	VARCHAR(20),
 	VARCHAR(30),
+	VARCHAR(30),
 	VARCHAR(20),
 	INT,
 	INT,
@@ -30,9 +31,9 @@ CREATE OR REPLACE FUNCTION insert_motherboard(
 	RETURNS void AS $$
 BEGIN
 	INSERT INTO motherboard(id_proizv, fullname, gaming, socket, chipset, formfactor, 
-						    memorytype, memoryslot, memorymax, memoryfreqmax,
+						    pcie, memorytype, memoryslot, memorymax, memoryfreqmax,
 						    m2, sata, price)
-	VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13);
+	VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14);
 END;
 $$ LANGUAGE plpgsql;
 
@@ -47,7 +48,8 @@ RETURNS TABLE(
 	gaming BOOL,
 	socket VARCHAR, 
 	chipset VARCHAR, 
-	formfactor VARCHAR, 
+	formfactor VARCHAR,
+	pcie VARCHAR,
 	memorytype VARCHAR, 
 	memoryslot INT, 
 	memorymax INT, 
@@ -57,7 +59,7 @@ RETURNS TABLE(
 	price INT
 ) AS $$
 	SELECT sklad_motherboard.kol, motherboard.exist, motherboard.id, proizv_motherboard.name,
-			fullname, gaming, socket, chipset, formfactor, 
+			fullname, gaming, socket, chipset, formfactor, pcie, 
 			memorytype, memoryslot, memorymax, memoryfreqmax,
 			m2, sata, price
 	FROM motherboard, sklad_motherboard, proizv_motherboard
@@ -75,7 +77,8 @@ RETURNS TABLE(
 	gaming BOOL,
 	socket VARCHAR, 
 	chipset VARCHAR, 
-	formfactor VARCHAR, 
+	formfactor VARCHAR,
+	pcie VARCHAR,
 	memorytype VARCHAR, 
 	memoryslot INT, 
 	memorymax INT, 
@@ -85,7 +88,7 @@ RETURNS TABLE(
 	price INT
 ) AS $$
 	SELECT sklad_motherboard.kol, motherboard.exist, motherboard.id, proizv_motherboard.name, 
-			fullname, gaming, socket, chipset, formfactor, 
+			fullname, gaming, socket, chipset, formfactor,  pcie,
 			memorytype, memoryslot, memorymax, memoryfreqmax,
 			m2, sata, price
 	FROM motherboard, sklad_motherboard, proizv_motherboard
@@ -105,7 +108,8 @@ RETURNS TABLE(
 	gaming BOOL,
 	socket VARCHAR, 
 	chipset VARCHAR, 
-	formfactor VARCHAR, 
+	formfactor VARCHAR,
+	pcie VARCHAR,
 	memorytype VARCHAR, 
 	memoryslot INT, 
 	memorymax INT, 
@@ -115,7 +119,7 @@ RETURNS TABLE(
 	price INT
 ) AS $$
 	SELECT sklad_motherboard.kol, motherboard.exist, motherboard.id, proizv_motherboard.name,
-			fullname, gaming, socket, chipset, formfactor, 
+			fullname, gaming, socket, chipset, formfactor, pcie,
 			memorytype, memoryslot, memorymax, memoryfreqmax,
 			m2, sata, price
 	FROM motherboard, sklad_motherboard, proizv_motherboard
