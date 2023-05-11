@@ -20,7 +20,7 @@
   <property name="styleSheet">
    <string notr="true">QWidget
 {
-    background: rgb(25, 25, 25);
+    background: rgb(30, 30, 30);
 	color: white;
 }
 </string>
@@ -267,22 +267,27 @@ QComboBox QAbstractItemView {
    </property>
    <item>
     <property name="text">
-     <string>4 pin</string>
+     <string>3</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>4 pin x2</string>
+     <string>4</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>3 pin</string>
+     <string>8</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>нет</string>
+     <string>16</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>0</string>
     </property>
    </item>
   </widget>
@@ -1389,6 +1394,84 @@ QComboBox QAbstractItemView {
     <string>Тип охлаждения</string>
    </property>
   </widget>
+  <widget class="QLabel" name="lbVoltage">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>350</y>
+     <width>261</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat SemiBold</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;</string>
+   </property>
+   <property name="text">
+    <string>Напряжение основной линии [Вт]</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="leVoltage">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>380</y>
+     <width>111</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat Medium</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit{
+	padding-left: 5px;
+	border: 1px solid rgb(20,20,20);
+	background-color: rgb(40,40,40);
+	border-bottom: 1px solid  rgb(120,120,120);
+	selection-background-color: rgb(105, 0, 0);
+}
+
+QLineEdit:hover{
+	background-color: rgb(55,55,55);
+	border-bottom: 1px solid  red;
+}</string>
+   </property>
+   <property name="inputMask">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbPrice_4">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>380</y>
+     <width>21</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat SemiBold</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;
+background:transparent;</string>
+   </property>
+   <property name="text">
+    <string>pin</string>
+   </property>
+  </widget>
   <zorder>line_3</zorder>
   <zorder>lbConnect</zorder>
   <zorder>btnSave</zorder>
@@ -1421,6 +1504,9 @@ QComboBox QAbstractItemView {
   <zorder>lbConstruction</zorder>
   <zorder>cbType</zorder>
   <zorder>lbType</zorder>
+  <zorder>lbVoltage</zorder>
+  <zorder>leVoltage</zorder>
+  <zorder>lbPrice_4</zorder>
  </widget>
  <resources/>
  <connections>

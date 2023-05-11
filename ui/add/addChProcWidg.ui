@@ -20,7 +20,7 @@
   <property name="styleSheet">
    <string notr="true">QWidget
 {
-    background: rgb(25, 25, 25);
+    background: rgb(30, 30, 30);
 	color: white;
 }
 </string>

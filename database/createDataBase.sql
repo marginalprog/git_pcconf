@@ -1,4 +1,4 @@
--- Last modification date: 2023-05-06 15:51:03.047
+-- Last modification date: 2023-05-11 16:12:55.784
 
 -- tables
 -- Table: Body
@@ -58,8 +58,9 @@ CREATE TABLE Cool (
     socket varchar(255)  NOT NULL,
     heatpipe int  NOT NULL,
     height int  NOT NULL,
-    connect varchar(15)  NOT NULL,
+    conncool int  NOT NULL,
     disperse int  NOT NULL,
+    voltage int  NOT NULL,
     price int  NOT NULL,
     CONSTRAINT Cool_pk PRIMARY KEY (id)
 );
@@ -98,6 +99,10 @@ CREATE TABLE Motherboard (
     m2 int  NOT NULL,
     sata int  NOT NULL,
     price int  NOT NULL,
+    conncool int  NOT NULL,
+    kolconncool int  NOT NULL,
+    connproc int  NOT NULL,
+    kolconnproc int  NOT NULL,
     CONSTRAINT Motherboard_pk PRIMARY KEY (id)
 );
 
@@ -184,10 +189,12 @@ CREATE TABLE Power (
     power int  NOT NULL,
     certificate varchar(15)  NOT NULL,
     pinmain varchar(20)  NOT NULL,
-    pincpu varchar(20)  NOT NULL,
-    pinpcie varchar(20)  NOT NULL,
+    connproc varchar(20)  NOT NULL,
+    connvideo varchar(20)  NOT NULL,
     pinsata int  NOT NULL,
     price int  NOT NULL,
+    kolconnproc int  NOT NULL,
+    kolconnvideo int  NOT NULL,
     CONSTRAINT Power_pk PRIMARY KEY (id)
 );
 
@@ -360,6 +367,8 @@ CREATE TABLE Videocard (
     tdp int  NOT NULL,
     length int  NOT NULL,
     price int  NOT NULL,
+    connvideo int  NOT NULL,
+    kolconnvideo int  NOT NULL,
     CONSTRAINT Videocard_pk PRIMARY KEY (id)
 );
 

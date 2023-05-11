@@ -27,13 +27,16 @@ CREATE OR REPLACE FUNCTION insert_motherboard(
 	INT,
 	INT,
 	INT,
+	INT,
+	INT,
+	INT,
 	INT)
 	RETURNS void AS $$
 BEGIN
 	INSERT INTO motherboard(id_proizv, fullname, gaming, socket, chipset, formfactor, 
 						    pcie, memorytype, memoryslot, memorymax, memoryfreqmax,
-						    m2, sata, price)
-	VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14);
+						    m2, sata, conncool, connproc, kolconnproc, price)
+	VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17);
 END;
 $$ LANGUAGE plpgsql;
 
@@ -55,13 +58,16 @@ RETURNS TABLE(
 	memorymax INT, 
 	memoryfreqmax INT,
 	m2 INT,
-	sata INT, 
+	sata INT,
+	conncool INT,
+	connproc INT,
+	kolconnproc INT,
 	price INT
 ) AS $$
 	SELECT sklad_motherboard.kol, motherboard.exist, motherboard.id, proizv_motherboard.name,
 			fullname, gaming, socket, chipset, formfactor, pcie, 
 			memorytype, memoryslot, memorymax, memoryfreqmax,
-			m2, sata, price
+			m2, sata, conncool, connproc, kolconnproc, price
 	FROM motherboard, sklad_motherboard, proizv_motherboard
 	WHERE motherboard.id = sklad_motherboard.id_izd AND motherboard.id_proizv = proizv_motherboard.id
 	ORDER BY exist DESC
@@ -85,12 +91,15 @@ RETURNS TABLE(
 	memoryfreqmax INT,
 	m2 INT,
 	sata INT, 
+	conncool INT,
+	connproc INT,
+	kolconnproc INT,
 	price INT
 ) AS $$
-	SELECT sklad_motherboard.kol, motherboard.exist, motherboard.id, proizv_motherboard.name, 
-			fullname, gaming, socket, chipset, formfactor,  pcie,
+	SELECT sklad_motherboard.kol, motherboard.exist, motherboard.id, proizv_motherboard.name,
+			fullname, gaming, socket, chipset, formfactor, pcie, 
 			memorytype, memoryslot, memorymax, memoryfreqmax,
-			m2, sata, price
+			m2, sata, conncool, connproc, kolconnproc, price
 	FROM motherboard, sklad_motherboard, proizv_motherboard
 	WHERE motherboard.id = sklad_motherboard.id_izd AND motherboard.id_proizv = proizv_motherboard.id
 	AND motherboard.exist = True
@@ -116,12 +125,15 @@ RETURNS TABLE(
 	memoryfreqmax INT,
 	m2 INT,
 	sata INT, 
+	conncool INT,
+	connproc INT,
+	kolconnproc INT,
 	price INT
 ) AS $$
 	SELECT sklad_motherboard.kol, motherboard.exist, motherboard.id, proizv_motherboard.name,
-			fullname, gaming, socket, chipset, formfactor, pcie,
+			fullname, gaming, socket, chipset, formfactor, pcie, 
 			memorytype, memoryslot, memorymax, memoryfreqmax,
-			m2, sata, price
+			m2, sata, conncool, connproc, kolconnproc, price
 	FROM motherboard, sklad_motherboard, proizv_motherboard
 	WHERE motherboard.id = sklad_motherboard.id_izd AND motherboard.id_proizv = proizv_motherboard.id AND socket = socket_in
 	ORDER BY exist DESC

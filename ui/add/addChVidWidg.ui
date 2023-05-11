@@ -1708,6 +1708,355 @@ QComboBox QAbstractItemView {
     <string>Игровое комплектующее</string>
    </property>
   </widget>
+  <widget class="QComboBox" name="cbPinVideo">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>470</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat Medium</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QComboBox{
+	background-color: rgb(40,40,40);
+	border: 1px;
+	border-bottom: 1px solid rgb(120,120,120);
+	padding-left: 5px;
+	selection-background-color: rgb(105, 0, 0);
+}
+
+QComboBox QListView{
+	border: 1px solid red;
+	padding-left: 5px;
+	selection-background-color: rgb(105, 0, 0);
+}
+
+QComboBox:hover{
+	background-color: rgb(55,55,55);
+	border-bottom: 1px solid red;
+}
+
+QComboBox::down-arrow:hover {
+border-image: url(&quot;E:/pcconf/images/down-arrow.png&quot;);
+width: 17px;
+height: 17px;
+margin-right: 5px;
+}
+
+QComboBox::drop-down{
+border: 0px;
+}
+
+QComboBox::down-arrow {
+border-image: url(&quot;E:/pcconf/images/down-arrow-gray.png&quot;);
+width: 17px;
+height: 17px;
+margin-right: 5px;
+}
+
+QComboBox::down-arrow:on {
+	border-image: url(&quot;E:/pcconf/images/up-arrow.png&quot;);
+	width: 17px;
+	height: 17px;
+	margin-right: 5px;
+}
+
+QComboBox:on{
+border: 2px solid rgb(100,0,0);
+}
+
+QComboBox QAbstractItemView {
+	background: rgb(250, 250, 250);
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(235, 235, 235);
+	selection-background-color: rgb(240, 240, 240);
+	selection-color: rgb(25, 25, 25);
+}
+</string>
+   </property>
+   <property name="editable">
+    <bool>false</bool>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>20</height>
+    </size>
+   </property>
+   <property name="duplicatesEnabled">
+    <bool>false</bool>
+   </property>
+   <property name="frame">
+    <bool>false</bool>
+   </property>
+   <property name="modelColumn">
+    <number>0</number>
+   </property>
+   <item>
+    <property name="text">
+     <string>6</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>8</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>12</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>14</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>16</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>22</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QComboBox" name="cbPinVideoKol">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>470</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat Medium</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QComboBox{
+	background-color: rgb(40,40,40);
+	border: 1px;
+	border-bottom: 1px solid rgb(120,120,120);
+	padding-left: 5px;
+	selection-background-color: rgb(105, 0, 0);
+}
+
+QComboBox QListView{
+	border: 1px solid red;
+	padding-left: 5px;
+	selection-background-color: rgb(105, 0, 0);
+}
+
+QComboBox:hover{
+	background-color: rgb(55,55,55);
+	border-bottom: 1px solid red;
+}
+
+QComboBox::down-arrow:hover {
+border-image: url(&quot;E:/pcconf/images/down-arrow.png&quot;);
+width: 17px;
+height: 17px;
+margin-right: 5px;
+}
+
+QComboBox::drop-down{
+border: 0px;
+}
+
+QComboBox::down-arrow {
+border-image: url(&quot;E:/pcconf/images/down-arrow-gray.png&quot;);
+width: 17px;
+height: 17px;
+margin-right: 5px;
+}
+
+QComboBox::down-arrow:on {
+	border-image: url(&quot;E:/pcconf/images/up-arrow.png&quot;);
+	width: 17px;
+	height: 17px;
+	margin-right: 5px;
+}
+
+QComboBox:on{
+border: 2px solid rgb(100,0,0);
+}
+
+QComboBox QAbstractItemView {
+	background: rgb(250, 250, 250);
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(235, 235, 235);
+	selection-background-color: rgb(240, 240, 240);
+	selection-color: rgb(25, 25, 25);
+}
+</string>
+   </property>
+   <property name="editable">
+    <bool>false</bool>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>20</height>
+    </size>
+   </property>
+   <property name="duplicatesEnabled">
+    <bool>false</bool>
+   </property>
+   <property name="frame">
+    <bool>false</bool>
+   </property>
+   <property name="modelColumn">
+    <number>0</number>
+   </property>
+   <item>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>3</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>4</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>5</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>6</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>7</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>8</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>9</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>10</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>16</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="lbPrice_2">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>470</y>
+     <width>16</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat SemiBold</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;</string>
+   </property>
+   <property name="text">
+    <string>x</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbPinPcie">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>440</y>
+     <width>271</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat SemiBold</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;</string>
+   </property>
+   <property name="text">
+    <string>Доп. питание видеокарты (PCI-E)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbPrice_6">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>470</y>
+     <width>21</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat SemiBold</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;
+background:transparent;</string>
+   </property>
+   <property name="text">
+    <string>pin</string>
+   </property>
+  </widget>
+  <zorder>lbPrice_2</zorder>
   <zorder>lbFullName</zorder>
   <zorder>line</zorder>
   <zorder>line_2</zorder>
@@ -1750,6 +2099,10 @@ QComboBox QAbstractItemView {
   <zorder>cbResolution</zorder>
   <zorder>cbGaming</zorder>
   <zorder>lbProcGaming</zorder>
+  <zorder>cbPinVideo</zorder>
+  <zorder>cbPinVideoKol</zorder>
+  <zorder>lbPinPcie</zorder>
+  <zorder>lbPrice_6</zorder>
  </widget>
  <resources/>
  <connections>

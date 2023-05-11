@@ -20,12 +20,12 @@ class Ui_addChMotherWidg(object):
         addChMotherWidg.setWindowIcon(icon)
         addChMotherWidg.setStyleSheet("QWidget\n"
 "{\n"
-"    background: rgb(25, 25, 25);\n"
+"    background: rgb(30, 30, 30);\n"
 "    color: white;\n"
 "}\n"
 "")
         self.lbRamMax = QtWidgets.QLabel(addChMotherWidg)
-        self.lbRamMax.setGeometry(QtCore.QRect(500, 350, 261, 25))
+        self.lbRamMax.setGeometry(QtCore.QRect(470, 350, 181, 25))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -41,7 +41,7 @@ class Ui_addChMotherWidg(object):
         self.lbFullName.setStyleSheet("")
         self.lbFullName.setObjectName("lbFullName")
         self.leRamMax = QtWidgets.QLineEdit(addChMotherWidg)
-        self.leRamMax.setGeometry(QtCore.QRect(500, 380, 101, 35))
+        self.leRamMax.setGeometry(QtCore.QRect(470, 380, 111, 35))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -70,7 +70,7 @@ class Ui_addChMotherWidg(object):
         self.lbPrice.setStyleSheet("border:0px;")
         self.lbPrice.setObjectName("lbPrice")
         self.leChipset = QtWidgets.QLineEdit(addChMotherWidg)
-        self.leChipset.setGeometry(QtCore.QRect(500, 200, 111, 35))
+        self.leChipset.setGeometry(QtCore.QRect(470, 200, 111, 35))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -90,7 +90,7 @@ class Ui_addChMotherWidg(object):
         self.leChipset.setInputMask("")
         self.leChipset.setObjectName("leChipset")
         self.lbProcGaming = QtWidgets.QLabel(addChMotherWidg)
-        self.lbProcGaming.setGeometry(QtCore.QRect(500, 90, 191, 25))
+        self.lbProcGaming.setGeometry(QtCore.QRect(470, 90, 191, 25))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -98,7 +98,7 @@ class Ui_addChMotherWidg(object):
         self.lbProcGaming.setStyleSheet("border:0px;")
         self.lbProcGaming.setObjectName("lbProcGaming")
         self.leFreqMax = QtWidgets.QLineEdit(addChMotherWidg)
-        self.leFreqMax.setGeometry(QtCore.QRect(500, 280, 111, 35))
+        self.leFreqMax.setGeometry(QtCore.QRect(470, 280, 111, 35))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -427,7 +427,7 @@ class Ui_addChMotherWidg(object):
         self.line_3.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_3.setObjectName("line_3")
         self.lbFreqMax = QtWidgets.QLabel(addChMotherWidg)
-        self.lbFreqMax.setGeometry(QtCore.QRect(500, 250, 251, 25))
+        self.lbFreqMax.setGeometry(QtCore.QRect(470, 250, 181, 25))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -454,7 +454,7 @@ class Ui_addChMotherWidg(object):
 "}")
         self.leFullName.setObjectName("leFullName")
         self.lbChipset = QtWidgets.QLabel(addChMotherWidg)
-        self.lbChipset.setGeometry(QtCore.QRect(500, 170, 101, 25))
+        self.lbChipset.setGeometry(QtCore.QRect(470, 170, 101, 25))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -470,7 +470,7 @@ class Ui_addChMotherWidg(object):
         self.lbDate.setStyleSheet("border:0px;")
         self.lbDate.setObjectName("lbDate")
         self.cbGaming = QtWidgets.QComboBox(addChMotherWidg)
-        self.cbGaming.setGeometry(QtCore.QRect(500, 120, 111, 35))
+        self.cbGaming.setGeometry(QtCore.QRect(470, 120, 111, 35))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -1081,6 +1081,277 @@ class Ui_addChMotherWidg(object):
         self.lbPcie.setFont(font)
         self.lbPcie.setStyleSheet("border:0px;")
         self.lbPcie.setObjectName("lbPcie")
+        self.lbPinCpu = QtWidgets.QLabel(addChMotherWidg)
+        self.lbPinCpu.setGeometry(QtCore.QRect(320, 440, 281, 25))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        self.lbPinCpu.setFont(font)
+        self.lbPinCpu.setStyleSheet("border:0px;")
+        self.lbPinCpu.setObjectName("lbPinCpu")
+        self.cbPinCpuKol = QtWidgets.QComboBox(addChMotherWidg)
+        self.cbPinCpuKol.setGeometry(QtCore.QRect(470, 470, 111, 35))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.cbPinCpuKol.setFont(font)
+        self.cbPinCpuKol.setStyleSheet("QComboBox{\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px;\n"
+"    border-bottom: 1px solid rgb(120,120,120);\n"
+"    padding-left: 5px;\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QComboBox QListView{\n"
+"    border: 1px solid red;\n"
+"    padding-left: 5px;\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QComboBox:hover{\n"
+"    background-color: rgb(55,55,55);\n"
+"    border-bottom: 1px solid red;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow:hover {\n"
+"border-image: url(\"E:/pcconf/images/down-arrow.png\");\n"
+"width: 17px;\n"
+"height: 17px;\n"
+"margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox::drop-down{\n"
+"border: 0px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow {\n"
+"border-image: url(\"E:/pcconf/images/down-arrow-gray.png\");\n"
+"width: 17px;\n"
+"height: 17px;\n"
+"margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow:on {\n"
+"    border-image: url(\"E:/pcconf/images/up-arrow.png\");\n"
+"    width: 17px;\n"
+"    height: 17px;\n"
+"    margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox:on{\n"
+"border: 2px solid rgb(100,0,0);\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    background: rgb(250, 250, 250);\n"
+"    border-width: 1px;\n"
+"    border-style: solid;\n"
+"    border-color: rgb(235, 235, 235);\n"
+"    selection-background-color: rgb(240, 240, 240);\n"
+"    selection-color: rgb(25, 25, 25);\n"
+"}\n"
+"")
+        self.cbPinCpuKol.setEditable(False)
+        self.cbPinCpuKol.setIconSize(QtCore.QSize(20, 20))
+        self.cbPinCpuKol.setDuplicatesEnabled(False)
+        self.cbPinCpuKol.setFrame(False)
+        self.cbPinCpuKol.setModelColumn(0)
+        self.cbPinCpuKol.setObjectName("cbPinCpuKol")
+        self.cbPinCpuKol.addItem("")
+        self.cbPinCpuKol.addItem("")
+        self.cbPinCpuKol.addItem("")
+        self.cbPinCpuKol.addItem("")
+        self.cbPinCpuKol.addItem("")
+        self.cbPinCpuKol.addItem("")
+        self.cbPinCpuKol.addItem("")
+        self.cbPinCpuKol.addItem("")
+        self.cbPinCpuKol.addItem("")
+        self.cbPinCpuKol.addItem("")
+        self.cbPinCpuKol.addItem("")
+        self.lbPrice_3 = QtWidgets.QLabel(addChMotherWidg)
+        self.lbPrice_3.setGeometry(QtCore.QRect(460, 470, 16, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        self.lbPrice_3.setFont(font)
+        self.lbPrice_3.setStyleSheet("border:0px;")
+        self.lbPrice_3.setObjectName("lbPrice_3")
+        self.cbPinCpu = QtWidgets.QComboBox(addChMotherWidg)
+        self.cbPinCpu.setGeometry(QtCore.QRect(320, 470, 111, 35))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.cbPinCpu.setFont(font)
+        self.cbPinCpu.setStyleSheet("QComboBox{\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px;\n"
+"    border-bottom: 1px solid rgb(120,120,120);\n"
+"    padding-left: 5px;\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QComboBox QListView{\n"
+"    border: 1px solid red;\n"
+"    padding-left: 5px;\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QComboBox:hover{\n"
+"    background-color: rgb(55,55,55);\n"
+"    border-bottom: 1px solid red;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow:hover {\n"
+"border-image: url(\"E:/pcconf/images/down-arrow.png\");\n"
+"width: 17px;\n"
+"height: 17px;\n"
+"margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox::drop-down{\n"
+"border: 0px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow {\n"
+"border-image: url(\"E:/pcconf/images/down-arrow-gray.png\");\n"
+"width: 17px;\n"
+"height: 17px;\n"
+"margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow:on {\n"
+"    border-image: url(\"E:/pcconf/images/up-arrow.png\");\n"
+"    width: 17px;\n"
+"    height: 17px;\n"
+"    margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox:on{\n"
+"border: 2px solid rgb(100,0,0);\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    background: rgb(250, 250, 250);\n"
+"    border-width: 1px;\n"
+"    border-style: solid;\n"
+"    border-color: rgb(235, 235, 235);\n"
+"    selection-background-color: rgb(240, 240, 240);\n"
+"    selection-color: rgb(25, 25, 25);\n"
+"}\n"
+"")
+        self.cbPinCpu.setEditable(False)
+        self.cbPinCpu.setIconSize(QtCore.QSize(20, 20))
+        self.cbPinCpu.setDuplicatesEnabled(False)
+        self.cbPinCpu.setFrame(False)
+        self.cbPinCpu.setModelColumn(0)
+        self.cbPinCpu.setObjectName("cbPinCpu")
+        self.cbPinCpu.addItem("")
+        self.cbPinCpu.addItem("")
+        self.cbPinCpu.addItem("")
+        self.cbPinCpu.addItem("")
+        self.cbPinCpu.addItem("")
+        self.cbPinCool = QtWidgets.QComboBox(addChMotherWidg)
+        self.cbPinCool.setGeometry(QtCore.QRect(610, 200, 111, 35))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.cbPinCool.setFont(font)
+        self.cbPinCool.setStyleSheet("QComboBox{\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px;\n"
+"    border-bottom: 1px solid rgb(120,120,120);\n"
+"    padding-left: 5px;\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QComboBox QListView{\n"
+"    border: 1px solid red;\n"
+"    padding-left: 5px;\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QComboBox:hover{\n"
+"    background-color: rgb(55,55,55);\n"
+"    border-bottom: 1px solid red;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow:hover {\n"
+"border-image: url(\"E:/pcconf/images/down-arrow.png\");\n"
+"width: 17px;\n"
+"height: 17px;\n"
+"margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox::drop-down{\n"
+"border: 0px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow {\n"
+"border-image: url(\"E:/pcconf/images/down-arrow-gray.png\");\n"
+"width: 17px;\n"
+"height: 17px;\n"
+"margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow:on {\n"
+"    border-image: url(\"E:/pcconf/images/up-arrow.png\");\n"
+"    width: 17px;\n"
+"    height: 17px;\n"
+"    margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox:on{\n"
+"border: 2px solid rgb(100,0,0);\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    background: rgb(250, 250, 250);\n"
+"    border-width: 1px;\n"
+"    border-style: solid;\n"
+"    border-color: rgb(235, 235, 235);\n"
+"    selection-background-color: rgb(240, 240, 240);\n"
+"    selection-color: rgb(25, 25, 25);\n"
+"}\n"
+"")
+        self.cbPinCool.setEditable(False)
+        self.cbPinCool.setIconSize(QtCore.QSize(20, 20))
+        self.cbPinCool.setDuplicatesEnabled(False)
+        self.cbPinCool.setFrame(False)
+        self.cbPinCool.setModelColumn(0)
+        self.cbPinCool.setObjectName("cbPinCool")
+        self.cbPinCool.addItem("")
+        self.cbPinCool.addItem("")
+        self.cbPinCool.addItem("")
+        self.cbPinCool.addItem("")
+        self.cbPinCool.addItem("")
+        self.lbPinCool = QtWidgets.QLabel(addChMotherWidg)
+        self.lbPinCool.setGeometry(QtCore.QRect(610, 170, 251, 25))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        self.lbPinCool.setFont(font)
+        self.lbPinCool.setStyleSheet("border:0px;")
+        self.lbPinCool.setObjectName("lbPinCool")
+        self.lbPrice_4 = QtWidgets.QLabel(addChMotherWidg)
+        self.lbPrice_4.setGeometry(QtCore.QRect(350, 470, 21, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        self.lbPrice_4.setFont(font)
+        self.lbPrice_4.setStyleSheet("border:0px;\n"
+"background:transparent;")
+        self.lbPrice_4.setObjectName("lbPrice_4")
+        self.lbPrice_5 = QtWidgets.QLabel(addChMotherWidg)
+        self.lbPrice_5.setGeometry(QtCore.QRect(640, 200, 21, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        self.lbPrice_5.setFont(font)
+        self.lbPrice_5.setStyleSheet("border:0px;\n"
+"background:transparent;")
+        self.lbPrice_5.setObjectName("lbPrice_5")
+        self.lbPrice_3.raise_()
         self.line_3.raise_()
         self.lbRamMax.raise_()
         self.lbFullName.raise_()
@@ -1121,6 +1392,13 @@ class Ui_addChMotherWidg(object):
         self.cbSata.raise_()
         self.cbPcie.raise_()
         self.lbPcie.raise_()
+        self.lbPinCpu.raise_()
+        self.cbPinCpuKol.raise_()
+        self.cbPinCpu.raise_()
+        self.cbPinCool.raise_()
+        self.lbPinCool.raise_()
+        self.lbPrice_4.raise_()
+        self.lbPrice_5.raise_()
 
         self.retranslateUi(addChMotherWidg)
         self.btnCancel.clicked.connect(addChMotherWidg.close)
@@ -1129,7 +1407,7 @@ class Ui_addChMotherWidg(object):
     def retranslateUi(self, addChMotherWidg):
         _translate = QtCore.QCoreApplication.translate
         addChMotherWidg.setWindowTitle(_translate("addChMotherWidg", "Form"))
-        self.lbRamMax.setText(_translate("addChMotherWidg", "Максимальный объём памяти [ГБ]"))
+        self.lbRamMax.setText(_translate("addChMotherWidg", "Max объём памяти [ГБ]"))
         self.lbFullName.setText(_translate("addChMotherWidg", "Название материнской платы"))
         self.lbPrice.setText(_translate("addChMotherWidg", "Цена [руб.]"))
         self.lbProcGaming.setText(_translate("addChMotherWidg", "Игровое комплектующее"))
@@ -1142,7 +1420,7 @@ class Ui_addChMotherWidg(object):
         self.lbFactor.setText(_translate("addChMotherWidg", "Формфактор"))
         self.lbSocket.setText(_translate("addChMotherWidg", "Сокет"))
         self.lbKol.setText(_translate("addChMotherWidg", "Количество"))
-        self.lbFreqMax.setText(_translate("addChMotherWidg", "Максимальная частота ОЗУ [МГц]"))
+        self.lbFreqMax.setText(_translate("addChMotherWidg", "Max частота ОЗУ [МГц]"))
         self.lbChipset.setText(_translate("addChMotherWidg", "Чипсет"))
         self.lbDate.setText(_translate("addChMotherWidg", "Дата заказа"))
         self.cbGaming.setItemText(0, _translate("addChMotherWidg", "Да"))
@@ -1151,7 +1429,7 @@ class Ui_addChMotherWidg(object):
         self.lbM2.setText(_translate("addChMotherWidg", "Количество M.2"))
         self.cbProizv.setItemText(0, _translate("addChMotherWidg", "ASRock"))
         self.cbProizv.setItemText(1, _translate("addChMotherWidg", "Biostar"))
-        self.cbFactor.setItemText(0, _translate("addChMotherWidg", "Standart-ATX"))
+        self.cbFactor.setItemText(0, _translate("addChMotherWidg", "Standard-ATX"))
         self.cbFactor.setItemText(1, _translate("addChMotherWidg", "E-ATX"))
         self.cbFactor.setItemText(2, _translate("addChMotherWidg", "Micro-ATX"))
         self.cbFactor.setItemText(3, _translate("addChMotherWidg", "Mini-DTX"))
@@ -1183,7 +1461,33 @@ class Ui_addChMotherWidg(object):
         self.cbPcie.setItemText(1, _translate("addChMotherWidg", "4.0"))
         self.cbPcie.setItemText(2, _translate("addChMotherWidg", "3.0"))
         self.cbPcie.setItemText(3, _translate("addChMotherWidg", "2.0"))
-        self.lbPcie.setText(_translate("addChMotherWidg", "Версии PCI-E"))
+        self.lbPcie.setText(_translate("addChMotherWidg", "Версия PCI-E"))
+        self.lbPinCpu.setText(_translate("addChMotherWidg", "Доп. питание процессора (CPU)"))
+        self.cbPinCpuKol.setItemText(0, _translate("addChMotherWidg", "0"))
+        self.cbPinCpuKol.setItemText(1, _translate("addChMotherWidg", "1"))
+        self.cbPinCpuKol.setItemText(2, _translate("addChMotherWidg", "2"))
+        self.cbPinCpuKol.setItemText(3, _translate("addChMotherWidg", "3"))
+        self.cbPinCpuKol.setItemText(4, _translate("addChMotherWidg", "4"))
+        self.cbPinCpuKol.setItemText(5, _translate("addChMotherWidg", "5"))
+        self.cbPinCpuKol.setItemText(6, _translate("addChMotherWidg", "6"))
+        self.cbPinCpuKol.setItemText(7, _translate("addChMotherWidg", "7"))
+        self.cbPinCpuKol.setItemText(8, _translate("addChMotherWidg", "8"))
+        self.cbPinCpuKol.setItemText(9, _translate("addChMotherWidg", "9"))
+        self.cbPinCpuKol.setItemText(10, _translate("addChMotherWidg", "10"))
+        self.lbPrice_3.setText(_translate("addChMotherWidg", "x"))
+        self.cbPinCpu.setItemText(0, _translate("addChMotherWidg", "4"))
+        self.cbPinCpu.setItemText(1, _translate("addChMotherWidg", "8"))
+        self.cbPinCpu.setItemText(2, _translate("addChMotherWidg", "12"))
+        self.cbPinCpu.setItemText(3, _translate("addChMotherWidg", "16"))
+        self.cbPinCpu.setItemText(4, _translate("addChMotherWidg", "0"))
+        self.cbPinCool.setItemText(0, _translate("addChMotherWidg", "3"))
+        self.cbPinCool.setItemText(1, _translate("addChMotherWidg", "4"))
+        self.cbPinCool.setItemText(2, _translate("addChMotherWidg", "8"))
+        self.cbPinCool.setItemText(3, _translate("addChMotherWidg", "16"))
+        self.cbPinCool.setItemText(4, _translate("addChMotherWidg", "0"))
+        self.lbPinCool.setText(_translate("addChMotherWidg", "Питание процессороного кулера"))
+        self.lbPrice_4.setText(_translate("addChMotherWidg", "pin"))
+        self.lbPrice_5.setText(_translate("addChMotherWidg", "pin"))
 
 
 if __name__ == "__main__":

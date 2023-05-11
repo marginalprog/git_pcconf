@@ -21,16 +21,18 @@ CREATE OR REPLACE FUNCTION insert_power(
 	INT,
 	VARCHAR(15),
 	VARCHAR(20),
-	VARCHAR(20),
-	VARCHAR(20),
+	INT,
+	INT,
+	INT,
+	INT,
 	INT,
 	INT)
 	RETURNS void AS $$
 BEGIN
 	INSERT INTO power(id_proizv, fullname, formfactor, length, power,
-					certificate, pinmain, pincpu, pinpcie, pinsata,
-					price)
-	VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11);
+					certificate, pinmain, connproc, connvideo, pinsata,
+					kolconnproc, kolconnvideo, price)
+	VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13);
 END;
 $$ LANGUAGE plpgsql;
 
@@ -47,14 +49,16 @@ RETURNS TABLE(
 	power INT,
 	certificate VARCHAR,
 	pinmain VARCHAR, 
-	pincpu VARCHAR, 
-	pinpcie VARCHAR, 
 	pinsata INT,
+	connproc INT, 
+	kolconnproc INT, 
+	connvideo INT, 
+	kolconnvideo INT,
 	price INT
 ) AS $$
 	SELECT sklad_power.kol, power.exist, power.id, proizv_power.name,
 			fullname, formfactor, length, power, certificate, pinmain,
-			pincpu, pinpcie, pinsata, price
+			pinsata, connproc, kolconnproc, connvideo, kolconnvideo, price
 	FROM power, sklad_power, proizv_power
 	WHERE power.id = sklad_power.id_izd AND power.id_proizv = proizv_power.id
 	ORDER BY exist DESC
@@ -72,14 +76,16 @@ RETURNS TABLE(
 	power INT,
 	certificate VARCHAR,
 	pinmain VARCHAR, 
-	pincpu VARCHAR, 
-	pinpcie VARCHAR, 
 	pinsata INT,
+	connproc INT, 
+	kolconnproc INT, 
+	connvideo INT, 
+	kolconnvideo INT,
 	price INT
 ) AS $$
-	SELECT sklad_power.kol, power.exist, power.id, proizv_power.name, 
+	SELECT sklad_power.kol, power.exist, power.id, proizv_power.name,
 			fullname, formfactor, length, power, certificate, pinmain,
-			pincpu, pinpcie, pinsata, price
+			pinsata, connproc, kolconnproc, connvideo, kolconnvideo, price
 	FROM power, sklad_power, proizv_power
 	WHERE power.id = sklad_power.id_izd AND power.id_proizv = proizv_power.id
 	AND power.exist = True
@@ -99,14 +105,16 @@ RETURNS TABLE(
 	power INT,
 	certificate VARCHAR,
 	pinmain VARCHAR, 
-	pincpu VARCHAR, 
-	pinpcie VARCHAR, 
 	pinsata INT,
+	connproc INT, 
+	kolconnproc INT, 
+	connvideo INT, 
+	kolconnvideo INT,
 	price INT
 ) AS $$
 	SELECT sklad_power.kol, power.exist, power.id, proizv_power.name,
 			fullname, formfactor, length, power, certificate, pinmain,
-			pincpu, pinpcie, pinsata, price
+			pinsata, connproc, kolconnproc, connvideo, kolconnvideo, price
 	FROM power, sklad_power, proizv_power
 	WHERE power.id = sklad_power.id_izd AND power.id_proizv = proizv_power.id AND formfactor = factor_in
 	ORDER BY exist DESC

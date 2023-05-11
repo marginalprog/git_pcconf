@@ -9021,6 +9021,41 @@ border-image: url(&quot;E:/pcconf/images/reset-red.png&quot;) 0;
               <string/>
              </property>
             </widget>
+            <widget class="QPushButton" name="btnVideoHeader">
+             <property name="geometry">
+              <rect>
+               <x>730</x>
+               <y>80</y>
+               <width>41</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <family>Montserrat Medium</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+	border:1px solid rgb(70,70,70);
+	background-color: rgb(40,40,40);
+	color: #fffafa;
+}
+
+QPushButton::hover
+{
+	border:1px;
+	background-color: rgb(60,60,60);
+	border-color: rgb(40,40,40);
+	border-bottom: 1px solid  red;
+}
+</string>
+             </property>
+             <property name="text">
+              <string>h</string>
+             </property>
+            </widget>
            </widget>
           </item>
          </layout>

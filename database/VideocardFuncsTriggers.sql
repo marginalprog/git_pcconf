@@ -28,13 +28,15 @@ CREATE OR REPLACE FUNCTION insert_videocard(
 	VARCHAR(25),
 	INT,
 	INT,
+	INT,
+	INT,
 	INT)
 	RETURNS void AS $$
 BEGIN
 	INSERT INTO videocard(id_proizv,fullname, gaming, chipcreator, chipname, vram, 
 						  typevram, frequency, bus, interface, monitor,
-					   	  resolution, tdp, length, price)
-	VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15);
+					   	  resolution, tdp, length, connvideo, kolconnvideo, price)
+	VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17);
 END;
 $$ LANGUAGE plpgsql;
 
@@ -58,11 +60,16 @@ RETURNS TABLE(
 	resolution VARCHAR, 
 	tdp INT, 
 	length INT, 
+	connvideo INT,
+	kolconnvideo INT,
 	price INT
 ) AS $$
-	SELECT sklad_videocard.kol, videocard.exist, videocard.id, proizv_videocard.name, fullname, gaming, chipcreator, chipname, vram, typevram, frequency, bus, interface, monitor, resolution, tdp, length, price
+	SELECT sklad_videocard.kol, videocard.exist, videocard.id, proizv_videocard.name, 
+			fullname, gaming, chipcreator, chipname, vram, typevram, frequency, bus,
+			interface, monitor, resolution, tdp, length, connvideo, kolconnvideo, price
 	FROM videocard, sklad_videocard, proizv_videocard
-	WHERE videocard.id = sklad_videocard.id_izd AND videocard.id_proizv = proizv_videocard.id
+	WHERE videocard.id = sklad_videocard.id_izd 
+	AND videocard.id_proizv = proizv_videocard.id
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
@@ -85,11 +92,16 @@ RETURNS TABLE(
 	resolution VARCHAR, 
 	tdp INT, 
 	length INT, 
+	connvideo INT,
+	kolconnvideo INT,
 	price INT
 ) AS $$
-	SELECT sklad_videocard.kol, videocard.exist, videocard.id, proizv_videocard.name, fullname, gaming, chipcreator, chipname, vram, typevram, frequency, bus, interface, monitor, resolution, tdp, length, price
+	SELECT sklad_videocard.kol, videocard.exist, videocard.id, proizv_videocard.name, 
+			fullname, gaming, chipcreator, chipname, vram, typevram, frequency, bus,
+			interface, monitor, resolution, tdp, length, connvideo, kolconnvideo, price
 	FROM videocard, sklad_videocard, proizv_videocard
-	WHERE videocard.id = sklad_videocard.id_izd AND videocard.id_proizv = proizv_videocard.id
+	WHERE videocard.id = sklad_videocard.id_izd 
+	AND videocard.id_proizv = proizv_videocard.id
 	AND videocard.exist = True
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
@@ -114,11 +126,17 @@ RETURNS TABLE(
 	resolution VARCHAR, 
 	tdp INT, 
 	length INT, 
+	connvideo INT,
+	kolconnvideo INT,
 	price INT
 ) AS $$
-	SELECT kol, videocard.exist, videocard.id, proizv_videocard.name, fullname, gaming, chipcreator, chipname, vram, typevram, frequency, bus, interface, monitor, resolution, tdp, length, price
+	SELECT sklad_videocard.kol, videocard.exist, videocard.id, proizv_videocard.name, 
+			fullname, gaming, chipcreator, chipname, vram, typevram, frequency, bus,
+			interface, monitor, resolution, tdp, length, connvideo, kolconnvideo, price	
 	FROM videocard, sklad_videocard, proizv_videocard
-	WHERE videocard.id = sklad_videocard.id_izd AND videocard.id_proizv = proizv_videocard.id AND name = name_pr
+	WHERE videocard.id = sklad_videocard.id_izd 
+	AND videocard.id_proizv = proizv_videocard.id 
+	AND name = name_pr
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 

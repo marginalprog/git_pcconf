@@ -14,18 +14,18 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_addChPowerWidg(object):
     def setupUi(self, addChPowerWidg):
         addChPowerWidg.setObjectName("addChPowerWidg")
-        addChPowerWidg.resize(877, 601)
+        addChPowerWidg.resize(877, 603)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\add\\../../images/win_add_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         addChPowerWidg.setWindowIcon(icon)
         addChPowerWidg.setStyleSheet("QWidget\n"
 "{\n"
-"    background: rgb(25, 25, 25);\n"
+"    background: rgb(30, 30, 30);\n"
 "    color: white;\n"
 "}\n"
 "")
         self.lbPinCpu = QtWidgets.QLabel(addChPowerWidg)
-        self.lbPinCpu.setGeometry(QtCore.QRect(20, 350, 271, 25))
+        self.lbPinCpu.setGeometry(QtCore.QRect(20, 350, 281, 25))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -166,7 +166,7 @@ class Ui_addChPowerWidg(object):
         self.lbPinMain.setStyleSheet("border:0px;")
         self.lbPinMain.setObjectName("lbPinMain")
         self.lbPinSata = QtWidgets.QLabel(addChPowerWidg)
-        self.lbPinSata.setGeometry(QtCore.QRect(320, 350, 161, 25))
+        self.lbPinSata.setGeometry(QtCore.QRect(550, 250, 161, 25))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -256,8 +256,6 @@ class Ui_addChPowerWidg(object):
         self.cbPinCpu.setFrame(False)
         self.cbPinCpu.setModelColumn(0)
         self.cbPinCpu.setObjectName("cbPinCpu")
-        self.cbPinCpu.addItem("")
-        self.cbPinCpu.addItem("")
         self.cbPinCpu.addItem("")
         self.cbPinCpu.addItem("")
         self.cbPinCpu.addItem("")
@@ -362,7 +360,7 @@ class Ui_addChPowerWidg(object):
         self.lbFullName.setStyleSheet("")
         self.lbFullName.setObjectName("lbFullName")
         self.lbPinPcie = QtWidgets.QLabel(addChPowerWidg)
-        self.lbPinPcie.setGeometry(QtCore.QRect(490, 350, 271, 25))
+        self.lbPinPcie.setGeometry(QtCore.QRect(320, 350, 271, 25))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -699,7 +697,7 @@ class Ui_addChPowerWidg(object):
         self.cbFPower.addItem("")
         self.cbFPower.addItem("")
         self.lePinSata = QtWidgets.QLineEdit(addChPowerWidg)
-        self.lePinSata.setGeometry(QtCore.QRect(320, 380, 111, 35))
+        self.lePinSata.setGeometry(QtCore.QRect(550, 280, 111, 35))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -789,7 +787,7 @@ class Ui_addChPowerWidg(object):
         self.cbPinMain.setObjectName("cbPinMain")
         self.cbPinMain.addItem("")
         self.lbLenPower = QtWidgets.QLabel(addChPowerWidg)
-        self.lbLenPower.setGeometry(QtCore.QRect(490, 170, 191, 25))
+        self.lbLenPower.setGeometry(QtCore.QRect(550, 170, 201, 25))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -797,7 +795,7 @@ class Ui_addChPowerWidg(object):
         self.lbLenPower.setStyleSheet("border:0px;")
         self.lbLenPower.setObjectName("lbLenPower")
         self.leLenPower = QtWidgets.QLineEdit(addChPowerWidg)
-        self.leLenPower.setGeometry(QtCore.QRect(490, 200, 111, 35))
+        self.leLenPower.setGeometry(QtCore.QRect(550, 200, 111, 35))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -816,26 +814,276 @@ class Ui_addChPowerWidg(object):
 "}")
         self.leLenPower.setInputMask("")
         self.leLenPower.setObjectName("leLenPower")
-        self.lePinPcie = QtWidgets.QLineEdit(addChPowerWidg)
-        self.lePinPcie.setGeometry(QtCore.QRect(490, 380, 111, 35))
+        self.cbPinCpuKol = QtWidgets.QComboBox(addChPowerWidg)
+        self.cbPinCpuKol.setGeometry(QtCore.QRect(170, 380, 111, 35))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
-        self.lePinPcie.setFont(font)
-        self.lePinPcie.setStyleSheet("QLineEdit{\n"
-"    padding-left: 5px;\n"
-"    border: 1px solid rgb(20,20,20);\n"
+        self.cbPinCpuKol.setFont(font)
+        self.cbPinCpuKol.setStyleSheet("QComboBox{\n"
 "    background-color: rgb(40,40,40);\n"
-"    border-bottom: 1px solid  rgb(120,120,120);\n"
+"    border: 1px;\n"
+"    border-bottom: 1px solid rgb(120,120,120);\n"
+"    padding-left: 5px;\n"
 "    selection-background-color: rgb(105, 0, 0);\n"
 "}\n"
 "\n"
-"QLineEdit:hover{\n"
+"QComboBox QListView{\n"
+"    border: 1px solid red;\n"
+"    padding-left: 5px;\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QComboBox:hover{\n"
 "    background-color: rgb(55,55,55);\n"
-"    border-bottom: 1px solid  red;\n"
-"}")
-        self.lePinPcie.setInputMask("")
-        self.lePinPcie.setObjectName("lePinPcie")
+"    border-bottom: 1px solid red;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow:hover {\n"
+"border-image: url(\"E:/pcconf/images/down-arrow.png\");\n"
+"width: 17px;\n"
+"height: 17px;\n"
+"margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox::drop-down{\n"
+"border: 0px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow {\n"
+"border-image: url(\"E:/pcconf/images/down-arrow-gray.png\");\n"
+"width: 17px;\n"
+"height: 17px;\n"
+"margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow:on {\n"
+"    border-image: url(\"E:/pcconf/images/up-arrow.png\");\n"
+"    width: 17px;\n"
+"    height: 17px;\n"
+"    margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox:on{\n"
+"border: 2px solid rgb(100,0,0);\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    background: rgb(250, 250, 250);\n"
+"    border-width: 1px;\n"
+"    border-style: solid;\n"
+"    border-color: rgb(235, 235, 235);\n"
+"    selection-background-color: rgb(240, 240, 240);\n"
+"    selection-color: rgb(25, 25, 25);\n"
+"}\n"
+"")
+        self.cbPinCpuKol.setEditable(False)
+        self.cbPinCpuKol.setIconSize(QtCore.QSize(20, 20))
+        self.cbPinCpuKol.setDuplicatesEnabled(False)
+        self.cbPinCpuKol.setFrame(False)
+        self.cbPinCpuKol.setModelColumn(0)
+        self.cbPinCpuKol.setObjectName("cbPinCpuKol")
+        self.cbPinCpuKol.addItem("")
+        self.cbPinCpuKol.addItem("")
+        self.cbPinCpuKol.addItem("")
+        self.cbPinCpuKol.addItem("")
+        self.cbPinCpuKol.addItem("")
+        self.cbPinCpuKol.addItem("")
+        self.cbPinCpuKol.addItem("")
+        self.cbPinCpuKol.addItem("")
+        self.cbPinCpuKol.addItem("")
+        self.cbPinCpuKol.addItem("")
+        self.cbPinCpuKol.addItem("")
+        self.cbPinVideoKol = QtWidgets.QComboBox(addChPowerWidg)
+        self.cbPinVideoKol.setGeometry(QtCore.QRect(480, 380, 111, 35))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.cbPinVideoKol.setFont(font)
+        self.cbPinVideoKol.setStyleSheet("QComboBox{\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px;\n"
+"    border-bottom: 1px solid rgb(120,120,120);\n"
+"    padding-left: 5px;\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QComboBox QListView{\n"
+"    border: 1px solid red;\n"
+"    padding-left: 5px;\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QComboBox:hover{\n"
+"    background-color: rgb(55,55,55);\n"
+"    border-bottom: 1px solid red;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow:hover {\n"
+"border-image: url(\"E:/pcconf/images/down-arrow.png\");\n"
+"width: 17px;\n"
+"height: 17px;\n"
+"margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox::drop-down{\n"
+"border: 0px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow {\n"
+"border-image: url(\"E:/pcconf/images/down-arrow-gray.png\");\n"
+"width: 17px;\n"
+"height: 17px;\n"
+"margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow:on {\n"
+"    border-image: url(\"E:/pcconf/images/up-arrow.png\");\n"
+"    width: 17px;\n"
+"    height: 17px;\n"
+"    margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox:on{\n"
+"border: 2px solid rgb(100,0,0);\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    background: rgb(250, 250, 250);\n"
+"    border-width: 1px;\n"
+"    border-style: solid;\n"
+"    border-color: rgb(235, 235, 235);\n"
+"    selection-background-color: rgb(240, 240, 240);\n"
+"    selection-color: rgb(25, 25, 25);\n"
+"}\n"
+"")
+        self.cbPinVideoKol.setEditable(False)
+        self.cbPinVideoKol.setIconSize(QtCore.QSize(20, 20))
+        self.cbPinVideoKol.setDuplicatesEnabled(False)
+        self.cbPinVideoKol.setFrame(False)
+        self.cbPinVideoKol.setModelColumn(0)
+        self.cbPinVideoKol.setObjectName("cbPinVideoKol")
+        self.cbPinVideoKol.addItem("")
+        self.cbPinVideoKol.addItem("")
+        self.cbPinVideoKol.addItem("")
+        self.cbPinVideoKol.addItem("")
+        self.cbPinVideoKol.addItem("")
+        self.cbPinVideoKol.addItem("")
+        self.cbPinVideoKol.addItem("")
+        self.cbPinVideoKol.addItem("")
+        self.cbPinVideoKol.addItem("")
+        self.cbPinVideoKol.addItem("")
+        self.cbPinVideoKol.addItem("")
+        self.cbPinVideoKol.addItem("")
+        self.cbPinVideo = QtWidgets.QComboBox(addChPowerWidg)
+        self.cbPinVideo.setGeometry(QtCore.QRect(320, 380, 111, 35))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.cbPinVideo.setFont(font)
+        self.cbPinVideo.setStyleSheet("QComboBox{\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px;\n"
+"    border-bottom: 1px solid rgb(120,120,120);\n"
+"    padding-left: 5px;\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QComboBox QListView{\n"
+"    border: 1px solid red;\n"
+"    padding-left: 5px;\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QComboBox:hover{\n"
+"    background-color: rgb(55,55,55);\n"
+"    border-bottom: 1px solid red;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow:hover {\n"
+"border-image: url(\"E:/pcconf/images/down-arrow.png\");\n"
+"width: 17px;\n"
+"height: 17px;\n"
+"margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox::drop-down{\n"
+"border: 0px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow {\n"
+"border-image: url(\"E:/pcconf/images/down-arrow-gray.png\");\n"
+"width: 17px;\n"
+"height: 17px;\n"
+"margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow:on {\n"
+"    border-image: url(\"E:/pcconf/images/up-arrow.png\");\n"
+"    width: 17px;\n"
+"    height: 17px;\n"
+"    margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox:on{\n"
+"border: 2px solid rgb(100,0,0);\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    background: rgb(250, 250, 250);\n"
+"    border-width: 1px;\n"
+"    border-style: solid;\n"
+"    border-color: rgb(235, 235, 235);\n"
+"    selection-background-color: rgb(240, 240, 240);\n"
+"    selection-color: rgb(25, 25, 25);\n"
+"}\n"
+"")
+        self.cbPinVideo.setEditable(False)
+        self.cbPinVideo.setIconSize(QtCore.QSize(20, 20))
+        self.cbPinVideo.setDuplicatesEnabled(False)
+        self.cbPinVideo.setFrame(False)
+        self.cbPinVideo.setModelColumn(0)
+        self.cbPinVideo.setObjectName("cbPinVideo")
+        self.cbPinVideo.addItem("")
+        self.cbPinVideo.addItem("")
+        self.cbPinVideo.addItem("")
+        self.cbPinVideo.addItem("")
+        self.lbPrice_2 = QtWidgets.QLabel(addChPowerWidg)
+        self.lbPrice_2.setGeometry(QtCore.QRect(470, 380, 16, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        self.lbPrice_2.setFont(font)
+        self.lbPrice_2.setStyleSheet("border:0px;")
+        self.lbPrice_2.setObjectName("lbPrice_2")
+        self.lbPrice_3 = QtWidgets.QLabel(addChPowerWidg)
+        self.lbPrice_3.setGeometry(QtCore.QRect(160, 380, 16, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        self.lbPrice_3.setFont(font)
+        self.lbPrice_3.setStyleSheet("border:0px;")
+        self.lbPrice_3.setObjectName("lbPrice_3")
+        self.lbPrice_6 = QtWidgets.QLabel(addChPowerWidg)
+        self.lbPrice_6.setGeometry(QtCore.QRect(50, 380, 21, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        self.lbPrice_6.setFont(font)
+        self.lbPrice_6.setStyleSheet("border:0px;\n"
+"background:transparent;")
+        self.lbPrice_6.setObjectName("lbPrice_6")
+        self.lbPrice_7 = QtWidgets.QLabel(addChPowerWidg)
+        self.lbPrice_7.setGeometry(QtCore.QRect(350, 380, 21, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        self.lbPrice_7.setFont(font)
+        self.lbPrice_7.setStyleSheet("border:0px;\n"
+"background:transparent;")
+        self.lbPrice_7.setObjectName("lbPrice_7")
+        self.lbPrice_3.raise_()
+        self.lbPrice_2.raise_()
         self.line_3.raise_()
         self.lbPinCpu.raise_()
         self.btnSave.raise_()
@@ -869,7 +1117,11 @@ class Ui_addChPowerWidg(object):
         self.cbPinMain.raise_()
         self.lbLenPower.raise_()
         self.leLenPower.raise_()
-        self.lePinPcie.raise_()
+        self.cbPinCpuKol.raise_()
+        self.cbPinVideoKol.raise_()
+        self.cbPinVideo.raise_()
+        self.lbPrice_6.raise_()
+        self.lbPrice_7.raise_()
 
         self.retranslateUi(addChPowerWidg)
         self.btnCancel.clicked.connect(addChPowerWidg.close)
@@ -878,7 +1130,7 @@ class Ui_addChPowerWidg(object):
     def retranslateUi(self, addChPowerWidg):
         _translate = QtCore.QCoreApplication.translate
         addChPowerWidg.setWindowTitle(_translate("addChPowerWidg", "Form"))
-        self.lbPinCpu.setText(_translate("addChPowerWidg", "Разъёмы питания процессора (CPU)"))
+        self.lbPinCpu.setText(_translate("addChPowerWidg", "Доп. питание процессора (CPU)"))
         self.btnSave.setText(_translate("addChPowerWidg", "Сохранить"))
         self.cbCertificate.setItemText(0, _translate("addChPowerWidg", "Bronze"))
         self.cbCertificate.setItemText(1, _translate("addChPowerWidg", "Gold"))
@@ -890,18 +1142,16 @@ class Ui_addChPowerWidg(object):
         self.lbComplect.setText(_translate("addChPowerWidg", "Блок питания"))
         self.lbPinMain.setText(_translate("addChPowerWidg", "Основной разъём питания"))
         self.lbPinSata.setText(_translate("addChPowerWidg", "Разъёмы 15-pin SATA"))
-        self.cbPinCpu.setItemText(0, _translate("addChPowerWidg", "4 pin"))
-        self.cbPinCpu.setItemText(1, _translate("addChPowerWidg", "4+4 pin"))
-        self.cbPinCpu.setItemText(2, _translate("addChPowerWidg", "4+4 pin x2"))
-        self.cbPinCpu.setItemText(3, _translate("addChPowerWidg", "4+4 pin x3"))
-        self.cbPinCpu.setItemText(4, _translate("addChPowerWidg", "8 pin"))
-        self.cbPinCpu.setItemText(5, _translate("addChPowerWidg", "8+4 pin"))
-        self.cbPinCpu.setItemText(6, _translate("addChPowerWidg", "нет"))
+        self.cbPinCpu.setItemText(0, _translate("addChPowerWidg", "4"))
+        self.cbPinCpu.setItemText(1, _translate("addChPowerWidg", "8"))
+        self.cbPinCpu.setItemText(2, _translate("addChPowerWidg", "12"))
+        self.cbPinCpu.setItemText(3, _translate("addChPowerWidg", "16"))
+        self.cbPinCpu.setItemText(4, _translate("addChPowerWidg", "0"))
         self.cbProizv.setItemText(0, _translate("addChPowerWidg", "ASRock"))
         self.cbProizv.setItemText(1, _translate("addChPowerWidg", "Biostar"))
         self.lbProcProizv.setText(_translate("addChPowerWidg", "Производитель"))
         self.lbFullName.setText(_translate("addChPowerWidg", "Название блока питания"))
-        self.lbPinPcie.setText(_translate("addChPowerWidg", "Разъёмы питания видеокарты (PCI-E)"))
+        self.lbPinPcie.setText(_translate("addChPowerWidg", "Доп. питание видеокарты (PCI-E)"))
         self.lbPower.setText(_translate("addChPowerWidg", "Мощность [Вт]"))
         self.lbPrice.setText(_translate("addChPowerWidg", "Цена [руб.]"))
         self.btnCancel.setText(_translate("addChPowerWidg", "Отмена"))
@@ -916,6 +1166,37 @@ class Ui_addChPowerWidg(object):
         self.cbFPower.setItemText(4, _translate("addChPowerWidg", "TFX"))
         self.cbPinMain.setItemText(0, _translate("addChPowerWidg", "20+4 pin"))
         self.lbLenPower.setText(_translate("addChPowerWidg", "Длина блока питания [мм]"))
+        self.cbPinCpuKol.setItemText(0, _translate("addChPowerWidg", "0"))
+        self.cbPinCpuKol.setItemText(1, _translate("addChPowerWidg", "1"))
+        self.cbPinCpuKol.setItemText(2, _translate("addChPowerWidg", "2"))
+        self.cbPinCpuKol.setItemText(3, _translate("addChPowerWidg", "3"))
+        self.cbPinCpuKol.setItemText(4, _translate("addChPowerWidg", "4"))
+        self.cbPinCpuKol.setItemText(5, _translate("addChPowerWidg", "5"))
+        self.cbPinCpuKol.setItemText(6, _translate("addChPowerWidg", "6"))
+        self.cbPinCpuKol.setItemText(7, _translate("addChPowerWidg", "7"))
+        self.cbPinCpuKol.setItemText(8, _translate("addChPowerWidg", "8"))
+        self.cbPinCpuKol.setItemText(9, _translate("addChPowerWidg", "9"))
+        self.cbPinCpuKol.setItemText(10, _translate("addChPowerWidg", "10"))
+        self.cbPinVideoKol.setItemText(0, _translate("addChPowerWidg", "0"))
+        self.cbPinVideoKol.setItemText(1, _translate("addChPowerWidg", "1"))
+        self.cbPinVideoKol.setItemText(2, _translate("addChPowerWidg", "2"))
+        self.cbPinVideoKol.setItemText(3, _translate("addChPowerWidg", "3"))
+        self.cbPinVideoKol.setItemText(4, _translate("addChPowerWidg", "4"))
+        self.cbPinVideoKol.setItemText(5, _translate("addChPowerWidg", "5"))
+        self.cbPinVideoKol.setItemText(6, _translate("addChPowerWidg", "6"))
+        self.cbPinVideoKol.setItemText(7, _translate("addChPowerWidg", "7"))
+        self.cbPinVideoKol.setItemText(8, _translate("addChPowerWidg", "8"))
+        self.cbPinVideoKol.setItemText(9, _translate("addChPowerWidg", "9"))
+        self.cbPinVideoKol.setItemText(10, _translate("addChPowerWidg", "10"))
+        self.cbPinVideoKol.setItemText(11, _translate("addChPowerWidg", "16"))
+        self.cbPinVideo.setItemText(0, _translate("addChPowerWidg", "6"))
+        self.cbPinVideo.setItemText(1, _translate("addChPowerWidg", "8"))
+        self.cbPinVideo.setItemText(2, _translate("addChPowerWidg", "16"))
+        self.cbPinVideo.setItemText(3, _translate("addChPowerWidg", "0"))
+        self.lbPrice_2.setText(_translate("addChPowerWidg", "x"))
+        self.lbPrice_3.setText(_translate("addChPowerWidg", "x"))
+        self.lbPrice_6.setText(_translate("addChPowerWidg", "pin"))
+        self.lbPrice_7.setText(_translate("addChPowerWidg", "pin"))
 
 
 if __name__ == "__main__":

@@ -181,6 +181,9 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         self.dict_power_name = {}
         self.dict_body_name = {}
 
+        # Словарь, хранящий параметры TDP Процессора, видеокарты и охлаждения  для вычисления оптимального блока питания
+        self.dict_power_vid_proc_cool = {}
+
         # Словарь для хранения пар ключ(таблица): выбранное комплектующее
         self.dict_current = {}
 
@@ -213,8 +216,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         self.btnRepeat.clicked.connect(lambda: self.tb_new_komplekt(
             self.toolBoxNavigation.currentIndex(),
             False,
-            self.current_sklad(
-                ))
+            self.current_sklad())
                                        )
 
         # По нажатии на кнопку запускается метод, который принимает выбранную вклдку ТБ и открывает нужное окно фильтра
@@ -278,7 +280,6 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         self.tableBodyProizv.setColumnWidth(3, 135)
 
         # Кнопка создания нового производителя видеокарты
-        # x8 x8 x8 x8
         self.btnNewVideoProizv.clicked.connect(lambda:
                                                AddProizv(self, "Производитель видеокарт",
                                                          self.dict_proizv_video_name).show())
@@ -338,7 +339,6 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         self.tableBodyProizv.cellClicked.connect(
             lambda row, column, table=self.tableBodyProizv:
             self.cell_row_without_conf(row, column, table))
-        # x8 x8 x8 x8
 
         self.tableSklad.cellClicked.connect(
             lambda row, column, table=self.tableSklad:
@@ -380,6 +380,8 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         # -----------------------Кнопка сброса сборки--------------------------
         self.btnResetConfig.clicked.connect(self.reset_all_config)
         # ---------------------------------------------------------------------
+
+        #self.btnVideoHeader.clicked.connect(lambda: self.tableConfVideo.horizontalHeader().setVisible(True))
 
         # Кнопка оформления заказа
         self.order_window = AcceptOrderWin(self)
@@ -1027,13 +1029,13 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         match page:
             case 0:  # Заполнение таблицы видеокартами
 
-                self.tableSklad.setColumnCount(18)  # Число столбцов в видеокарте
+                self.tableSklad.setColumnCount(20)  # Число столбцов в видеокарте
                 self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во",
                                                            "Производитель", "Название", "Игровая", "Произв. чипа",
                                                            "Наименов. чипа", "Объём памяти", "Тип памяти",
                                                            "Частота процессора", "Шина", "Интерфейс",
-                                                           "Монитор", "Разрешение", "TDP",
-                                                           "Длина", "Цена"])
+                                                           "Монитор", "Разрешение", "TDP", "Длина",
+                                                           "Pin-контакты", "Кол-во pin", "Цена"])
                 for row in cur:
                     self.tableSklad.setRowCount(row_count + 1)
                     self.insert_existence_complect(self.tableSklad, row_count, row[1])
@@ -1056,6 +1058,8 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                     self.tableSklad.setItem(row_count, 15, QtWidgets.QTableWidgetItem(str(row[15])))
                     self.tableSklad.setItem(row_count, 16, QtWidgets.QTableWidgetItem(str(row[16])))
                     self.tableSklad.setItem(row_count, 17, QtWidgets.QTableWidgetItem(str(row[17])))
+                    self.tableSklad.setItem(row_count, 18, QtWidgets.QTableWidgetItem(str(row[18])))
+                    self.tableSklad.setItem(row_count, 19, QtWidgets.QTableWidgetItem(str(row[19])))
                     # item2.setTextAlignment(QtCore.Qt.AlignVCenter | QtCore.Qt.AlignRight)
                     self.insert_rb_sklad(self.tableSklad)
                     row_count += 1
@@ -1089,12 +1093,13 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                     self.tableSklad.setItem(row_count, 16, QtWidgets.QTableWidgetItem(str(row[16])))
                     row_count += 1
             case 2:
-                self.tableSklad.setColumnCount(17)  # Число столбцов в мат. плате
+                self.tableSklad.setColumnCount(20)  # Число столбцов в мат. плате
                 self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во",
                                                            "Производитель", "Название", "Игровой", "Cокет",
                                                            "Чипсет", "Формфактор", "PCI-E", "Тип ОЗУ", "Слоты ОЗУ",
                                                            "Макс. объём ОЗУ", "Макс. частота ОЗУ", "Слоты М2",
-                                                           "Разъёмы SATA", "Цена"])
+                                                           "Разъёмы SATA", "Pin-охлаждение", "Pin-процессор",
+                                                           "Кол-во pin", "Цена"])
                 for row in cur:
                     self.tableSklad.setRowCount(row_count + 1)
                     self.insert_existence_complect(self.tableSklad, row_count, row[1])
@@ -1116,13 +1121,17 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                     self.tableSklad.setItem(row_count, 14, QtWidgets.QTableWidgetItem(str(row[14])))
                     self.tableSklad.setItem(row_count, 15, QtWidgets.QTableWidgetItem(str(row[15])))
                     self.tableSklad.setItem(row_count, 16, QtWidgets.QTableWidgetItem(str(row[16])))
+                    self.tableSklad.setItem(row_count, 17, QtWidgets.QTableWidgetItem(str(row[17])))
+                    self.tableSklad.setItem(row_count, 18, QtWidgets.QTableWidgetItem(str(row[18])))
+                    self.tableSklad.setItem(row_count, 19, QtWidgets.QTableWidgetItem(str(row[19])))
                     row_count += 1
             case 3:
-                self.tableSklad.setColumnCount(13)  # Число столбцов в охлаждении
+                self.tableSklad.setColumnCount(14)  # Число столбцов в охлаждении
                 self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во",
                                                            "Производитель", "Название", "Конструкция",
                                                            "Тип охл.", "Сокеты", "Трубы", "Высота",
-                                                           "Соединение", "Рассеиваемость", "Цена"])
+                                                           "Рассеиваемость", "Напряжение", "Pin-коннектор",
+                                                           "Цена"])
                 for row in cur:
                     self.tableSklad.setRowCount(row_count + 1)
                     self.insert_existence_complect(self.tableSklad, row_count, row[1])
@@ -1137,6 +1146,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                     self.tableSklad.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[10])))
                     self.tableSklad.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[11])))
                     self.tableSklad.setItem(row_count, 12, QtWidgets.QTableWidgetItem(str(row[12])))
+                    self.tableSklad.setItem(row_count, 13, QtWidgets.QTableWidgetItem(str(row[13])))
                     row_count += 1
             case 4:
                 self.tableSklad.setColumnCount(13)  # Число столбцов в оперативной памяти
@@ -1183,11 +1193,12 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                     self.tableSklad.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[11])))
                     row_count += 1
             case 6:
-                self.tableSklad.setColumnCount(14)  # Число столбцов в блоке питания
+                self.tableSklad.setColumnCount(16)  # Число столбцов в блоке питания
                 self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во", "Производитель", "Название",
                                                            "Формафактор", "Длина", "Мощность", "Сертификат",
-                                                           "Основной разъём питания", "Разъём питания CPU",
-                                                           "Разъём питания PCIe", "Количество разъёмов SATA", "Цена"])
+                                                           "Основной разъём питания", "Количество разъёмов SATA",
+                                                           "Pin-процессор", "Кол-во pin", "Pin-видеокарта",
+                                                           "Кол-во pin", "Цена"])
                 for row in cur:
                     self.tableSklad.setRowCount(row_count + 1)
                     self.insert_existence_complect(self.tableSklad, row_count, row[1])
@@ -1203,6 +1214,8 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                     self.tableSklad.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[11])))
                     self.tableSklad.setItem(row_count, 12, QtWidgets.QTableWidgetItem(str(row[12])))
                     self.tableSklad.setItem(row_count, 13, QtWidgets.QTableWidgetItem(str(row[13])))
+                    self.tableSklad.setItem(row_count, 14, QtWidgets.QTableWidgetItem(str(row[14])))
+                    self.tableSklad.setItem(row_count, 15, QtWidgets.QTableWidgetItem(str(row[15])))
                     row_count += 1
             case 7:
                 self.tableSklad.setColumnCount(15)  # Число столбцов в корпусеы
@@ -1298,7 +1311,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 self.tableConfVideo.clear()
                 self.tableConfVideo.clearSelection()
                 self.tableConfVideo.setRowCount(0)
-                self.tableConfVideo.setColumnCount(13)  # Число столбцов в видеокарте конфигуратора
+                self.tableConfVideo.setColumnCount(16)  # Число столбцов в видеокарте конфигуратора
                 for row in cur:
                     self.tableConfVideo.setRowCount(row_count + 1)
                     self.insert_existence_complect(self.tableConfVideo, row_count, row[1])
@@ -1310,10 +1323,13 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                     self.tableConfVideo.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[9])))
                     self.tableConfVideo.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[10])))
                     self.tableConfVideo.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[11])))
-                    self.tableConfVideo.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[14])))
-                    self.tableConfVideo.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[15])))
-                    self.tableConfVideo.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[16])))
-                    self.tableConfVideo.setItem(row_count, 12, QtWidgets.QTableWidgetItem(str(row[17])))
+                    self.tableConfVideo.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[12])))
+                    self.tableConfVideo.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[14])))
+                    self.tableConfVideo.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[15])))
+                    self.tableConfVideo.setItem(row_count, 12, QtWidgets.QTableWidgetItem(str(row[16])))
+                    self.tableConfVideo.setItem(row_count, 13, QtWidgets.QTableWidgetItem(str(row[17])))
+                    self.tableConfVideo.setItem(row_count, 14, QtWidgets.QTableWidgetItem(str(row[18])))
+                    self.tableConfVideo.setItem(row_count, 15, QtWidgets.QTableWidgetItem(str(row[19])))
                     row_count += 1
                 self.insert_rb(self.tableConfVideo)
                 self.tableConfVideo.resizeColumnsToContents()
@@ -1343,7 +1359,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 self.tableConfMother.clear()
                 self.tableConfMother.clearSelection()
                 self.tableConfMother.setRowCount(0)
-                self.tableConfMother.setColumnCount(14)  # Число столбцов в процессорах конфигуратора
+                self.tableConfMother.setColumnCount(17)  # Число столбцов в процессорах конфигуратора
                 for row in cur:
                     self.tableConfMother.setRowCount(row_count + 1)
                     self.insert_existence_complect(self.tableConfMother, row_count, row[1])
@@ -1359,6 +1375,9 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                     self.tableConfMother.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[14])))
                     self.tableConfMother.setItem(row_count, 12, QtWidgets.QTableWidgetItem(str(row[15])))
                     self.tableConfMother.setItem(row_count, 13, QtWidgets.QTableWidgetItem(str(row[16])))
+                    self.tableConfMother.setItem(row_count, 14, QtWidgets.QTableWidgetItem(str(row[17])))
+                    self.tableConfMother.setItem(row_count, 15, QtWidgets.QTableWidgetItem(str(row[18])))
+                    self.tableConfMother.setItem(row_count, 16, QtWidgets.QTableWidgetItem(str(row[19])))
                     row_count += 1
                 self.insert_rb(self.tableConfMother)
                 self.tableConfMother.resizeColumnsToContents()
@@ -1366,7 +1385,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 self.tableConfCool.clear()
                 self.tableConfCool.clearSelection()
                 self.tableConfCool.setRowCount(0)
-                self.tableConfCool.setColumnCount(10)  # Число столбцов в процессорах конфигуратора
+                self.tableConfCool.setColumnCount(11)  # Число столбцов в процессорах конфигуратора
                 for row in cur:
                     self.tableConfCool.setRowCount(row_count + 1)
                     self.insert_existence_complect(self.tableConfCool, row_count, row[1])
@@ -1378,6 +1397,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                     self.tableConfCool.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[10])))
                     self.tableConfCool.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[11])))
                     self.tableConfCool.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[12])))
+                    self.tableConfCool.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[13])))
                     row_count += 1
                 self.insert_rb(self.tableConfCool)
                 self.tableConfCool.resizeColumnsToContents()
@@ -1423,7 +1443,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 self.tableConfPower.clear()
                 self.tableConfPower.clearSelection()
                 self.tableConfPower.setRowCount(0)
-                self.tableConfPower.setColumnCount(12)  # Число столбцов в процессорах конфигуратора
+                self.tableConfPower.setColumnCount(14)  # Число столбцов в процессорах конфигуратора
                 for row in cur:
                     self.tableConfPower.setRowCount(row_count + 1)
                     self.insert_existence_complect(self.tableConfPower, row_count, row[1])
@@ -1437,6 +1457,8 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                     self.tableConfPower.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[11])))
                     self.tableConfPower.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[12])))
                     self.tableConfPower.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[13])))
+                    self.tableConfPower.setItem(row_count, 12, QtWidgets.QTableWidgetItem(str(row[14])))
+                    self.tableConfPower.setItem(row_count, 13, QtWidgets.QTableWidgetItem(str(row[15])))
                     row_count += 1
                 self.insert_rb(self.tableConfPower)
                 self.tableConfPower.resizeColumnsToContents()
@@ -3101,7 +3123,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         conn = None
         cur = None
         saved_row = self.save_row(
-            table)  # Сохранение строки в словарь по таблице для повторного выделения (если попала под фильтр)
+            table)  # Сохранение строки и передача параметра в качестве фильтра для запроса
         try:
             conn = psycopg2.connect(database="confPc",
                                     user="postgres",
@@ -3115,7 +3137,90 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                     if self.rbConf.isChecked():
                         pass
                     else:
-                        pass
+                        mother_row = self.save_row(
+                            self.tableConfMother)  # !!! Сохраняем строчку в фильтруемых таблицах, если они выделена!!!!
+                        # Фильтр мат. плат по интерфейсу шины PCI-E
+                        cur.execute("SELECT sklad_motherboard.kol, motherboard.exist, motherboard.id, "
+                                    "proizv_motherboard.name, fullname, gaming, socket, chipset, formfactor, pcie, "
+                                    "memorytype, memoryslot, memorymax, memoryfreqmax, m2, sata, "
+                                    "conncool, connproc, kolconnproc,  price "
+                                    "FROM motherboard, sklad_motherboard, proizv_motherboard  "
+                                    "WHERE motherboard.id = sklad_motherboard.id_izd "
+                                    "AND motherboard.id_proizv = proizv_motherboard.id "
+                                    f"AND pcie = '{saved_row[7]}'"
+                                    "ORDER BY exist DESC")
+                        self.fill_table_conf(2, cur)
+                        self.check_rows(mother_row, self.tableConfMother)
+                        cur.execute("select distinct name from( "
+                                    "SELECT sklad_motherboard.kol, motherboard.exist, motherboard.id, "
+                                    "proizv_motherboard.name, fullname, gaming, socket, chipset, formfactor, pcie, "
+                                    "memorytype, memoryslot, memorymax, memoryfreqmax, m2, sata, "
+                                    "conncool, connproc, kolconnproc,  price "
+                                    "FROM motherboard, sklad_motherboard, proizv_motherboard  "
+                                    "WHERE motherboard.id = sklad_motherboard.id_izd "
+                                    "AND motherboard.id_proizv = proizv_motherboard.id "
+                                    f"AND pcie = '{saved_row[7]}'"
+                                    "ORDER BY exist DESC) as s1")
+                        list_proizv = []
+                        for name in cur:
+                            list_proizv.append(name[0])
+                        self.fill_tabs_configure(list_proizv, self.tabWidgetMother)
+
+                        power_row = self.save_row(
+                            self.tableConfPower)  # !!! Сохраняем строчку в фильтруемых таблицах, если она выделена!!!!
+                        # Перезаписываем в словаре для таблицы процессоров значение ТДП
+                        self.dict_power_vid_proc_cool[self.tableConfVideo] = int(saved_row[9])
+                        power_sum = sum(self.dict_power_vid_proc_cool.values())
+                        cur.execute("SELECT sklad_power.kol, power.exist, power.id, proizv_power.name, "
+                                    "fullname, formfactor, length, power, certificate, pinmain, "
+                                    "pinsata, connproc, kolconnproc, connvideo, kolconnvideo, price "
+                                    "FROM power, sklad_power, proizv_power "
+                                    "WHERE power.id = sklad_power.id_izd AND power.id_proizv = proizv_power.id "
+                                    f"AND {power_sum}*100/power >= 50 "
+                                    f"AND {power_sum}*100/power <= 80 "
+                                    "ORDER BY exist DESC")
+                        self.fill_table_conf(6, cur)
+
+                        self.check_rows(power_row, self.tableConfPower)
+                        cur.execute("select distinct formfactor from( "
+                                    "SELECT sklad_power.kol, power.exist, power.id, proizv_power.name, "
+                                    "fullname, formfactor, length, power, certificate, pinmain, "
+                                    "pinsata, connproc, kolconnproc, connvideo, kolconnvideo, price "
+                                    "FROM power, sklad_power, proizv_power "
+                                    "WHERE power.id = sklad_power.id_izd AND power.id_proizv = proizv_power.id "
+                                    f"AND {power_sum}*100/power >= 50 "
+                                    f"AND {power_sum}*100/power <= 80 "
+                                    "ORDER BY exist DESC) as s1")
+                        list_ff = []
+                        for name in cur:
+                            list_ff.append(name[0])
+                        self.fill_tabs_configure(list_ff, self.tabWidgetPower)
+
+                        body_row = self.save_row(
+                            self.tableConfBody)  # !!! Сохраняем строчку в фильтруемых таблицах, если они выделена!!!!
+                        # Фильтр ОЗУ по типу и частоте, поддерживаемой мат. платой
+                        cur.execute("SELECT sklad_body.kol, body.exist, body.id, proizv_body.name, "
+                                    "fullname, gaming, type, ffmother, ffpower, "
+                                    "lengthvideo, heightcool, lengthpower, weight, color, price "
+                                    "FROM body, sklad_body, proizv_body "
+                                    "WHERE body.id = sklad_body.id_izd AND body.id_proizv = proizv_body.id "
+                                    f"AND lengthvideo <= '{saved_row[11]}' "
+                                    "ORDER BY exist DESC")
+                        self.fill_table_conf(7, cur)
+                        self.check_rows(body_row, self.tableConfBody)
+                        cur.execute("select distinct name from( "
+                                    "SELECT sklad_body.kol, body.exist, body.id, proizv_body.name, "
+                                    "fullname, gaming, type, ffmother, ffpower, "
+                                    "lengthvideo, heightcool, lengthpower, weight, color, price "
+                                    "FROM body, sklad_body, proizv_body "
+                                    "WHERE body.id = sklad_body.id_izd AND body.id_proizv = proizv_body.id "
+                                    f"AND lengthvideo <= '{saved_row[11]}' "
+                                    "ORDER BY exist DESC) as s1")
+                        list_proizv = []
+                        for name in cur:
+                            list_proizv.append(name[0])
+                        self.fill_tabs_configure(list_proizv, self.tabWidgetBody)
+
                 case self.tableConfProc:  # По выбранному процессору отсортировать мат платы и ОЗУ
                     if self.rbConf.isChecked():
                         pass
@@ -3124,7 +3229,8 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                             self.tableConfMother)  # !!! Сохраняем строчку в фильтруемых таблицах, если они выделена!!!!
                         cur.execute("SELECT sklad_motherboard.kol, motherboard.exist, motherboard.id, "
                                     "proizv_motherboard.name, fullname, gaming, socket, chipset, formfactor, "
-                                    "pcie, memorytype, memoryslot, memorymax, memoryfreqmax, m2, sata, price "
+                                    "pcie, memorytype, memoryslot, memorymax, memoryfreqmax, m2, sata, "
+                                    "conncool, connproc, kolconnproc, price "
                                     "FROM motherboard, sklad_motherboard, proizv_motherboard "
                                     "WHERE motherboard.id = sklad_motherboard.id_izd "
                                     "AND motherboard.id_proizv = proizv_motherboard.id "
@@ -3135,7 +3241,8 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                         cur.execute("select distinct socket from( "
                                     "SELECT sklad_motherboard.kol, motherboard.exist, motherboard.id, "
                                     "proizv_motherboard.name, fullname, gaming, socket, chipset, formfactor, "
-                                    "pcie, memorytype, memoryslot, memorymax, memoryfreqmax, m2, sata, price "
+                                    "pcie, memorytype, memoryslot, memorymax, memoryfreqmax, m2, sata, "
+                                    "conncool, connproc, kolconnproc, price "
                                     "FROM motherboard, sklad_motherboard, proizv_motherboard "
                                     "WHERE motherboard.id = sklad_motherboard.id_izd "
                                     "AND motherboard.id_proizv = proizv_motherboard.id "
@@ -3145,10 +3252,118 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                         for name in cur:
                             list_proizv.append(name[0])
                         self.fill_tabs_configure(list_proizv, self.tabWidgetMother)
+
+                        cool_row = self.save_row(
+                            self.tableConfCool)  # !!! Сохраняем строчку в фильтруемых таблицах, если они выделена!!!!
+                        cur.execute("SELECT sklad_cool.kol, cool.exist, cool.id, proizv_cool.name, "
+                                    "fullname, construction, type, socket, heatpipe, "
+                                    "height, disperse, voltage, conncool, price "
+                                    "FROM cool, sklad_cool, proizv_cool "
+                                    "WHERE cool.id = sklad_cool.id_izd AND cool.id_proizv = proizv_cool.id "
+                                    f"AND socket like '%' || '{saved_row[1]}' || '%'  "
+                                    "ORDER BY exist DESC")
+                        self.fill_table_conf(3, cur)
+                        self.check_rows(cool_row, self.tableConfCool)
+                        cur.execute("select distinct type from( "
+                                    "SELECT sklad_cool.kol, cool.exist, cool.id, proizv_cool.name, "
+                                    "fullname, construction, type, socket, heatpipe, "
+                                    "height, disperse, voltage, conncool, price "
+                                    "FROM cool, sklad_cool, proizv_cool "
+                                    "WHERE cool.id = sklad_cool.id_izd AND cool.id_proizv = proizv_cool.id "
+                                    f"AND socket like '%' || '{saved_row[1]}' || '%'  "
+                                    "ORDER BY exist DESC) as s1")
+                        list_type = []
+                        for name in cur:
+                            list_type.append(name[0])
+                        self.fill_tabs_configure(list_type, self.tabWidgetCool)
+
+                        ram_row = self.save_row(
+                            self.tableConfRam)  # !!! Сохраняем строчку в фильтруемых таблицах, если они выделена!!!!
+                        cur.execute("SELECT sklad_ram.kol, ram.exist, ram.id, proizv_ram.name, "
+                                    "fullname, gaming, type, volume, frequency, "
+                                    "complect, latency, voltage, price "
+                                    "FROM ram, sklad_ram, proizv_ram "
+                                    "WHERE ram.id = sklad_ram.id_izd AND ram.id_proizv = proizv_ram.id "
+                                    f"AND frequency <= '{saved_row[5]}' "
+                                    "ORDER BY exist DESC")
+                        self.fill_table_conf(4, cur)
+                        self.check_rows(ram_row, self.tableConfRam)
+                        cur.execute("select distinct type from( "
+                                    "SELECT sklad_ram.kol, ram.exist, ram.id, proizv_ram.name, "
+                                    "fullname, gaming, type, volume, frequency, "
+                                    "complect, latency, voltage, price "
+                                    "FROM ram, sklad_ram, proizv_ram "
+                                    "WHERE ram.id = sklad_ram.id_izd AND ram.id_proizv = proizv_ram.id "
+                                    f"AND frequency <= '{saved_row[5]}' "
+                                    "ORDER BY exist DESC) as s1")
+                        list_type = []
+                        for name in cur:
+                            list_type.append(name[0])
+                        self.fill_tabs_configure(list_type, self.tabWidgetRam)
+
+                        power_row = self.save_row(
+                            self.tableConfPower)  # !!! Сохраняем строчку в фильтруемых таблицах, если они выделена!!!!
+                        # Перезаписываем в словаре для таблицы процессоров значение ТДП
+                        self.dict_power_vid_proc_cool[self.tableConfProc] = int(saved_row[6])
+                        power_sum = sum(self.dict_power_vid_proc_cool.values())
+                        cur.execute("SELECT sklad_power.kol, power.exist, power.id, proizv_power.name, "
+                                    "fullname, formfactor, length, power, certificate, pinmain, "
+                                    "pinsata, connproc, kolconnproc, connvideo, kolconnvideo, price "
+                                    "FROM power, sklad_power, proizv_power "
+                                    "WHERE power.id = sklad_power.id_izd AND power.id_proizv = proizv_power.id "
+                                    f"AND {power_sum}*100/power >= 50 "
+                                    f"AND {power_sum}*100/power <= 80 "
+                                    "ORDER BY exist DESC")
+                        self.fill_table_conf(6, cur)
+
+                        self.check_rows(power_row, self.tableConfPower)
+                        cur.execute("select distinct formfactor from( "
+                                    "SELECT sklad_power.kol, power.exist, power.id, proizv_power.name, "
+                                    "fullname, formfactor, length, power, certificate, pinmain, "
+                                    "pinsata, connproc, kolconnproc, connvideo, kolconnvideo, price "
+                                    "FROM power, sklad_power, proizv_power "
+                                    "WHERE power.id = sklad_power.id_izd AND power.id_proizv = proizv_power.id "
+                                    f"AND {power_sum}*100/power >= 50 "
+                                    f"AND {power_sum}*100/power <= 80 "
+                                    "ORDER BY exist DESC) as s1")
+                        list_ff = []
+                        for name in cur:
+                            list_ff.append(name[0])
+                        self.fill_tabs_configure(list_ff, self.tabWidgetPower)
+
                 case self.tableConfMother:  # По выбранной мат. плате отсортировать процессоры и ОЗУ
                     if self.rbConf.isChecked():
                         pass
                     else:
+                        video_row = self.save_row(
+                            self.tableConfVideo)  # !!! Сохраняем строчку в фильтруемых таблицах, если они выделена!!!!
+                        # Фильтр видеокарты по версии интерфейса PCI-e
+                        cur.execute(
+                            "SELECT kol, videocard.exist, videocard.id, proizv_videocard.name, fullname, gaming, "
+                            "chipcreator, chipname, vram, typevram, frequency, bus, interface, monitor, "
+                            "resolution, tdp, length, connvideo, kolconnvideo, price "
+                            "FROM videocard, sklad_videocard, proizv_videocard "
+                            "WHERE videocard.id = sklad_videocard.id_izd "
+                            "AND videocard.id_proizv = proizv_videocard.id "
+                            f"AND interface = '{saved_row[4]}' "
+                            "ORDER BY exist DESC")
+                        self.fill_table_conf(0, cur)
+                        self.check_rows(video_row, self.tableConfVideo)
+                        cur.execute(
+                            "select distinct name from( "
+                            "SELECT kol, videocard.exist, videocard.id, proizv_videocard.name, fullname, gaming, "
+                            "chipcreator, chipname, vram, typevram, frequency, bus, interface, monitor, "
+                            "resolution, tdp, length, connvideo, kolconnvideo, price "
+                            "FROM videocard, sklad_videocard, proizv_videocard "
+                            "WHERE videocard.id = sklad_videocard.id_izd "
+                            "AND videocard.id_proizv = proizv_videocard.id "
+                            f"AND interface = '{saved_row[4]}' "
+                            "ORDER BY exist DESC) as s1")
+                        list_proizv = []
+                        for name in cur:
+                            list_proizv.append(name[0])
+                        self.fill_tabs_configure(list_proizv, self.tabWidgetVideo)
+
                         proc_row = self.save_row(
                             self.tableConfProc)  # !!! Сохраняем строчку в фильтруемых таблицах, если они выделена!!!!
                         cur.execute("SELECT sklad_processor.kol, processor.exist, processor.id, proizv_processor.name, "
@@ -3157,7 +3372,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                                     "FROM processor, sklad_processor, proizv_processor "
                                     "WHERE processor.id = sklad_processor.id_izd "
                                     "AND processor.id_proizv = proizv_processor.id "
-                                    f"AND socket = '{saved_row[1]}'"
+                                    f"AND socket = '{saved_row[1]}' "
                                     "ORDER BY exist DESC")
                         self.fill_table_conf(1, cur)
                         self.check_rows(proc_row, self.tableConfProc)
@@ -3175,8 +3390,61 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                             list_proizv.append(name[0])
                         self.fill_tabs_configure(list_proizv, self.tabWidgetProc)
 
+                        ram_row = self.save_row(
+                            self.tableConfRam)  # !!! Сохраняем строчку в фильтруемых таблицах, если они выделена!!!!
+                        # Фильтр ОЗУ по типу и частоте, поддерживаемой мат. платой
+                        cur.execute("SELECT sklad_ram.kol, ram.exist, ram.id, proizv_ram.name, "
+                                    "fullname, gaming, type, volume, frequency, "
+                                    "complect, latency, voltage, price "
+                                    "FROM ram, sklad_ram, proizv_ram "
+                                    "WHERE ram.id = sklad_ram.id_izd AND ram.id_proizv = proizv_ram.id "
+                                    f"AND type = '{saved_row[5]}' "
+                                    f"AND volume <= '{saved_row[7]}' "
+                                    f"AND frequency <= '{saved_row[8]}' "
+                                    "ORDER BY exist DESC")
+                        self.fill_table_conf(4, cur)
+                        self.check_rows(ram_row, self.tableConfRam)
+                        cur.execute("select distinct type from( "
+                                    "SELECT sklad_ram.kol, ram.exist, ram.id, proizv_ram.name, "
+                                    "fullname, gaming, type, volume, frequency, "
+                                    "complect, latency, voltage, price "
+                                    "FROM ram, sklad_ram, proizv_ram "
+                                    "WHERE ram.id = sklad_ram.id_izd AND ram.id_proizv = proizv_ram.id "
+                                    f"AND type = '{saved_row[5]}' "
+                                    f"AND volume <= '{saved_row[7]}' "
+                                    f"AND frequency <= '{saved_row[8]}' "
+                                    "ORDER BY exist DESC) as s1")
+                        list_type = []
+                        for name in cur:
+                            list_type.append(name[0])
+                        self.fill_tabs_configure(list_type, self.tabWidgetRam)
+
+                        body_row = self.save_row(
+                            self.tableConfBody)  # !!! Сохраняем строчку в фильтруемых таблицах, если они выделена!!!!
+                        # Фильтр ОЗУ по типу и частоте, поддерживаемой мат. платой
+                        cur.execute("SELECT sklad_body.kol, body.exist, body.id, proizv_body.name, "
+                                    "fullname, gaming, type, ffmother, ffpower, "
+                                    "lengthvideo, heightcool, lengthpower, weight, color, price "
+                                    "FROM body, sklad_body, proizv_body "
+                                    "WHERE body.id = sklad_body.id_izd AND body.id_proizv = proizv_body.id "
+                                    f"AND ffmother like '%' || '{saved_row[3]}' || '%'  "
+                                    "ORDER BY exist DESC")
+                        self.fill_table_conf(7, cur)
+                        self.check_rows(body_row, self.tableConfBody)
+                        cur.execute("select distinct name from( "
+                                    "SELECT sklad_body.kol, body.exist, body.id, proizv_body.name, "
+                                    "fullname, gaming, type, ffmother, ffpower, "
+                                    "lengthvideo, heightcool, lengthpower, weight, color, price "
+                                    "FROM body, sklad_body, proizv_body "
+                                    "WHERE body.id = sklad_body.id_izd AND body.id_proizv = proizv_body.id "
+                                    f"AND ffmother like '%' || '{saved_row[3]}' || '%' "
+                                    "ORDER BY exist DESC) as s1")
+                        list_proizv = []
+                        for name in cur:
+                            list_proizv.append(name[0])
+                        self.fill_tabs_configure(list_proizv, self.tabWidgetBody)
+
             # self.fill_tabs_conf()  # нужны отдельные функции заполнения табов по выбранному комплектующему
-            # (можно здесь же сделать объединение с большим запросом с SELECT proizvname\сокет и тп DISTINCT) и заполнить табы
         except (Exception, psycopg2.DatabaseError) as error:
             dialog = DialogOk("Ошибка", str(error))
             dialog.show()

@@ -21,14 +21,15 @@ CREATE OR REPLACE FUNCTION insert_cool(
 	VARCHAR(255),
 	INT,
 	INT,
-	VARCHAR(15),
+	INT,
+	INT,
 	INT,
 	INT)
 	RETURNS void AS $$
 BEGIN
 	INSERT INTO cool(id_proizv, fullname, construction, type, socket, heatpipe, 
-					 height, connect, disperse, price)
-	VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);
+					 height, disperse, voltage, conncool, price)
+	VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11);
 END;
 $$ LANGUAGE plpgsql;
 
@@ -45,13 +46,14 @@ RETURNS TABLE(
 	socket VARCHAR, 
 	heatpipe INT, 
 	height INT, 
-	connect VARCHAR,
-	disperse INT, 
+	disperse INT,
+	voltage INT,
+	conncool INT,
 	price INT
 ) AS $$
 	SELECT sklad_cool.kol, cool.exist, cool.id, proizv_cool.name,
 			fullname, construction, type, socket, heatpipe, 
-			height, connect, disperse, price
+			height, disperse, voltage, conncool, price
 	FROM cool, sklad_cool, proizv_cool
 	WHERE cool.id = sklad_cool.id_izd AND cool.id_proizv = proizv_cool.id
 	ORDER BY exist DESC
@@ -68,14 +70,15 @@ RETURNS TABLE(
 	type VARCHAR,
 	socket VARCHAR, 
 	heatpipe INT, 
-	height INT, 
-	connect VARCHAR,
-	disperse INT, 
+	height INT,
+	disperse INT,
+	voltage INT,
+	conncool INT,
 	price INT
 ) AS $$
-	SELECT sklad_cool.kol, cool.exist, cool.id, proizv_cool.name, 
+	SELECT sklad_cool.kol, cool.exist, cool.id, proizv_cool.name,
 			fullname, construction, type, socket, heatpipe, 
-			height, connect, disperse, price
+			height, disperse, voltage, conncool, price
 	FROM cool, sklad_cool, proizv_cool
 	WHERE cool.id = sklad_cool.id_izd AND cool.id_proizv = proizv_cool.id
 	AND cool.exist = True
@@ -95,13 +98,14 @@ RETURNS TABLE(
 	socket VARCHAR, 
 	heatpipe INT, 
 	height INT, 
-	connect VARCHAR,
-	disperse INT, 
+	disperse INT,
+	voltage INT,
+	conncool INT,
 	price INT
 ) AS $$
 	SELECT sklad_cool.kol, cool.exist, cool.id, proizv_cool.name,
 			fullname, construction, type, socket, heatpipe, 
-			height, connect, disperse, price
+			height, disperse, voltage, conncool, price
 	FROM cool, sklad_cool, proizv_cool
 	WHERE cool.id = sklad_cool.id_izd AND cool.id_proizv = proizv_cool.id AND type = type_in
 	ORDER BY exist DESC

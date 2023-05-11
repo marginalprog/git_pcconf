@@ -977,6 +977,189 @@ class Ui_addChVidWidg(object):
         self.lbProcGaming.setFont(font)
         self.lbProcGaming.setStyleSheet("border:0px;")
         self.lbProcGaming.setObjectName("lbProcGaming")
+        self.cbPinVideo = QtWidgets.QComboBox(addChVidWidg)
+        self.cbPinVideo.setGeometry(QtCore.QRect(320, 470, 111, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.cbPinVideo.setFont(font)
+        self.cbPinVideo.setStyleSheet("QComboBox{\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px;\n"
+"    border-bottom: 1px solid rgb(120,120,120);\n"
+"    padding-left: 5px;\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QComboBox QListView{\n"
+"    border: 1px solid red;\n"
+"    padding-left: 5px;\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QComboBox:hover{\n"
+"    background-color: rgb(55,55,55);\n"
+"    border-bottom: 1px solid red;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow:hover {\n"
+"border-image: url(\"E:/pcconf/images/down-arrow.png\");\n"
+"width: 17px;\n"
+"height: 17px;\n"
+"margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox::drop-down{\n"
+"border: 0px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow {\n"
+"border-image: url(\"E:/pcconf/images/down-arrow-gray.png\");\n"
+"width: 17px;\n"
+"height: 17px;\n"
+"margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow:on {\n"
+"    border-image: url(\"E:/pcconf/images/up-arrow.png\");\n"
+"    width: 17px;\n"
+"    height: 17px;\n"
+"    margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox:on{\n"
+"border: 2px solid rgb(100,0,0);\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    background: rgb(250, 250, 250);\n"
+"    border-width: 1px;\n"
+"    border-style: solid;\n"
+"    border-color: rgb(235, 235, 235);\n"
+"    selection-background-color: rgb(240, 240, 240);\n"
+"    selection-color: rgb(25, 25, 25);\n"
+"}\n"
+"")
+        self.cbPinVideo.setEditable(False)
+        self.cbPinVideo.setIconSize(QtCore.QSize(20, 20))
+        self.cbPinVideo.setDuplicatesEnabled(False)
+        self.cbPinVideo.setFrame(False)
+        self.cbPinVideo.setModelColumn(0)
+        self.cbPinVideo.setObjectName("cbPinVideo")
+        self.cbPinVideo.addItem("")
+        self.cbPinVideo.addItem("")
+        self.cbPinVideo.addItem("")
+        self.cbPinVideo.addItem("")
+        self.cbPinVideo.addItem("")
+        self.cbPinVideo.addItem("")
+        self.cbPinVideo.addItem("")
+        self.cbPinVideoKol = QtWidgets.QComboBox(addChVidWidg)
+        self.cbPinVideoKol.setGeometry(QtCore.QRect(490, 470, 111, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.cbPinVideoKol.setFont(font)
+        self.cbPinVideoKol.setStyleSheet("QComboBox{\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px;\n"
+"    border-bottom: 1px solid rgb(120,120,120);\n"
+"    padding-left: 5px;\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QComboBox QListView{\n"
+"    border: 1px solid red;\n"
+"    padding-left: 5px;\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QComboBox:hover{\n"
+"    background-color: rgb(55,55,55);\n"
+"    border-bottom: 1px solid red;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow:hover {\n"
+"border-image: url(\"E:/pcconf/images/down-arrow.png\");\n"
+"width: 17px;\n"
+"height: 17px;\n"
+"margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox::drop-down{\n"
+"border: 0px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow {\n"
+"border-image: url(\"E:/pcconf/images/down-arrow-gray.png\");\n"
+"width: 17px;\n"
+"height: 17px;\n"
+"margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow:on {\n"
+"    border-image: url(\"E:/pcconf/images/up-arrow.png\");\n"
+"    width: 17px;\n"
+"    height: 17px;\n"
+"    margin-right: 5px;\n"
+"}\n"
+"\n"
+"QComboBox:on{\n"
+"border: 2px solid rgb(100,0,0);\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    background: rgb(250, 250, 250);\n"
+"    border-width: 1px;\n"
+"    border-style: solid;\n"
+"    border-color: rgb(235, 235, 235);\n"
+"    selection-background-color: rgb(240, 240, 240);\n"
+"    selection-color: rgb(25, 25, 25);\n"
+"}\n"
+"")
+        self.cbPinVideoKol.setEditable(False)
+        self.cbPinVideoKol.setIconSize(QtCore.QSize(20, 20))
+        self.cbPinVideoKol.setDuplicatesEnabled(False)
+        self.cbPinVideoKol.setFrame(False)
+        self.cbPinVideoKol.setModelColumn(0)
+        self.cbPinVideoKol.setObjectName("cbPinVideoKol")
+        self.cbPinVideoKol.addItem("")
+        self.cbPinVideoKol.addItem("")
+        self.cbPinVideoKol.addItem("")
+        self.cbPinVideoKol.addItem("")
+        self.cbPinVideoKol.addItem("")
+        self.cbPinVideoKol.addItem("")
+        self.cbPinVideoKol.addItem("")
+        self.cbPinVideoKol.addItem("")
+        self.cbPinVideoKol.addItem("")
+        self.cbPinVideoKol.addItem("")
+        self.cbPinVideoKol.addItem("")
+        self.cbPinVideoKol.addItem("")
+        self.lbPrice_2 = QtWidgets.QLabel(addChVidWidg)
+        self.lbPrice_2.setGeometry(QtCore.QRect(480, 470, 16, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        self.lbPrice_2.setFont(font)
+        self.lbPrice_2.setStyleSheet("border:0px;")
+        self.lbPrice_2.setObjectName("lbPrice_2")
+        self.lbPinPcie = QtWidgets.QLabel(addChVidWidg)
+        self.lbPinPcie.setGeometry(QtCore.QRect(320, 440, 271, 25))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        self.lbPinPcie.setFont(font)
+        self.lbPinPcie.setStyleSheet("border:0px;")
+        self.lbPinPcie.setObjectName("lbPinPcie")
+        self.lbPrice_6 = QtWidgets.QLabel(addChVidWidg)
+        self.lbPrice_6.setGeometry(QtCore.QRect(350, 470, 21, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        self.lbPrice_6.setFont(font)
+        self.lbPrice_6.setStyleSheet("border:0px;\n"
+"background:transparent;")
+        self.lbPrice_6.setObjectName("lbPrice_6")
+        self.lbPrice_2.raise_()
         self.lbFullName.raise_()
         self.line.raise_()
         self.line_2.raise_()
@@ -1019,6 +1202,10 @@ class Ui_addChVidWidg(object):
         self.cbResolution.raise_()
         self.cbGaming.raise_()
         self.lbProcGaming.raise_()
+        self.cbPinVideo.raise_()
+        self.cbPinVideoKol.raise_()
+        self.lbPinPcie.raise_()
+        self.lbPrice_6.raise_()
 
         self.retranslateUi(addChVidWidg)
         self.btnCancel.clicked.connect(addChVidWidg.close)
@@ -1069,6 +1256,28 @@ class Ui_addChVidWidg(object):
         self.cbGaming.setItemText(0, _translate("addChVidWidg", "Да"))
         self.cbGaming.setItemText(1, _translate("addChVidWidg", "Нет"))
         self.lbProcGaming.setText(_translate("addChVidWidg", "Игровое комплектующее"))
+        self.cbPinVideo.setItemText(0, _translate("addChVidWidg", "6"))
+        self.cbPinVideo.setItemText(1, _translate("addChVidWidg", "8"))
+        self.cbPinVideo.setItemText(2, _translate("addChVidWidg", "12"))
+        self.cbPinVideo.setItemText(3, _translate("addChVidWidg", "14"))
+        self.cbPinVideo.setItemText(4, _translate("addChVidWidg", "16"))
+        self.cbPinVideo.setItemText(5, _translate("addChVidWidg", "22"))
+        self.cbPinVideo.setItemText(6, _translate("addChVidWidg", "0"))
+        self.cbPinVideoKol.setItemText(0, _translate("addChVidWidg", "0"))
+        self.cbPinVideoKol.setItemText(1, _translate("addChVidWidg", "1"))
+        self.cbPinVideoKol.setItemText(2, _translate("addChVidWidg", "2"))
+        self.cbPinVideoKol.setItemText(3, _translate("addChVidWidg", "3"))
+        self.cbPinVideoKol.setItemText(4, _translate("addChVidWidg", "4"))
+        self.cbPinVideoKol.setItemText(5, _translate("addChVidWidg", "5"))
+        self.cbPinVideoKol.setItemText(6, _translate("addChVidWidg", "6"))
+        self.cbPinVideoKol.setItemText(7, _translate("addChVidWidg", "7"))
+        self.cbPinVideoKol.setItemText(8, _translate("addChVidWidg", "8"))
+        self.cbPinVideoKol.setItemText(9, _translate("addChVidWidg", "9"))
+        self.cbPinVideoKol.setItemText(10, _translate("addChVidWidg", "10"))
+        self.cbPinVideoKol.setItemText(11, _translate("addChVidWidg", "16"))
+        self.lbPrice_2.setText(_translate("addChVidWidg", "x"))
+        self.lbPinPcie.setText(_translate("addChVidWidg", "Доп. питание видеокарты (PCI-E)"))
+        self.lbPrice_6.setText(_translate("addChVidWidg", "pin"))
 
 
 if __name__ == "__main__":

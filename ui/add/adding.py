@@ -127,6 +127,8 @@ class AddChangeVideoWindow(QtWidgets.QWidget, addChVidWidg.Ui_addChVidWidg):
                                                       self.cbResolution.currentText(),
                                                       int(self.leTdp.text()),
                                                       int(self.leLength.text()),
+                                                      int(self.cbPinVideo.currentText()),
+                                                      int(self.cbPinVideoKol.currentText()),
                                                       int(self.lePrice.text())])
                     self.close()
             else:  # Если повторяем заказ - вызываем 1 процедуру и заполняем её
@@ -367,6 +369,9 @@ class AddChangeMotherWindow(QtWidgets.QWidget, addChMotherWidg.Ui_addChMotherWid
                                                         self.leFreqMax.text(),
                                                         self.cbM2.currentText(),
                                                         self.cbSata.currentText(),
+                                                        int(self.cbPinCool.currentText()),
+                                                        int(self.cbPinCpu.currentText()),
+                                                        int(self.cbPinCpuKol.currentText()),
                                                         int(self.lePrice.text())])
                     self.close()
             else:  # Если повторяем заказ - вызываем 1 процедуру и заполняем её
@@ -470,8 +475,9 @@ class AddChangeCoolWindow(QtWidgets.QWidget, addChCoolWidg.Ui_addChCoolWidg):
                                                  self.leSocket.text(),
                                                  self.cbPipe.currentText(),
                                                  self.leHeight.text(),
-                                                 self.cbConnect.currentText(),
                                                  self.leDisperse.text(),
+                                                 self.leVoltage.text(),
+                                                 self.cbConnect.currentText(),
                                                  int(self.lePrice.text())])
                     self.close()
             else:  # Если повторяем заказ - вызываем 1 процедуру и заполняем её
@@ -788,11 +794,10 @@ class AddChangePowerWindow(QtWidgets.QWidget, addChPowerWidg.Ui_addChPowerWidg):
                 mark_labels(self.leFullName, self.lbFullName)
                 mark_labels(self.leLenPower, self.lbLenPower)
                 mark_labels(self.lePower, self.lbPower)
-                mark_labels(self.lePinPcie, self.lbPinPcie)
                 mark_labels(self.lePinSata, self.lbPinSata)
                 mark_labels(self.lePrice, self.lbPrice)
                 if self.leFullName.text() == "" or self.leLenPower.text() == "" or self.lePower.text() == "" or \
-                        self.lePinSata.text() == "" or self.lePinPcie.text() == "" or self.lePrice.text() == "":
+                        self.lePinSata.text() == "" or self.lePrice.text() == "":
                     dialog = DialogOk("Ошибка", "Все поля должны быть заполнены")
                     dialog.show()
                 else:
@@ -804,8 +809,10 @@ class AddChangePowerWindow(QtWidgets.QWidget, addChPowerWidg.Ui_addChPowerWidg):
                                                   self.cbCertificate.currentText(),
                                                   self.cbPinMain.currentText(),
                                                   self.cbPinCpu.currentText(),
-                                                  self.lePinPcie.text(),
+                                                  self.cbPinVideo.currentText(),
                                                   int(self.lePinSata.text()),
+                                                  self.cbPinCpuKol.currentText(),
+                                                  self.cbPinVideoKol.currentText(),
                                                   int(self.lePrice.text())])
                     self.close()
             else:  # Если повторяем заказ - вызываем 1 процедуру и заполняем её

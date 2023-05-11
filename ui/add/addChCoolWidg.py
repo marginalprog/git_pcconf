@@ -20,7 +20,7 @@ class Ui_addChCoolWidg(object):
         addChCoolWidg.setWindowIcon(icon)
         addChCoolWidg.setStyleSheet("QWidget\n"
 "{\n"
-"    background: rgb(25, 25, 25);\n"
+"    background: rgb(30, 30, 30);\n"
 "    color: white;\n"
 "}\n"
 "")
@@ -164,6 +164,7 @@ class Ui_addChCoolWidg(object):
         self.cbConnect.setFrame(False)
         self.cbConnect.setModelColumn(0)
         self.cbConnect.setObjectName("cbConnect")
+        self.cbConnect.addItem("")
         self.cbConnect.addItem("")
         self.cbConnect.addItem("")
         self.cbConnect.addItem("")
@@ -806,6 +807,43 @@ class Ui_addChCoolWidg(object):
         self.lbType.setFont(font)
         self.lbType.setStyleSheet("border:0px;")
         self.lbType.setObjectName("lbType")
+        self.lbVoltage = QtWidgets.QLabel(addChCoolWidg)
+        self.lbVoltage.setGeometry(QtCore.QRect(570, 350, 261, 25))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        self.lbVoltage.setFont(font)
+        self.lbVoltage.setStyleSheet("border:0px;")
+        self.lbVoltage.setObjectName("lbVoltage")
+        self.leVoltage = QtWidgets.QLineEdit(addChCoolWidg)
+        self.leVoltage.setGeometry(QtCore.QRect(570, 380, 111, 35))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.leVoltage.setFont(font)
+        self.leVoltage.setStyleSheet("QLineEdit{\n"
+"    padding-left: 5px;\n"
+"    border: 1px solid rgb(20,20,20);\n"
+"    background-color: rgb(40,40,40);\n"
+"    border-bottom: 1px solid  rgb(120,120,120);\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QLineEdit:hover{\n"
+"    background-color: rgb(55,55,55);\n"
+"    border-bottom: 1px solid  red;\n"
+"}")
+        self.leVoltage.setInputMask("")
+        self.leVoltage.setObjectName("leVoltage")
+        self.lbPrice_4 = QtWidgets.QLabel(addChCoolWidg)
+        self.lbPrice_4.setGeometry(QtCore.QRect(200, 380, 21, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        self.lbPrice_4.setFont(font)
+        self.lbPrice_4.setStyleSheet("border:0px;\n"
+"background:transparent;")
+        self.lbPrice_4.setObjectName("lbPrice_4")
         self.line_3.raise_()
         self.lbConnect.raise_()
         self.btnSave.raise_()
@@ -838,6 +876,9 @@ class Ui_addChCoolWidg(object):
         self.lbConstruction.raise_()
         self.cbType.raise_()
         self.lbType.raise_()
+        self.lbVoltage.raise_()
+        self.leVoltage.raise_()
+        self.lbPrice_4.raise_()
 
         self.retranslateUi(addChCoolWidg)
         self.btnCancel.clicked.connect(addChCoolWidg.close)
@@ -849,10 +890,11 @@ class Ui_addChCoolWidg(object):
         self.lbConnect.setText(_translate("addChCoolWidg", "Разъём подключения вентиляторов"))
         self.btnSave.setText(_translate("addChCoolWidg", "Сохранить"))
         self.lbComplect.setText(_translate("addChCoolWidg", "Охлаждение процессора"))
-        self.cbConnect.setItemText(0, _translate("addChCoolWidg", "4 pin"))
-        self.cbConnect.setItemText(1, _translate("addChCoolWidg", "3 pin"))
-        self.cbConnect.setItemText(2, _translate("addChCoolWidg", "4 pin x2"))
-        self.cbConnect.setItemText(3, _translate("addChCoolWidg", "нет"))
+        self.cbConnect.setItemText(0, _translate("addChCoolWidg", "3"))
+        self.cbConnect.setItemText(1, _translate("addChCoolWidg", "4"))
+        self.cbConnect.setItemText(2, _translate("addChCoolWidg", "8"))
+        self.cbConnect.setItemText(3, _translate("addChCoolWidg", "16"))
+        self.cbConnect.setItemText(4, _translate("addChCoolWidg", "0"))
         self.cbProizv.setItemText(0, _translate("addChCoolWidg", "AeroCool"))
         self.cbProizv.setItemText(1, _translate("addChCoolWidg", "DEEPCOOL"))
         self.lbProcProizv.setText(_translate("addChCoolWidg", "Производитель"))
@@ -882,6 +924,8 @@ class Ui_addChCoolWidg(object):
         self.cbType.setItemText(0, _translate("addChCoolWidg", "Воздушное"))
         self.cbType.setItemText(1, _translate("addChCoolWidg", "Водяное"))
         self.lbType.setText(_translate("addChCoolWidg", "Тип охлаждения"))
+        self.lbVoltage.setText(_translate("addChCoolWidg", "Напряжение основной линии [Вт]"))
+        self.lbPrice_4.setText(_translate("addChCoolWidg", "pin"))
 
 
 if __name__ == "__main__":

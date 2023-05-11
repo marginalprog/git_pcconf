@@ -5867,6 +5867,27 @@ class Ui_MainWindow(object):
 "")
         self.btnResetBody.setText("")
         self.btnResetBody.setObjectName("btnResetBody")
+        self.btnVideoHeader = QtWidgets.QPushButton(self.frame_3)
+        self.btnVideoHeader.setGeometry(QtCore.QRect(730, 80, 41, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnVideoHeader.setFont(font)
+        self.btnVideoHeader.setStyleSheet("QPushButton{\n"
+"    border:1px solid rgb(70,70,70);\n"
+"    background-color: rgb(40,40,40);\n"
+"    color: #fffafa;\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    border:1px;\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-color: rgb(40,40,40);\n"
+"    border-bottom: 1px solid  red;\n"
+"}\n"
+"")
+        self.btnVideoHeader.setObjectName("btnVideoHeader")
         self.gridLayout.addWidget(self.frame_3, 0, 0, 1, 1)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.frame_cart = QtWidgets.QFrame(self.configurator)
@@ -7201,6 +7222,7 @@ class Ui_MainWindow(object):
         item = self.tableConfBody.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "др. параметры"))
         self.lbBody.setText(_translate("MainWindow", "Корпус"))
+        self.btnVideoHeader.setText(_translate("MainWindow", "h"))
         self.lb_preview.setText(_translate("MainWindow", "Предпросмотр"))
         self.lb_price.setText(_translate("MainWindow", "000 000"))
         self.lb_config.setText(_translate("MainWindow", "Конфигурация"))
