@@ -192,7 +192,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
                         "ORDER BY name ASC")
             row_count = 0
             for name in cur:
-                self.tableProizv.setRowCount(row_count+1)
+                self.tableProizv.setRowCount(row_count + 1)
                 self.tableProizv.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
                 row_count += 1
 
@@ -200,7 +200,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
             cur.execute("SELECT DISTINCT chipcreator FROM videocard "
                         "ORDER BY chipcreator ASC")
             for name in cur:
-                self.tableChipCreator.setRowCount(row_count+1)
+                self.tableChipCreator.setRowCount(row_count + 1)
                 self.tableChipCreator.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
                 row_count += 1
 
@@ -208,7 +208,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
             cur.execute("SELECT DISTINCT chipname FROM videocard "
                         "ORDER BY chipname ASC")
             for name in cur:
-                self.tableGraphProc.setRowCount(row_count+1)
+                self.tableGraphProc.setRowCount(row_count + 1)
                 self.tableGraphProc.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
                 row_count += 1
 
@@ -216,7 +216,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
             cur.execute("SELECT DISTINCT vram FROM videocard "
                         "ORDER BY vram ASC")
             for name in cur:
-                self.tableVolume.setRowCount(row_count+1)
+                self.tableVolume.setRowCount(row_count + 1)
                 self.tableVolume.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
@@ -224,7 +224,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
             cur.execute("SELECT DISTINCT typevram FROM videocard "
                         "ORDER BY typevram ASC")
             for name in cur:
-                self.tableType.setRowCount(row_count+1)
+                self.tableType.setRowCount(row_count + 1)
                 self.tableType.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
                 row_count += 1
 
@@ -232,7 +232,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
             cur.execute("SELECT DISTINCT frequency FROM videocard "
                         "ORDER BY frequency ASC")
             for name in cur:
-                self.tableFreq.setRowCount(row_count+1)
+                self.tableFreq.setRowCount(row_count + 1)
                 self.tableFreq.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
@@ -240,7 +240,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
             cur.execute("SELECT DISTINCT bus FROM videocard "
                         "ORDER BY bus ASC")
             for name in cur:
-                self.tableBus.setRowCount(row_count+1)
+                self.tableBus.setRowCount(row_count + 1)
                 self.tableBus.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
@@ -248,7 +248,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
             cur.execute("SELECT DISTINCT interface FROM videocard "
                         "ORDER BY interface ASC")
             for name in cur:
-                self.tableInterface.setRowCount(row_count+1)
+                self.tableInterface.setRowCount(row_count + 1)
                 self.tableInterface.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
                 row_count += 1
 
@@ -256,7 +256,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
             cur.execute("SELECT DISTINCT monitor FROM videocard "
                         "ORDER BY monitor ASC")
             for name in cur:
-                self.tableMonitor.setRowCount(row_count+1)
+                self.tableMonitor.setRowCount(row_count + 1)
                 self.tableMonitor.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
@@ -264,7 +264,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
             cur.execute("SELECT DISTINCT resolution FROM videocard "
                         "ORDER BY resolution ASC")
             for name in cur:
-                self.tableResolution.setRowCount(row_count+1)
+                self.tableResolution.setRowCount(row_count + 1)
                 self.tableResolution.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
                 row_count += 1
 
@@ -272,8 +272,8 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
             self.pasteCheckBoxes()
 
         except (Exception, psycopg2.DatabaseError) as error:
-            self.dialog = DialogOk("Ошибка", error)
-            self.dialog.show()
+            dialog = DialogOk("Ошибка", error)
+            dialog.show()
 
         finally:
             if conn:
@@ -329,7 +329,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
                         "ORDER BY name ASC ")
             row_count = 0
             for name in cur:
-                self.tableProizv.setRowCount(row_count+1)
+                self.tableProizv.setRowCount(row_count + 1)
                 self.tableProizv.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
                 row_count += 1
 
@@ -337,7 +337,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
             cur.execute("SELECT DISTINCT chipcreator FROM videocard WHERE exist = True "
                         "ORDER BY chipcreator ASC")
             for name in cur:
-                self.tableChipCreator.setRowCount(row_count+1)
+                self.tableChipCreator.setRowCount(row_count + 1)
                 self.tableChipCreator.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
                 row_count += 1
 
@@ -345,7 +345,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
             cur.execute("SELECT DISTINCT chipname FROM videocard WHERE exist = True "
                         "ORDER BY chipname ASC")
             for name in cur:
-                self.tableGraphProc.setRowCount(row_count+1)
+                self.tableGraphProc.setRowCount(row_count + 1)
                 self.tableGraphProc.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
                 row_count += 1
 
@@ -353,7 +353,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
             cur.execute("SELECT DISTINCT vram FROM videocard WHERE exist = True "
                         "ORDER BY vram ASC")
             for name in cur:
-                self.tableVolume.setRowCount(row_count+1)
+                self.tableVolume.setRowCount(row_count + 1)
                 self.tableVolume.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
@@ -361,7 +361,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
             cur.execute("SELECT DISTINCT typevram FROM videocard WHERE exist = True "
                         "ORDER BY typevram ASC")
             for name in cur:
-                self.tableType.setRowCount(row_count+1)
+                self.tableType.setRowCount(row_count + 1)
                 self.tableType.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
                 row_count += 1
 
@@ -369,7 +369,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
             cur.execute("SELECT DISTINCT frequency FROM videocard WHERE exist = True "
                         "ORDER BY frequency ASC")
             for name in cur:
-                self.tableFreq.setRowCount(row_count+1)
+                self.tableFreq.setRowCount(row_count + 1)
                 self.tableFreq.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
@@ -377,7 +377,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
             cur.execute("SELECT DISTINCT bus FROM videocard WHERE exist = True "
                         "ORDER BY bus ASC")
             for name in cur:
-                self.tableBus.setRowCount(row_count+1)
+                self.tableBus.setRowCount(row_count + 1)
                 self.tableBus.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
@@ -385,7 +385,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
             cur.execute("SELECT DISTINCT interface FROM videocard WHERE exist = True "
                         "ORDER BY interface ASC")
             for name in cur:
-                self.tableInterface.setRowCount(row_count+1)
+                self.tableInterface.setRowCount(row_count + 1)
                 self.tableInterface.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
                 row_count += 1
 
@@ -393,7 +393,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
             cur.execute("SELECT DISTINCT monitor FROM videocard WHERE exist = True "
                         "ORDER BY monitor ASC")
             for name in cur:
-                self.tableMonitor.setRowCount(row_count+1)
+                self.tableMonitor.setRowCount(row_count + 1)
                 self.tableMonitor.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
@@ -401,7 +401,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
             cur.execute("SELECT DISTINCT resolution FROM videocard WHERE exist = True "
                         "ORDER BY resolution ASC")
             for name in cur:
-                self.tableResolution.setRowCount(row_count+1)
+                self.tableResolution.setRowCount(row_count + 1)
                 self.tableResolution.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
                 row_count += 1
 
@@ -409,8 +409,8 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
             self.pasteCheckBoxes()
 
         except (Exception, psycopg2.DatabaseError) as error:
-            self.dialog = DialogOk("Ошибка", error)
-            self.dialog.show()
+            dialog = DialogOk("Ошибка", error)
+            dialog.show()
 
         finally:
             if conn:
@@ -538,8 +538,8 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
             if int(min_field) < int(max_field):
                 return int(min_field), int(max_field)
             else:
-                self.dialog = DialogOk("Ошибка", "Максимальные значения должны быть больше минимальных")
-                self.dialog.show()
+                dialog = DialogOk("Ошибка", "Максимальные значения должны быть больше минимальных")
+                dialog.show()
                 return -1, -1
         elif min_field == "" and max_field == "":
             return 0, 0
@@ -565,9 +565,11 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
 
     # Метод, срабатывающий по нажатии на кнопку и отправляющий в БД запрос на фильтрацию данных
     def click_accept(self, mainWindow):
-        query = "SELECT kol, videocard.exist, videocard.id, proizv_videocard.name, fullname, gaming, chipcreator," \
-                "chipname, vram, typevram, frequency, bus, interface, monitor, resolution, tdp, length, price" \
-                " FROM videocard, sklad_videocard, proizv_videocard WHERE "
+        query = "SELECT kol, videocard.exist, videocard.id, proizv_videocard.name, fullname, gaming, " \
+                "chipcreator, chipname, vram, typevram, frequency, bus, interface, monitor, " \
+                "resolution, tdp, length, connvideo, kolconnvideo, price " \
+                "FROM videocard, sklad_videocard, proizv_videocard " \
+                "WHERE "
 
         min_price, max_price = self.checkFields(self.leMinPrice.text(), self.leMaxPrice.text())
         min_tdp, max_tdp = self.checkFields(self.leMinTdp.text(), self.leMaxTdp.text())
@@ -660,7 +662,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
                     query += " AND " + self.check_min_max(min_tdp, max_tdp, "Tdp")
 
             if query1 == "" and query2 == "" and query3 == "" and query4 == "" and query5 == "" and query6 == "" \
-                    and query7 == "" and query8 == "" and query9 == "" and (min_price == 0 and max_price == 0)\
+                    and query7 == "" and query8 == "" and query9 == "" and (min_price == 0 and max_price == 0) \
                     and (min_tdp == 0 and max_tdp == 0):
                 query += self.check_min_max(min_len, max_len, "Length")
             else:
@@ -670,9 +672,11 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
             mainWindow.tabWidgetSklad.setCurrentIndex(0)  # Устанавливаем вкладку перед фильтрацией на 0 место
 
             # Если изменений в фильтрации не было, то передаём changes = False
-            if query == "SELECT kol, videocard.exist, videocard.id, proizv_videocard.name, fullname, gaming, chipcreator," \
-                        "chipname, vram, typevram, frequency, bus, interface, monitor, resolution, tdp, length, price" \
-                        " FROM videocard, sklad_videocard, proizv_videocard WHERE ":
+            if query == "SELECT kol, videocard.exist, videocard.id, proizv_videocard.name, fullname, gaming, " \
+                        "chipcreator, chipname, vram, typevram, frequency, bus, interface, monitor, " \
+                        "resolution, tdp, length, connvideo, kolconnvideo, price " \
+                        "FROM videocard, sklad_videocard, proizv_videocard " \
+                        "WHERE ":
 
                 if self.tab_window == 0:  # Если открыта вкладка "Склад", то применяем фильтры для склада
                     # Переопределяем готовым запросом
@@ -680,7 +684,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
                     mainWindow.apply_filter_sklad(query, 0)
                     self.close()
                 else:  # Если открыта вкладка "Конфигуратор", то применяем фильтры для конфигуратора
-                    query = self.make_query_filter(False,  mainWindow.rbConf.isChecked())
+                    query = self.make_query_filter(False, mainWindow.rbConf.isChecked())
                     mainWindow.apply_filter_conf(query, 0)
                     self.close()
 
@@ -693,7 +697,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
                     self.close()
                 else:
                     # Дописываем финальную часть запроса (отбор по id, exist и ранжирование) для конфигуратора
-                    query += self.make_query_filter(True,  mainWindow.rbConf.isChecked())
+                    query += self.make_query_filter(True, mainWindow.rbConf.isChecked())
                     mainWindow.apply_filter_conf(query, 0)
                     self.close()
 
@@ -712,17 +716,21 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
         # Если фильтры не выбраны
         else:
             if having:
-                query = "SELECT kol, videocard.exist, videocard.id, proizv_videocard.name, fullname, gaming, chipcreator," \
-                        "chipname, vram, typevram, frequency, bus, interface, monitor, resolution, tdp, length, price" \
-                        " FROM videocard, sklad_videocard, proizv_videocard" \
-                        " WHERE videocard.id = sklad_videocard.id_izd AND videocard.id_proizv = proizv_videocard.id" \
-                        " AND videocard.exist = True" \
-                        " ORDER BY exist DESC"
+                query = "SELECT kol, videocard.exist, videocard.id, proizv_videocard.name, fullname, gaming, " \
+                        "chipcreator, chipname, vram, typevram, frequency, bus, interface, monitor, " \
+                        "resolution, tdp, length, connvideo, kolconnvideo, price " \
+                        "FROM videocard, sklad_videocard, proizv_videocard " \
+                        "WHERE videocard.id = sklad_videocard.id_izd " \
+                        "AND videocard.id_proizv = proizv_videocard.id " \
+                        "AND videocard.exist = True " \
+                        "ORDER BY exist DESC "
                 return query
             else:
-                query = "SELECT kol, videocard.exist, videocard.id, proizv_videocard.name, fullname, gaming, chipcreator," \
-                        "chipname, vram, typevram, frequency, bus, interface, monitor, resolution, tdp, length, price" \
-                        " FROM videocard, sklad_videocard, proizv_videocard" \
-                        " WHERE videocard.id = sklad_videocard.id_izd AND videocard.id_proizv = proizv_videocard.id" \
-                        " ORDER BY exist DESC"
+                query = "SELECT kol, videocard.exist, videocard.id, proizv_videocard.name, fullname, gaming, "\
+                        "chipcreator, chipname, vram, typevram, frequency, bus, interface, monitor, "\
+                        "resolution, tdp, length, connvideo, kolconnvideo, price "\
+                        "FROM videocard, sklad_videocard, proizv_videocard "\
+                        "WHERE videocard.id = sklad_videocard.id_izd " \
+                        "AND videocard.id_proizv = proizv_videocard.id " \
+                        "ORDER BY exist DESC "
                 return query

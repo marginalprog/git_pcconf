@@ -179,7 +179,7 @@ border: 1px solid rgb(210, 0, 0);</string>
      <x>170</x>
      <y>380</y>
      <width>111</width>
-     <height>35</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -875,7 +875,7 @@ border-top: 1px solid rgb(220, 0, 0);</string>
      <x>20</x>
      <y>380</y>
      <width>111</width>
-     <height>35</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -1449,12 +1449,12 @@ QLineEdit:hover{
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="lbPrice_4">
+  <widget class="QLabel" name="lbPin1">
    <property name="geometry">
     <rect>
      <x>200</x>
      <y>380</y>
-     <width>21</width>
+     <width>31</width>
      <height>31</height>
     </rect>
    </property>
@@ -1506,7 +1506,7 @@ background:transparent;</string>
   <zorder>lbType</zorder>
   <zorder>lbVoltage</zorder>
   <zorder>leVoltage</zorder>
-  <zorder>lbPrice_4</zorder>
+  <zorder>lbPin1</zorder>
  </widget>
  <resources/>
  <connections>

@@ -362,7 +362,7 @@ QLineEdit:hover{
      <x>20</x>
      <y>470</y>
      <width>111</width>
-     <height>35</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -490,7 +490,7 @@ border-top: 1px solid rgb(220, 0, 0);</string>
      <x>670</x>
      <y>470</y>
      <width>111</width>
-     <height>35</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -708,7 +708,7 @@ border-top: 1px solid rgb(220, 0, 0);</string>
      <x>170</x>
      <y>470</y>
      <width>111</width>
-     <height>35</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -1895,7 +1895,7 @@ QComboBox QAbstractItemView {
      <x>470</x>
      <y>470</y>
      <width>111</width>
-     <height>35</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -2037,7 +2037,7 @@ QComboBox QAbstractItemView {
     </property>
    </item>
   </widget>
-  <widget class="QLabel" name="lbPrice_3">
+  <widget class="QLabel" name="lbX">
    <property name="geometry">
     <rect>
      <x>460</x>
@@ -2065,7 +2065,7 @@ QComboBox QAbstractItemView {
      <x>320</x>
      <y>470</y>
      <width>111</width>
-     <height>35</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -2183,7 +2183,7 @@ QComboBox QAbstractItemView {
      <x>610</x>
      <y>200</y>
      <width>111</width>
-     <height>35</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -2317,12 +2317,12 @@ QComboBox QAbstractItemView {
     <string>Питание процессороного кулера</string>
    </property>
   </widget>
-  <widget class="QLabel" name="lbPrice_4">
+  <widget class="QLabel" name="lbPin1">
    <property name="geometry">
     <rect>
      <x>350</x>
      <y>470</y>
-     <width>21</width>
+     <width>31</width>
      <height>31</height>
     </rect>
    </property>
@@ -2340,12 +2340,12 @@ background:transparent;</string>
     <string>pin</string>
    </property>
   </widget>
-  <widget class="QLabel" name="lbPrice_5">
+  <widget class="QLabel" name="lbPin2">
    <property name="geometry">
     <rect>
      <x>640</x>
      <y>200</y>
-     <width>21</width>
+     <width>31</width>
      <height>31</height>
     </rect>
    </property>
@@ -2363,7 +2363,7 @@ background:transparent;</string>
     <string>pin</string>
    </property>
   </widget>
-  <zorder>lbPrice_3</zorder>
+  <zorder>lbX</zorder>
   <zorder>line_3</zorder>
   <zorder>lbRamMax</zorder>
   <zorder>lbFullName</zorder>
@@ -2409,8 +2409,8 @@ background:transparent;</string>
   <zorder>cbPinCpu</zorder>
   <zorder>cbPinCool</zorder>
   <zorder>lbPinCool</zorder>
-  <zorder>lbPrice_4</zorder>
-  <zorder>lbPrice_5</zorder>
+  <zorder>lbPin1</zorder>
+  <zorder>lbPin2</zorder>
  </widget>
  <resources/>
  <connections>

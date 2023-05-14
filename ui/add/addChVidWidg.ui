@@ -1989,7 +1989,7 @@ QComboBox QAbstractItemView {
     </property>
    </item>
   </widget>
-  <widget class="QLabel" name="lbPrice_2">
+  <widget class="QLabel" name="lbPinX">
    <property name="geometry">
     <rect>
      <x>480</x>
@@ -2033,12 +2033,12 @@ QComboBox QAbstractItemView {
     <string>Доп. питание видеокарты (PCI-E)</string>
    </property>
   </widget>
-  <widget class="QLabel" name="lbPrice_6">
+  <widget class="QLabel" name="lbPin1">
    <property name="geometry">
     <rect>
      <x>350</x>
      <y>470</y>
-     <width>21</width>
+     <width>31</width>
      <height>31</height>
     </rect>
    </property>
@@ -2056,7 +2056,7 @@ background:transparent;</string>
     <string>pin</string>
    </property>
   </widget>
-  <zorder>lbPrice_2</zorder>
+  <zorder>lbPinX</zorder>
   <zorder>lbFullName</zorder>
   <zorder>line</zorder>
   <zorder>line_2</zorder>
@@ -2102,7 +2102,7 @@ background:transparent;</string>
   <zorder>cbPinVideo</zorder>
   <zorder>cbPinVideoKol</zorder>
   <zorder>lbPinPcie</zorder>
-  <zorder>lbPrice_6</zorder>
+  <zorder>lbPin1</zorder>
  </widget>
  <resources/>
  <connections>

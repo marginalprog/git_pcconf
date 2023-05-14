@@ -96,7 +96,7 @@ class Ui_addChCoolWidg(object):
         self.rectangle.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.rectangle.setObjectName("rectangle")
         self.cbConnect = QtWidgets.QComboBox(addChCoolWidg)
-        self.cbConnect.setGeometry(QtCore.QRect(170, 380, 111, 35))
+        self.cbConnect.setGeometry(QtCore.QRect(170, 380, 111, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -507,7 +507,7 @@ class Ui_addChCoolWidg(object):
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
         self.cbPipe = QtWidgets.QComboBox(addChCoolWidg)
-        self.cbPipe.setGeometry(QtCore.QRect(20, 380, 111, 35))
+        self.cbPipe.setGeometry(QtCore.QRect(20, 380, 111, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -835,15 +835,15 @@ class Ui_addChCoolWidg(object):
 "}")
         self.leVoltage.setInputMask("")
         self.leVoltage.setObjectName("leVoltage")
-        self.lbPrice_4 = QtWidgets.QLabel(addChCoolWidg)
-        self.lbPrice_4.setGeometry(QtCore.QRect(200, 380, 21, 31))
+        self.lbPin1 = QtWidgets.QLabel(addChCoolWidg)
+        self.lbPin1.setGeometry(QtCore.QRect(200, 380, 31, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
-        self.lbPrice_4.setFont(font)
-        self.lbPrice_4.setStyleSheet("border:0px;\n"
+        self.lbPin1.setFont(font)
+        self.lbPin1.setStyleSheet("border:0px;\n"
 "background:transparent;")
-        self.lbPrice_4.setObjectName("lbPrice_4")
+        self.lbPin1.setObjectName("lbPin1")
         self.line_3.raise_()
         self.lbConnect.raise_()
         self.btnSave.raise_()
@@ -878,7 +878,7 @@ class Ui_addChCoolWidg(object):
         self.lbType.raise_()
         self.lbVoltage.raise_()
         self.leVoltage.raise_()
-        self.lbPrice_4.raise_()
+        self.lbPin1.raise_()
 
         self.retranslateUi(addChCoolWidg)
         self.btnCancel.clicked.connect(addChCoolWidg.close)
@@ -925,7 +925,7 @@ class Ui_addChCoolWidg(object):
         self.cbType.setItemText(1, _translate("addChCoolWidg", "Водяное"))
         self.lbType.setText(_translate("addChCoolWidg", "Тип охлаждения"))
         self.lbVoltage.setText(_translate("addChCoolWidg", "Напряжение основной линии [Вт]"))
-        self.lbPrice_4.setText(_translate("addChCoolWidg", "pin"))
+        self.lbPin1.setText(_translate("addChCoolWidg", "pin"))
 
 
 if __name__ == "__main__":

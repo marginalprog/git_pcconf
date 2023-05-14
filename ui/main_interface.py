@@ -418,7 +418,7 @@ class Ui_MainWindow(object):
         icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/graphics-card.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBoxNavigation.addItem(self.pageVideo, icon, "")
         self.pageProc = QtWidgets.QWidget()
-        self.pageProc.setGeometry(QtCore.QRect(0, 0, 100, 30))
+        self.pageProc.setGeometry(QtCore.QRect(0, 0, 297, 243))
         self.pageProc.setObjectName("pageProc")
         self.tbFrameProc = QtWidgets.QFrame(self.pageProc)
         self.tbFrameProc.setGeometry(QtCore.QRect(0, 0, 301, 251))
@@ -640,7 +640,7 @@ class Ui_MainWindow(object):
         icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/cpu-tower.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBoxNavigation.addItem(self.pageProc, icon1, "")
         self.pageMother = QtWidgets.QWidget()
-        self.pageMother.setGeometry(QtCore.QRect(0, 0, 100, 30))
+        self.pageMother.setGeometry(QtCore.QRect(0, 0, 297, 243))
         self.pageMother.setObjectName("pageMother")
         self.tbFrameMother = QtWidgets.QFrame(self.pageMother)
         self.tbFrameMother.setGeometry(QtCore.QRect(0, 0, 301, 261))
@@ -862,7 +862,7 @@ class Ui_MainWindow(object):
         icon2.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/motherboard.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBoxNavigation.addItem(self.pageMother, icon2, "")
         self.pageCool = QtWidgets.QWidget()
-        self.pageCool.setGeometry(QtCore.QRect(0, 0, 100, 30))
+        self.pageCool.setGeometry(QtCore.QRect(0, 0, 297, 243))
         self.pageCool.setObjectName("pageCool")
         self.tbFrameCool = QtWidgets.QFrame(self.pageCool)
         self.tbFrameCool.setGeometry(QtCore.QRect(0, 0, 301, 261))
@@ -1084,7 +1084,7 @@ class Ui_MainWindow(object):
         icon3.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/cpucooling.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBoxNavigation.addItem(self.pageCool, icon3, "")
         self.pageRam = QtWidgets.QWidget()
-        self.pageRam.setGeometry(QtCore.QRect(0, 0, 100, 30))
+        self.pageRam.setGeometry(QtCore.QRect(0, 0, 297, 243))
         self.pageRam.setObjectName("pageRam")
         self.tbFrameRam = QtWidgets.QFrame(self.pageRam)
         self.tbFrameRam.setGeometry(QtCore.QRect(0, 0, 301, 261))
@@ -1306,7 +1306,7 @@ class Ui_MainWindow(object):
         icon4.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/ram (1).png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBoxNavigation.addItem(self.pageRam, icon4, "")
         self.pageDisk = QtWidgets.QWidget()
-        self.pageDisk.setGeometry(QtCore.QRect(0, 0, 100, 30))
+        self.pageDisk.setGeometry(QtCore.QRect(0, 0, 297, 243))
         self.pageDisk.setObjectName("pageDisk")
         self.tbFrameDisk = QtWidgets.QFrame(self.pageDisk)
         self.tbFrameDisk.setGeometry(QtCore.QRect(0, 0, 301, 261))
@@ -1528,7 +1528,7 @@ class Ui_MainWindow(object):
         icon5.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/hard-drive.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBoxNavigation.addItem(self.pageDisk, icon5, "")
         self.pagePower = QtWidgets.QWidget()
-        self.pagePower.setGeometry(QtCore.QRect(0, 0, 100, 30))
+        self.pagePower.setGeometry(QtCore.QRect(0, 0, 297, 243))
         self.pagePower.setObjectName("pagePower")
         self.tbFramePower = QtWidgets.QFrame(self.pagePower)
         self.tbFramePower.setGeometry(QtCore.QRect(0, 0, 301, 261))
@@ -1750,7 +1750,7 @@ class Ui_MainWindow(object):
         icon6.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/power.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBoxNavigation.addItem(self.pagePower, icon6, "")
         self.pageBody = QtWidgets.QWidget()
-        self.pageBody.setGeometry(QtCore.QRect(0, 0, 100, 30))
+        self.pageBody.setGeometry(QtCore.QRect(0, 0, 297, 243))
         self.pageBody.setObjectName("pageBody")
         self.tbFrameBody = QtWidgets.QFrame(self.pageBody)
         self.tbFrameBody.setGeometry(QtCore.QRect(0, 0, 301, 261))
@@ -1972,7 +1972,7 @@ class Ui_MainWindow(object):
         icon7.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/case.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBoxNavigation.addItem(self.pageBody, icon7, "")
         self.pageConf = QtWidgets.QWidget()
-        self.pageConf.setGeometry(QtCore.QRect(0, 0, 100, 30))
+        self.pageConf.setGeometry(QtCore.QRect(0, 0, 297, 243))
         self.pageConf.setObjectName("pageConf")
         self.tbFrameConf = QtWidgets.QFrame(self.pageConf)
         self.tbFrameConf.setGeometry(QtCore.QRect(0, 0, 301, 261))
@@ -5867,26 +5867,49 @@ class Ui_MainWindow(object):
 "")
         self.btnResetBody.setText("")
         self.btnResetBody.setObjectName("btnResetBody")
-        self.btnVideoHeader = QtWidgets.QPushButton(self.frame_3)
-        self.btnVideoHeader.setGeometry(QtCore.QRect(730, 80, 41, 31))
+        self.btnVideoHeader = QtWidgets.QRadioButton(self.frame_3)
+        self.btnVideoHeader.setGeometry(QtCore.QRect(730, 80, 31, 31))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.btnVideoHeader.sizePolicy().hasHeightForWidth())
+        self.btnVideoHeader.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
+        font.setPointSize(-1)
         self.btnVideoHeader.setFont(font)
-        self.btnVideoHeader.setStyleSheet("QPushButton{\n"
-"    border:1px solid rgb(70,70,70);\n"
-"    background-color: rgb(40,40,40);\n"
-"    color: #fffafa;\n"
+        self.btnVideoHeader.setStyleSheet("QRadioButton{\n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border: 0px;\n"
+"    border-top: 1px solid rgb(60,60,60);\n"
+"    font-size: 14px;\n"
 "}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"    border:1px;\n"
+"QRadioButton:hover{\n"
 "    background-color: rgb(60,60,60);\n"
 "    border-color: rgb(40,40,40);\n"
 "    border-bottom: 1px solid  red;\n"
 "}\n"
-"")
+"QRadioButton::indicator:hover{\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"     border-image: url(\"E:/pcconf/images/down-arrow.png\") 0;\n"
+"}\n"
+"QRadioButton::indicator:checked {\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"    margin-left: 3px;\n"
+"     border-image: url(\"E:/pcconf/images/up-arrow.png\") 0;\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:unchecked {\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"    margin-left: 3px;\n"
+"     border-image: url(\"E:/pcconf/images/down-arrow-gray.png\") 0;\n"
+"    color: rgb(190,190,190);\n"
+"}")
+        self.btnVideoHeader.setText("")
         self.btnVideoHeader.setObjectName("btnVideoHeader")
         self.gridLayout.addWidget(self.frame_3, 0, 0, 1, 1)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
@@ -7222,7 +7245,6 @@ class Ui_MainWindow(object):
         item = self.tableConfBody.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "др. параметры"))
         self.lbBody.setText(_translate("MainWindow", "Корпус"))
-        self.btnVideoHeader.setText(_translate("MainWindow", "h"))
         self.lb_preview.setText(_translate("MainWindow", "Предпросмотр"))
         self.lb_price.setText(_translate("MainWindow", "000 000"))
         self.lb_config.setText(_translate("MainWindow", "Конфигурация"))

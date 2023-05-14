@@ -676,8 +676,8 @@ QPushButton::hover
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>100</width>
-           <height>30</height>
+           <width>297</width>
+           <height>243</height>
           </rect>
          </property>
          <attribute name="icon">
@@ -1045,8 +1045,8 @@ QPushButton::hover
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>100</width>
-           <height>30</height>
+           <width>297</width>
+           <height>243</height>
           </rect>
          </property>
          <attribute name="icon">
@@ -1414,8 +1414,8 @@ QPushButton::hover
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>100</width>
-           <height>30</height>
+           <width>297</width>
+           <height>243</height>
           </rect>
          </property>
          <attribute name="icon">
@@ -1783,8 +1783,8 @@ QPushButton::hover
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>100</width>
-           <height>30</height>
+           <width>297</width>
+           <height>243</height>
           </rect>
          </property>
          <attribute name="icon">
@@ -2152,8 +2152,8 @@ QPushButton::hover
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>100</width>
-           <height>30</height>
+           <width>297</width>
+           <height>243</height>
           </rect>
          </property>
          <attribute name="icon">
@@ -2521,8 +2521,8 @@ QPushButton::hover
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>100</width>
-           <height>30</height>
+           <width>297</width>
+           <height>243</height>
           </rect>
          </property>
          <attribute name="icon">
@@ -2890,8 +2890,8 @@ QPushButton::hover
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>100</width>
-           <height>30</height>
+           <width>297</width>
+           <height>243</height>
           </rect>
          </property>
          <attribute name="icon">
@@ -3259,8 +3259,8 @@ QPushButton::hover
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>100</width>
-           <height>30</height>
+           <width>297</width>
+           <height>243</height>
           </rect>
          </property>
          <attribute name="icon">
@@ -9021,39 +9021,62 @@ border-image: url(&quot;E:/pcconf/images/reset-red.png&quot;) 0;
               <string/>
              </property>
             </widget>
-            <widget class="QPushButton" name="btnVideoHeader">
+            <widget class="QRadioButton" name="btnVideoHeader">
              <property name="geometry">
               <rect>
                <x>730</x>
                <y>80</y>
-               <width>41</width>
+               <width>31</width>
                <height>31</height>
               </rect>
              </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
              <property name="font">
               <font>
-               <family>Montserrat Medium</family>
-               <pointsize>10</pointsize>
+               <pointsize>-1</pointsize>
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">QPushButton{
-	border:1px solid rgb(70,70,70);
-	background-color: rgb(40,40,40);
-	color: #fffafa;
+              <string notr="true">QRadioButton{
+	background-color: #101010;
+	color: #dddddd;
+	border: 0px;
+	border-top: 1px solid rgb(60,60,60);
+	font-size: 14px;
 }
-
-QPushButton::hover
-{
-	border:1px;
+QRadioButton:hover{
 	background-color: rgb(60,60,60);
 	border-color: rgb(40,40,40);
 	border-bottom: 1px solid  red;
 }
-</string>
+QRadioButton::indicator:hover{
+    width: 25px;
+    height: 25px;
+ 	border-image: url(&quot;E:/pcconf/images/down-arrow.png&quot;) 0;
+}
+QRadioButton::indicator:checked {
+    width: 25px;
+    height: 25px;
+	margin-left: 3px;
+ 	border-image: url(&quot;E:/pcconf/images/up-arrow.png&quot;) 0;
+	color: white;
+}
+
+QRadioButton::indicator:unchecked {
+    width: 25px;
+    height: 25px;
+	margin-left: 3px;
+ 	border-image: url(&quot;E:/pcconf/images/down-arrow-gray.png&quot;) 0;
+	color: rgb(190,190,190);
+}</string>
              </property>
              <property name="text">
-              <string>h</string>
+              <string/>
              </property>
             </widget>
            </widget>

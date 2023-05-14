@@ -351,7 +351,7 @@ border: 1px solid rgb(210, 0, 0);</string>
      <x>20</x>
      <y>380</y>
      <width>111</width>
-     <height>35</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -1415,7 +1415,7 @@ QLineEdit:hover{
      <x>170</x>
      <y>380</y>
      <width>111</width>
-     <height>35</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -1563,7 +1563,7 @@ QComboBox QAbstractItemView {
      <x>480</x>
      <y>380</y>
      <width>111</width>
-     <height>35</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -1716,7 +1716,7 @@ QComboBox QAbstractItemView {
      <x>320</x>
      <y>380</y>
      <width>111</width>
-     <height>35</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -1823,7 +1823,7 @@ QComboBox QAbstractItemView {
     </property>
    </item>
   </widget>
-  <widget class="QLabel" name="lbPrice_2">
+  <widget class="QLabel" name="lbPinX1">
    <property name="geometry">
     <rect>
      <x>470</x>
@@ -1845,7 +1845,7 @@ QComboBox QAbstractItemView {
     <string>x</string>
    </property>
   </widget>
-  <widget class="QLabel" name="lbPrice_3">
+  <widget class="QLabel" name="lbPinX2">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -1867,12 +1867,12 @@ QComboBox QAbstractItemView {
     <string>x</string>
    </property>
   </widget>
-  <widget class="QLabel" name="lbPrice_6">
+  <widget class="QLabel" name="lbPin2">
    <property name="geometry">
     <rect>
      <x>50</x>
      <y>380</y>
-     <width>21</width>
+     <width>31</width>
      <height>31</height>
     </rect>
    </property>
@@ -1890,12 +1890,12 @@ background:transparent;</string>
     <string>pin</string>
    </property>
   </widget>
-  <widget class="QLabel" name="lbPrice_7">
+  <widget class="QLabel" name="lbPin1">
    <property name="geometry">
     <rect>
      <x>350</x>
      <y>380</y>
-     <width>21</width>
+     <width>31</width>
      <height>31</height>
     </rect>
    </property>
@@ -1913,8 +1913,8 @@ background:transparent;</string>
     <string>pin</string>
    </property>
   </widget>
-  <zorder>lbPrice_3</zorder>
-  <zorder>lbPrice_2</zorder>
+  <zorder>lbPinX2</zorder>
+  <zorder>lbPinX1</zorder>
   <zorder>line_3</zorder>
   <zorder>lbPinCpu</zorder>
   <zorder>btnSave</zorder>
@@ -1951,8 +1951,8 @@ background:transparent;</string>
   <zorder>cbPinCpuKol</zorder>
   <zorder>cbPinVideoKol</zorder>
   <zorder>cbPinVideo</zorder>
-  <zorder>lbPrice_6</zorder>
-  <zorder>lbPrice_7</zorder>
+  <zorder>lbPin2</zorder>
+  <zorder>lbPin1</zorder>
  </widget>
  <resources/>
  <connections>
