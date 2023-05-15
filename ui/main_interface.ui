@@ -364,7 +364,7 @@ border-bottom: 1px solid rgb(100, 100, 100);</string>
           <widget class="QPushButton" name="btnNewVideoProizv">
            <property name="geometry">
             <rect>
-             <x>10</x>
+             <x>40</x>
              <y>190</y>
              <width>91</width>
              <height>41</height>
@@ -387,49 +387,13 @@ border-bottom: 1px solid rgb(100, 100, 100);</string>
 QPushButton::hover
 {
 	background-color: rgb(60,60,60);
-	border-bottom: 1px solid rgb(0, 255, 8);
+	border-bottom: 1px solid red;
 }
 </string>
            </property>
            <property name="text">
             <string>Новый
 поставщик</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="btnDelVideoProizv">
-           <property name="geometry">
-            <rect>
-             <x>190</x>
-             <y>190</y>
-             <width>91</width>
-             <height>41</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Montserrat Medium</family>
-             <pointsize>10</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton
-{
-	color:  white;
-	background-color: rgb(40,40,40);
-	border: 1px solid rgb(100, 100, 100);
-}
-
-QPushButton::hover
-{
-	background-color: rgb(60,60,60);
-	color: red;
-	border-bottom: 1px solid red;
-}
-</string>
-           </property>
-           <property name="text">
-            <string>Удалить
-выбранного</string>
            </property>
           </widget>
           <widget class="QTableWidget" name="tableVideoProizv">
@@ -632,7 +596,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
           <widget class="QPushButton" name="btnCngVideoProizv">
            <property name="geometry">
             <rect>
-             <x>100</x>
+             <x>160</x>
              <y>190</y>
              <width>91</width>
              <height>41</height>
@@ -667,7 +631,6 @@ QPushButton::hover
           <zorder>btnCngVideoProizv</zorder>
           <zorder>lbVideoProizv</zorder>
           <zorder>btnNewVideoProizv</zorder>
-          <zorder>btnDelVideoProizv</zorder>
           <zorder>tableVideoProizv</zorder>
          </widget>
         </widget>
@@ -738,7 +701,7 @@ border-bottom: 1px solid rgb(100, 100, 100);</string>
           <widget class="QPushButton" name="btnNewProcProizv">
            <property name="geometry">
             <rect>
-             <x>10</x>
+             <x>40</x>
              <y>190</y>
              <width>91</width>
              <height>41</height>
@@ -761,49 +724,13 @@ border-bottom: 1px solid rgb(100, 100, 100);</string>
 QPushButton::hover
 {
 	background-color: rgb(60,60,60);
-	border-bottom: 1px solid rgb(0, 255, 8);
+	border-bottom: 1px solid red;
 }
 </string>
            </property>
            <property name="text">
             <string>Новый
 поставщик</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="btnDelProcProizv">
-           <property name="geometry">
-            <rect>
-             <x>190</x>
-             <y>190</y>
-             <width>91</width>
-             <height>41</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Montserrat Medium</family>
-             <pointsize>10</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton
-{
-	color:  white;
-	background-color: rgb(40,40,40);
-	border: 1px solid rgb(100, 100, 100);
-}
-
-QPushButton::hover
-{
-	background-color: rgb(60,60,60);
-	color: red;	
-	border-bottom: 1px solid red;
-}
-</string>
-           </property>
-           <property name="text">
-            <string>Удалить
-выбранного</string>
            </property>
           </widget>
           <widget class="QTableWidget" name="tableProcProizv">
@@ -1006,7 +933,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
           <widget class="QPushButton" name="btnCngProcProizv">
            <property name="geometry">
             <rect>
-             <x>100</x>
+             <x>170</x>
              <y>190</y>
              <width>91</width>
              <height>41</height>
@@ -1107,7 +1034,7 @@ border-bottom: 1px solid rgb(100, 100, 100);</string>
           <widget class="QPushButton" name="btnNewMotherProizv">
            <property name="geometry">
             <rect>
-             <x>10</x>
+             <x>40</x>
              <y>190</y>
              <width>91</width>
              <height>41</height>
@@ -1130,49 +1057,13 @@ border-bottom: 1px solid rgb(100, 100, 100);</string>
 QPushButton::hover
 {
 	background-color: rgb(60,60,60);
-	border-bottom: 1px solid rgb(0, 255, 8);
+	border-bottom: 1px solid red;
 }
 </string>
            </property>
            <property name="text">
             <string>Новый
 поставщик</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="btnDelMotherProizv">
-           <property name="geometry">
-            <rect>
-             <x>190</x>
-             <y>190</y>
-             <width>91</width>
-             <height>41</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Montserrat Medium</family>
-             <pointsize>10</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton
-{
-	color:  white;
-	background-color: rgb(40,40,40);
-	border: 1px solid rgb(100, 100, 100);
-}
-
-QPushButton::hover
-{
-	background-color: rgb(60,60,60);
-	color: red;
-	border-bottom: 1px solid red;
-}
-</string>
-           </property>
-           <property name="text">
-            <string>Удалить
-выбранного</string>
            </property>
           </widget>
           <widget class="QTableWidget" name="tableMotherProizv">
@@ -1375,7 +1266,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
           <widget class="QPushButton" name="btnCngMotherProizv">
            <property name="geometry">
             <rect>
-             <x>100</x>
+             <x>160</x>
              <y>190</y>
              <width>91</width>
              <height>41</height>
@@ -1476,7 +1367,7 @@ border-bottom: 1px solid rgb(100, 100, 100);</string>
           <widget class="QPushButton" name="btnNewCoolProizv">
            <property name="geometry">
             <rect>
-             <x>10</x>
+             <x>40</x>
              <y>190</y>
              <width>91</width>
              <height>41</height>
@@ -1499,49 +1390,13 @@ border-bottom: 1px solid rgb(100, 100, 100);</string>
 QPushButton::hover
 {
 	background-color: rgb(60,60,60);
-	border-bottom: 1px solid rgb(0, 255, 8);
+	border-bottom: 1px solid red;
 }
 </string>
            </property>
            <property name="text">
             <string>Новый
 поставщик</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="btnDelCoolProizv">
-           <property name="geometry">
-            <rect>
-             <x>190</x>
-             <y>190</y>
-             <width>91</width>
-             <height>41</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Montserrat Medium</family>
-             <pointsize>10</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton
-{
-	color:  white;
-	background-color: rgb(40,40,40);
-	border: 1px solid rgb(100, 100, 100);
-}
-
-QPushButton::hover
-{
-	background-color: rgb(60,60,60);
-	color: red;
-	border-bottom: 1px solid red;
-}
-</string>
-           </property>
-           <property name="text">
-            <string>Удалить
-выбранного</string>
            </property>
           </widget>
           <widget class="QTableWidget" name="tableCoolProizv">
@@ -1744,7 +1599,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
           <widget class="QPushButton" name="btnCngCoolProizv">
            <property name="geometry">
             <rect>
-             <x>100</x>
+             <x>160</x>
              <y>190</y>
              <width>91</width>
              <height>41</height>
@@ -1845,7 +1700,7 @@ border-bottom: 1px solid rgb(100, 100, 100);</string>
           <widget class="QPushButton" name="btnNewRamProizv">
            <property name="geometry">
             <rect>
-             <x>10</x>
+             <x>40</x>
              <y>190</y>
              <width>91</width>
              <height>41</height>
@@ -1868,49 +1723,13 @@ border-bottom: 1px solid rgb(100, 100, 100);</string>
 QPushButton::hover
 {
 	background-color: rgb(60,60,60);
-	border-bottom: 1px solid rgb(0, 255, 8);
+	border-bottom: 1px solid red;
 }
 </string>
            </property>
            <property name="text">
             <string>Новый
 поставщик</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="btnDelRamProizv">
-           <property name="geometry">
-            <rect>
-             <x>190</x>
-             <y>190</y>
-             <width>91</width>
-             <height>41</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Montserrat Medium</family>
-             <pointsize>10</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton
-{
-	color:  white;
-	background-color: rgb(40,40,40);
-	border: 1px solid rgb(100, 100, 100);
-}
-
-QPushButton::hover
-{
-	background-color: rgb(60,60,60);
-	color: red;
-	border-bottom: 1px solid red;
-}
-</string>
-           </property>
-           <property name="text">
-            <string>Удалить
-выбранного</string>
            </property>
           </widget>
           <widget class="QTableWidget" name="tableRamProizv">
@@ -2113,7 +1932,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
           <widget class="QPushButton" name="btnCngRamProizv">
            <property name="geometry">
             <rect>
-             <x>100</x>
+             <x>160</x>
              <y>190</y>
              <width>91</width>
              <height>41</height>
@@ -2214,7 +2033,7 @@ border-bottom: 1px solid rgb(100, 100, 100);</string>
           <widget class="QPushButton" name="btnNewDiskProizv">
            <property name="geometry">
             <rect>
-             <x>10</x>
+             <x>40</x>
              <y>190</y>
              <width>91</width>
              <height>41</height>
@@ -2237,49 +2056,13 @@ border-bottom: 1px solid rgb(100, 100, 100);</string>
 QPushButton::hover
 {
 	background-color: rgb(60,60,60);
-	border-bottom: 1px solid rgb(0, 255, 8);
+	border-bottom: 1px solid red;
 }
 </string>
            </property>
            <property name="text">
             <string>Новый
 поставщик</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="btnDelDiskProizv">
-           <property name="geometry">
-            <rect>
-             <x>190</x>
-             <y>190</y>
-             <width>91</width>
-             <height>41</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Montserrat Medium</family>
-             <pointsize>10</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton
-{
-	color:  white;
-	background-color: rgb(40,40,40);
-	border: 1px solid rgb(100, 100, 100);
-}
-
-QPushButton::hover
-{
-	background-color: rgb(60,60,60);
-	color: red;
-	border-bottom: 1px solid red;
-}
-</string>
-           </property>
-           <property name="text">
-            <string>Удалить
-выбранного</string>
            </property>
           </widget>
           <widget class="QTableWidget" name="tableDiskProizv">
@@ -2482,7 +2265,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
           <widget class="QPushButton" name="btnCngDiskProizv">
            <property name="geometry">
             <rect>
-             <x>100</x>
+             <x>160</x>
              <y>190</y>
              <width>91</width>
              <height>41</height>
@@ -2583,7 +2366,7 @@ border-bottom: 1px solid rgb(100, 100, 100);</string>
           <widget class="QPushButton" name="btnNewPowerProizv">
            <property name="geometry">
             <rect>
-             <x>10</x>
+             <x>40</x>
              <y>190</y>
              <width>91</width>
              <height>41</height>
@@ -2606,49 +2389,13 @@ border-bottom: 1px solid rgb(100, 100, 100);</string>
 QPushButton::hover
 {
 	background-color: rgb(60,60,60);
-	border-bottom: 1px solid rgb(0, 255, 8);
+	border-bottom: 1px solid red;
 }
 </string>
            </property>
            <property name="text">
             <string>Новый
 поставщик</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="btnDelPowerProizv">
-           <property name="geometry">
-            <rect>
-             <x>190</x>
-             <y>190</y>
-             <width>91</width>
-             <height>41</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Montserrat Medium</family>
-             <pointsize>10</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton
-{
-	color:  white;
-	background-color: rgb(40,40,40);
-	border: 1px solid rgb(100, 100, 100);
-}
-
-QPushButton::hover
-{
-	background-color: rgb(60,60,60);
-	color: red;
-	border-bottom: 1px solid red;
-}
-</string>
-           </property>
-           <property name="text">
-            <string>Удалить
-выбранного</string>
            </property>
           </widget>
           <widget class="QTableWidget" name="tablePowerProizv">
@@ -2851,7 +2598,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
           <widget class="QPushButton" name="btnCngPowerProizv">
            <property name="geometry">
             <rect>
-             <x>100</x>
+             <x>160</x>
              <y>190</y>
              <width>91</width>
              <height>41</height>
@@ -2952,7 +2699,7 @@ border-bottom: 1px solid rgb(100, 100, 100);</string>
           <widget class="QPushButton" name="btnNewBodyProizv">
            <property name="geometry">
             <rect>
-             <x>10</x>
+             <x>40</x>
              <y>190</y>
              <width>91</width>
              <height>41</height>
@@ -2975,49 +2722,13 @@ border-bottom: 1px solid rgb(100, 100, 100);</string>
 QPushButton::hover
 {
 	background-color: rgb(60,60,60);
-	border-bottom: 1px solid rgb(0, 255, 8);
+	border-bottom: 1px solid red;
 }
 </string>
            </property>
            <property name="text">
             <string>Новый
 поставщик</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="btnDelBodyProizv">
-           <property name="geometry">
-            <rect>
-             <x>190</x>
-             <y>190</y>
-             <width>91</width>
-             <height>41</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Montserrat Medium</family>
-             <pointsize>10</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton
-{
-	color:  white;
-	background-color: rgb(40,40,40);
-	border: 1px solid rgb(100, 100, 100);
-}
-
-QPushButton::hover
-{
-	background-color: rgb(60,60,60);
-	color: red;
-	border-bottom: 1px solid red;
-}
-</string>
-           </property>
-           <property name="text">
-            <string>Удалить
-выбранного</string>
            </property>
           </widget>
           <widget class="QTableWidget" name="tableBodyProizv">
@@ -3220,7 +2931,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
           <widget class="QPushButton" name="btnCngBodyProizv">
            <property name="geometry">
             <rect>
-             <x>100</x>
+             <x>160</x>
              <y>190</y>
              <width>91</width>
              <height>41</height>
@@ -3296,7 +3007,7 @@ QPushButton::hover
            <property name="geometry">
             <rect>
              <x>50</x>
-             <y>80</y>
+             <y>110</y>
              <width>181</width>
              <height>31</height>
             </rect>
@@ -3316,113 +3027,6 @@ border-bottom: 1px solid rgb(100, 100, 100);</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="btnNewVideoProizv_10">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>190</y>
-             <width>91</width>
-             <height>41</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Montserrat Medium</family>
-             <pointsize>10</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton
-{
-	color:  white;
-	border: 1px solid rgb(100, 100, 100);
-	background-color: rgb(40,40,40);
-}
-
-QPushButton::hover
-{
-	background-color: rgb(60,60,60);
-	border-bottom: 1px solid rgb(0, 255, 8);
-}
-</string>
-           </property>
-           <property name="text">
-            <string>Новый
-поставщик</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="btnDelBConfProizv">
-           <property name="geometry">
-            <rect>
-             <x>190</x>
-             <y>190</y>
-             <width>91</width>
-             <height>41</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Montserrat Medium</family>
-             <pointsize>10</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton
-{
-	color:  white;
-	background-color: rgb(40,40,40);
-	border: 1px solid rgb(100, 100, 100);
-}
-
-QPushButton::hover
-{
-	background-color: rgb(60,60,60);
-	color: red;
-	border-bottom: 1px solid red;
-}
-</string>
-           </property>
-           <property name="text">
-            <string>Удалить
-выбранного</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="btnDelVideoProizv_2">
-           <property name="geometry">
-            <rect>
-             <x>100</x>
-             <y>190</y>
-             <width>91</width>
-             <height>41</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Montserrat Medium</family>
-             <pointsize>10</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton
-{
-	color:  white;
-	background-color: rgb(40,40,40);
-	border: 1px solid rgb(100, 100, 100);
-}
-
-QPushButton::hover
-{
-	background-color: rgb(60,60,60);
-	color: rgb(255, 247, 0);	
-	border-bottom: 1px solid rgb(255, 247, 0);
-}
-</string>
-           </property>
-           <property name="text">
-            <string>Изменить
-договор</string>
            </property>
           </widget>
          </widget>
@@ -4633,20 +4237,23 @@ QTabBar::tab:hover
 	background-color: #101010;
 	color: #dddddd;
 	border: 0px;
-	font-size: 14px;
-	min-width: 100px;	
+	min-width: 30px;	
 	min-height: 30px;
+	font-family: Montserrat SemiBold;
 }
+
 
 QHeaderView::section
 {
 	background-color: #101010;
-	min-width: 10px;	
+	border: 0px solid white;
+	border-bottom: 1px solid rgb(60,60,60);
+	border-right: 1px solid rgb(60,60,60);
 	min-height: 25px;
-	border: 0px solid;
-	border-right: 1px solid rgb(50,50,50); 
 	color: #dddddd;
 	font-size: 12px;
+    color: white;
+	selection-background-color:#ffc0cb;
 }
 
 QHeaderView::section:hover {
@@ -4654,17 +4261,12 @@ QHeaderView::section:hover {
 	background-color: rgb(80,80,80);
 }
 
-QHeaderView::section{
-    color: white;
-	selection-background-color:#ffc0cb;
-}
-
 QTableWidget QTableCornerButton::section
 {
-	
-	background: rgb(80,80,80);
-	border-style: solid;
-	border-width: 1px;
+	background-color: #101010;
+	border: 0px;
+	border-bottom: 1px  solid rgb(60,60,60);
+    border-right: 1px  solid rgb(60,60,60);
 }
 
 QTableWidget::item
@@ -4677,12 +4279,9 @@ QTableWidget::item
 
 QTableView
 {
-	background-color: #101010;
-	color: #d5d5d5;
 	border-top: 1px solid #434343;
-	border-right: 0px;
-	border-left: 0px;
-	border-bottom: 0px;
+	background-color: #101010;
+	color: #d5d5d5
 }
 
 QTableWidget::item:hover {
@@ -4698,11 +4297,18 @@ QTableWidget::item:selected
 
 QScrollBar:vertical {
 	border: none;
-    background-color: #151515;
+    background-color: #202020;
     width: 12px;
     margin: 15px 0 15px 0;
-	border-radius: 0px;
  }
+
+QScrollBar:horizontal {
+	border: none;
+    background-color: #202020;
+    height: 12px;
+    margin: 0 15px 0 15px;
+ }
+
 
 /*  HANDLE BAR VERTICAL */
 QScrollBar::handle:vertical {	
@@ -4713,6 +4319,7 @@ QScrollBar::handle:vertical {
 	border-right: 0px;
 	border-color: rgb(60,60,60);
 }
+
 QScrollBar::handle:vertical:hover{	
 	background-color:  rgb(50,50,50);
 	border-color: rgb(60,60,60);
@@ -4721,58 +4328,6 @@ QScrollBar::handle:vertical:pressed {
 	background-color: rgb(120, 0, 2);
 }
 
-/* BTN TOP - SCROLLBAR */
-QScrollBar::sub-line:vertical {
-	background-color: #151515;
-	height: 15px;
-	subcontrol-position: top;
-	subcontrol-origin: margin;
-	border: 0px;
-	border-bottom: 1px solid rgb(180, 0, 0);
-}
-QScrollBar::sub-line:vertical:hover {	
-	background-color: #575757;
-	border-color: #242424;
-}
-QScrollBar::sub-line:vertical:pressed {	
-	background-color: rgb(120, 0, 2);
-}
-
-/* BTN BOTTOM - SCROLLBAR */
-QScrollBar::add-line:vertical {
-	background-color: #151515;
-	height: 15px;
-	subcontrol-position: bottom;
-	subcontrol-origin: margin;
-	border: 1px solid;
-	border-color: rgb(60,60,60);
-	border: 1px solid;
-	border-top:1px solid rgb(180, 0, 0);
-	border-right: 0px;
-	border-bottom: 0px;
-}
-QScrollBar::add-line:vertical:hover {	
-	background-color: #575757;
-	border-color: #242424;
-}
-QScrollBar::add-line:vertical:pressed {	
-	background-color: rgb(120, 0, 2);
-}
-/* RESET ARROW */
-QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
-	background: none;
-}
-
-QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
-	background: none;
-}
-
-QScrollBar:horizontal {
-	border: none;
-    background-color: #202020;
-    height: 12px;
-    margin: 0 15px 0 15px;
- }
 
 /*  HANDLE BAR HORIZONTAL */
 QScrollBar::handle:horizontal {	
@@ -4791,6 +4346,25 @@ QScrollBar::handle:horizontal:pressed {
 	background-color: rgb(120, 0, 2);
 }
 
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+	background-color: #151515;
+	height: 15px;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+	border: 0px;
+	border-bottom: 1px solid rgb(180, 0, 0);	
+	border-top: 1px solid rgb(180, 0, 0);	
+}
+QScrollBar::sub-line:vertical:hover {	
+	background-color: #575757;
+	border-color: #242424;
+}
+QScrollBar::sub-line:vertical:pressed {	
+	background-color: rgb(120, 0, 2);
+}
+
 /* BTN TOP - SCROLLBAR */
 QScrollBar::sub-line:horizontal {
 	background-color: #151515;
@@ -4806,6 +4380,28 @@ QScrollBar::sub-line:horizontal:hover {
 	border-color: #242424;
 }
 QScrollBar::sub-line:horizontal:pressed {	
+	background-color: rgb(120, 0, 2);
+}
+
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+	background-color: #151515;
+	height: 15px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+	border: 1px solid;
+	border-color: rgb(60,60,60);
+	border-top:1px solid rgb(180, 0, 0);
+	border-right: 0px;
+	border-bottom: 0px;
+	border-bottom: 1px solid rgb(180, 0, 0);	
+}
+QScrollBar::add-line:vertical:hover {	
+	background-color: #575757;
+	border-color: #242424;
+}
+QScrollBar::add-line:vertical:pressed {	
 	background-color: rgb(120, 0, 2);
 }
 
@@ -4830,6 +4426,16 @@ QScrollBar::add-line:horizontal:hover {
 }
 QScrollBar::add-line:horizontal:pressed {	
 	background-color: rgb(120, 0, 2);
+}
+
+
+/* RESET ARROW */
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+	background: none;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
 }
 
 /* RESET ARROW */
@@ -5236,20 +4842,23 @@ QTabBar::tab:hover
 	background-color: #101010;
 	color: #dddddd;
 	border: 0px;
-	font-size: 14px;
-	min-width: 100px;	
+	min-width: 30px;	
 	min-height: 30px;
+	font-family: Montserrat SemiBold;
 }
+
 
 QHeaderView::section
 {
 	background-color: #101010;
-	min-width: 10px;	
+	border: 0px solid white;
+	border-bottom: 1px solid rgb(60,60,60);
+	border-right: 1px solid rgb(60,60,60);
 	min-height: 25px;
-	border: 0px solid;
-	border-right: 1px solid rgb(50,50,50); 
 	color: #dddddd;
 	font-size: 12px;
+    color: white;
+	selection-background-color:#ffc0cb;
 }
 
 QHeaderView::section:hover {
@@ -5257,17 +4866,12 @@ QHeaderView::section:hover {
 	background-color: rgb(80,80,80);
 }
 
-QHeaderView::section{
-    color: white;
-	selection-background-color:#ffc0cb;
-}
-
 QTableWidget QTableCornerButton::section
 {
-	
-	background: rgb(80,80,80);
-	border-style: solid;
-	border-width: 1px;
+	background-color: #101010;
+	border: 0px;
+	border-bottom: 1px  solid rgb(60,60,60);
+    border-right: 1px  solid rgb(60,60,60);
 }
 
 QTableWidget::item
@@ -5280,12 +4884,9 @@ QTableWidget::item
 
 QTableView
 {
-	background-color: #101010;
-	color: #d5d5d5;
 	border-top: 1px solid #434343;
-	border-right: 0px;
-	border-left: 0px;
-	border-bottom: 0px;
+	background-color: #101010;
+	color: #d5d5d5
 }
 
 QTableWidget::item:hover {
@@ -5301,11 +4902,18 @@ QTableWidget::item:selected
 
 QScrollBar:vertical {
 	border: none;
-    background-color: #151515;
+    background-color: #202020;
     width: 12px;
     margin: 15px 0 15px 0;
-	border-radius: 0px;
  }
+
+QScrollBar:horizontal {
+	border: none;
+    background-color: #202020;
+    height: 12px;
+    margin: 0 15px 0 15px;
+ }
+
 
 /*  HANDLE BAR VERTICAL */
 QScrollBar::handle:vertical {	
@@ -5316,6 +4924,7 @@ QScrollBar::handle:vertical {
 	border-right: 0px;
 	border-color: rgb(60,60,60);
 }
+
 QScrollBar::handle:vertical:hover{	
 	background-color:  rgb(50,50,50);
 	border-color: rgb(60,60,60);
@@ -5324,58 +4933,6 @@ QScrollBar::handle:vertical:pressed {
 	background-color: rgb(120, 0, 2);
 }
 
-/* BTN TOP - SCROLLBAR */
-QScrollBar::sub-line:vertical {
-	background-color: #151515;
-	height: 15px;
-	subcontrol-position: top;
-	subcontrol-origin: margin;
-	border: 0px;
-	border-bottom: 1px solid rgb(180, 0, 0);
-}
-QScrollBar::sub-line:vertical:hover {	
-	background-color: #575757;
-	border-color: #242424;
-}
-QScrollBar::sub-line:vertical:pressed {	
-	background-color: rgb(120, 0, 2);
-}
-
-/* BTN BOTTOM - SCROLLBAR */
-QScrollBar::add-line:vertical {
-	background-color: #151515;
-	height: 15px;
-	subcontrol-position: bottom;
-	subcontrol-origin: margin;
-	border: 1px solid;
-	border-color: rgb(60,60,60);
-	border: 1px solid;
-	border-top:1px solid rgb(180, 0, 0);
-	border-right: 0px;
-	border-bottom: 0px;
-}
-QScrollBar::add-line:vertical:hover {	
-	background-color: #575757;
-	border-color: #242424;
-}
-QScrollBar::add-line:vertical:pressed {	
-	background-color: rgb(120, 0, 2);
-}
-/* RESET ARROW */
-QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
-	background: none;
-}
-
-QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
-	background: none;
-}
-
-QScrollBar:horizontal {
-	border: none;
-    background-color: #202020;
-    height: 12px;
-    margin: 0 15px 0 15px;
- }
 
 /*  HANDLE BAR HORIZONTAL */
 QScrollBar::handle:horizontal {	
@@ -5394,6 +4951,25 @@ QScrollBar::handle:horizontal:pressed {
 	background-color: rgb(120, 0, 2);
 }
 
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+	background-color: #151515;
+	height: 15px;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+	border: 0px;
+	border-bottom: 1px solid rgb(180, 0, 0);	
+	border-top: 1px solid rgb(180, 0, 0);	
+}
+QScrollBar::sub-line:vertical:hover {	
+	background-color: #575757;
+	border-color: #242424;
+}
+QScrollBar::sub-line:vertical:pressed {	
+	background-color: rgb(120, 0, 2);
+}
+
 /* BTN TOP - SCROLLBAR */
 QScrollBar::sub-line:horizontal {
 	background-color: #151515;
@@ -5409,6 +4985,28 @@ QScrollBar::sub-line:horizontal:hover {
 	border-color: #242424;
 }
 QScrollBar::sub-line:horizontal:pressed {	
+	background-color: rgb(120, 0, 2);
+}
+
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+	background-color: #151515;
+	height: 15px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+	border: 1px solid;
+	border-color: rgb(60,60,60);
+	border-top:1px solid rgb(180, 0, 0);
+	border-right: 0px;
+	border-bottom: 0px;
+	border-bottom: 1px solid rgb(180, 0, 0);	
+}
+QScrollBar::add-line:vertical:hover {	
+	background-color: #575757;
+	border-color: #242424;
+}
+QScrollBar::add-line:vertical:pressed {	
 	background-color: rgb(120, 0, 2);
 }
 
@@ -5433,6 +5031,16 @@ QScrollBar::add-line:horizontal:hover {
 }
 QScrollBar::add-line:horizontal:pressed {	
 	background-color: rgb(120, 0, 2);
+}
+
+
+/* RESET ARROW */
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+	background: none;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
 }
 
 /* RESET ARROW */
@@ -5835,20 +5443,23 @@ QTabBar::tab:hover
 	background-color: #101010;
 	color: #dddddd;
 	border: 0px;
-	font-size: 14px;
-	min-width: 100px;	
+	min-width: 30px;	
 	min-height: 30px;
+	font-family: Montserrat SemiBold;
 }
+
 
 QHeaderView::section
 {
 	background-color: #101010;
-	min-width: 10px;	
+	border: 0px solid white;
+	border-bottom: 1px solid rgb(60,60,60);
+	border-right: 1px solid rgb(60,60,60);
 	min-height: 25px;
-	border: 0px solid;
-	border-right: 1px solid rgb(50,50,50); 
 	color: #dddddd;
 	font-size: 12px;
+    color: white;
+	selection-background-color:#ffc0cb;
 }
 
 QHeaderView::section:hover {
@@ -5856,17 +5467,12 @@ QHeaderView::section:hover {
 	background-color: rgb(80,80,80);
 }
 
-QHeaderView::section{
-    color: white;
-	selection-background-color:#ffc0cb;
-}
-
 QTableWidget QTableCornerButton::section
 {
-	
-	background: rgb(80,80,80);
-	border-style: solid;
-	border-width: 1px;
+	background-color: #101010;
+	border: 0px;
+	border-bottom: 1px  solid rgb(60,60,60);
+    border-right: 1px  solid rgb(60,60,60);
 }
 
 QTableWidget::item
@@ -5879,12 +5485,9 @@ QTableWidget::item
 
 QTableView
 {
-	background-color: #101010;
-	color: #d5d5d5;
 	border-top: 1px solid #434343;
-	border-right: 0px;
-	border-left: 0px;
-	border-bottom: 0px;
+	background-color: #101010;
+	color: #d5d5d5
 }
 
 QTableWidget::item:hover {
@@ -5900,11 +5503,18 @@ QTableWidget::item:selected
 
 QScrollBar:vertical {
 	border: none;
-    background-color: #151515;
+    background-color: #202020;
     width: 12px;
     margin: 15px 0 15px 0;
-	border-radius: 0px;
  }
+
+QScrollBar:horizontal {
+	border: none;
+    background-color: #202020;
+    height: 12px;
+    margin: 0 15px 0 15px;
+ }
+
 
 /*  HANDLE BAR VERTICAL */
 QScrollBar::handle:vertical {	
@@ -5915,6 +5525,7 @@ QScrollBar::handle:vertical {
 	border-right: 0px;
 	border-color: rgb(60,60,60);
 }
+
 QScrollBar::handle:vertical:hover{	
 	background-color:  rgb(50,50,50);
 	border-color: rgb(60,60,60);
@@ -5923,58 +5534,6 @@ QScrollBar::handle:vertical:pressed {
 	background-color: rgb(120, 0, 2);
 }
 
-/* BTN TOP - SCROLLBAR */
-QScrollBar::sub-line:vertical {
-	background-color: #151515;
-	height: 15px;
-	subcontrol-position: top;
-	subcontrol-origin: margin;
-	border: 0px;
-	border-bottom: 1px solid rgb(180, 0, 0);
-}
-QScrollBar::sub-line:vertical:hover {	
-	background-color: #575757;
-	border-color: #242424;
-}
-QScrollBar::sub-line:vertical:pressed {	
-	background-color: rgb(120, 0, 2);
-}
-
-/* BTN BOTTOM - SCROLLBAR */
-QScrollBar::add-line:vertical {
-	background-color: #151515;
-	height: 15px;
-	subcontrol-position: bottom;
-	subcontrol-origin: margin;
-	border: 1px solid;
-	border-color: rgb(60,60,60);
-	border: 1px solid;
-	border-top:1px solid rgb(180, 0, 0);
-	border-right: 0px;
-	border-bottom: 0px;
-}
-QScrollBar::add-line:vertical:hover {	
-	background-color: #575757;
-	border-color: #242424;
-}
-QScrollBar::add-line:vertical:pressed {	
-	background-color: rgb(120, 0, 2);
-}
-/* RESET ARROW */
-QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
-	background: none;
-}
-
-QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
-	background: none;
-}
-
-QScrollBar:horizontal {
-	border: none;
-    background-color: #202020;
-    height: 12px;
-    margin: 0 15px 0 15px;
- }
 
 /*  HANDLE BAR HORIZONTAL */
 QScrollBar::handle:horizontal {	
@@ -5993,6 +5552,25 @@ QScrollBar::handle:horizontal:pressed {
 	background-color: rgb(120, 0, 2);
 }
 
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+	background-color: #151515;
+	height: 15px;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+	border: 0px;
+	border-bottom: 1px solid rgb(180, 0, 0);	
+	border-top: 1px solid rgb(180, 0, 0);	
+}
+QScrollBar::sub-line:vertical:hover {	
+	background-color: #575757;
+	border-color: #242424;
+}
+QScrollBar::sub-line:vertical:pressed {	
+	background-color: rgb(120, 0, 2);
+}
+
 /* BTN TOP - SCROLLBAR */
 QScrollBar::sub-line:horizontal {
 	background-color: #151515;
@@ -6008,6 +5586,28 @@ QScrollBar::sub-line:horizontal:hover {
 	border-color: #242424;
 }
 QScrollBar::sub-line:horizontal:pressed {	
+	background-color: rgb(120, 0, 2);
+}
+
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+	background-color: #151515;
+	height: 15px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+	border: 1px solid;
+	border-color: rgb(60,60,60);
+	border-top:1px solid rgb(180, 0, 0);
+	border-right: 0px;
+	border-bottom: 0px;
+	border-bottom: 1px solid rgb(180, 0, 0);	
+}
+QScrollBar::add-line:vertical:hover {	
+	background-color: #575757;
+	border-color: #242424;
+}
+QScrollBar::add-line:vertical:pressed {	
 	background-color: rgb(120, 0, 2);
 }
 
@@ -6032,6 +5632,16 @@ QScrollBar::add-line:horizontal:hover {
 }
 QScrollBar::add-line:horizontal:pressed {	
 	background-color: rgb(120, 0, 2);
+}
+
+
+/* RESET ARROW */
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+	background: none;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
 }
 
 /* RESET ARROW */
@@ -6332,20 +5942,23 @@ QTabBar::tab:hover
 	background-color: #101010;
 	color: #dddddd;
 	border: 0px;
-	font-size: 14px;
-	min-width: 100px;	
+	min-width: 30px;	
 	min-height: 30px;
+	font-family: Montserrat SemiBold;
 }
+
 
 QHeaderView::section
 {
 	background-color: #101010;
-	min-width: 10px;	
+	border: 0px solid white;
+	border-bottom: 1px solid rgb(60,60,60);
+	border-right: 1px solid rgb(60,60,60);
 	min-height: 25px;
-	border: 0px solid;
-	border-right: 1px solid rgb(50,50,50); 
 	color: #dddddd;
 	font-size: 12px;
+    color: white;
+	selection-background-color:#ffc0cb;
 }
 
 QHeaderView::section:hover {
@@ -6353,17 +5966,12 @@ QHeaderView::section:hover {
 	background-color: rgb(80,80,80);
 }
 
-QHeaderView::section{
-    color: white;
-	selection-background-color:#ffc0cb;
-}
-
 QTableWidget QTableCornerButton::section
 {
-	
-	background: rgb(80,80,80);
-	border-style: solid;
-	border-width: 1px;
+	background-color: #101010;
+	border: 0px;
+	border-bottom: 1px  solid rgb(60,60,60);
+    border-right: 1px  solid rgb(60,60,60);
 }
 
 QTableWidget::item
@@ -6376,12 +5984,9 @@ QTableWidget::item
 
 QTableView
 {
-	background-color: #101010;
-	color: #d5d5d5;
 	border-top: 1px solid #434343;
-	border-right: 0px;
-	border-left: 0px;
-	border-bottom: 0px;
+	background-color: #101010;
+	color: #d5d5d5
 }
 
 QTableWidget::item:hover {
@@ -6397,11 +6002,18 @@ QTableWidget::item:selected
 
 QScrollBar:vertical {
 	border: none;
-    background-color: #151515;
+    background-color: #202020;
     width: 12px;
     margin: 15px 0 15px 0;
-	border-radius: 0px;
  }
+
+QScrollBar:horizontal {
+	border: none;
+    background-color: #202020;
+    height: 12px;
+    margin: 0 15px 0 15px;
+ }
+
 
 /*  HANDLE BAR VERTICAL */
 QScrollBar::handle:vertical {	
@@ -6412,6 +6024,7 @@ QScrollBar::handle:vertical {
 	border-right: 0px;
 	border-color: rgb(60,60,60);
 }
+
 QScrollBar::handle:vertical:hover{	
 	background-color:  rgb(50,50,50);
 	border-color: rgb(60,60,60);
@@ -6420,58 +6033,6 @@ QScrollBar::handle:vertical:pressed {
 	background-color: rgb(120, 0, 2);
 }
 
-/* BTN TOP - SCROLLBAR */
-QScrollBar::sub-line:vertical {
-	background-color: #151515;
-	height: 15px;
-	subcontrol-position: top;
-	subcontrol-origin: margin;
-	border: 0px;
-	border-bottom: 1px solid rgb(180, 0, 0);
-}
-QScrollBar::sub-line:vertical:hover {	
-	background-color: #575757;
-	border-color: #242424;
-}
-QScrollBar::sub-line:vertical:pressed {	
-	background-color: rgb(120, 0, 2);
-}
-
-/* BTN BOTTOM - SCROLLBAR */
-QScrollBar::add-line:vertical {
-	background-color: #151515;
-	height: 15px;
-	subcontrol-position: bottom;
-	subcontrol-origin: margin;
-	border: 1px solid;
-	border-color: rgb(60,60,60);
-	border: 1px solid;
-	border-top:1px solid rgb(180, 0, 0);
-	border-right: 0px;
-	border-bottom: 0px;
-}
-QScrollBar::add-line:vertical:hover {	
-	background-color: #575757;
-	border-color: #242424;
-}
-QScrollBar::add-line:vertical:pressed {	
-	background-color: rgb(120, 0, 2);
-}
-/* RESET ARROW */
-QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
-	background: none;
-}
-
-QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
-	background: none;
-}
-
-QScrollBar:horizontal {
-	border: none;
-    background-color: #202020;
-    height: 12px;
-    margin: 0 15px 0 15px;
- }
 
 /*  HANDLE BAR HORIZONTAL */
 QScrollBar::handle:horizontal {	
@@ -6490,6 +6051,25 @@ QScrollBar::handle:horizontal:pressed {
 	background-color: rgb(120, 0, 2);
 }
 
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+	background-color: #151515;
+	height: 15px;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+	border: 0px;
+	border-bottom: 1px solid rgb(180, 0, 0);	
+	border-top: 1px solid rgb(180, 0, 0);	
+}
+QScrollBar::sub-line:vertical:hover {	
+	background-color: #575757;
+	border-color: #242424;
+}
+QScrollBar::sub-line:vertical:pressed {	
+	background-color: rgb(120, 0, 2);
+}
+
 /* BTN TOP - SCROLLBAR */
 QScrollBar::sub-line:horizontal {
 	background-color: #151515;
@@ -6505,6 +6085,28 @@ QScrollBar::sub-line:horizontal:hover {
 	border-color: #242424;
 }
 QScrollBar::sub-line:horizontal:pressed {	
+	background-color: rgb(120, 0, 2);
+}
+
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+	background-color: #151515;
+	height: 15px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+	border: 1px solid;
+	border-color: rgb(60,60,60);
+	border-top:1px solid rgb(180, 0, 0);
+	border-right: 0px;
+	border-bottom: 0px;
+	border-bottom: 1px solid rgb(180, 0, 0);	
+}
+QScrollBar::add-line:vertical:hover {	
+	background-color: #575757;
+	border-color: #242424;
+}
+QScrollBar::add-line:vertical:pressed {	
 	background-color: rgb(120, 0, 2);
 }
 
@@ -6529,6 +6131,16 @@ QScrollBar::add-line:horizontal:hover {
 }
 QScrollBar::add-line:horizontal:pressed {	
 	background-color: rgb(120, 0, 2);
+}
+
+
+/* RESET ARROW */
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+	background: none;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
 }
 
 /* RESET ARROW */
@@ -6829,20 +6441,23 @@ QTabBar::tab:hover
 	background-color: #101010;
 	color: #dddddd;
 	border: 0px;
-	font-size: 14px;
-	min-width: 100px;	
+	min-width: 30px;	
 	min-height: 30px;
+	font-family: Montserrat SemiBold;
 }
+
 
 QHeaderView::section
 {
 	background-color: #101010;
-	min-width: 10px;	
+	border: 0px solid white;
+	border-bottom: 1px solid rgb(60,60,60);
+	border-right: 1px solid rgb(60,60,60);
 	min-height: 25px;
-	border: 0px solid;
-	border-right: 1px solid rgb(50,50,50); 
 	color: #dddddd;
 	font-size: 12px;
+    color: white;
+	selection-background-color:#ffc0cb;
 }
 
 QHeaderView::section:hover {
@@ -6850,17 +6465,12 @@ QHeaderView::section:hover {
 	background-color: rgb(80,80,80);
 }
 
-QHeaderView::section{
-    color: white;
-	selection-background-color:#ffc0cb;
-}
-
 QTableWidget QTableCornerButton::section
 {
-	
-	background: rgb(80,80,80);
-	border-style: solid;
-	border-width: 1px;
+	background-color: #101010;
+	border: 0px;
+	border-bottom: 1px  solid rgb(60,60,60);
+    border-right: 1px  solid rgb(60,60,60);
 }
 
 QTableWidget::item
@@ -6873,12 +6483,9 @@ QTableWidget::item
 
 QTableView
 {
-	background-color: #101010;
-	color: #d5d5d5;
 	border-top: 1px solid #434343;
-	border-right: 0px;
-	border-left: 0px;
-	border-bottom: 0px;
+	background-color: #101010;
+	color: #d5d5d5
 }
 
 QTableWidget::item:hover {
@@ -6894,11 +6501,18 @@ QTableWidget::item:selected
 
 QScrollBar:vertical {
 	border: none;
-    background-color: #151515;
+    background-color: #202020;
     width: 12px;
     margin: 15px 0 15px 0;
-	border-radius: 0px;
  }
+
+QScrollBar:horizontal {
+	border: none;
+    background-color: #202020;
+    height: 12px;
+    margin: 0 15px 0 15px;
+ }
+
 
 /*  HANDLE BAR VERTICAL */
 QScrollBar::handle:vertical {	
@@ -6909,6 +6523,7 @@ QScrollBar::handle:vertical {
 	border-right: 0px;
 	border-color: rgb(60,60,60);
 }
+
 QScrollBar::handle:vertical:hover{	
 	background-color:  rgb(50,50,50);
 	border-color: rgb(60,60,60);
@@ -6917,58 +6532,6 @@ QScrollBar::handle:vertical:pressed {
 	background-color: rgb(120, 0, 2);
 }
 
-/* BTN TOP - SCROLLBAR */
-QScrollBar::sub-line:vertical {
-	background-color: #151515;
-	height: 15px;
-	subcontrol-position: top;
-	subcontrol-origin: margin;
-	border: 0px;
-	border-bottom: 1px solid rgb(180, 0, 0);
-}
-QScrollBar::sub-line:vertical:hover {	
-	background-color: #575757;
-	border-color: #242424;
-}
-QScrollBar::sub-line:vertical:pressed {	
-	background-color: rgb(120, 0, 2);
-}
-
-/* BTN BOTTOM - SCROLLBAR */
-QScrollBar::add-line:vertical {
-	background-color: #151515;
-	height: 15px;
-	subcontrol-position: bottom;
-	subcontrol-origin: margin;
-	border: 1px solid;
-	border-color: rgb(60,60,60);
-	border: 1px solid;
-	border-top:1px solid rgb(180, 0, 0);
-	border-right: 0px;
-	border-bottom: 0px;
-}
-QScrollBar::add-line:vertical:hover {	
-	background-color: #575757;
-	border-color: #242424;
-}
-QScrollBar::add-line:vertical:pressed {	
-	background-color: rgb(120, 0, 2);
-}
-/* RESET ARROW */
-QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
-	background: none;
-}
-
-QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
-	background: none;
-}
-
-QScrollBar:horizontal {
-	border: none;
-    background-color: #202020;
-    height: 12px;
-    margin: 0 15px 0 15px;
- }
 
 /*  HANDLE BAR HORIZONTAL */
 QScrollBar::handle:horizontal {	
@@ -6987,6 +6550,25 @@ QScrollBar::handle:horizontal:pressed {
 	background-color: rgb(120, 0, 2);
 }
 
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+	background-color: #151515;
+	height: 15px;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+	border: 0px;
+	border-bottom: 1px solid rgb(180, 0, 0);	
+	border-top: 1px solid rgb(180, 0, 0);	
+}
+QScrollBar::sub-line:vertical:hover {	
+	background-color: #575757;
+	border-color: #242424;
+}
+QScrollBar::sub-line:vertical:pressed {	
+	background-color: rgb(120, 0, 2);
+}
+
 /* BTN TOP - SCROLLBAR */
 QScrollBar::sub-line:horizontal {
 	background-color: #151515;
@@ -7002,6 +6584,28 @@ QScrollBar::sub-line:horizontal:hover {
 	border-color: #242424;
 }
 QScrollBar::sub-line:horizontal:pressed {	
+	background-color: rgb(120, 0, 2);
+}
+
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+	background-color: #151515;
+	height: 15px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+	border: 1px solid;
+	border-color: rgb(60,60,60);
+	border-top:1px solid rgb(180, 0, 0);
+	border-right: 0px;
+	border-bottom: 0px;
+	border-bottom: 1px solid rgb(180, 0, 0);	
+}
+QScrollBar::add-line:vertical:hover {	
+	background-color: #575757;
+	border-color: #242424;
+}
+QScrollBar::add-line:vertical:pressed {	
 	background-color: rgb(120, 0, 2);
 }
 
@@ -7026,6 +6630,16 @@ QScrollBar::add-line:horizontal:hover {
 }
 QScrollBar::add-line:horizontal:pressed {	
 	background-color: rgb(120, 0, 2);
+}
+
+
+/* RESET ARROW */
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+	background: none;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
 }
 
 /* RESET ARROW */
@@ -7292,20 +6906,23 @@ QTabBar::tab:hover
 	background-color: #101010;
 	color: #dddddd;
 	border: 0px;
-	font-size: 14px;
-	min-width: 100px;	
+	min-width: 30px;	
 	min-height: 30px;
+	font-family: Montserrat SemiBold;
 }
+
 
 QHeaderView::section
 {
 	background-color: #101010;
-	min-width: 10px;	
+	border: 0px solid white;
+	border-bottom: 1px solid rgb(60,60,60);
+	border-right: 1px solid rgb(60,60,60);
 	min-height: 25px;
-	border: 0px solid;
-	border-right: 1px solid rgb(50,50,50); 
 	color: #dddddd;
 	font-size: 12px;
+    color: white;
+	selection-background-color:#ffc0cb;
 }
 
 QHeaderView::section:hover {
@@ -7313,17 +6930,12 @@ QHeaderView::section:hover {
 	background-color: rgb(80,80,80);
 }
 
-QHeaderView::section{
-    color: white;
-	selection-background-color:#ffc0cb;
-}
-
 QTableWidget QTableCornerButton::section
 {
-	
-	background: rgb(80,80,80);
-	border-style: solid;
-	border-width: 1px;
+	background-color: #101010;
+	border: 0px;
+	border-bottom: 1px  solid rgb(60,60,60);
+    border-right: 1px  solid rgb(60,60,60);
 }
 
 QTableWidget::item
@@ -7336,12 +6948,9 @@ QTableWidget::item
 
 QTableView
 {
-	background-color: #101010;
-	color: #d5d5d5;
 	border-top: 1px solid #434343;
-	border-right: 0px;
-	border-left: 0px;
-	border-bottom: 0px;
+	background-color: #101010;
+	color: #d5d5d5
 }
 
 QTableWidget::item:hover {
@@ -7357,11 +6966,18 @@ QTableWidget::item:selected
 
 QScrollBar:vertical {
 	border: none;
-    background-color: #151515;
+    background-color: #202020;
     width: 12px;
     margin: 15px 0 15px 0;
-	border-radius: 0px;
  }
+
+QScrollBar:horizontal {
+	border: none;
+    background-color: #202020;
+    height: 12px;
+    margin: 0 15px 0 15px;
+ }
+
 
 /*  HANDLE BAR VERTICAL */
 QScrollBar::handle:vertical {	
@@ -7372,6 +6988,7 @@ QScrollBar::handle:vertical {
 	border-right: 0px;
 	border-color: rgb(60,60,60);
 }
+
 QScrollBar::handle:vertical:hover{	
 	background-color:  rgb(50,50,50);
 	border-color: rgb(60,60,60);
@@ -7380,58 +6997,6 @@ QScrollBar::handle:vertical:pressed {
 	background-color: rgb(120, 0, 2);
 }
 
-/* BTN TOP - SCROLLBAR */
-QScrollBar::sub-line:vertical {
-	background-color: #151515;
-	height: 15px;
-	subcontrol-position: top;
-	subcontrol-origin: margin;
-	border: 0px;
-	border-bottom: 1px solid rgb(180, 0, 0);
-}
-QScrollBar::sub-line:vertical:hover {	
-	background-color: #575757;
-	border-color: #242424;
-}
-QScrollBar::sub-line:vertical:pressed {	
-	background-color: rgb(120, 0, 2);
-}
-
-/* BTN BOTTOM - SCROLLBAR */
-QScrollBar::add-line:vertical {
-	background-color: #151515;
-	height: 15px;
-	subcontrol-position: bottom;
-	subcontrol-origin: margin;
-	border: 1px solid;
-	border-color: rgb(60,60,60);
-	border: 1px solid;
-	border-top:1px solid rgb(180, 0, 0);
-	border-right: 0px;
-	border-bottom: 0px;
-}
-QScrollBar::add-line:vertical:hover {	
-	background-color: #575757;
-	border-color: #242424;
-}
-QScrollBar::add-line:vertical:pressed {	
-	background-color: rgb(120, 0, 2);
-}
-/* RESET ARROW */
-QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
-	background: none;
-}
-
-QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
-	background: none;
-}
-
-QScrollBar:horizontal {
-	border: none;
-    background-color: #202020;
-    height: 12px;
-    margin: 0 15px 0 15px;
- }
 
 /*  HANDLE BAR HORIZONTAL */
 QScrollBar::handle:horizontal {	
@@ -7450,6 +7015,25 @@ QScrollBar::handle:horizontal:pressed {
 	background-color: rgb(120, 0, 2);
 }
 
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+	background-color: #151515;
+	height: 15px;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+	border: 0px;
+	border-bottom: 1px solid rgb(180, 0, 0);	
+	border-top: 1px solid rgb(180, 0, 0);	
+}
+QScrollBar::sub-line:vertical:hover {	
+	background-color: #575757;
+	border-color: #242424;
+}
+QScrollBar::sub-line:vertical:pressed {	
+	background-color: rgb(120, 0, 2);
+}
+
 /* BTN TOP - SCROLLBAR */
 QScrollBar::sub-line:horizontal {
 	background-color: #151515;
@@ -7465,6 +7049,28 @@ QScrollBar::sub-line:horizontal:hover {
 	border-color: #242424;
 }
 QScrollBar::sub-line:horizontal:pressed {	
+	background-color: rgb(120, 0, 2);
+}
+
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+	background-color: #151515;
+	height: 15px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+	border: 1px solid;
+	border-color: rgb(60,60,60);
+	border-top:1px solid rgb(180, 0, 0);
+	border-right: 0px;
+	border-bottom: 0px;
+	border-bottom: 1px solid rgb(180, 0, 0);	
+}
+QScrollBar::add-line:vertical:hover {	
+	background-color: #575757;
+	border-color: #242424;
+}
+QScrollBar::add-line:vertical:pressed {	
 	background-color: rgb(120, 0, 2);
 }
 
@@ -7489,6 +7095,16 @@ QScrollBar::add-line:horizontal:hover {
 }
 QScrollBar::add-line:horizontal:pressed {	
 	background-color: rgb(120, 0, 2);
+}
+
+
+/* RESET ARROW */
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+	background: none;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
 }
 
 /* RESET ARROW */
@@ -7789,20 +7405,23 @@ QTabBar::tab:hover
 	background-color: #101010;
 	color: #dddddd;
 	border: 0px;
-	font-size: 14px;
-	min-width: 100px;	
+	min-width: 30px;	
 	min-height: 30px;
+	font-family: Montserrat SemiBold;
 }
+
 
 QHeaderView::section
 {
 	background-color: #101010;
-	min-width: 10px;	
+	border: 0px solid white;
+	border-bottom: 1px solid rgb(60,60,60);
+	border-right: 1px solid rgb(60,60,60);
 	min-height: 25px;
-	border: 0px solid;
-	border-right: 1px solid rgb(50,50,50); 
 	color: #dddddd;
 	font-size: 12px;
+    color: white;
+	selection-background-color:#ffc0cb;
 }
 
 QHeaderView::section:hover {
@@ -7810,17 +7429,12 @@ QHeaderView::section:hover {
 	background-color: rgb(80,80,80);
 }
 
-QHeaderView::section{
-    color: white;
-	selection-background-color:#ffc0cb;
-}
-
 QTableWidget QTableCornerButton::section
 {
-	
-	background: rgb(80,80,80);
-	border-style: solid;
-	border-width: 1px;
+	background-color: #101010;
+	border: 0px;
+	border-bottom: 1px  solid rgb(60,60,60);
+    border-right: 1px  solid rgb(60,60,60);
 }
 
 QTableWidget::item
@@ -7833,12 +7447,9 @@ QTableWidget::item
 
 QTableView
 {
-	background-color: #101010;
-	color: #d5d5d5;
 	border-top: 1px solid #434343;
-	border-right: 0px;
-	border-left: 0px;
-	border-bottom: 0px;
+	background-color: #101010;
+	color: #d5d5d5
 }
 
 QTableWidget::item:hover {
@@ -7854,11 +7465,18 @@ QTableWidget::item:selected
 
 QScrollBar:vertical {
 	border: none;
-    background-color: #151515;
+    background-color: #202020;
     width: 12px;
     margin: 15px 0 15px 0;
-	border-radius: 0px;
  }
+
+QScrollBar:horizontal {
+	border: none;
+    background-color: #202020;
+    height: 12px;
+    margin: 0 15px 0 15px;
+ }
+
 
 /*  HANDLE BAR VERTICAL */
 QScrollBar::handle:vertical {	
@@ -7869,6 +7487,7 @@ QScrollBar::handle:vertical {
 	border-right: 0px;
 	border-color: rgb(60,60,60);
 }
+
 QScrollBar::handle:vertical:hover{	
 	background-color:  rgb(50,50,50);
 	border-color: rgb(60,60,60);
@@ -7877,58 +7496,6 @@ QScrollBar::handle:vertical:pressed {
 	background-color: rgb(120, 0, 2);
 }
 
-/* BTN TOP - SCROLLBAR */
-QScrollBar::sub-line:vertical {
-	background-color: #151515;
-	height: 15px;
-	subcontrol-position: top;
-	subcontrol-origin: margin;
-	border: 0px;
-	border-bottom: 1px solid rgb(180, 0, 0);
-}
-QScrollBar::sub-line:vertical:hover {	
-	background-color: #575757;
-	border-color: #242424;
-}
-QScrollBar::sub-line:vertical:pressed {	
-	background-color: rgb(120, 0, 2);
-}
-
-/* BTN BOTTOM - SCROLLBAR */
-QScrollBar::add-line:vertical {
-	background-color: #151515;
-	height: 15px;
-	subcontrol-position: bottom;
-	subcontrol-origin: margin;
-	border: 1px solid;
-	border-color: rgb(60,60,60);
-	border: 1px solid;
-	border-top:1px solid rgb(180, 0, 0);
-	border-right: 0px;
-	border-bottom: 0px;
-}
-QScrollBar::add-line:vertical:hover {	
-	background-color: #575757;
-	border-color: #242424;
-}
-QScrollBar::add-line:vertical:pressed {	
-	background-color: rgb(120, 0, 2);
-}
-/* RESET ARROW */
-QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
-	background: none;
-}
-
-QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
-	background: none;
-}
-
-QScrollBar:horizontal {
-	border: none;
-    background-color: #202020;
-    height: 12px;
-    margin: 0 15px 0 15px;
- }
 
 /*  HANDLE BAR HORIZONTAL */
 QScrollBar::handle:horizontal {	
@@ -7947,6 +7514,25 @@ QScrollBar::handle:horizontal:pressed {
 	background-color: rgb(120, 0, 2);
 }
 
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+	background-color: #151515;
+	height: 15px;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+	border: 0px;
+	border-bottom: 1px solid rgb(180, 0, 0);	
+	border-top: 1px solid rgb(180, 0, 0);	
+}
+QScrollBar::sub-line:vertical:hover {	
+	background-color: #575757;
+	border-color: #242424;
+}
+QScrollBar::sub-line:vertical:pressed {	
+	background-color: rgb(120, 0, 2);
+}
+
 /* BTN TOP - SCROLLBAR */
 QScrollBar::sub-line:horizontal {
 	background-color: #151515;
@@ -7962,6 +7548,28 @@ QScrollBar::sub-line:horizontal:hover {
 	border-color: #242424;
 }
 QScrollBar::sub-line:horizontal:pressed {	
+	background-color: rgb(120, 0, 2);
+}
+
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+	background-color: #151515;
+	height: 15px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+	border: 1px solid;
+	border-color: rgb(60,60,60);
+	border-top:1px solid rgb(180, 0, 0);
+	border-right: 0px;
+	border-bottom: 0px;
+	border-bottom: 1px solid rgb(180, 0, 0);	
+}
+QScrollBar::add-line:vertical:hover {	
+	background-color: #575757;
+	border-color: #242424;
+}
+QScrollBar::add-line:vertical:pressed {	
 	background-color: rgb(120, 0, 2);
 }
 
@@ -7986,6 +7594,16 @@ QScrollBar::add-line:horizontal:hover {
 }
 QScrollBar::add-line:horizontal:pressed {	
 	background-color: rgb(120, 0, 2);
+}
+
+
+/* RESET ARROW */
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+	background: none;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
 }
 
 /* RESET ARROW */
@@ -8291,20 +7909,23 @@ QTabBar::tab:hover
 	background-color: #101010;
 	color: #dddddd;
 	border: 0px;
-	font-size: 14px;
-	min-width: 100px;	
+	min-width: 30px;	
 	min-height: 30px;
+	font-family: Montserrat SemiBold;
 }
+
 
 QHeaderView::section
 {
 	background-color: #101010;
-	min-width: 10px;	
+	border: 0px solid white;
+	border-bottom: 1px solid rgb(60,60,60);
+	border-right: 1px solid rgb(60,60,60);
 	min-height: 25px;
-	border: 0px solid;
-	border-right: 1px solid rgb(50,50,50); 
 	color: #dddddd;
 	font-size: 12px;
+    color: white;
+	selection-background-color:#ffc0cb;
 }
 
 QHeaderView::section:hover {
@@ -8312,17 +7933,12 @@ QHeaderView::section:hover {
 	background-color: rgb(80,80,80);
 }
 
-QHeaderView::section{
-    color: white;
-	selection-background-color:#ffc0cb;
-}
-
 QTableWidget QTableCornerButton::section
 {
-	
-	background: rgb(80,80,80);
-	border-style: solid;
-	border-width: 1px;
+	background-color: #101010;
+	border: 0px;
+	border-bottom: 1px  solid rgb(60,60,60);
+    border-right: 1px  solid rgb(60,60,60);
 }
 
 QTableWidget::item
@@ -8335,12 +7951,9 @@ QTableWidget::item
 
 QTableView
 {
-	background-color: #101010;
-	color: #d5d5d5;
 	border-top: 1px solid #434343;
-	border-right: 0px;
-	border-left: 0px;
-	border-bottom: 0px;
+	background-color: #101010;
+	color: #d5d5d5
 }
 
 QTableWidget::item:hover {
@@ -8356,11 +7969,18 @@ QTableWidget::item:selected
 
 QScrollBar:vertical {
 	border: none;
-    background-color: #151515;
+    background-color: #202020;
     width: 12px;
     margin: 15px 0 15px 0;
-	border-radius: 0px;
  }
+
+QScrollBar:horizontal {
+	border: none;
+    background-color: #202020;
+    height: 12px;
+    margin: 0 15px 0 15px;
+ }
+
 
 /*  HANDLE BAR VERTICAL */
 QScrollBar::handle:vertical {	
@@ -8371,6 +7991,7 @@ QScrollBar::handle:vertical {
 	border-right: 0px;
 	border-color: rgb(60,60,60);
 }
+
 QScrollBar::handle:vertical:hover{	
 	background-color:  rgb(50,50,50);
 	border-color: rgb(60,60,60);
@@ -8379,58 +8000,6 @@ QScrollBar::handle:vertical:pressed {
 	background-color: rgb(120, 0, 2);
 }
 
-/* BTN TOP - SCROLLBAR */
-QScrollBar::sub-line:vertical {
-	background-color: #151515;
-	height: 15px;
-	subcontrol-position: top;
-	subcontrol-origin: margin;
-	border: 0px;
-	border-bottom: 1px solid rgb(180, 0, 0);
-}
-QScrollBar::sub-line:vertical:hover {	
-	background-color: #575757;
-	border-color: #242424;
-}
-QScrollBar::sub-line:vertical:pressed {	
-	background-color: rgb(120, 0, 2);
-}
-
-/* BTN BOTTOM - SCROLLBAR */
-QScrollBar::add-line:vertical {
-	background-color: #151515;
-	height: 15px;
-	subcontrol-position: bottom;
-	subcontrol-origin: margin;
-	border: 1px solid;
-	border-color: rgb(60,60,60);
-	border: 1px solid;
-	border-top:1px solid rgb(180, 0, 0);
-	border-right: 0px;
-	border-bottom: 0px;
-}
-QScrollBar::add-line:vertical:hover {	
-	background-color: #575757;
-	border-color: #242424;
-}
-QScrollBar::add-line:vertical:pressed {	
-	background-color: rgb(120, 0, 2);
-}
-/* RESET ARROW */
-QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
-	background: none;
-}
-
-QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
-	background: none;
-}
-
-QScrollBar:horizontal {
-	border: none;
-    background-color: #202020;
-    height: 12px;
-    margin: 0 15px 0 15px;
- }
 
 /*  HANDLE BAR HORIZONTAL */
 QScrollBar::handle:horizontal {	
@@ -8449,6 +8018,25 @@ QScrollBar::handle:horizontal:pressed {
 	background-color: rgb(120, 0, 2);
 }
 
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+	background-color: #151515;
+	height: 15px;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+	border: 0px;
+	border-bottom: 1px solid rgb(180, 0, 0);	
+	border-top: 1px solid rgb(180, 0, 0);	
+}
+QScrollBar::sub-line:vertical:hover {	
+	background-color: #575757;
+	border-color: #242424;
+}
+QScrollBar::sub-line:vertical:pressed {	
+	background-color: rgb(120, 0, 2);
+}
+
 /* BTN TOP - SCROLLBAR */
 QScrollBar::sub-line:horizontal {
 	background-color: #151515;
@@ -8464,6 +8052,28 @@ QScrollBar::sub-line:horizontal:hover {
 	border-color: #242424;
 }
 QScrollBar::sub-line:horizontal:pressed {	
+	background-color: rgb(120, 0, 2);
+}
+
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+	background-color: #151515;
+	height: 15px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+	border: 1px solid;
+	border-color: rgb(60,60,60);
+	border-top:1px solid rgb(180, 0, 0);
+	border-right: 0px;
+	border-bottom: 0px;
+	border-bottom: 1px solid rgb(180, 0, 0);	
+}
+QScrollBar::add-line:vertical:hover {	
+	background-color: #575757;
+	border-color: #242424;
+}
+QScrollBar::add-line:vertical:pressed {	
 	background-color: rgb(120, 0, 2);
 }
 
@@ -8488,6 +8098,16 @@ QScrollBar::add-line:horizontal:hover {
 }
 QScrollBar::add-line:horizontal:pressed {	
 	background-color: rgb(120, 0, 2);
+}
+
+
+/* RESET ARROW */
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+	background: none;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
 }
 
 /* RESET ARROW */
@@ -9059,12 +8679,18 @@ QRadioButton::indicator:hover{
     height: 25px;
  	border-image: url(&quot;E:/pcconf/images/down-arrow.png&quot;) 0;
 }
+
+QRadioButton::indicator{
+    width: 25px;
+    height: 25px;
+ 	border-image: url(&quot;E:/pcconf/images/down-arrow.png&quot;) 0;
+}
+
 QRadioButton::indicator:checked {
     width: 25px;
     height: 25px;
 	margin-left: 3px;
  	border-image: url(&quot;E:/pcconf/images/up-arrow.png&quot;) 0;
-	color: white;
 }
 
 QRadioButton::indicator:unchecked {
@@ -9072,11 +8698,475 @@ QRadioButton::indicator:unchecked {
     height: 25px;
 	margin-left: 3px;
  	border-image: url(&quot;E:/pcconf/images/down-arrow-gray.png&quot;) 0;
-	color: rgb(190,190,190);
 }</string>
              </property>
              <property name="text">
               <string/>
+             </property>
+             <property name="autoExclusive">
+              <bool>false</bool>
+             </property>
+            </widget>
+            <widget class="QRadioButton" name="btnProcHeader">
+             <property name="geometry">
+              <rect>
+               <x>730</x>
+               <y>390</y>
+               <width>31</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>-1</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QRadioButton{
+	background-color: #101010;
+	color: #dddddd;
+	border: 0px;
+	border-top: 1px solid rgb(60,60,60);
+	font-size: 14px;
+}
+QRadioButton:hover{
+	background-color: rgb(60,60,60);
+	border-color: rgb(40,40,40);
+	border-bottom: 1px solid  red;
+}
+QRadioButton::indicator:hover{
+    width: 25px;
+    height: 25px;
+ 	border-image: url(&quot;E:/pcconf/images/down-arrow.png&quot;) 0;
+}
+
+QRadioButton::indicator{
+    width: 25px;
+    height: 25px;
+ 	border-image: url(&quot;E:/pcconf/images/down-arrow.png&quot;) 0;
+}
+
+QRadioButton::indicator:checked {
+    width: 25px;
+    height: 25px;
+	margin-left: 3px;
+ 	border-image: url(&quot;E:/pcconf/images/up-arrow.png&quot;) 0;
+}
+
+QRadioButton::indicator:unchecked {
+    width: 25px;
+    height: 25px;
+	margin-left: 3px;
+ 	border-image: url(&quot;E:/pcconf/images/down-arrow-gray.png&quot;) 0;
+}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="autoExclusive">
+              <bool>false</bool>
+             </property>
+            </widget>
+            <widget class="QRadioButton" name="btnMotherHeader">
+             <property name="geometry">
+              <rect>
+               <x>730</x>
+               <y>700</y>
+               <width>31</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>-1</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QRadioButton{
+	background-color: #101010;
+	color: #dddddd;
+	border: 0px;
+	border-top: 1px solid rgb(60,60,60);
+	font-size: 14px;
+}
+QRadioButton:hover{
+	background-color: rgb(60,60,60);
+	border-color: rgb(40,40,40);
+	border-bottom: 1px solid  red;
+}
+QRadioButton::indicator:hover{
+    width: 25px;
+    height: 25px;
+ 	border-image: url(&quot;E:/pcconf/images/down-arrow.png&quot;) 0;
+}
+
+QRadioButton::indicator{
+    width: 25px;
+    height: 25px;
+ 	border-image: url(&quot;E:/pcconf/images/down-arrow.png&quot;) 0;
+}
+
+QRadioButton::indicator:checked {
+    width: 25px;
+    height: 25px;
+	margin-left: 3px;
+ 	border-image: url(&quot;E:/pcconf/images/up-arrow.png&quot;) 0;
+}
+
+QRadioButton::indicator:unchecked {
+    width: 25px;
+    height: 25px;
+	margin-left: 3px;
+ 	border-image: url(&quot;E:/pcconf/images/down-arrow-gray.png&quot;) 0;
+}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="autoExclusive">
+              <bool>false</bool>
+             </property>
+            </widget>
+            <widget class="QRadioButton" name="btnCoolHeader">
+             <property name="geometry">
+              <rect>
+               <x>730</x>
+               <y>1010</y>
+               <width>31</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>-1</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QRadioButton{
+	background-color: #101010;
+	color: #dddddd;
+	border: 0px;
+	border-top: 1px solid rgb(60,60,60);
+	font-size: 14px;
+}
+QRadioButton:hover{
+	background-color: rgb(60,60,60);
+	border-color: rgb(40,40,40);
+	border-bottom: 1px solid  red;
+}
+QRadioButton::indicator:hover{
+    width: 25px;
+    height: 25px;
+ 	border-image: url(&quot;E:/pcconf/images/down-arrow.png&quot;) 0;
+}
+
+QRadioButton::indicator{
+    width: 25px;
+    height: 25px;
+ 	border-image: url(&quot;E:/pcconf/images/down-arrow.png&quot;) 0;
+}
+
+QRadioButton::indicator:checked {
+    width: 25px;
+    height: 25px;
+	margin-left: 3px;
+ 	border-image: url(&quot;E:/pcconf/images/up-arrow.png&quot;) 0;
+}
+
+QRadioButton::indicator:unchecked {
+    width: 25px;
+    height: 25px;
+	margin-left: 3px;
+ 	border-image: url(&quot;E:/pcconf/images/down-arrow-gray.png&quot;) 0;
+}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="autoExclusive">
+              <bool>false</bool>
+             </property>
+            </widget>
+            <widget class="QRadioButton" name="btnRamHeader">
+             <property name="geometry">
+              <rect>
+               <x>730</x>
+               <y>1310</y>
+               <width>31</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>-1</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QRadioButton{
+	background-color: #101010;
+	color: #dddddd;
+	border: 0px;
+	border-top: 1px solid rgb(60,60,60);
+	font-size: 14px;
+}
+QRadioButton:hover{
+	background-color: rgb(60,60,60);
+	border-color: rgb(40,40,40);
+	border-bottom: 1px solid  red;
+}
+QRadioButton::indicator:hover{
+    width: 25px;
+    height: 25px;
+ 	border-image: url(&quot;E:/pcconf/images/down-arrow.png&quot;) 0;
+}
+
+QRadioButton::indicator{
+    width: 25px;
+    height: 25px;
+ 	border-image: url(&quot;E:/pcconf/images/down-arrow.png&quot;) 0;
+}
+
+QRadioButton::indicator:checked {
+    width: 25px;
+    height: 25px;
+	margin-left: 3px;
+ 	border-image: url(&quot;E:/pcconf/images/up-arrow.png&quot;) 0;
+}
+
+QRadioButton::indicator:unchecked {
+    width: 25px;
+    height: 25px;
+	margin-left: 3px;
+ 	border-image: url(&quot;E:/pcconf/images/down-arrow-gray.png&quot;) 0;
+}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="autoExclusive">
+              <bool>false</bool>
+             </property>
+            </widget>
+            <widget class="QRadioButton" name="btnDiskHeader">
+             <property name="geometry">
+              <rect>
+               <x>730</x>
+               <y>1620</y>
+               <width>31</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>-1</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QRadioButton{
+	background-color: #101010;
+	color: #dddddd;
+	border: 0px;
+	border-top: 1px solid rgb(60,60,60);
+	font-size: 14px;
+}
+QRadioButton:hover{
+	background-color: rgb(60,60,60);
+	border-color: rgb(40,40,40);
+	border-bottom: 1px solid  red;
+}
+QRadioButton::indicator:hover{
+    width: 25px;
+    height: 25px;
+ 	border-image: url(&quot;E:/pcconf/images/down-arrow.png&quot;) 0;
+}
+
+QRadioButton::indicator{
+    width: 25px;
+    height: 25px;
+ 	border-image: url(&quot;E:/pcconf/images/down-arrow.png&quot;) 0;
+}
+
+QRadioButton::indicator:checked {
+    width: 25px;
+    height: 25px;
+	margin-left: 3px;
+ 	border-image: url(&quot;E:/pcconf/images/up-arrow.png&quot;) 0;
+}
+
+QRadioButton::indicator:unchecked {
+    width: 25px;
+    height: 25px;
+	margin-left: 3px;
+ 	border-image: url(&quot;E:/pcconf/images/down-arrow-gray.png&quot;) 0;
+}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="autoExclusive">
+              <bool>false</bool>
+             </property>
+            </widget>
+            <widget class="QRadioButton" name="btnPowerHeader">
+             <property name="geometry">
+              <rect>
+               <x>730</x>
+               <y>1930</y>
+               <width>31</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>-1</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QRadioButton{
+	background-color: #101010;
+	color: #dddddd;
+	border: 0px;
+	border-top: 1px solid rgb(60,60,60);
+	font-size: 14px;
+}
+QRadioButton:hover{
+	background-color: rgb(60,60,60);
+	border-color: rgb(40,40,40);
+	border-bottom: 1px solid  red;
+}
+QRadioButton::indicator:hover{
+    width: 25px;
+    height: 25px;
+ 	border-image: url(&quot;E:/pcconf/images/down-arrow.png&quot;) 0;
+}
+
+QRadioButton::indicator{
+    width: 25px;
+    height: 25px;
+ 	border-image: url(&quot;E:/pcconf/images/down-arrow.png&quot;) 0;
+}
+
+QRadioButton::indicator:checked {
+    width: 25px;
+    height: 25px;
+	margin-left: 3px;
+ 	border-image: url(&quot;E:/pcconf/images/up-arrow.png&quot;) 0;
+}
+
+QRadioButton::indicator:unchecked {
+    width: 25px;
+    height: 25px;
+	margin-left: 3px;
+ 	border-image: url(&quot;E:/pcconf/images/down-arrow-gray.png&quot;) 0;
+}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="autoExclusive">
+              <bool>false</bool>
+             </property>
+            </widget>
+            <widget class="QRadioButton" name="btnBodyHeader">
+             <property name="geometry">
+              <rect>
+               <x>730</x>
+               <y>2240</y>
+               <width>31</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>-1</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QRadioButton{
+	background-color: #101010;
+	color: #dddddd;
+	border: 0px;
+	border-top: 1px solid rgb(60,60,60);
+	font-size: 14px;
+}
+QRadioButton:hover{
+	background-color: rgb(60,60,60);
+	border-color: rgb(40,40,40);
+	border-bottom: 1px solid  red;
+}
+QRadioButton::indicator:hover{
+    width: 25px;
+    height: 25px;
+ 	border-image: url(&quot;E:/pcconf/images/down-arrow.png&quot;) 0;
+}
+
+QRadioButton::indicator{
+    width: 25px;
+    height: 25px;
+ 	border-image: url(&quot;E:/pcconf/images/down-arrow.png&quot;) 0;
+}
+
+QRadioButton::indicator:checked {
+    width: 25px;
+    height: 25px;
+	margin-left: 3px;
+ 	border-image: url(&quot;E:/pcconf/images/up-arrow.png&quot;) 0;
+}
+
+QRadioButton::indicator:unchecked {
+    width: 25px;
+    height: 25px;
+	margin-left: 3px;
+ 	border-image: url(&quot;E:/pcconf/images/down-arrow-gray.png&quot;) 0;
+}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="autoExclusive">
+              <bool>false</bool>
              </property>
             </widget>
            </widget>

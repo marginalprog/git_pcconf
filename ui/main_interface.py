@@ -214,7 +214,7 @@ class Ui_MainWindow(object):
         self.lbVideoProizv.setAlignment(QtCore.Qt.AlignCenter)
         self.lbVideoProizv.setObjectName("lbVideoProizv")
         self.btnNewVideoProizv = QtWidgets.QPushButton(self.tbFrameVideo)
-        self.btnNewVideoProizv.setGeometry(QtCore.QRect(10, 190, 91, 41))
+        self.btnNewVideoProizv.setGeometry(QtCore.QRect(40, 190, 91, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -229,31 +229,10 @@ class Ui_MainWindow(object):
 "QPushButton::hover\n"
 "{\n"
 "    background-color: rgb(60,60,60);\n"
-"    border-bottom: 1px solid rgb(0, 255, 8);\n"
-"}\n"
-"")
-        self.btnNewVideoProizv.setObjectName("btnNewVideoProizv")
-        self.btnDelVideoProizv = QtWidgets.QPushButton(self.tbFrameVideo)
-        self.btnDelVideoProizv.setGeometry(QtCore.QRect(190, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnDelVideoProizv.setFont(font)
-        self.btnDelVideoProizv.setStyleSheet("QPushButton\n"
-"{\n"
-"    color:  white;\n"
-"    background-color: rgb(40,40,40);\n"
-"    border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"    background-color: rgb(60,60,60);\n"
-"    color: red;\n"
 "    border-bottom: 1px solid red;\n"
 "}\n"
 "")
-        self.btnDelVideoProizv.setObjectName("btnDelVideoProizv")
+        self.btnNewVideoProizv.setObjectName("btnNewVideoProizv")
         self.tableVideoProizv = QtWidgets.QTableWidget(self.tbFrameVideo)
         self.tableVideoProizv.setEnabled(True)
         self.tableVideoProizv.setGeometry(QtCore.QRect(50, 30, 191, 141))
@@ -390,7 +369,7 @@ class Ui_MainWindow(object):
         self.tableVideoProizv.verticalHeader().setCascadingSectionResizes(False)
         self.tableVideoProizv.verticalHeader().setMinimumSectionSize(10)
         self.btnCngVideoProizv = QtWidgets.QPushButton(self.tbFrameVideo)
-        self.btnCngVideoProizv.setGeometry(QtCore.QRect(100, 190, 91, 41))
+        self.btnCngVideoProizv.setGeometry(QtCore.QRect(160, 190, 91, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -412,7 +391,6 @@ class Ui_MainWindow(object):
         self.btnCngVideoProizv.raise_()
         self.lbVideoProizv.raise_()
         self.btnNewVideoProizv.raise_()
-        self.btnDelVideoProizv.raise_()
         self.tableVideoProizv.raise_()
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/graphics-card.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -441,7 +419,7 @@ class Ui_MainWindow(object):
         self.lbProcProizv.setAlignment(QtCore.Qt.AlignCenter)
         self.lbProcProizv.setObjectName("lbProcProizv")
         self.btnNewProcProizv = QtWidgets.QPushButton(self.tbFrameProc)
-        self.btnNewProcProizv.setGeometry(QtCore.QRect(10, 190, 91, 41))
+        self.btnNewProcProizv.setGeometry(QtCore.QRect(40, 190, 91, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -456,31 +434,10 @@ class Ui_MainWindow(object):
 "QPushButton::hover\n"
 "{\n"
 "    background-color: rgb(60,60,60);\n"
-"    border-bottom: 1px solid rgb(0, 255, 8);\n"
-"}\n"
-"")
-        self.btnNewProcProizv.setObjectName("btnNewProcProizv")
-        self.btnDelProcProizv = QtWidgets.QPushButton(self.tbFrameProc)
-        self.btnDelProcProizv.setGeometry(QtCore.QRect(190, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnDelProcProizv.setFont(font)
-        self.btnDelProcProizv.setStyleSheet("QPushButton\n"
-"{\n"
-"    color:  white;\n"
-"    background-color: rgb(40,40,40);\n"
-"    border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"    background-color: rgb(60,60,60);\n"
-"    color: red;    \n"
 "    border-bottom: 1px solid red;\n"
 "}\n"
 "")
-        self.btnDelProcProizv.setObjectName("btnDelProcProizv")
+        self.btnNewProcProizv.setObjectName("btnNewProcProizv")
         self.tableProcProizv = QtWidgets.QTableWidget(self.tbFrameProc)
         self.tableProcProizv.setEnabled(True)
         self.tableProcProizv.setGeometry(QtCore.QRect(50, 30, 201, 141))
@@ -617,7 +574,7 @@ class Ui_MainWindow(object):
         self.tableProcProizv.verticalHeader().setCascadingSectionResizes(False)
         self.tableProcProizv.verticalHeader().setMinimumSectionSize(10)
         self.btnCngProcProizv = QtWidgets.QPushButton(self.tbFrameProc)
-        self.btnCngProcProizv.setGeometry(QtCore.QRect(100, 190, 91, 41))
+        self.btnCngProcProizv.setGeometry(QtCore.QRect(170, 190, 91, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -663,7 +620,7 @@ class Ui_MainWindow(object):
         self.lbMotherProizv.setAlignment(QtCore.Qt.AlignCenter)
         self.lbMotherProizv.setObjectName("lbMotherProizv")
         self.btnNewMotherProizv = QtWidgets.QPushButton(self.tbFrameMother)
-        self.btnNewMotherProizv.setGeometry(QtCore.QRect(10, 190, 91, 41))
+        self.btnNewMotherProizv.setGeometry(QtCore.QRect(40, 190, 91, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -678,31 +635,10 @@ class Ui_MainWindow(object):
 "QPushButton::hover\n"
 "{\n"
 "    background-color: rgb(60,60,60);\n"
-"    border-bottom: 1px solid rgb(0, 255, 8);\n"
-"}\n"
-"")
-        self.btnNewMotherProizv.setObjectName("btnNewMotherProizv")
-        self.btnDelMotherProizv = QtWidgets.QPushButton(self.tbFrameMother)
-        self.btnDelMotherProizv.setGeometry(QtCore.QRect(190, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnDelMotherProizv.setFont(font)
-        self.btnDelMotherProizv.setStyleSheet("QPushButton\n"
-"{\n"
-"    color:  white;\n"
-"    background-color: rgb(40,40,40);\n"
-"    border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"    background-color: rgb(60,60,60);\n"
-"    color: red;\n"
 "    border-bottom: 1px solid red;\n"
 "}\n"
 "")
-        self.btnDelMotherProizv.setObjectName("btnDelMotherProizv")
+        self.btnNewMotherProizv.setObjectName("btnNewMotherProizv")
         self.tableMotherProizv = QtWidgets.QTableWidget(self.tbFrameMother)
         self.tableMotherProizv.setEnabled(True)
         self.tableMotherProizv.setGeometry(QtCore.QRect(50, 30, 191, 141))
@@ -839,7 +775,7 @@ class Ui_MainWindow(object):
         self.tableMotherProizv.verticalHeader().setCascadingSectionResizes(False)
         self.tableMotherProizv.verticalHeader().setMinimumSectionSize(10)
         self.btnCngMotherProizv = QtWidgets.QPushButton(self.tbFrameMother)
-        self.btnCngMotherProizv.setGeometry(QtCore.QRect(100, 190, 91, 41))
+        self.btnCngMotherProizv.setGeometry(QtCore.QRect(160, 190, 91, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -885,7 +821,7 @@ class Ui_MainWindow(object):
         self.lbCoolProizv.setAlignment(QtCore.Qt.AlignCenter)
         self.lbCoolProizv.setObjectName("lbCoolProizv")
         self.btnNewCoolProizv = QtWidgets.QPushButton(self.tbFrameCool)
-        self.btnNewCoolProizv.setGeometry(QtCore.QRect(10, 190, 91, 41))
+        self.btnNewCoolProizv.setGeometry(QtCore.QRect(40, 190, 91, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -900,31 +836,10 @@ class Ui_MainWindow(object):
 "QPushButton::hover\n"
 "{\n"
 "    background-color: rgb(60,60,60);\n"
-"    border-bottom: 1px solid rgb(0, 255, 8);\n"
-"}\n"
-"")
-        self.btnNewCoolProizv.setObjectName("btnNewCoolProizv")
-        self.btnDelCoolProizv = QtWidgets.QPushButton(self.tbFrameCool)
-        self.btnDelCoolProizv.setGeometry(QtCore.QRect(190, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnDelCoolProizv.setFont(font)
-        self.btnDelCoolProizv.setStyleSheet("QPushButton\n"
-"{\n"
-"    color:  white;\n"
-"    background-color: rgb(40,40,40);\n"
-"    border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"    background-color: rgb(60,60,60);\n"
-"    color: red;\n"
 "    border-bottom: 1px solid red;\n"
 "}\n"
 "")
-        self.btnDelCoolProizv.setObjectName("btnDelCoolProizv")
+        self.btnNewCoolProizv.setObjectName("btnNewCoolProizv")
         self.tableCoolProizv = QtWidgets.QTableWidget(self.tbFrameCool)
         self.tableCoolProizv.setEnabled(True)
         self.tableCoolProizv.setGeometry(QtCore.QRect(50, 30, 191, 141))
@@ -1061,7 +976,7 @@ class Ui_MainWindow(object):
         self.tableCoolProizv.verticalHeader().setCascadingSectionResizes(False)
         self.tableCoolProizv.verticalHeader().setMinimumSectionSize(10)
         self.btnCngCoolProizv = QtWidgets.QPushButton(self.tbFrameCool)
-        self.btnCngCoolProizv.setGeometry(QtCore.QRect(100, 190, 91, 41))
+        self.btnCngCoolProizv.setGeometry(QtCore.QRect(160, 190, 91, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -1107,7 +1022,7 @@ class Ui_MainWindow(object):
         self.lbRamProizv.setAlignment(QtCore.Qt.AlignCenter)
         self.lbRamProizv.setObjectName("lbRamProizv")
         self.btnNewRamProizv = QtWidgets.QPushButton(self.tbFrameRam)
-        self.btnNewRamProizv.setGeometry(QtCore.QRect(10, 190, 91, 41))
+        self.btnNewRamProizv.setGeometry(QtCore.QRect(40, 190, 91, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -1122,31 +1037,10 @@ class Ui_MainWindow(object):
 "QPushButton::hover\n"
 "{\n"
 "    background-color: rgb(60,60,60);\n"
-"    border-bottom: 1px solid rgb(0, 255, 8);\n"
-"}\n"
-"")
-        self.btnNewRamProizv.setObjectName("btnNewRamProizv")
-        self.btnDelRamProizv = QtWidgets.QPushButton(self.tbFrameRam)
-        self.btnDelRamProizv.setGeometry(QtCore.QRect(190, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnDelRamProizv.setFont(font)
-        self.btnDelRamProizv.setStyleSheet("QPushButton\n"
-"{\n"
-"    color:  white;\n"
-"    background-color: rgb(40,40,40);\n"
-"    border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"    background-color: rgb(60,60,60);\n"
-"    color: red;\n"
 "    border-bottom: 1px solid red;\n"
 "}\n"
 "")
-        self.btnDelRamProizv.setObjectName("btnDelRamProizv")
+        self.btnNewRamProizv.setObjectName("btnNewRamProizv")
         self.tableRamProizv = QtWidgets.QTableWidget(self.tbFrameRam)
         self.tableRamProizv.setEnabled(True)
         self.tableRamProizv.setGeometry(QtCore.QRect(50, 30, 191, 141))
@@ -1283,7 +1177,7 @@ class Ui_MainWindow(object):
         self.tableRamProizv.verticalHeader().setCascadingSectionResizes(False)
         self.tableRamProizv.verticalHeader().setMinimumSectionSize(10)
         self.btnCngRamProizv = QtWidgets.QPushButton(self.tbFrameRam)
-        self.btnCngRamProizv.setGeometry(QtCore.QRect(100, 190, 91, 41))
+        self.btnCngRamProizv.setGeometry(QtCore.QRect(160, 190, 91, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -1329,7 +1223,7 @@ class Ui_MainWindow(object):
         self.lbDiskProizv.setAlignment(QtCore.Qt.AlignCenter)
         self.lbDiskProizv.setObjectName("lbDiskProizv")
         self.btnNewDiskProizv = QtWidgets.QPushButton(self.tbFrameDisk)
-        self.btnNewDiskProizv.setGeometry(QtCore.QRect(10, 190, 91, 41))
+        self.btnNewDiskProizv.setGeometry(QtCore.QRect(40, 190, 91, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -1344,31 +1238,10 @@ class Ui_MainWindow(object):
 "QPushButton::hover\n"
 "{\n"
 "    background-color: rgb(60,60,60);\n"
-"    border-bottom: 1px solid rgb(0, 255, 8);\n"
-"}\n"
-"")
-        self.btnNewDiskProizv.setObjectName("btnNewDiskProizv")
-        self.btnDelDiskProizv = QtWidgets.QPushButton(self.tbFrameDisk)
-        self.btnDelDiskProizv.setGeometry(QtCore.QRect(190, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnDelDiskProizv.setFont(font)
-        self.btnDelDiskProizv.setStyleSheet("QPushButton\n"
-"{\n"
-"    color:  white;\n"
-"    background-color: rgb(40,40,40);\n"
-"    border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"    background-color: rgb(60,60,60);\n"
-"    color: red;\n"
 "    border-bottom: 1px solid red;\n"
 "}\n"
 "")
-        self.btnDelDiskProizv.setObjectName("btnDelDiskProizv")
+        self.btnNewDiskProizv.setObjectName("btnNewDiskProizv")
         self.tableDiskProizv = QtWidgets.QTableWidget(self.tbFrameDisk)
         self.tableDiskProizv.setEnabled(True)
         self.tableDiskProizv.setGeometry(QtCore.QRect(50, 30, 191, 141))
@@ -1505,7 +1378,7 @@ class Ui_MainWindow(object):
         self.tableDiskProizv.verticalHeader().setCascadingSectionResizes(False)
         self.tableDiskProizv.verticalHeader().setMinimumSectionSize(10)
         self.btnCngDiskProizv = QtWidgets.QPushButton(self.tbFrameDisk)
-        self.btnCngDiskProizv.setGeometry(QtCore.QRect(100, 190, 91, 41))
+        self.btnCngDiskProizv.setGeometry(QtCore.QRect(160, 190, 91, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -1551,7 +1424,7 @@ class Ui_MainWindow(object):
         self.lbPowerProizv.setAlignment(QtCore.Qt.AlignCenter)
         self.lbPowerProizv.setObjectName("lbPowerProizv")
         self.btnNewPowerProizv = QtWidgets.QPushButton(self.tbFramePower)
-        self.btnNewPowerProizv.setGeometry(QtCore.QRect(10, 190, 91, 41))
+        self.btnNewPowerProizv.setGeometry(QtCore.QRect(40, 190, 91, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -1566,31 +1439,10 @@ class Ui_MainWindow(object):
 "QPushButton::hover\n"
 "{\n"
 "    background-color: rgb(60,60,60);\n"
-"    border-bottom: 1px solid rgb(0, 255, 8);\n"
-"}\n"
-"")
-        self.btnNewPowerProizv.setObjectName("btnNewPowerProizv")
-        self.btnDelPowerProizv = QtWidgets.QPushButton(self.tbFramePower)
-        self.btnDelPowerProizv.setGeometry(QtCore.QRect(190, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnDelPowerProizv.setFont(font)
-        self.btnDelPowerProizv.setStyleSheet("QPushButton\n"
-"{\n"
-"    color:  white;\n"
-"    background-color: rgb(40,40,40);\n"
-"    border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"    background-color: rgb(60,60,60);\n"
-"    color: red;\n"
 "    border-bottom: 1px solid red;\n"
 "}\n"
 "")
-        self.btnDelPowerProizv.setObjectName("btnDelPowerProizv")
+        self.btnNewPowerProizv.setObjectName("btnNewPowerProizv")
         self.tablePowerProizv = QtWidgets.QTableWidget(self.tbFramePower)
         self.tablePowerProizv.setEnabled(True)
         self.tablePowerProizv.setGeometry(QtCore.QRect(50, 30, 191, 141))
@@ -1727,7 +1579,7 @@ class Ui_MainWindow(object):
         self.tablePowerProizv.verticalHeader().setCascadingSectionResizes(False)
         self.tablePowerProizv.verticalHeader().setMinimumSectionSize(10)
         self.btnCngPowerProizv = QtWidgets.QPushButton(self.tbFramePower)
-        self.btnCngPowerProizv.setGeometry(QtCore.QRect(100, 190, 91, 41))
+        self.btnCngPowerProizv.setGeometry(QtCore.QRect(160, 190, 91, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -1773,7 +1625,7 @@ class Ui_MainWindow(object):
         self.lbBodyProizv.setAlignment(QtCore.Qt.AlignCenter)
         self.lbBodyProizv.setObjectName("lbBodyProizv")
         self.btnNewBodyProizv = QtWidgets.QPushButton(self.tbFrameBody)
-        self.btnNewBodyProizv.setGeometry(QtCore.QRect(10, 190, 91, 41))
+        self.btnNewBodyProizv.setGeometry(QtCore.QRect(40, 190, 91, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -1788,31 +1640,10 @@ class Ui_MainWindow(object):
 "QPushButton::hover\n"
 "{\n"
 "    background-color: rgb(60,60,60);\n"
-"    border-bottom: 1px solid rgb(0, 255, 8);\n"
-"}\n"
-"")
-        self.btnNewBodyProizv.setObjectName("btnNewBodyProizv")
-        self.btnDelBodyProizv = QtWidgets.QPushButton(self.tbFrameBody)
-        self.btnDelBodyProizv.setGeometry(QtCore.QRect(190, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnDelBodyProizv.setFont(font)
-        self.btnDelBodyProizv.setStyleSheet("QPushButton\n"
-"{\n"
-"    color:  white;\n"
-"    background-color: rgb(40,40,40);\n"
-"    border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"    background-color: rgb(60,60,60);\n"
-"    color: red;\n"
 "    border-bottom: 1px solid red;\n"
 "}\n"
 "")
-        self.btnDelBodyProizv.setObjectName("btnDelBodyProizv")
+        self.btnNewBodyProizv.setObjectName("btnNewBodyProizv")
         self.tableBodyProizv = QtWidgets.QTableWidget(self.tbFrameBody)
         self.tableBodyProizv.setEnabled(True)
         self.tableBodyProizv.setGeometry(QtCore.QRect(50, 30, 191, 141))
@@ -1949,7 +1780,7 @@ class Ui_MainWindow(object):
         self.tableBodyProizv.verticalHeader().setCascadingSectionResizes(False)
         self.tableBodyProizv.verticalHeader().setMinimumSectionSize(10)
         self.btnCngBodyProizv = QtWidgets.QPushButton(self.tbFrameBody)
-        self.btnCngBodyProizv.setGeometry(QtCore.QRect(100, 190, 91, 41))
+        self.btnCngBodyProizv.setGeometry(QtCore.QRect(160, 190, 91, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -1985,7 +1816,7 @@ class Ui_MainWindow(object):
         self.tbFrameConf.setFrameShadow(QtWidgets.QFrame.Raised)
         self.tbFrameConf.setObjectName("tbFrameConf")
         self.label_10 = QtWidgets.QLabel(self.tbFrameConf)
-        self.label_10.setGeometry(QtCore.QRect(50, 80, 181, 31))
+        self.label_10.setGeometry(QtCore.QRect(50, 110, 181, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
@@ -1994,68 +1825,6 @@ class Ui_MainWindow(object):
 "border-bottom: 1px solid rgb(100, 100, 100);")
         self.label_10.setAlignment(QtCore.Qt.AlignCenter)
         self.label_10.setObjectName("label_10")
-        self.btnNewVideoProizv_10 = QtWidgets.QPushButton(self.tbFrameConf)
-        self.btnNewVideoProizv_10.setGeometry(QtCore.QRect(10, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnNewVideoProizv_10.setFont(font)
-        self.btnNewVideoProizv_10.setStyleSheet("QPushButton\n"
-"{\n"
-"    color:  white;\n"
-"    border: 1px solid rgb(100, 100, 100);\n"
-"    background-color: rgb(40,40,40);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"    background-color: rgb(60,60,60);\n"
-"    border-bottom: 1px solid rgb(0, 255, 8);\n"
-"}\n"
-"")
-        self.btnNewVideoProizv_10.setObjectName("btnNewVideoProizv_10")
-        self.btnDelBConfProizv = QtWidgets.QPushButton(self.tbFrameConf)
-        self.btnDelBConfProizv.setGeometry(QtCore.QRect(190, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnDelBConfProizv.setFont(font)
-        self.btnDelBConfProizv.setStyleSheet("QPushButton\n"
-"{\n"
-"    color:  white;\n"
-"    background-color: rgb(40,40,40);\n"
-"    border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"    background-color: rgb(60,60,60);\n"
-"    color: red;\n"
-"    border-bottom: 1px solid red;\n"
-"}\n"
-"")
-        self.btnDelBConfProizv.setObjectName("btnDelBConfProizv")
-        self.btnDelVideoProizv_2 = QtWidgets.QPushButton(self.tbFrameConf)
-        self.btnDelVideoProizv_2.setGeometry(QtCore.QRect(100, 190, 91, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.btnDelVideoProizv_2.setFont(font)
-        self.btnDelVideoProizv_2.setStyleSheet("QPushButton\n"
-"{\n"
-"    color:  white;\n"
-"    background-color: rgb(40,40,40);\n"
-"    border: 1px solid rgb(100, 100, 100);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"    background-color: rgb(60,60,60);\n"
-"    color: rgb(255, 247, 0);    \n"
-"    border-bottom: 1px solid rgb(255, 247, 0);\n"
-"}\n"
-"")
-        self.btnDelVideoProizv_2.setObjectName("btnDelVideoProizv_2")
         icon8 = QtGui.QIcon()
         icon8.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/conf.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBoxNavigation.addItem(self.pageConf, icon8, "")
@@ -2803,20 +2572,23 @@ class Ui_MainWindow(object):
 "    background-color: #101010;\n"
 "    color: #dddddd;\n"
 "    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
+"    min-width: 30px;    \n"
 "    min-height: 30px;\n"
+"    font-family: Montserrat SemiBold;\n"
 "}\n"
+"\n"
 "\n"
 "QHeaderView::section\n"
 "{\n"
 "    background-color: #101010;\n"
-"    min-width: 10px;    \n"
+"    border: 0px solid white;\n"
+"    border-bottom: 1px solid rgb(60,60,60);\n"
+"    border-right: 1px solid rgb(60,60,60);\n"
 "    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
 "    color: #dddddd;\n"
 "    font-size: 12px;\n"
+"    color: white;\n"
+"    selection-background-color:#ffc0cb;\n"
 "}\n"
 "\n"
 "QHeaderView::section:hover {\n"
@@ -2824,17 +2596,12 @@ class Ui_MainWindow(object):
 "    background-color: rgb(80,80,80);\n"
 "}\n"
 "\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
 "QTableWidget QTableCornerButton::section\n"
 "{\n"
-"    \n"
-"    background: rgb(80,80,80);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
+"    background-color: #101010;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px  solid rgb(60,60,60);\n"
+"    border-right: 1px  solid rgb(60,60,60);\n"
 "}\n"
 "\n"
 "QTableWidget::item\n"
@@ -2847,12 +2614,9 @@ class Ui_MainWindow(object):
 "\n"
 "QTableView\n"
 "{\n"
-"    background-color: #101010;\n"
-"    color: #d5d5d5;\n"
 "    border-top: 1px solid #434343;\n"
-"    border-right: 0px;\n"
-"    border-left: 0px;\n"
-"    border-bottom: 0px;\n"
+"    background-color: #101010;\n"
+"    color: #d5d5d5\n"
 "}\n"
 "\n"
 "QTableWidget::item:hover {\n"
@@ -2868,11 +2632,18 @@ class Ui_MainWindow(object):
 "\n"
 "QScrollBar:vertical {\n"
 "    border: none;\n"
-"    background-color: #151515;\n"
+"    background-color: #202020;\n"
 "    width: 12px;\n"
 "    margin: 15px 0 15px 0;\n"
-"    border-radius: 0px;\n"
 " }\n"
+"\n"
+"QScrollBar:horizontal {\n"
+"    border: none;\n"
+"    background-color: #202020;\n"
+"    height: 12px;\n"
+"    margin: 0 15px 0 15px;\n"
+" }\n"
+"\n"
 "\n"
 "/*  HANDLE BAR VERTICAL */\n"
 "QScrollBar::handle:vertical {    \n"
@@ -2883,6 +2654,7 @@ class Ui_MainWindow(object):
 "    border-right: 0px;\n"
 "    border-color: rgb(60,60,60);\n"
 "}\n"
+"\n"
 "QScrollBar::handle:vertical:hover{    \n"
 "    background-color:  rgb(50,50,50);\n"
 "    border-color: rgb(60,60,60);\n"
@@ -2891,58 +2663,6 @@ class Ui_MainWindow(object):
 "    background-color: rgb(120, 0, 2);\n"
 "}\n"
 "\n"
-"/* BTN TOP - SCROLLBAR */\n"
-"QScrollBar::sub-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: top;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 0px;\n"
-"    border-bottom: 1px solid rgb(180, 0, 0);\n"
-"}\n"
-"QScrollBar::sub-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::sub-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"\n"
-"/* BTN BOTTOM - SCROLLBAR */\n"
-"QScrollBar::add-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: bottom;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 1px solid;\n"
-"    border-color: rgb(60,60,60);\n"
-"    border: 1px solid;\n"
-"    border-top:1px solid rgb(180, 0, 0);\n"
-"    border-right: 0px;\n"
-"    border-bottom: 0px;\n"
-"}\n"
-"QScrollBar::add-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::add-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"/* RESET ARROW */\n"
-"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"    background: none;\n"
-"}\n"
-"\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"    background: none;\n"
-"}\n"
-"\n"
-"QScrollBar:horizontal {\n"
-"    border: none;\n"
-"    background-color: #202020;\n"
-"    height: 12px;\n"
-"    margin: 0 15px 0 15px;\n"
-" }\n"
 "\n"
 "/*  HANDLE BAR HORIZONTAL */\n"
 "QScrollBar::handle:horizontal {    \n"
@@ -2961,6 +2681,25 @@ class Ui_MainWindow(object):
 "    background-color: rgb(120, 0, 2);\n"
 "}\n"
 "\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);    \n"
+"    border-top: 1px solid rgb(180, 0, 0);    \n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
 "/* BTN TOP - SCROLLBAR */\n"
 "QScrollBar::sub-line:horizontal {\n"
 "    background-color: #151515;\n"
@@ -2976,6 +2715,28 @@ class Ui_MainWindow(object):
 "    border-color: #242424;\n"
 "}\n"
 "QScrollBar::sub-line:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border-top:1px solid rgb(180, 0, 0);\n"
+"    border-right: 0px;\n"
+"    border-bottom: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);    \n"
+"}\n"
+"QScrollBar::add-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:vertical:pressed {    \n"
 "    background-color: rgb(120, 0, 2);\n"
 "}\n"
 "\n"
@@ -3000,6 +2761,16 @@ class Ui_MainWindow(object):
 "}\n"
 "QScrollBar::add-line:horizontal:pressed {    \n"
 "    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
 "}\n"
 "\n"
 "/* RESET ARROW */\n"
@@ -3189,20 +2960,23 @@ class Ui_MainWindow(object):
 "    background-color: #101010;\n"
 "    color: #dddddd;\n"
 "    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
+"    min-width: 30px;    \n"
 "    min-height: 30px;\n"
+"    font-family: Montserrat SemiBold;\n"
 "}\n"
+"\n"
 "\n"
 "QHeaderView::section\n"
 "{\n"
 "    background-color: #101010;\n"
-"    min-width: 10px;    \n"
+"    border: 0px solid white;\n"
+"    border-bottom: 1px solid rgb(60,60,60);\n"
+"    border-right: 1px solid rgb(60,60,60);\n"
 "    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
 "    color: #dddddd;\n"
 "    font-size: 12px;\n"
+"    color: white;\n"
+"    selection-background-color:#ffc0cb;\n"
 "}\n"
 "\n"
 "QHeaderView::section:hover {\n"
@@ -3210,17 +2984,12 @@ class Ui_MainWindow(object):
 "    background-color: rgb(80,80,80);\n"
 "}\n"
 "\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
 "QTableWidget QTableCornerButton::section\n"
 "{\n"
-"    \n"
-"    background: rgb(80,80,80);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
+"    background-color: #101010;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px  solid rgb(60,60,60);\n"
+"    border-right: 1px  solid rgb(60,60,60);\n"
 "}\n"
 "\n"
 "QTableWidget::item\n"
@@ -3233,12 +3002,9 @@ class Ui_MainWindow(object):
 "\n"
 "QTableView\n"
 "{\n"
-"    background-color: #101010;\n"
-"    color: #d5d5d5;\n"
 "    border-top: 1px solid #434343;\n"
-"    border-right: 0px;\n"
-"    border-left: 0px;\n"
-"    border-bottom: 0px;\n"
+"    background-color: #101010;\n"
+"    color: #d5d5d5\n"
 "}\n"
 "\n"
 "QTableWidget::item:hover {\n"
@@ -3254,11 +3020,18 @@ class Ui_MainWindow(object):
 "\n"
 "QScrollBar:vertical {\n"
 "    border: none;\n"
-"    background-color: #151515;\n"
+"    background-color: #202020;\n"
 "    width: 12px;\n"
 "    margin: 15px 0 15px 0;\n"
-"    border-radius: 0px;\n"
 " }\n"
+"\n"
+"QScrollBar:horizontal {\n"
+"    border: none;\n"
+"    background-color: #202020;\n"
+"    height: 12px;\n"
+"    margin: 0 15px 0 15px;\n"
+" }\n"
+"\n"
 "\n"
 "/*  HANDLE BAR VERTICAL */\n"
 "QScrollBar::handle:vertical {    \n"
@@ -3269,6 +3042,7 @@ class Ui_MainWindow(object):
 "    border-right: 0px;\n"
 "    border-color: rgb(60,60,60);\n"
 "}\n"
+"\n"
 "QScrollBar::handle:vertical:hover{    \n"
 "    background-color:  rgb(50,50,50);\n"
 "    border-color: rgb(60,60,60);\n"
@@ -3277,58 +3051,6 @@ class Ui_MainWindow(object):
 "    background-color: rgb(120, 0, 2);\n"
 "}\n"
 "\n"
-"/* BTN TOP - SCROLLBAR */\n"
-"QScrollBar::sub-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: top;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 0px;\n"
-"    border-bottom: 1px solid rgb(180, 0, 0);\n"
-"}\n"
-"QScrollBar::sub-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::sub-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"\n"
-"/* BTN BOTTOM - SCROLLBAR */\n"
-"QScrollBar::add-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: bottom;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 1px solid;\n"
-"    border-color: rgb(60,60,60);\n"
-"    border: 1px solid;\n"
-"    border-top:1px solid rgb(180, 0, 0);\n"
-"    border-right: 0px;\n"
-"    border-bottom: 0px;\n"
-"}\n"
-"QScrollBar::add-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::add-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"/* RESET ARROW */\n"
-"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"    background: none;\n"
-"}\n"
-"\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"    background: none;\n"
-"}\n"
-"\n"
-"QScrollBar:horizontal {\n"
-"    border: none;\n"
-"    background-color: #202020;\n"
-"    height: 12px;\n"
-"    margin: 0 15px 0 15px;\n"
-" }\n"
 "\n"
 "/*  HANDLE BAR HORIZONTAL */\n"
 "QScrollBar::handle:horizontal {    \n"
@@ -3347,6 +3069,25 @@ class Ui_MainWindow(object):
 "    background-color: rgb(120, 0, 2);\n"
 "}\n"
 "\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);    \n"
+"    border-top: 1px solid rgb(180, 0, 0);    \n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
 "/* BTN TOP - SCROLLBAR */\n"
 "QScrollBar::sub-line:horizontal {\n"
 "    background-color: #151515;\n"
@@ -3362,6 +3103,28 @@ class Ui_MainWindow(object):
 "    border-color: #242424;\n"
 "}\n"
 "QScrollBar::sub-line:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border-top:1px solid rgb(180, 0, 0);\n"
+"    border-right: 0px;\n"
+"    border-bottom: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);    \n"
+"}\n"
+"QScrollBar::add-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:vertical:pressed {    \n"
 "    background-color: rgb(120, 0, 2);\n"
 "}\n"
 "\n"
@@ -3386,6 +3149,16 @@ class Ui_MainWindow(object):
 "}\n"
 "QScrollBar::add-line:horizontal:pressed {    \n"
 "    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
 "}\n"
 "\n"
 "/* RESET ARROW */\n"
@@ -3607,20 +3380,23 @@ class Ui_MainWindow(object):
 "    background-color: #101010;\n"
 "    color: #dddddd;\n"
 "    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
+"    min-width: 30px;    \n"
 "    min-height: 30px;\n"
+"    font-family: Montserrat SemiBold;\n"
 "}\n"
+"\n"
 "\n"
 "QHeaderView::section\n"
 "{\n"
 "    background-color: #101010;\n"
-"    min-width: 10px;    \n"
+"    border: 0px solid white;\n"
+"    border-bottom: 1px solid rgb(60,60,60);\n"
+"    border-right: 1px solid rgb(60,60,60);\n"
 "    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
 "    color: #dddddd;\n"
 "    font-size: 12px;\n"
+"    color: white;\n"
+"    selection-background-color:#ffc0cb;\n"
 "}\n"
 "\n"
 "QHeaderView::section:hover {\n"
@@ -3628,17 +3404,12 @@ class Ui_MainWindow(object):
 "    background-color: rgb(80,80,80);\n"
 "}\n"
 "\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
 "QTableWidget QTableCornerButton::section\n"
 "{\n"
-"    \n"
-"    background: rgb(80,80,80);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
+"    background-color: #101010;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px  solid rgb(60,60,60);\n"
+"    border-right: 1px  solid rgb(60,60,60);\n"
 "}\n"
 "\n"
 "QTableWidget::item\n"
@@ -3651,12 +3422,9 @@ class Ui_MainWindow(object):
 "\n"
 "QTableView\n"
 "{\n"
-"    background-color: #101010;\n"
-"    color: #d5d5d5;\n"
 "    border-top: 1px solid #434343;\n"
-"    border-right: 0px;\n"
-"    border-left: 0px;\n"
-"    border-bottom: 0px;\n"
+"    background-color: #101010;\n"
+"    color: #d5d5d5\n"
 "}\n"
 "\n"
 "QTableWidget::item:hover {\n"
@@ -3672,11 +3440,18 @@ class Ui_MainWindow(object):
 "\n"
 "QScrollBar:vertical {\n"
 "    border: none;\n"
-"    background-color: #151515;\n"
+"    background-color: #202020;\n"
 "    width: 12px;\n"
 "    margin: 15px 0 15px 0;\n"
-"    border-radius: 0px;\n"
 " }\n"
+"\n"
+"QScrollBar:horizontal {\n"
+"    border: none;\n"
+"    background-color: #202020;\n"
+"    height: 12px;\n"
+"    margin: 0 15px 0 15px;\n"
+" }\n"
+"\n"
 "\n"
 "/*  HANDLE BAR VERTICAL */\n"
 "QScrollBar::handle:vertical {    \n"
@@ -3687,6 +3462,7 @@ class Ui_MainWindow(object):
 "    border-right: 0px;\n"
 "    border-color: rgb(60,60,60);\n"
 "}\n"
+"\n"
 "QScrollBar::handle:vertical:hover{    \n"
 "    background-color:  rgb(50,50,50);\n"
 "    border-color: rgb(60,60,60);\n"
@@ -3695,58 +3471,6 @@ class Ui_MainWindow(object):
 "    background-color: rgb(120, 0, 2);\n"
 "}\n"
 "\n"
-"/* BTN TOP - SCROLLBAR */\n"
-"QScrollBar::sub-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: top;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 0px;\n"
-"    border-bottom: 1px solid rgb(180, 0, 0);\n"
-"}\n"
-"QScrollBar::sub-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::sub-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"\n"
-"/* BTN BOTTOM - SCROLLBAR */\n"
-"QScrollBar::add-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: bottom;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 1px solid;\n"
-"    border-color: rgb(60,60,60);\n"
-"    border: 1px solid;\n"
-"    border-top:1px solid rgb(180, 0, 0);\n"
-"    border-right: 0px;\n"
-"    border-bottom: 0px;\n"
-"}\n"
-"QScrollBar::add-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::add-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"/* RESET ARROW */\n"
-"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"    background: none;\n"
-"}\n"
-"\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"    background: none;\n"
-"}\n"
-"\n"
-"QScrollBar:horizontal {\n"
-"    border: none;\n"
-"    background-color: #202020;\n"
-"    height: 12px;\n"
-"    margin: 0 15px 0 15px;\n"
-" }\n"
 "\n"
 "/*  HANDLE BAR HORIZONTAL */\n"
 "QScrollBar::handle:horizontal {    \n"
@@ -3765,6 +3489,25 @@ class Ui_MainWindow(object):
 "    background-color: rgb(120, 0, 2);\n"
 "}\n"
 "\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);    \n"
+"    border-top: 1px solid rgb(180, 0, 0);    \n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
 "/* BTN TOP - SCROLLBAR */\n"
 "QScrollBar::sub-line:horizontal {\n"
 "    background-color: #151515;\n"
@@ -3780,6 +3523,28 @@ class Ui_MainWindow(object):
 "    border-color: #242424;\n"
 "}\n"
 "QScrollBar::sub-line:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border-top:1px solid rgb(180, 0, 0);\n"
+"    border-right: 0px;\n"
+"    border-bottom: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);    \n"
+"}\n"
+"QScrollBar::add-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:vertical:pressed {    \n"
 "    background-color: rgb(120, 0, 2);\n"
 "}\n"
 "\n"
@@ -3804,6 +3569,16 @@ class Ui_MainWindow(object):
 "}\n"
 "QScrollBar::add-line:horizontal:pressed {    \n"
 "    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
 "}\n"
 "\n"
 "/* RESET ARROW */\n"
@@ -3965,20 +3740,23 @@ class Ui_MainWindow(object):
 "    background-color: #101010;\n"
 "    color: #dddddd;\n"
 "    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
+"    min-width: 30px;    \n"
 "    min-height: 30px;\n"
+"    font-family: Montserrat SemiBold;\n"
 "}\n"
+"\n"
 "\n"
 "QHeaderView::section\n"
 "{\n"
 "    background-color: #101010;\n"
-"    min-width: 10px;    \n"
+"    border: 0px solid white;\n"
+"    border-bottom: 1px solid rgb(60,60,60);\n"
+"    border-right: 1px solid rgb(60,60,60);\n"
 "    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
 "    color: #dddddd;\n"
 "    font-size: 12px;\n"
+"    color: white;\n"
+"    selection-background-color:#ffc0cb;\n"
 "}\n"
 "\n"
 "QHeaderView::section:hover {\n"
@@ -3986,17 +3764,12 @@ class Ui_MainWindow(object):
 "    background-color: rgb(80,80,80);\n"
 "}\n"
 "\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
 "QTableWidget QTableCornerButton::section\n"
 "{\n"
-"    \n"
-"    background: rgb(80,80,80);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
+"    background-color: #101010;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px  solid rgb(60,60,60);\n"
+"    border-right: 1px  solid rgb(60,60,60);\n"
 "}\n"
 "\n"
 "QTableWidget::item\n"
@@ -4009,12 +3782,9 @@ class Ui_MainWindow(object):
 "\n"
 "QTableView\n"
 "{\n"
-"    background-color: #101010;\n"
-"    color: #d5d5d5;\n"
 "    border-top: 1px solid #434343;\n"
-"    border-right: 0px;\n"
-"    border-left: 0px;\n"
-"    border-bottom: 0px;\n"
+"    background-color: #101010;\n"
+"    color: #d5d5d5\n"
 "}\n"
 "\n"
 "QTableWidget::item:hover {\n"
@@ -4030,11 +3800,18 @@ class Ui_MainWindow(object):
 "\n"
 "QScrollBar:vertical {\n"
 "    border: none;\n"
-"    background-color: #151515;\n"
+"    background-color: #202020;\n"
 "    width: 12px;\n"
 "    margin: 15px 0 15px 0;\n"
-"    border-radius: 0px;\n"
 " }\n"
+"\n"
+"QScrollBar:horizontal {\n"
+"    border: none;\n"
+"    background-color: #202020;\n"
+"    height: 12px;\n"
+"    margin: 0 15px 0 15px;\n"
+" }\n"
+"\n"
 "\n"
 "/*  HANDLE BAR VERTICAL */\n"
 "QScrollBar::handle:vertical {    \n"
@@ -4045,6 +3822,7 @@ class Ui_MainWindow(object):
 "    border-right: 0px;\n"
 "    border-color: rgb(60,60,60);\n"
 "}\n"
+"\n"
 "QScrollBar::handle:vertical:hover{    \n"
 "    background-color:  rgb(50,50,50);\n"
 "    border-color: rgb(60,60,60);\n"
@@ -4053,58 +3831,6 @@ class Ui_MainWindow(object):
 "    background-color: rgb(120, 0, 2);\n"
 "}\n"
 "\n"
-"/* BTN TOP - SCROLLBAR */\n"
-"QScrollBar::sub-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: top;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 0px;\n"
-"    border-bottom: 1px solid rgb(180, 0, 0);\n"
-"}\n"
-"QScrollBar::sub-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::sub-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"\n"
-"/* BTN BOTTOM - SCROLLBAR */\n"
-"QScrollBar::add-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: bottom;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 1px solid;\n"
-"    border-color: rgb(60,60,60);\n"
-"    border: 1px solid;\n"
-"    border-top:1px solid rgb(180, 0, 0);\n"
-"    border-right: 0px;\n"
-"    border-bottom: 0px;\n"
-"}\n"
-"QScrollBar::add-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::add-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"/* RESET ARROW */\n"
-"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"    background: none;\n"
-"}\n"
-"\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"    background: none;\n"
-"}\n"
-"\n"
-"QScrollBar:horizontal {\n"
-"    border: none;\n"
-"    background-color: #202020;\n"
-"    height: 12px;\n"
-"    margin: 0 15px 0 15px;\n"
-" }\n"
 "\n"
 "/*  HANDLE BAR HORIZONTAL */\n"
 "QScrollBar::handle:horizontal {    \n"
@@ -4123,6 +3849,25 @@ class Ui_MainWindow(object):
 "    background-color: rgb(120, 0, 2);\n"
 "}\n"
 "\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);    \n"
+"    border-top: 1px solid rgb(180, 0, 0);    \n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
 "/* BTN TOP - SCROLLBAR */\n"
 "QScrollBar::sub-line:horizontal {\n"
 "    background-color: #151515;\n"
@@ -4138,6 +3883,28 @@ class Ui_MainWindow(object):
 "    border-color: #242424;\n"
 "}\n"
 "QScrollBar::sub-line:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border-top:1px solid rgb(180, 0, 0);\n"
+"    border-right: 0px;\n"
+"    border-bottom: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);    \n"
+"}\n"
+"QScrollBar::add-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:vertical:pressed {    \n"
 "    background-color: rgb(120, 0, 2);\n"
 "}\n"
 "\n"
@@ -4162,6 +3929,16 @@ class Ui_MainWindow(object):
 "}\n"
 "QScrollBar::add-line:horizontal:pressed {    \n"
 "    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
 "}\n"
 "\n"
 "/* RESET ARROW */\n"
@@ -4323,20 +4100,23 @@ class Ui_MainWindow(object):
 "    background-color: #101010;\n"
 "    color: #dddddd;\n"
 "    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
+"    min-width: 30px;    \n"
 "    min-height: 30px;\n"
+"    font-family: Montserrat SemiBold;\n"
 "}\n"
+"\n"
 "\n"
 "QHeaderView::section\n"
 "{\n"
 "    background-color: #101010;\n"
-"    min-width: 10px;    \n"
+"    border: 0px solid white;\n"
+"    border-bottom: 1px solid rgb(60,60,60);\n"
+"    border-right: 1px solid rgb(60,60,60);\n"
 "    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
 "    color: #dddddd;\n"
 "    font-size: 12px;\n"
+"    color: white;\n"
+"    selection-background-color:#ffc0cb;\n"
 "}\n"
 "\n"
 "QHeaderView::section:hover {\n"
@@ -4344,17 +4124,12 @@ class Ui_MainWindow(object):
 "    background-color: rgb(80,80,80);\n"
 "}\n"
 "\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
 "QTableWidget QTableCornerButton::section\n"
 "{\n"
-"    \n"
-"    background: rgb(80,80,80);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
+"    background-color: #101010;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px  solid rgb(60,60,60);\n"
+"    border-right: 1px  solid rgb(60,60,60);\n"
 "}\n"
 "\n"
 "QTableWidget::item\n"
@@ -4367,12 +4142,9 @@ class Ui_MainWindow(object):
 "\n"
 "QTableView\n"
 "{\n"
-"    background-color: #101010;\n"
-"    color: #d5d5d5;\n"
 "    border-top: 1px solid #434343;\n"
-"    border-right: 0px;\n"
-"    border-left: 0px;\n"
-"    border-bottom: 0px;\n"
+"    background-color: #101010;\n"
+"    color: #d5d5d5\n"
 "}\n"
 "\n"
 "QTableWidget::item:hover {\n"
@@ -4388,11 +4160,18 @@ class Ui_MainWindow(object):
 "\n"
 "QScrollBar:vertical {\n"
 "    border: none;\n"
-"    background-color: #151515;\n"
+"    background-color: #202020;\n"
 "    width: 12px;\n"
 "    margin: 15px 0 15px 0;\n"
-"    border-radius: 0px;\n"
 " }\n"
+"\n"
+"QScrollBar:horizontal {\n"
+"    border: none;\n"
+"    background-color: #202020;\n"
+"    height: 12px;\n"
+"    margin: 0 15px 0 15px;\n"
+" }\n"
+"\n"
 "\n"
 "/*  HANDLE BAR VERTICAL */\n"
 "QScrollBar::handle:vertical {    \n"
@@ -4403,6 +4182,7 @@ class Ui_MainWindow(object):
 "    border-right: 0px;\n"
 "    border-color: rgb(60,60,60);\n"
 "}\n"
+"\n"
 "QScrollBar::handle:vertical:hover{    \n"
 "    background-color:  rgb(50,50,50);\n"
 "    border-color: rgb(60,60,60);\n"
@@ -4411,58 +4191,6 @@ class Ui_MainWindow(object):
 "    background-color: rgb(120, 0, 2);\n"
 "}\n"
 "\n"
-"/* BTN TOP - SCROLLBAR */\n"
-"QScrollBar::sub-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: top;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 0px;\n"
-"    border-bottom: 1px solid rgb(180, 0, 0);\n"
-"}\n"
-"QScrollBar::sub-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::sub-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"\n"
-"/* BTN BOTTOM - SCROLLBAR */\n"
-"QScrollBar::add-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: bottom;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 1px solid;\n"
-"    border-color: rgb(60,60,60);\n"
-"    border: 1px solid;\n"
-"    border-top:1px solid rgb(180, 0, 0);\n"
-"    border-right: 0px;\n"
-"    border-bottom: 0px;\n"
-"}\n"
-"QScrollBar::add-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::add-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"/* RESET ARROW */\n"
-"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"    background: none;\n"
-"}\n"
-"\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"    background: none;\n"
-"}\n"
-"\n"
-"QScrollBar:horizontal {\n"
-"    border: none;\n"
-"    background-color: #202020;\n"
-"    height: 12px;\n"
-"    margin: 0 15px 0 15px;\n"
-" }\n"
 "\n"
 "/*  HANDLE BAR HORIZONTAL */\n"
 "QScrollBar::handle:horizontal {    \n"
@@ -4481,6 +4209,25 @@ class Ui_MainWindow(object):
 "    background-color: rgb(120, 0, 2);\n"
 "}\n"
 "\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);    \n"
+"    border-top: 1px solid rgb(180, 0, 0);    \n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
 "/* BTN TOP - SCROLLBAR */\n"
 "QScrollBar::sub-line:horizontal {\n"
 "    background-color: #151515;\n"
@@ -4496,6 +4243,28 @@ class Ui_MainWindow(object):
 "    border-color: #242424;\n"
 "}\n"
 "QScrollBar::sub-line:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border-top:1px solid rgb(180, 0, 0);\n"
+"    border-right: 0px;\n"
+"    border-bottom: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);    \n"
+"}\n"
+"QScrollBar::add-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:vertical:pressed {    \n"
 "    background-color: rgb(120, 0, 2);\n"
 "}\n"
 "\n"
@@ -4520,6 +4289,16 @@ class Ui_MainWindow(object):
 "}\n"
 "QScrollBar::add-line:horizontal:pressed {    \n"
 "    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
 "}\n"
 "\n"
 "/* RESET ARROW */\n"
@@ -4661,20 +4440,23 @@ class Ui_MainWindow(object):
 "    background-color: #101010;\n"
 "    color: #dddddd;\n"
 "    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
+"    min-width: 30px;    \n"
 "    min-height: 30px;\n"
+"    font-family: Montserrat SemiBold;\n"
 "}\n"
+"\n"
 "\n"
 "QHeaderView::section\n"
 "{\n"
 "    background-color: #101010;\n"
-"    min-width: 10px;    \n"
+"    border: 0px solid white;\n"
+"    border-bottom: 1px solid rgb(60,60,60);\n"
+"    border-right: 1px solid rgb(60,60,60);\n"
 "    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
 "    color: #dddddd;\n"
 "    font-size: 12px;\n"
+"    color: white;\n"
+"    selection-background-color:#ffc0cb;\n"
 "}\n"
 "\n"
 "QHeaderView::section:hover {\n"
@@ -4682,17 +4464,12 @@ class Ui_MainWindow(object):
 "    background-color: rgb(80,80,80);\n"
 "}\n"
 "\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
 "QTableWidget QTableCornerButton::section\n"
 "{\n"
-"    \n"
-"    background: rgb(80,80,80);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
+"    background-color: #101010;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px  solid rgb(60,60,60);\n"
+"    border-right: 1px  solid rgb(60,60,60);\n"
 "}\n"
 "\n"
 "QTableWidget::item\n"
@@ -4705,12 +4482,9 @@ class Ui_MainWindow(object):
 "\n"
 "QTableView\n"
 "{\n"
-"    background-color: #101010;\n"
-"    color: #d5d5d5;\n"
 "    border-top: 1px solid #434343;\n"
-"    border-right: 0px;\n"
-"    border-left: 0px;\n"
-"    border-bottom: 0px;\n"
+"    background-color: #101010;\n"
+"    color: #d5d5d5\n"
 "}\n"
 "\n"
 "QTableWidget::item:hover {\n"
@@ -4726,11 +4500,18 @@ class Ui_MainWindow(object):
 "\n"
 "QScrollBar:vertical {\n"
 "    border: none;\n"
-"    background-color: #151515;\n"
+"    background-color: #202020;\n"
 "    width: 12px;\n"
 "    margin: 15px 0 15px 0;\n"
-"    border-radius: 0px;\n"
 " }\n"
+"\n"
+"QScrollBar:horizontal {\n"
+"    border: none;\n"
+"    background-color: #202020;\n"
+"    height: 12px;\n"
+"    margin: 0 15px 0 15px;\n"
+" }\n"
+"\n"
 "\n"
 "/*  HANDLE BAR VERTICAL */\n"
 "QScrollBar::handle:vertical {    \n"
@@ -4741,6 +4522,7 @@ class Ui_MainWindow(object):
 "    border-right: 0px;\n"
 "    border-color: rgb(60,60,60);\n"
 "}\n"
+"\n"
 "QScrollBar::handle:vertical:hover{    \n"
 "    background-color:  rgb(50,50,50);\n"
 "    border-color: rgb(60,60,60);\n"
@@ -4749,58 +4531,6 @@ class Ui_MainWindow(object):
 "    background-color: rgb(120, 0, 2);\n"
 "}\n"
 "\n"
-"/* BTN TOP - SCROLLBAR */\n"
-"QScrollBar::sub-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: top;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 0px;\n"
-"    border-bottom: 1px solid rgb(180, 0, 0);\n"
-"}\n"
-"QScrollBar::sub-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::sub-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"\n"
-"/* BTN BOTTOM - SCROLLBAR */\n"
-"QScrollBar::add-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: bottom;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 1px solid;\n"
-"    border-color: rgb(60,60,60);\n"
-"    border: 1px solid;\n"
-"    border-top:1px solid rgb(180, 0, 0);\n"
-"    border-right: 0px;\n"
-"    border-bottom: 0px;\n"
-"}\n"
-"QScrollBar::add-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::add-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"/* RESET ARROW */\n"
-"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"    background: none;\n"
-"}\n"
-"\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"    background: none;\n"
-"}\n"
-"\n"
-"QScrollBar:horizontal {\n"
-"    border: none;\n"
-"    background-color: #202020;\n"
-"    height: 12px;\n"
-"    margin: 0 15px 0 15px;\n"
-" }\n"
 "\n"
 "/*  HANDLE BAR HORIZONTAL */\n"
 "QScrollBar::handle:horizontal {    \n"
@@ -4819,6 +4549,25 @@ class Ui_MainWindow(object):
 "    background-color: rgb(120, 0, 2);\n"
 "}\n"
 "\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);    \n"
+"    border-top: 1px solid rgb(180, 0, 0);    \n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
 "/* BTN TOP - SCROLLBAR */\n"
 "QScrollBar::sub-line:horizontal {\n"
 "    background-color: #151515;\n"
@@ -4834,6 +4583,28 @@ class Ui_MainWindow(object):
 "    border-color: #242424;\n"
 "}\n"
 "QScrollBar::sub-line:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border-top:1px solid rgb(180, 0, 0);\n"
+"    border-right: 0px;\n"
+"    border-bottom: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);    \n"
+"}\n"
+"QScrollBar::add-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:vertical:pressed {    \n"
 "    background-color: rgb(120, 0, 2);\n"
 "}\n"
 "\n"
@@ -4858,6 +4629,16 @@ class Ui_MainWindow(object):
 "}\n"
 "QScrollBar::add-line:horizontal:pressed {    \n"
 "    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
 "}\n"
 "\n"
 "/* RESET ARROW */\n"
@@ -5019,20 +4800,23 @@ class Ui_MainWindow(object):
 "    background-color: #101010;\n"
 "    color: #dddddd;\n"
 "    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
+"    min-width: 30px;    \n"
 "    min-height: 30px;\n"
+"    font-family: Montserrat SemiBold;\n"
 "}\n"
+"\n"
 "\n"
 "QHeaderView::section\n"
 "{\n"
 "    background-color: #101010;\n"
-"    min-width: 10px;    \n"
+"    border: 0px solid white;\n"
+"    border-bottom: 1px solid rgb(60,60,60);\n"
+"    border-right: 1px solid rgb(60,60,60);\n"
 "    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
 "    color: #dddddd;\n"
 "    font-size: 12px;\n"
+"    color: white;\n"
+"    selection-background-color:#ffc0cb;\n"
 "}\n"
 "\n"
 "QHeaderView::section:hover {\n"
@@ -5040,17 +4824,12 @@ class Ui_MainWindow(object):
 "    background-color: rgb(80,80,80);\n"
 "}\n"
 "\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
 "QTableWidget QTableCornerButton::section\n"
 "{\n"
-"    \n"
-"    background: rgb(80,80,80);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
+"    background-color: #101010;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px  solid rgb(60,60,60);\n"
+"    border-right: 1px  solid rgb(60,60,60);\n"
 "}\n"
 "\n"
 "QTableWidget::item\n"
@@ -5063,12 +4842,9 @@ class Ui_MainWindow(object):
 "\n"
 "QTableView\n"
 "{\n"
-"    background-color: #101010;\n"
-"    color: #d5d5d5;\n"
 "    border-top: 1px solid #434343;\n"
-"    border-right: 0px;\n"
-"    border-left: 0px;\n"
-"    border-bottom: 0px;\n"
+"    background-color: #101010;\n"
+"    color: #d5d5d5\n"
 "}\n"
 "\n"
 "QTableWidget::item:hover {\n"
@@ -5084,11 +4860,18 @@ class Ui_MainWindow(object):
 "\n"
 "QScrollBar:vertical {\n"
 "    border: none;\n"
-"    background-color: #151515;\n"
+"    background-color: #202020;\n"
 "    width: 12px;\n"
 "    margin: 15px 0 15px 0;\n"
-"    border-radius: 0px;\n"
 " }\n"
+"\n"
+"QScrollBar:horizontal {\n"
+"    border: none;\n"
+"    background-color: #202020;\n"
+"    height: 12px;\n"
+"    margin: 0 15px 0 15px;\n"
+" }\n"
+"\n"
 "\n"
 "/*  HANDLE BAR VERTICAL */\n"
 "QScrollBar::handle:vertical {    \n"
@@ -5099,6 +4882,7 @@ class Ui_MainWindow(object):
 "    border-right: 0px;\n"
 "    border-color: rgb(60,60,60);\n"
 "}\n"
+"\n"
 "QScrollBar::handle:vertical:hover{    \n"
 "    background-color:  rgb(50,50,50);\n"
 "    border-color: rgb(60,60,60);\n"
@@ -5107,58 +4891,6 @@ class Ui_MainWindow(object):
 "    background-color: rgb(120, 0, 2);\n"
 "}\n"
 "\n"
-"/* BTN TOP - SCROLLBAR */\n"
-"QScrollBar::sub-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: top;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 0px;\n"
-"    border-bottom: 1px solid rgb(180, 0, 0);\n"
-"}\n"
-"QScrollBar::sub-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::sub-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"\n"
-"/* BTN BOTTOM - SCROLLBAR */\n"
-"QScrollBar::add-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: bottom;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 1px solid;\n"
-"    border-color: rgb(60,60,60);\n"
-"    border: 1px solid;\n"
-"    border-top:1px solid rgb(180, 0, 0);\n"
-"    border-right: 0px;\n"
-"    border-bottom: 0px;\n"
-"}\n"
-"QScrollBar::add-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::add-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"/* RESET ARROW */\n"
-"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"    background: none;\n"
-"}\n"
-"\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"    background: none;\n"
-"}\n"
-"\n"
-"QScrollBar:horizontal {\n"
-"    border: none;\n"
-"    background-color: #202020;\n"
-"    height: 12px;\n"
-"    margin: 0 15px 0 15px;\n"
-" }\n"
 "\n"
 "/*  HANDLE BAR HORIZONTAL */\n"
 "QScrollBar::handle:horizontal {    \n"
@@ -5177,6 +4909,25 @@ class Ui_MainWindow(object):
 "    background-color: rgb(120, 0, 2);\n"
 "}\n"
 "\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);    \n"
+"    border-top: 1px solid rgb(180, 0, 0);    \n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
 "/* BTN TOP - SCROLLBAR */\n"
 "QScrollBar::sub-line:horizontal {\n"
 "    background-color: #151515;\n"
@@ -5192,6 +4943,28 @@ class Ui_MainWindow(object):
 "    border-color: #242424;\n"
 "}\n"
 "QScrollBar::sub-line:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border-top:1px solid rgb(180, 0, 0);\n"
+"    border-right: 0px;\n"
+"    border-bottom: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);    \n"
+"}\n"
+"QScrollBar::add-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:vertical:pressed {    \n"
 "    background-color: rgb(120, 0, 2);\n"
 "}\n"
 "\n"
@@ -5216,6 +4989,16 @@ class Ui_MainWindow(object):
 "}\n"
 "QScrollBar::add-line:horizontal:pressed {    \n"
 "    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
 "}\n"
 "\n"
 "/* RESET ARROW */\n"
@@ -5384,20 +5167,23 @@ class Ui_MainWindow(object):
 "    background-color: #101010;\n"
 "    color: #dddddd;\n"
 "    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
+"    min-width: 30px;    \n"
 "    min-height: 30px;\n"
+"    font-family: Montserrat SemiBold;\n"
 "}\n"
+"\n"
 "\n"
 "QHeaderView::section\n"
 "{\n"
 "    background-color: #101010;\n"
-"    min-width: 10px;    \n"
+"    border: 0px solid white;\n"
+"    border-bottom: 1px solid rgb(60,60,60);\n"
+"    border-right: 1px solid rgb(60,60,60);\n"
 "    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
 "    color: #dddddd;\n"
 "    font-size: 12px;\n"
+"    color: white;\n"
+"    selection-background-color:#ffc0cb;\n"
 "}\n"
 "\n"
 "QHeaderView::section:hover {\n"
@@ -5405,17 +5191,12 @@ class Ui_MainWindow(object):
 "    background-color: rgb(80,80,80);\n"
 "}\n"
 "\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
 "QTableWidget QTableCornerButton::section\n"
 "{\n"
-"    \n"
-"    background: rgb(80,80,80);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
+"    background-color: #101010;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px  solid rgb(60,60,60);\n"
+"    border-right: 1px  solid rgb(60,60,60);\n"
 "}\n"
 "\n"
 "QTableWidget::item\n"
@@ -5428,12 +5209,9 @@ class Ui_MainWindow(object):
 "\n"
 "QTableView\n"
 "{\n"
-"    background-color: #101010;\n"
-"    color: #d5d5d5;\n"
 "    border-top: 1px solid #434343;\n"
-"    border-right: 0px;\n"
-"    border-left: 0px;\n"
-"    border-bottom: 0px;\n"
+"    background-color: #101010;\n"
+"    color: #d5d5d5\n"
 "}\n"
 "\n"
 "QTableWidget::item:hover {\n"
@@ -5449,11 +5227,18 @@ class Ui_MainWindow(object):
 "\n"
 "QScrollBar:vertical {\n"
 "    border: none;\n"
-"    background-color: #151515;\n"
+"    background-color: #202020;\n"
 "    width: 12px;\n"
 "    margin: 15px 0 15px 0;\n"
-"    border-radius: 0px;\n"
 " }\n"
+"\n"
+"QScrollBar:horizontal {\n"
+"    border: none;\n"
+"    background-color: #202020;\n"
+"    height: 12px;\n"
+"    margin: 0 15px 0 15px;\n"
+" }\n"
+"\n"
 "\n"
 "/*  HANDLE BAR VERTICAL */\n"
 "QScrollBar::handle:vertical {    \n"
@@ -5464,6 +5249,7 @@ class Ui_MainWindow(object):
 "    border-right: 0px;\n"
 "    border-color: rgb(60,60,60);\n"
 "}\n"
+"\n"
 "QScrollBar::handle:vertical:hover{    \n"
 "    background-color:  rgb(50,50,50);\n"
 "    border-color: rgb(60,60,60);\n"
@@ -5472,58 +5258,6 @@ class Ui_MainWindow(object):
 "    background-color: rgb(120, 0, 2);\n"
 "}\n"
 "\n"
-"/* BTN TOP - SCROLLBAR */\n"
-"QScrollBar::sub-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: top;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 0px;\n"
-"    border-bottom: 1px solid rgb(180, 0, 0);\n"
-"}\n"
-"QScrollBar::sub-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::sub-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"\n"
-"/* BTN BOTTOM - SCROLLBAR */\n"
-"QScrollBar::add-line:vertical {\n"
-"    background-color: #151515;\n"
-"    height: 15px;\n"
-"    subcontrol-position: bottom;\n"
-"    subcontrol-origin: margin;\n"
-"    border: 1px solid;\n"
-"    border-color: rgb(60,60,60);\n"
-"    border: 1px solid;\n"
-"    border-top:1px solid rgb(180, 0, 0);\n"
-"    border-right: 0px;\n"
-"    border-bottom: 0px;\n"
-"}\n"
-"QScrollBar::add-line:vertical:hover {    \n"
-"    background-color: #575757;\n"
-"    border-color: #242424;\n"
-"}\n"
-"QScrollBar::add-line:vertical:pressed {    \n"
-"    background-color: rgb(120, 0, 2);\n"
-"}\n"
-"/* RESET ARROW */\n"
-"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"    background: none;\n"
-"}\n"
-"\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"    background: none;\n"
-"}\n"
-"\n"
-"QScrollBar:horizontal {\n"
-"    border: none;\n"
-"    background-color: #202020;\n"
-"    height: 12px;\n"
-"    margin: 0 15px 0 15px;\n"
-" }\n"
 "\n"
 "/*  HANDLE BAR HORIZONTAL */\n"
 "QScrollBar::handle:horizontal {    \n"
@@ -5542,6 +5276,25 @@ class Ui_MainWindow(object):
 "    background-color: rgb(120, 0, 2);\n"
 "}\n"
 "\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);    \n"
+"    border-top: 1px solid rgb(180, 0, 0);    \n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
 "/* BTN TOP - SCROLLBAR */\n"
 "QScrollBar::sub-line:horizontal {\n"
 "    background-color: #151515;\n"
@@ -5557,6 +5310,28 @@ class Ui_MainWindow(object):
 "    border-color: #242424;\n"
 "}\n"
 "QScrollBar::sub-line:horizontal:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border-top:1px solid rgb(180, 0, 0);\n"
+"    border-right: 0px;\n"
+"    border-bottom: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);    \n"
+"}\n"
+"QScrollBar::add-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:vertical:pressed {    \n"
 "    background-color: rgb(120, 0, 2);\n"
 "}\n"
 "\n"
@@ -5581,6 +5356,16 @@ class Ui_MainWindow(object):
 "}\n"
 "QScrollBar::add-line:horizontal:pressed {    \n"
 "    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
 "}\n"
 "\n"
 "/* RESET ARROW */\n"
@@ -5894,12 +5679,18 @@ class Ui_MainWindow(object):
 "    height: 25px;\n"
 "     border-image: url(\"E:/pcconf/images/down-arrow.png\") 0;\n"
 "}\n"
+"\n"
+"QRadioButton::indicator{\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"     border-image: url(\"E:/pcconf/images/down-arrow.png\") 0;\n"
+"}\n"
+"\n"
 "QRadioButton::indicator:checked {\n"
 "    width: 25px;\n"
 "    height: 25px;\n"
 "    margin-left: 3px;\n"
 "     border-image: url(\"E:/pcconf/images/up-arrow.png\") 0;\n"
-"    color: white;\n"
 "}\n"
 "\n"
 "QRadioButton::indicator:unchecked {\n"
@@ -5907,10 +5698,360 @@ class Ui_MainWindow(object):
 "    height: 25px;\n"
 "    margin-left: 3px;\n"
 "     border-image: url(\"E:/pcconf/images/down-arrow-gray.png\") 0;\n"
-"    color: rgb(190,190,190);\n"
 "}")
         self.btnVideoHeader.setText("")
+        self.btnVideoHeader.setAutoExclusive(False)
         self.btnVideoHeader.setObjectName("btnVideoHeader")
+        self.btnProcHeader = QtWidgets.QRadioButton(self.frame_3)
+        self.btnProcHeader.setGeometry(QtCore.QRect(730, 390, 31, 31))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.btnProcHeader.sizePolicy().hasHeightForWidth())
+        self.btnProcHeader.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setPointSize(-1)
+        self.btnProcHeader.setFont(font)
+        self.btnProcHeader.setStyleSheet("QRadioButton{\n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border: 0px;\n"
+"    border-top: 1px solid rgb(60,60,60);\n"
+"    font-size: 14px;\n"
+"}\n"
+"QRadioButton:hover{\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-color: rgb(40,40,40);\n"
+"    border-bottom: 1px solid  red;\n"
+"}\n"
+"QRadioButton::indicator:hover{\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"     border-image: url(\"E:/pcconf/images/down-arrow.png\") 0;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator{\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"     border-image: url(\"E:/pcconf/images/down-arrow.png\") 0;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:checked {\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"    margin-left: 3px;\n"
+"     border-image: url(\"E:/pcconf/images/up-arrow.png\") 0;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:unchecked {\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"    margin-left: 3px;\n"
+"     border-image: url(\"E:/pcconf/images/down-arrow-gray.png\") 0;\n"
+"}")
+        self.btnProcHeader.setText("")
+        self.btnProcHeader.setAutoExclusive(False)
+        self.btnProcHeader.setObjectName("btnProcHeader")
+        self.btnMotherHeader = QtWidgets.QRadioButton(self.frame_3)
+        self.btnMotherHeader.setGeometry(QtCore.QRect(730, 700, 31, 31))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.btnMotherHeader.sizePolicy().hasHeightForWidth())
+        self.btnMotherHeader.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setPointSize(-1)
+        self.btnMotherHeader.setFont(font)
+        self.btnMotherHeader.setStyleSheet("QRadioButton{\n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border: 0px;\n"
+"    border-top: 1px solid rgb(60,60,60);\n"
+"    font-size: 14px;\n"
+"}\n"
+"QRadioButton:hover{\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-color: rgb(40,40,40);\n"
+"    border-bottom: 1px solid  red;\n"
+"}\n"
+"QRadioButton::indicator:hover{\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"     border-image: url(\"E:/pcconf/images/down-arrow.png\") 0;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator{\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"     border-image: url(\"E:/pcconf/images/down-arrow.png\") 0;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:checked {\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"    margin-left: 3px;\n"
+"     border-image: url(\"E:/pcconf/images/up-arrow.png\") 0;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:unchecked {\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"    margin-left: 3px;\n"
+"     border-image: url(\"E:/pcconf/images/down-arrow-gray.png\") 0;\n"
+"}")
+        self.btnMotherHeader.setText("")
+        self.btnMotherHeader.setAutoExclusive(False)
+        self.btnMotherHeader.setObjectName("btnMotherHeader")
+        self.btnCoolHeader = QtWidgets.QRadioButton(self.frame_3)
+        self.btnCoolHeader.setGeometry(QtCore.QRect(730, 1010, 31, 31))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.btnCoolHeader.sizePolicy().hasHeightForWidth())
+        self.btnCoolHeader.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setPointSize(-1)
+        self.btnCoolHeader.setFont(font)
+        self.btnCoolHeader.setStyleSheet("QRadioButton{\n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border: 0px;\n"
+"    border-top: 1px solid rgb(60,60,60);\n"
+"    font-size: 14px;\n"
+"}\n"
+"QRadioButton:hover{\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-color: rgb(40,40,40);\n"
+"    border-bottom: 1px solid  red;\n"
+"}\n"
+"QRadioButton::indicator:hover{\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"     border-image: url(\"E:/pcconf/images/down-arrow.png\") 0;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator{\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"     border-image: url(\"E:/pcconf/images/down-arrow.png\") 0;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:checked {\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"    margin-left: 3px;\n"
+"     border-image: url(\"E:/pcconf/images/up-arrow.png\") 0;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:unchecked {\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"    margin-left: 3px;\n"
+"     border-image: url(\"E:/pcconf/images/down-arrow-gray.png\") 0;\n"
+"}")
+        self.btnCoolHeader.setText("")
+        self.btnCoolHeader.setAutoExclusive(False)
+        self.btnCoolHeader.setObjectName("btnCoolHeader")
+        self.btnRamHeader = QtWidgets.QRadioButton(self.frame_3)
+        self.btnRamHeader.setGeometry(QtCore.QRect(730, 1310, 31, 31))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.btnRamHeader.sizePolicy().hasHeightForWidth())
+        self.btnRamHeader.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setPointSize(-1)
+        self.btnRamHeader.setFont(font)
+        self.btnRamHeader.setStyleSheet("QRadioButton{\n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border: 0px;\n"
+"    border-top: 1px solid rgb(60,60,60);\n"
+"    font-size: 14px;\n"
+"}\n"
+"QRadioButton:hover{\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-color: rgb(40,40,40);\n"
+"    border-bottom: 1px solid  red;\n"
+"}\n"
+"QRadioButton::indicator:hover{\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"     border-image: url(\"E:/pcconf/images/down-arrow.png\") 0;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator{\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"     border-image: url(\"E:/pcconf/images/down-arrow.png\") 0;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:checked {\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"    margin-left: 3px;\n"
+"     border-image: url(\"E:/pcconf/images/up-arrow.png\") 0;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:unchecked {\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"    margin-left: 3px;\n"
+"     border-image: url(\"E:/pcconf/images/down-arrow-gray.png\") 0;\n"
+"}")
+        self.btnRamHeader.setText("")
+        self.btnRamHeader.setAutoExclusive(False)
+        self.btnRamHeader.setObjectName("btnRamHeader")
+        self.btnDiskHeader = QtWidgets.QRadioButton(self.frame_3)
+        self.btnDiskHeader.setGeometry(QtCore.QRect(730, 1620, 31, 31))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.btnDiskHeader.sizePolicy().hasHeightForWidth())
+        self.btnDiskHeader.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setPointSize(-1)
+        self.btnDiskHeader.setFont(font)
+        self.btnDiskHeader.setStyleSheet("QRadioButton{\n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border: 0px;\n"
+"    border-top: 1px solid rgb(60,60,60);\n"
+"    font-size: 14px;\n"
+"}\n"
+"QRadioButton:hover{\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-color: rgb(40,40,40);\n"
+"    border-bottom: 1px solid  red;\n"
+"}\n"
+"QRadioButton::indicator:hover{\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"     border-image: url(\"E:/pcconf/images/down-arrow.png\") 0;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator{\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"     border-image: url(\"E:/pcconf/images/down-arrow.png\") 0;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:checked {\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"    margin-left: 3px;\n"
+"     border-image: url(\"E:/pcconf/images/up-arrow.png\") 0;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:unchecked {\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"    margin-left: 3px;\n"
+"     border-image: url(\"E:/pcconf/images/down-arrow-gray.png\") 0;\n"
+"}")
+        self.btnDiskHeader.setText("")
+        self.btnDiskHeader.setAutoExclusive(False)
+        self.btnDiskHeader.setObjectName("btnDiskHeader")
+        self.btnPowerHeader = QtWidgets.QRadioButton(self.frame_3)
+        self.btnPowerHeader.setGeometry(QtCore.QRect(730, 1930, 31, 31))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.btnPowerHeader.sizePolicy().hasHeightForWidth())
+        self.btnPowerHeader.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setPointSize(-1)
+        self.btnPowerHeader.setFont(font)
+        self.btnPowerHeader.setStyleSheet("QRadioButton{\n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border: 0px;\n"
+"    border-top: 1px solid rgb(60,60,60);\n"
+"    font-size: 14px;\n"
+"}\n"
+"QRadioButton:hover{\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-color: rgb(40,40,40);\n"
+"    border-bottom: 1px solid  red;\n"
+"}\n"
+"QRadioButton::indicator:hover{\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"     border-image: url(\"E:/pcconf/images/down-arrow.png\") 0;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator{\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"     border-image: url(\"E:/pcconf/images/down-arrow.png\") 0;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:checked {\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"    margin-left: 3px;\n"
+"     border-image: url(\"E:/pcconf/images/up-arrow.png\") 0;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:unchecked {\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"    margin-left: 3px;\n"
+"     border-image: url(\"E:/pcconf/images/down-arrow-gray.png\") 0;\n"
+"}")
+        self.btnPowerHeader.setText("")
+        self.btnPowerHeader.setAutoExclusive(False)
+        self.btnPowerHeader.setObjectName("btnPowerHeader")
+        self.btnBodyHeader = QtWidgets.QRadioButton(self.frame_3)
+        self.btnBodyHeader.setGeometry(QtCore.QRect(730, 2240, 31, 31))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.btnBodyHeader.sizePolicy().hasHeightForWidth())
+        self.btnBodyHeader.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setPointSize(-1)
+        self.btnBodyHeader.setFont(font)
+        self.btnBodyHeader.setStyleSheet("QRadioButton{\n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border: 0px;\n"
+"    border-top: 1px solid rgb(60,60,60);\n"
+"    font-size: 14px;\n"
+"}\n"
+"QRadioButton:hover{\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-color: rgb(40,40,40);\n"
+"    border-bottom: 1px solid  red;\n"
+"}\n"
+"QRadioButton::indicator:hover{\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"     border-image: url(\"E:/pcconf/images/down-arrow.png\") 0;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator{\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"     border-image: url(\"E:/pcconf/images/down-arrow.png\") 0;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:checked {\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"    margin-left: 3px;\n"
+"     border-image: url(\"E:/pcconf/images/up-arrow.png\") 0;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:unchecked {\n"
+"    width: 25px;\n"
+"    height: 25px;\n"
+"    margin-left: 3px;\n"
+"     border-image: url(\"E:/pcconf/images/down-arrow-gray.png\") 0;\n"
+"}")
+        self.btnBodyHeader.setText("")
+        self.btnBodyHeader.setAutoExclusive(False)
+        self.btnBodyHeader.setObjectName("btnBodyHeader")
         self.gridLayout.addWidget(self.frame_3, 0, 0, 1, 1)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.frame_cart = QtWidgets.QFrame(self.configurator)
@@ -6989,8 +7130,6 @@ class Ui_MainWindow(object):
         self.lbVideoProizv.setText(_translate("MainWindow", "Производители:"))
         self.btnNewVideoProizv.setText(_translate("MainWindow", "Новый\n"
 "поставщик"))
-        self.btnDelVideoProizv.setText(_translate("MainWindow", "Удалить\n"
-"выбранного"))
         self.tableVideoProizv.setSortingEnabled(True)
         item = self.tableVideoProizv.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Выбор"))
@@ -7006,8 +7145,6 @@ class Ui_MainWindow(object):
         self.lbProcProizv.setText(_translate("MainWindow", "Производители:"))
         self.btnNewProcProizv.setText(_translate("MainWindow", "Новый\n"
 "поставщик"))
-        self.btnDelProcProizv.setText(_translate("MainWindow", "Удалить\n"
-"выбранного"))
         self.tableProcProizv.setSortingEnabled(True)
         item = self.tableProcProizv.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Выбор"))
@@ -7023,8 +7160,6 @@ class Ui_MainWindow(object):
         self.lbMotherProizv.setText(_translate("MainWindow", "Производители:"))
         self.btnNewMotherProizv.setText(_translate("MainWindow", "Новый\n"
 "поставщик"))
-        self.btnDelMotherProizv.setText(_translate("MainWindow", "Удалить\n"
-"выбранного"))
         self.tableMotherProizv.setSortingEnabled(True)
         item = self.tableMotherProizv.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Выбор"))
@@ -7040,8 +7175,6 @@ class Ui_MainWindow(object):
         self.lbCoolProizv.setText(_translate("MainWindow", "Производители:"))
         self.btnNewCoolProizv.setText(_translate("MainWindow", "Новый\n"
 "поставщик"))
-        self.btnDelCoolProizv.setText(_translate("MainWindow", "Удалить\n"
-"выбранного"))
         self.tableCoolProizv.setSortingEnabled(True)
         item = self.tableCoolProizv.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Выбор"))
@@ -7057,8 +7190,6 @@ class Ui_MainWindow(object):
         self.lbRamProizv.setText(_translate("MainWindow", "Производители:"))
         self.btnNewRamProizv.setText(_translate("MainWindow", "Новый\n"
 "поставщик"))
-        self.btnDelRamProizv.setText(_translate("MainWindow", "Удалить\n"
-"выбранного"))
         self.tableRamProizv.setSortingEnabled(True)
         item = self.tableRamProizv.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Выбор"))
@@ -7074,8 +7205,6 @@ class Ui_MainWindow(object):
         self.lbDiskProizv.setText(_translate("MainWindow", "Производители:"))
         self.btnNewDiskProizv.setText(_translate("MainWindow", "Новый\n"
 "поставщик"))
-        self.btnDelDiskProizv.setText(_translate("MainWindow", "Удалить\n"
-"выбранного"))
         self.tableDiskProizv.setSortingEnabled(True)
         item = self.tableDiskProizv.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Выбор"))
@@ -7091,8 +7220,6 @@ class Ui_MainWindow(object):
         self.lbPowerProizv.setText(_translate("MainWindow", "Производители:"))
         self.btnNewPowerProizv.setText(_translate("MainWindow", "Новый\n"
 "поставщик"))
-        self.btnDelPowerProizv.setText(_translate("MainWindow", "Удалить\n"
-"выбранного"))
         self.tablePowerProizv.setSortingEnabled(True)
         item = self.tablePowerProizv.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Выбор"))
@@ -7108,8 +7235,6 @@ class Ui_MainWindow(object):
         self.lbBodyProizv.setText(_translate("MainWindow", "Производители:"))
         self.btnNewBodyProizv.setText(_translate("MainWindow", "Новый\n"
 "поставщик"))
-        self.btnDelBodyProizv.setText(_translate("MainWindow", "Удалить\n"
-"выбранного"))
         self.tableBodyProizv.setSortingEnabled(True)
         item = self.tableBodyProizv.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Выбор"))
@@ -7123,12 +7248,6 @@ class Ui_MainWindow(object):
 "договор"))
         self.toolBoxNavigation.setItemText(self.toolBoxNavigation.indexOf(self.pageBody), _translate("MainWindow", "Корпусы"))
         self.label_10.setText(_translate("MainWindow", "Готовые конфигурации"))
-        self.btnNewVideoProizv_10.setText(_translate("MainWindow", "Новый\n"
-"поставщик"))
-        self.btnDelBConfProizv.setText(_translate("MainWindow", "Удалить\n"
-"выбранного"))
-        self.btnDelVideoProizv_2.setText(_translate("MainWindow", "Изменить\n"
-"договор"))
         self.toolBoxNavigation.setItemText(self.toolBoxNavigation.indexOf(self.pageConf), _translate("MainWindow", "Конфигурации"))
         self.tableSklad.setSortingEnabled(True)
         self.tabWidgetSklad.setTabText(self.tabWidgetSklad.indexOf(self.all_2), _translate("MainWindow", "Все"))
