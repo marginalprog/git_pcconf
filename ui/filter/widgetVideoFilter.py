@@ -15,7 +15,7 @@ class Ui_WidgetVideoFilter(object):
     def setupUi(self, WidgetVideoFilter):
         WidgetVideoFilter.setObjectName("WidgetVideoFilter")
         WidgetVideoFilter.setWindowModality(QtCore.Qt.WindowModal)
-        WidgetVideoFilter.resize(366, 849)
+        WidgetVideoFilter.resize(366, 866)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/filters.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         WidgetVideoFilter.setWindowIcon(icon)
@@ -27,7 +27,7 @@ class Ui_WidgetVideoFilter(object):
 "}\n"
 "")
         self.btnClose = QtWidgets.QPushButton(WidgetVideoFilter)
-        self.btnClose.setGeometry(QtCore.QRect(190, 790, 121, 31))
+        self.btnClose.setGeometry(QtCore.QRect(190, 820, 121, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -49,7 +49,7 @@ class Ui_WidgetVideoFilter(object):
 "")
         self.btnClose.setObjectName("btnClose")
         self.toolBoxVidFilter = QtWidgets.QToolBox(WidgetVideoFilter)
-        self.toolBoxVidFilter.setGeometry(QtCore.QRect(30, 90, 311, 671))
+        self.toolBoxVidFilter.setGeometry(QtCore.QRect(30, 90, 311, 711))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Ignored)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -99,7 +99,7 @@ class Ui_WidgetVideoFilter(object):
         self.toolBoxVidFilter.setMidLineWidth(1)
         self.toolBoxVidFilter.setObjectName("toolBoxVidFilter")
         self.price = QtWidgets.QWidget()
-        self.price.setGeometry(QtCore.QRect(0, 0, 307, 186))
+        self.price.setGeometry(QtCore.QRect(0, 0, 307, 189))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -345,7 +345,7 @@ class Ui_WidgetVideoFilter(object):
         icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
         self.toolBoxVidFilter.addItem(self.price, icon1, "")
         self.proizvoditel = QtWidgets.QWidget()
-        self.proizvoditel.setGeometry(QtCore.QRect(0, 0, 307, 186))
+        self.proizvoditel.setGeometry(QtCore.QRect(0, 0, 307, 189))
         self.proizvoditel.setObjectName("proizvoditel")
         self.frameProizv = QtWidgets.QFrame(self.proizvoditel)
         self.frameProizv.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -551,7 +551,7 @@ class Ui_WidgetVideoFilter(object):
         icon2.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/up-arrow.png"), QtGui.QIcon.Active, QtGui.QIcon.Off)
         self.toolBoxVidFilter.addItem(self.proizvoditel, icon2, "")
         self.chipCreator = QtWidgets.QWidget()
-        self.chipCreator.setGeometry(QtCore.QRect(0, 0, 307, 186))
+        self.chipCreator.setGeometry(QtCore.QRect(0, 0, 307, 189))
         self.chipCreator.setObjectName("chipCreator")
         self.frameChipCreator = QtWidgets.QFrame(self.chipCreator)
         self.frameChipCreator.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -755,8 +755,210 @@ class Ui_WidgetVideoFilter(object):
         icon3 = QtGui.QIcon()
         icon3.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBoxVidFilter.addItem(self.chipCreator, icon3, "")
+        self.gaming = QtWidgets.QWidget()
+        self.gaming.setObjectName("gaming")
+        self.frameGaming = QtWidgets.QFrame(self.gaming)
+        self.frameGaming.setGeometry(QtCore.QRect(0, 0, 311, 191))
+        self.frameGaming.setStyleSheet("QFrame{\n"
+"    background-color: #101010;\n"
+"}\n"
+"")
+        self.frameGaming.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frameGaming.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frameGaming.setObjectName("frameGaming")
+        self.tableGaming = QtWidgets.QTableWidget(self.frameGaming)
+        self.tableGaming.setEnabled(True)
+        self.tableGaming.setGeometry(QtCore.QRect(10, 0, 291, 161))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
+        self.tableGaming.setFont(font)
+        self.tableGaming.setMouseTracking(True)
+        self.tableGaming.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.tableGaming.setAutoFillBackground(False)
+        self.tableGaming.setStyleSheet("QHeaderView\n"
+"{    \n"
+"    background: rgb(30, 30, 30);\n"
+"    color: #dddddd;\n"
+"    border: 0px;\n"
+"    font-size: 14px;\n"
+"    min-width: 100px;    \n"
+"    min-height: 30px;\n"
+"}\n"
+"\n"
+"QHeaderView::section{\n"
+"    background: rgb(30, 30, 30);\n"
+"    min-width: 10px;    \n"
+"    min-height: 25px;\n"
+"    border: 0px solid;\n"
+"    border-right: 1px solid rgb(50,50,50); \n"
+"    color: #dddddd;\n"
+"    font-size: 12px;\n"
+"}\n"
+"\n"
+"QHeaderView::section:hover {\n"
+"   color: white;\n"
+"    background-color: rgb(80,80,80);\n"
+"}\n"
+"\n"
+"QHeaderView::section{\n"
+"    color: white;\n"
+"    selection-background-color:#ffc0cb;\n"
+"}\n"
+"\n"
+"QTableWidget QTableCornerButton::section\n"
+"{\n"
+"    \n"
+"    background: rgb(30, 30, 30);\n"
+"    border-style: solid;\n"
+"    border-width: 1px;\n"
+"}\n"
+"\n"
+"QTableWidget::item\n"
+"{\n"
+"     border-bottom: 1px solid rgb(60,60,60); \n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"}\n"
+"\n"
+"QTableView\n"
+"{\n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border-top: 0px;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-bottom: 0px;\n"
+"}\n"
+"\n"
+"QTableWidget::item:hover {\n"
+"    color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}      \n"
+"\n"
+"QTableWidget::item:selected\n"
+"{\n"
+"     color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background-color: #151515;\n"
+"    width: 8px;\n"
+"    margin: 15px 0 15px 0;\n"
+"    border-radius: 0px;\n"
+" }\n"
+"\n"
+"/*  HANDLE BAR VERTICAL */\n"
+"QScrollBar::handle:vertical {    \n"
+"    background-color: #151515;\n"
+"    min-height: 30px;\n"
+"    border-radius: 0px;\n"
+"    border: 1px solid;\n"
+"    border-right: 0px;\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:hover{    \n"
+"    background-color:  rgb(50,50,50);\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);\n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border: 1px solid;\n"
+"    border-top:1px solid rgb(180, 0, 0);\n"
+"    border-right: 0px;\n"
+"    border-bottom: 0px;\n"
+"}\n"
+"QScrollBar::add-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
+"}")
+        self.tableGaming.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableGaming.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
+        self.tableGaming.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableGaming.setShowGrid(False)
+        self.tableGaming.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableGaming.setObjectName("tableGaming")
+        self.tableGaming.setColumnCount(2)
+        self.tableGaming.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableGaming.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableGaming.setHorizontalHeaderItem(1, item)
+        self.tableGaming.horizontalHeader().setVisible(False)
+        self.tableGaming.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableGaming.horizontalHeader().setDefaultSectionSize(120)
+        self.tableGaming.horizontalHeader().setHighlightSections(False)
+        self.tableGaming.horizontalHeader().setMinimumSectionSize(15)
+        self.tableGaming.horizontalHeader().setSortIndicatorShown(True)
+        self.tableGaming.horizontalHeader().setStretchLastSection(False)
+        self.tableGaming.verticalHeader().setVisible(False)
+        self.tableGaming.verticalHeader().setCascadingSectionResizes(False)
+        self.tableGaming.verticalHeader().setMinimumSectionSize(10)
+        self.btnResetGaming = QtWidgets.QPushButton(self.frameGaming)
+        self.btnResetGaming.setGeometry(QtCore.QRect(220, 160, 61, 21))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(9)
+        self.btnResetGaming.setFont(font)
+        self.btnResetGaming.setStyleSheet("QPushButton\n"
+"{    \n"
+"    background-color: rgb(10, 10, 10);\n"
+"    color:  rgb(200,200, 200);\n"
+"    border: 0px;\n"
+"    border-bottom: 1px dotted rgb(200, 200, 200);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    color: red;\n"
+"    border-bottom: 1px dotted red;\n"
+"}\n"
+"")
+        self.btnResetGaming.setObjectName("btnResetGaming")
+        self.toolBoxVidFilter.addItem(self.gaming, icon3, "")
         self.graphProc = QtWidgets.QWidget()
-        self.graphProc.setGeometry(QtCore.QRect(0, 0, 307, 186))
+        self.graphProc.setGeometry(QtCore.QRect(0, 0, 307, 189))
         self.graphProc.setObjectName("graphProc")
         self.frameGraphProc = QtWidgets.QFrame(self.graphProc)
         self.frameGraphProc.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -959,7 +1161,7 @@ class Ui_WidgetVideoFilter(object):
         self.btnResetGraphProc.setObjectName("btnResetGraphProc")
         self.toolBoxVidFilter.addItem(self.graphProc, icon3, "")
         self.volume = QtWidgets.QWidget()
-        self.volume.setGeometry(QtCore.QRect(0, 0, 307, 186))
+        self.volume.setGeometry(QtCore.QRect(0, 0, 307, 189))
         self.volume.setObjectName("volume")
         self.frameVolume = QtWidgets.QFrame(self.volume)
         self.frameVolume.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -1163,7 +1365,7 @@ class Ui_WidgetVideoFilter(object):
         self.btnResetVolume.setObjectName("btnResetVolume")
         self.toolBoxVidFilter.addItem(self.volume, icon3, "")
         self.type = QtWidgets.QWidget()
-        self.type.setGeometry(QtCore.QRect(0, 0, 307, 186))
+        self.type.setGeometry(QtCore.QRect(0, 0, 307, 189))
         self.type.setObjectName("type")
         self.frameType = QtWidgets.QFrame(self.type)
         self.frameType.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -1366,7 +1568,7 @@ class Ui_WidgetVideoFilter(object):
         self.btnResetType.setObjectName("btnResetType")
         self.toolBoxVidFilter.addItem(self.type, icon3, "")
         self.frequency = QtWidgets.QWidget()
-        self.frequency.setGeometry(QtCore.QRect(0, 0, 307, 186))
+        self.frequency.setGeometry(QtCore.QRect(0, 0, 307, 189))
         self.frequency.setObjectName("frequency")
         self.frameFreq = QtWidgets.QFrame(self.frequency)
         self.frameFreq.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -1569,7 +1771,7 @@ class Ui_WidgetVideoFilter(object):
         self.btnResetFreq.setObjectName("btnResetFreq")
         self.toolBoxVidFilter.addItem(self.frequency, icon3, "")
         self.bus = QtWidgets.QWidget()
-        self.bus.setGeometry(QtCore.QRect(0, 0, 307, 186))
+        self.bus.setGeometry(QtCore.QRect(0, 0, 307, 189))
         self.bus.setObjectName("bus")
         self.frameBus = QtWidgets.QFrame(self.bus)
         self.frameBus.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -1772,7 +1974,7 @@ class Ui_WidgetVideoFilter(object):
         self.btnResetBus.setObjectName("btnResetBus")
         self.toolBoxVidFilter.addItem(self.bus, icon3, "")
         self.Interface = QtWidgets.QWidget()
-        self.Interface.setGeometry(QtCore.QRect(0, 0, 307, 186))
+        self.Interface.setGeometry(QtCore.QRect(0, 0, 307, 189))
         self.Interface.setObjectName("Interface")
         self.frameInterface = QtWidgets.QFrame(self.Interface)
         self.frameInterface.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -1975,7 +2177,7 @@ class Ui_WidgetVideoFilter(object):
         self.btnResetInterface.setObjectName("btnResetInterface")
         self.toolBoxVidFilter.addItem(self.Interface, icon3, "")
         self.monitor = QtWidgets.QWidget()
-        self.monitor.setGeometry(QtCore.QRect(0, 0, 307, 186))
+        self.monitor.setGeometry(QtCore.QRect(0, 0, 307, 189))
         self.monitor.setObjectName("monitor")
         self.frameMonitor = QtWidgets.QFrame(self.monitor)
         self.frameMonitor.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -2181,7 +2383,7 @@ class Ui_WidgetVideoFilter(object):
         icon4.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
         self.toolBoxVidFilter.addItem(self.monitor, icon4, "")
         self.resolution = QtWidgets.QWidget()
-        self.resolution.setGeometry(QtCore.QRect(0, 0, 307, 186))
+        self.resolution.setGeometry(QtCore.QRect(0, 0, 307, 189))
         self.resolution.setObjectName("resolution")
         self.frameResolution = QtWidgets.QFrame(self.resolution)
         self.frameResolution.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -2384,7 +2586,7 @@ class Ui_WidgetVideoFilter(object):
         self.btnResetResolution.setObjectName("btnResetResolution")
         self.toolBoxVidFilter.addItem(self.resolution, icon3, "")
         self.tdp = QtWidgets.QWidget()
-        self.tdp.setGeometry(QtCore.QRect(0, 0, 307, 186))
+        self.tdp.setGeometry(QtCore.QRect(0, 0, 307, 189))
         self.tdp.setObjectName("tdp")
         self.frameTdp = QtWidgets.QFrame(self.tdp)
         self.frameTdp.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -2616,7 +2818,7 @@ class Ui_WidgetVideoFilter(object):
         self.leMaxTdp.setObjectName("leMaxTdp")
         self.toolBoxVidFilter.addItem(self.tdp, icon3, "")
         self.length = QtWidgets.QWidget()
-        self.length.setGeometry(QtCore.QRect(0, 0, 307, 186))
+        self.length.setGeometry(QtCore.QRect(0, 0, 307, 189))
         self.length.setObjectName("length")
         self.framLen = QtWidgets.QFrame(self.length)
         self.framLen.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -2851,14 +3053,14 @@ class Ui_WidgetVideoFilter(object):
         self.rectangle.setFrameShape(QtWidgets.QFrame.HLine)
         self.rectangle.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.rectangle.setObjectName("rectangle")
-        self.lbErr = QtWidgets.QLabel(WidgetVideoFilter)
-        self.lbErr.setGeometry(QtCore.QRect(40, 40, 181, 21))
+        self.lbFilter = QtWidgets.QLabel(WidgetVideoFilter)
+        self.lbFilter.setGeometry(QtCore.QRect(40, 40, 181, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(12)
-        self.lbErr.setFont(font)
-        self.lbErr.setStyleSheet("border:0px;")
-        self.lbErr.setObjectName("lbErr")
+        self.lbFilter.setFont(font)
+        self.lbFilter.setStyleSheet("border:0px;")
+        self.lbFilter.setObjectName("lbFilter")
         self.line = QtWidgets.QFrame(WidgetVideoFilter)
         self.line.setGeometry(QtCore.QRect(40, 70, 181, 20))
         self.line.setStyleSheet("border:0px;\n"
@@ -2867,7 +3069,7 @@ class Ui_WidgetVideoFilter(object):
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
         self.btnAccept = QtWidgets.QPushButton(WidgetVideoFilter)
-        self.btnAccept.setGeometry(QtCore.QRect(60, 790, 121, 31))
+        self.btnAccept.setGeometry(QtCore.QRect(60, 820, 121, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -2937,6 +3139,13 @@ class Ui_WidgetVideoFilter(object):
         item.setText(_translate("WidgetVideoFilter", "Название"))
         self.btnResetChipCreator.setText(_translate("WidgetVideoFilter", "Сбросить"))
         self.toolBoxVidFilter.setItemText(self.toolBoxVidFilter.indexOf(self.chipCreator), _translate("WidgetVideoFilter", "Производитель чипа"))
+        self.tableGaming.setSortingEnabled(True)
+        item = self.tableGaming.horizontalHeaderItem(0)
+        item.setText(_translate("WidgetVideoFilter", "Выбор"))
+        item = self.tableGaming.horizontalHeaderItem(1)
+        item.setText(_translate("WidgetVideoFilter", "Название"))
+        self.btnResetGaming.setText(_translate("WidgetVideoFilter", "Сбросить"))
+        self.toolBoxVidFilter.setItemText(self.toolBoxVidFilter.indexOf(self.gaming), _translate("WidgetVideoFilter", "Игровое комплектующее"))
         self.tableGraphProc.setSortingEnabled(True)
         item = self.tableGraphProc.horizontalHeaderItem(0)
         item.setText(_translate("WidgetVideoFilter", "Выбор"))
@@ -3005,7 +3214,7 @@ class Ui_WidgetVideoFilter(object):
         self.leMaxLen.setPlaceholderText(_translate("WidgetVideoFilter", "до 40 мм"))
         self.leMinLen.setPlaceholderText(_translate("WidgetVideoFilter", "от 0 мм"))
         self.toolBoxVidFilter.setItemText(self.toolBoxVidFilter.indexOf(self.length), _translate("WidgetVideoFilter", "Длина видеокарты [мм]"))
-        self.lbErr.setText(_translate("WidgetVideoFilter", "Настройка фильтров"))
+        self.lbFilter.setText(_translate("WidgetVideoFilter", "Настройка фильтров"))
         self.btnAccept.setText(_translate("WidgetVideoFilter", "Применить"))
         self.btnResetAll.setText(_translate("WidgetVideoFilter", "Сбросить всё"))
 

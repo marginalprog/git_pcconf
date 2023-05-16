@@ -36,6 +36,137 @@ class CheckBox(QtWidgets.QCheckBox):
         return QtCore.QSize(18, 18)
 
 
+# Метод, считывающий отмеченные CheckBox-ами строки из таблицы. Возвращает отмеченные строки
+def get_checkboxes(table, bd_column):
+    selected_parameters = []
+    result_selected = ""
+    for i in range(table.rowCount()):
+        widget = table.cellWidget(i, 0)
+        if widget is not None:
+            chk_box = widget.findChild(CheckBox)
+            if chk_box is not None and chk_box.isChecked():
+                selected_parameters.append(table.item(i, 1).text())
+    if len(selected_parameters) == 0:  # Если ничего не выбрано в таблицах фильтра
+        return result_selected
+    if len(selected_parameters) == 1:
+        return f"{bd_column} = '{selected_parameters[0]}'"
+    if len(selected_parameters) > 1:
+        for i in range(len(selected_parameters)):
+            if i == 0:
+                result_selected += f"({bd_column} = '{selected_parameters[i]}'"
+            elif i == len(selected_parameters) - 1:
+                result_selected += f" OR {bd_column} = '{selected_parameters[i]}')"
+            else:
+                result_selected += f" OR {bd_column} = '{selected_parameters[i]}'"
+    # result_selected = selected_parameters[:len(selected_parameters) - 2]  # Удаляем лишние символы
+    return result_selected
+
+
+# Метод для сравнения значений полей (принимает .text())
+def checkFields(min_field, max_field):
+    if min_field != "" and max_field != "":
+        if int(min_field) < int(max_field):
+            return int(min_field), int(max_field)
+        else:
+            dialog = DialogOk("Ошибка", "Максимальные значения должны быть больше минимальных")
+            dialog.show()
+            return -1, -1
+    elif min_field == "" and max_field == "":
+        return 0, 0
+    elif min_field != "" and max_field == "":
+        return int(min_field), 0
+    elif min_field == "" and max_field != "":
+        return 0, int(max_field)
+
+
+# Метод генерации параметров для запроса к БД (получает значения мин. и макс. знач. введённых полей)
+def check_min_max(minimum, maximum, bd_column):
+    if minimum != -1:  # Если не получили флаг ошибки(-1) - выполняем запрос к БД
+        if minimum == 0 and maximum == 0:  # Если пустые поля, то по цене не производим фильтрацию
+            # print("Конкатенации с другими запросами не будет")
+            return ""
+        elif minimum != 0 and maximum == 0:
+            return f"{bd_column} >= {minimum} "
+        elif minimum == 0 and maximum != 0:
+            return f"{bd_column} <= {maximum} "
+        else:
+            return f"{bd_column} >= {minimum} AND {bd_column} <= {maximum} "
+    else:
+        return ""
+
+
+# Метод обновления значений в поле при движении слайдера
+def update_field_value(field, value):
+    field.setText(f"{value}")
+
+
+# Метод обновления слайдера при вводе значений в поле
+def update_slider_value(slider, value, field):
+    if value == "":
+        slider.setValue(1)
+        field.clear()
+    else:
+        slider.setValue(int(value))
+
+
+# Метод создания cb на виджете
+def create_checkbox():
+    widget = QtWidgets.QWidget()
+    widget.setStyleSheet("background: rgb(10, 10, 10);")
+    cb = CheckBox()
+    cb.checkState()
+    pLayout = QtWidgets.QHBoxLayout(widget)
+    pLayout.addWidget(cb)
+    pLayout.setAlignment(QtCore.Qt.AlignCenter)
+    pLayout.setContentsMargins(0, 0, 0, 0)
+    widget.setLayout(pLayout)
+    return widget, cb
+
+
+def reset_checkboxes(table):
+    for i in range(table.rowCount()):
+        table.clearSelection()
+        widget = table.cellWidget(i, 0)
+        if widget is not None:
+            chk_box = widget.findChild(CheckBox)
+            if chk_box is not None and chk_box.isChecked():
+                chk_box.setChecked(False)
+
+
+# Метод, обнуляющий значения слайдеров
+def reset_sliders(slider_min, slider_max, le_min, le_max):
+    slider_min.setValue(0)
+    slider_max.setValue(0)
+    le_min.clear()
+    le_max.clear()
+
+
+# Метод вставки в таблицу checkbox
+def insert_cb(table):
+    row_count = table.rowCount()
+    for i in range(row_count):
+        widget, checkbox = create_checkbox()
+        checkbox.clicked.connect(
+            lambda ch, row=i: current_pos(ch, row, table))
+        table.setCellWidget(i, 0, widget)
+
+
+def cell_row(row, column, table):
+    widget = table.cellWidget(row, 0)
+    if widget is not None:
+        checkbox = widget.findChild(CheckBox)
+        if checkbox.isChecked():
+            checkbox.click()
+        else:
+            checkbox.click()
+        table.selectRow(row)
+
+
+def current_pos(ch, row, table):
+    # print(f' row = {row} -- {ch}')
+    table.selectRow(row)
+
+
 class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
     def __init__(self, tab, mainWindow):
         super().__init__()
@@ -43,25 +174,25 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
         self.mainWindow = mainWindow
         self.tab_window = tab  # Где было создано окно фильтрации - в конфигураторе или на складе
         # -------------Сигналы обновления значений в полях при движении слайдера------------
-        self.sliderPriceMin.valueChanged.connect(lambda value: self.update_field_value(self.leMinPrice, value))
-        self.sliderPriceMax.valueChanged.connect(lambda value: self.update_field_value(self.leMaxPrice, value))
-        self.sliderTdpMin.valueChanged.connect(lambda value: self.update_field_value(self.leMinTdp, value))
-        self.sliderTdpMax.valueChanged.connect(lambda value: self.update_field_value(self.leMaxTdp, value))
-        self.sliderLenMin.valueChanged.connect(lambda value: self.update_field_value(self.leMinLen, value))
-        self.sliderLenMax.valueChanged.connect(lambda value: self.update_field_value(self.leMaxLen, value))
+        self.sliderPriceMin.valueChanged.connect(lambda value: update_field_value(self.leMinPrice, value))
+        self.sliderPriceMax.valueChanged.connect(lambda value: update_field_value(self.leMaxPrice, value))
+        self.sliderTdpMin.valueChanged.connect(lambda value: update_field_value(self.leMinTdp, value))
+        self.sliderTdpMax.valueChanged.connect(lambda value: update_field_value(self.leMaxTdp, value))
+        self.sliderLenMin.valueChanged.connect(lambda value: update_field_value(self.leMinLen, value))
+        self.sliderLenMax.valueChanged.connect(lambda value: update_field_value(self.leMaxLen, value))
         # -------------Сигналы обновления значений в слайдерах при вводе числа------------
         self.leMinPrice.textChanged.connect(
-            lambda value: self.update_slider_value(self.sliderPriceMin, value, self.leMinPrice))
+            lambda value: update_slider_value(self.sliderPriceMin, value, self.leMinPrice))
         self.leMaxPrice.textChanged.connect(
-            lambda value: self.update_slider_value(self.sliderPriceMax, value, self.leMaxPrice))
+            lambda value: update_slider_value(self.sliderPriceMax, value, self.leMaxPrice))
         self.leMinTdp.textChanged.connect(
-            lambda value: self.update_slider_value(self.sliderTdpMin, value, self.leMinTdp))
+            lambda value: update_slider_value(self.sliderTdpMin, value, self.leMinTdp))
         self.leMaxTdp.textChanged.connect(
-            lambda value: self.update_slider_value(self.sliderTdpMax, value, self.leMaxTdp))
+            lambda value: update_slider_value(self.sliderTdpMax, value, self.leMaxTdp))
         self.leMinLen.textChanged.connect(
-            lambda value: self.update_slider_value(self.sliderLenMin, value, self.leMinLen))
+            lambda value: update_slider_value(self.sliderLenMin, value, self.leMinLen))
         self.leMaxLen.textChanged.connect(
-            lambda value: self.update_slider_value(self.sliderLenMax, value, self.leMaxLen))
+            lambda value: update_slider_value(self.sliderLenMax, value, self.leMaxLen))
 
         # ----------------------------------------------------------------------------------
 
@@ -89,44 +220,89 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
         # -------------------Установка ширины столбцов для таблиц-------------------
         self.tableProizv.setColumnWidth(0, 40)
         self.tableProizv.setColumnWidth(1, 250)
+        self.tableProizv.cellClicked.connect(
+            lambda row, column, table=self.tableProizv:
+            cell_row(row, column, table))
+
         self.tableChipCreator.setColumnWidth(0, 40)
         self.tableChipCreator.setColumnWidth(1, 250)
+        self.tableChipCreator.cellClicked.connect(
+            lambda row, column, table=self.tableChipCreator:
+            cell_row(row, column, table))
+
         self.tableGraphProc.setColumnWidth(0, 40)
         self.tableGraphProc.setColumnWidth(1, 250)
+        self.tableGraphProc.cellClicked.connect(
+            lambda row, column, table=self.tableGraphProc:
+            cell_row(row, column, table))
+
+        self.tableGaming.setColumnWidth(0, 40)
+        self.tableGaming.setColumnWidth(1, 250)
+        self.tableGaming.cellClicked.connect(
+            lambda row, column, table=self.tableGaming:
+            cell_row(row, column, table))
+
         self.tableVolume.setColumnWidth(0, 40)
         self.tableVolume.setColumnWidth(1, 250)
+        self.tableVolume.cellClicked.connect(
+            lambda row, column, table=self.tableVolume:
+            cell_row(row, column, table))
+
         self.tableType.setColumnWidth(0, 40)
         self.tableType.setColumnWidth(1, 250)
+        self.tableType.cellClicked.connect(
+            lambda row, column, table=self.tableType:
+            cell_row(row, column, table))
+
         self.tableFreq.setColumnWidth(0, 40)
         self.tableFreq.setColumnWidth(1, 250)
+        self.tableFreq.cellClicked.connect(
+            lambda row, column, table=self.tableFreq:
+            cell_row(row, column, table))
+
         self.tableBus.setColumnWidth(0, 40)
         self.tableBus.setColumnWidth(1, 250)
+        self.tableBus.cellClicked.connect(
+            lambda row, column, table=self.tableBus:
+            cell_row(row, column, table))
+
         self.tableInterface.setColumnWidth(0, 40)
         self.tableInterface.setColumnWidth(1, 250)
+        self.tableInterface.cellClicked.connect(
+            lambda row, column, table=self.tableInterface:
+            cell_row(row, column, table))
+
         self.tableMonitor.setColumnWidth(0, 40)
         self.tableMonitor.setColumnWidth(1, 250)
+        self.tableMonitor.cellClicked.connect(
+            lambda row, column, table=self.tableMonitor:
+            cell_row(row, column, table))
+
         self.tableResolution.setColumnWidth(0, 40)
         self.tableResolution.setColumnWidth(1, 250)
+        self.tableResolution.cellClicked.connect(
+            lambda row, column, table=self.tableResolution:
+            cell_row(row, column, table))
         # ------------------------------------------------------------------
 
         # -----------Соединение кнопок сбосов с методом обнуления-----------
         self.btnResetAll.clicked.connect(self.resetAll)
         self.btnResetPrice.clicked.connect(
-            lambda: self.reset_sliders(self.sliderPriceMin, self.sliderPriceMax, self.leMinPrice, self.leMaxPrice))
+            lambda: reset_sliders(self.sliderPriceMin, self.sliderPriceMax, self.leMinPrice, self.leMaxPrice))
         self.btnResetTdp.clicked.connect(
-            lambda: self.reset_sliders(self.sliderTdpMin, self.sliderTdpMax, self.leMinTdp, self.leMaxTdp))
+            lambda: reset_sliders(self.sliderTdpMin, self.sliderTdpMax, self.leMinTdp, self.leMaxTdp))
         self.btnResetLen.clicked.connect(
-            lambda: self.reset_sliders(self.sliderLenMin, self.sliderLenMax, self.leMinLen, self.leMaxLen))
-        self.btnResetProizv.clicked.connect(lambda: self.reset_checkboxes(self.tableProizv))
-        self.btnResetChipCreator.clicked.connect(lambda: self.reset_checkboxes(self.tableChipCreator))
-        self.btnResetGraphProc.clicked.connect(lambda: self.reset_checkboxes(self.tableGraphProc))
-        self.btnResetVolume.clicked.connect(lambda: self.reset_checkboxes(self.tableVolume))
-        self.btnResetType.clicked.connect(lambda: self.reset_checkboxes(self.tableType))
-        self.btnResetFreq.clicked.connect(lambda: self.reset_checkboxes(self.tableFreq))
-        self.btnResetBus.clicked.connect(lambda: self.reset_checkboxes(self.tableBus))
-        self.btnResetInterface.clicked.connect(lambda: self.reset_checkboxes(self.tableInterface))
-        self.btnResetMonitor.clicked.connect(lambda: self.reset_checkboxes(self.tableMonitor))
-        self.btnResetResolution.clicked.connect(lambda: self.reset_checkboxes(self.tableResolution))
+            lambda: reset_sliders(self.sliderLenMin, self.sliderLenMax, self.leMinLen, self.leMaxLen))
+        self.btnResetProizv.clicked.connect(lambda: reset_checkboxes(self.tableProizv))
+        self.btnResetChipCreator.clicked.connect(lambda: reset_checkboxes(self.tableChipCreator))
+        self.btnResetGraphProc.clicked.connect(lambda: reset_checkboxes(self.tableGraphProc))
+        self.btnResetVolume.clicked.connect(lambda: reset_checkboxes(self.tableVolume))
+        self.btnResetType.clicked.connect(lambda: reset_checkboxes(self.tableType))
+        self.btnResetFreq.clicked.connect(lambda: reset_checkboxes(self.tableFreq))
+        self.btnResetBus.clicked.connect(lambda: reset_checkboxes(self.tableBus))
+        self.btnResetInterface.clicked.connect(lambda: reset_checkboxes(self.tableInterface))
+        self.btnResetMonitor.clicked.connect(lambda: reset_checkboxes(self.tableMonitor))
+        self.btnResetResolution.clicked.connect(lambda: reset_checkboxes(self.tableResolution))
         # -------------------Соединение кнопк сбосов с методом обнуления-------------------
 
         # Изменение положения стрелки при нажатии на вкладку фильтра
@@ -151,6 +327,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
         self.tableProizv.clear()
         self.tableChipCreator.clear()
         self.tableGraphProc.clear()
+        self.tableGaming.clear()
         self.tableVolume.clear()
         self.tableType.clear()
         self.tableFreq.clear()
@@ -210,6 +387,14 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
             for name in cur:
                 self.tableGraphProc.setRowCount(row_count + 1)
                 self.tableGraphProc.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
+                row_count += 1
+
+            row_count = 0
+            cur.execute("SELECT DISTINCT gaming FROM videocard "
+                        "ORDER BY gaming ASC")
+            for name in cur:
+                self.tableGaming.setRowCount(row_count + 1)
+                self.tableGaming.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
                 row_count += 1
 
             row_count = 0
@@ -350,6 +535,14 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
                 row_count += 1
 
             row_count = 0
+            cur.execute("SELECT DISTINCT gaming FROM videocard WHERE exist = True  "
+                        "ORDER BY gaming ASC")
+            for name in cur:
+                self.tableGaming.setRowCount(row_count + 1)
+                self.tableGaming.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
+                row_count += 1
+
+            row_count = 0
             cur.execute("SELECT DISTINCT vram FROM videocard WHERE exist = True "
                         "ORDER BY vram ASC")
             for name in cur:
@@ -417,44 +610,6 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
                 cur.close()
                 conn.close()
 
-    # Метод обновления значений в поле при движении слайдера
-    def update_field_value(self, field, value):
-        field.setText(f"{value}")
-
-    # Метод обновления слайдера при вводе значений в поле
-    def update_slider_value(self, slider, value, field):
-        if value == "":
-            slider.setValue(1)
-            field.clear()
-        else:
-            slider.setValue(int(value))
-
-    # Метод создания cb на виджете
-    def create_checkbox(self):
-        widget = QtWidgets.QWidget()
-        widget.setStyleSheet("background: rgb(10, 10, 10);")
-        cb = CheckBox()
-        cb.checkState()
-        pLayout = QtWidgets.QHBoxLayout(widget)
-        pLayout.addWidget(cb)
-        pLayout.setAlignment(QtCore.Qt.AlignCenter)
-        pLayout.setContentsMargins(0, 0, 0, 0)
-        widget.setLayout(pLayout)
-        return widget, cb
-
-    # Метод вставки в таблицу checkbox
-    def insert_cb(self, table):
-        row_count = table.rowCount()
-        for i in range(row_count):
-            widget, checkbox = self.create_checkbox()
-            checkbox.clicked.connect(
-                lambda ch, row=i: self.current_pos(ch, row, table))
-            table.setCellWidget(i, 0, widget)
-
-    def current_pos(self, ch, row, table):
-        # print(f' row = {row} -- {ch}')
-        table.selectRow(row)
-
     def tb_change_arrows(self, page):
         self.toolBoxVidFilter.setItemIcon(page, QIcon("E:/pcconf/images/up-arrow.png"))
         for i in range(self.toolBoxVidFilter.count()):
@@ -463,105 +618,34 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
 
     # Метод для вставки CB в таблицы
     def pasteCheckBoxes(self):
-        self.insert_cb(self.tableProizv)
-        self.insert_cb(self.tableChipCreator)
-        self.insert_cb(self.tableGraphProc)
-        self.insert_cb(self.tableVolume)
-        self.insert_cb(self.tableType)
-        self.insert_cb(self.tableFreq)
-        self.insert_cb(self.tableBus)
-        self.insert_cb(self.tableInterface)
-        self.insert_cb(self.tableMonitor)
-        self.insert_cb(self.tableResolution)
-
-    # Метод, обнуляющий CheckBox-ы в таблице
-    def reset_checkboxes(self, table):
-        for i in range(table.rowCount()):
-            table.clearSelection()
-            widget = table.cellWidget(i, 0)
-            if widget is not None:
-                chk_box = widget.findChild(CheckBox)
-                if chk_box is not None and chk_box.isChecked():
-                    chk_box.setChecked(False)
-
-    # Метод, обнуляющий значения слайдеров
-    def reset_sliders(self, slider_min, slider_max, le_min, le_max):
-        slider_min.setValue(0)
-        slider_max.setValue(0)
-        le_min.clear()
-        le_max.clear()
+        insert_cb(self.tableProizv)
+        insert_cb(self.tableChipCreator)
+        insert_cb(self.tableGraphProc)
+        insert_cb(self.tableGaming)
+        insert_cb(self.tableVolume)
+        insert_cb(self.tableType)
+        insert_cb(self.tableFreq)
+        insert_cb(self.tableBus)
+        insert_cb(self.tableInterface)
+        insert_cb(self.tableMonitor)
+        insert_cb(self.tableResolution)
 
     # Метод, обнуляющий все поля
     def resetAll(self):
-        self.reset_sliders(self.sliderPriceMin, self.sliderPriceMax, self.leMinPrice, self.leMaxPrice)
-        self.reset_sliders(self.sliderTdpMin, self.sliderTdpMax, self.leMinTdp, self.leMaxTdp)
-        self.reset_sliders(self.sliderLenMin, self.sliderLenMax, self.leMinLen, self.leMaxLen)
-        self.reset_checkboxes(self.tableProizv)
-        self.reset_checkboxes(self.tableChipCreator)
-        self.reset_checkboxes(self.tableGraphProc)
-        self.reset_checkboxes(self.tableVolume)
-        self.reset_checkboxes(self.tableType)
-        self.reset_checkboxes(self.tableFreq)
-        self.reset_checkboxes(self.tableBus)
-        self.reset_checkboxes(self.tableInterface)
-        self.reset_checkboxes(self.tableMonitor)
-        self.reset_checkboxes(self.tableResolution)
-
-    # Метод, считывающий отмеченные CheckBox-ами строки из таблицы. Возвращает отмеченные строки
-    def get_checkboxes(self, table, bd_column):
-        selected_parameters = []
-        result_selected = ""
-        for i in range(table.rowCount()):
-            widget = table.cellWidget(i, 0)
-            if widget is not None:
-                chk_box = widget.findChild(CheckBox)
-                if chk_box is not None and chk_box.isChecked():
-                    selected_parameters.append(table.item(i, 1).text())
-        if len(selected_parameters) == 0:  # Если ничего не выбрано в таблицах фильтра
-            return result_selected
-        if len(selected_parameters) == 1:
-            return f"{bd_column} = '{selected_parameters[0]}'"
-        if len(selected_parameters) > 1:
-            for i in range(len(selected_parameters)):
-                if i == 0:
-                    result_selected += f"({bd_column} = '{selected_parameters[i]}'"
-                elif i == len(selected_parameters) - 1:
-                    result_selected += f" OR {bd_column} = '{selected_parameters[i]}')"
-                else:
-                    result_selected += f" OR {bd_column} = '{selected_parameters[i]}'"
-        # result_selected = selected_parameters[:len(selected_parameters) - 2]  # Удаляем лишние символы
-        return result_selected
-
-    # Метод для сравнения значений полей (принимает .text())
-    def checkFields(self, min_field, max_field):
-        if min_field != "" and max_field != "":
-            if int(min_field) < int(max_field):
-                return int(min_field), int(max_field)
-            else:
-                dialog = DialogOk("Ошибка", "Максимальные значения должны быть больше минимальных")
-                dialog.show()
-                return -1, -1
-        elif min_field == "" and max_field == "":
-            return 0, 0
-        elif min_field != "" and max_field == "":
-            return int(min_field), 0
-        elif min_field == "" and max_field != "":
-            return 0, int(max_field)
-
-    # Метод генерации параметров для запроса к БД (получает значения мин. и макс. знач. введённых полей)
-    def check_min_max(self, minimun, maximum, bd_column):
-        if minimun != -1:  # Если не получили флаг ошибки(-1) - выполняем запрос к БД
-            if minimun == 0 and maximum == 0:  # Если пустые поля, то по цене не производим фильтрацию
-                # print("Конкатенации с другими запросами не будет")
-                return ""
-            elif minimun != 0 and maximum == 0:
-                return f"{bd_column} >= {minimun} "
-            elif minimun == 0 and maximum != 0:
-                return f"{bd_column} <= {maximum} "
-            else:
-                return f"{bd_column} >= {minimun} AND {bd_column} <= {maximum} "
-        else:
-            return ""
+        reset_sliders(self.sliderPriceMin, self.sliderPriceMax, self.leMinPrice, self.leMaxPrice)
+        reset_sliders(self.sliderTdpMin, self.sliderTdpMax, self.leMinTdp, self.leMaxTdp)
+        reset_sliders(self.sliderLenMin, self.sliderLenMax, self.leMinLen, self.leMaxLen)
+        reset_checkboxes(self.tableProizv)
+        reset_checkboxes(self.tableChipCreator)
+        reset_checkboxes(self.tableGaming)
+        reset_checkboxes(self.tableGraphProc)
+        reset_checkboxes(self.tableVolume)
+        reset_checkboxes(self.tableType)
+        reset_checkboxes(self.tableFreq)
+        reset_checkboxes(self.tableBus)
+        reset_checkboxes(self.tableInterface)
+        reset_checkboxes(self.tableMonitor)
+        reset_checkboxes(self.tableResolution)
 
     # Метод, срабатывающий по нажатии на кнопку и отправляющий в БД запрос на фильтрацию данных
     def click_accept(self, mainWindow):
@@ -571,103 +655,114 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
                 "FROM videocard, sklad_videocard, proizv_videocard " \
                 "WHERE "
 
-        min_price, max_price = self.checkFields(self.leMinPrice.text(), self.leMaxPrice.text())
-        min_tdp, max_tdp = self.checkFields(self.leMinTdp.text(), self.leMaxTdp.text())
-        min_len, max_len = self.checkFields(self.leMinLen.text(), self.leMaxLen.text())
+        min_price, max_price = checkFields(self.leMinPrice.text(), self.leMaxPrice.text())
+        min_tdp, max_tdp = checkFields(self.leMinTdp.text(), self.leMaxTdp.text())
+        min_len, max_len = checkFields(self.leMinLen.text(), self.leMaxLen.text())
         if min_price == -1 or min_tdp == -1 or min_len == -1:  # если не вернулось -1, то выполняем фильтрацию
             pass
         else:
-            query1 = self.get_checkboxes(self.tableChipCreator, "chipcreator")
+            query1 = get_checkboxes(self.tableChipCreator, "chipcreator")
             if query1 != "":  # Если есть что добавить к запросу
                 query += query1
 
             if query1 == "":  # Если первая таблица пустая, то добавляем к запросу без AND
-                query2 = self.get_checkboxes(self.tableGraphProc, "chipname")
+                query2 = get_checkboxes(self.tableGraphProc, "chipname")
                 query += query2
             else:
-                query2 = self.get_checkboxes(self.tableGraphProc, "chipname")
+                query2 = get_checkboxes(self.tableGraphProc, "chipname")
                 if query2 != "":  # Если есть что добавить к запросу
                     query += " AND " + query2
 
             if query1 == "" and query2 == "":
-                query3 = self.get_checkboxes(self.tableVolume, "vram")
+                query3 = get_checkboxes(self.tableGaming, "gaming")
                 query += query3
             else:
-                query3 = self.get_checkboxes(self.tableVolume, "vram")
+                query3 = get_checkboxes(self.tableGaming, "gaming")
                 if query3 != "":
                     query += " AND " + query3
 
             if query1 == "" and query2 == "" and query3 == "":
-                query4 = self.get_checkboxes(self.tableType, "typevram")
+                query4 = get_checkboxes(self.tableVolume, "vram")
                 query += query4
             else:
-                query4 = self.get_checkboxes(self.tableType, "typevram")
+                query4 = get_checkboxes(self.tableVolume, "vram")
                 if query4 != "":
                     query += " AND " + query4
 
             if query1 == "" and query2 == "" and query3 == "" and query4 == "":
-                query5 = self.get_checkboxes(self.tableFreq, "frequency")
+                query5 = get_checkboxes(self.tableType, "typevram")
                 query += query5
             else:
-                query5 = self.get_checkboxes(self.tableFreq, "frequency")
+                query5 = get_checkboxes(self.tableType, "typevram")
                 if query5 != "":
                     query += " AND " + query5
 
             if query1 == "" and query2 == "" and query3 == "" and query4 == "" and query5 == "":
-                query6 = self.get_checkboxes(self.tableBus, "bus")
+                query6 = get_checkboxes(self.tableFreq, "frequency")
                 query += query6
             else:
-                query6 = self.get_checkboxes(self.tableBus, "bus")
+                query6 = get_checkboxes(self.tableFreq, "frequency")
                 if query6 != "":
                     query += " AND " + query6
 
             if query1 == "" and query2 == "" and query3 == "" and query4 == "" and query5 == "" and query6 == "":
-                query7 = self.get_checkboxes(self.tableInterface, "interface")
+                query7 = get_checkboxes(self.tableBus, "bus")
                 query += query7
             else:
-                query7 = self.get_checkboxes(self.tableInterface, "interface")
+                query7 = get_checkboxes(self.tableBus, "bus")
                 if query7 != "":
                     query += " AND " + query7
 
             if query1 == "" and query2 == "" and query3 == "" and query4 == "" and query5 == "" and query6 == "" \
                     and query7 == "":
-                query8 = self.get_checkboxes(self.tableMonitor, "monitor")
+                query8 = get_checkboxes(self.tableInterface, "interface")
                 query += query8
             else:
-                query8 = self.get_checkboxes(self.tableMonitor, "monitor")
+                query8 = get_checkboxes(self.tableInterface, "interface")
                 if query8 != "":
                     query += " AND " + query8
 
             if query1 == "" and query2 == "" and query3 == "" and query4 == "" and query5 == "" and query6 == "" \
                     and query7 == "" and query8 == "":
-                query9 = self.get_checkboxes(self.tableResolution, "resolution")
+                query9 = get_checkboxes(self.tableMonitor, "monitor")
                 query += query9
             else:
-                query9 = self.get_checkboxes(self.tableResolution, "resolution")
+                query9 = get_checkboxes(self.tableMonitor, "monitor")
                 if query9 != "":
                     query += " AND " + query9
+
+            if query1 == "" and query2 == "" and query3 == "" and query4 == "" and query5 == "" and query6 == "" \
+                    and query7 == "" and query8 == "" and query9 == "":
+                query10 = get_checkboxes(self.tableResolution, "resolution")
+                query += query10
+            else:
+                query10 = get_checkboxes(self.tableResolution, "resolution")
+                if query10 != "":
+                    query += " AND " + query10
+
             # Вероятно, в проверке слайдеров есть лишние if
             if query1 == "" and query2 == "" and query3 == "" and query4 == "" and query5 == "" and query6 == "" \
-                    and query7 == "" and query8 == "" and query9 == "":  # Если не выбрано ничего в таблицах
-                query += self.check_min_max(min_price, max_price, "Price")
+                    and query7 == "" and query8 == "" and query9 == "" and query10 == "":  # Если не выбрано ничего в таблицах
+                query += check_min_max(min_price, max_price, "Price")
             else:
                 if min_price != 0 or max_price != 0:
-                    query += " AND " + self.check_min_max(min_price, max_price, "Price")
+                    query += " AND " + check_min_max(min_price, max_price, "Price")
 
             if query1 == "" and query2 == "" and query3 == "" and query4 == "" and query5 == "" and query6 == "" \
-                    and query7 == "" and query8 == "" and query9 == "" and (min_price == 0 and max_price == 0):
-                query += self.check_min_max(min_tdp, max_tdp, "Tdp")
+                    and query7 == "" and query8 == "" and query9 == "" and query10 == "" \
+                    and (min_price == 0 and max_price == 0):
+                query += check_min_max(min_tdp, max_tdp, "Tdp")
             else:
                 if min_tdp != 0 or max_tdp != 0:
-                    query += " AND " + self.check_min_max(min_tdp, max_tdp, "Tdp")
+                    query += " AND " + check_min_max(min_tdp, max_tdp, "Tdp")
 
             if query1 == "" and query2 == "" and query3 == "" and query4 == "" and query5 == "" and query6 == "" \
-                    and query7 == "" and query8 == "" and query9 == "" and (min_price == 0 and max_price == 0) \
-                    and (min_tdp == 0 and max_tdp == 0):
-                query += self.check_min_max(min_len, max_len, "Length")
+                    and query7 == "" and query8 == "" and query9 == "" and query10 == "" \
+                    and (min_price == 0 and max_price == 0) and (min_tdp == 0 and max_tdp == 0):
+                query += check_min_max(min_len, max_len, "Length")
             else:
                 if min_len != 0 or max_len != 0:
-                    query += " AND " + self.check_min_max(min_len, max_len, "Length")
+                    query += " AND " + check_min_max(min_len, max_len, "Length")
 
             mainWindow.tabWidgetSklad.setCurrentIndex(0)  # Устанавливаем вкладку перед фильтрацией на 0 место
 

@@ -2825,14 +2825,14 @@ class Ui_MainWindow(object):
         self.lbProc.setAlignment(QtCore.Qt.AlignCenter)
         self.lbProc.setObjectName("lbProc")
         self.imgCPU = QtWidgets.QFrame(self.frame_3)
-        self.imgCPU.setGeometry(QtCore.QRect(60, 310, 51, 41))
+        self.imgCPU.setGeometry(QtCore.QRect(60, 300, 61, 51))
         self.imgCPU.setStyleSheet("border: 0px;\n"
 "border-image: url(\"E:/pcconf/images/cpu-tower.png\") 0;")
         self.imgCPU.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.imgCPU.setFrameShadow(QtWidgets.QFrame.Raised)
         self.imgCPU.setObjectName("imgCPU")
         self.imgCPUcooling = QtWidgets.QFrame(self.frame_3)
-        self.imgCPUcooling.setGeometry(QtCore.QRect(60, 930, 51, 41))
+        self.imgCPUcooling.setGeometry(QtCore.QRect(60, 920, 51, 51))
         self.imgCPUcooling.setStyleSheet("border: 0px;\n"
 "border-image: url(\"E:/pcconf/images/cpucooling.png\") 0;")
         self.imgCPUcooling.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -6108,15 +6108,15 @@ class Ui_MainWindow(object):
 "}")
         self.lb_config.setAlignment(QtCore.Qt.AlignCenter)
         self.lb_config.setObjectName("lb_config")
-        self.btn_purcashe = QtWidgets.QPushButton(self.frame_cart)
-        self.btn_purcashe.setGeometry(QtCore.QRect(30, 90, 221, 31))
+        self.btnPurcashe = QtWidgets.QPushButton(self.frame_cart)
+        self.btnPurcashe.setGeometry(QtCore.QRect(30, 90, 221, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
         font.setBold(True)
         font.setWeight(75)
-        self.btn_purcashe.setFont(font)
-        self.btn_purcashe.setStyleSheet("\n"
+        self.btnPurcashe.setFont(font)
+        self.btnPurcashe.setStyleSheet("\n"
 "\n"
 "QPushButton::hover\n"
 "{\n"
@@ -6131,7 +6131,7 @@ class Ui_MainWindow(object):
 "color: white;\n"
 "border: 1px solid #bf0000;\n"
 "}")
-        self.btn_purcashe.setObjectName("btn_purcashe")
+        self.btnPurcashe.setObjectName("btnPurcashe")
         self.table_config = QtWidgets.QTableWidget(self.frame_cart)
         self.table_config.setGeometry(QtCore.QRect(10, 170, 251, 251))
         font = QtGui.QFont()
@@ -6303,7 +6303,7 @@ class Ui_MainWindow(object):
         self.lb_preview.raise_()
         self.lb_price.raise_()
         self.lb_config.raise_()
-        self.btn_purcashe.raise_()
+        self.btnPurcashe.raise_()
         self.table_config.raise_()
         self.lb_price_2.raise_()
         self.lb_price_3.raise_()
@@ -7367,7 +7367,7 @@ class Ui_MainWindow(object):
         self.lb_preview.setText(_translate("MainWindow", "Предпросмотр"))
         self.lb_price.setText(_translate("MainWindow", "000 000"))
         self.lb_config.setText(_translate("MainWindow", "Конфигурация"))
-        self.btn_purcashe.setText(_translate("MainWindow", "Оформить заказ"))
+        self.btnPurcashe.setText(_translate("MainWindow", "Оформить заказ"))
         item = self.table_config.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "id"))
         item = self.table_config.horizontalHeaderItem(1)

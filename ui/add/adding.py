@@ -111,11 +111,9 @@ class AddChangeVideoWindow(QtWidgets.QWidget, addChVidWidg.Ui_addChVidWidg):
                     dialog = DialogOk("Ошибка", "Все поля должны быть заполнены")
                     dialog.show()
                 else:
-                    gaming = False
-                    if self.cbGaming.currentText() == "Да": gaming = True
                     cur.callproc('insert_videocard', [id_pr.pop(),
                                                       self.leFullName.text(),
-                                                      gaming,
+                                                      self.cbGaming.currentText(),
                                                       self.cbChipCreator.currentText(),
                                                       self.leChipName.text(),
                                                       int(self.leVolume.text()),
@@ -152,11 +150,13 @@ class AddChangeVideoWindow(QtWidgets.QWidget, addChVidWidg.Ui_addChVidWidg):
                 conn.commit()
                 cur.close()
                 conn.close()
-                main_window.load_sklad(0)  # Загрузка обновлённой таблицы ВИДЕОКАРТ из БД на склад
-                main_window.load_conf(0)  # Загрузка обновлённой таблицы ВИДЕОКАРТ из БД в конфигуратор
-                main_window.create_sklad_filter()  # Пересоздание экземпляра класса фильтра для отображения новых данных
-                main_window.create_conf_filter()  # Пересоздание экземпляра класса фильтра для отображения новых данных
                 main_window.reset_all_config()
+                main_window.reset_radiobutton(main_window.tableSklad)
+                main_window.load_sklad(0)  # Загрузка обновлённой таблицы Материнских плат из БД на склад
+                main_window.load_conf(0)  # Загрузка обновлённой таблицы Материнских плат из БД в конфигуратор
+                main_window.toolBoxNavigation.setCurrentIndex(0)
+                main_window.create_sklad_filter()  # Пересоздание экземпляра класса фильтров для отображения новых данных
+                main_window.create_conf_filter()  # Пересоздание экземпляра класса фильтров для отображения новых данных
 
 
 # Класс окна с добавлением\редактированием видеокарты
@@ -241,13 +241,11 @@ class AddChangeProcWindow(QtWidgets.QWidget, addChProcWidg.Ui_addChProcWidg):
                     dialog = DialogOk("Ошибка", "Все поля должны быть заполнены")
                     dialog.show()
                 else:
-                    gaming = False
                     graphics = self.leGraphics.text()
-                    if self.cbGaming.currentText() == "Да": gaming = True
                     if graphics.lower() == "нет": graphics = "нет"  # Если ввели "Нет", то вставляем в нижнем регистре
                     cur.callproc('insert_processor', [id_pr.pop(),
                                                       self.leFullName.text(),
-                                                      gaming,
+                                                      self.cbGaming.currentText(),
                                                       self.leSeries.text(),
                                                       self.leSocket.text(),
                                                       self.leCore.text(),
@@ -281,11 +279,14 @@ class AddChangeProcWindow(QtWidgets.QWidget, addChProcWidg.Ui_addChProcWidg):
                 conn.commit()
                 cur.close()
                 conn.close()
-                main_window.load_sklad(1)  # Загрузка обновлённой таблицы ПРОЦЕССОРОВ из БД на склад
-                main_window.load_conf(1)  # Загрузка обновлённой таблицы ПРОЦЕССОРОВ из БД в конфигуратор
-                main_window.create_sklad_filter()  # Пересоздание экземпляра класса фильтра для отображения новых данных
-                main_window.create_conf_filter()  # Пересоздание экземпляра класса фильтра для отображения новых данных
                 main_window.reset_all_config()
+                main_window.reset_radiobutton(main_window.tableSklad)
+                main_window.load_sklad(1)  # Загрузка обновлённой таблицы Материнских плат из БД на склад
+                main_window.load_conf(1)  # Загрузка обновлённой таблицы Материнских плат из БД в конфигуратор
+                main_window.toolBoxNavigation.setCurrentIndex(1)
+                main_window.create_sklad_filter()  # Пересоздание экземпляра класса фильтров для отображения новых данных
+                main_window.create_conf_filter()  # Пересоздание экземпляра класса фильтров для отображения новых данных
+
 
 
 # Класс окна с добавлением\редактированием видеокарты
@@ -354,11 +355,9 @@ class AddChangeMotherWindow(QtWidgets.QWidget, addChMotherWidg.Ui_addChMotherWid
                     dialog = DialogOk("Ошибка", "Все поля должны быть заполнены")
                     dialog.show()
                 else:
-                    gaming = False
-                    if self.cbGaming.currentText() == "Да": gaming = True
                     cur.callproc('insert_motherboard', [id_pr.pop(),
                                                         self.leFullName.text(),
-                                                        gaming,
+                                                        self.cbGaming.currentText(),
                                                         self.leSocket.text(),
                                                         self.leChipset.text(),
                                                         self.cbFactor.currentText(),
@@ -395,12 +394,14 @@ class AddChangeMotherWindow(QtWidgets.QWidget, addChMotherWidg.Ui_addChMotherWid
                 conn.commit()
                 cur.close()
                 conn.close()
-                main_window.load_sklad(2)  # Загрузка обновлённой таблицы Материнских плат из БД на склад
-                main_window.load_conf(2)  # Загрузка обновлённой таблицы Материнских плат из БД в конфигуратор
-                main_window.create_sklad_filter()  # Пересоздание экземпляра класса для отображения новых данных
-                main_window.create_conf_filter()  # Пересоздание экземпляра класса для отображения новых данных
                 main_window.reset_all_config()
                 main_window.reset_radiobutton(main_window.tableSklad)
+                main_window.load_sklad(2)  # Загрузка обновлённой таблицы Материнских плат из БД на склад
+                main_window.load_conf(2)  # Загрузка обновлённой таблицы Материнских плат из БД в конфигуратор
+                main_window.toolBoxNavigation.setCurrentIndex(2)
+                main_window.create_sklad_filter()  # Пересоздание экземпляра класса фильтров для отображения новых данных
+                main_window.create_conf_filter()  # Пересоздание экземпляра класса фильтров для отображения новых данных
+
 
 
 # Класс окна с добавлением\редактированием видеокарты
@@ -501,12 +502,13 @@ class AddChangeCoolWindow(QtWidgets.QWidget, addChCoolWidg.Ui_addChCoolWidg):
                 conn.commit()
                 cur.close()
                 conn.close()
-                main_window.load_sklad(3)  # Загрузка обновлённой таблицы Материнских плат из БД на склад
-                main_window.load_conf(3)  # Загрузка обновлённой таблицы Материнских плат из БД в конфигуратор
-                main_window.create_sklad_filter()  # Пересоздание экземпляра класса фильтров для отображения новых данных
-                main_window.create_conf_filter()  # Пересоздание экземпляра класса фильтров для отображения новых данных
                 main_window.reset_all_config()
                 main_window.reset_radiobutton(main_window.tableSklad)
+                main_window.load_sklad(3)  # Загрузка обновлённой таблицы Материнских плат из БД на склад
+                main_window.load_conf(3)  # Загрузка обновлённой таблицы Материнских плат из БД в конфигуратор
+                main_window.toolBoxNavigation.setCurrentIndex(3)
+                main_window.create_sklad_filter()  # Пересоздание экземпляра класса фильтров для отображения новых данных
+                main_window.create_conf_filter()  # Пересоздание экземпляра класса фильтров для отображения новых данных
 
 
 # Класс окна с добавлением\редактированием видеокарты
@@ -579,11 +581,9 @@ class AddChangeRamWindow(QtWidgets.QWidget, addChRamWidg.Ui_addChRamWidg):
                     dialog = DialogOk("Ошибка", "Все поля должны быть заполнены")
                     dialog.show()
                 else:
-                    gaming = False
-                    if self.cbGaming.currentText() == "Да": gaming = True
                     cur.callproc('insert_ram', [id_pr.pop(),
                                                 self.leFullName.text(),
-                                                gaming,
+                                                self.cbGaming.currentText(),
                                                 self.cbRamType.currentText(),
                                                 self.cbVolume.currentText(),
                                                 self.leFreq.text(),
@@ -613,12 +613,13 @@ class AddChangeRamWindow(QtWidgets.QWidget, addChRamWidg.Ui_addChRamWidg):
                 conn.commit()
                 cur.close()
                 conn.close()
-                main_window.load_sklad(4)
-                main_window.load_conf(4)
-                main_window.create_sklad_filter()
-                main_window.create_conf_filter()
                 main_window.reset_all_config()
                 main_window.reset_radiobutton(main_window.tableSklad)
+                main_window.load_sklad(4)
+                main_window.load_conf(4)
+                main_window.toolBoxNavigation.setCurrentIndex(4)
+                main_window.create_sklad_filter()
+                main_window.create_conf_filter()
 
 
 class AddChangeDiskWindow(QtWidgets.QWidget, addChDiskWidg.Ui_addChDiskWidg):
@@ -724,12 +725,13 @@ class AddChangeDiskWindow(QtWidgets.QWidget, addChDiskWidg.Ui_addChDiskWidg):
                 conn.commit()
                 cur.close()
                 conn.close()
-                main_window.load_sklad(5)
-                main_window.load_conf(5)
-                main_window.create_sklad_filter()
-                main_window.create_conf_filter()
                 main_window.reset_all_config()
                 main_window.reset_radiobutton(main_window.tableSklad)
+                main_window.load_sklad(5)
+                main_window.load_conf(5)
+                main_window.toolBoxNavigation.setCurrentIndex(5)
+                main_window.create_sklad_filter()
+                main_window.create_conf_filter()
 
 
 class AddChangePowerWindow(QtWidgets.QWidget, addChPowerWidg.Ui_addChPowerWidg):
@@ -836,12 +838,13 @@ class AddChangePowerWindow(QtWidgets.QWidget, addChPowerWidg.Ui_addChPowerWidg):
                 conn.commit()
                 cur.close()
                 conn.close()
-                main_window.load_sklad(6)
-                main_window.load_conf(6)
-                main_window.create_sklad_filter()
-                main_window.create_conf_filter()
                 main_window.reset_all_config()
                 main_window.reset_radiobutton(main_window.tableSklad)
+                main_window.load_sklad(6)
+                main_window.load_conf(6)
+                main_window.toolBoxNavigation.setCurrentIndex(6)
+                main_window.create_sklad_filter()
+                main_window.create_conf_filter()
 
 
 class AddChangeBodyWindow(QtWidgets.QWidget, addChBodyWidg.Ui_addChBodyWidg):
@@ -919,11 +922,9 @@ class AddChangeBodyWindow(QtWidgets.QWidget, addChBodyWidg.Ui_addChBodyWidg):
                     dialog = DialogOk("Ошибка", "Все поля должны быть заполнены")
                     dialog.show()
                 else:
-                    gaming = False
-                    if self.cbGaming.currentText() == "Да": gaming = True
                     cur.callproc('insert_body', [id_pr.pop(),
                                                  self.leFullName.text(),
-                                                 gaming,
+                                                 self.cbGaming.currentText(),
                                                  self.cbType.currentText(),
                                                  self.leFMother.text(),
                                                  self.cbFPower.currentText(),
@@ -955,9 +956,10 @@ class AddChangeBodyWindow(QtWidgets.QWidget, addChBodyWidg.Ui_addChBodyWidg):
                 conn.commit()
                 cur.close()
                 conn.close()
-                main_window.load_sklad(7)
-                main_window.load_conf(7)
-                main_window.create_sklad_filter()
-                main_window.create_conf_filter()
                 main_window.reset_all_config()
                 main_window.reset_radiobutton(main_window.tableSklad)
+                main_window.load_sklad(7)
+                main_window.load_conf(7)
+                main_window.toolBoxNavigation.setCurrentIndex(7)
+                main_window.create_sklad_filter()
+                main_window.create_conf_filter()

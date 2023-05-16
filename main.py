@@ -2,15 +2,14 @@ import sys
 import psycopg2
 
 from PyQt5 import QtWidgets, QtCore, QtGui
+from PyQt5.QtCore import QDateTime
 from PyQt5.QtWidgets import QDialog, QTableWidgetItem
-from PyQt5.QtGui import QPixmap, QFont
+from PyQt5.QtGui import QPixmap
 from ui import main_interface, warningWin, acceptionWin, acceptOrderWidg
 from ui.add import adding  # импорт файла со всеми окнами добавления
 from ui.help import helping  # импорт файла со всеми окнами помощи
 from ui.filter import filters  # импорт файла со всеми фильтрами
 from ui.proizv import addProizvWidget  # импорт файла (виджета) добавления производителя
-
-header_font = QFont("Montserrat Medium", 10)
 
 
 # Класс диалогового окна с одной кнопкой
@@ -38,9 +37,86 @@ class AcceptionWin(QDialog, acceptionWin.Ui_Dialog):
 
 # Класс окна с подтверждением заказа
 class AcceptOrderWin(QtWidgets.QWidget, acceptOrderWidg.Ui_acceptOrderWidg):
-    def __init__(self, main_window):
+    def __init__(self, main_window, tuple_order=None):
         super().__init__()
         self.setupUi(self)
+        self.btnAcceptPurcashe.clicked.connect(lambda: self.create_order(tuple_order, main_window))
+        self.dateEdit.setDateTime(QDateTime.currentDateTime())
+        self.dateEdit.setDisabled(True)
+        if main_window.tableConfVideo.currentRow() != -1:
+            self.previewVideo.setText(
+                main_window.tableConfVideo.item(main_window.tableConfVideo.currentRow(), 2).text())
+        if main_window.tableConfProc.currentRow() != -1:
+            self.previewProc.setText(main_window.tableConfProc.item(main_window.tableConfProc.currentRow(), 2).text())
+        if main_window.tableConfMother.currentRow() != -1:
+            self.previewMother.setText(
+                main_window.tableConfMother.item(main_window.tableConfMother.currentRow(), 2).text())
+        if main_window.tableConfCool.currentRow() != -1:
+            self.previewCool.setText(main_window.tableConfCool.item(main_window.tableConfCool.currentRow(), 2).text())
+        if main_window.tableConfRam.currentRow() != -1:
+            self.previewRam.setText(main_window.tableConfRam.item(main_window.tableConfRam.currentRow(), 2).text())
+        if main_window.tableConfDisk.currentRow() != -1:
+            self.previewDisk.setText(main_window.tableConfDisk.item(main_window.tableConfDisk.currentRow(), 2).text())
+        if main_window.tableConfPower.currentRow() != -1:
+            self.previewPower.setText(
+                main_window.tableConfPower.item(main_window.tableConfPower.currentRow(), 2).text())
+        if main_window.tableConfBody.currentRow() != -1:
+            self.previewBody.setText(main_window.tableConfBody.item(main_window.tableConfBody.currentRow(), 2).text())
+        self.lb_price.setText(main_window.lb_price.text())
+
+    def create_order(self, tuple_order, main_window):
+        if tuple_order:
+            count = 0
+            for i in tuple_order[1]:
+                if i > 0:
+                    count += 1
+            if count == 8:  # Если все 8 комплектующих содержатся в кол-ве > 0
+                conn = None
+                cur = None
+                try:
+                    conn = psycopg2.connect(database="confPc",
+                                            user="postgres",
+                                            password="2001",
+                                            host="localhost",
+                                            port="5432")
+                    cur = conn.cursor()
+
+                    cur.callproc("create_configuration", [main_window.user_id,
+                                                          tuple_order[0][0],
+                                                          tuple_order[0][1],
+                                                          tuple_order[0][2],
+                                                          tuple_order[0][3],
+                                                          tuple_order[0][4],
+                                                          tuple_order[0][5],
+                                                          tuple_order[0][6],
+                                                          tuple_order[0][7],
+                                                          self.dateEdit.dateTime().toString("yyyy-MM-dd")])
+                    conn.commit()
+                except (Exception, psycopg2.DatabaseError) as error:
+                    dialog = DialogOk("Ошибка", str(error))
+                    dialog.show()
+
+                finally:
+                    if conn:
+                        cur.close()
+                        conn.close()
+                        for i in range(8):
+                            main_window.load_sklad(i)
+                            main_window.load_conf(i)
+                        main_window.reset_all_config()
+                        main_window.reset_radiobutton(main_window.tableSklad)
+                        main_window.create_sklad_filter()
+                        main_window.create_conf_filter()
+            else:
+                dialog = DialogOk("Ошибка", "Выбраны комплектующие, которых нет на складе (серый индикатор)")
+                dialog.show()
+                if dialog.exec():
+                    pass
+        else:
+            dialog = DialogOk("Ошибка", "Выберите все необходимые для сборки комплектующие")
+            dialog.show()
+            if dialog.exec():
+                pass
 
 
 # Класс окна с добавлением производителя
@@ -192,6 +268,8 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         self.query_sklad = ""
         self.query_conf = ""
 
+        self.user_id = 0  # 0 - ID администратора (работника).
+
         self.price_configuration = []
 
         self.dict_button_group = {}  # Словарь для хранения групп RB и таблиц, в которых они находятся
@@ -239,7 +317,9 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         self.load_proizv_disk()
         self.load_proizv_power()
         self.load_proizv_body()
-        self.load_sklad(0)  # Первоначальная загрузка всех видеокарт из бд
+        for i in range(8):
+            self.load_sklad(i)  # Первоначальная загрузка всех параметров для словарей
+        self.load_sklad(0)  # Перезагрузка и отображение в таблице склада видеокарт
         # =================================Окна фильтрации комплектующих на складе=========================
         self.vidSkladFilter = filters.VideoFilter(0, self)  # Создаётся отдельный экземпляр для сохранения внесённых д-х
         self.rbSklad.toggled.connect(self.create_sklad_filter)  # Пересоздание экземпляра, если индикатор нажат
@@ -396,7 +476,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
 
         # Кнопка оформления заказа
         self.order_window = AcceptOrderWin(self)
-        self.btn_purcashe.clicked.connect(self.accept_order)
+        self.btnPurcashe.clicked.connect(self.accept_order)
 
         self.table_config.setColumnWidth(0, 0)
         self.table_config.setColumnWidth(1, 170)
@@ -587,11 +667,72 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                     table.horizontalHeader().setVisible(False)
         table.resizeColumnsToContents()
 
+    def get_id_by_name(self, dict, name):
+        """
+        Метод вычленения ID комплектующего из словаря по имени
+        :param dict: словарь с конкретным типом комплектующих
+        :param name: название комплектующего
+        :return: название комплектующего по ID
+        """
+        key_list_names = list(dict.keys())
+        val_list_names = list(dict.values())
+
+        position = val_list_names.index(name)
+
+        return key_list_names[position]
+
+    def make_order_dict(self):
+        dict_order = {}
+        list_order_id = []
+        list_order_kol = []
+        if self.progressBar.value() == 8:  # Если выбрано 8 комплектующих, то создаём словарь со сборкой
+            id_compl = self.get_id_by_name(self.dict_video_name,
+                                           self.tableConfVideo.item(self.tableConfVideo.currentRow(), 2).text())
+            list_order_id.append(id_compl)
+            # Словарь с id выбранных комплектующих и количеством
+            list_order_kol.append(self.dict_video_kol[id_compl])
+
+            id_compl = self.get_id_by_name(self.dict_proc_name,
+                                           self.tableConfProc.item(self.tableConfProc.currentRow(), 2).text())
+            list_order_id.append(id_compl)
+            list_order_kol.append(self.dict_proc_kol[id_compl])
+
+            id_compl = self.get_id_by_name(self.dict_mother_name,
+                                           self.tableConfMother.item(self.tableConfMother.currentRow(), 2).text())
+            list_order_id.append(id_compl)
+            list_order_kol.append(self.dict_mother_kol[id_compl])
+
+            id_compl = self.get_id_by_name(self.dict_cool_name,
+                                           self.tableConfCool.item(self.tableConfCool.currentRow(), 2).text())
+            list_order_id.append(id_compl)
+            list_order_kol.append(self.dict_cool_kol[id_compl])
+
+            id_compl = self.get_id_by_name(self.dict_ram_name,
+                                           self.tableConfRam.item(self.tableConfRam.currentRow(), 2).text())
+            list_order_id.append(id_compl)
+            list_order_kol.append(self.dict_ram_kol[id_compl])
+
+            id_compl = self.get_id_by_name(self.dict_disk_name,
+                                           self.tableConfDisk.item(self.tableConfDisk.currentRow(), 2).text())
+            list_order_id.append(id_compl)
+            list_order_kol.append(self.dict_video_kol[id_compl])
+
+            id_compl = self.get_id_by_name(self.dict_power_name,
+                                           self.tableConfPower.item(self.tableConfPower.currentRow(), 2).text())
+            list_order_id.append(id_compl)
+            list_order_kol.append(self.dict_power_kol[id_compl])
+
+            id_compl = self.get_id_by_name(self.dict_body_name,
+                                           self.tableConfBody.item(self.tableConfBody.currentRow(), 2).text())
+            list_order_id.append(id_compl)
+            list_order_kol.append(self.dict_body_kol[id_compl])
+        return list_order_id, list_order_kol
+
     def accept_order(self):
         """
         Переопределяет экземпляр класса окна подтверждения заказа и тем самым перезаполняет свои поля с данными
         """
-        self.order_window = AcceptOrderWin(self)
+        self.order_window = AcceptOrderWin(self, self.make_order_dict())
         self.order_window.show()
 
     def open_cabinet(self):
@@ -1037,7 +1178,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                         self.fill_tabs_sklad(page)
                         cur.callproc("get_all_videocard")
                         for row in cur:  # Заполняем словари данными о видеокартах
-                            self.dict_video_kol[row[2]] = row[1]
+                            self.dict_video_kol[row[2]] = row[0]
                             self.dict_video_proizv[row[2]] = row[3]
                             self.dict_video_name[row[2]] = row[4]
                 case 1:
@@ -1054,7 +1195,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                         self.fill_tabs_sklad(page)
                         cur.callproc("get_all_processor")
                         for row in cur:  # Заполняем словари данными о видеокартах
-                            self.dict_proc_kol[row[2]] = row[1]
+                            self.dict_proc_kol[row[2]] = row[0]
                             self.dict_proc_proizv[row[2]] = row[3]
                             self.dict_proc_name[row[2]] = row[4]
                 case 2:
@@ -1071,7 +1212,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                         self.fill_tabs_sklad(page)
                         cur.callproc("get_all_motherboard")
                         for row in cur:
-                            self.dict_mother_kol[row[2]] = row[1]
+                            self.dict_mother_kol[row[2]] = row[0]
                             self.dict_mother_proizv[row[2]] = row[3]
                             self.dict_mother_name[row[2]] = row[4]
                 case 3:
@@ -1088,7 +1229,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                         self.fill_tabs_sklad(page)
                         cur.callproc("get_all_cool")
                         for row in cur:
-                            self.dict_cool_kol[row[2]] = row[1]
+                            self.dict_cool_kol[row[2]] = row[0]
                             self.dict_cool_proizv[row[2]] = row[3]
                             self.dict_cool_name[row[2]] = row[4]
                 case 4:
@@ -1105,7 +1246,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                         self.fill_tabs_sklad(page)
                         cur.callproc("get_all_ram")
                         for row in cur:
-                            self.dict_ram_kol[row[2]] = row[1]
+                            self.dict_ram_kol[row[2]] = row[0]
                             self.dict_ram_proizv[row[2]] = row[3]
                             self.dict_ram_name[row[2]] = row[4]
                 case 5:
@@ -1122,7 +1263,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                         self.fill_tabs_sklad(page)
                         cur.callproc("get_all_disk")
                         for row in cur:
-                            self.dict_disk_kol[row[2]] = row[1]
+                            self.dict_disk_kol[row[2]] = row[0]
                             self.dict_disk_proizv[row[2]] = row[3]
                             self.dict_disk_name[row[2]] = row[4]
                 case 6:
@@ -1139,7 +1280,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                         self.fill_tabs_sklad(page)
                         cur.callproc("get_all_power")
                         for row in cur:
-                            self.dict_power_kol[row[2]] = row[1]
+                            self.dict_power_kol[row[2]] = row[0]
                             self.dict_power_proizv[row[2]] = row[3]
                             self.dict_power_name[row[2]] = row[4]
                 case 7:
@@ -1156,7 +1297,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                         self.fill_tabs_sklad(page)
                         cur.callproc("get_all_body")
                         for row in cur:
-                            self.dict_body_kol[row[2]] = row[1]
+                            self.dict_body_kol[row[2]] = row[0]
                             self.dict_body_proizv[row[2]] = row[3]
                             self.dict_body_name[row[2]] = row[4]
 
@@ -1191,10 +1332,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                     self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
                     self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
                     self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
-                    if row[5]:
-                        self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem("Да"))
-                    else:
-                        self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem("Нет"))
+                    self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
                     self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
                     self.tableSklad.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[7])))
                     self.tableSklad.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[8])))
@@ -1225,10 +1363,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                     self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
                     self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
                     self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
-                    if row[5]:
-                        self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem("Да"))
-                    else:
-                        self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem("Нет"))
+                    self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
                     self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
                     self.tableSklad.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[7])))
                     self.tableSklad.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[8])))
@@ -1255,10 +1390,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                     self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
                     self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
                     self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
-                    if row[5]:
-                        self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem("Да"))
-                    else:
-                        self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem("Нет"))
+                    self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
                     self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
                     self.tableSklad.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[7])))
                     self.tableSklad.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[8])))
@@ -1309,10 +1441,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                     self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
                     self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
                     self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
-                    if row[5]:
-                        self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem("Да"))
-                    else:
-                        self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem("Нет"))
+                    self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
                     self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
                     self.tableSklad.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[7])))
                     self.tableSklad.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[8])))
@@ -1379,10 +1508,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                     self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
                     self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
                     self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
-                    if row[5]:
-                        self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem("Да"))
-                    else:
-                        self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem("Нет"))
+                    self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
                     self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
                     self.tableSklad.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[7])))
                     self.tableSklad.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[8])))
@@ -2161,7 +2287,10 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                                     port="5432")
             cur = conn.cursor()
             cur.execute(get_query)
-            self.fill_table_sklad(page, cur)  # page = 0-7 - порядковые идентификаторы комплектующих
+            sklad_row = self.save_row(
+                self.tableConfProc)  # !!! Сохраняем строчку в фильтруемых таблицах, если они выделена!!!!
+            self.fill_table_conf(page, cur)  # page = 0-7 - порядковые идентификаторы комплектующих
+            self.check_rows(sklad_row, self.tableSklad)
 
         except (Exception, psycopg2.DatabaseError) as error:
             dialog = DialogOk("Ошибка", error)
@@ -2184,7 +2313,47 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                                     port="5432")
             cur = conn.cursor()
             cur.execute(get_query)
-            self.fill_table_conf(page, cur)  # page = 0-7 - порядковые идентификаторы комплектующих
+            match page:
+                case 0:
+                    video_row = self.save_row(
+                        self.tableConfVideo)  # !!! Сохраняем строчку в фильтруемых таблицах, если они выделена!!!!
+                    self.fill_table_conf(page, cur)  # page = 0-7 - порядковые идентификаторы комплектующих
+                    self.check_rows(video_row, self.tableConfVideo)
+                case 1:
+                    proc_row = self.save_row(
+                        self.tableConfProc)  # !!! Сохраняем строчку в фильтруемых таблицах, если они выделена!!!!
+                    self.fill_table_conf(page, cur)  # page = 0-7 - порядковые идентификаторы комплектующих
+                    self.check_rows(proc_row, self.tableConfProc)
+                case 2:
+                    mother_row = self.save_row(
+                        self.tableConfMother)  # !!! Сохраняем строчку в фильтруемых таблицах, если они выделена!!!!
+                    self.fill_table_conf(page, cur)  # page = 0-7 - порядковые идентификаторы комплектующих
+                    self.check_rows(mother_row, self.tableConfMother)
+                case 3:
+                    cool_row = self.save_row(
+                        self.tableConfCool)  # !!! Сохраняем строчку в фильтруемых таблицах, если они выделена!!!!
+                    self.fill_table_conf(page, cur)  # page = 0-7 - порядковые идентификаторы комплектующих
+                    self.check_rows(cool_row, self.tableConfCool)
+                case 4:
+                    ram_row = self.save_row(
+                        self.tableConfRam)  # !!! Сохраняем строчку в фильтруемых таблицах, если они выделена!!!!
+                    self.fill_table_conf(page, cur)  # page = 0-7 - порядковые идентификаторы комплектующих
+                    self.check_rows(ram_row, self.tableConfRam)
+                case 5:
+                    disk_row = self.save_row(
+                        self.tableConfDisk)  # !!! Сохраняем строчку в фильтруемых таблицах, если они выделена!!!!
+                    self.fill_table_conf(page, cur)  # page = 0-7 - порядковые идентификаторы комплектующих
+                    self.check_rows(disk_row, self.tableConfDisk)
+                case 6:
+                    power_row = self.save_row(
+                        self.tableConfPower)  # !!! Сохраняем строчку в фильтруемых таблицах, если они выделена!!!!
+                    self.fill_table_conf(page, cur)  # page = 0-7 - порядковые идентификаторы комплектующих
+                    self.check_rows(power_row, self.tableConfPower)
+                case 7:
+                    body_row = self.save_row(
+                        self.tableConfBody)  # !!! Сохраняем строчку в фильтруемых таблицах, если они выделена!!!!
+                    self.fill_table_conf(page, cur)  # page = 0-7 - порядковые идентификаторы комплектующих
+                    self.check_rows(body_row, self.tableConfBody)
 
         except (Exception, psycopg2.DatabaseError) as error:
             dialog = DialogOk("Ошибка", error)
@@ -3338,8 +3507,8 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
 
     def current_pos(self, ch, row, table):  # Если добавить хедеры в конфигуратор и дать возможность ранжирования,
         # if ch:
-            # table.selectRow(row)
-            # self.fill_cart(table)
+        # table.selectRow(row)
+        # self.fill_cart(table)
         pass
 
     def configure_video(self):

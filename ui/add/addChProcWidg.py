@@ -20,7 +20,7 @@ class Ui_addChProcWidg(object):
         addChProcWidg.setWindowIcon(icon)
         addChProcWidg.setStyleSheet("QWidget\n"
 "{\n"
-"    background: rgb(25, 25, 25);\n"
+"    background: rgb(30, 30, 30);\n"
 "    color: white;\n"
 "}\n"
 "")
@@ -784,8 +784,8 @@ class Ui_addChProcWidg(object):
         self.lbSeries.setText(_translate("addChProcWidg", "Серия"))
         self.lbTechproc.setText(_translate("addChProcWidg", "Техпроцесс"))
         self.lbCache.setText(_translate("addChProcWidg", "Кэш [Мб]"))
-        self.cbGaming.setItemText(0, _translate("addChProcWidg", "Да"))
-        self.cbGaming.setItemText(1, _translate("addChProcWidg", "Нет"))
+        self.cbGaming.setItemText(0, _translate("addChProcWidg", "да"))
+        self.cbGaming.setItemText(1, _translate("addChProcWidg", "нет"))
         self.lbProcGaming.setText(_translate("addChProcWidg", "Игровое комплектующее"))
 
 

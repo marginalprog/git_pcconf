@@ -1,4 +1,4 @@
--- Last modification date: 2023-05-11 16:12:55.784
+-- Last modification date: 2023-05-16 08:48:55.515
 
 -- tables
 -- Table: Body
@@ -7,7 +7,7 @@ CREATE TABLE Body (
     id_proizv serial  NOT NULL,
     exist boolean  NOT NULL DEFAULT false,
     fullname varchar(50)  NOT NULL,
-    gaming boolean  NOT NULL,
+    gaming varchar(3)  NOT NULL,
     type varchar(50)  NOT NULL,
     ffmother varchar(255)  NOT NULL,
     ffpower varchar(255)  NOT NULL,
@@ -87,7 +87,7 @@ CREATE TABLE Motherboard (
     id_proizv serial  NOT NULL,
     exist boolean  NOT NULL DEFAULT false,
     fullname varchar(50)  NOT NULL,
-    gaming boolean  NOT NULL,
+    gaming varchar(3)  NOT NULL,
     socket varchar(20)  NOT NULL,
     chipset varchar(20)  NOT NULL,
     formfactor varchar(30)  NOT NULL,
@@ -204,7 +204,7 @@ CREATE TABLE Processor (
     id_proizv serial  NOT NULL,
     exist boolean  NOT NULL DEFAULT false,
     fullname varchar(50)  NOT NULL,
-    gaming boolean  NOT NULL,
+    gaming varchar(3)  NOT NULL,
     series varchar(50)  NOT NULL,
     socket varchar(20)  NOT NULL,
     core varchar(30)  NOT NULL,
@@ -289,7 +289,7 @@ CREATE TABLE Ram (
     id_proizv serial  NOT NULL,
     exist boolean  NOT NULL DEFAULT false,
     fullname varchar(50)  NOT NULL,
-    gaming boolean  NOT NULL,
+    gaming varchar(3)  NOT NULL,
     type varchar(20)  NOT NULL,
     volume int  NOT NULL,
     frequency int  NOT NULL,
@@ -354,7 +354,7 @@ CREATE TABLE Videocard (
     id_proizv serial  NOT NULL,
     exist boolean  NOT NULL DEFAULT false,
     fullname varchar(50)  NOT NULL,
-    gaming boolean  NOT NULL,
+    gaming varchar(3)  NOT NULL,
     chipcreator varchar(25)  NOT NULL,
     chipname varchar(25)  NOT NULL,
     vram int  NOT NULL,
@@ -636,6 +636,102 @@ ALTER TABLE Order_power ADD CONSTRAINT order_power_Power
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
+
+
+-- Триггер вычитания из всех складов по 1 комплектующему
+CREATE OR REPLACE FUNCTION update_all_sklad()
+RETURNS trigger
+AS $$
+DECLARE
+	old_video_kol int;
+	new_video_kol int;
+	
+	old_proc_kol int;
+	new_proc_kol int;
+	
+	old_mother_kol int;
+	new_mother_kol int;
+	
+	old_cool_kol int;
+	new_cool_kol int;
+	
+	old_ram_kol int;
+	new_ram_kol int;
+	
+	old_disk_kol int;
+	new_disk_kol int;
+	
+	old_power_kol int;
+	new_power_kol int;
+	
+	old_body_kol int;
+	new_body_kol int;
+BEGIN
+	old_video_kol = (SELECT SUM(kol) FROM sklad_videocard
+					WHERE id_izd = NEW.videocard_id);
+	new_video_kol = old_video_kol - 1;
+	UPDATE sklad_videocard
+	SET kol = new_video_kol
+    	WHERE id_izd=NEW.videocard_id;
+	
+	old_proc_kol = (SELECT SUM(kol) FROM sklad_processor
+					WHERE id_izd = NEW.processor_id);
+	new_proc_kol = old_proc_kol - 1;
+	UPDATE sklad_processor
+	SET kol = new_proc_kol
+    	WHERE id_izd=NEW.processor_id;
+		
+	old_mother_kol = (SELECT SUM(kol) FROM sklad_motherboard
+					WHERE id_izd = NEW.motherboard_id);
+	new_mother_kol = old_mother_kol - 1;
+	UPDATE sklad_motherboard
+	SET kol = new_mother_kol
+    	WHERE id_izd=NEW.motherboard_id;	
+	
+	old_cool_kol = (SELECT SUM(kol) FROM sklad_cool
+					WHERE id_izd = NEW.cool_id);
+	new_cool_kol = old_cool_kol - 1;
+	UPDATE sklad_cool
+	SET kol = new_cool_kol
+    	WHERE id_izd=NEW.cool_id;
+	
+	old_ram_kol = (SELECT SUM(kol) FROM sklad_ram
+					WHERE id_izd = NEW.ram_id);
+	new_ram_kol = old_ram_kol - 1;
+	UPDATE sklad_ram
+	SET kol = new_ram_kol
+    	WHERE id_izd=NEW.ram_id;
+	
+	old_disk_kol = (SELECT SUM(kol) FROM sklad_disk
+					WHERE id_izd = NEW.disk_id);
+	new_disk_kol = old_disk_kol - 1;
+	UPDATE sklad_disk
+	SET kol = new_disk_kol
+    	WHERE id_izd=NEW.disk_id;
+	
+	old_power_kol = (SELECT SUM(kol) FROM sklad_power
+					WHERE id_izd = NEW.power_id);
+	new_power_kol = old_power_kol - 1;
+	UPDATE sklad_power
+	SET kol = new_power_kol
+    	WHERE id_izd=NEW.power_id;
+		
+	old_body_kol = (SELECT SUM(kol) FROM sklad_body
+					WHERE id_izd = NEW.body_id);
+	new_body_kol = old_body_kol - 1;
+	UPDATE sklad_body
+	SET kol = new_body_kol
+    	WHERE id_izd=NEW.body_id;
+	RETURN NEW;
+END;
+$$
+LANGUAGE plpgsql;
+
+CREATE TRIGGER update_all_sklad_trigger
+AFTER INSERT
+ON "configuration" -- После создания заказа пересчитать количество процессоров
+FOR EACH ROW
+EXECUTE PROCEDURE update_all_sklad();
 
 -- End of file.
 

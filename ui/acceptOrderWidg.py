@@ -15,6 +15,9 @@ class Ui_acceptOrderWidg(object):
     def setupUi(self, acceptOrderWidg):
         acceptOrderWidg.setObjectName("acceptOrderWidg")
         acceptOrderWidg.resize(858, 869)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\../images/faq.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        acceptOrderWidg.setWindowIcon(icon)
         acceptOrderWidg.setStyleSheet("QWidget\n"
 "{\n"
 "    background-color: rgb(30,30,30);\n"
@@ -111,20 +114,20 @@ class Ui_acceptOrderWidg(object):
 "")
         self.lbMother.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.lbMother.setObjectName("lbMother")
-        self.lbVideo_6 = QtWidgets.QLabel(acceptOrderWidg)
-        self.lbVideo_6.setGeometry(QtCore.QRect(290, 280, 531, 31))
+        self.previewMother = QtWidgets.QLabel(acceptOrderWidg)
+        self.previewMother.setGeometry(QtCore.QRect(290, 280, 531, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
+        font.setPointSize(12)
         font.setBold(False)
         font.setWeight(50)
-        self.lbVideo_6.setFont(font)
-        self.lbVideo_6.setStyleSheet("color: rgb(225,225,225);\n"
+        self.previewMother.setFont(font)
+        self.previewMother.setStyleSheet("color: rgb(235,235,235);\n"
 "border: 0px;\n"
 "")
-        self.lbVideo_6.setText("")
-        self.lbVideo_6.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.lbVideo_6.setObjectName("lbVideo_6")
+        self.previewMother.setText("")
+        self.previewMother.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.previewMother.setObjectName("previewMother")
         self.line_5 = QtWidgets.QFrame(acceptOrderWidg)
         self.line_5.setGeometry(QtCore.QRect(20, 410, 821, 20))
         self.line_5.setStyleSheet("border:0px;\n"
@@ -185,90 +188,90 @@ class Ui_acceptOrderWidg(object):
 "")
         self.lbPower.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.lbPower.setObjectName("lbPower")
-        self.lbVideo_8 = QtWidgets.QLabel(acceptOrderWidg)
-        self.lbVideo_8.setGeometry(QtCore.QRect(290, 360, 531, 31))
+        self.previewCool = QtWidgets.QLabel(acceptOrderWidg)
+        self.previewCool.setGeometry(QtCore.QRect(290, 360, 531, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
+        font.setPointSize(12)
         font.setBold(False)
         font.setWeight(50)
-        self.lbVideo_8.setFont(font)
-        self.lbVideo_8.setStyleSheet("color: rgb(225,225,225);\n"
+        self.previewCool.setFont(font)
+        self.previewCool.setStyleSheet("color: rgb(235,235,235);\n"
 "border: 0px;\n"
 "")
-        self.lbVideo_8.setText("")
-        self.lbVideo_8.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.lbVideo_8.setObjectName("lbVideo_8")
-        self.lbVideo_10 = QtWidgets.QLabel(acceptOrderWidg)
-        self.lbVideo_10.setGeometry(QtCore.QRect(290, 440, 531, 31))
+        self.previewCool.setText("")
+        self.previewCool.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.previewCool.setObjectName("previewCool")
+        self.previewRam = QtWidgets.QLabel(acceptOrderWidg)
+        self.previewRam.setGeometry(QtCore.QRect(290, 440, 531, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
+        font.setPointSize(12)
         font.setBold(False)
         font.setWeight(50)
-        self.lbVideo_10.setFont(font)
-        self.lbVideo_10.setStyleSheet("color: rgb(225,225,225);\n"
+        self.previewRam.setFont(font)
+        self.previewRam.setStyleSheet("color: rgb(235,235,235);\n"
 "border: 0px;\n"
 "")
-        self.lbVideo_10.setText("")
-        self.lbVideo_10.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.lbVideo_10.setObjectName("lbVideo_10")
-        self.lbVideo_12 = QtWidgets.QLabel(acceptOrderWidg)
-        self.lbVideo_12.setGeometry(QtCore.QRect(290, 600, 531, 31))
+        self.previewRam.setText("")
+        self.previewRam.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.previewRam.setObjectName("previewRam")
+        self.previewPower = QtWidgets.QLabel(acceptOrderWidg)
+        self.previewPower.setGeometry(QtCore.QRect(290, 600, 531, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
+        font.setPointSize(12)
         font.setBold(False)
         font.setWeight(50)
-        self.lbVideo_12.setFont(font)
-        self.lbVideo_12.setStyleSheet("color: rgb(225,225,225);\n"
+        self.previewPower.setFont(font)
+        self.previewPower.setStyleSheet("color: rgb(235,235,235);\n"
 "border: 0px;\n"
 "")
-        self.lbVideo_12.setText("")
-        self.lbVideo_12.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.lbVideo_12.setObjectName("lbVideo_12")
-        self.lbVideo_13 = QtWidgets.QLabel(acceptOrderWidg)
-        self.lbVideo_13.setGeometry(QtCore.QRect(290, 200, 531, 31))
+        self.previewPower.setText("")
+        self.previewPower.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.previewPower.setObjectName("previewPower")
+        self.previewProc = QtWidgets.QLabel(acceptOrderWidg)
+        self.previewProc.setGeometry(QtCore.QRect(290, 200, 531, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
+        font.setPointSize(12)
         font.setBold(False)
         font.setWeight(50)
-        self.lbVideo_13.setFont(font)
-        self.lbVideo_13.setStyleSheet("color: rgb(225,225,225);\n"
+        self.previewProc.setFont(font)
+        self.previewProc.setStyleSheet("color: rgb(235,235,235);\n"
 "border: 0px;\n"
 "")
-        self.lbVideo_13.setText("")
-        self.lbVideo_13.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.lbVideo_13.setObjectName("lbVideo_13")
-        self.lbVideo_14 = QtWidgets.QLabel(acceptOrderWidg)
-        self.lbVideo_14.setGeometry(QtCore.QRect(290, 120, 531, 31))
+        self.previewProc.setText("")
+        self.previewProc.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.previewProc.setObjectName("previewProc")
+        self.previewVideo = QtWidgets.QLabel(acceptOrderWidg)
+        self.previewVideo.setGeometry(QtCore.QRect(290, 120, 531, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
+        font.setPointSize(12)
         font.setBold(False)
         font.setWeight(50)
-        self.lbVideo_14.setFont(font)
-        self.lbVideo_14.setStyleSheet("color: rgb(225,225,225);\n"
+        self.previewVideo.setFont(font)
+        self.previewVideo.setStyleSheet("color: rgb(235,235,235);\n"
 "border: 0px;\n"
 "")
-        self.lbVideo_14.setText("")
-        self.lbVideo_14.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.lbVideo_14.setObjectName("lbVideo_14")
-        self.lbVideo_15 = QtWidgets.QLabel(acceptOrderWidg)
-        self.lbVideo_15.setGeometry(QtCore.QRect(290, 680, 531, 31))
+        self.previewVideo.setText("")
+        self.previewVideo.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.previewVideo.setObjectName("previewVideo")
+        self.previewBody = QtWidgets.QLabel(acceptOrderWidg)
+        self.previewBody.setGeometry(QtCore.QRect(290, 680, 531, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
+        font.setPointSize(12)
         font.setBold(False)
         font.setWeight(50)
-        self.lbVideo_15.setFont(font)
-        self.lbVideo_15.setStyleSheet("color: rgb(225,225,225);\n"
+        self.previewBody.setFont(font)
+        self.previewBody.setStyleSheet("color: rgb(235,235,235);\n"
 "border: 0px;\n"
 "")
-        self.lbVideo_15.setText("")
-        self.lbVideo_15.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.lbVideo_15.setObjectName("lbVideo_15")
+        self.previewBody.setText("")
+        self.previewBody.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.previewBody.setObjectName("previewBody")
         self.line_8 = QtWidgets.QFrame(acceptOrderWidg)
         self.line_8.setGeometry(QtCore.QRect(20, 730, 821, 20))
         self.line_8.setStyleSheet("border:0px;\n"
@@ -324,20 +327,20 @@ class Ui_acceptOrderWidg(object):
         self.imgDisk.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.imgDisk.setFrameShadow(QtWidgets.QFrame.Raised)
         self.imgDisk.setObjectName("imgDisk")
-        self.lbVideo_17 = QtWidgets.QLabel(acceptOrderWidg)
-        self.lbVideo_17.setGeometry(QtCore.QRect(290, 520, 531, 31))
+        self.previewDisk = QtWidgets.QLabel(acceptOrderWidg)
+        self.previewDisk.setGeometry(QtCore.QRect(290, 520, 531, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
+        font.setPointSize(12)
         font.setBold(False)
         font.setWeight(50)
-        self.lbVideo_17.setFont(font)
-        self.lbVideo_17.setStyleSheet("color: rgb(225,225,225);\n"
+        self.previewDisk.setFont(font)
+        self.previewDisk.setStyleSheet("color: rgb(235,235,235);\n"
 "border: 0px;\n"
 "")
-        self.lbVideo_17.setText("")
-        self.lbVideo_17.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.lbVideo_17.setObjectName("lbVideo_17")
+        self.previewDisk.setText("")
+        self.previewDisk.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.previewDisk.setObjectName("previewDisk")
         self.line_9 = QtWidgets.QFrame(acceptOrderWidg)
         self.line_9.setGeometry(QtCore.QRect(20, 570, 821, 20))
         self.line_9.setStyleSheet("border:0px;\n"
@@ -372,15 +375,15 @@ class Ui_acceptOrderWidg(object):
         self.imgPower.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.imgPower.setFrameShadow(QtWidgets.QFrame.Raised)
         self.imgPower.setObjectName("imgPower")
-        self.btn_purcashe = QtWidgets.QPushButton(acceptOrderWidg)
-        self.btn_purcashe.setGeometry(QtCore.QRect(260, 810, 151, 31))
+        self.btnAcceptPurcashe = QtWidgets.QPushButton(acceptOrderWidg)
+        self.btnAcceptPurcashe.setGeometry(QtCore.QRect(260, 810, 151, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
         font.setBold(True)
         font.setWeight(75)
-        self.btn_purcashe.setFont(font)
-        self.btn_purcashe.setStyleSheet("\n"
+        self.btnAcceptPurcashe.setFont(font)
+        self.btnAcceptPurcashe.setStyleSheet("\n"
 "\n"
 "QPushButton::hover\n"
 "{\n"
@@ -395,7 +398,7 @@ class Ui_acceptOrderWidg(object):
 "color: white;\n"
 "border: 1px solid #bf0000;\n"
 "}")
-        self.btn_purcashe.setObjectName("btn_purcashe")
+        self.btnAcceptPurcashe.setObjectName("btnAcceptPurcashe")
         self.btnClose = QtWidgets.QPushButton(acceptOrderWidg)
         self.btnClose.setGeometry(QtCore.QRect(440, 810, 151, 31))
         font = QtGui.QFont()
@@ -457,6 +460,266 @@ class Ui_acceptOrderWidg(object):
 "}")
         self.lb_price_2.setAlignment(QtCore.Qt.AlignCenter)
         self.lb_price_2.setObjectName("lb_price_2")
+        self.line_10 = QtWidgets.QFrame(acceptOrderWidg)
+        self.line_10.setGeometry(QtCore.QRect(250, 110, 20, 61))
+        self.line_10.setStyleSheet("border:0px;\n"
+"border-right: 1px solid rgb(100,100,100);\n"
+"border-bottom: 1px solid rgb(100,100,100);")
+        self.line_10.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line_10.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_10.setObjectName("line_10")
+        self.line_11 = QtWidgets.QFrame(acceptOrderWidg)
+        self.line_11.setGeometry(QtCore.QRect(250, 170, 20, 81))
+        self.line_11.setStyleSheet("border:0px;\n"
+"border-right: 1px solid rgb(100,100,100);\n"
+"border-bottom: 1px solid rgb(100,100,100);\n"
+"border-top: 1px solid rgb(100,100,100);")
+        self.line_11.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line_11.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_11.setObjectName("line_11")
+        self.line_12 = QtWidgets.QFrame(acceptOrderWidg)
+        self.line_12.setGeometry(QtCore.QRect(250, 250, 20, 81))
+        self.line_12.setStyleSheet("border:0px;\n"
+"border-right: 1px solid rgb(100,100,100);\n"
+"border-bottom: 1px solid rgb(100,100,100);\n"
+"border-top: 1px solid rgb(100,100,100);")
+        self.line_12.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line_12.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_12.setObjectName("line_12")
+        self.line_13 = QtWidgets.QFrame(acceptOrderWidg)
+        self.line_13.setGeometry(QtCore.QRect(250, 330, 20, 81))
+        self.line_13.setStyleSheet("border:0px;\n"
+"border-right: 1px solid rgb(100,100,100);\n"
+"border-bottom: 1px solid rgb(100,100,100);\n"
+"border-top: 1px solid rgb(100,100,100);")
+        self.line_13.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line_13.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_13.setObjectName("line_13")
+        self.line_14 = QtWidgets.QFrame(acceptOrderWidg)
+        self.line_14.setGeometry(QtCore.QRect(250, 410, 20, 81))
+        self.line_14.setStyleSheet("border:0px;\n"
+"border-right: 1px solid rgb(100,100,100);\n"
+"border-bottom: 1px solid rgb(100,100,100);\n"
+"border-top: 1px solid rgb(100,100,100);")
+        self.line_14.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line_14.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_14.setObjectName("line_14")
+        self.line_15 = QtWidgets.QFrame(acceptOrderWidg)
+        self.line_15.setGeometry(QtCore.QRect(250, 490, 20, 81))
+        self.line_15.setStyleSheet("border:0px;\n"
+"border-right: 1px solid rgb(100,100,100);\n"
+"border-bottom: 1px solid rgb(100,100,100);\n"
+"border-top: 1px solid rgb(100,100,100);")
+        self.line_15.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line_15.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_15.setObjectName("line_15")
+        self.line_16 = QtWidgets.QFrame(acceptOrderWidg)
+        self.line_16.setGeometry(QtCore.QRect(250, 570, 20, 81))
+        self.line_16.setStyleSheet("border:0px;\n"
+"border-right: 1px solid rgb(100,100,100);\n"
+"border-bottom: 1px solid rgb(100,100,100);\n"
+"border-top: 1px solid rgb(100,100,100);")
+        self.line_16.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line_16.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_16.setObjectName("line_16")
+        self.line_17 = QtWidgets.QFrame(acceptOrderWidg)
+        self.line_17.setGeometry(QtCore.QRect(250, 650, 20, 81))
+        self.line_17.setStyleSheet("border:0px;\n"
+"border-right: 1px solid rgb(100,100,100);\n"
+"border-bottom: 1px solid rgb(100,100,100);\n"
+"border-top: 1px solid rgb(100,100,100);")
+        self.line_17.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line_17.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_17.setObjectName("line_17")
+        self.lbDate = QtWidgets.QLabel(acceptOrderWidg)
+        self.lbDate.setGeometry(QtCore.QRect(520, 50, 181, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        self.lbDate.setFont(font)
+        self.lbDate.setStyleSheet("border:0px;")
+        self.lbDate.setObjectName("lbDate")
+        self.dateEdit = QtWidgets.QDateEdit(acceptOrderWidg)
+        self.dateEdit.setGeometry(QtCore.QRect(720, 50, 111, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(11)
+        self.dateEdit.setFont(font)
+        self.dateEdit.setStyleSheet("QDateEdit{\n"
+"    background-color: rgb(40,40,40);\n"
+"    border: 1px;\n"
+"    border-bottom: 1px solid rgb(120,120,120);\n"
+"    padding-left: 5px;\n"
+"}\n"
+"QDateEdit:hover{\n"
+"    background-color: rgb(55,55,55);\n"
+"    border-bottom: 1px solid red;\n"
+"}\n"
+"QDateEdit::drop-down{\n"
+"    border: 0px;\n"
+"}\n"
+"\n"
+"QDateEdit::down-arrow {\n"
+"    border-image: url(\"E:/pcconf/images/down-arrow-gray.png\");\n"
+"    width: 17px;\n"
+"    height: 17px;\n"
+"    margin-right: 5px;\n"
+"}\n"
+"\n"
+"QDateEdit::down-arrow:on {\n"
+"    border-image: url(\"E:/pcconf/images/up-arrow-gray.png\");\n"
+"    width: 17px;\n"
+"    height: 17px;\n"
+"    margin-right: 5px;\n"
+"    border: 2px solid rgb(100,0,0)\n"
+"}\n"
+"\n"
+"QDateEdit:on{\n"
+"    border: 2px solid rgb(100,0,0);\n"
+"}\n"
+"\n"
+"QDateEdit::up-arrow {\n"
+"    border-image: url(\"E:/pcconf/images/up-arrow-gray.png\");\n"
+"    width: 17px;\n"
+"    height: 17px;\n"
+"    margin-right: 5px;\n"
+"}\n"
+"\n"
+"QCalendarWidget QWidget#qt_calendar_navigationbar { background-color: rgb(40,40,40); }\n"
+"QCalendarWidget QToolButton {\n"
+"    background: transparent;\n"
+"    border: none;\n"
+"    width: 70px;\n"
+"    height: 25px;\n"
+"    color: rgb(220,220,220);\n"
+"    font-size: 14px;\n"
+"    icon-size: 30px, 30px;\n"
+"}\n"
+"\n"
+"QToolButton#qt_calendar_prevmonth {\n"
+"    background: rgb(45,45,45);\n"
+"    border: none;\n"
+"    width: 30px;\n"
+"    height: 25px;\n"
+"    qproperty-icon:  url(\"E:/pcconf/images/left-arrow.png\");\n"
+"    icon-size: 20px, 20px;\n"
+"    border-bottom: 1px solid red;\n"
+"}\n"
+"QToolButton#qt_calendar_nextmonth {\n"
+"    background: rgb(35,35,35);\n"
+"    border: none;\n"
+"    width: 30px;\n"
+"    height: 25px;\n"
+"    qproperty-icon:  url(\"E:/pcconf/images/right-arrow.png\");\n"
+"    icon-size: 20px, 20px;\n"
+"    border-bottom: 1px solid red;\n"
+"}\n"
+"\n"
+"QCalendarWidget QMenu {\n"
+"    width: 100px;\n"
+"    left: 10px;\n"
+"    color: white;\n"
+"    font-size: 14px;\n"
+"    background-color: rgb(80, 80, 80);\n"
+"    selection-color: rgb(220,0,0);\n"
+"}\n"
+"\n"
+"QCalendarWidget QSpinBox { \n"
+"    width: 45px; \n"
+"    font-size:14px; \n"
+"    color: white; \n"
+"    background: transparent;\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"    selection-color: rgb(255, 255, 255);\n"
+"}\n"
+"QCalendarWidget QSpinBox::up-button { subcontrol-origin: border;  subcontrol-position: top right;  width:15px; height: 15px; border:1px solid rgb(30,30,30); }\n"
+"QCalendarWidget QSpinBox::down-button { subcontrol-origin: border; subcontrol-position: bottom right;  width:15px;  height: 15px; border:1px solid rgb(30,30,30);}\n"
+"QCalendarWidget QSpinBox::up-arrow { border-image: url(\"E:/pcconf/images/up-arrow.png\"); }\n"
+"QCalendarWidget QSpinBox::down-arrow { border-image: url(\"E:/pcconf/images/down-arrow.png\");}\n"
+" \n"
+"/* header row */\n"
+"QCalendarWidget QWidget { alternate-background-color: rgb(50, 50, 50);  border-bottom: 1px solid red; }\n"
+" \n"
+"/* normal days */\n"
+"QCalendarWidget QAbstractItemView:enabled \n"
+"{\n"
+"    font-size:12px;  \n"
+"    color: rgb(180, 180, 180);  \n"
+"    background-color: rgb(15, 15, 15);  \n"
+"    selection-background-color: rgb(64, 64, 64); \n"
+"    selection-color: rgb(0, 255, 0); \n"
+"    selection-border-color: red;\n"
+"    height: 30px;\n"
+"}\n"
+" \n"
+"/* days in other months */\n"
+"QCalendarWidget QAbstractItemView:disabled { color: rgb(80, 80, 80); }")
+        self.dateEdit.setProperty("showGroupSeparator", True)
+        self.dateEdit.setDateTime(QtCore.QDateTime(QtCore.QDate(2023, 1, 1), QtCore.QTime(0, 0, 0)))
+        self.dateEdit.setMinimumDateTime(QtCore.QDateTime(QtCore.QDate(2023, 1, 1), QtCore.QTime(0, 0, 0)))
+        self.dateEdit.setMaximumDate(QtCore.QDate(2030, 12, 31))
+        self.dateEdit.setCalendarPopup(True)
+        self.dateEdit.setTimeSpec(QtCore.Qt.LocalTime)
+        self.dateEdit.setDate(QtCore.QDate(2023, 1, 1))
+        self.dateEdit.setObjectName("dateEdit")
+        self.line_18 = QtWidgets.QFrame(acceptOrderWidg)
+        self.line_18.setGeometry(QtCore.QRect(340, 790, 161, 20))
+        self.line_18.setStyleSheet("border:0px;\n"
+"border-top: 1px solid rgb(100,100,100);")
+        self.line_18.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line_18.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_18.setObjectName("line_18")
+        self.line.raise_()
+        self.lbComplect.raise_()
+        self.rectangle.raise_()
+        self.lbVideo.raise_()
+        self.imgVideocard.raise_()
+        self.line_2.raise_()
+        self.line_3.raise_()
+        self.lbProc.raise_()
+        self.line_4.raise_()
+        self.lbMother.raise_()
+        self.previewMother.raise_()
+        self.line_5.raise_()
+        self.lbCool.raise_()
+        self.line_6.raise_()
+        self.line_7.raise_()
+        self.lbPower.raise_()
+        self.previewCool.raise_()
+        self.previewRam.raise_()
+        self.previewPower.raise_()
+        self.previewProc.raise_()
+        self.previewVideo.raise_()
+        self.previewBody.raise_()
+        self.line_8.raise_()
+        self.lbBody.raise_()
+        self.imgCPU.raise_()
+        self.imgMotherboard.raise_()
+        self.imgCPUcooling.raise_()
+        self.imgRam.raise_()
+        self.imgDisk.raise_()
+        self.previewDisk.raise_()
+        self.line_9.raise_()
+        self.lbDisk.raise_()
+        self.imgBody.raise_()
+        self.imgPower.raise_()
+        self.btnAcceptPurcashe.raise_()
+        self.btnClose.raise_()
+        self.lb_price.raise_()
+        self.lb_price_3.raise_()
+        self.lb_price_2.raise_()
+        self.line_10.raise_()
+        self.line_11.raise_()
+        self.line_12.raise_()
+        self.line_13.raise_()
+        self.line_14.raise_()
+        self.lbRam.raise_()
+        self.line_15.raise_()
+        self.line_16.raise_()
+        self.line_17.raise_()
+        self.lbDate.raise_()
+        self.dateEdit.raise_()
+        self.line_18.raise_()
 
         self.retranslateUi(acceptOrderWidg)
         self.btnClose.clicked.connect(acceptOrderWidg.close)
@@ -474,11 +737,12 @@ class Ui_acceptOrderWidg(object):
         self.lbPower.setText(_translate("acceptOrderWidg", "БЛОК ПИТАНИЯ"))
         self.lbBody.setText(_translate("acceptOrderWidg", "КОРПУС"))
         self.lbDisk.setText(_translate("acceptOrderWidg", "НАКОПИТЕЛЬ"))
-        self.btn_purcashe.setText(_translate("acceptOrderWidg", "Подтвердить"))
+        self.btnAcceptPurcashe.setText(_translate("acceptOrderWidg", "Подтвердить"))
         self.btnClose.setText(_translate("acceptOrderWidg", "Отмена"))
         self.lb_price.setText(_translate("acceptOrderWidg", "000 000"))
         self.lb_price_3.setText(_translate("acceptOrderWidg", " ₽"))
         self.lb_price_2.setText(_translate("acceptOrderWidg", "Цена:"))
+        self.lbDate.setText(_translate("acceptOrderWidg", "Дата совершения заказа:"))
 
 
 if __name__ == "__main__":

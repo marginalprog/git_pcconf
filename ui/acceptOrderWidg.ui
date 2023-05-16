@@ -240,7 +240,7 @@ border: 0px;
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="lbVideo_6">
+  <widget class="QLabel" name="previewMother">
    <property name="geometry">
     <rect>
      <x>290</x>
@@ -252,13 +252,13 @@ border: 0px;
    <property name="font">
     <font>
      <family>Montserrat Medium</family>
-     <pointsize>10</pointsize>
+     <pointsize>12</pointsize>
      <weight>50</weight>
      <bold>false</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(225,225,225);
+    <string notr="true">color: rgb(235,235,235);
 border: 0px;
 </string>
    </property>
@@ -407,7 +407,7 @@ border: 0px;
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="lbVideo_8">
+  <widget class="QLabel" name="previewCool">
    <property name="geometry">
     <rect>
      <x>290</x>
@@ -419,13 +419,13 @@ border: 0px;
    <property name="font">
     <font>
      <family>Montserrat Medium</family>
-     <pointsize>10</pointsize>
+     <pointsize>12</pointsize>
      <weight>50</weight>
      <bold>false</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(225,225,225);
+    <string notr="true">color: rgb(235,235,235);
 border: 0px;
 </string>
    </property>
@@ -436,7 +436,7 @@ border: 0px;
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="lbVideo_10">
+  <widget class="QLabel" name="previewRam">
    <property name="geometry">
     <rect>
      <x>290</x>
@@ -448,13 +448,13 @@ border: 0px;
    <property name="font">
     <font>
      <family>Montserrat Medium</family>
-     <pointsize>10</pointsize>
+     <pointsize>12</pointsize>
      <weight>50</weight>
      <bold>false</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(225,225,225);
+    <string notr="true">color: rgb(235,235,235);
 border: 0px;
 </string>
    </property>
@@ -465,7 +465,7 @@ border: 0px;
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="lbVideo_12">
+  <widget class="QLabel" name="previewPower">
    <property name="geometry">
     <rect>
      <x>290</x>
@@ -477,13 +477,13 @@ border: 0px;
    <property name="font">
     <font>
      <family>Montserrat Medium</family>
-     <pointsize>10</pointsize>
+     <pointsize>12</pointsize>
      <weight>50</weight>
      <bold>false</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(225,225,225);
+    <string notr="true">color: rgb(235,235,235);
 border: 0px;
 </string>
    </property>
@@ -494,7 +494,7 @@ border: 0px;
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="lbVideo_13">
+  <widget class="QLabel" name="previewProc">
    <property name="geometry">
     <rect>
      <x>290</x>
@@ -506,13 +506,13 @@ border: 0px;
    <property name="font">
     <font>
      <family>Montserrat Medium</family>
-     <pointsize>10</pointsize>
+     <pointsize>12</pointsize>
      <weight>50</weight>
      <bold>false</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(225,225,225);
+    <string notr="true">color: rgb(235,235,235);
 border: 0px;
 </string>
    </property>
@@ -523,7 +523,7 @@ border: 0px;
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="lbVideo_14">
+  <widget class="QLabel" name="previewVideo">
    <property name="geometry">
     <rect>
      <x>290</x>
@@ -535,13 +535,13 @@ border: 0px;
    <property name="font">
     <font>
      <family>Montserrat Medium</family>
-     <pointsize>10</pointsize>
+     <pointsize>12</pointsize>
      <weight>50</weight>
      <bold>false</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(225,225,225);
+    <string notr="true">color: rgb(235,235,235);
 border: 0px;
 </string>
    </property>
@@ -552,7 +552,7 @@ border: 0px;
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="lbVideo_15">
+  <widget class="QLabel" name="previewBody">
    <property name="geometry">
     <rect>
      <x>290</x>
@@ -564,13 +564,13 @@ border: 0px;
    <property name="font">
     <font>
      <family>Montserrat Medium</family>
-     <pointsize>10</pointsize>
+     <pointsize>12</pointsize>
      <weight>50</weight>
      <bold>false</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(225,225,225);
+    <string notr="true">color: rgb(235,235,235);
 border: 0px;
 </string>
    </property>
@@ -727,7 +727,7 @@ border-image: url(&quot;E:/pcconf/images/hard-drive.png&quot;) 0;</string>
     <enum>QFrame::Raised</enum>
    </property>
   </widget>
-  <widget class="QLabel" name="lbVideo_17">
+  <widget class="QLabel" name="previewDisk">
    <property name="geometry">
     <rect>
      <x>290</x>
@@ -739,13 +739,13 @@ border-image: url(&quot;E:/pcconf/images/hard-drive.png&quot;) 0;</string>
    <property name="font">
     <font>
      <family>Montserrat Medium</family>
-     <pointsize>10</pointsize>
+     <pointsize>12</pointsize>
      <weight>50</weight>
      <bold>false</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(225,225,225);
+    <string notr="true">color: rgb(235,235,235);
 border: 0px;
 </string>
    </property>
@@ -842,7 +842,7 @@ border-image: url(&quot;E:/pcconf/images/power.png&quot;) 0;</string>
     <enum>QFrame::Raised</enum>
    </property>
   </widget>
-  <widget class="QPushButton" name="btn_purcashe">
+  <widget class="QPushButton" name="btnAcceptPurcashe">
    <property name="geometry">
     <rect>
      <x>260</x>
@@ -1003,6 +1003,417 @@ border: 0px;
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="Line" name="line_10">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>110</y>
+     <width>20</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;
+border-right: 1px solid rgb(100,100,100);
+border-bottom: 1px solid rgb(100,100,100);</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_11">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>170</y>
+     <width>20</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;
+border-right: 1px solid rgb(100,100,100);
+border-bottom: 1px solid rgb(100,100,100);
+border-top: 1px solid rgb(100,100,100);</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_12">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>250</y>
+     <width>20</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;
+border-right: 1px solid rgb(100,100,100);
+border-bottom: 1px solid rgb(100,100,100);
+border-top: 1px solid rgb(100,100,100);</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_13">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>330</y>
+     <width>20</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;
+border-right: 1px solid rgb(100,100,100);
+border-bottom: 1px solid rgb(100,100,100);
+border-top: 1px solid rgb(100,100,100);</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_14">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>410</y>
+     <width>20</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;
+border-right: 1px solid rgb(100,100,100);
+border-bottom: 1px solid rgb(100,100,100);
+border-top: 1px solid rgb(100,100,100);</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_15">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>490</y>
+     <width>20</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;
+border-right: 1px solid rgb(100,100,100);
+border-bottom: 1px solid rgb(100,100,100);
+border-top: 1px solid rgb(100,100,100);</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_16">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>570</y>
+     <width>20</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;
+border-right: 1px solid rgb(100,100,100);
+border-bottom: 1px solid rgb(100,100,100);
+border-top: 1px solid rgb(100,100,100);</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_17">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>650</y>
+     <width>20</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;
+border-right: 1px solid rgb(100,100,100);
+border-bottom: 1px solid rgb(100,100,100);
+border-top: 1px solid rgb(100,100,100);</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbDate">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>50</y>
+     <width>181</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat SemiBold</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;</string>
+   </property>
+   <property name="text">
+    <string>Дата совершения заказа:</string>
+   </property>
+  </widget>
+  <widget class="QDateEdit" name="dateEdit">
+   <property name="geometry">
+    <rect>
+     <x>720</x>
+     <y>50</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat Medium</family>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QDateEdit{
+	background-color: rgb(40,40,40);
+	border: 1px;
+	border-bottom: 1px solid rgb(120,120,120);
+	padding-left: 5px;
+}
+QDateEdit:hover{
+	background-color: rgb(55,55,55);
+	border-bottom: 1px solid red;
+}
+QDateEdit::drop-down{
+	border: 0px;
+}
+
+QDateEdit::down-arrow {
+	border-image: url(&quot;E:/pcconf/images/down-arrow-gray.png&quot;);
+	width: 17px;
+	height: 17px;
+	margin-right: 5px;
+}
+
+QDateEdit::down-arrow:on {
+	border-image: url(&quot;E:/pcconf/images/up-arrow-gray.png&quot;);
+	width: 17px;
+	height: 17px;
+	margin-right: 5px;
+	border: 2px solid rgb(100,0,0)
+}
+
+QDateEdit:on{
+	border: 2px solid rgb(100,0,0);
+}
+
+QDateEdit::up-arrow {
+	border-image: url(&quot;E:/pcconf/images/up-arrow-gray.png&quot;);
+	width: 17px;
+	height: 17px;
+	margin-right: 5px;
+}
+
+QCalendarWidget QWidget#qt_calendar_navigationbar { background-color: rgb(40,40,40); }
+QCalendarWidget QToolButton {
+    background: transparent;
+	border: none;
+	width: 70px;
+	height: 25px;
+	color: rgb(220,220,220);
+	font-size: 14px;
+	icon-size: 30px, 30px;
+}
+
+QToolButton#qt_calendar_prevmonth {
+    background: rgb(45,45,45);
+    border: none;
+    width: 30px;
+	height: 25px;
+    qproperty-icon:  url(&quot;E:/pcconf/images/left-arrow.png&quot;);
+	icon-size: 20px, 20px;
+	border-bottom: 1px solid red;
+}
+QToolButton#qt_calendar_nextmonth {
+    background: rgb(35,35,35);
+    border: none;
+    width: 30px;
+	height: 25px;
+    qproperty-icon:  url(&quot;E:/pcconf/images/right-arrow.png&quot;);
+	icon-size: 20px, 20px;
+	border-bottom: 1px solid red;
+}
+
+QCalendarWidget QMenu {
+	width: 100px;
+	left: 10px;
+	color: white;
+	font-size: 14px;
+	background-color: rgb(80, 80, 80);
+	selection-color: rgb(220,0,0);
+}
+
+QCalendarWidget QSpinBox { 
+	width: 45px; 
+	font-size:14px; 
+	color: white; 
+    background: transparent;
+	selection-background-color: rgb(105, 0, 0);
+	selection-color: rgb(255, 255, 255);
+}
+QCalendarWidget QSpinBox::up-button { subcontrol-origin: border;  subcontrol-position: top right;  width:15px; height: 15px; border:1px solid rgb(30,30,30); }
+QCalendarWidget QSpinBox::down-button { subcontrol-origin: border; subcontrol-position: bottom right;  width:15px;  height: 15px; border:1px solid rgb(30,30,30);}
+QCalendarWidget QSpinBox::up-arrow { border-image: url(&quot;E:/pcconf/images/up-arrow.png&quot;); }
+QCalendarWidget QSpinBox::down-arrow { border-image: url(&quot;E:/pcconf/images/down-arrow.png&quot;);}
+ 
+/* header row */
+QCalendarWidget QWidget { alternate-background-color: rgb(50, 50, 50);  border-bottom: 1px solid red; }
+ 
+/* normal days */
+QCalendarWidget QAbstractItemView:enabled 
+{
+	font-size:12px;  
+	color: rgb(180, 180, 180);  
+	background-color: rgb(15, 15, 15);  
+	selection-background-color: rgb(64, 64, 64); 
+	selection-color: rgb(0, 255, 0); 
+	selection-border-color: red;
+	height: 30px;
+}
+ 
+/* days in other months */
+QCalendarWidget QAbstractItemView:disabled { color: rgb(80, 80, 80); }</string>
+   </property>
+   <property name="showGroupSeparator" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="dateTime">
+    <datetime>
+     <hour>0</hour>
+     <minute>0</minute>
+     <second>0</second>
+     <year>2023</year>
+     <month>1</month>
+     <day>1</day>
+    </datetime>
+   </property>
+   <property name="minimumDateTime">
+    <datetime>
+     <hour>0</hour>
+     <minute>0</minute>
+     <second>0</second>
+     <year>2023</year>
+     <month>1</month>
+     <day>1</day>
+    </datetime>
+   </property>
+   <property name="maximumDate">
+    <date>
+     <year>2030</year>
+     <month>12</month>
+     <day>31</day>
+    </date>
+   </property>
+   <property name="calendarPopup">
+    <bool>true</bool>
+   </property>
+   <property name="timeSpec">
+    <enum>Qt::LocalTime</enum>
+   </property>
+   <property name="date">
+    <date>
+     <year>2023</year>
+     <month>1</month>
+     <day>1</day>
+    </date>
+   </property>
+  </widget>
+  <widget class="Line" name="line_18">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>790</y>
+     <width>161</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px;
+border-top: 1px solid rgb(100,100,100);</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <zorder>line</zorder>
+  <zorder>lbComplect</zorder>
+  <zorder>rectangle</zorder>
+  <zorder>lbVideo</zorder>
+  <zorder>imgVideocard</zorder>
+  <zorder>line_2</zorder>
+  <zorder>line_3</zorder>
+  <zorder>lbProc</zorder>
+  <zorder>line_4</zorder>
+  <zorder>lbMother</zorder>
+  <zorder>previewMother</zorder>
+  <zorder>line_5</zorder>
+  <zorder>lbCool</zorder>
+  <zorder>line_6</zorder>
+  <zorder>line_7</zorder>
+  <zorder>lbPower</zorder>
+  <zorder>previewCool</zorder>
+  <zorder>previewRam</zorder>
+  <zorder>previewPower</zorder>
+  <zorder>previewProc</zorder>
+  <zorder>previewVideo</zorder>
+  <zorder>previewBody</zorder>
+  <zorder>line_8</zorder>
+  <zorder>lbBody</zorder>
+  <zorder>imgCPU</zorder>
+  <zorder>imgMotherboard</zorder>
+  <zorder>imgCPUcooling</zorder>
+  <zorder>imgRam</zorder>
+  <zorder>imgDisk</zorder>
+  <zorder>previewDisk</zorder>
+  <zorder>line_9</zorder>
+  <zorder>lbDisk</zorder>
+  <zorder>imgBody</zorder>
+  <zorder>imgPower</zorder>
+  <zorder>btnAcceptPurcashe</zorder>
+  <zorder>btnClose</zorder>
+  <zorder>lb_price</zorder>
+  <zorder>lb_price_3</zorder>
+  <zorder>lb_price_2</zorder>
+  <zorder>line_10</zorder>
+  <zorder>line_11</zorder>
+  <zorder>line_12</zorder>
+  <zorder>line_13</zorder>
+  <zorder>line_14</zorder>
+  <zorder>lbRam</zorder>
+  <zorder>line_15</zorder>
+  <zorder>line_16</zorder>
+  <zorder>line_17</zorder>
+  <zorder>lbDate</zorder>
+  <zorder>dateEdit</zorder>
+  <zorder>line_18</zorder>
  </widget>
  <resources/>
  <connections>

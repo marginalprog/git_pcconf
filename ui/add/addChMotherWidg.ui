@@ -959,12 +959,12 @@ QComboBox QAbstractItemView {
    </property>
    <item>
     <property name="text">
-     <string>Да</string>
+     <string>да</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>Нет</string>
+     <string>нет</string>
     </property>
    </item>
   </widget>
