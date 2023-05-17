@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'E:\pcconf\ui\filter\widgetVideoFilter.ui'
+# Form implementation generated from reading ui file 'E:\pcconf\ui\filter\widgetProcFilter.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.5
 #
@@ -11,23 +11,54 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_WidgetVideoFilter(object):
-    def setupUi(self, WidgetVideoFilter):
-        WidgetVideoFilter.setObjectName("WidgetVideoFilter")
-        WidgetVideoFilter.setWindowModality(QtCore.Qt.WindowModal)
-        WidgetVideoFilter.resize(366, 866)
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/filters.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        WidgetVideoFilter.setWindowIcon(icon)
-        WidgetVideoFilter.setStyleSheet("QWidget\n"
+class Ui_WidgetProcFilter(object):
+    def setupUi(self, WidgetProcFilter):
+        WidgetProcFilter.setObjectName("WidgetProcFilter")
+        WidgetProcFilter.resize(368, 833)
+        WidgetProcFilter.setStyleSheet("QWidget\n"
 "{\n"
 "    background-color: rgb(30,30,30);\n"
 "    color: white;\n"
 "\n"
 "}\n"
 "")
-        self.btnClose = QtWidgets.QPushButton(WidgetVideoFilter)
-        self.btnClose.setGeometry(QtCore.QRect(190, 820, 121, 31))
+        self.btnResetAll = QtWidgets.QPushButton(WidgetProcFilter)
+        self.btnResetAll.setGeometry(QtCore.QRect(250, 50, 91, 21))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(9)
+        self.btnResetAll.setFont(font)
+        self.btnResetAll.setStyleSheet("QPushButton\n"
+"{\n"
+"color:  rgb(200,200, 200);\n"
+"border: 0px;\n"
+"border-bottom: 1px dotted rgb(200, 200, 200);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"color: red;\n"
+"border-bottom: 1px dotted red;\n"
+"}\n"
+"")
+        self.btnResetAll.setObjectName("btnResetAll")
+        self.lbFilter = QtWidgets.QLabel(WidgetProcFilter)
+        self.lbFilter.setGeometry(QtCore.QRect(40, 40, 181, 21))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(12)
+        self.lbFilter.setFont(font)
+        self.lbFilter.setStyleSheet("border:0px;")
+        self.lbFilter.setObjectName("lbFilter")
+        self.rectangle = QtWidgets.QFrame(WidgetProcFilter)
+        self.rectangle.setGeometry(QtCore.QRect(10, 10, 61, 16))
+        self.rectangle.setStyleSheet("background-color: rgb(210, 0, 0);\n"
+"border: 1px solid rgb(210, 0, 0);")
+        self.rectangle.setFrameShape(QtWidgets.QFrame.HLine)
+        self.rectangle.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.rectangle.setObjectName("rectangle")
+        self.btnClose = QtWidgets.QPushButton(WidgetProcFilter)
+        self.btnClose.setGeometry(QtCore.QRect(190, 780, 121, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -48,19 +79,19 @@ class Ui_WidgetVideoFilter(object):
 "}\n"
 "")
         self.btnClose.setObjectName("btnClose")
-        self.toolBoxVidFilter = QtWidgets.QToolBox(WidgetVideoFilter)
-        self.toolBoxVidFilter.setGeometry(QtCore.QRect(30, 90, 311, 711))
+        self.toolBoxProcFilter = QtWidgets.QToolBox(WidgetProcFilter)
+        self.toolBoxProcFilter.setGeometry(QtCore.QRect(30, 90, 311, 671))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Ignored)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.toolBoxVidFilter.sizePolicy().hasHeightForWidth())
-        self.toolBoxVidFilter.setSizePolicy(sizePolicy)
+        sizePolicy.setHeightForWidth(self.toolBoxProcFilter.sizePolicy().hasHeightForWidth())
+        self.toolBoxProcFilter.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(12)
-        self.toolBoxVidFilter.setFont(font)
-        self.toolBoxVidFilter.setAccessibleName("")
-        self.toolBoxVidFilter.setStyleSheet("QToolBox\n"
+        self.toolBoxProcFilter.setFont(font)
+        self.toolBoxProcFilter.setAccessibleName("")
+        self.toolBoxProcFilter.setStyleSheet("QToolBox\n"
 "{\n"
 "    background: rgb(30, 30, 30);\n"
 "    border: 1px solid red;\n"
@@ -94,12 +125,12 @@ class Ui_WidgetVideoFilter(object):
 "    border-color: black;\n"
 "}\n"
 "")
-        self.toolBoxVidFilter.setFrameShadow(QtWidgets.QFrame.Plain)
-        self.toolBoxVidFilter.setLineWidth(0)
-        self.toolBoxVidFilter.setMidLineWidth(1)
-        self.toolBoxVidFilter.setObjectName("toolBoxVidFilter")
+        self.toolBoxProcFilter.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.toolBoxProcFilter.setLineWidth(0)
+        self.toolBoxProcFilter.setMidLineWidth(1)
+        self.toolBoxProcFilter.setObjectName("toolBoxProcFilter")
         self.price = QtWidgets.QWidget()
-        self.price.setGeometry(QtCore.QRect(0, 0, 307, 189))
+        self.price.setGeometry(QtCore.QRect(0, 0, 307, 186))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -109,15 +140,15 @@ class Ui_WidgetVideoFilter(object):
         self.price.setSizeIncrement(QtCore.QSize(0, 0))
         self.price.setBaseSize(QtCore.QSize(0, 200))
         self.price.setObjectName("price")
-        self.tbFrameVideo = QtWidgets.QFrame(self.price)
-        self.tbFrameVideo.setGeometry(QtCore.QRect(0, 0, 311, 191))
-        self.tbFrameVideo.setStyleSheet("QFrame{\n"
+        self.tbFrameProc = QtWidgets.QFrame(self.price)
+        self.tbFrameProc.setGeometry(QtCore.QRect(0, 0, 311, 191))
+        self.tbFrameProc.setStyleSheet("QFrame{\n"
 "    background-color: #101010;\n"
 "}")
-        self.tbFrameVideo.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.tbFrameVideo.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.tbFrameVideo.setObjectName("tbFrameVideo")
-        self.sliderPriceMin = QtWidgets.QSlider(self.tbFrameVideo)
+        self.tbFrameProc.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.tbFrameProc.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.tbFrameProc.setObjectName("tbFrameProc")
+        self.sliderPriceMin = QtWidgets.QSlider(self.tbFrameProc)
         self.sliderPriceMin.setGeometry(QtCore.QRect(10, 100, 111, 21))
         self.sliderPriceMin.setStyleSheet("QSlider{\n"
 "    background-color: rgb(10, 10, 10);\n"
@@ -181,14 +212,14 @@ class Ui_WidgetVideoFilter(object):
         self.sliderPriceMin.setInvertedAppearance(False)
         self.sliderPriceMin.setInvertedControls(False)
         self.sliderPriceMin.setObjectName("sliderPriceMin")
-        self.line_2 = QtWidgets.QFrame(self.tbFrameVideo)
+        self.line_2 = QtWidgets.QFrame(self.tbFrameProc)
         self.line_2.setGeometry(QtCore.QRect(140, 70, 21, 19))
         self.line_2.setStyleSheet("border:0px;\n"
 "border-top: 1px solid white;")
         self.line_2.setFrameShape(QtWidgets.QFrame.HLine)
         self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_2.setObjectName("line_2")
-        self.sliderPriceMax = QtWidgets.QSlider(self.tbFrameVideo)
+        self.sliderPriceMax = QtWidgets.QSlider(self.tbFrameProc)
         self.sliderPriceMax.setGeometry(QtCore.QRect(180, 100, 111, 21))
         self.sliderPriceMax.setStyleSheet("QSlider{\n"
 "    background-color: rgb(10, 10, 10);\n"
@@ -251,7 +282,7 @@ class Ui_WidgetVideoFilter(object):
         self.sliderPriceMax.setInvertedAppearance(False)
         self.sliderPriceMax.setInvertedControls(False)
         self.sliderPriceMax.setObjectName("sliderPriceMax")
-        self.btnResetPrice = QtWidgets.QPushButton(self.tbFrameVideo)
+        self.btnResetPrice = QtWidgets.QPushButton(self.tbFrameProc)
         self.btnResetPrice.setGeometry(QtCore.QRect(220, 160, 61, 20))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
@@ -272,7 +303,7 @@ class Ui_WidgetVideoFilter(object):
 "}\n"
 "")
         self.btnResetPrice.setObjectName("btnResetPrice")
-        self.lbMinPrice = QtWidgets.QLabel(self.tbFrameVideo)
+        self.lbMinPrice = QtWidgets.QLabel(self.tbFrameProc)
         self.lbMinPrice.setGeometry(QtCore.QRect(10, 20, 61, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
@@ -285,7 +316,7 @@ class Ui_WidgetVideoFilter(object):
 "")
         self.lbMinPrice.setAlignment(QtCore.Qt.AlignCenter)
         self.lbMinPrice.setObjectName("lbMinPrice")
-        self.lbMaxPrice = QtWidgets.QLabel(self.tbFrameVideo)
+        self.lbMaxPrice = QtWidgets.QLabel(self.tbFrameProc)
         self.lbMaxPrice.setGeometry(QtCore.QRect(180, 20, 61, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
@@ -298,7 +329,7 @@ class Ui_WidgetVideoFilter(object):
 "")
         self.lbMaxPrice.setAlignment(QtCore.Qt.AlignCenter)
         self.lbMaxPrice.setObjectName("lbMaxPrice")
-        self.leMinPrice = QtWidgets.QLineEdit(self.tbFrameVideo)
+        self.leMinPrice = QtWidgets.QLineEdit(self.tbFrameProc)
         self.leMinPrice.setGeometry(QtCore.QRect(10, 50, 111, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
@@ -317,7 +348,7 @@ class Ui_WidgetVideoFilter(object):
 "    border-bottom: 1px solid  red;\n"
 "}")
         self.leMinPrice.setObjectName("leMinPrice")
-        self.leMaxPrice = QtWidgets.QLineEdit(self.tbFrameVideo)
+        self.leMaxPrice = QtWidgets.QLineEdit(self.tbFrameProc)
         self.leMaxPrice.setGeometry(QtCore.QRect(180, 50, 111, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
@@ -336,16 +367,16 @@ class Ui_WidgetVideoFilter(object):
 "    border-bottom: 1px solid  red;\n"
 "}")
         self.leMaxPrice.setObjectName("leMaxPrice")
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Active, QtGui.QIcon.Off)
-        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Selected, QtGui.QIcon.Off)
-        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
-        self.toolBoxVidFilter.addItem(self.price, icon1, "")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Active, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Selected, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
+        self.toolBoxProcFilter.addItem(self.price, icon, "")
         self.proizvoditel = QtWidgets.QWidget()
-        self.proizvoditel.setGeometry(QtCore.QRect(0, 0, 307, 189))
+        self.proizvoditel.setGeometry(QtCore.QRect(0, 0, 307, 186))
         self.proizvoditel.setObjectName("proizvoditel")
         self.frameProizv = QtWidgets.QFrame(self.proizvoditel)
         self.frameProizv.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -546,33 +577,33 @@ class Ui_WidgetVideoFilter(object):
 "}\n"
 "")
         self.btnResetProizv.setObjectName("btnResetProizv")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon2.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/up-arrow.png"), QtGui.QIcon.Active, QtGui.QIcon.Off)
-        self.toolBoxVidFilter.addItem(self.proizvoditel, icon2, "")
-        self.chipCreator = QtWidgets.QWidget()
-        self.chipCreator.setGeometry(QtCore.QRect(0, 0, 307, 189))
-        self.chipCreator.setObjectName("chipCreator")
-        self.frameChipCreator = QtWidgets.QFrame(self.chipCreator)
-        self.frameChipCreator.setGeometry(QtCore.QRect(0, 0, 311, 191))
-        self.frameChipCreator.setStyleSheet("QFrame{\n"
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/up-arrow.png"), QtGui.QIcon.Active, QtGui.QIcon.Off)
+        self.toolBoxProcFilter.addItem(self.proizvoditel, icon1, "")
+        self.series = QtWidgets.QWidget()
+        self.series.setGeometry(QtCore.QRect(0, 0, 307, 186))
+        self.series.setObjectName("series")
+        self.frameSeries = QtWidgets.QFrame(self.series)
+        self.frameSeries.setGeometry(QtCore.QRect(0, 0, 311, 191))
+        self.frameSeries.setStyleSheet("QFrame{\n"
 "    background-color: #101010;\n"
 "}\n"
 "")
-        self.frameChipCreator.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frameChipCreator.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frameChipCreator.setObjectName("frameChipCreator")
-        self.tableChipCreator = QtWidgets.QTableWidget(self.frameChipCreator)
-        self.tableChipCreator.setEnabled(True)
-        self.tableChipCreator.setGeometry(QtCore.QRect(10, 0, 291, 161))
+        self.frameSeries.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frameSeries.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frameSeries.setObjectName("frameSeries")
+        self.tableSeries = QtWidgets.QTableWidget(self.frameSeries)
+        self.tableSeries.setEnabled(True)
+        self.tableSeries.setGeometry(QtCore.QRect(10, 0, 291, 161))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
-        self.tableChipCreator.setFont(font)
-        self.tableChipCreator.setMouseTracking(True)
-        self.tableChipCreator.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.tableChipCreator.setAutoFillBackground(False)
-        self.tableChipCreator.setStyleSheet("QHeaderView\n"
+        self.tableSeries.setFont(font)
+        self.tableSeries.setMouseTracking(True)
+        self.tableSeries.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.tableSeries.setAutoFillBackground(False)
+        self.tableSeries.setStyleSheet("QHeaderView\n"
 "{    \n"
 "    background: rgb(30, 30, 30);\n"
 "    color: #dddddd;\n"
@@ -709,35 +740,35 @@ class Ui_WidgetVideoFilter(object):
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}")
-        self.tableChipCreator.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
-        self.tableChipCreator.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
-        self.tableChipCreator.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self.tableChipCreator.setShowGrid(False)
-        self.tableChipCreator.setGridStyle(QtCore.Qt.SolidLine)
-        self.tableChipCreator.setObjectName("tableChipCreator")
-        self.tableChipCreator.setColumnCount(2)
-        self.tableChipCreator.setRowCount(0)
+        self.tableSeries.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableSeries.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
+        self.tableSeries.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableSeries.setShowGrid(False)
+        self.tableSeries.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableSeries.setObjectName("tableSeries")
+        self.tableSeries.setColumnCount(2)
+        self.tableSeries.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
-        self.tableChipCreator.setHorizontalHeaderItem(0, item)
+        self.tableSeries.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableChipCreator.setHorizontalHeaderItem(1, item)
-        self.tableChipCreator.horizontalHeader().setVisible(False)
-        self.tableChipCreator.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableChipCreator.horizontalHeader().setDefaultSectionSize(120)
-        self.tableChipCreator.horizontalHeader().setHighlightSections(False)
-        self.tableChipCreator.horizontalHeader().setMinimumSectionSize(15)
-        self.tableChipCreator.horizontalHeader().setSortIndicatorShown(True)
-        self.tableChipCreator.horizontalHeader().setStretchLastSection(False)
-        self.tableChipCreator.verticalHeader().setVisible(False)
-        self.tableChipCreator.verticalHeader().setCascadingSectionResizes(False)
-        self.tableChipCreator.verticalHeader().setMinimumSectionSize(10)
-        self.btnResetChipCreator = QtWidgets.QPushButton(self.frameChipCreator)
-        self.btnResetChipCreator.setGeometry(QtCore.QRect(220, 160, 61, 21))
+        self.tableSeries.setHorizontalHeaderItem(1, item)
+        self.tableSeries.horizontalHeader().setVisible(False)
+        self.tableSeries.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableSeries.horizontalHeader().setDefaultSectionSize(120)
+        self.tableSeries.horizontalHeader().setHighlightSections(False)
+        self.tableSeries.horizontalHeader().setMinimumSectionSize(15)
+        self.tableSeries.horizontalHeader().setSortIndicatorShown(True)
+        self.tableSeries.horizontalHeader().setStretchLastSection(False)
+        self.tableSeries.verticalHeader().setVisible(False)
+        self.tableSeries.verticalHeader().setCascadingSectionResizes(False)
+        self.tableSeries.verticalHeader().setMinimumSectionSize(10)
+        self.btnResetSeries = QtWidgets.QPushButton(self.frameSeries)
+        self.btnResetSeries.setGeometry(QtCore.QRect(220, 160, 61, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(9)
-        self.btnResetChipCreator.setFont(font)
-        self.btnResetChipCreator.setStyleSheet("QPushButton\n"
+        self.btnResetSeries.setFont(font)
+        self.btnResetSeries.setStyleSheet("QPushButton\n"
 "{    \n"
 "    background-color: rgb(10, 10, 10);\n"
 "    color:  rgb(200,200, 200);\n"
@@ -751,12 +782,12 @@ class Ui_WidgetVideoFilter(object):
 "    border-bottom: 1px dotted red;\n"
 "}\n"
 "")
-        self.btnResetChipCreator.setObjectName("btnResetChipCreator")
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.toolBoxVidFilter.addItem(self.chipCreator, icon3, "")
+        self.btnResetSeries.setObjectName("btnResetSeries")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.toolBoxProcFilter.addItem(self.series, icon2, "")
         self.gaming = QtWidgets.QWidget()
-        self.gaming.setGeometry(QtCore.QRect(0, 0, 307, 189))
+        self.gaming.setGeometry(QtCore.QRect(0, 0, 307, 186))
         self.gaming.setObjectName("gaming")
         self.frameGaming = QtWidgets.QFrame(self.gaming)
         self.frameGaming.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -957,30 +988,30 @@ class Ui_WidgetVideoFilter(object):
 "}\n"
 "")
         self.btnResetGaming.setObjectName("btnResetGaming")
-        self.toolBoxVidFilter.addItem(self.gaming, icon3, "")
-        self.graphProc = QtWidgets.QWidget()
-        self.graphProc.setGeometry(QtCore.QRect(0, 0, 307, 189))
-        self.graphProc.setObjectName("graphProc")
-        self.frameGraphProc = QtWidgets.QFrame(self.graphProc)
-        self.frameGraphProc.setGeometry(QtCore.QRect(0, 0, 311, 191))
-        self.frameGraphProc.setStyleSheet("QFrame{\n"
+        self.toolBoxProcFilter.addItem(self.gaming, icon2, "")
+        self.socket = QtWidgets.QWidget()
+        self.socket.setGeometry(QtCore.QRect(0, 0, 307, 186))
+        self.socket.setObjectName("socket")
+        self.frameSocket = QtWidgets.QFrame(self.socket)
+        self.frameSocket.setGeometry(QtCore.QRect(0, 0, 311, 191))
+        self.frameSocket.setStyleSheet("QFrame{\n"
 "    background-color: #101010;\n"
 "}\n"
 "")
-        self.frameGraphProc.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frameGraphProc.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frameGraphProc.setObjectName("frameGraphProc")
-        self.tableGraphProc = QtWidgets.QTableWidget(self.frameGraphProc)
-        self.tableGraphProc.setEnabled(True)
-        self.tableGraphProc.setGeometry(QtCore.QRect(10, 0, 291, 161))
+        self.frameSocket.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frameSocket.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frameSocket.setObjectName("frameSocket")
+        self.tableSocket = QtWidgets.QTableWidget(self.frameSocket)
+        self.tableSocket.setEnabled(True)
+        self.tableSocket.setGeometry(QtCore.QRect(10, 0, 291, 161))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
-        self.tableGraphProc.setFont(font)
-        self.tableGraphProc.setMouseTracking(True)
-        self.tableGraphProc.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.tableGraphProc.setAutoFillBackground(False)
-        self.tableGraphProc.setStyleSheet("QHeaderView\n"
+        self.tableSocket.setFont(font)
+        self.tableSocket.setMouseTracking(True)
+        self.tableSocket.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.tableSocket.setAutoFillBackground(False)
+        self.tableSocket.setStyleSheet("QHeaderView\n"
 "{    \n"
 "    background: rgb(30, 30, 30);\n"
 "    color: #dddddd;\n"
@@ -1117,35 +1148,35 @@ class Ui_WidgetVideoFilter(object):
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}")
-        self.tableGraphProc.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
-        self.tableGraphProc.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
-        self.tableGraphProc.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self.tableGraphProc.setShowGrid(False)
-        self.tableGraphProc.setGridStyle(QtCore.Qt.SolidLine)
-        self.tableGraphProc.setObjectName("tableGraphProc")
-        self.tableGraphProc.setColumnCount(2)
-        self.tableGraphProc.setRowCount(0)
+        self.tableSocket.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableSocket.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
+        self.tableSocket.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableSocket.setShowGrid(False)
+        self.tableSocket.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableSocket.setObjectName("tableSocket")
+        self.tableSocket.setColumnCount(2)
+        self.tableSocket.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
-        self.tableGraphProc.setHorizontalHeaderItem(0, item)
+        self.tableSocket.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableGraphProc.setHorizontalHeaderItem(1, item)
-        self.tableGraphProc.horizontalHeader().setVisible(False)
-        self.tableGraphProc.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableGraphProc.horizontalHeader().setDefaultSectionSize(120)
-        self.tableGraphProc.horizontalHeader().setHighlightSections(False)
-        self.tableGraphProc.horizontalHeader().setMinimumSectionSize(15)
-        self.tableGraphProc.horizontalHeader().setSortIndicatorShown(True)
-        self.tableGraphProc.horizontalHeader().setStretchLastSection(False)
-        self.tableGraphProc.verticalHeader().setVisible(False)
-        self.tableGraphProc.verticalHeader().setCascadingSectionResizes(False)
-        self.tableGraphProc.verticalHeader().setMinimumSectionSize(10)
-        self.btnResetGraphProc = QtWidgets.QPushButton(self.frameGraphProc)
-        self.btnResetGraphProc.setGeometry(QtCore.QRect(220, 160, 61, 21))
+        self.tableSocket.setHorizontalHeaderItem(1, item)
+        self.tableSocket.horizontalHeader().setVisible(False)
+        self.tableSocket.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableSocket.horizontalHeader().setDefaultSectionSize(120)
+        self.tableSocket.horizontalHeader().setHighlightSections(False)
+        self.tableSocket.horizontalHeader().setMinimumSectionSize(15)
+        self.tableSocket.horizontalHeader().setSortIndicatorShown(True)
+        self.tableSocket.horizontalHeader().setStretchLastSection(False)
+        self.tableSocket.verticalHeader().setVisible(False)
+        self.tableSocket.verticalHeader().setCascadingSectionResizes(False)
+        self.tableSocket.verticalHeader().setMinimumSectionSize(10)
+        self.btnResetSocket = QtWidgets.QPushButton(self.frameSocket)
+        self.btnResetSocket.setGeometry(QtCore.QRect(220, 160, 61, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(9)
-        self.btnResetGraphProc.setFont(font)
-        self.btnResetGraphProc.setStyleSheet("QPushButton\n"
+        self.btnResetSocket.setFont(font)
+        self.btnResetSocket.setStyleSheet("QPushButton\n"
 "{\n"
 "    background-color: rgb(10, 10, 10);\n"
 "    color:  rgb(200,200, 200);\n"
@@ -1159,31 +1190,31 @@ class Ui_WidgetVideoFilter(object):
 "    border-bottom: 1px dotted red;\n"
 "}\n"
 "")
-        self.btnResetGraphProc.setObjectName("btnResetGraphProc")
-        self.toolBoxVidFilter.addItem(self.graphProc, icon3, "")
-        self.volume = QtWidgets.QWidget()
-        self.volume.setGeometry(QtCore.QRect(0, 0, 307, 189))
-        self.volume.setObjectName("volume")
-        self.frameVolume = QtWidgets.QFrame(self.volume)
-        self.frameVolume.setGeometry(QtCore.QRect(0, 0, 311, 191))
-        self.frameVolume.setStyleSheet("QFrame{\n"
+        self.btnResetSocket.setObjectName("btnResetSocket")
+        self.toolBoxProcFilter.addItem(self.socket, icon2, "")
+        self.core = QtWidgets.QWidget()
+        self.core.setGeometry(QtCore.QRect(0, 0, 307, 186))
+        self.core.setObjectName("core")
+        self.frameCore = QtWidgets.QFrame(self.core)
+        self.frameCore.setGeometry(QtCore.QRect(0, 0, 311, 191))
+        self.frameCore.setStyleSheet("QFrame{\n"
 "    background-color: #101010;\n"
 "}\n"
 "")
-        self.frameVolume.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frameVolume.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frameVolume.setObjectName("frameVolume")
-        self.tableVolume = QtWidgets.QTableWidget(self.frameVolume)
-        self.tableVolume.setEnabled(True)
-        self.tableVolume.setGeometry(QtCore.QRect(10, 0, 291, 161))
+        self.frameCore.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frameCore.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frameCore.setObjectName("frameCore")
+        self.tableCore = QtWidgets.QTableWidget(self.frameCore)
+        self.tableCore.setEnabled(True)
+        self.tableCore.setGeometry(QtCore.QRect(10, 0, 291, 161))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
-        self.tableVolume.setFont(font)
-        self.tableVolume.setMouseTracking(True)
-        self.tableVolume.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.tableVolume.setAutoFillBackground(False)
-        self.tableVolume.setStyleSheet("QHeaderView\n"
+        self.tableCore.setFont(font)
+        self.tableCore.setMouseTracking(True)
+        self.tableCore.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.tableCore.setAutoFillBackground(False)
+        self.tableCore.setStyleSheet("QHeaderView\n"
 "{    \n"
 "    background: rgb(30, 30, 30);\n"
 "    color: #dddddd;\n"
@@ -1320,35 +1351,35 @@ class Ui_WidgetVideoFilter(object):
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}")
-        self.tableVolume.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
-        self.tableVolume.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
-        self.tableVolume.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self.tableVolume.setShowGrid(False)
-        self.tableVolume.setGridStyle(QtCore.Qt.SolidLine)
-        self.tableVolume.setObjectName("tableVolume")
-        self.tableVolume.setColumnCount(2)
-        self.tableVolume.setRowCount(0)
+        self.tableCore.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableCore.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
+        self.tableCore.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableCore.setShowGrid(False)
+        self.tableCore.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableCore.setObjectName("tableCore")
+        self.tableCore.setColumnCount(2)
+        self.tableCore.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
-        self.tableVolume.setHorizontalHeaderItem(0, item)
+        self.tableCore.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableVolume.setHorizontalHeaderItem(1, item)
-        self.tableVolume.horizontalHeader().setVisible(False)
-        self.tableVolume.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableVolume.horizontalHeader().setDefaultSectionSize(120)
-        self.tableVolume.horizontalHeader().setHighlightSections(False)
-        self.tableVolume.horizontalHeader().setMinimumSectionSize(15)
-        self.tableVolume.horizontalHeader().setSortIndicatorShown(True)
-        self.tableVolume.horizontalHeader().setStretchLastSection(False)
-        self.tableVolume.verticalHeader().setVisible(False)
-        self.tableVolume.verticalHeader().setCascadingSectionResizes(False)
-        self.tableVolume.verticalHeader().setMinimumSectionSize(10)
-        self.btnResetVolume = QtWidgets.QPushButton(self.frameVolume)
-        self.btnResetVolume.setGeometry(QtCore.QRect(220, 160, 61, 21))
+        self.tableCore.setHorizontalHeaderItem(1, item)
+        self.tableCore.horizontalHeader().setVisible(False)
+        self.tableCore.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableCore.horizontalHeader().setDefaultSectionSize(120)
+        self.tableCore.horizontalHeader().setHighlightSections(False)
+        self.tableCore.horizontalHeader().setMinimumSectionSize(15)
+        self.tableCore.horizontalHeader().setSortIndicatorShown(True)
+        self.tableCore.horizontalHeader().setStretchLastSection(False)
+        self.tableCore.verticalHeader().setVisible(False)
+        self.tableCore.verticalHeader().setCascadingSectionResizes(False)
+        self.tableCore.verticalHeader().setMinimumSectionSize(10)
+        self.btnResetCore = QtWidgets.QPushButton(self.frameCore)
+        self.btnResetCore.setGeometry(QtCore.QRect(220, 160, 61, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(9)
-        self.btnResetVolume.setFont(font)
-        self.btnResetVolume.setStyleSheet("QPushButton\n"
+        self.btnResetCore.setFont(font)
+        self.btnResetCore.setStyleSheet("QPushButton\n"
 "{\n"
 "\n"
 "    background-color: rgb(10, 10, 10);\n"
@@ -1363,31 +1394,31 @@ class Ui_WidgetVideoFilter(object):
 "    border-bottom: 1px dotted red;\n"
 "}\n"
 "")
-        self.btnResetVolume.setObjectName("btnResetVolume")
-        self.toolBoxVidFilter.addItem(self.volume, icon3, "")
-        self.type = QtWidgets.QWidget()
-        self.type.setGeometry(QtCore.QRect(0, 0, 307, 189))
-        self.type.setObjectName("type")
-        self.frameType = QtWidgets.QFrame(self.type)
-        self.frameType.setGeometry(QtCore.QRect(0, 0, 311, 191))
-        self.frameType.setStyleSheet("QFrame{\n"
+        self.btnResetCore.setObjectName("btnResetCore")
+        self.toolBoxProcFilter.addItem(self.core, icon2, "")
+        self.ncores = QtWidgets.QWidget()
+        self.ncores.setGeometry(QtCore.QRect(0, 0, 307, 186))
+        self.ncores.setObjectName("ncores")
+        self.frameNcores = QtWidgets.QFrame(self.ncores)
+        self.frameNcores.setGeometry(QtCore.QRect(0, 0, 311, 191))
+        self.frameNcores.setStyleSheet("QFrame{\n"
 "    background-color: #101010;\n"
 "}\n"
 "")
-        self.frameType.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frameType.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frameType.setObjectName("frameType")
-        self.tableType = QtWidgets.QTableWidget(self.frameType)
-        self.tableType.setEnabled(True)
-        self.tableType.setGeometry(QtCore.QRect(10, 0, 291, 161))
+        self.frameNcores.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frameNcores.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frameNcores.setObjectName("frameNcores")
+        self.tableNcores = QtWidgets.QTableWidget(self.frameNcores)
+        self.tableNcores.setEnabled(True)
+        self.tableNcores.setGeometry(QtCore.QRect(10, 0, 291, 161))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
-        self.tableType.setFont(font)
-        self.tableType.setMouseTracking(True)
-        self.tableType.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.tableType.setAutoFillBackground(False)
-        self.tableType.setStyleSheet("QHeaderView\n"
+        self.tableNcores.setFont(font)
+        self.tableNcores.setMouseTracking(True)
+        self.tableNcores.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.tableNcores.setAutoFillBackground(False)
+        self.tableNcores.setStyleSheet("QHeaderView\n"
 "{    \n"
 "    background: rgb(30, 30, 30);\n"
 "    color: #dddddd;\n"
@@ -1524,35 +1555,35 @@ class Ui_WidgetVideoFilter(object):
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}")
-        self.tableType.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
-        self.tableType.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
-        self.tableType.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self.tableType.setShowGrid(False)
-        self.tableType.setGridStyle(QtCore.Qt.SolidLine)
-        self.tableType.setObjectName("tableType")
-        self.tableType.setColumnCount(2)
-        self.tableType.setRowCount(0)
+        self.tableNcores.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableNcores.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
+        self.tableNcores.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableNcores.setShowGrid(False)
+        self.tableNcores.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableNcores.setObjectName("tableNcores")
+        self.tableNcores.setColumnCount(2)
+        self.tableNcores.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
-        self.tableType.setHorizontalHeaderItem(0, item)
+        self.tableNcores.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableType.setHorizontalHeaderItem(1, item)
-        self.tableType.horizontalHeader().setVisible(False)
-        self.tableType.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableType.horizontalHeader().setDefaultSectionSize(120)
-        self.tableType.horizontalHeader().setHighlightSections(False)
-        self.tableType.horizontalHeader().setMinimumSectionSize(15)
-        self.tableType.horizontalHeader().setSortIndicatorShown(True)
-        self.tableType.horizontalHeader().setStretchLastSection(False)
-        self.tableType.verticalHeader().setVisible(False)
-        self.tableType.verticalHeader().setCascadingSectionResizes(False)
-        self.tableType.verticalHeader().setMinimumSectionSize(10)
-        self.btnResetType = QtWidgets.QPushButton(self.frameType)
-        self.btnResetType.setGeometry(QtCore.QRect(220, 160, 61, 21))
+        self.tableNcores.setHorizontalHeaderItem(1, item)
+        self.tableNcores.horizontalHeader().setVisible(False)
+        self.tableNcores.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableNcores.horizontalHeader().setDefaultSectionSize(120)
+        self.tableNcores.horizontalHeader().setHighlightSections(False)
+        self.tableNcores.horizontalHeader().setMinimumSectionSize(15)
+        self.tableNcores.horizontalHeader().setSortIndicatorShown(True)
+        self.tableNcores.horizontalHeader().setStretchLastSection(False)
+        self.tableNcores.verticalHeader().setVisible(False)
+        self.tableNcores.verticalHeader().setCascadingSectionResizes(False)
+        self.tableNcores.verticalHeader().setMinimumSectionSize(10)
+        self.btnResetNcores = QtWidgets.QPushButton(self.frameNcores)
+        self.btnResetNcores.setGeometry(QtCore.QRect(220, 160, 61, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(9)
-        self.btnResetType.setFont(font)
-        self.btnResetType.setStyleSheet("QPushButton\n"
+        self.btnResetNcores.setFont(font)
+        self.btnResetNcores.setStyleSheet("QPushButton\n"
 "{\n"
 "background-color: rgb(10, 10, 10);\n"
 "color:  rgb(200,200, 200);\n"
@@ -1566,10 +1597,10 @@ class Ui_WidgetVideoFilter(object):
 "border-bottom: 1px dotted red;\n"
 "}\n"
 "")
-        self.btnResetType.setObjectName("btnResetType")
-        self.toolBoxVidFilter.addItem(self.type, icon3, "")
+        self.btnResetNcores.setObjectName("btnResetNcores")
+        self.toolBoxProcFilter.addItem(self.ncores, icon2, "")
         self.frequency = QtWidgets.QWidget()
-        self.frequency.setGeometry(QtCore.QRect(0, 0, 307, 189))
+        self.frequency.setGeometry(QtCore.QRect(0, 0, 307, 186))
         self.frequency.setObjectName("frequency")
         self.frameFreq = QtWidgets.QFrame(self.frequency)
         self.frameFreq.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -1770,30 +1801,30 @@ class Ui_WidgetVideoFilter(object):
 "}\n"
 "")
         self.btnResetFreq.setObjectName("btnResetFreq")
-        self.toolBoxVidFilter.addItem(self.frequency, icon3, "")
-        self.bus = QtWidgets.QWidget()
-        self.bus.setGeometry(QtCore.QRect(0, 0, 307, 189))
-        self.bus.setObjectName("bus")
-        self.frameBus = QtWidgets.QFrame(self.bus)
-        self.frameBus.setGeometry(QtCore.QRect(0, 0, 311, 191))
-        self.frameBus.setStyleSheet("QFrame{\n"
+        self.toolBoxProcFilter.addItem(self.frequency, icon2, "")
+        self.cache = QtWidgets.QWidget()
+        self.cache.setGeometry(QtCore.QRect(0, 0, 307, 186))
+        self.cache.setObjectName("cache")
+        self.frameCache = QtWidgets.QFrame(self.cache)
+        self.frameCache.setGeometry(QtCore.QRect(0, 0, 311, 191))
+        self.frameCache.setStyleSheet("QFrame{\n"
 "    background-color: #101010;\n"
 "}\n"
 "")
-        self.frameBus.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frameBus.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frameBus.setObjectName("frameBus")
-        self.tableBus = QtWidgets.QTableWidget(self.frameBus)
-        self.tableBus.setEnabled(True)
-        self.tableBus.setGeometry(QtCore.QRect(10, 0, 291, 161))
+        self.frameCache.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frameCache.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frameCache.setObjectName("frameCache")
+        self.tableCache = QtWidgets.QTableWidget(self.frameCache)
+        self.tableCache.setEnabled(True)
+        self.tableCache.setGeometry(QtCore.QRect(10, 0, 291, 161))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
-        self.tableBus.setFont(font)
-        self.tableBus.setMouseTracking(True)
-        self.tableBus.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.tableBus.setAutoFillBackground(False)
-        self.tableBus.setStyleSheet("QHeaderView\n"
+        self.tableCache.setFont(font)
+        self.tableCache.setMouseTracking(True)
+        self.tableCache.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.tableCache.setAutoFillBackground(False)
+        self.tableCache.setStyleSheet("QHeaderView\n"
 "{    \n"
 "    background: rgb(30, 30, 30);\n"
 "    color: #dddddd;\n"
@@ -1930,35 +1961,35 @@ class Ui_WidgetVideoFilter(object):
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}")
-        self.tableBus.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
-        self.tableBus.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
-        self.tableBus.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self.tableBus.setShowGrid(False)
-        self.tableBus.setGridStyle(QtCore.Qt.SolidLine)
-        self.tableBus.setObjectName("tableBus")
-        self.tableBus.setColumnCount(2)
-        self.tableBus.setRowCount(0)
+        self.tableCache.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableCache.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
+        self.tableCache.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableCache.setShowGrid(False)
+        self.tableCache.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableCache.setObjectName("tableCache")
+        self.tableCache.setColumnCount(2)
+        self.tableCache.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
-        self.tableBus.setHorizontalHeaderItem(0, item)
+        self.tableCache.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableBus.setHorizontalHeaderItem(1, item)
-        self.tableBus.horizontalHeader().setVisible(False)
-        self.tableBus.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableBus.horizontalHeader().setDefaultSectionSize(120)
-        self.tableBus.horizontalHeader().setHighlightSections(False)
-        self.tableBus.horizontalHeader().setMinimumSectionSize(15)
-        self.tableBus.horizontalHeader().setSortIndicatorShown(True)
-        self.tableBus.horizontalHeader().setStretchLastSection(False)
-        self.tableBus.verticalHeader().setVisible(False)
-        self.tableBus.verticalHeader().setCascadingSectionResizes(False)
-        self.tableBus.verticalHeader().setMinimumSectionSize(10)
-        self.btnResetBus = QtWidgets.QPushButton(self.frameBus)
-        self.btnResetBus.setGeometry(QtCore.QRect(220, 160, 61, 21))
+        self.tableCache.setHorizontalHeaderItem(1, item)
+        self.tableCache.horizontalHeader().setVisible(False)
+        self.tableCache.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableCache.horizontalHeader().setDefaultSectionSize(120)
+        self.tableCache.horizontalHeader().setHighlightSections(False)
+        self.tableCache.horizontalHeader().setMinimumSectionSize(15)
+        self.tableCache.horizontalHeader().setSortIndicatorShown(True)
+        self.tableCache.horizontalHeader().setStretchLastSection(False)
+        self.tableCache.verticalHeader().setVisible(False)
+        self.tableCache.verticalHeader().setCascadingSectionResizes(False)
+        self.tableCache.verticalHeader().setMinimumSectionSize(10)
+        self.btnResetCache = QtWidgets.QPushButton(self.frameCache)
+        self.btnResetCache.setGeometry(QtCore.QRect(220, 160, 61, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(9)
-        self.btnResetBus.setFont(font)
-        self.btnResetBus.setStyleSheet("QPushButton\n"
+        self.btnResetCache.setFont(font)
+        self.btnResetCache.setStyleSheet("QPushButton\n"
 "{\n"
 "background-color: rgb(10, 10, 10);\n"
 "color:  rgb(200,200, 200);\n"
@@ -1972,31 +2003,31 @@ class Ui_WidgetVideoFilter(object):
 "border-bottom: 1px dotted red;\n"
 "}\n"
 "")
-        self.btnResetBus.setObjectName("btnResetBus")
-        self.toolBoxVidFilter.addItem(self.bus, icon3, "")
-        self.Interface = QtWidgets.QWidget()
-        self.Interface.setGeometry(QtCore.QRect(0, 0, 307, 189))
-        self.Interface.setObjectName("Interface")
-        self.frameInterface = QtWidgets.QFrame(self.Interface)
-        self.frameInterface.setGeometry(QtCore.QRect(0, 0, 311, 191))
-        self.frameInterface.setStyleSheet("QFrame{\n"
+        self.btnResetCache.setObjectName("btnResetCache")
+        self.toolBoxProcFilter.addItem(self.cache, icon2, "")
+        self.techproc = QtWidgets.QWidget()
+        self.techproc.setGeometry(QtCore.QRect(0, 0, 307, 186))
+        self.techproc.setObjectName("techproc")
+        self.frameTechproc = QtWidgets.QFrame(self.techproc)
+        self.frameTechproc.setGeometry(QtCore.QRect(0, 0, 311, 191))
+        self.frameTechproc.setStyleSheet("QFrame{\n"
 "    background-color: #101010;\n"
 "}\n"
 "")
-        self.frameInterface.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frameInterface.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frameInterface.setObjectName("frameInterface")
-        self.tableInterface = QtWidgets.QTableWidget(self.frameInterface)
-        self.tableInterface.setEnabled(True)
-        self.tableInterface.setGeometry(QtCore.QRect(10, 0, 291, 161))
+        self.frameTechproc.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frameTechproc.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frameTechproc.setObjectName("frameTechproc")
+        self.tableTechproc = QtWidgets.QTableWidget(self.frameTechproc)
+        self.tableTechproc.setEnabled(True)
+        self.tableTechproc.setGeometry(QtCore.QRect(10, 0, 291, 161))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
-        self.tableInterface.setFont(font)
-        self.tableInterface.setMouseTracking(True)
-        self.tableInterface.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.tableInterface.setAutoFillBackground(False)
-        self.tableInterface.setStyleSheet("QHeaderView\n"
+        self.tableTechproc.setFont(font)
+        self.tableTechproc.setMouseTracking(True)
+        self.tableTechproc.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.tableTechproc.setAutoFillBackground(False)
+        self.tableTechproc.setStyleSheet("QHeaderView\n"
 "{    \n"
 "    background: rgb(30, 30, 30);\n"
 "    color: #dddddd;\n"
@@ -2133,35 +2164,35 @@ class Ui_WidgetVideoFilter(object):
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}")
-        self.tableInterface.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
-        self.tableInterface.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
-        self.tableInterface.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self.tableInterface.setShowGrid(False)
-        self.tableInterface.setGridStyle(QtCore.Qt.SolidLine)
-        self.tableInterface.setObjectName("tableInterface")
-        self.tableInterface.setColumnCount(2)
-        self.tableInterface.setRowCount(0)
+        self.tableTechproc.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableTechproc.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
+        self.tableTechproc.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableTechproc.setShowGrid(False)
+        self.tableTechproc.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableTechproc.setObjectName("tableTechproc")
+        self.tableTechproc.setColumnCount(2)
+        self.tableTechproc.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
-        self.tableInterface.setHorizontalHeaderItem(0, item)
+        self.tableTechproc.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableInterface.setHorizontalHeaderItem(1, item)
-        self.tableInterface.horizontalHeader().setVisible(False)
-        self.tableInterface.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableInterface.horizontalHeader().setDefaultSectionSize(120)
-        self.tableInterface.horizontalHeader().setHighlightSections(False)
-        self.tableInterface.horizontalHeader().setMinimumSectionSize(15)
-        self.tableInterface.horizontalHeader().setSortIndicatorShown(True)
-        self.tableInterface.horizontalHeader().setStretchLastSection(False)
-        self.tableInterface.verticalHeader().setVisible(False)
-        self.tableInterface.verticalHeader().setCascadingSectionResizes(False)
-        self.tableInterface.verticalHeader().setMinimumSectionSize(10)
-        self.btnResetInterface = QtWidgets.QPushButton(self.frameInterface)
-        self.btnResetInterface.setGeometry(QtCore.QRect(220, 160, 61, 21))
+        self.tableTechproc.setHorizontalHeaderItem(1, item)
+        self.tableTechproc.horizontalHeader().setVisible(False)
+        self.tableTechproc.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableTechproc.horizontalHeader().setDefaultSectionSize(120)
+        self.tableTechproc.horizontalHeader().setHighlightSections(False)
+        self.tableTechproc.horizontalHeader().setMinimumSectionSize(15)
+        self.tableTechproc.horizontalHeader().setSortIndicatorShown(True)
+        self.tableTechproc.horizontalHeader().setStretchLastSection(False)
+        self.tableTechproc.verticalHeader().setVisible(False)
+        self.tableTechproc.verticalHeader().setCascadingSectionResizes(False)
+        self.tableTechproc.verticalHeader().setMinimumSectionSize(10)
+        self.btnResetTechproc = QtWidgets.QPushButton(self.frameTechproc)
+        self.btnResetTechproc.setGeometry(QtCore.QRect(220, 160, 61, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(9)
-        self.btnResetInterface.setFont(font)
-        self.btnResetInterface.setStyleSheet("QPushButton\n"
+        self.btnResetTechproc.setFont(font)
+        self.btnResetTechproc.setStyleSheet("QPushButton\n"
 "{\n"
 "background-color: rgb(10, 10, 10);\n"
 "color:  rgb(200,200, 200);\n"
@@ -2175,31 +2206,31 @@ class Ui_WidgetVideoFilter(object):
 "border-bottom: 1px dotted red;\n"
 "}\n"
 "")
-        self.btnResetInterface.setObjectName("btnResetInterface")
-        self.toolBoxVidFilter.addItem(self.Interface, icon3, "")
-        self.monitor = QtWidgets.QWidget()
-        self.monitor.setGeometry(QtCore.QRect(0, 0, 307, 189))
-        self.monitor.setObjectName("monitor")
-        self.frameMonitor = QtWidgets.QFrame(self.monitor)
-        self.frameMonitor.setGeometry(QtCore.QRect(0, 0, 311, 191))
-        self.frameMonitor.setStyleSheet("QFrame{\n"
+        self.btnResetTechproc.setObjectName("btnResetTechproc")
+        self.toolBoxProcFilter.addItem(self.techproc, icon2, "")
+        self.ramFreq = QtWidgets.QWidget()
+        self.ramFreq.setGeometry(QtCore.QRect(0, 0, 307, 186))
+        self.ramFreq.setObjectName("ramFreq")
+        self.frameRamFreq = QtWidgets.QFrame(self.ramFreq)
+        self.frameRamFreq.setGeometry(QtCore.QRect(0, 0, 311, 191))
+        self.frameRamFreq.setStyleSheet("QFrame{\n"
 "    background-color: #101010;\n"
 "}\n"
 "")
-        self.frameMonitor.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frameMonitor.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frameMonitor.setObjectName("frameMonitor")
-        self.tableMonitor = QtWidgets.QTableWidget(self.frameMonitor)
-        self.tableMonitor.setEnabled(True)
-        self.tableMonitor.setGeometry(QtCore.QRect(10, 0, 291, 161))
+        self.frameRamFreq.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frameRamFreq.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frameRamFreq.setObjectName("frameRamFreq")
+        self.tableRamFreq = QtWidgets.QTableWidget(self.frameRamFreq)
+        self.tableRamFreq.setEnabled(True)
+        self.tableRamFreq.setGeometry(QtCore.QRect(10, 0, 291, 161))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
-        self.tableMonitor.setFont(font)
-        self.tableMonitor.setMouseTracking(True)
-        self.tableMonitor.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.tableMonitor.setAutoFillBackground(False)
-        self.tableMonitor.setStyleSheet("QHeaderView\n"
+        self.tableRamFreq.setFont(font)
+        self.tableRamFreq.setMouseTracking(True)
+        self.tableRamFreq.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.tableRamFreq.setAutoFillBackground(False)
+        self.tableRamFreq.setStyleSheet("QHeaderView\n"
 "{    \n"
 "    background: rgb(30, 30, 30);\n"
 "    color: #dddddd;\n"
@@ -2336,35 +2367,35 @@ class Ui_WidgetVideoFilter(object):
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}")
-        self.tableMonitor.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
-        self.tableMonitor.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
-        self.tableMonitor.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self.tableMonitor.setShowGrid(False)
-        self.tableMonitor.setGridStyle(QtCore.Qt.SolidLine)
-        self.tableMonitor.setObjectName("tableMonitor")
-        self.tableMonitor.setColumnCount(2)
-        self.tableMonitor.setRowCount(0)
+        self.tableRamFreq.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableRamFreq.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
+        self.tableRamFreq.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableRamFreq.setShowGrid(False)
+        self.tableRamFreq.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableRamFreq.setObjectName("tableRamFreq")
+        self.tableRamFreq.setColumnCount(2)
+        self.tableRamFreq.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
-        self.tableMonitor.setHorizontalHeaderItem(0, item)
+        self.tableRamFreq.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableMonitor.setHorizontalHeaderItem(1, item)
-        self.tableMonitor.horizontalHeader().setVisible(False)
-        self.tableMonitor.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableMonitor.horizontalHeader().setDefaultSectionSize(120)
-        self.tableMonitor.horizontalHeader().setHighlightSections(False)
-        self.tableMonitor.horizontalHeader().setMinimumSectionSize(15)
-        self.tableMonitor.horizontalHeader().setSortIndicatorShown(True)
-        self.tableMonitor.horizontalHeader().setStretchLastSection(False)
-        self.tableMonitor.verticalHeader().setVisible(False)
-        self.tableMonitor.verticalHeader().setCascadingSectionResizes(False)
-        self.tableMonitor.verticalHeader().setMinimumSectionSize(10)
-        self.btnResetMonitor = QtWidgets.QPushButton(self.frameMonitor)
-        self.btnResetMonitor.setGeometry(QtCore.QRect(220, 160, 61, 21))
+        self.tableRamFreq.setHorizontalHeaderItem(1, item)
+        self.tableRamFreq.horizontalHeader().setVisible(False)
+        self.tableRamFreq.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableRamFreq.horizontalHeader().setDefaultSectionSize(120)
+        self.tableRamFreq.horizontalHeader().setHighlightSections(False)
+        self.tableRamFreq.horizontalHeader().setMinimumSectionSize(15)
+        self.tableRamFreq.horizontalHeader().setSortIndicatorShown(True)
+        self.tableRamFreq.horizontalHeader().setStretchLastSection(False)
+        self.tableRamFreq.verticalHeader().setVisible(False)
+        self.tableRamFreq.verticalHeader().setCascadingSectionResizes(False)
+        self.tableRamFreq.verticalHeader().setMinimumSectionSize(10)
+        self.btnResetRamFreq = QtWidgets.QPushButton(self.frameRamFreq)
+        self.btnResetRamFreq.setGeometry(QtCore.QRect(220, 160, 61, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(9)
-        self.btnResetMonitor.setFont(font)
-        self.btnResetMonitor.setStyleSheet("QPushButton\n"
+        self.btnResetRamFreq.setFont(font)
+        self.btnResetRamFreq.setStyleSheet("QPushButton\n"
 "{\n"
 "background-color: rgb(10, 10, 10);\n"
 "color:  rgb(200,200, 200);\n"
@@ -2378,34 +2409,34 @@ class Ui_WidgetVideoFilter(object):
 "border-bottom: 1px dotted red;\n"
 "}\n"
 "")
-        self.btnResetMonitor.setObjectName("btnResetMonitor")
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon4.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        self.toolBoxVidFilter.addItem(self.monitor, icon4, "")
-        self.resolution = QtWidgets.QWidget()
-        self.resolution.setGeometry(QtCore.QRect(0, 0, 307, 189))
-        self.resolution.setObjectName("resolution")
-        self.frameResolution = QtWidgets.QFrame(self.resolution)
-        self.frameResolution.setGeometry(QtCore.QRect(0, 0, 311, 191))
-        self.frameResolution.setStyleSheet("QFrame{\n"
+        self.btnResetRamFreq.setObjectName("btnResetRamFreq")
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        self.toolBoxProcFilter.addItem(self.ramFreq, icon3, "")
+        self.graphProc = QtWidgets.QWidget()
+        self.graphProc.setGeometry(QtCore.QRect(0, 0, 307, 186))
+        self.graphProc.setObjectName("graphProc")
+        self.frameGraphProc = QtWidgets.QFrame(self.graphProc)
+        self.frameGraphProc.setGeometry(QtCore.QRect(0, 0, 311, 191))
+        self.frameGraphProc.setStyleSheet("QFrame{\n"
 "    background-color: #101010;\n"
 "}\n"
 "")
-        self.frameResolution.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frameResolution.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frameResolution.setObjectName("frameResolution")
-        self.tableResolution = QtWidgets.QTableWidget(self.frameResolution)
-        self.tableResolution.setEnabled(True)
-        self.tableResolution.setGeometry(QtCore.QRect(10, 0, 291, 161))
+        self.frameGraphProc.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frameGraphProc.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frameGraphProc.setObjectName("frameGraphProc")
+        self.tableGraphProc = QtWidgets.QTableWidget(self.frameGraphProc)
+        self.tableGraphProc.setEnabled(True)
+        self.tableGraphProc.setGeometry(QtCore.QRect(10, 0, 291, 161))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
-        self.tableResolution.setFont(font)
-        self.tableResolution.setMouseTracking(True)
-        self.tableResolution.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.tableResolution.setAutoFillBackground(False)
-        self.tableResolution.setStyleSheet("QHeaderView\n"
+        self.tableGraphProc.setFont(font)
+        self.tableGraphProc.setMouseTracking(True)
+        self.tableGraphProc.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.tableGraphProc.setAutoFillBackground(False)
+        self.tableGraphProc.setStyleSheet("QHeaderView\n"
 "{    \n"
 "    background: rgb(30, 30, 30);\n"
 "    color: #dddddd;\n"
@@ -2542,35 +2573,35 @@ class Ui_WidgetVideoFilter(object):
 "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}")
-        self.tableResolution.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
-        self.tableResolution.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
-        self.tableResolution.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self.tableResolution.setShowGrid(False)
-        self.tableResolution.setGridStyle(QtCore.Qt.SolidLine)
-        self.tableResolution.setObjectName("tableResolution")
-        self.tableResolution.setColumnCount(2)
-        self.tableResolution.setRowCount(0)
+        self.tableGraphProc.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableGraphProc.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
+        self.tableGraphProc.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableGraphProc.setShowGrid(False)
+        self.tableGraphProc.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableGraphProc.setObjectName("tableGraphProc")
+        self.tableGraphProc.setColumnCount(2)
+        self.tableGraphProc.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
-        self.tableResolution.setHorizontalHeaderItem(0, item)
+        self.tableGraphProc.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableResolution.setHorizontalHeaderItem(1, item)
-        self.tableResolution.horizontalHeader().setVisible(False)
-        self.tableResolution.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableResolution.horizontalHeader().setDefaultSectionSize(120)
-        self.tableResolution.horizontalHeader().setHighlightSections(False)
-        self.tableResolution.horizontalHeader().setMinimumSectionSize(15)
-        self.tableResolution.horizontalHeader().setSortIndicatorShown(True)
-        self.tableResolution.horizontalHeader().setStretchLastSection(False)
-        self.tableResolution.verticalHeader().setVisible(False)
-        self.tableResolution.verticalHeader().setCascadingSectionResizes(False)
-        self.tableResolution.verticalHeader().setMinimumSectionSize(10)
-        self.btnResetResolution = QtWidgets.QPushButton(self.frameResolution)
-        self.btnResetResolution.setGeometry(QtCore.QRect(220, 160, 61, 21))
+        self.tableGraphProc.setHorizontalHeaderItem(1, item)
+        self.tableGraphProc.horizontalHeader().setVisible(False)
+        self.tableGraphProc.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableGraphProc.horizontalHeader().setDefaultSectionSize(120)
+        self.tableGraphProc.horizontalHeader().setHighlightSections(False)
+        self.tableGraphProc.horizontalHeader().setMinimumSectionSize(15)
+        self.tableGraphProc.horizontalHeader().setSortIndicatorShown(True)
+        self.tableGraphProc.horizontalHeader().setStretchLastSection(False)
+        self.tableGraphProc.verticalHeader().setVisible(False)
+        self.tableGraphProc.verticalHeader().setCascadingSectionResizes(False)
+        self.tableGraphProc.verticalHeader().setMinimumSectionSize(10)
+        self.btnResetGraphProc = QtWidgets.QPushButton(self.frameGraphProc)
+        self.btnResetGraphProc.setGeometry(QtCore.QRect(220, 160, 61, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(9)
-        self.btnResetResolution.setFont(font)
-        self.btnResetResolution.setStyleSheet("QPushButton\n"
+        self.btnResetGraphProc.setFont(font)
+        self.btnResetGraphProc.setStyleSheet("QPushButton\n"
 "{\n"
 "background-color: rgb(10, 10, 10);\n"
 "color:  rgb(200,200, 200);\n"
@@ -2584,10 +2615,10 @@ class Ui_WidgetVideoFilter(object):
 "border-bottom: 1px dotted red;\n"
 "}\n"
 "")
-        self.btnResetResolution.setObjectName("btnResetResolution")
-        self.toolBoxVidFilter.addItem(self.resolution, icon3, "")
+        self.btnResetGraphProc.setObjectName("btnResetGraphProc")
+        self.toolBoxProcFilter.addItem(self.graphProc, icon2, "")
         self.tdp = QtWidgets.QWidget()
-        self.tdp.setGeometry(QtCore.QRect(0, 0, 307, 189))
+        self.tdp.setGeometry(QtCore.QRect(0, 0, 307, 186))
         self.tdp.setObjectName("tdp")
         self.frameTdp = QtWidgets.QFrame(self.tdp)
         self.frameTdp.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -2817,260 +2848,16 @@ class Ui_WidgetVideoFilter(object):
 "    border-bottom: 1px solid  red;\n"
 "}")
         self.leMaxTdp.setObjectName("leMaxTdp")
-        self.toolBoxVidFilter.addItem(self.tdp, icon3, "")
-        self.length = QtWidgets.QWidget()
-        self.length.setGeometry(QtCore.QRect(0, 0, 307, 189))
-        self.length.setObjectName("length")
-        self.framLen = QtWidgets.QFrame(self.length)
-        self.framLen.setGeometry(QtCore.QRect(0, 0, 311, 191))
-        self.framLen.setStyleSheet("QFrame{\n"
-"    background-color: #101010;\n"
-"}\n"
-"")
-        self.framLen.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.framLen.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.framLen.setObjectName("framLen")
-        self.btnResetLen = QtWidgets.QPushButton(self.framLen)
-        self.btnResetLen.setGeometry(QtCore.QRect(220, 160, 61, 21))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(9)
-        self.btnResetLen.setFont(font)
-        self.btnResetLen.setStyleSheet("QPushButton\n"
-"{\n"
-"background-color: rgb(10, 10, 10);\n"
-"color:  rgb(200,200, 200);\n"
-"border: 0px;\n"
-"border-bottom: 1px dotted rgb(200, 200, 200);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"color: red;\n"
-"border-bottom: 1px dotted red;\n"
-"}\n"
-"")
-        self.btnResetLen.setObjectName("btnResetLen")
-        self.line_4 = QtWidgets.QFrame(self.framLen)
-        self.line_4.setGeometry(QtCore.QRect(140, 70, 21, 19))
-        self.line_4.setStyleSheet("border:0px;\n"
-"border-top: 1px solid white;")
-        self.line_4.setFrameShape(QtWidgets.QFrame.HLine)
-        self.line_4.setFrameShadow(QtWidgets.QFrame.Sunken)
-        self.line_4.setObjectName("line_4")
-        self.sliderLenMin = QtWidgets.QSlider(self.framLen)
-        self.sliderLenMin.setGeometry(QtCore.QRect(10, 100, 111, 21))
-        self.sliderLenMin.setStyleSheet("QSlider{\n"
-"    background-color: rgb(10, 10, 10);\n"
-"}\n"
-"QSlider::groove:horizontal {\n"
-"border: 1px solid #bbb;\n"
-"background: rgb(160,160,160);\n"
-"height:6px;\n"
-"}\n"
-"\n"
-"QSlider::sub-page:horizontal {\n"
-"border: 1px solid rgb(60,60,60);\n"
-"background: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.125 rgba(66, 68, 68, 255), stop:0.426136 rgba(117, 19, 19, 255), stop:0.852273 rgba(255, 0, 0, 255));\n"
-"\n"
-"color: rgb(144, 144, 144);\n"
-"height: 6px;\n"
-"}\n"
-"\n"
-"QSlider::add-page:horizontal {\n"
-"border: 1px solid rgb(75,75,75);\n"
-"background: rgb(70,70,70);\n"
-"}\n"
-"\n"
-"QSlider::handle:horizontal {\n"
-"border: 1px solid rgb(60,60,60);\n"
-"background:qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0.057, stop:0 rgba(255, 0, 0, 255), stop:0.398876 rgba(165, 0, 0, 255), stop:0.994318 rgba(46, 48, 49, 255));\n"
-"width: 6px;\n"
-"margin-top: -7px;\n"
-"margin-bottom: -7px;\n"
-"}\n"
-"\n"
-"QSlider::handle:horizontal:hover {\n"
-"border: 1px solid rgb(60,60,60);\n"
-"background: qlineargradient(x1:0, y1:0, x2:1, y2:1,\n"
-"    stop:0 rgb(105,105,105), stop:1 rgb(250,0,0));\n"
-"width: 9px;\n"
-"margin-top: -7px;\n"
-"margin-bottom: -7px;\n"
-"}\n"
-"\n"
-"\n"
-"QSlider::sub-page:horizontal:disabled {\n"
-"background: #bbb;\n"
-"border-color: #999;\n"
-"}\n"
-"\n"
-"QSlider::add-page:horizontal:disabled {\n"
-"background: #eee;\n"
-"border-color: #999;\n"
-"}\n"
-"\n"
-"QSlider::handle:horizontal:disabled {\n"
-"background: #eee;\n"
-"border: 1px solid #aaa;\n"
-"border-radius: 4px;\n"
-"}")
-        self.sliderLenMin.setProperty("value", 0)
-        self.sliderLenMin.setOrientation(QtCore.Qt.Horizontal)
-        self.sliderLenMin.setInvertedAppearance(False)
-        self.sliderLenMin.setInvertedControls(False)
-        self.sliderLenMin.setObjectName("sliderLenMin")
-        self.lbMaxLen = QtWidgets.QLabel(self.framLen)
-        self.lbMaxLen.setGeometry(QtCore.QRect(180, 20, 71, 21))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
-        self.lbMaxLen.setFont(font)
-        self.lbMaxLen.setStyleSheet("    color: #fffafa;\n"
-"    border: 0px;\n"
-"")
-        self.lbMaxLen.setAlignment(QtCore.Qt.AlignCenter)
-        self.lbMaxLen.setObjectName("lbMaxLen")
-        self.lbMinLen = QtWidgets.QLabel(self.framLen)
-        self.lbMinLen.setGeometry(QtCore.QRect(10, 20, 71, 21))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
-        self.lbMinLen.setFont(font)
-        self.lbMinLen.setStyleSheet("    color: #fffafa;\n"
-"    border: 0px;\n"
-"")
-        self.lbMinLen.setAlignment(QtCore.Qt.AlignCenter)
-        self.lbMinLen.setObjectName("lbMinLen")
-        self.sliderLenMax = QtWidgets.QSlider(self.framLen)
-        self.sliderLenMax.setGeometry(QtCore.QRect(180, 100, 111, 21))
-        self.sliderLenMax.setStyleSheet("QSlider{\n"
-"    background-color: rgb(10, 10, 10);\n"
-"}\n"
-"QSlider::groove:horizontal {\n"
-"border: 1px solid #bbb;\n"
-"background: rgb(160,160,160);\n"
-"height:6px;\n"
-"}\n"
-"\n"
-"QSlider::sub-page:horizontal {\n"
-"border: 1px solid rgb(60,60,60);\n"
-"background: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.125 rgba(66, 68, 68, 255), stop:0.426136 rgba(117, 19, 19, 255), stop:0.852273 rgba(255, 0, 0, 255));\n"
-"\n"
-"color: rgb(144, 144, 144);\n"
-"height: 6px;\n"
-"}\n"
-"\n"
-"QSlider::add-page:horizontal {\n"
-"border: 1px solid rgb(75,75,75);\n"
-"background: rgb(70,70,70);\n"
-"}\n"
-"\n"
-"QSlider::handle:horizontal {\n"
-"border: 1px solid rgb(60,60,60);\n"
-"background:qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0.057, stop:0 rgba(255, 0, 0, 255), stop:0.398876 rgba(165, 0, 0, 255), stop:0.994318 rgba(46, 48, 49, 255));\n"
-"width: 6px;\n"
-"margin-top: -7px;\n"
-"margin-bottom: -7px;\n"
-"}\n"
-"\n"
-"QSlider::handle:horizontal:hover {\n"
-"border: 1px solid rgb(60,60,60);\n"
-"background: qlineargradient(x1:0, y1:0, x2:1, y2:1,\n"
-"    stop:0 rgb(105,105,105), stop:1 rgb(250,0,0));\n"
-"width: 9px;\n"
-"margin-top: -7px;\n"
-"margin-bottom: -7px;\n"
-"}\n"
-"\n"
-"\n"
-"QSlider::sub-page:horizontal:disabled {\n"
-"background: #bbb;\n"
-"border-color: #999;\n"
-"}\n"
-"\n"
-"QSlider::add-page:horizontal:disabled {\n"
-"background: #eee;\n"
-"border-color: #999;\n"
-"}\n"
-"\n"
-"QSlider::handle:horizontal:disabled {\n"
-"background: #eee;\n"
-"border: 1px solid #aaa;\n"
-"border-radius: 4px;\n"
-"}")
-        self.sliderLenMax.setProperty("value", 0)
-        self.sliderLenMax.setOrientation(QtCore.Qt.Horizontal)
-        self.sliderLenMax.setInvertedAppearance(False)
-        self.sliderLenMax.setInvertedControls(False)
-        self.sliderLenMax.setObjectName("sliderLenMax")
-        self.leMaxLen = QtWidgets.QLineEdit(self.framLen)
-        self.leMaxLen.setGeometry(QtCore.QRect(180, 50, 111, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.leMaxLen.setFont(font)
-        self.leMaxLen.setStyleSheet("QLineEdit{\n"
-"    padding-left: 5px;\n"
-"    border: 1px solid rgb(20,20,20);\n"
-"    background-color: rgb(40,40,40);\n"
-"    border-bottom: 1px solid  rgb(120,120,120);\n"
-"    selection-background-color: rgb(105, 0, 0);\n"
-"}\n"
-"\n"
-"QLineEdit:hover{\n"
-"    background-color: rgb(55,55,55);\n"
-"    border-bottom: 1px solid  red;\n"
-"}")
-        self.leMaxLen.setObjectName("leMaxLen")
-        self.leMinLen = QtWidgets.QLineEdit(self.framLen)
-        self.leMinLen.setGeometry(QtCore.QRect(10, 50, 111, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.leMinLen.setFont(font)
-        self.leMinLen.setStyleSheet("QLineEdit{\n"
-"    padding-left: 5px;\n"
-"    border: 1px solid rgb(20,20,20);\n"
-"    background-color: rgb(40,40,40);\n"
-"    border-bottom: 1px solid  rgb(120,120,120);\n"
-"    selection-background-color: rgb(105, 0, 0);\n"
-"}\n"
-"\n"
-"QLineEdit:hover{\n"
-"    background-color: rgb(55,55,55);\n"
-"    border-bottom: 1px solid  red;\n"
-"}")
-        self.leMinLen.setObjectName("leMinLen")
-        self.toolBoxVidFilter.addItem(self.length, icon3, "")
-        self.rectangle = QtWidgets.QFrame(WidgetVideoFilter)
-        self.rectangle.setGeometry(QtCore.QRect(10, 10, 61, 16))
-        self.rectangle.setStyleSheet("background-color: rgb(210, 0, 0);\n"
-"border: 1px solid rgb(210, 0, 0);")
-        self.rectangle.setFrameShape(QtWidgets.QFrame.HLine)
-        self.rectangle.setFrameShadow(QtWidgets.QFrame.Sunken)
-        self.rectangle.setObjectName("rectangle")
-        self.lbFilter = QtWidgets.QLabel(WidgetVideoFilter)
-        self.lbFilter.setGeometry(QtCore.QRect(40, 40, 181, 21))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(12)
-        self.lbFilter.setFont(font)
-        self.lbFilter.setStyleSheet("border:0px;")
-        self.lbFilter.setObjectName("lbFilter")
-        self.line = QtWidgets.QFrame(WidgetVideoFilter)
+        self.toolBoxProcFilter.addItem(self.tdp, icon2, "")
+        self.line = QtWidgets.QFrame(WidgetProcFilter)
         self.line.setGeometry(QtCore.QRect(40, 70, 181, 20))
         self.line.setStyleSheet("border:0px;\n"
 "border-top: 1px solid red;")
         self.line.setFrameShape(QtWidgets.QFrame.HLine)
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
-        self.btnAccept = QtWidgets.QPushButton(WidgetVideoFilter)
-        self.btnAccept.setGeometry(QtCore.QRect(60, 820, 121, 31))
+        self.btnAccept = QtWidgets.QPushButton(WidgetProcFilter)
+        self.btnAccept.setGeometry(QtCore.QRect(60, 780, 121, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -3090,141 +2877,115 @@ class Ui_WidgetVideoFilter(object):
 "}\n"
 "")
         self.btnAccept.setObjectName("btnAccept")
-        self.btnResetAll = QtWidgets.QPushButton(WidgetVideoFilter)
-        self.btnResetAll.setGeometry(QtCore.QRect(250, 50, 91, 21))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(9)
-        self.btnResetAll.setFont(font)
-        self.btnResetAll.setStyleSheet("QPushButton\n"
-"{\n"
-"color:  rgb(200,200, 200);\n"
-"border: 0px;\n"
-"border-bottom: 1px dotted rgb(200, 200, 200);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"color: red;\n"
-"border-bottom: 1px dotted red;\n"
-"}\n"
-"")
-        self.btnResetAll.setObjectName("btnResetAll")
 
-        self.retranslateUi(WidgetVideoFilter)
-        self.toolBoxVidFilter.layout().setSpacing(6)
-        self.btnClose.clicked.connect(WidgetVideoFilter.hide)
-        QtCore.QMetaObject.connectSlotsByName(WidgetVideoFilter)
+        self.retranslateUi(WidgetProcFilter)
+        self.toolBoxProcFilter.layout().setSpacing(6)
+        self.btnClose.clicked.connect(WidgetProcFilter.close)
+        QtCore.QMetaObject.connectSlotsByName(WidgetProcFilter)
 
-    def retranslateUi(self, WidgetVideoFilter):
+    def retranslateUi(self, WidgetProcFilter):
         _translate = QtCore.QCoreApplication.translate
-        WidgetVideoFilter.setWindowTitle(_translate("WidgetVideoFilter", "Фильтр видеокарт"))
-        self.btnClose.setText(_translate("WidgetVideoFilter", "Отмена"))
-        self.btnResetPrice.setText(_translate("WidgetVideoFilter", "Сбросить"))
-        self.lbMinPrice.setText(_translate("WidgetVideoFilter", "мин., ₽:"))
-        self.lbMaxPrice.setText(_translate("WidgetVideoFilter", "макс., ₽:"))
-        self.leMinPrice.setPlaceholderText(_translate("WidgetVideoFilter", "от 0"))
-        self.leMaxPrice.setPlaceholderText(_translate("WidgetVideoFilter", "до 78499"))
-        self.toolBoxVidFilter.setItemText(self.toolBoxVidFilter.indexOf(self.price), _translate("WidgetVideoFilter", "Цена, ₽"))
+        WidgetProcFilter.setWindowTitle(_translate("WidgetProcFilter", "Form"))
+        self.btnResetAll.setText(_translate("WidgetProcFilter", "Сбросить всё"))
+        self.lbFilter.setText(_translate("WidgetProcFilter", "Настройка фильтров"))
+        self.btnClose.setText(_translate("WidgetProcFilter", "Отмена"))
+        self.btnResetPrice.setText(_translate("WidgetProcFilter", "Сбросить"))
+        self.lbMinPrice.setText(_translate("WidgetProcFilter", "мин., ₽:"))
+        self.lbMaxPrice.setText(_translate("WidgetProcFilter", "макс., ₽:"))
+        self.leMinPrice.setPlaceholderText(_translate("WidgetProcFilter", "от 0"))
+        self.leMaxPrice.setPlaceholderText(_translate("WidgetProcFilter", "до 78499"))
+        self.toolBoxProcFilter.setItemText(self.toolBoxProcFilter.indexOf(self.price), _translate("WidgetProcFilter", "Цена, ₽"))
         self.tableProizv.setSortingEnabled(True)
         item = self.tableProizv.horizontalHeaderItem(0)
-        item.setText(_translate("WidgetVideoFilter", "Выбор"))
+        item.setText(_translate("WidgetProcFilter", "Выбор"))
         item = self.tableProizv.horizontalHeaderItem(1)
-        item.setText(_translate("WidgetVideoFilter", "Название"))
-        self.btnResetProizv.setText(_translate("WidgetVideoFilter", "Сбросить"))
-        self.toolBoxVidFilter.setItemText(self.toolBoxVidFilter.indexOf(self.proizvoditel), _translate("WidgetVideoFilter", "Производитель видеокарты"))
-        self.tableChipCreator.setSortingEnabled(True)
-        item = self.tableChipCreator.horizontalHeaderItem(0)
-        item.setText(_translate("WidgetVideoFilter", "Выбор"))
-        item = self.tableChipCreator.horizontalHeaderItem(1)
-        item.setText(_translate("WidgetVideoFilter", "Название"))
-        self.btnResetChipCreator.setText(_translate("WidgetVideoFilter", "Сбросить"))
-        self.toolBoxVidFilter.setItemText(self.toolBoxVidFilter.indexOf(self.chipCreator), _translate("WidgetVideoFilter", "Производитель чипа"))
+        item.setText(_translate("WidgetProcFilter", "Название"))
+        self.btnResetProizv.setText(_translate("WidgetProcFilter", "Сбросить"))
+        self.toolBoxProcFilter.setItemText(self.toolBoxProcFilter.indexOf(self.proizvoditel), _translate("WidgetProcFilter", "Производитель процессора"))
+        self.tableSeries.setSortingEnabled(True)
+        item = self.tableSeries.horizontalHeaderItem(0)
+        item.setText(_translate("WidgetProcFilter", "Выбор"))
+        item = self.tableSeries.horizontalHeaderItem(1)
+        item.setText(_translate("WidgetProcFilter", "Название"))
+        self.btnResetSeries.setText(_translate("WidgetProcFilter", "Сбросить"))
+        self.toolBoxProcFilter.setItemText(self.toolBoxProcFilter.indexOf(self.series), _translate("WidgetProcFilter", "Серия процессора"))
         self.tableGaming.setSortingEnabled(True)
         item = self.tableGaming.horizontalHeaderItem(0)
-        item.setText(_translate("WidgetVideoFilter", "Выбор"))
+        item.setText(_translate("WidgetProcFilter", "Выбор"))
         item = self.tableGaming.horizontalHeaderItem(1)
-        item.setText(_translate("WidgetVideoFilter", "Название"))
-        self.btnResetGaming.setText(_translate("WidgetVideoFilter", "Сбросить"))
-        self.toolBoxVidFilter.setItemText(self.toolBoxVidFilter.indexOf(self.gaming), _translate("WidgetVideoFilter", "Игровое комплектующее"))
-        self.tableGraphProc.setSortingEnabled(True)
-        item = self.tableGraphProc.horizontalHeaderItem(0)
-        item.setText(_translate("WidgetVideoFilter", "Выбор"))
-        item = self.tableGraphProc.horizontalHeaderItem(1)
-        item.setText(_translate("WidgetVideoFilter", "Название"))
-        self.btnResetGraphProc.setText(_translate("WidgetVideoFilter", "Сбросить"))
-        self.toolBoxVidFilter.setItemText(self.toolBoxVidFilter.indexOf(self.graphProc), _translate("WidgetVideoFilter", "Графический процессор"))
-        self.tableVolume.setSortingEnabled(True)
-        item = self.tableVolume.horizontalHeaderItem(0)
-        item.setText(_translate("WidgetVideoFilter", "Выбор"))
-        item = self.tableVolume.horizontalHeaderItem(1)
-        item.setText(_translate("WidgetVideoFilter", "Название"))
-        self.btnResetVolume.setText(_translate("WidgetVideoFilter", "Сбросить"))
-        self.toolBoxVidFilter.setItemText(self.toolBoxVidFilter.indexOf(self.volume), _translate("WidgetVideoFilter", "Объём памяти [Мб]"))
-        self.tableType.setSortingEnabled(True)
-        item = self.tableType.horizontalHeaderItem(0)
-        item.setText(_translate("WidgetVideoFilter", "Выбор"))
-        item = self.tableType.horizontalHeaderItem(1)
-        item.setText(_translate("WidgetVideoFilter", "Название"))
-        self.btnResetType.setText(_translate("WidgetVideoFilter", "Сбросить"))
-        self.toolBoxVidFilter.setItemText(self.toolBoxVidFilter.indexOf(self.type), _translate("WidgetVideoFilter", "Тип видеопамяти"))
+        item.setText(_translate("WidgetProcFilter", "Название"))
+        self.btnResetGaming.setText(_translate("WidgetProcFilter", "Сбросить"))
+        self.toolBoxProcFilter.setItemText(self.toolBoxProcFilter.indexOf(self.gaming), _translate("WidgetProcFilter", "Игровое комплектующее"))
+        self.tableSocket.setSortingEnabled(True)
+        item = self.tableSocket.horizontalHeaderItem(0)
+        item.setText(_translate("WidgetProcFilter", "Выбор"))
+        item = self.tableSocket.horizontalHeaderItem(1)
+        item.setText(_translate("WidgetProcFilter", "Название"))
+        self.btnResetSocket.setText(_translate("WidgetProcFilter", "Сбросить"))
+        self.toolBoxProcFilter.setItemText(self.toolBoxProcFilter.indexOf(self.socket), _translate("WidgetProcFilter", "Сокет"))
+        self.tableCore.setSortingEnabled(True)
+        item = self.tableCore.horizontalHeaderItem(0)
+        item.setText(_translate("WidgetProcFilter", "Выбор"))
+        item = self.tableCore.horizontalHeaderItem(1)
+        item.setText(_translate("WidgetProcFilter", "Название"))
+        self.btnResetCore.setText(_translate("WidgetProcFilter", "Сбросить"))
+        self.toolBoxProcFilter.setItemText(self.toolBoxProcFilter.indexOf(self.core), _translate("WidgetProcFilter", "Ядро процессора"))
+        self.tableNcores.setSortingEnabled(True)
+        item = self.tableNcores.horizontalHeaderItem(0)
+        item.setText(_translate("WidgetProcFilter", "Выбор"))
+        item = self.tableNcores.horizontalHeaderItem(1)
+        item.setText(_translate("WidgetProcFilter", "Название"))
+        self.btnResetNcores.setText(_translate("WidgetProcFilter", "Сбросить"))
+        self.toolBoxProcFilter.setItemText(self.toolBoxProcFilter.indexOf(self.ncores), _translate("WidgetProcFilter", "Кол-во ядер"))
         self.tableFreq.setSortingEnabled(True)
         item = self.tableFreq.horizontalHeaderItem(0)
-        item.setText(_translate("WidgetVideoFilter", "Выбор"))
+        item.setText(_translate("WidgetProcFilter", "Выбор"))
         item = self.tableFreq.horizontalHeaderItem(1)
-        item.setText(_translate("WidgetVideoFilter", "Название"))
-        self.btnResetFreq.setText(_translate("WidgetVideoFilter", "Сбросить"))
-        self.toolBoxVidFilter.setItemText(self.toolBoxVidFilter.indexOf(self.frequency), _translate("WidgetVideoFilter", "Частота видеочипа [Гц]"))
-        self.tableBus.setSortingEnabled(True)
-        item = self.tableBus.horizontalHeaderItem(0)
-        item.setText(_translate("WidgetVideoFilter", "Выбор"))
-        item = self.tableBus.horizontalHeaderItem(1)
-        item.setText(_translate("WidgetVideoFilter", "Название"))
-        self.btnResetBus.setText(_translate("WidgetVideoFilter", "Сбросить"))
-        self.toolBoxVidFilter.setItemText(self.toolBoxVidFilter.indexOf(self.bus), _translate("WidgetVideoFilter", "Разрядность шины памяти"))
-        self.tableInterface.setSortingEnabled(True)
-        item = self.tableInterface.horizontalHeaderItem(0)
-        item.setText(_translate("WidgetVideoFilter", "Выбор"))
-        item = self.tableInterface.horizontalHeaderItem(1)
-        item.setText(_translate("WidgetVideoFilter", "Название"))
-        self.btnResetInterface.setText(_translate("WidgetVideoFilter", "Сбросить"))
-        self.toolBoxVidFilter.setItemText(self.toolBoxVidFilter.indexOf(self.Interface), _translate("WidgetVideoFilter", "Интерфейс подключения"))
-        self.tableMonitor.setSortingEnabled(True)
-        item = self.tableMonitor.horizontalHeaderItem(0)
-        item.setText(_translate("WidgetVideoFilter", "Выбор"))
-        item = self.tableMonitor.horizontalHeaderItem(1)
-        item.setText(_translate("WidgetVideoFilter", "Название"))
-        self.btnResetMonitor.setText(_translate("WidgetVideoFilter", "Сбросить"))
-        self.toolBoxVidFilter.setItemText(self.toolBoxVidFilter.indexOf(self.monitor), _translate("WidgetVideoFilter", "Количество мониторов"))
-        self.tableResolution.setSortingEnabled(True)
-        item = self.tableResolution.horizontalHeaderItem(0)
-        item.setText(_translate("WidgetVideoFilter", "Выбор"))
-        item = self.tableResolution.horizontalHeaderItem(1)
-        item.setText(_translate("WidgetVideoFilter", "Название"))
-        self.btnResetResolution.setText(_translate("WidgetVideoFilter", "Сбросить"))
-        self.toolBoxVidFilter.setItemText(self.toolBoxVidFilter.indexOf(self.resolution), _translate("WidgetVideoFilter", "Разрешение"))
-        self.btnResetTdp.setText(_translate("WidgetVideoFilter", "Сбросить"))
-        self.lbMinTdp.setText(_translate("WidgetVideoFilter", "мин., Вт:"))
-        self.lbMaxRdp.setText(_translate("WidgetVideoFilter", "макс., Вт:"))
-        self.leMinTdp.setPlaceholderText(_translate("WidgetVideoFilter", "от 0 Вт"))
-        self.leMaxTdp.setPlaceholderText(_translate("WidgetVideoFilter", "до 200 Вт"))
-        self.toolBoxVidFilter.setItemText(self.toolBoxVidFilter.indexOf(self.tdp), _translate("WidgetVideoFilter", "Тепловыделение [Вт]"))
-        self.btnResetLen.setText(_translate("WidgetVideoFilter", "Сбросить"))
-        self.lbMaxLen.setText(_translate("WidgetVideoFilter", "макс., мм:"))
-        self.lbMinLen.setText(_translate("WidgetVideoFilter", "мин., мм:"))
-        self.leMaxLen.setPlaceholderText(_translate("WidgetVideoFilter", "до 400 мм"))
-        self.leMinLen.setPlaceholderText(_translate("WidgetVideoFilter", "от 0 мм"))
-        self.toolBoxVidFilter.setItemText(self.toolBoxVidFilter.indexOf(self.length), _translate("WidgetVideoFilter", "Длина видеокарты [мм]"))
-        self.lbFilter.setText(_translate("WidgetVideoFilter", "Настройка фильтров"))
-        self.btnAccept.setText(_translate("WidgetVideoFilter", "Применить"))
-        self.btnResetAll.setText(_translate("WidgetVideoFilter", "Сбросить всё"))
+        item.setText(_translate("WidgetProcFilter", "Название"))
+        self.btnResetFreq.setText(_translate("WidgetProcFilter", "Сбросить"))
+        self.toolBoxProcFilter.setItemText(self.toolBoxProcFilter.indexOf(self.frequency), _translate("WidgetProcFilter", "Частота видеочипа [Гц]"))
+        self.tableCache.setSortingEnabled(True)
+        item = self.tableCache.horizontalHeaderItem(0)
+        item.setText(_translate("WidgetProcFilter", "Выбор"))
+        item = self.tableCache.horizontalHeaderItem(1)
+        item.setText(_translate("WidgetProcFilter", "Название"))
+        self.btnResetCache.setText(_translate("WidgetProcFilter", "Сбросить"))
+        self.toolBoxProcFilter.setItemText(self.toolBoxProcFilter.indexOf(self.cache), _translate("WidgetProcFilter", "Кэш L-3 [Мб]"))
+        self.tableTechproc.setSortingEnabled(True)
+        item = self.tableTechproc.horizontalHeaderItem(0)
+        item.setText(_translate("WidgetProcFilter", "Выбор"))
+        item = self.tableTechproc.horizontalHeaderItem(1)
+        item.setText(_translate("WidgetProcFilter", "Название"))
+        self.btnResetTechproc.setText(_translate("WidgetProcFilter", "Сбросить"))
+        self.toolBoxProcFilter.setItemText(self.toolBoxProcFilter.indexOf(self.techproc), _translate("WidgetProcFilter", "Техпроцесс"))
+        self.tableRamFreq.setSortingEnabled(True)
+        item = self.tableRamFreq.horizontalHeaderItem(0)
+        item.setText(_translate("WidgetProcFilter", "Выбор"))
+        item = self.tableRamFreq.horizontalHeaderItem(1)
+        item.setText(_translate("WidgetProcFilter", "Название"))
+        self.btnResetRamFreq.setText(_translate("WidgetProcFilter", "Сбросить"))
+        self.toolBoxProcFilter.setItemText(self.toolBoxProcFilter.indexOf(self.ramFreq), _translate("WidgetProcFilter", "Макс. частота ОЗУ [Гц]"))
+        self.tableGraphProc.setSortingEnabled(True)
+        item = self.tableGraphProc.horizontalHeaderItem(0)
+        item.setText(_translate("WidgetProcFilter", "Выбор"))
+        item = self.tableGraphProc.horizontalHeaderItem(1)
+        item.setText(_translate("WidgetProcFilter", "Название"))
+        self.btnResetGraphProc.setText(_translate("WidgetProcFilter", "Сбросить"))
+        self.toolBoxProcFilter.setItemText(self.toolBoxProcFilter.indexOf(self.graphProc), _translate("WidgetProcFilter", "Графический процессор"))
+        self.btnResetTdp.setText(_translate("WidgetProcFilter", "Сбросить"))
+        self.lbMinTdp.setText(_translate("WidgetProcFilter", "мин., Вт:"))
+        self.lbMaxRdp.setText(_translate("WidgetProcFilter", "макс., Вт:"))
+        self.leMinTdp.setPlaceholderText(_translate("WidgetProcFilter", "от 0 Вт"))
+        self.leMaxTdp.setPlaceholderText(_translate("WidgetProcFilter", "до 200 Вт"))
+        self.toolBoxProcFilter.setItemText(self.toolBoxProcFilter.indexOf(self.tdp), _translate("WidgetProcFilter", "Тепловыделение [Вт]"))
+        self.btnAccept.setText(_translate("WidgetProcFilter", "Применить"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    WidgetVideoFilter = QtWidgets.QWidget()
-    ui = Ui_WidgetVideoFilter()
-    ui.setupUi(WidgetVideoFilter)
-    WidgetVideoFilter.show()
+    WidgetProcFilter = QtWidgets.QWidget()
+    ui = Ui_WidgetProcFilter()
+    ui.setupUi(WidgetProcFilter)
+    WidgetProcFilter.show()
     sys.exit(app.exec_())

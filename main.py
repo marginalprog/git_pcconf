@@ -322,9 +322,10 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         self.load_sklad(0)  # Перезагрузка и отображение в таблице склада видеокарт
         # =================================Окна фильтрации комплектующих на складе=========================
         self.vidSkladFilter = filters.VideoFilter(0, self)  # Создаётся отдельный экземпляр для сохранения внесённых д-х
+        self.procSkladFilter = filters.ProcFilter(0, self)
+        self.motherSkladFilter = filters.MotherFilter(0, self)
+        self.coolSkladFilter = filters.CoolFilter(0, self)
         self.rbSklad.toggled.connect(self.create_sklad_filter)  # Пересоздание экземпляра, если индикатор нажат
-        self.btnSkladFilter.clicked.connect(lambda: self.vidSkladFilter.show())
-
         # .......инициализация других окон фильтрации.......
 
         # =================================================================================================
@@ -452,10 +453,17 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
 
         # ---------------------------------------------------------------------
 
-        # ---------------------Кнопки с фильтрами------------------------------
+        # ---------------------Окна и кнопки с фильтрами------------------------
         self.vidConfFilter = filters.VideoFilter(1, self)  # Создаётся отдельный экземпляр для сохранения внесённых д-х
-        self.rbConf.toggled.connect(self.create_conf_filter)  # Пересоздание экземпляра, если индикатор нажат
+        self.procConfFilter = filters.ProcFilter(1, self)  # Создаётся отдельный экземпляр для сохранения внесённых д-х
+        self.motherConfFilter = filters.MotherFilter(1, self)
+        self.coolConfFilter = filters.CoolFilter(1, self)
+
         self.btnVidFilter.clicked.connect(lambda: self.vidConfFilter.show())
+        self.btnProcFilter.clicked.connect(lambda: self.procConfFilter.show())
+        self.btnMotherFilter.clicked.connect(lambda: self.motherConfFilter.show())
+        self.btnCoolFilter.clicked.connect(lambda: self.coolConfFilter.show())
+        self.rbConf.toggled.connect(self.create_conf_filter)  # Пересоздание экземпляра, если индикатор нажат
 
         # ---------------------------------------------------------------------
 
@@ -751,10 +759,16 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
 
     def create_sklad_filter(self):
         self.vidSkladFilter = filters.VideoFilter(0, self)
+        self.procSkladFilter = filters.ProcFilter(0, self)
+        self.motherSkladFilter = filters.MotherFilter(0, self)
+        self.coolSkladFilter = filters.CoolFilter(0, self)
         # self.procSkladFilter = filters.ProcFilter(0, self) и т.д.
 
     def create_conf_filter(self):
         self.vidConfFilter = filters.VideoFilter(1, self)
+        self.procConfFilter = filters.ProcFilter(1, self)
+        self.motherSkladFilter = filters.MotherFilter(1, self)
+        self.coolSkladFilter = filters.CoolFilter(1, self)
         # self.procSkladFilter = filters.ProcFilter(1, self) и т.д.
 
     # Метод загрузки таблицы производителей видеокарт из БД
@@ -2251,14 +2265,11 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
             case 0:  # 0-9 - вкладки ToolBox (меню навигации)
                 self.vidSkladFilter.show()  # Отображение экземпляра класса
             case 1:
-                pass
-                # self.vidSkladFilter.show()  # Отображение экземпляра класса
+                self.procSkladFilter.show()  # Отображение экземпляра класса
             case 2:
-                pass
-                # self.vidSkladFilter.show()  # Отображение экземпляра класса
+                self.motherSkladFilter.show()  # Отображение экземпляра класса
             case 3:
-                pass
-                # self.vidSkladFilter.show()  # Отображение экземпляра класса
+                self.coolSkladFilter.show()  # Отображение экземпляра класса
             case 4:
                 pass
                 # self.vidSkladFilter.show()  # Отображение экземпляра класса

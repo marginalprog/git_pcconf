@@ -1,0 +1,1 @@
+pyuic5.exe -x E:\pcconf\ui\filter\widgetPowerFilter.ui -o  E:\pcconf\ui\filter\widgetPowerFilter.py

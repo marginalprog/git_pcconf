@@ -1,0 +1,1 @@
+pyuic5.exe -x E:\pcconf\ui\filter\widgetBodyFilter.ui -o  E:\pcconf\ui\filter\widgetBodyFilter.py

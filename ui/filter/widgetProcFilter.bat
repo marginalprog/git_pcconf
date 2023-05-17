@@ -1,0 +1,1 @@
+pyuic5.exe -x E:\pcconf\ui\filter\widgetProcFilter.ui -o  E:\pcconf\ui\filter\widgetProcFilter.py
