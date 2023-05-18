@@ -1,0 +1,1 @@
+pyuic5.exe -x E:\pcconf\ui\help\widgetPowerHelp.ui -o  E:\pcconf\ui\help\widgetPowerHelp.py

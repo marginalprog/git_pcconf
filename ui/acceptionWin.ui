@@ -45,7 +45,7 @@
    </property>
    <property name="styleSheet">
     <string notr="true">border:0px;
-border-top: 1px solid rgb(180, 0, 0);</string>
+border-top: 1px solid rgb(220, 0, 0);</string>
    </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
@@ -55,9 +55,9 @@ border-top: 1px solid rgb(180, 0, 0);</string>
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>90</y>
+     <y>70</y>
      <width>321</width>
-     <height>31</height>
+     <height>51</height>
     </rect>
    </property>
    <property name="font">
@@ -82,16 +82,16 @@ border-top: 1px solid rgb(180, 0, 0);</string>
   <widget class="QLabel" name="lbAttention">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>50</y>
-     <width>81</width>
+     <x>240</x>
+     <y>30</y>
+     <width>91</width>
      <height>21</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Montserrat SemiBold</family>
-     <pointsize>10</pointsize>
+     <pointsize>11</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -105,14 +105,14 @@ border-top: 1px solid rgb(180, 0, 0);</string>
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>80</y>
+     <y>60</y>
      <width>321</width>
      <height>20</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">border:0px;
-border-top: 1px solid rgb(180, 0, 0);</string>
+border-top: 1px solid rgb(220, 0, 0);</string>
    </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>

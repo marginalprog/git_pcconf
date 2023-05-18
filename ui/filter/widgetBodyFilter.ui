@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Фильтр корпусов</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../images/filters.png</normaloff>../../images/filters.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget
@@ -505,8 +509,8 @@ QLineEdit:hover{
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>307</width>
-      <height>187</height>
+      <width>98</width>
+      <height>28</height>
      </rect>
     </property>
     <attribute name="icon">
@@ -801,6 +805,14 @@ QPushButton::hover
     </widget>
    </widget>
    <widget class="QWidget" name="gaming">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>98</width>
+      <height>28</height>
+     </rect>
+    </property>
     <attribute name="icon">
      <iconset>
       <normaloff>../../images/down-arrow.png</normaloff>../../images/down-arrow.png</iconset>
@@ -829,6 +841,41 @@ QPushButton::hover
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
+     <widget class="QPushButton" name="btnResetGaming">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>160</y>
+        <width>61</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Montserrat Medium</family>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{	
+	background-color: rgb(10, 10, 10);
+	color:  rgb(200,200, 200);
+	border: 0px;
+	border-bottom: 1px dotted rgb(200, 200, 200);
+}
+
+QPushButton::hover
+{
+	color: red;
+	border-bottom: 1px dotted red;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>Сбросить</string>
+      </property>
+     </widget>
      <widget class="QTableWidget" name="tableGaming">
       <property name="enabled">
        <bool>true</bool>
@@ -836,7 +883,7 @@ QPushButton::hover
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>0</y>
+        <y>10</y>
         <width>291</width>
         <height>161</height>
        </rect>
@@ -1054,41 +1101,8 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
        </property>
       </column>
      </widget>
-     <widget class="QPushButton" name="btnResetGaming">
-      <property name="geometry">
-       <rect>
-        <x>220</x>
-        <y>160</y>
-        <width>61</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Montserrat Medium</family>
-        <pointsize>9</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton
-{	
-	background-color: rgb(10, 10, 10);
-	color:  rgb(200,200, 200);
-	border: 0px;
-	border-bottom: 1px dotted rgb(200, 200, 200);
-}
-
-QPushButton::hover
-{
-	color: red;
-	border-bottom: 1px dotted red;
-}
-</string>
-      </property>
-      <property name="text">
-       <string>Сбросить</string>
-      </property>
-     </widget>
+     <zorder>tableGaming</zorder>
+     <zorder>btnResetGaming</zorder>
     </widget>
    </widget>
    <widget class="QWidget" name="type">
@@ -1096,8 +1110,8 @@ QPushButton::hover
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>307</width>
-      <height>187</height>
+      <width>98</width>
+      <height>28</height>
      </rect>
     </property>
     <attribute name="icon">
@@ -1395,8 +1409,8 @@ QPushButton::hover
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>307</width>
-      <height>187</height>
+      <width>98</width>
+      <height>28</height>
      </rect>
     </property>
     <attribute name="icon">
@@ -1694,8 +1708,8 @@ QPushButton::hover
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>307</width>
-      <height>187</height>
+      <width>98</width>
+      <height>28</height>
      </rect>
     </property>
     <attribute name="icon">
@@ -1993,8 +2007,8 @@ QPushButton::hover
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>307</width>
-      <height>187</height>
+      <width>98</width>
+      <height>28</height>
      </rect>
     </property>
     <attribute name="icon">
@@ -2366,8 +2380,8 @@ QLineEdit:hover{
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>307</width>
-      <height>187</height>
+      <width>98</width>
+      <height>28</height>
      </rect>
     </property>
     <attribute name="icon">
@@ -2739,8 +2753,8 @@ QLineEdit:hover{
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>307</width>
-      <height>187</height>
+      <width>98</width>
+      <height>28</height>
      </rect>
     </property>
     <attribute name="icon">
@@ -3112,8 +3126,8 @@ QLineEdit:hover{
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>307</width>
-      <height>187</height>
+      <width>98</width>
+      <height>28</height>
      </rect>
     </property>
     <attribute name="icon">

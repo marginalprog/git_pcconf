@@ -66,6 +66,7 @@ def get_checkboxes(table, bd_column):
     # result_selected = selected_parameters[:len(selected_parameters) - 2]  # Удаляем лишние символы
     return result_selected
 
+
 # Метод, считывающий отмеченные CheckBox-ами строки из таблицы. Возвращает отмеченные строки
 def get_checkboxes_concat(table, bd_column):
     selected_parameters = []
@@ -402,7 +403,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
             row_count = 0
             for name in cur:
                 self.tableProizv.setRowCount(row_count + 1)
-                self.tableProizv.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
+                self.tableProizv.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
             row_count = 0
@@ -410,7 +411,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
                         "ORDER BY chipcreator ASC")
             for name in cur:
                 self.tableChipCreator.setRowCount(row_count + 1)
-                self.tableChipCreator.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
+                self.tableChipCreator.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
             row_count = 0
@@ -418,7 +419,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
                         "ORDER BY chipname ASC")
             for name in cur:
                 self.tableGraphProc.setRowCount(row_count + 1)
-                self.tableGraphProc.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
+                self.tableGraphProc.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
             row_count = 0
@@ -426,7 +427,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
                         "ORDER BY gaming ASC")
             for name in cur:
                 self.tableGaming.setRowCount(row_count + 1)
-                self.tableGaming.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
+                self.tableGaming.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
             row_count = 0
@@ -442,7 +443,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
                         "ORDER BY typevram ASC")
             for name in cur:
                 self.tableType.setRowCount(row_count + 1)
-                self.tableType.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
+                self.tableType.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
             row_count = 0
@@ -548,7 +549,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
             row_count = 0
             for name in cur:
                 self.tableProizv.setRowCount(row_count + 1)
-                self.tableProizv.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
+                self.tableProizv.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
             row_count = 0
@@ -556,7 +557,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
                         "ORDER BY chipcreator ASC")
             for name in cur:
                 self.tableChipCreator.setRowCount(row_count + 1)
-                self.tableChipCreator.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
+                self.tableChipCreator.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
             row_count = 0
@@ -564,7 +565,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
                         "ORDER BY chipname ASC")
             for name in cur:
                 self.tableGraphProc.setRowCount(row_count + 1)
-                self.tableGraphProc.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
+                self.tableGraphProc.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
             row_count = 0
@@ -572,7 +573,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
                         "ORDER BY gaming ASC")
             for name in cur:
                 self.tableGaming.setRowCount(row_count + 1)
-                self.tableGaming.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
+                self.tableGaming.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
             row_count = 0
@@ -588,7 +589,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
                         "ORDER BY typevram ASC")
             for name in cur:
                 self.tableType.setRowCount(row_count + 1)
-                self.tableType.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
+                self.tableType.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
             row_count = 0
@@ -612,7 +613,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
                         "ORDER BY interface ASC")
             for name in cur:
                 self.tableInterface.setRowCount(row_count + 1)
-                self.tableInterface.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
+                self.tableInterface.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
             row_count = 0
@@ -628,7 +629,7 @@ class VideoFilter(QtWidgets.QWidget, widgetVideoFilter.Ui_WidgetVideoFilter):
                         "ORDER BY resolution ASC")
             for name in cur:
                 self.tableResolution.setRowCount(row_count + 1)
-                self.tableResolution.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
+                self.tableResolution.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
             # Заполнение таблиц кнопками CB
@@ -1200,7 +1201,7 @@ class ProcFilter(QtWidgets.QWidget, widgetProcFilter.Ui_WidgetProcFilter):
             row_count = 0
             for name in cur:
                 self.tableProizv.setRowCount(row_count + 1)
-                self.tableProizv.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
+                self.tableProizv.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
             row_count = 0
@@ -1208,7 +1209,7 @@ class ProcFilter(QtWidgets.QWidget, widgetProcFilter.Ui_WidgetProcFilter):
                         "ORDER BY series ASC")
             for name in cur:
                 self.tableSeries.setRowCount(row_count + 1)
-                self.tableSeries.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
+                self.tableSeries.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
             row_count = 0
@@ -1216,7 +1217,7 @@ class ProcFilter(QtWidgets.QWidget, widgetProcFilter.Ui_WidgetProcFilter):
                         "ORDER BY graphics ASC")
             for name in cur:
                 self.tableGraphProc.setRowCount(row_count + 1)
-                self.tableGraphProc.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
+                self.tableGraphProc.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
             row_count = 0
@@ -1224,7 +1225,7 @@ class ProcFilter(QtWidgets.QWidget, widgetProcFilter.Ui_WidgetProcFilter):
                         "ORDER BY gaming ASC")
             for name in cur:
                 self.tableGaming.setRowCount(row_count + 1)
-                self.tableGaming.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
+                self.tableGaming.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
             row_count = 0
@@ -1240,7 +1241,7 @@ class ProcFilter(QtWidgets.QWidget, widgetProcFilter.Ui_WidgetProcFilter):
                         "ORDER BY core ASC")
             for name in cur:
                 self.tableCore.setRowCount(row_count + 1)
-                self.tableCore.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
+                self.tableCore.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
             row_count = 0
@@ -1264,7 +1265,7 @@ class ProcFilter(QtWidgets.QWidget, widgetProcFilter.Ui_WidgetProcFilter):
                         "ORDER BY cache ASC")
             for name in cur:
                 self.tableCache.setRowCount(row_count + 1)
-                self.tableCache.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
+                self.tableCache.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
             row_count = 0
@@ -1280,7 +1281,7 @@ class ProcFilter(QtWidgets.QWidget, widgetProcFilter.Ui_WidgetProcFilter):
                         "ORDER BY ramfreq ASC")
             for name in cur:
                 self.tableRamFreq.setRowCount(row_count + 1)
-                self.tableRamFreq.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
+                self.tableRamFreq.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
             # Заполнение таблиц кнопками CB
@@ -2252,6 +2253,8 @@ class CoolFilter(QtWidgets.QWidget, widgetCoolFilter.Ui_WidgetCoolFilter):
         self.leMaxPrice.setValidator(six_digits_int)
         self.leMinHeight.setValidator(two_digits_int)
         self.leMaxHeight.setValidator(two_digits_int)
+        self.leMinDisperse.setValidator(three_digits_int)
+        self.leMaxDisperse.setValidator(three_digits_int)
         # -------------------Задание ограничений для полей ввода-------------------
 
         # -------------------Установка ширины столбцов для таблиц-------------------
@@ -2370,7 +2373,7 @@ class CoolFilter(QtWidgets.QWidget, widgetCoolFilter.Ui_WidgetCoolFilter):
             row_count = 0
             for name in cur:
                 self.tableProizv.setRowCount(row_count + 1)
-                self.tableProizv.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
+                self.tableProizv.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
             row_count = 0
@@ -2378,7 +2381,7 @@ class CoolFilter(QtWidgets.QWidget, widgetCoolFilter.Ui_WidgetCoolFilter):
                         "ORDER BY construction ASC")
             for name in cur:
                 self.tableConstr.setRowCount(row_count + 1)
-                self.tableConstr.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
+                self.tableConstr.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
             count = 0  # Счётчик уникальных записей в словаре
@@ -2389,7 +2392,7 @@ class CoolFilter(QtWidgets.QWidget, widgetCoolFilter.Ui_WidgetCoolFilter):
                 str_name = str(name)
                 # Преобразуем кортеж в строку и удаляем лишние символы, чтобы можно было сделать split списка по ',',
                 # а затем записать результаты разбиения кортежа в фильтрующую таблицу
-                str_name = re.sub('[^A-Za-z_0-9,+]', '', str_name)
+                str_name = re.sub('[^A-Za-z_0-9,+-]', '', str_name)
                 str_name = str_name[:-1] + ''  # Удаляем последний символ
                 list_name = str_name.split(',')  # Создаём из кортежа список и из списка заполняем таблицы сокетами
                 for i in list_name:
@@ -2407,7 +2410,7 @@ class CoolFilter(QtWidgets.QWidget, widgetCoolFilter.Ui_WidgetCoolFilter):
                         "ORDER BY type ASC")
             for name in cur:
                 self.tableType.setRowCount(row_count + 1)
-                self.tableType.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
+                self.tableType.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
             row_count = 0
@@ -2423,7 +2426,7 @@ class CoolFilter(QtWidgets.QWidget, widgetCoolFilter.Ui_WidgetCoolFilter):
                         "ORDER BY conncool ASC")
             for name in cur:
                 self.tablePinCool.setRowCount(row_count + 1)
-                self.tablePinCool.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
+                self.tablePinCool.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
             # Заполнение таблиц кнопками CB
@@ -2484,7 +2487,7 @@ class CoolFilter(QtWidgets.QWidget, widgetCoolFilter.Ui_WidgetCoolFilter):
             row_count = 0
             for name in cur:
                 self.tableProizv.setRowCount(row_count + 1)
-                self.tableProizv.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
+                self.tableProizv.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
             row_count = 0
@@ -2493,7 +2496,7 @@ class CoolFilter(QtWidgets.QWidget, widgetCoolFilter.Ui_WidgetCoolFilter):
                         "ORDER BY construction ASC")
             for name in cur:
                 self.tableConstr.setRowCount(row_count + 1)
-                self.tableConstr.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
+                self.tableConstr.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
             row_count = 0
@@ -2502,7 +2505,7 @@ class CoolFilter(QtWidgets.QWidget, widgetCoolFilter.Ui_WidgetCoolFilter):
                         "ORDER BY socket ASC")
             for name in cur:
                 self.tableSocket.setRowCount(row_count + 1)
-                self.tableSocket.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
+                self.tableSocket.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
             row_count = 0
@@ -2511,7 +2514,7 @@ class CoolFilter(QtWidgets.QWidget, widgetCoolFilter.Ui_WidgetCoolFilter):
                         "ORDER BY type ASC")
             for name in cur:
                 self.tableType.setRowCount(row_count + 1)
-                self.tableType.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
+                self.tableType.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
             row_count = 0
@@ -2529,7 +2532,7 @@ class CoolFilter(QtWidgets.QWidget, widgetCoolFilter.Ui_WidgetCoolFilter):
                         "ORDER BY conncool ASC")
             for name in cur:
                 self.tablePinCool.setRowCount(row_count + 1)
-                self.tablePinCool.setItem(row_count, 1, QtWidgets.QTableWidgetItem(name[0]))
+                self.tablePinCool.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
                 row_count += 1
 
             # Заполнение таблиц кнопками CB
@@ -2645,10 +2648,10 @@ class CoolFilter(QtWidgets.QWidget, widgetCoolFilter.Ui_WidgetCoolFilter):
 
             if query1 == "" and query2 == "" and query3 == "" and query4 == "" and query5 == "" and query6 == "" \
                     and (min_price == 0 and max_price == 0) and (min_disperse == 0 and max_disperse == 0):
-                query += check_min_max(min_height, min_height, "height")
+                query += check_min_max(min_height, max_height, "height")
             else:
                 if min_height != 0 or min_height != 0:
-                    query += " AND " + check_min_max(min_height, min_height, "height")
+                    query += " AND " + check_min_max(min_height, max_height, "height")
 
             mainWindow.tabWidgetSklad.setCurrentIndex(0)  # Устанавливаем вкладку перед фильтрацией на 0 место
 
@@ -2713,3 +2716,1896 @@ class CoolFilter(QtWidgets.QWidget, widgetCoolFilter.Ui_WidgetCoolFilter):
                         "WHERE cool.id = sklad_cool.id_izd AND cool.id_proizv = proizv_cool.id " \
                         "ORDER BY cool.exist DESC"
                 return query
+
+
+class RamFilter(QtWidgets.QWidget, widgetRamFilter.Ui_WidgetRamFilter):
+    def __init__(self, tab, mainWindow):
+        super().__init__()
+        self.setupUi(self)
+        self.mainWindow = mainWindow
+        self.tab_window = tab  # Где было создано окно фильтрации - в конфигураторе или на складе
+        # -------------Сигналы обновления значений в полях при движении слайдера------------
+        self.sliderPriceMin.valueChanged.connect(lambda value: update_field_value(self.leMinPrice, value))
+        self.sliderPriceMax.valueChanged.connect(lambda value: update_field_value(self.leMaxPrice, value))
+        # -------------Сигналы обновления значений в слайдерах при вводе числа------------
+        self.leMinPrice.textChanged.connect(
+            lambda value: update_slider_value(self.sliderPriceMin, value, self.leMinPrice))
+        self.leMaxPrice.textChanged.connect(
+            lambda value: update_slider_value(self.sliderPriceMax, value, self.leMaxPrice))
+        # ----------------------------------------------------------------------------------
+
+        # -------------------Задание ограничений для полей ввода-------------------
+        only_int = QIntValidator()
+        only_int.setRange(0, 999999)
+
+        six_digits_int = QIntValidator()
+        six_digits_int.setRange(0, 999999)
+
+        self.leMinPrice.setValidator(six_digits_int)
+        self.leMaxPrice.setValidator(six_digits_int)
+        # -------------------Задание ограничений для полей ввода-------------------
+
+        # -------------------Установка ширины столбцов для таблиц-------------------
+        self.tableProizv.setColumnWidth(0, 40)
+        self.tableProizv.setColumnWidth(1, 243)
+        self.tableProizv.cellClicked.connect(
+            lambda row, column, table=self.tableProizv:
+            cell_row(row, column, table))
+
+        self.tableType.setColumnWidth(0, 40)
+        self.tableType.setColumnWidth(1, 243)
+        self.tableType.cellClicked.connect(
+            lambda row, column, table=self.tableType:
+            cell_row(row, column, table))
+
+        self.tableGaming.setColumnWidth(0, 40)
+        self.tableGaming.setColumnWidth(1, 243)
+        self.tableGaming.cellClicked.connect(
+            lambda row, column, table=self.tableGaming:
+            cell_row(row, column, table))
+
+        self.tableVolume.setColumnWidth(0, 40)
+        self.tableVolume.setColumnWidth(1, 243)
+        self.tableVolume.cellClicked.connect(
+            lambda row, column, table=self.tableVolume:
+            cell_row(row, column, table))
+
+        self.tableFreq.setColumnWidth(0, 40)
+        self.tableFreq.setColumnWidth(1, 243)
+        self.tableFreq.cellClicked.connect(
+            lambda row, column, table=self.tableFreq:
+            cell_row(row, column, table))
+
+        self.tableModule.setColumnWidth(0, 40)
+        self.tableModule.setColumnWidth(1, 243)
+        self.tableModule.cellClicked.connect(
+            lambda row, column, table=self.tableModule:
+            cell_row(row, column, table))
+
+        self.tableLatency.setColumnWidth(0, 40)
+        self.tableLatency.setColumnWidth(1, 243)
+        self.tableLatency.cellClicked.connect(
+            lambda row, column, table=self.tableLatency:
+            cell_row(row, column, table))
+        # ------------------------------------------------------------------
+
+        # -----------Соединение кнопок сбосов с методом обнуления-----------
+        self.btnResetAll.clicked.connect(self.resetAll)
+        self.btnResetPrice.clicked.connect(
+            lambda: reset_sliders(self.sliderPriceMin, self.sliderPriceMax, self.leMinPrice, self.leMaxPrice))
+        self.btnResetProizv.clicked.connect(lambda: reset_checkboxes(self.tableProizv))
+        self.btnResetType.clicked.connect(lambda: reset_checkboxes(self.tableType))
+        self.btnResetGaming.clicked.connect(lambda: reset_checkboxes(self.tableGaming))
+        self.btnResetVolume.clicked.connect(lambda: reset_checkboxes(self.tableVolume))
+        self.btnResetFreq.clicked.connect(lambda: reset_checkboxes(self.tableFreq))
+        self.btnResetModule.clicked.connect(lambda: reset_checkboxes(self.tableModule))
+        self.btnResetLatency.clicked.connect(lambda: reset_checkboxes(self.tableLatency))
+        # -------------------Соединение кнопк сбосов с методом обнуления-------------------
+
+        # Изменение положения стрелки при нажатии на вкладку фильтра
+        self.toolBoxRamFilter.currentChanged.connect(self.tb_change_arrows)
+
+        # Если выбрана вкладка склада или конфигуратора И включён индикатор "Только в наличии"
+        if self.tab_window == 0 and mainWindow.rbSklad.isChecked():
+            self.load_exists_parameters()
+        elif self.tab_window == 0:
+            self.load_all_parameters()
+        elif self.tab_window == 1 and mainWindow.rbConf.isChecked():
+            self.load_exists_parameters()
+        elif self.tab_window == 1:
+            self.load_all_parameters()
+
+        self.btnAccept.clicked.connect(lambda: self.click_accept(mainWindow))
+
+    def load_all_parameters(self):
+        """
+            Метод, загружающий параметры всех видеокарт
+        """
+        self.tableProizv.clear()
+        self.tableType.clear()
+        self.tableGaming.clear()
+        self.tableVolume.clear()
+        self.tableFreq.clear()
+        self.tableModule.clear()
+        self.tableLatency.clear()
+
+        conn = None
+        cur = None
+        try:
+            conn = psycopg2.connect(database="confPc",
+                                    user="postgres",
+                                    password="2001",
+                                    host="localhost",
+                                    port="5432")
+            cur = conn.cursor()
+            # Задание слайдерам максимального значения из имеющихся в БД данных
+            cur.execute(" SELECT price FROM ram ORDER BY price DESC LIMIT 1")
+            for name in cur:
+                self.sliderPriceMin.setRange(0, int(name[0]))
+                self.sliderPriceMax.setRange(0, int(name[0]))
+                self.leMaxPrice.setPlaceholderText(f"до {int(name[0])}")
+
+            cur.execute("SELECT DISTINCT name FROM proizv_ram, ram "
+                        "WHERE proizv_ram.id = ram.id_proizv "
+                        "ORDER BY name ASC")
+            row_count = 0
+            for name in cur:
+                self.tableProizv.setRowCount(row_count + 1)
+                self.tableProizv.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            row_count = 0
+            cur.execute("SELECT DISTINCT type FROM ram "
+                        "ORDER BY type ASC")
+            for name in cur:
+                self.tableType.setRowCount(row_count + 1)
+                self.tableType.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            row_count = 0
+            cur.execute("SELECT DISTINCT gaming FROM ram "
+                        "ORDER BY gaming ASC")
+            for name in cur:
+                self.tableGaming.setRowCount(row_count + 1)
+                self.tableGaming.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            row_count = 0
+            cur.execute("SELECT DISTINCT volume FROM ram "
+                        "ORDER BY volume ASC")
+            for name in cur:
+                self.tableVolume.setRowCount(row_count + 1)
+                self.tableVolume.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            row_count = 0
+            cur.execute("SELECT DISTINCT frequency FROM ram "
+                        "ORDER BY frequency ASC")
+            for name in cur:
+                self.tableFreq.setRowCount(row_count + 1)
+                self.tableFreq.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            row_count = 0
+            cur.execute("SELECT DISTINCT complect FROM ram "
+                        "ORDER BY complect ASC")
+            for name in cur:
+                self.tableModule.setRowCount(row_count + 1)
+                self.tableModule.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            row_count = 0
+            cur.execute("SELECT DISTINCT latency FROM ram "
+                        "ORDER BY latency ASC")
+            for name in cur:
+                self.tableLatency.setRowCount(row_count + 1)
+                self.tableLatency.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            # Заполнение таблиц кнопками CB
+            self.pasteCheckBoxes()
+
+        except (Exception, psycopg2.DatabaseError) as error:
+            dialog = DialogOk("Ошибка", error)
+            dialog.show()
+
+        finally:
+            if conn:
+                cur.close()
+                conn.close()
+
+    def load_exists_parameters(self):
+        """
+            Метод, загружающий параметры имеющихся в наличии видеокарт
+        """
+        self.tableProizv.clear()
+        self.tableType.clear()
+        self.tableGaming.clear()
+        self.tableVolume.clear()
+        self.tableFreq.clear()
+        self.tableModule.clear()
+        self.tableLatency.clear()
+
+        conn = None
+        cur = None
+        try:
+            conn = psycopg2.connect(database="confPc",
+                                    user="postgres",
+                                    password="2001",
+                                    host="localhost",
+                                    port="5432")
+            cur = conn.cursor()
+            # Задание слайдерам максимального значения из имеющихся в БД данных
+            cur.execute(" SELECT price FROM ram WHERE exist = True ORDER BY price DESC LIMIT 1")
+            for name in cur:
+                self.sliderPriceMin.setRange(0, int(name[0]))
+                self.sliderPriceMax.setRange(0, int(name[0]))
+                self.leMaxPrice.setPlaceholderText(f"до {int(name[0])}")
+
+            cur.execute("SELECT DISTINCT name FROM proizv_ram, ram "
+                        "WHERE proizv_ram.id = ram.id_proizv "
+                        "AND ram.exist = True "
+                        "ORDER BY name ASC")
+            row_count = 0
+            for name in cur:
+                self.tableProizv.setRowCount(row_count + 1)
+                self.tableProizv.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            row_count = 0
+            cur.execute("SELECT DISTINCT type FROM ram "
+                        "WHERE exist = True "
+                        "ORDER BY type ASC")
+            for name in cur:
+                self.tableType.setRowCount(row_count + 1)
+                self.tableType.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            row_count = 0
+            cur.execute("SELECT DISTINCT gaming FROM ram "
+                        "WHERE exist = True "
+                        "ORDER BY gaming ASC")
+            for name in cur:
+                self.tableGaming.setRowCount(row_count + 1)
+                self.tableGaming.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            row_count = 0
+            cur.execute("SELECT DISTINCT volume FROM ram "
+                        "WHERE exist = True "
+                        "ORDER BY volume ASC")
+            for name in cur:
+                self.tableVolume.setRowCount(row_count + 1)
+                self.tableVolume.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            row_count = 0
+            cur.execute("SELECT DISTINCT frequency FROM ram "
+                        "WHERE exist = True "
+                        "ORDER BY frequency ASC")
+            for name in cur:
+                self.tableFreq.setRowCount(row_count + 1)
+                self.tableFreq.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            row_count = 0
+            cur.execute("SELECT DISTINCT complect FROM ram "
+                        "WHERE exist = True "
+                        "ORDER BY complect ASC")
+            for name in cur:
+                self.tableModule.setRowCount(row_count + 1)
+                self.tableModule.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            row_count = 0
+            cur.execute("SELECT DISTINCT latency FROM ram "
+                        "WHERE exist = True "
+                        "ORDER BY latency ASC")
+            for name in cur:
+                self.tableLatency.setRowCount(row_count + 1)
+                self.tableLatency.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            # Заполнение таблиц кнопками CB
+            self.pasteCheckBoxes()
+
+        except (Exception, psycopg2.DatabaseError) as error:
+            dialog = DialogOk("Ошибка", error)
+            dialog.show()
+
+        finally:
+            if conn:
+                cur.close()
+                conn.close()
+
+    def tb_change_arrows(self, page):
+        self.toolBoxRamFilter.setItemIcon(page, QIcon("E:/pcconf/images/up-arrow.png"))
+        for i in range(self.toolBoxRamFilter.count()):
+            if i != page:
+                self.toolBoxRamFilter.setItemIcon(i, QIcon("E:/pcconf/images/down-arrow.png"))
+
+    # Метод для вставки CB в таблицы
+    def pasteCheckBoxes(self):
+        insert_cb(self.tableProizv)
+        insert_cb(self.tableType)
+        insert_cb(self.tableGaming)
+        insert_cb(self.tableVolume)
+        insert_cb(self.tableFreq)
+        insert_cb(self.tableModule)
+        insert_cb(self.tableLatency)
+
+    # Метод, обнуляющий все поля
+    def resetAll(self):
+        reset_sliders(self.sliderPriceMin, self.sliderPriceMax, self.leMinPrice, self.leMaxPrice)
+        reset_checkboxes(self.tableProizv)
+        reset_checkboxes(self.tableType)
+        reset_checkboxes(self.tableGaming)
+        reset_checkboxes(self.tableVolume)
+        reset_checkboxes(self.tableFreq)
+        reset_checkboxes(self.tableModule)
+        reset_checkboxes(self.tableLatency)
+
+    # Метод, срабатывающий по нажатии на кнопку и отправляющий в БД запрос на фильтрацию данных
+    def click_accept(self, mainWindow):
+        query = "SELECT sklad_ram.kol, ram.exist, ram.id, proizv_ram.name, " \
+                "fullname, gaming, type, volume, frequency, " \
+                "complect, latency, voltage, price " \
+                "FROM ram, sklad_ram, proizv_ram " \
+                "WHERE "
+
+        min_price, max_price = checkFields(self.leMinPrice.text(), self.leMaxPrice.text())
+        if min_price == -1:  # если не вернулось -1, то выполняем фильтрацию
+            pass
+        else:
+            query1 = get_checkboxes(self.tableProizv, "proizv_ram.name")
+            if query1 != "":  # Если есть что добавить к запросу
+                query += query1
+
+            if query1 == "":  # Если первая таблица пустая, то добавляем к запросу без AND
+                query2 = get_checkboxes(self.tableType, "type")
+                query += query2
+            else:
+                query2 = get_checkboxes(self.tableType, "type")
+                if query2 != "":  # Если есть что добавить к запросу
+                    query += " AND " + query2
+
+            if query1 == "" and query2 == "":  # Если первая таблица пустая, то добавляем к запросу без AND
+                query3 = get_checkboxes(self.tableGaming, "gaming")
+                query += query3
+            else:
+                query3 = get_checkboxes(self.tableGaming, "gaming")
+                if query3 != "":  # Если есть что добавить к запросу
+                    query += " AND " + query3
+
+            if query1 == "" and query2 == "" and query3 == "":
+                query4 = get_checkboxes(self.tableVolume, "volume")
+                query += query4
+            else:
+                query4 = get_checkboxes(self.tableVolume, "volume")
+                if query4 != "":
+                    query += " AND " + query4
+
+            if query1 == "" and query2 == "" and query3 == "" and query4 == "":
+                query5 = get_checkboxes(self.tableFreq, "frequency")
+                query += query5
+            else:
+                query5 = get_checkboxes(self.tableFreq, "frequency")
+                if query5 != "":
+                    query += " AND " + query5
+
+            if query1 == "" and query2 == "" and query3 == "" and query4 == "" and query5 == "":
+                query6 = get_checkboxes(self.tableModule, "complect")
+                query += query6
+            else:
+                query6 = get_checkboxes(self.tableModule, "complect")
+                if query6 != "":
+                    query += " AND " + query6
+
+            if query1 == "" and query2 == "" and query3 == "" and query4 == "" and query5 == "" and query6 == "":
+                query7 = get_checkboxes(self.tableLatency, "latency")
+                query += query7
+            else:
+                query7 = get_checkboxes(self.tableLatency, "latency")
+                if query7 != "":
+                    query += " AND " + query7
+
+            # Вероятно, в проверке слайдеров есть лишние if
+            if query1 == "" and query2 == "" and query3 == "" and query4 == "" and query5 == "" and query6 == "" \
+                    and query7 == "":  # Если не выбрано ничего в таблицах
+                query += check_min_max(min_price, max_price, "Price")
+            else:
+                if min_price != 0 or max_price != 0:
+                    query += " AND " + check_min_max(min_price, max_price, "Price")
+
+            mainWindow.tabWidgetSklad.setCurrentIndex(0)  # Устанавливаем вкладку перед фильтрацией на 0 место
+
+            # Если изменений в фильтрации не было, то передаём changes = False
+            if query == "SELECT sklad_ram.kol, ram.exist, ram.id, proizv_ram.name, " \
+                        "fullname, gaming, type, volume, frequency, " \
+                        "complect, latency, voltage, price " \
+                        "FROM ram, sklad_ram, proizv_ram " \
+                        "WHERE ":
+
+                if self.tab_window == 0:  # Если открыта вкладка "Склад", то применяем фильтры для склада
+                    # Переопределяем готовым запросом
+                    query = self.make_query_filter(False, mainWindow.rbSklad.isChecked())
+                    mainWindow.apply_filter_sklad(query, 4)
+                    self.close()
+                else:  # Если открыта вкладка "Конфигуратор", то применяем фильтры для конфигуратора
+                    query = self.make_query_filter(False, mainWindow.rbConf.isChecked())
+                    mainWindow.apply_filter_conf(query, 4)
+                    self.close()
+
+            # Если фильтры были выбраны (начальный запрос изменился), то передаём changes = True
+            else:
+                if self.tab_window == 0:
+                    # Дописываем финальную часть запроса (отбор по id, exist и ранжирование) для склада
+                    query += self.make_query_filter(True, mainWindow.rbSklad.isChecked())
+                    mainWindow.apply_filter_sklad(query, 4)
+                    self.close()
+                else:
+                    # Дописываем финальную часть запроса (отбор по id, exist и ранжирование) для конфигуратора
+                    query += self.make_query_filter(True, mainWindow.rbConf.isChecked())
+                    mainWindow.apply_filter_conf(query, 4)
+                    self.close()
+
+    def make_query_filter(self, changes, having):
+        if changes:  # Если есть изменения, то добавляем к запросу связывающие таблицы фильтры
+            if having:  # Если отмечен переключатель наличия
+                query = "AND ram.id = sklad_ram.id_izd " \
+                        "AND ram.id_proizv = proizv_ram.id " \
+                        "AND ram.exist = True " \
+                        "ORDER BY ram.exist DESC "
+                return query
+            else:
+                query = "AND ram.id = sklad_ram.id_izd " \
+                        "AND ram.id_proizv = proizv_ram.id " \
+                        "ORDER BY ram.exist DESC "
+                return query
+
+        # Если фильтры не выбраны
+        else:
+            if having:
+                query = "SELECT sklad_ram.kol, ram.exist, ram.id, proizv_ram.name, " \
+                        "fullname, gaming, type, volume, frequency, " \
+                        "complect, latency, voltage, price " \
+                        "FROM ram, sklad_ram, proizv_ram " \
+                        "WHERE ram.id = sklad_ram.id_izd " \
+                        "AND ram.id_proizv = proizv_ram.id " \
+                        "AND ram.exist = True " \
+                        "ORDER BY ram.exist DESC "
+                return query
+            else:
+                query = "SELECT sklad_ram.kol, ram.exist, ram.id, proizv_ram.name, " \
+                        "fullname, gaming, type, volume, frequency, " \
+                        "complect, latency, voltage, price " \
+                        "FROM ram, sklad_ram, proizv_ram " \
+                        "WHERE ram.id = sklad_ram.id_izd " \
+                        "AND ram.id_proizv = proizv_ram.id " \
+                        "ORDER BY ram.exist DESC "
+                return query
+
+
+class DiskFilter(QtWidgets.QWidget, widgetDiskFilter.Ui_WidgetDiskFilter):
+    def __init__(self, tab, mainWindow):
+        super().__init__()
+        self.setupUi(self)
+        self.mainWindow = mainWindow
+        self.tab_window = tab  # Где было создано окно фильтрации - в конфигураторе или на складе
+        # -------------Сигналы обновления значений в полях при движении слайдера------------
+        self.sliderPriceMin.valueChanged.connect(lambda value: update_field_value(self.leMinPrice, value))
+        self.sliderPriceMax.valueChanged.connect(lambda value: update_field_value(self.leMaxPrice, value))
+        self.sliderReadMin.valueChanged.connect(lambda value: update_field_value(self.leMinRead, value))
+        self.sliderReadMax.valueChanged.connect(lambda value: update_field_value(self.leMaxRead, value))
+        self.sliderWriteMin.valueChanged.connect(lambda value: update_field_value(self.leMinWrite, value))
+        self.sliderWriteMax.valueChanged.connect(lambda value: update_field_value(self.leMaxWrite, value))
+        # -------------Сигналы обновления значений в слайдерах при вводе числа------------
+        self.leMinPrice.textChanged.connect(
+            lambda value: update_slider_value(self.sliderPriceMin, value, self.leMinPrice))
+        self.leMaxPrice.textChanged.connect(
+            lambda value: update_slider_value(self.sliderPriceMax, value, self.leMaxPrice))
+        self.leMinRead.textChanged.connect(
+            lambda value: update_slider_value(self.sliderReadMin, value, self.leMinRead))
+        self.leMaxRead.textChanged.connect(
+            lambda value: update_slider_value(self.sliderReadtMax, value, self.leMaxRead))
+        self.leMinWrite.textChanged.connect(
+            lambda value: update_slider_value(self.sliderWriteMin, value, self.leMinWrite))
+        self.leMaxWrite.textChanged.connect(
+            lambda value: update_slider_value(self.sliderWriteMax, value, self.leMaxWrite))
+        # ----------------------------------------------------------------------------------
+
+        # -------------------Задание ограничений для полей ввода-------------------
+        only_int = QIntValidator()
+        only_int.setRange(0, 999999)
+
+        five_digits_int = QIntValidator()
+        five_digits_int.setRange(0, 9999)
+
+        six_digits_int = QIntValidator()
+        six_digits_int.setRange(0, 999999)
+
+        self.leMinPrice.setValidator(six_digits_int)
+        self.leMaxPrice.setValidator(six_digits_int)
+        self.leMinRead.setValidator(five_digits_int)
+        self.leMaxRead.setValidator(five_digits_int)
+        self.leMinWrite.setValidator(five_digits_int)
+        self.leMaxWrite.setValidator(five_digits_int)
+        # -------------------Задание ограничений для полей ввода-------------------
+
+        # -------------------Установка ширины столбцов для таблиц-------------------
+        self.tableProizv.setColumnWidth(0, 40)
+        self.tableProizv.setColumnWidth(1, 243)
+        self.tableProizv.cellClicked.connect(
+            lambda row, column, table=self.tableProizv:
+            cell_row(row, column, table))
+
+        self.tableType.setColumnWidth(0, 40)
+        self.tableType.setColumnWidth(1, 243)
+        self.tableType.cellClicked.connect(
+            lambda row, column, table=self.tableType:
+            cell_row(row, column, table))
+
+        self.tableVolume.setColumnWidth(0, 40)
+        self.tableVolume.setColumnWidth(1, 243)
+        self.tableVolume.cellClicked.connect(
+            lambda row, column, table=self.tableVolume:
+            cell_row(row, column, table))
+
+        self.tableRpm.setColumnWidth(0, 40)
+        self.tableRpm.setColumnWidth(1, 243)
+        self.tableRpm.cellClicked.connect(
+            lambda row, column, table=self.tableRpm:
+            cell_row(row, column, table))
+
+        # ------------------------------------------------------------------
+
+        # -----------Соединение кнопок сбосов с методом обнуления-----------
+        self.btnResetAll.clicked.connect(self.resetAll)
+        self.btnResetPrice.clicked.connect(
+            lambda: reset_sliders(self.sliderPriceMin, self.sliderPriceMax, self.leMinPrice, self.leMaxPrice))
+        self.btnResetRead.clicked.connect(
+            lambda: reset_sliders(self.sliderReadMin, self.sliderReadMax, self.leMinRead, self.leMaxRead))
+        self.btnResetWrite.clicked.connect(
+            lambda: reset_sliders(self.sliderWriteMin, self.sliderWriteMax, self.leMinWrite,
+                                  self.leMaxWrite))
+        self.btnResetProizv.clicked.connect(lambda: reset_checkboxes(self.tableProizv))
+        self.btnResetType.clicked.connect(lambda: reset_checkboxes(self.tableType))
+        self.btnResetVolume.clicked.connect(lambda: reset_checkboxes(self.tableVolume))
+        self.btnResetRpm.clicked.connect(lambda: reset_checkboxes(self.tableRpm))
+        # -------------------Соединение кнопк сбосов с методом обнуления-------------------
+
+        # Изменение положения стрелки при нажатии на вкладку фильтра
+        self.toolBoxDiskFilter.currentChanged.connect(self.tb_change_arrows)
+
+        # Если выбрана вкладка склада или конфигуратора И включён индикатор "Только в наличии"
+        if self.tab_window == 0 and mainWindow.rbSklad.isChecked():
+            self.load_exists_parameters()
+        elif self.tab_window == 0:
+            self.load_all_parameters()
+        elif self.tab_window == 1 and mainWindow.rbConf.isChecked():
+            self.load_exists_parameters()
+        elif self.tab_window == 1:
+            self.load_all_parameters()
+
+        self.btnAccept.clicked.connect(lambda: self.click_accept(mainWindow))
+
+    def load_all_parameters(self):
+        """
+            Метод, загружающий параметры всех видеокарт
+        """
+        self.tableProizv.clear()
+        self.tableType.clear()
+        self.tableVolume.clear()
+        self.tableRpm.clear()
+
+        conn = None
+        cur = None
+        try:
+            conn = psycopg2.connect(database="confPc",
+                                    user="postgres",
+                                    password="2001",
+                                    host="localhost",
+                                    port="5432")
+            cur = conn.cursor()
+
+            cur.execute(" SELECT price FROM disk ORDER BY price DESC LIMIT 1")
+            for name in cur:
+                self.sliderPriceMin.setRange(0, int(name[0]))
+                self.sliderPriceMax.setRange(0, int(name[0]))
+                self.leMaxPrice.setPlaceholderText(f"до {int(name[0])}")
+
+            cur.execute(" SELECT read FROM disk ORDER BY read DESC LIMIT 1")
+            for name in cur:
+                self.sliderReadMin.setRange(0, int(name[0]))
+                self.sliderReadMax.setRange(0, int(name[0]))
+                self.leMaxRead.setPlaceholderText(f"до {int(name[0])}")
+
+            cur.execute(" SELECT write FROM disk ORDER BY write DESC LIMIT 1")
+            for name in cur:
+                self.sliderWriteMin.setRange(0, int(name[0]))
+                self.sliderWriteMax.setRange(0, int(name[0]))
+                self.leMaxWrite.setPlaceholderText(f"до {int(name[0])}")
+
+            cur.execute("SELECT DISTINCT name FROM proizv_disk, disk "
+                        "WHERE proizv_disk.id = disk.id_proizv "
+                        "ORDER BY name ASC")
+            row_count = 0
+            for name in cur:
+                self.tableProizv.setRowCount(row_count + 1)
+                self.tableProizv.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            row_count = 0
+            cur.execute("SELECT DISTINCT type FROM disk "
+                        "ORDER BY type ASC")
+            for name in cur:
+                self.tableType.setRowCount(row_count + 1)
+                self.tableType.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            row_count = 0
+            cur.execute("SELECT DISTINCT volume FROM disk "
+                        "ORDER BY volume ASC")
+            for name in cur:
+                self.tableVolume.setRowCount(row_count + 1)
+                self.tableVolume.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            row_count = 0
+            cur.execute("SELECT DISTINCT rpm FROM disk "
+                        "ORDER BY rpm ASC")
+            for name in cur:
+                self.tableRpm.setRowCount(row_count + 1)
+                self.tableRpm.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            # Заполнение таблиц кнопками CB
+            self.pasteCheckBoxes()
+
+        except (Exception, psycopg2.DatabaseError) as error:
+            dialog = DialogOk("Ошибка", error)
+            dialog.show()
+
+        finally:
+            if conn:
+                cur.close()
+                conn.close()
+
+    def load_exists_parameters(self):
+        """
+            Метод, загружающий параметры имеющихся в наличии видеокарт
+        """
+        self.tableProizv.clear()
+        self.tableType.clear()
+        self.tableVolume.clear()
+        self.tableRpm.clear()
+
+        conn = None
+        cur = None
+        try:
+            conn = psycopg2.connect(database="confPc",
+                                    user="postgres",
+                                    password="2001",
+                                    host="localhost",
+                                    port="5432")
+            cur = conn.cursor()
+
+            cur.execute(" SELECT price FROM disk WHERE exist = True ORDER BY price DESC LIMIT 1")
+            for name in cur:
+                self.sliderPriceMin.setRange(0, int(name[0]))
+                self.sliderPriceMax.setRange(0, int(name[0]))
+                self.leMaxPrice.setPlaceholderText(f"до {int(name[0])}")
+
+            cur.execute(" SELECT read FROM disk WHERE exist = True ORDER BY read DESC LIMIT 1")
+            for name in cur:
+                self.sliderReadMin.setRange(0, int(name[0]))
+                self.sliderReadMax.setRange(0, int(name[0]))
+                self.leMaxRead.setPlaceholderText(f"до {int(name[0])}")
+
+            cur.execute(" SELECT write FROM disk WHERE exist = True ORDER BY write DESC LIMIT 1")
+            for name in cur:
+                self.sliderWriteMin.setRange(0, int(name[0]))
+                self.sliderWriteMax.setRange(0, int(name[0]))
+                self.leMaxWrite.setPlaceholderText(f"до {int(name[0])}")
+
+            cur.execute("SELECT DISTINCT name FROM proizv_disk, disk "
+                        "WHERE proizv_disk.id = disk.id_proizv "
+                        "AND disk.exist = True "
+                        "ORDER BY name ASC")
+            row_count = 0
+            for name in cur:
+                self.tableProizv.setRowCount(row_count + 1)
+                self.tableProizv.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            row_count = 0
+            cur.execute("SELECT DISTINCT type FROM disk "
+                        "WHERE exist = True "
+                        "ORDER BY type ASC")
+            for name in cur:
+                self.tableType.setRowCount(row_count + 1)
+                self.tableType.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            row_count = 0
+            cur.execute("SELECT DISTINCT volume FROM disk "
+                        "WHERE exist = True "
+                        "ORDER BY volume ASC")
+            for name in cur:
+                self.tableVolume.setRowCount(row_count + 1)
+                self.tableVolume.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            row_count = 0
+            cur.execute("SELECT DISTINCT rpm FROM disk "
+                        "WHERE exist = True "
+                        "ORDER BY rpm ASC")
+            for name in cur:
+                self.tableRpm.setRowCount(row_count + 1)
+                self.tableRpm.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            # Заполнение таблиц кнопками CB
+            self.pasteCheckBoxes()
+
+        except (Exception, psycopg2.DatabaseError) as error:
+            dialog = DialogOk("Ошибка", error)
+            dialog.show()
+
+        finally:
+            if conn:
+                cur.close()
+                conn.close()
+
+    def tb_change_arrows(self, page):
+        self.toolBoxDiskFilter.setItemIcon(page, QIcon("E:/pcconf/images/up-arrow.png"))
+        for i in range(self.toolBoxDiskFilter.count()):
+            if i != page:
+                self.toolBoxDiskFilter.setItemIcon(i, QIcon("E:/pcconf/images/down-arrow.png"))
+
+    # Метод для вставки CB в таблицы
+    def pasteCheckBoxes(self):
+        insert_cb(self.tableProizv)
+        insert_cb(self.tableType)
+        insert_cb(self.tableVolume)
+        insert_cb(self.tableRpm)
+
+    # Метод, обнуляющий все поля
+    def resetAll(self):
+        reset_sliders(self.sliderPriceMin, self.sliderPriceMax, self.leMinPrice, self.leMaxPrice)
+        reset_sliders(self.sliderReadMin, self.sliderReadMax, self.leMinRead, self.leMaxRead)
+        reset_sliders(self.sliderWriteMin, self.sliderWriteMax, self.leMinWrite, self.leMaxWrite)
+        reset_checkboxes(self.tableProizv)
+        reset_checkboxes(self.tableType)
+        reset_checkboxes(self.tableVolume)
+        reset_checkboxes(self.tableRpm)
+
+    # Метод, срабатывающий по нажатии на кнопку и отправляющий в БД запрос на фильтрацию данных
+    def click_accept(self, mainWindow):
+        query = "SELECT sklad_disk.kol, disk.exist, disk.id, proizv_disk.name, " \
+                "fullname, type, volume, connect, read, write, rpm, price " \
+                "FROM disk, sklad_disk, proizv_disk " \
+                "WHERE "
+
+        min_price, max_price = checkFields(self.leMinPrice.text(), self.leMaxPrice.text())
+        min_read, max_read = checkFields(self.leMinRead.text(), self.leMaxRead.text())
+        min_write, max_write = checkFields(self.leMinWrite.text(), self.leMaxWrite.text())
+        if min_price == -1 or min_read == -1 or min_write == -1:  # если не вернулось -1, то выполняем фильтрацию
+            pass
+        else:
+            query1 = get_checkboxes(self.tableProizv, "proizv_disk.name")
+            if query1 != "":  # Если есть что добавить к запросу
+                query += query1
+
+            if query1 == "":  # Если первая таблица пустая, то добавляем к запросу без AND
+                query2 = get_checkboxes(self.tableType, "type")
+                query += query2
+            else:
+                query2 = get_checkboxes(self.tableType, "type")
+                if query2 != "":  # Если есть что добавить к запросу
+                    query += " AND " + query2
+
+            if query1 == "" and query2 == "":  # Если первая таблица пустая, то добавляем к запросу без AND
+                query3 = get_checkboxes(self.tableVolume, "volume")
+                query += query3
+            else:
+                query3 = get_checkboxes(self.tableVolume, "volume")
+                if query3 != "":  # Если есть что добавить к запросу
+                    query += " AND " + query3
+
+            if query1 == "" and query2 == "" and query3 == "":
+                query4 = get_checkboxes(self.tableRpm, "rpm")
+                query += query4
+            else:
+                query4 = get_checkboxes(self.tableRpm, "rpm")
+                if query4 != "":
+                    query += " AND " + query4
+
+            # Вероятно, в проверке слайдеров есть лишние if
+            if query1 == "" and query2 == "" and query3 == "" and query4 == "":  # Если не выбрано ничего в таблицах
+                query += check_min_max(min_price, max_price, "Price")
+            else:
+                if min_price != 0 or max_price != 0:
+                    query += " AND " + check_min_max(min_price, max_price, "Price")
+
+            if query1 == "" and query2 == "" and query3 == "" and query4 == "" \
+                    and (min_price == 0 and max_price == 0):
+                query += check_min_max(min_read, max_read, "read")
+            else:
+                if min_read != 0 or max_read != 0:
+                    query += " AND " + check_min_max(min_read, max_read, "read")
+
+            if query1 == "" and query2 == "" and query3 == "" and query4 == "" \
+                    and (min_price == 0 and max_price == 0) and (min_read == 0 and max_read == 0):
+                query += check_min_max(min_write, max_write, "write")
+            else:
+                if min_write != 0 or max_write != 0:
+                    query += " AND " + check_min_max(min_write, max_write, "write")
+
+            mainWindow.tabWidgetSklad.setCurrentIndex(0)  # Устанавливаем вкладку перед фильтрацией на 0 место
+
+            # Если изменений в фильтрации не было, то передаём changes = False
+            if query == "SELECT sklad_disk.kol, disk.exist, disk.id, proizv_disk.name, " \
+                        "fullname, type, volume, connect, read, write, rpm, price " \
+                        "FROM disk, sklad_disk, proizv_disk " \
+                        "WHERE ":
+
+                if self.tab_window == 0:  # Если открыта вкладка "Склад", то применяем фильтры для склада
+                    # Переопределяем готовым запросом
+                    query = self.make_query_filter(False, mainWindow.rbSklad.isChecked())
+                    mainWindow.apply_filter_sklad(query, 5)
+                    self.close()
+                else:  # Если открыта вкладка "Конфигуратор", то применяем фильтры для конфигуратора
+                    query = self.make_query_filter(False, mainWindow.rbConf.isChecked())
+                    mainWindow.apply_filter_conf(query, 5)
+                    self.close()
+
+            # Если фильтры были выбраны (начальный запрос изменился), то передаём changes = True
+            else:
+                if self.tab_window == 0:
+                    # Дописываем финальную часть запроса (отбор по id, exist и ранжирование) для склада
+                    query += self.make_query_filter(True, mainWindow.rbSklad.isChecked())
+                    mainWindow.apply_filter_sklad(query, 5)
+                    self.close()
+                else:
+                    # Дописываем финальную часть запроса (отбор по id, exist и ранжирование) для конфигуратора
+                    query += self.make_query_filter(True, mainWindow.rbConf.isChecked())
+                    mainWindow.apply_filter_conf(query, 5)
+                    self.close()
+
+    def make_query_filter(self, changes, having):
+        if changes:  # Если есть изменения, то добавляем к запросу связывающие таблицы фильтры
+            if having:  # Если отмечен переключатель наличия
+                query = " AND disk.id = sklad_disk.id_izd AND disk.id_proizv = proizv_disk.id " \
+                        " AND disk.exist = True " \
+                        " ORDER BY disk.exist DESC"
+                return query
+            else:
+                query = " AND disk.id = sklad_disk.id_izd AND disk.id_proizv = proizv_disk.id " \
+                        " ORDER BY disk.exist DESC"
+                return query
+
+        # Если фильтры не выбраны
+        else:
+            if having:
+                query = "SELECT sklad_disk.kol, disk.exist, disk.id, proizv_disk.name, " \
+                        "fullname, type, volume, connect, read, write, rpm, price " \
+                        "FROM disk, sklad_disk, proizv_disk " \
+                        "WHERE disk.id = sklad_disk.id_izd AND disk.id_proizv = proizv_disk.id " \
+                        "AND disk.exist = True " \
+                        "ORDER BY disk.exist DESC"
+                return query
+            else:
+                query = "SELECT sklad_disk.kol, disk.exist, disk.id, proizv_disk.name, " \
+                        "fullname, type, volume, connect, read, write, rpm, price " \
+                        "FROM disk, sklad_disk, proizv_disk " \
+                        "WHERE disk.id = sklad_disk.id_izd AND disk.id_proizv = proizv_disk.id " \
+                        "ORDER BY disk.exist DESC"
+                return query
+
+
+class PowerFilter(QtWidgets.QWidget, widgetPowerFilter.Ui_WidgetPowerFilter):
+    def __init__(self, tab, mainWindow):
+        super().__init__()
+        self.setupUi(self)
+        self.mainWindow = mainWindow
+        self.tab_window = tab  # Где было создано окно фильтрации - в конфигураторе или на складе
+        # -------------Сигналы обновления значений в полях при движении слайдера------------
+        self.sliderPriceMin.valueChanged.connect(lambda value: update_field_value(self.leMinPrice, value))
+        self.sliderPriceMax.valueChanged.connect(lambda value: update_field_value(self.leMaxPrice, value))
+        self.sliderPowerMin.valueChanged.connect(lambda value: update_field_value(self.leMinPower, value))
+        self.sliderPowerMax.valueChanged.connect(lambda value: update_field_value(self.leMaxPower, value))
+        self.sliderLenMin.valueChanged.connect(lambda value: update_field_value(self.leMinLen, value))
+        self.sliderLenMax.valueChanged.connect(lambda value: update_field_value(self.leMaxLen, value))
+        # -------------Сигналы обновления значений в слайдерах при вводе числа------------
+        self.leMinPrice.textChanged.connect(
+            lambda value: update_slider_value(self.sliderPriceMin, value, self.leMinPrice))
+        self.leMaxPrice.textChanged.connect(
+            lambda value: update_slider_value(self.sliderPriceMax, value, self.leMaxPrice))
+        self.leMinPower.textChanged.connect(
+            lambda value: update_slider_value(self.sliderPowerMin, value, self.leMinPower))
+        self.leMaxPower.textChanged.connect(
+            lambda value: update_slider_value(self.sliderPowerMax, value, self.leMaxPower))
+        self.leMinLen.textChanged.connect(
+            lambda value: update_slider_value(self.sliderLenMin, value, self.leMinLen))
+        self.leMaxLen.textChanged.connect(
+            lambda value: update_slider_value(self.sliderLenMax, value, self.leMaxLen))
+        # ----------------------------------------------------------------------------------
+
+        # -------------------Задание ограничений для полей ввода-------------------
+        only_int = QIntValidator()
+        only_int.setRange(0, 999999)
+        three_digits_int = QIntValidator()
+        three_digits_int.setRange(0, 999)
+
+        four_digits_int = QIntValidator()
+        four_digits_int.setRange(0, 9999)
+
+        six_digits_int = QIntValidator()
+        six_digits_int.setRange(0, 999999)
+
+        self.leMinPrice.setValidator(six_digits_int)
+        self.leMaxPrice.setValidator(six_digits_int)
+        self.leMinPower.setValidator(four_digits_int)
+        self.leMaxPower.setValidator(four_digits_int)
+        self.leMinLen.setValidator(three_digits_int)
+        self.leMaxLen.setValidator(three_digits_int)
+        # -------------------Задание ограничений для полей ввода-------------------
+
+        # -------------------Установка ширины столбцов для таблиц-------------------
+        self.tableProizv.setColumnWidth(0, 40)
+        self.tableProizv.setColumnWidth(1, 243)
+        self.tableProizv.cellClicked.connect(
+            lambda row, column, table=self.tableProizv:
+            cell_row(row, column, table))
+
+        self.tableFormFactor.setColumnWidth(0, 40)
+        self.tableFormFactor.setColumnWidth(1, 243)
+        self.tableFormFactor.cellClicked.connect(
+            lambda row, column, table=self.tableFormFactor:
+            cell_row(row, column, table))
+
+        self.tableCert.setColumnWidth(0, 40)
+        self.tableCert.setColumnWidth(1, 243)
+        self.tableCert.cellClicked.connect(
+            lambda row, column, table=self.tableCert:
+            cell_row(row, column, table))
+
+        self.tablePinmain.setColumnWidth(0, 40)
+        self.tablePinmain.setColumnWidth(1, 243)
+        self.tablePinmain.cellClicked.connect(
+            lambda row, column, table=self.tablePinmain:
+            cell_row(row, column, table))
+
+        # ------------------------------------------------------------------
+
+        # -----------Соединение кнопок сбосов с методом обнуления-----------
+        self.btnResetAll.clicked.connect(self.resetAll)
+        self.btnResetPrice.clicked.connect(
+            lambda: reset_sliders(self.sliderPriceMin, self.sliderPriceMax, self.leMinPrice, self.leMaxPrice))
+        self.btnResetPower.clicked.connect(
+            lambda: reset_sliders(self.sliderPowerMin, self.sliderPowerMax, self.leMinPower, self.leMaxPower))
+        self.btnResetLen.clicked.connect(
+            lambda: reset_sliders(self.sliderLenMin, self.sliderLenMax, self.leMinLen,
+                                  self.leMaxLen))
+        self.btnResetProizv.clicked.connect(lambda: reset_checkboxes(self.tableProizv))
+        self.btnResetFormFactor.clicked.connect(lambda: reset_checkboxes(self.tableFormFactor))
+        self.btnResetCert.clicked.connect(lambda: reset_checkboxes(self.tableCert))
+        self.btnResetPinmain.clicked.connect(lambda: reset_checkboxes(self.tablePinmain))
+        # -------------------Соединение кнопк сбосов с методом обнуления-------------------
+
+        # Изменение положения стрелки при нажатии на вкладку фильтра
+        self.toolBoxPowerFilter.currentChanged.connect(self.tb_change_arrows)
+
+        # Если выбрана вкладка склада или конфигуратора И включён индикатор "Только в наличии"
+        if self.tab_window == 0 and mainWindow.rbSklad.isChecked():
+            self.load_exists_parameters()
+        elif self.tab_window == 0:
+            self.load_all_parameters()
+        elif self.tab_window == 1 and mainWindow.rbConf.isChecked():
+            self.load_exists_parameters()
+        elif self.tab_window == 1:
+            self.load_all_parameters()
+
+        self.btnAccept.clicked.connect(lambda: self.click_accept(mainWindow))
+
+    def load_all_parameters(self):
+        """
+            Метод, загружающий параметры всех видеокарт
+        """
+        self.tableProizv.clear()
+        self.tableFormFactor.clear()
+        self.tableCert.clear()
+        self.tablePinmain.clear()
+
+        conn = None
+        cur = None
+        try:
+            conn = psycopg2.connect(database="confPc",
+                                    user="postgres",
+                                    password="2001",
+                                    host="localhost",
+                                    port="5432")
+            cur = conn.cursor()
+
+            cur.execute(" SELECT price FROM power ORDER BY price DESC LIMIT 1")
+            for name in cur:
+                self.sliderPriceMin.setRange(0, int(name[0]))
+                self.sliderPriceMax.setRange(0, int(name[0]))
+                self.leMaxPrice.setPlaceholderText(f"до {int(name[0])}")
+
+            cur.execute(" SELECT power.power FROM power ORDER BY power DESC LIMIT 1")
+            for name in cur:
+                self.sliderPowerMin.setRange(0, int(name[0]))
+                self.sliderPowerMax.setRange(0, int(name[0]))
+                self.leMaxPower.setPlaceholderText(f"до {int(name[0])}")
+
+            cur.execute(" SELECT length FROM power ORDER BY length DESC LIMIT 1")
+            for name in cur:
+                self.sliderLenMin.setRange(0, int(name[0]))
+                self.sliderLenMax.setRange(0, int(name[0]))
+                self.leMaxLen.setPlaceholderText(f"до {int(name[0])}")
+
+            cur.execute("SELECT DISTINCT name FROM proizv_power, power "
+                        "WHERE proizv_power.id = power.id_proizv "
+                        "ORDER BY name ASC")
+            row_count = 0
+            for name in cur:
+                self.tableProizv.setRowCount(row_count + 1)
+                self.tableProizv.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            row_count = 0
+            cur.execute("SELECT DISTINCT formfactor FROM power "
+                        "ORDER BY formfactor ASC")
+            for name in cur:
+                self.tableFormFactor.setRowCount(row_count + 1)
+                self.tableFormFactor.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            row_count = 0
+            cur.execute("SELECT DISTINCT certificate FROM power "
+                        "ORDER BY certificate ASC")
+            for name in cur:
+                self.tableCert.setRowCount(row_count + 1)
+                self.tableCert.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            row_count = 0
+            cur.execute("SELECT DISTINCT pinmain FROM power "
+                        "ORDER BY pinmain ASC")
+            for name in cur:
+                self.tablePinmain.setRowCount(row_count + 1)
+                self.tablePinmain.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            # Заполнение таблиц кнопками CB
+            self.pasteCheckBoxes()
+
+        except (Exception, psycopg2.DatabaseError) as error:
+            dialog = DialogOk("Ошибка", error)
+            dialog.show()
+
+        finally:
+            if conn:
+                cur.close()
+                conn.close()
+
+    def load_exists_parameters(self):
+        """
+            Метод, загружающий параметры имеющихся в наличии видеокарт
+        """
+        self.tableProizv.clear()
+        self.tableFormFactor.clear()
+        self.tableCert.clear()
+        self.tablePinmain.clear()
+
+        conn = None
+        cur = None
+        try:
+            conn = psycopg2.connect(database="confPc",
+                                    user="postgres",
+                                    password="2001",
+                                    host="localhost",
+                                    port="5432")
+            cur = conn.cursor()
+
+            cur.execute(" SELECT price FROM power WHERE exist = True ORDER BY price DESC LIMIT 1")
+            for name in cur:
+                self.sliderPriceMin.setRange(0, int(name[0]))
+                self.sliderPriceMax.setRange(0, int(name[0]))
+                self.leMaxPrice.setPlaceholderText(f"до {int(name[0])}")
+
+            cur.execute(" SELECT power.power FROM power WHERE exist = True ORDER BY power DESC LIMIT 1")
+            for name in cur:
+                self.sliderPowerMin.setRange(0, int(name[0]))
+                self.sliderPowerMax.setRange(0, int(name[0]))
+                self.leMaxPower.setPlaceholderText(f"до {int(name[0])}")
+
+            cur.execute(" SELECT length FROM power WHERE exist = True ORDER BY length DESC LIMIT 1")
+            for name in cur:
+                self.sliderLenMin.setRange(0, int(name[0]))
+                self.sliderLenMax.setRange(0, int(name[0]))
+                self.leMaxLen.setPlaceholderText(f"до {int(name[0])}")
+
+            cur.execute("SELECT DISTINCT name FROM proizv_power, power "
+                        "WHERE proizv_power.id = power.id_proizv "
+                        "AND power.exist = True "
+                        "ORDER BY name ASC")
+            row_count = 0
+            for name in cur:
+                self.tableProizv.setRowCount(row_count + 1)
+                self.tableProizv.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            row_count = 0
+            cur.execute("SELECT DISTINCT formfactor FROM power "
+                        "WHERE exist = True "
+                        "ORDER BY formfactor ASC")
+            for name in cur:
+                self.tableFormFactor.setRowCount(row_count + 1)
+                self.tableFormFactor.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            row_count = 0
+            cur.execute("SELECT DISTINCT certificate FROM power "
+                        "WHERE exist = True "
+                        "ORDER BY certificate ASC")
+            for name in cur:
+                self.tableCert.setRowCount(row_count + 1)
+                self.tableCert.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            row_count = 0
+            cur.execute("SELECT DISTINCT pinmain FROM power "
+                        "WHERE exist = True "
+                        "ORDER BY pinmain ASC")
+            for name in cur:
+                self.tablePinmain.setRowCount(row_count + 1)
+                self.tablePinmain.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            # Заполнение таблиц кнопками CB
+            self.pasteCheckBoxes()
+
+        except (Exception, psycopg2.DatabaseError) as error:
+            dialog = DialogOk("Ошибка", error)
+            dialog.show()
+
+        finally:
+            if conn:
+                cur.close()
+                conn.close()
+
+    def tb_change_arrows(self, page):
+        self.toolBoxPowerFilter.setItemIcon(page, QIcon("E:/pcconf/images/up-arrow.png"))
+        for i in range(self.toolBoxPowerFilter.count()):
+            if i != page:
+                self.toolBoxPowerFilter.setItemIcon(i, QIcon("E:/pcconf/images/down-arrow.png"))
+
+    # Метод для вставки CB в таблицы
+    def pasteCheckBoxes(self):
+        insert_cb(self.tableProizv)
+        insert_cb(self.tableFormFactor)
+        insert_cb(self.tableCert)
+        insert_cb(self.tablePinmain)
+
+    # Метод, обнуляющий все поля
+    def resetAll(self):
+        reset_sliders(self.sliderPriceMin, self.sliderPriceMax, self.leMinPrice, self.leMaxPrice)
+        reset_sliders(self.sliderPowerMin, self.sliderPowerMax, self.leMinPower, self.leMaxPower)
+        reset_sliders(self.sliderLenMin, self.sliderLenMax, self.leMinLen, self.leMaxLen)
+        reset_checkboxes(self.tableProizv)
+        reset_checkboxes(self.tableFormFactor)
+        reset_checkboxes(self.tableCert)
+        reset_checkboxes(self.tablePinmain)
+
+    # Метод, срабатывающий по нажатии на кнопку и отправляющий в БД запрос на фильтрацию данных
+    def click_accept(self, mainWindow):
+        query = "SELECT sklad_power.kol, power.exist, power.id, proizv_power.name, " \
+                "fullname, formfactor, length, power, certificate, pinmain, " \
+                "pinsata, connproc, kolconnproc, connvideo, kolconnvideo, price " \
+                "FROM power, sklad_power, proizv_power " \
+                "WHERE "
+
+        min_price, max_price = checkFields(self.leMinPrice.text(), self.leMaxPrice.text())
+        min_power, max_power = checkFields(self.leMinPower.text(), self.leMaxPower.text())
+        min_len, max_len = checkFields(self.leMinLen.text(), self.leMaxLen.text())
+        if min_price == -1 or min_power == -1 or min_len == -1:  # если не вернулось -1, то выполняем фильтрацию
+            pass
+        else:
+            query1 = get_checkboxes(self.tableProizv, "proizv_power.name")
+            if query1 != "":  # Если есть что добавить к запросу
+                query += query1
+
+            if query1 == "":  # Если первая таблица пустая, то добавляем к запросу без AND
+                query2 = get_checkboxes(self.tableFormFactor, "formfactor")
+                query += query2
+            else:
+                query2 = get_checkboxes(self.tableFormFactor, "formfactor")
+                if query2 != "":  # Если есть что добавить к запросу
+                    query += " AND " + query2
+
+            if query1 == "" and query2 == "":  # Если первая таблица пустая, то добавляем к запросу без AND
+                query3 = get_checkboxes(self.tableCert, "certificate")
+                query += query3
+            else:
+                query3 = get_checkboxes(self.tableCert, "certificate")
+                if query3 != "":  # Если есть что добавить к запросу
+                    query += " AND " + query3
+
+            if query1 == "" and query2 == "" and query3 == "":
+                query4 = get_checkboxes(self.tablePinmain, "pinmain")
+                query += query4
+            else:
+                query4 = get_checkboxes(self.tablePinmain, "pinmain")
+                if query4 != "":
+                    query += " AND " + query4
+
+            # Вероятно, в проверке слайдеров есть лишние if
+            if query1 == "" and query2 == "" and query3 == "" and query4 == "":  # Если не выбрано ничего в таблицах
+                query += check_min_max(min_price, max_price, "Price")
+            else:
+                if min_price != 0 or max_price != 0:
+                    query += " AND " + check_min_max(min_price, max_price, "Price")
+
+            if query1 == "" and query2 == "" and query3 == "" and query4 == "" \
+                    and (min_price == 0 and max_price == 0):
+                query += check_min_max(min_power, max_power, "power")
+            else:
+                if min_power != 0 or max_power != 0:
+                    query += " AND " + check_min_max(min_power, max_power, "power")
+
+            if query1 == "" and query2 == "" and query3 == "" and query4 == "" \
+                    and (min_price == 0 and max_price == 0) and (min_power == 0 and max_power == 0):
+                query += check_min_max(min_len, max_len, "length")
+            else:
+                if min_len != 0 or max_len != 0:
+                    query += " AND " + check_min_max(min_len, max_len, "length")
+
+            mainWindow.tabWidgetSklad.setCurrentIndex(0)  # Устанавливаем вкладку перед фильтрацией на 0 место
+
+            # Если изменений в фильтрации не было, то передаём changes = False
+            if query == "SELECT sklad_power.kol, power.exist, power.id, proizv_power.name, " \
+                        "fullname, formfactor, length, power, certificate, pinmain, " \
+                        "pinsata, connproc, kolconnproc, connvideo, kolconnvideo, price " \
+                        "FROM power, sklad_power, proizv_power " \
+                        "WHERE ":
+
+                if self.tab_window == 0:  # Если открыта вкладка "Склад", то применяем фильтры для склада
+                    # Переопределяем готовым запросом
+                    query = self.make_query_filter(False, mainWindow.rbSklad.isChecked())
+                    mainWindow.apply_filter_sklad(query, 6)
+                    self.close()
+                else:  # Если открыта вкладка "Конфигуратор", то применяем фильтры для конфигуратора
+                    query = self.make_query_filter(False, mainWindow.rbConf.isChecked())
+                    mainWindow.apply_filter_conf(query, 6)
+                    self.close()
+
+            # Если фильтры были выбраны (начальный запрос изменился), то передаём changes = True
+            else:
+                if self.tab_window == 0:
+                    # Дописываем финальную часть запроса (отбор по id, exist и ранжирование) для склада
+                    query += self.make_query_filter(True, mainWindow.rbSklad.isChecked())
+                    mainWindow.apply_filter_sklad(query, 6)
+                    self.close()
+                else:
+                    # Дописываем финальную часть запроса (отбор по id, exist и ранжирование) для конфигуратора
+                    query += self.make_query_filter(True, mainWindow.rbConf.isChecked())
+                    mainWindow.apply_filter_conf(query, 6)
+                    self.close()
+
+    def make_query_filter(self, changes, having):
+        if changes:  # Если есть изменения, то добавляем к запросу связывающие таблицы фильтры
+            if having:  # Если отмечен переключатель наличия
+                query = " AND power.id = sklad_power.id_izd AND power.id_proizv = proizv_power.id " \
+                        " AND power.exist = True " \
+                        " ORDER BY power.exist DESC"
+                return query
+            else:
+                query = "AND power.id = sklad_power.id_izd AND power.id_proizv = proizv_power.id " \
+                        " ORDER BY power.exist DESC"
+                return query
+
+        # Если фильтры не выбраны
+        else:
+            if having:
+                query = "SELECT sklad_power.kol, power.exist, power.id, proizv_power.name, " \
+                        "fullname, formfactor, length, power, certificate, pinmain, " \
+                        "pinsata, connproc, kolconnproc, connvideo, kolconnvideo, price " \
+                        "FROM power, sklad_power, proizv_power " \
+                        "WHERE power.id = sklad_power.id_izd AND power.id_proizv = proizv_power.id " \
+                        " AND power.exist = True " \
+                        " ORDER BY power.exist DESC"
+                return query
+            else:
+                query = "SELECT sklad_power.kol, power.exist, power.id, proizv_power.name, " \
+                        "fullname, formfactor, length, power, certificate, pinmain, " \
+                        "pinsata, connproc, kolconnproc, connvideo, kolconnvideo, price " \
+                        "FROM power, sklad_power, proizv_power " \
+                        "WHERE power.id = sklad_power.id_izd AND power.id_proizv = proizv_power.id " \
+                        " ORDER BY power.exist DESC"
+                return query
+
+
+class BodyFilter(QtWidgets.QWidget, widgetBodyFilter.Ui_WidgetBodyFilter):
+    def __init__(self, tab, mainWindow):
+        super().__init__()
+        self.setupUi(self)
+        self.mainWindow = mainWindow
+        self.tab_window = tab  # Где было создано окно фильтрации - в конфигураторе или на складе
+        # -------------Сигналы обновления значений в полях при движении слайдера------------
+        self.sliderPriceMin.valueChanged.connect(lambda value: update_field_value(self.leMinPrice, value))
+        self.sliderPriceMax.valueChanged.connect(lambda value: update_field_value(self.leMaxPrice, value))
+        self.sliderVideoLenMin.valueChanged.connect(lambda value: update_field_value(self.leMinVideoLen, value))
+        self.sliderVideoLenMax.valueChanged.connect(lambda value: update_field_value(self.leMaxVideoLen, value))
+        self.sliderPowerLenMin.valueChanged.connect(lambda value: update_field_value(self.leMinPowerLen, value))
+        self.sliderPowerLenMax.valueChanged.connect(lambda value: update_field_value(self.leMaxPowerLen, value))
+        self.sliderCoolHeightMin.valueChanged.connect(lambda value: update_field_value(self.leMinCoolHeight, value))
+        self.sliderCoolHeightMax.valueChanged.connect(lambda value: update_field_value(self.leMaxCoolHeight, value))
+        self.sliderWeightMin.valueChanged.connect(lambda value: update_field_value(self.leMinWeight, value))
+        self.sliderWeightMax.valueChanged.connect(lambda value: update_field_value(self.leMaxWeight, value))
+        # -------------Сигналы обновления значений в слайдерах при вводе числа------------
+        self.leMinPrice.textChanged.connect(
+            lambda value: update_slider_value(self.sliderPriceMin, value, self.leMinPrice))
+        self.leMaxPrice.textChanged.connect(
+            lambda value: update_slider_value(self.sliderPriceMax, value, self.leMaxPrice))
+        self.leMinVideoLen.textChanged.connect(
+            lambda value: update_slider_value(self.sliderVideoLenMin, value, self.leMinVideoLen))
+        self.leMaxVideoLen.textChanged.connect(
+            lambda value: update_slider_value(self.sliderVideoLenMax, value, self.leMaxVideoLen))
+        self.leMinPowerLen.textChanged.connect(
+            lambda value: update_slider_value(self.sliderPowerLenMin, value, self.leMinPowerLen))
+        self.leMaxPowerLen.textChanged.connect(
+            lambda value: update_slider_value(self.sliderPowerLenMax, value, self.leMaxPowerLen))
+        self.leMinCoolHeight.textChanged.connect(
+            lambda value: update_slider_value(self.sliderCoolHeightMin, value, self.leMinCoolHeight))
+        self.leMaxCoolHeight.textChanged.connect(
+            lambda value: update_slider_value(self.sliderCoolHeightMax, value, self.leMaxCoolHeight))
+        self.leMinWeight.textChanged.connect(
+            lambda value: update_slider_value(self.sliderWeightMin, value, self.leMinWeight))
+        self.leMaxWeight.textChanged.connect(
+            lambda value: update_slider_value(self.sliderWeightMax, value, self.leMaxWeight))
+        # ----------------------------------------------------------------------------------
+
+        # -------------------Задание ограничений для полей ввода-------------------
+        only_int = QIntValidator()
+        only_int.setRange(0, 999999)
+
+        two_digits_int = QIntValidator()
+        two_digits_int.setRange(0, 99)
+
+        three_digits_int = QIntValidator()
+        three_digits_int.setRange(0, 999)
+
+        six_digits_int = QIntValidator()
+        six_digits_int.setRange(0, 999999)
+
+        self.leMinPrice.setValidator(six_digits_int)
+        self.leMaxPrice.setValidator(six_digits_int)
+        self.leMinVideoLen.setValidator(three_digits_int)
+        self.leMaxVideoLen.setValidator(three_digits_int)
+        self.leMinPowerLen.setValidator(three_digits_int)
+        self.leMaxPowerLen.setValidator(three_digits_int)
+        self.leMinCoolHeight.setValidator(three_digits_int)
+        self.leMaxCoolHeight.setValidator(three_digits_int)
+        self.leMinWeight.setValidator(two_digits_int)
+        self.leMaxWeight.setValidator(two_digits_int)
+        # -------------------Задание ограничений для полей ввода-------------------
+
+        # -------------------Установка ширины столбцов для таблиц-------------------
+        self.tableProizv.setColumnWidth(0, 40)
+        self.tableProizv.setColumnWidth(1, 243)
+        self.tableProizv.cellClicked.connect(
+            lambda row, column, table=self.tableProizv:
+            cell_row(row, column, table))
+
+        self.tableGaming.setColumnWidth(0, 40)
+        self.tableGaming.setColumnWidth(1, 243)
+        self.tableGaming.cellClicked.connect(
+            lambda row, column, table=self.tableGaming:
+            cell_row(row, column, table))
+
+        self.tableType.setColumnWidth(0, 40)
+        self.tableType.setColumnWidth(1, 243)
+        self.tableType.cellClicked.connect(
+            lambda row, column, table=self.tableType:
+            cell_row(row, column, table))
+
+        self.tableFfmother.setColumnWidth(0, 40)
+        self.tableFfmother.setColumnWidth(1, 243)
+        self.tableFfmother.cellClicked.connect(
+            lambda row, column, table=self.tableFfmother:
+            cell_row(row, column, table))
+
+        self.tableFfpower.setColumnWidth(0, 40)
+        self.tableFfpower.setColumnWidth(1, 243)
+        self.tableFfpower.cellClicked.connect(
+            lambda row, column, table=self.tableFfpower:
+            cell_row(row, column, table))
+
+        # ------------------------------------------------------------------
+
+        # -----------Соединение кнопок сбосов с методом обнуления-----------
+        self.btnResetAll.clicked.connect(self.resetAll)
+        self.btnResetPrice.clicked.connect(
+            lambda: reset_sliders(self.sliderPriceMin, self.sliderPriceMax, self.leMinPrice, self.leMaxPrice))
+        self.btnResetVideoLen.clicked.connect(
+            lambda: reset_sliders(self.sliderVideoLenMin, self.sliderVideoLenMax, self.leMinVideoLen,
+                                  self.leMaxVideoLen))
+        self.btnResetPowerLen.clicked.connect(
+            lambda: reset_sliders(self.sliderPowerLenMin, self.sliderPowerLenMax, self.leMinPowerLen,
+                                  self.leMaxPowerLen))
+        self.btnResetCoolHeight.clicked.connect(
+            lambda: reset_sliders(self.sliderCoolHeightMin, self.sliderCoolHeightMax, self.leMinCoolHeight,
+                                  self.leMaxCoolHeight))
+        self.btnResetWeight.clicked.connect(
+            lambda: reset_sliders(self.sliderWeightMin, self.sliderWeightMax, self.leMinWeight,
+                                  self.leMaxWeight))
+
+        self.btnResetProizv.clicked.connect(lambda: reset_checkboxes(self.tableProizv))
+        self.btnResetGaming.clicked.connect(lambda: reset_checkboxes(self.tableGaming))
+        self.btnResetType.clicked.connect(lambda: reset_checkboxes(self.tableType))
+        self.btnResetFfmother.clicked.connect(lambda: reset_checkboxes(self.tableFfmother))
+        self.btnResetFfpower.clicked.connect(lambda: reset_checkboxes(self.tableFfpower))
+        # -------------------Соединение кнопк сбосов с методом обнуления-------------------
+
+        # Изменение положения стрелки при нажатии на вкладку фильтра
+        self.toolBoxBodyFilter.currentChanged.connect(self.tb_change_arrows)
+
+        # Если выбрана вкладка склада или конфигуратора И включён индикатор "Только в наличии"
+        if self.tab_window == 0 and mainWindow.rbSklad.isChecked():
+            self.load_exists_parameters()
+        elif self.tab_window == 0:
+            self.load_all_parameters()
+        elif self.tab_window == 1 and mainWindow.rbConf.isChecked():
+            self.load_exists_parameters()
+        elif self.tab_window == 1:
+            self.load_all_parameters()
+
+        self.btnAccept.clicked.connect(lambda: self.click_accept(mainWindow))
+
+    def load_all_parameters(self):
+        """
+            Метод, загружающий параметры всех видеокарт
+        """
+        self.tableProizv.clear()
+        self.tableGaming.clear()
+        self.tableType.clear()
+        self.tableFfmother.clear()
+        self.tableFfpower.clear()
+
+        conn = None
+        cur = None
+        try:
+            conn = psycopg2.connect(database="confPc",
+                                    user="postgres",
+                                    password="2001",
+                                    host="localhost",
+                                    port="5432")
+            cur = conn.cursor()
+
+            cur.execute(" SELECT price FROM body ORDER BY price DESC LIMIT 1")
+            for name in cur:
+                self.sliderPriceMin.setRange(0, int(name[0]))
+                self.sliderPriceMax.setRange(0, int(name[0]))
+                self.leMaxPrice.setPlaceholderText(f"до {int(name[0])}")
+
+            cur.execute(" SELECT lengthvideo FROM body ORDER BY lengthvideo DESC LIMIT 1")
+            for name in cur:
+                self.sliderVideoLenMin.setRange(0, int(name[0]))
+                self.sliderVideoLenMax.setRange(0, int(name[0]))
+                self.leMaxVideoLen.setPlaceholderText(f"до {int(name[0])}")
+
+            cur.execute(" SELECT lengthpower FROM body ORDER BY lengthpower DESC LIMIT 1")
+            for name in cur:
+                self.sliderPowerLenMin.setRange(0, int(name[0]))
+                self.sliderPowerLenMax.setRange(0, int(name[0]))
+                self.leMaxPowerLen.setPlaceholderText(f"до {int(name[0])}")
+
+            cur.execute(" SELECT heightcool FROM body ORDER BY heightcool DESC LIMIT 1")
+            for name in cur:
+                self.sliderCoolHeightMin.setRange(0, int(name[0]))
+                self.sliderCoolHeightMax.setRange(0, int(name[0]))
+                self.leMaxCoolHeight.setPlaceholderText(f"до {int(name[0])}")
+
+            cur.execute(" SELECT weight FROM body ORDER BY weight DESC LIMIT 1")
+            for name in cur:
+                self.sliderWeightMin.setRange(0, int(name[0]))
+                self.sliderWeightMax.setRange(0, int(name[0]))
+                self.leMaxWeight.setPlaceholderText(f"до {int(name[0])}")
+
+            cur.execute("SELECT DISTINCT name FROM proizv_body, body "
+                        "WHERE proizv_body.id = body.id_proizv "
+                        "ORDER BY name ASC")
+            row_count = 0
+            for name in cur:
+                self.tableProizv.setRowCount(row_count + 1)
+                self.tableProizv.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            row_count = 0
+            cur.execute("SELECT DISTINCT gaming FROM body "
+                        "ORDER BY gaming ASC")
+            for name in cur:
+                self.tableGaming.setRowCount(row_count + 1)
+                self.tableGaming.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            count = 0  # Счётчик уникальных записей в словаре
+            dict_sockets = {}  # словарь, куда будут сохраняться фф м.п. как ключи (ключи не повторяются)
+            cur.execute("SELECT DISTINCT ffmother FROM body "
+                        "ORDER BY ffmother ASC")
+            for name in cur:
+                str_name = str(name)
+                # Преобразуем кортеж в строку и удаляем лишние символы, чтобы можно было сделать split списка по ',',
+                # а затем записать результаты разбиения кортежа в фильтрующую таблицу
+                str_name = re.sub('[^A-Za-z_0-9,+-]', '', str_name)
+                str_name = str_name[:-1] + ''  # Удаляем последний символ
+                list_name = str_name.split(',')  # Создаём из кортежа список и из списка заполняем таблицы формфакторами
+                for i in list_name:
+                    dict_sockets[i] = count  # Если такой сокет уже есть - он не добавится снова в словарь
+                    count += 1
+            sockets = sorted(dict_sockets)  # Сортируем словарь (возвращает отсортированный список ключей)
+            row_count = 0
+            for elem in sockets:
+                self.tableFfmother.setRowCount(row_count + 1)
+                self.tableFfmother.setItem(row_count, 1, QtWidgets.QTableWidgetItem(elem))
+                row_count += 1
+
+            count = 0  # Счётчик уникальных записей в словаре
+            dict_sockets = {}  # словарь, куда будут сохраняться фф м.п. как ключи (ключи не повторяются)
+            cur.execute("SELECT DISTINCT ffpower FROM body "
+                        "ORDER BY ffpower ASC")
+            for name in cur:
+                str_name = str(name)
+                # Преобразуем кортеж в строку и удаляем лишние символы, чтобы можно было сделать split списка по ',',
+                # а затем записать результаты разбиения кортежа в фильтрующую таблицу
+                str_name = re.sub('[^A-Za-z_0-9,+-]', '', str_name)
+                str_name = str_name[:-1] + ''  # Удаляем последний символ
+                list_name = str_name.split(',')  # Создаём из кортежа список и из списка заполняем таблицы формфакторами
+                for i in list_name:
+                    dict_sockets[i] = count  # Если такой сокет уже есть - он не добавится снова в словарь
+                    count += 1
+            sockets = sorted(dict_sockets)  # Сортируем словарь (возвращает отсортированный список ключей)
+            row_count = 0
+            for elem in sockets:
+                self.tableFfpower.setRowCount(row_count + 1)
+                self.tableFfpower.setItem(row_count, 1, QtWidgets.QTableWidgetItem(elem))
+                row_count += 1
+
+            row_count = 0
+            cur.execute("SELECT DISTINCT type FROM body "
+                        "ORDER BY type ASC")
+            for name in cur:
+                self.tableType.setRowCount(row_count + 1)
+                self.tableType.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            # Заполнение таблиц кнопками CB
+            self.pasteCheckBoxes()
+
+        except (Exception, psycopg2.DatabaseError) as error:
+            dialog = DialogOk("Ошибка", error)
+            dialog.show()
+
+        finally:
+            if conn:
+                cur.close()
+                conn.close()
+
+    def load_exists_parameters(self):
+        """
+            Метод, загружающий параметры имеющихся в наличии видеокарт
+        """
+        self.tableProizv.clear()
+        self.tableGaming.clear()
+        self.tableType.clear()
+        self.tableFfmother.clear()
+        self.tableFfpower.clear()
+
+        conn = None
+        cur = None
+        try:
+            conn = psycopg2.connect(database="confPc",
+                                    user="postgres",
+                                    password="2001",
+                                    host="localhost",
+                                    port="5432")
+            cur = conn.cursor()
+
+            cur.execute(" SELECT price FROM body WHERE exist = True ORDER BY price DESC LIMIT 1")
+            for name in cur:
+                self.sliderPriceMin.setRange(0, int(name[0]))
+                self.sliderPriceMax.setRange(0, int(name[0]))
+                self.leMaxPrice.setPlaceholderText(f"до {int(name[0])}")
+
+            cur.execute(" SELECT lengthvideo FROM body WHERE exist = True ORDER BY lengthvideo DESC LIMIT 1")
+            for name in cur:
+                self.sliderVideoLenMin.setRange(0, int(name[0]))
+                self.sliderVideoLenMax.setRange(0, int(name[0]))
+                self.leMaxVideoLen.setPlaceholderText(f"до {int(name[0])}")
+
+            cur.execute(" SELECT lengthpower FROM body WHERE exist = True ORDER BY lengthpower DESC LIMIT 1")
+            for name in cur:
+                self.sliderPowerLenMin.setRange(0, int(name[0]))
+                self.sliderPowerLenMax.setRange(0, int(name[0]))
+                self.leMaxPowerLen.setPlaceholderText(f"до {int(name[0])}")
+
+            cur.execute(" SELECT heightcool FROM body WHERE exist = True ORDER BY heightcool DESC LIMIT 1")
+            for name in cur:
+                self.sliderCoolHeightMin.setRange(0, int(name[0]))
+                self.sliderCoolHeightMax.setRange(0, int(name[0]))
+                self.leMaxCoolHeight.setPlaceholderText(f"до {int(name[0])}")
+
+            cur.execute(" SELECT weight FROM body WHERE exist = True ORDER BY weight DESC LIMIT 1")
+            for name in cur:
+                self.sliderWeightMin.setRange(0, int(name[0]))
+                self.sliderWeightMax.setRange(0, int(name[0]))
+                self.leMaxWeight.setPlaceholderText(f"до {int(name[0])}")
+
+            cur.execute("SELECT DISTINCT name FROM proizv_body, body "
+                        "WHERE proizv_body.id = body.id_proizv "
+                        "AND body.exist = True "
+                        "ORDER BY name ASC")
+            row_count = 0
+            for name in cur:
+                self.tableProizv.setRowCount(row_count + 1)
+                self.tableProizv.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            row_count = 0
+            cur.execute("SELECT DISTINCT gaming FROM body "
+                        "WHERE exist = True "
+                        "ORDER BY gaming ASC")
+            for name in cur:
+                self.tableGaming.setRowCount(row_count + 1)
+                self.tableGaming.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            count = 0  # Счётчик уникальных записей в словаре
+            dict_sockets = {}  # словарь, куда будут сохраняться фф м.п. как ключи (ключи не повторяются)
+            cur.execute("SELECT DISTINCT ffmother FROM body "
+                        "WHERE exist = True "
+                        "ORDER BY ffmother ASC")
+            for name in cur:
+                str_name = str(name)
+                # Преобразуем кортеж в строку и удаляем лишние символы, чтобы можно было сделать split списка по ',',
+                # а затем записать результаты разбиения кортежа в фильтрующую таблицу
+                str_name = re.sub('[^A-Za-z_0-9,+-]', '', str_name)
+                str_name = str_name[:-1] + ''  # Удаляем последний символ
+                list_name = str_name.split(',')  # Создаём из кортежа список и из списка заполняем таблицы формфакторами
+                for i in list_name:
+                    dict_sockets[i] = count  # Если такой сокет уже есть - он не добавится снова в словарь
+                    count += 1
+            sockets = sorted(dict_sockets)  # Сортируем словарь (возвращает отсортированный список ключей)
+            row_count = 0
+            for elem in sockets:
+                self.tableFfmother.setRowCount(row_count + 1)
+                self.tableFfmother.setItem(row_count, 1, QtWidgets.QTableWidgetItem(elem))
+                row_count += 1
+
+            count = 0  # Счётчик уникальных записей в словаре
+            dict_sockets = {}  # словарь, куда будут сохраняться фф м.п. как ключи (ключи не повторяются)
+            cur.execute("SELECT DISTINCT ffpower FROM body "
+                        "WHERE exist = True "
+                        "ORDER BY ffpower ASC")
+            for name in cur:
+                str_name = str(name)
+                # Преобразуем кортеж в строку и удаляем лишние символы, чтобы можно было сделать split списка по ',',
+                # а затем записать результаты разбиения кортежа в фильтрующую таблицу
+                str_name = re.sub('[^A-Za-z_0-9,+-]', '', str_name)
+                str_name = str_name[:-1] + ''  # Удаляем последний символ
+                list_name = str_name.split(',')  # Создаём из кортежа список и из списка заполняем таблицы формфакторами
+                for i in list_name:
+                    dict_sockets[i] = count  # Если такой сокет уже есть - он не добавится снова в словарь
+                    count += 1
+            sockets = sorted(dict_sockets)  # Сортируем словарь (возвращает отсортированный список ключей)
+            row_count = 0
+            for elem in sockets:
+                self.tableFfpower.setRowCount(row_count + 1)
+                self.tableFfpower.setItem(row_count, 1, QtWidgets.QTableWidgetItem(elem))
+                row_count += 1
+
+            row_count = 0
+            cur.execute("SELECT DISTINCT type FROM body "
+                        "WHERE exist = True "
+                        "ORDER BY type ASC")
+            for name in cur:
+                self.tableType.setRowCount(row_count + 1)
+                self.tableType.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(name[0])))
+                row_count += 1
+
+            # Заполнение таблиц кнопками CB
+            self.pasteCheckBoxes()
+
+        except (Exception, psycopg2.DatabaseError) as error:
+            dialog = DialogOk("Ошибка", error)
+            dialog.show()
+
+        finally:
+            if conn:
+                cur.close()
+                conn.close()
+
+    def tb_change_arrows(self, page):
+        self.toolBoxBodyFilter.setItemIcon(page, QIcon("E:/pcconf/images/up-arrow.png"))
+        for i in range(self.toolBoxBodyFilter.count()):
+            if i != page:
+                self.toolBoxBodyFilter.setItemIcon(i, QIcon("E:/pcconf/images/down-arrow.png"))
+
+    # Метод для вставки CB в таблицы
+    def pasteCheckBoxes(self):
+        insert_cb(self.tableProizv)
+        insert_cb(self.tableGaming)
+        insert_cb(self.tableType)
+        insert_cb(self.tableFfmother)
+        insert_cb(self.tableFfpower)
+
+    # Метод, обнуляющий все поля
+    def resetAll(self):
+        reset_sliders(self.sliderPriceMin, self.sliderPriceMax, self.leMinPrice, self.leMaxPrice)
+        reset_sliders(self.sliderVideoLenMin, self.sliderVideoLenMax, self.leMinVideoLen, self.leMaxVideoLen)
+        reset_sliders(self.sliderPowerLenMin, self.sliderPowerLenMax, self.leMinPowerLen, self.leMaxPowerLen)
+        reset_sliders(self.sliderCoolHeightMin, self.sliderCoolHeightMax, self.leMinCoolHeight, self.leMaxCoolHeight)
+        reset_sliders(self.sliderWeightMin, self.sliderWeightMax, self.leMinWeight, self.leMaxWeight)
+        reset_checkboxes(self.tableProizv)
+        reset_checkboxes(self.tableGaming)
+        reset_checkboxes(self.tableType)
+        reset_checkboxes(self.tableFfmother)
+        reset_checkboxes(self.tableFfpower)
+
+    # Метод, срабатывающий по нажатии на кнопку и отправляющий в БД запрос на фильтрацию данных
+    def click_accept(self, mainWindow):
+        query = "SELECT sklad_body.kol, body.exist, body.id, proizv_body.name, " \
+                "fullname, gaming, type, ffmother, ffpower, " \
+                "lengthvideo, heightcool, lengthpower, weight, color, price " \
+                "FROM body, sklad_body, proizv_body " \
+                "WHERE "
+
+        min_price, max_price = checkFields(self.leMinPrice.text(), self.leMaxPrice.text())
+        min_videolen, max_videolen = checkFields(self.leMinVideoLen.text(), self.leMaxVideoLen.text())
+        min_powerlen, max_powerlen = checkFields(self.leMinPowerLen.text(), self.leMaxPowerLen.text())
+        min_coolheight, max_coolheight = checkFields(self.leMinCoolHeight.text(), self.leMaxCoolHeight.text())
+        min_weight, max_weight = checkFields(self.leMinWeight.text(), self.leMaxWeight.text())
+        if min_price == -1 or min_videolen == -1 or min_powerlen == -1\
+                or min_coolheight == -1 or min_weight == -1:  # если не вернулось -1, то выполняем фильтрацию
+            pass
+        else:
+            query1 = get_checkboxes(self.tableProizv, "proizv_body.name")
+            if query1 != "":  # Если есть что добавить к запросу
+                query += query1
+
+            if query1 == "":  # Если первая таблица пустая, то добавляем к запросу без AND
+                query2 = get_checkboxes(self.tableGaming, "gaming")
+                query += query2
+            else:
+                query2 = get_checkboxes(self.tableGaming, "gaming")
+                if query2 != "":  # Если есть что добавить к запросу
+                    query += " AND " + query2
+
+            if query1 == "" and query2 == "":  # Если первая таблица пустая, то добавляем к запросу без AND
+                query3 = get_checkboxes(self.tableType, "type")
+                query += query3
+            else:
+                query3 = get_checkboxes(self.tableType, "type")
+                if query3 != "":  # Если есть что добавить к запросу
+                    query += " AND " + query3
+
+            if query1 == "" and query2 == "" and query3 == "":
+                query4 = get_checkboxes_concat(self.tableFfmother, "ffmother")
+                query += query4
+            else:
+                query4 = get_checkboxes_concat(self.tableFfmother, "ffmother")
+                if query4 != "":
+                    query += " AND " + query4
+
+            if query1 == "" and query2 == "" and query3 == "" and query4 == "":
+                query5 = get_checkboxes_concat(self.tableFfpower, "ffpower")
+                query += query5
+            else:
+                query5 = get_checkboxes_concat(self.tableFfpower, "ffpower")
+                if query5 != "":
+                    query += " AND " + query5
+
+            # Вероятно, в проверке слайдеров есть лишние if
+            if query1 == "" and query2 == "" and query3 == "" and query4 == "" and query5 == "":  # Если не выбрано ничего в таблицах
+                query += check_min_max(min_price, max_price, "Price")
+            else:
+                if min_price != 0 or max_price != 0:
+                    query += " AND " + check_min_max(min_price, max_price, "Price")
+
+            if query1 == "" and query2 == "" and query3 == "" and query4 == "" and query5 == "" \
+                    and (min_price == 0 and max_price == 0):
+                query += check_min_max(min_videolen, max_videolen, "lengthvideo")
+            else:
+                if min_videolen != 0 or max_videolen != 0:
+                    query += " AND " + check_min_max(min_videolen, max_videolen, "lengthvideo")
+
+            if query1 == "" and query2 == "" and query3 == "" and query4 == "" and query5 == "" \
+                    and (min_price == 0 and max_price == 0) and (min_videolen == 0 and max_videolen == 0):
+                query += check_min_max(min_powerlen, max_powerlen, "lengthpower")
+            else:
+                if min_powerlen != 0 or max_powerlen != 0:
+                    query += " AND " + check_min_max(min_powerlen, max_powerlen, "lengthpower")
+
+            if query1 == "" and query2 == "" and query3 == "" and query4 == "" and query5 == "" \
+                    and (min_price == 0 and max_price == 0) and (min_videolen == 0 and max_videolen == 0)\
+                    and (min_powerlen == 0 and max_powerlen == 0):
+                query += check_min_max(min_coolheight, max_coolheight, "heightcool")
+            else:
+                if min_powerlen != 0 or max_powerlen != 0:
+                    query += " AND " + check_min_max(min_coolheight, max_coolheight, "heightcool")
+
+            if query1 == "" and query2 == "" and query3 == "" and query4 == "" and query5 == "" \
+                    and (min_price == 0 and max_price == 0) and (min_videolen == 0 and max_videolen == 0)\
+                    and (min_powerlen == 0 and max_powerlen == 0) and (min_coolheight == 0 and max_coolheight == 0):
+                query += check_min_max(min_weight, max_weight, "weight")
+            else:
+                if min_powerlen != 0 or max_powerlen != 0:
+                    query += " AND " + check_min_max(min_weight, max_weight, "weight")
+
+            mainWindow.tabWidgetSklad.setCurrentIndex(0)  # Устанавливаем вкладку перед фильтрацией на 0 место
+
+            # Если изменений в фильтрации не было, то передаём changes = False
+            if query == "SELECT sklad_body.kol, body.exist, body.id, proizv_body.name, " \
+                        "fullname, gaming, type, ffmother, ffpower, " \
+                        "lengthvideo, heightcool, lengthpower, weight, color, price " \
+                        "FROM body, sklad_body, proizv_body " \
+                        "WHERE ":
+
+                if self.tab_window == 0:  # Если открыта вкладка "Склад", то применяем фильтры для склада
+                    # Переопределяем готовым запросом
+                    query = self.make_query_filter(False, mainWindow.rbSklad.isChecked())
+                    mainWindow.apply_filter_sklad(query, 7)
+                    self.close()
+                else:  # Если открыта вкладка "Конфигуратор", то применяем фильтры для конфигуратора
+                    query = self.make_query_filter(False, mainWindow.rbConf.isChecked())
+                    mainWindow.apply_filter_conf(query, 7)
+                    self.close()
+
+            # Если фильтры были выбраны (начальный запрос изменился), то передаём changes = True
+            else:
+                if self.tab_window == 0:
+                    # Дописываем финальную часть запроса (отбор по id, exist и ранжирование) для склада
+                    query += self.make_query_filter(True, mainWindow.rbSklad.isChecked())
+                    mainWindow.apply_filter_sklad(query, 7)
+                    self.close()
+                else:
+                    # Дописываем финальную часть запроса (отбор по id, exist и ранжирование) для конфигуратора
+                    query += self.make_query_filter(True, mainWindow.rbConf.isChecked())
+                    mainWindow.apply_filter_conf(query, 7)
+                    self.close()
+
+    def make_query_filter(self, changes, having):
+        if changes:  # Если есть изменения, то добавляем к запросу связывающие таблицы фильтры
+            if having:  # Если отмечен переключатель наличия
+                query = " AND body.id = sklad_body.id_izd AND body.id_proizv = proizv_body.id" \
+                        " AND body.exist = True " \
+                        " ORDER BY body.exist DESC"
+                return query
+            else:
+                query = " AND body.id = sklad_body.id_izd AND body.id_proizv = proizv_body.id " \
+                        " ORDER BY body.exist DESC"
+                return query
+
+        # Если фильтры не выбраны
+        else:
+            if having:
+                query = "SELECT sklad_body.kol, body.exist, body.id, proizv_body.name, " \
+                        "fullname, gaming, type, ffmother, ffpower, " \
+                        "lengthvideo, heightcool, lengthpower, weight, color, price " \
+                        "FROM body, sklad_body, proizv_body " \
+                        "WHERE body.id = sklad_body.id_izd AND body.id_proizv = proizv_body.id " \
+                        " AND body.exist = True" \
+                        " ORDER BY body.exist DESC"
+                return query
+            else:
+                query = "SELECT sklad_body.kol, body.exist, body.id, proizv_body.name, " \
+                        "fullname, gaming, type, ffmother, ffpower, " \
+                        "lengthvideo, heightcool, lengthpower, weight, color, price " \
+                        "FROM body, sklad_body, proizv_body " \
+                        "WHERE body.id = sklad_body.id_izd AND body.id_proizv = proizv_body.id " \
+                        " ORDER BY body.exist DESC"
+                return query
+

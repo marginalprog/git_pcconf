@@ -1,0 +1,1 @@
+pyuic5.exe -x E:\pcconf\ui\help\widgetProcHelp.ui -o  E:\pcconf\ui\help\widgetProcHelp.py

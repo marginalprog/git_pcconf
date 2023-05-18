@@ -15,7 +15,7 @@ class Ui_widgetVideoHelp(object):
     def setupUi(self, widgetVideoHelp):
         widgetVideoHelp.setObjectName("widgetVideoHelp")
         widgetVideoHelp.setWindowModality(QtCore.Qt.NonModal)
-        widgetVideoHelp.resize(899, 645)
+        widgetVideoHelp.resize(899, 648)
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)

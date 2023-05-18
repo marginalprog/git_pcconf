@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Фильтр ОЗУ</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../images/filters.png</normaloff>../../images/filters.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget
@@ -539,8 +543,8 @@ QLineEdit:hover{
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>307</width>
-      <height>191</height>
+      <width>98</width>
+      <height>28</height>
      </rect>
     </property>
     <attribute name="icon">
@@ -809,8 +813,8 @@ QPushButton::hover
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>307</width>
-      <height>191</height>
+      <width>98</width>
+      <height>28</height>
      </rect>
     </property>
     <attribute name="icon">
@@ -1078,8 +1082,8 @@ QPushButton::hover
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>307</width>
-      <height>191</height>
+      <width>98</width>
+      <height>28</height>
      </rect>
     </property>
     <attribute name="icon">
@@ -1348,8 +1352,8 @@ QPushButton::hover
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>307</width>
-      <height>191</height>
+      <width>98</width>
+      <height>28</height>
      </rect>
     </property>
     <attribute name="icon">
@@ -1647,8 +1651,8 @@ QPushButton::hover
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>307</width>
-      <height>191</height>
+      <width>98</width>
+      <height>28</height>
      </rect>
     </property>
     <attribute name="icon">
@@ -1946,8 +1950,8 @@ border-bottom: 1px dotted red;
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>307</width>
-      <height>191</height>
+      <width>98</width>
+      <height>28</height>
      </rect>
     </property>
     <attribute name="icon">
@@ -2245,8 +2249,8 @@ border-bottom: 1px dotted red;
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>307</width>
-      <height>191</height>
+      <width>98</width>
+      <height>28</height>
      </rect>
     </property>
     <attribute name="icon">
@@ -2502,7 +2506,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
        </property>
       </column>
      </widget>
-     <widget class="QPushButton" name="btnReseLatency">
+     <widget class="QPushButton" name="btnResetLatency">
       <property name="geometry">
        <rect>
         <x>220</x>

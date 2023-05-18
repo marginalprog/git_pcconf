@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>WidgetDiskFilter</class>
- <widget class="QWidget" name="WidgetDiskFilter">
+ <class>WidgetPowerFilter</class>
+ <widget class="QWidget" name="WidgetPowerFilter">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Фильтр блоков питания</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../images/filters.png</normaloff>../../images/filters.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget
@@ -863,7 +867,7 @@ QPushButton::hover
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QTableWidget" name="tableType">
+     <widget class="QTableWidget" name="tableFormFactor">
       <property name="enabled">
        <bool>true</bool>
       </property>
@@ -2495,7 +2499,7 @@ QPushButton::hover
   <connection>
    <sender>btnClose</sender>
    <signal>clicked()</signal>
-   <receiver>WidgetDiskFilter</receiver>
+   <receiver>WidgetPowerFilter</receiver>
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">

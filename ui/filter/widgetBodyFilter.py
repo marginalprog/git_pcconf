@@ -15,6 +15,9 @@ class Ui_WidgetBodyFilter(object):
     def setupUi(self, WidgetBodyFilter):
         WidgetBodyFilter.setObjectName("WidgetBodyFilter")
         WidgetBodyFilter.resize(370, 722)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/filters.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        WidgetBodyFilter.setWindowIcon(icon)
         WidgetBodyFilter.setStyleSheet("QWidget\n"
 "{\n"
 "    background-color: rgb(30,30,30);\n"
@@ -310,16 +313,16 @@ class Ui_WidgetBodyFilter(object):
 "    border-bottom: 1px solid  red;\n"
 "}")
         self.leMaxPrice.setObjectName("leMaxPrice")
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Active, QtGui.QIcon.Off)
-        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Selected, QtGui.QIcon.Off)
-        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
-        self.toolBoxBodyFilter.addItem(self.price, icon, "")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Active, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Selected, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
+        self.toolBoxBodyFilter.addItem(self.price, icon1, "")
         self.proizvoditel = QtWidgets.QWidget()
-        self.proizvoditel.setGeometry(QtCore.QRect(0, 0, 307, 187))
+        self.proizvoditel.setGeometry(QtCore.QRect(0, 0, 98, 28))
         self.proizvoditel.setObjectName("proizvoditel")
         self.frameProizv = QtWidgets.QFrame(self.proizvoditel)
         self.frameProizv.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -520,11 +523,12 @@ class Ui_WidgetBodyFilter(object):
 "}\n"
 "")
         self.btnResetProizv.setObjectName("btnResetProizv")
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/up-arrow.png"), QtGui.QIcon.Active, QtGui.QIcon.Off)
-        self.toolBoxBodyFilter.addItem(self.proizvoditel, icon1, "")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/up-arrow.png"), QtGui.QIcon.Active, QtGui.QIcon.Off)
+        self.toolBoxBodyFilter.addItem(self.proizvoditel, icon2, "")
         self.gaming = QtWidgets.QWidget()
+        self.gaming.setGeometry(QtCore.QRect(0, 0, 98, 28))
         self.gaming.setObjectName("gaming")
         self.frameGaming = QtWidgets.QFrame(self.gaming)
         self.frameGaming.setGeometry(QtCore.QRect(0, -10, 311, 191))
@@ -535,9 +539,30 @@ class Ui_WidgetBodyFilter(object):
         self.frameGaming.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frameGaming.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frameGaming.setObjectName("frameGaming")
+        self.btnResetGaming = QtWidgets.QPushButton(self.frameGaming)
+        self.btnResetGaming.setGeometry(QtCore.QRect(220, 160, 61, 21))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(9)
+        self.btnResetGaming.setFont(font)
+        self.btnResetGaming.setStyleSheet("QPushButton\n"
+"{    \n"
+"    background-color: rgb(10, 10, 10);\n"
+"    color:  rgb(200,200, 200);\n"
+"    border: 0px;\n"
+"    border-bottom: 1px dotted rgb(200, 200, 200);\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    color: red;\n"
+"    border-bottom: 1px dotted red;\n"
+"}\n"
+"")
+        self.btnResetGaming.setObjectName("btnResetGaming")
         self.tableGaming = QtWidgets.QTableWidget(self.frameGaming)
         self.tableGaming.setEnabled(True)
-        self.tableGaming.setGeometry(QtCore.QRect(10, 0, 291, 161))
+        self.tableGaming.setGeometry(QtCore.QRect(10, 10, 291, 161))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
@@ -704,32 +729,13 @@ class Ui_WidgetBodyFilter(object):
         self.tableGaming.verticalHeader().setVisible(False)
         self.tableGaming.verticalHeader().setCascadingSectionResizes(False)
         self.tableGaming.verticalHeader().setMinimumSectionSize(10)
-        self.btnResetGaming = QtWidgets.QPushButton(self.frameGaming)
-        self.btnResetGaming.setGeometry(QtCore.QRect(220, 160, 61, 21))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(9)
-        self.btnResetGaming.setFont(font)
-        self.btnResetGaming.setStyleSheet("QPushButton\n"
-"{    \n"
-"    background-color: rgb(10, 10, 10);\n"
-"    color:  rgb(200,200, 200);\n"
-"    border: 0px;\n"
-"    border-bottom: 1px dotted rgb(200, 200, 200);\n"
-"}\n"
-"\n"
-"QPushButton::hover\n"
-"{\n"
-"    color: red;\n"
-"    border-bottom: 1px dotted red;\n"
-"}\n"
-"")
-        self.btnResetGaming.setObjectName("btnResetGaming")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.toolBoxBodyFilter.addItem(self.gaming, icon2, "")
+        self.tableGaming.raise_()
+        self.btnResetGaming.raise_()
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.toolBoxBodyFilter.addItem(self.gaming, icon3, "")
         self.type = QtWidgets.QWidget()
-        self.type.setGeometry(QtCore.QRect(0, 0, 307, 187))
+        self.type.setGeometry(QtCore.QRect(0, 0, 98, 28))
         self.type.setObjectName("type")
         self.frameType = QtWidgets.QFrame(self.type)
         self.frameType.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -930,9 +936,9 @@ class Ui_WidgetBodyFilter(object):
 "}\n"
 "")
         self.btnResetType.setObjectName("btnResetType")
-        self.toolBoxBodyFilter.addItem(self.type, icon2, "")
+        self.toolBoxBodyFilter.addItem(self.type, icon3, "")
         self.ffmother = QtWidgets.QWidget()
-        self.ffmother.setGeometry(QtCore.QRect(0, 0, 307, 187))
+        self.ffmother.setGeometry(QtCore.QRect(0, 0, 98, 28))
         self.ffmother.setObjectName("ffmother")
         self.frameFfmother = QtWidgets.QFrame(self.ffmother)
         self.frameFfmother.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -1133,9 +1139,9 @@ class Ui_WidgetBodyFilter(object):
 "}\n"
 "")
         self.btnResetFfmother.setObjectName("btnResetFfmother")
-        self.toolBoxBodyFilter.addItem(self.ffmother, icon2, "")
+        self.toolBoxBodyFilter.addItem(self.ffmother, icon3, "")
         self.ffpower = QtWidgets.QWidget()
-        self.ffpower.setGeometry(QtCore.QRect(0, 0, 307, 187))
+        self.ffpower.setGeometry(QtCore.QRect(0, 0, 98, 28))
         self.ffpower.setObjectName("ffpower")
         self.frameFfpower = QtWidgets.QFrame(self.ffpower)
         self.frameFfpower.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -1336,9 +1342,9 @@ class Ui_WidgetBodyFilter(object):
 "}\n"
 "")
         self.btnResetFfpower.setObjectName("btnResetFfpower")
-        self.toolBoxBodyFilter.addItem(self.ffpower, icon2, "")
+        self.toolBoxBodyFilter.addItem(self.ffpower, icon3, "")
         self.videoLen = QtWidgets.QWidget()
-        self.videoLen.setGeometry(QtCore.QRect(0, 0, 307, 187))
+        self.videoLen.setGeometry(QtCore.QRect(0, 0, 98, 28))
         self.videoLen.setObjectName("videoLen")
         self.framLen = QtWidgets.QFrame(self.videoLen)
         self.framLen.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -1565,9 +1571,9 @@ class Ui_WidgetBodyFilter(object):
 "    border-bottom: 1px solid  red;\n"
 "}")
         self.leMinVideoLen.setObjectName("leMinVideoLen")
-        self.toolBoxBodyFilter.addItem(self.videoLen, icon2, "")
+        self.toolBoxBodyFilter.addItem(self.videoLen, icon3, "")
         self.powerLen = QtWidgets.QWidget()
-        self.powerLen.setGeometry(QtCore.QRect(0, 0, 307, 187))
+        self.powerLen.setGeometry(QtCore.QRect(0, 0, 98, 28))
         self.powerLen.setObjectName("powerLen")
         self.framPowerLen = QtWidgets.QFrame(self.powerLen)
         self.framPowerLen.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -1794,9 +1800,9 @@ class Ui_WidgetBodyFilter(object):
 "    border-bottom: 1px solid  red;\n"
 "}")
         self.leMinPowerLen.setObjectName("leMinPowerLen")
-        self.toolBoxBodyFilter.addItem(self.powerLen, icon2, "")
+        self.toolBoxBodyFilter.addItem(self.powerLen, icon3, "")
         self.coolHeight = QtWidgets.QWidget()
-        self.coolHeight.setGeometry(QtCore.QRect(0, 0, 307, 187))
+        self.coolHeight.setGeometry(QtCore.QRect(0, 0, 98, 28))
         self.coolHeight.setObjectName("coolHeight")
         self.framCoolHeight = QtWidgets.QFrame(self.coolHeight)
         self.framCoolHeight.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -2023,9 +2029,9 @@ class Ui_WidgetBodyFilter(object):
 "    border-bottom: 1px solid  red;\n"
 "}")
         self.leMinCoolHeight.setObjectName("leMinCoolHeight")
-        self.toolBoxBodyFilter.addItem(self.coolHeight, icon2, "")
+        self.toolBoxBodyFilter.addItem(self.coolHeight, icon3, "")
         self.weight = QtWidgets.QWidget()
-        self.weight.setGeometry(QtCore.QRect(0, 0, 307, 187))
+        self.weight.setGeometry(QtCore.QRect(0, 0, 98, 28))
         self.weight.setObjectName("weight")
         self.frameWeight = QtWidgets.QFrame(self.weight)
         self.frameWeight.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -2256,10 +2262,10 @@ class Ui_WidgetBodyFilter(object):
 "    border-bottom: 1px solid  red;\n"
 "}")
         self.leMaxWeight.setObjectName("leMaxWeight")
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon3.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        self.toolBoxBodyFilter.addItem(self.weight, icon3, "")
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        self.toolBoxBodyFilter.addItem(self.weight, icon4, "")
         self.btnAccept = QtWidgets.QPushButton(WidgetBodyFilter)
         self.btnAccept.setGeometry(QtCore.QRect(60, 670, 121, 31))
         font = QtGui.QFont()
@@ -2353,7 +2359,7 @@ class Ui_WidgetBodyFilter(object):
 
     def retranslateUi(self, WidgetBodyFilter):
         _translate = QtCore.QCoreApplication.translate
-        WidgetBodyFilter.setWindowTitle(_translate("WidgetBodyFilter", "Form"))
+        WidgetBodyFilter.setWindowTitle(_translate("WidgetBodyFilter", "Фильтр корпусов"))
         self.btnResetPrice.setText(_translate("WidgetBodyFilter", "Сбросить"))
         self.lbMinPrice.setText(_translate("WidgetBodyFilter", "мин., ₽:"))
         self.lbMaxPrice.setText(_translate("WidgetBodyFilter", "макс., ₽:"))
@@ -2367,12 +2373,12 @@ class Ui_WidgetBodyFilter(object):
         item.setText(_translate("WidgetBodyFilter", "Название"))
         self.btnResetProizv.setText(_translate("WidgetBodyFilter", "Сбросить"))
         self.toolBoxBodyFilter.setItemText(self.toolBoxBodyFilter.indexOf(self.proizvoditel), _translate("WidgetBodyFilter", "Производитель корпуса"))
+        self.btnResetGaming.setText(_translate("WidgetBodyFilter", "Сбросить"))
         self.tableGaming.setSortingEnabled(True)
         item = self.tableGaming.horizontalHeaderItem(0)
         item.setText(_translate("WidgetBodyFilter", "Выбор"))
         item = self.tableGaming.horizontalHeaderItem(1)
         item.setText(_translate("WidgetBodyFilter", "Название"))
-        self.btnResetGaming.setText(_translate("WidgetBodyFilter", "Сбросить"))
         self.toolBoxBodyFilter.setItemText(self.toolBoxBodyFilter.indexOf(self.gaming), _translate("WidgetBodyFilter", "Игровое комплектующее"))
         self.tableType.setSortingEnabled(True)
         item = self.tableType.horizontalHeaderItem(0)

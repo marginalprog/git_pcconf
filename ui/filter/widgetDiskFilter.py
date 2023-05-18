@@ -15,6 +15,9 @@ class Ui_WidgetDiskFilter(object):
     def setupUi(self, WidgetDiskFilter):
         WidgetDiskFilter.setObjectName("WidgetDiskFilter")
         WidgetDiskFilter.resize(374, 605)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/filters.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        WidgetDiskFilter.setWindowIcon(icon)
         WidgetDiskFilter.setStyleSheet("QWidget\n"
 "{\n"
 "    background-color: rgb(30,30,30);\n"
@@ -395,14 +398,14 @@ class Ui_WidgetDiskFilter(object):
 "    border-bottom: 1px solid  red;\n"
 "}")
         self.leMaxPrice.setObjectName("leMaxPrice")
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Active, QtGui.QIcon.Off)
-        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Selected, QtGui.QIcon.Off)
-        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
-        self.toolBoxDiskFilter.addItem(self.price, icon, "")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Active, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Selected, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
+        self.toolBoxDiskFilter.addItem(self.price, icon1, "")
         self.proizvoditel = QtWidgets.QWidget()
         self.proizvoditel.setGeometry(QtCore.QRect(0, 0, 307, 188))
         self.proizvoditel.setObjectName("proizvoditel")
@@ -575,10 +578,10 @@ class Ui_WidgetDiskFilter(object):
 "}\n"
 "")
         self.btnResetProizv.setObjectName("btnResetProizv")
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/up-arrow.png"), QtGui.QIcon.Active, QtGui.QIcon.Off)
-        self.toolBoxDiskFilter.addItem(self.proizvoditel, icon1, "")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/up-arrow.png"), QtGui.QIcon.Active, QtGui.QIcon.Off)
+        self.toolBoxDiskFilter.addItem(self.proizvoditel, icon2, "")
         self.type = QtWidgets.QWidget()
         self.type.setGeometry(QtCore.QRect(0, 0, 307, 188))
         self.type.setObjectName("type")
@@ -751,162 +754,168 @@ class Ui_WidgetDiskFilter(object):
 "}\n"
 "")
         self.btnResetType.setObjectName("btnResetType")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.toolBoxDiskFilter.addItem(self.type, icon2, "")
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.toolBoxDiskFilter.addItem(self.type, icon3, "")
         self.volume = QtWidgets.QWidget()
         self.volume.setGeometry(QtCore.QRect(0, 0, 307, 188))
         self.volume.setObjectName("volume")
-        self.tbFrameVolume = QtWidgets.QFrame(self.volume)
-        self.tbFrameVolume.setGeometry(QtCore.QRect(0, 0, 311, 191))
-        self.tbFrameVolume.setStyleSheet("QFrame{\n"
+        self.frameVolume = QtWidgets.QFrame(self.volume)
+        self.frameVolume.setGeometry(QtCore.QRect(0, 0, 311, 191))
+        self.frameVolume.setStyleSheet("QFrame{\n"
 "    background-color: #101010;\n"
+"}\n"
+"")
+        self.frameVolume.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frameVolume.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frameVolume.setObjectName("frameVolume")
+        self.tableVolume = QtWidgets.QTableWidget(self.frameVolume)
+        self.tableVolume.setEnabled(True)
+        self.tableVolume.setGeometry(QtCore.QRect(10, 0, 291, 161))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
+        self.tableVolume.setFont(font)
+        self.tableVolume.setMouseTracking(True)
+        self.tableVolume.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.tableVolume.setAutoFillBackground(False)
+        self.tableVolume.setStyleSheet("QTableWidget QTableCornerButton::section\n"
+"{\n"
+"    \n"
+"    background: rgb(30, 30, 30);\n"
+"    border-style: solid;\n"
+"    border-width: 1px;\n"
+"}\n"
+"\n"
+"QTableWidget::item\n"
+"{\n"
+"     border-bottom: 1px solid rgb(60,60,60); \n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-top:0px;\n"
+"}\n"
+"\n"
+"QTableView\n"
+"{\n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border-top: 0px;\n"
+"    border-right: 0px;\n"
+"    border-left: 0px;\n"
+"    border-bottom: 0px;\n"
+"}\n"
+"\n"
+"QTableWidget::item:hover {\n"
+"    color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}      \n"
+"\n"
+"QTableWidget::item:selected\n"
+"{\n"
+"     color: white;\n"
+"    border-bottom: 1px solid rgb(180,180,180);\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background-color: #151515;\n"
+"    width: 8px;\n"
+"    margin: 15px 0 15px 0;\n"
+"    border-radius: 0px;\n"
+" }\n"
+"\n"
+"/*  HANDLE BAR VERTICAL */\n"
+"QScrollBar::handle:vertical {    \n"
+"    background-color: #151515;\n"
+"    min-height: 30px;\n"
+"    border-radius: 0px;\n"
+"    border: 1px solid;\n"
+"    border-right: 0px;\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:hover{    \n"
+"    background-color:  rgb(50,50,50);\n"
+"    border-color: rgb(60,60,60);\n"
+"}\n"
+"QScrollBar::handle:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 0px;\n"
+"    border-bottom: 1px solid rgb(180, 0, 0);\n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:vertical {\n"
+"    background-color: #151515;\n"
+"    height: 15px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(60,60,60);\n"
+"    border: 1px solid;\n"
+"    border-top:1px solid rgb(180, 0, 0);\n"
+"    border-right: 0px;\n"
+"    border-bottom: 0px;\n"
+"}\n"
+"QScrollBar::add-line:vertical:hover {    \n"
+"    background-color: #575757;\n"
+"    border-color: #242424;\n"
+"}\n"
+"QScrollBar::add-line:vertical:pressed {    \n"
+"    background-color: rgb(120, 0, 2);\n"
+"}\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
 "}")
-        self.tbFrameVolume.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.tbFrameVolume.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.tbFrameVolume.setObjectName("tbFrameVolume")
-        self.sliderVolumeMin = QtWidgets.QSlider(self.tbFrameVolume)
-        self.sliderVolumeMin.setGeometry(QtCore.QRect(10, 100, 111, 21))
-        self.sliderVolumeMin.setStyleSheet("QSlider{\n"
-"    background-color: rgb(10, 10, 10);\n"
-"}\n"
-"\n"
-"QSlider::groove:horizontal {\n"
-"border: 1px solid #bbb;\n"
-"background: rgb(160,160,160);\n"
-"height:6px;\n"
-"}\n"
-"\n"
-"QSlider::sub-page:horizontal {\n"
-"border: 1px solid rgb(60,60,60);\n"
-"background: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.125 rgba(66, 68, 68, 255), stop:0.426136 rgba(117, 19, 19, 255), stop:0.852273 rgba(255, 0, 0, 255));\n"
-"\n"
-"color: rgb(144, 144, 144);\n"
-"height: 6px;\n"
-"}\n"
-"\n"
-"QSlider::add-page:horizontal {\n"
-"border: 1px solid rgb(75,75,75);\n"
-"background: rgb(70,70,70);\n"
-"}\n"
-"\n"
-"QSlider::handle:horizontal {\n"
-"border: 1px solid rgb(60,60,60);\n"
-"background:qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0.057, stop:0 rgba(255, 0, 0, 255), stop:0.398876 rgba(165, 0, 0, 255), stop:0.994318 rgba(46, 48, 49, 255));\n"
-"width: 6px;\n"
-"margin-top: -7px;\n"
-"margin-bottom: -7px;\n"
-"}\n"
-"\n"
-"QSlider::handle:horizontal:hover {\n"
-"border: 1px solid rgb(60,60,60);\n"
-"background: qlineargradient(x1:0, y1:0, x2:1, y2:1,\n"
-"    stop:0 rgb(105,105,105), stop:1 rgb(250,0,0));\n"
-"width: 9px;\n"
-"margin-top: -7px;\n"
-"margin-bottom: -7px;\n"
-"}\n"
-"\n"
-"\n"
-"QSlider::sub-page:horizontal:disabled {\n"
-"background: #bbb;\n"
-"border-color: #999;\n"
-"}\n"
-"\n"
-"QSlider::add-page:horizontal:disabled {\n"
-"background: #eee;\n"
-"border-color: #999;\n"
-"}\n"
-"\n"
-"QSlider::handle:horizontal:disabled {\n"
-"background: #eee;\n"
-"border: 1px solid #aaa;\n"
-"border-radius: 4px;\n"
-"}")
-        self.sliderVolumeMin.setProperty("value", 0)
-        self.sliderVolumeMin.setTracking(True)
-        self.sliderVolumeMin.setOrientation(QtCore.Qt.Horizontal)
-        self.sliderVolumeMin.setInvertedAppearance(False)
-        self.sliderVolumeMin.setInvertedControls(False)
-        self.sliderVolumeMin.setObjectName("sliderVolumeMin")
-        self.line_4 = QtWidgets.QFrame(self.tbFrameVolume)
-        self.line_4.setGeometry(QtCore.QRect(140, 70, 21, 19))
-        self.line_4.setStyleSheet("border:0px;\n"
-"border-top: 1px solid white;")
-        self.line_4.setFrameShape(QtWidgets.QFrame.HLine)
-        self.line_4.setFrameShadow(QtWidgets.QFrame.Sunken)
-        self.line_4.setObjectName("line_4")
-        self.sliderVolumeMax = QtWidgets.QSlider(self.tbFrameVolume)
-        self.sliderVolumeMax.setGeometry(QtCore.QRect(180, 100, 111, 21))
-        self.sliderVolumeMax.setStyleSheet("QSlider{\n"
-"    background-color: rgb(10, 10, 10);\n"
-"}\n"
-"\n"
-"QSlider::groove:horizontal {\n"
-"border: 1px solid #bbb;\n"
-"background: rgb(160,160,160);\n"
-"height:6px;\n"
-"}\n"
-"\n"
-"QSlider::sub-page:horizontal {\n"
-"border: 1px solid rgb(60,60,60);\n"
-"background: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0.125 rgba(66, 68, 68, 255), stop:0.426136 rgba(117, 19, 19, 255), stop:0.852273 rgba(255, 0, 0, 255));\n"
-"\n"
-"color: rgb(144, 144, 144);\n"
-"height: 6px;\n"
-"}\n"
-"\n"
-"QSlider::add-page:horizontal {\n"
-"border: 1px solid rgb(75,75,75);\n"
-"background: rgb(70,70,70);\n"
-"}\n"
-"\n"
-"QSlider::handle:horizontal {\n"
-"border: 1px solid rgb(60,60,60);\n"
-"background:qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0.057, stop:0 rgba(255, 0, 0, 255), stop:0.398876 rgba(165, 0, 0, 255), stop:0.994318 rgba(46, 48, 49, 255));\n"
-"width: 6px;\n"
-"margin-top: -7px;\n"
-"margin-bottom: -7px;\n"
-"}\n"
-"\n"
-"QSlider::handle:horizontal:hover {\n"
-"border: 1px solid rgb(60,60,60);\n"
-"background: qlineargradient(x1:0, y1:0, x2:1, y2:1,\n"
-"    stop:0 rgb(105,105,105), stop:1 rgb(250,0,0));\n"
-"width: 9px;\n"
-"margin-top: -7px;\n"
-"margin-bottom: -7px;\n"
-"}\n"
-"\n"
-"\n"
-"QSlider::sub-page:horizontal:disabled {\n"
-"background: #bbb;\n"
-"border-color: #999;\n"
-"}\n"
-"\n"
-"QSlider::add-page:horizontal:disabled {\n"
-"background: #eee;\n"
-"border-color: #999;\n"
-"}\n"
-"\n"
-"QSlider::handle:horizontal:disabled {\n"
-"background: #eee;\n"
-"border: 1px solid #aaa;\n"
-"border-radius: 4px;\n"
-"}")
-        self.sliderVolumeMax.setProperty("value", 0)
-        self.sliderVolumeMax.setOrientation(QtCore.Qt.Horizontal)
-        self.sliderVolumeMax.setInvertedAppearance(False)
-        self.sliderVolumeMax.setInvertedControls(False)
-        self.sliderVolumeMax.setObjectName("sliderVolumeMax")
-        self.btnResetVolume = QtWidgets.QPushButton(self.tbFrameVolume)
-        self.btnResetVolume.setGeometry(QtCore.QRect(220, 160, 61, 20))
+        self.tableVolume.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
+        self.tableVolume.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
+        self.tableVolume.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableVolume.setShowGrid(False)
+        self.tableVolume.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableVolume.setObjectName("tableVolume")
+        self.tableVolume.setColumnCount(2)
+        self.tableVolume.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableVolume.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableVolume.setHorizontalHeaderItem(1, item)
+        self.tableVolume.horizontalHeader().setVisible(False)
+        self.tableVolume.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableVolume.horizontalHeader().setDefaultSectionSize(120)
+        self.tableVolume.horizontalHeader().setHighlightSections(False)
+        self.tableVolume.horizontalHeader().setMinimumSectionSize(15)
+        self.tableVolume.horizontalHeader().setSortIndicatorShown(True)
+        self.tableVolume.horizontalHeader().setStretchLastSection(False)
+        self.tableVolume.verticalHeader().setVisible(False)
+        self.tableVolume.verticalHeader().setCascadingSectionResizes(False)
+        self.tableVolume.verticalHeader().setMinimumSectionSize(10)
+        self.btnResetVolume = QtWidgets.QPushButton(self.frameVolume)
+        self.btnResetVolume.setGeometry(QtCore.QRect(220, 160, 61, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(9)
         self.btnResetVolume.setFont(font)
         self.btnResetVolume.setStyleSheet("QPushButton\n"
-"{\n"
+"{    \n"
 "    background-color: rgb(10, 10, 10);\n"
 "    color:  rgb(200,200, 200);\n"
 "    border: 0px;\n"
@@ -920,71 +929,7 @@ class Ui_WidgetDiskFilter(object):
 "}\n"
 "")
         self.btnResetVolume.setObjectName("btnResetVolume")
-        self.lbMinVolume = QtWidgets.QLabel(self.tbFrameVolume)
-        self.lbMinVolume.setGeometry(QtCore.QRect(10, 20, 61, 21))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
-        self.lbMinVolume.setFont(font)
-        self.lbMinVolume.setStyleSheet("    color: #fffafa;\n"
-"    border: 0px;\n"
-"")
-        self.lbMinVolume.setAlignment(QtCore.Qt.AlignCenter)
-        self.lbMinVolume.setObjectName("lbMinVolume")
-        self.lbMaxVolume = QtWidgets.QLabel(self.tbFrameVolume)
-        self.lbMaxVolume.setGeometry(QtCore.QRect(180, 20, 61, 21))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
-        self.lbMaxVolume.setFont(font)
-        self.lbMaxVolume.setStyleSheet("    color: #fffafa;\n"
-"    border: 0px;\n"
-"")
-        self.lbMaxVolume.setAlignment(QtCore.Qt.AlignCenter)
-        self.lbMaxVolume.setObjectName("lbMaxVolume")
-        self.leMinVolume = QtWidgets.QLineEdit(self.tbFrameVolume)
-        self.leMinVolume.setGeometry(QtCore.QRect(10, 50, 111, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.leMinVolume.setFont(font)
-        self.leMinVolume.setStyleSheet("QLineEdit{\n"
-"    padding-left: 5px;\n"
-"    border: 1px solid rgb(20,20,20);\n"
-"    background-color: rgb(40,40,40);\n"
-"    border-bottom: 1px solid  rgb(120,120,120);\n"
-"    selection-background-color: rgb(105, 0, 0);\n"
-"}\n"
-"\n"
-"QLineEdit:hover{\n"
-"    background-color: rgb(55,55,55);\n"
-"    border-bottom: 1px solid  red;\n"
-"}")
-        self.leMinVolume.setObjectName("leMinVolume")
-        self.leMaxVolume = QtWidgets.QLineEdit(self.tbFrameVolume)
-        self.leMaxVolume.setGeometry(QtCore.QRect(180, 50, 111, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(10)
-        self.leMaxVolume.setFont(font)
-        self.leMaxVolume.setStyleSheet("QLineEdit{\n"
-"    padding-left: 5px;\n"
-"    border: 1px solid rgb(20,20,20);\n"
-"    background-color: rgb(40,40,40);\n"
-"    border-bottom: 1px solid  rgb(120,120,120);\n"
-"    selection-background-color: rgb(105, 0, 0);\n"
-"}\n"
-"\n"
-"QLineEdit:hover{\n"
-"    background-color: rgb(55,55,55);\n"
-"    border-bottom: 1px solid  red;\n"
-"}")
-        self.leMaxVolume.setObjectName("leMaxVolume")
-        self.toolBoxDiskFilter.addItem(self.volume, icon2, "")
+        self.toolBoxDiskFilter.addItem(self.volume, icon3, "")
         self.read = QtWidgets.QWidget()
         self.read.setGeometry(QtCore.QRect(0, 0, 307, 188))
         self.read.setObjectName("read")
@@ -1130,13 +1075,13 @@ class Ui_WidgetDiskFilter(object):
         self.sliderReadMax.setInvertedAppearance(False)
         self.sliderReadMax.setInvertedControls(False)
         self.sliderReadMax.setObjectName("sliderReadMax")
-        self.btnResetVolume_3 = QtWidgets.QPushButton(self.tbFrameRead)
-        self.btnResetVolume_3.setGeometry(QtCore.QRect(220, 160, 61, 20))
+        self.btnResetRead = QtWidgets.QPushButton(self.tbFrameRead)
+        self.btnResetRead.setGeometry(QtCore.QRect(220, 160, 61, 20))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(9)
-        self.btnResetVolume_3.setFont(font)
-        self.btnResetVolume_3.setStyleSheet("QPushButton\n"
+        self.btnResetRead.setFont(font)
+        self.btnResetRead.setStyleSheet("QPushButton\n"
 "{\n"
 "    background-color: rgb(10, 10, 10);\n"
 "    color:  rgb(200,200, 200);\n"
@@ -1150,7 +1095,7 @@ class Ui_WidgetDiskFilter(object):
 "    border-bottom: 1px dotted red;\n"
 "}\n"
 "")
-        self.btnResetVolume_3.setObjectName("btnResetVolume_3")
+        self.btnResetRead.setObjectName("btnResetRead")
         self.lbMinRead = QtWidgets.QLabel(self.tbFrameRead)
         self.lbMinRead.setGeometry(QtCore.QRect(10, 20, 61, 21))
         font = QtGui.QFont()
@@ -1215,7 +1160,7 @@ class Ui_WidgetDiskFilter(object):
 "    border-bottom: 1px solid  red;\n"
 "}")
         self.leMaxRead.setObjectName("leMaxRead")
-        self.toolBoxDiskFilter.addItem(self.read, icon2, "")
+        self.toolBoxDiskFilter.addItem(self.read, icon3, "")
         self.write = QtWidgets.QWidget()
         self.write.setGeometry(QtCore.QRect(0, 0, 307, 188))
         self.write.setObjectName("write")
@@ -1446,7 +1391,7 @@ class Ui_WidgetDiskFilter(object):
 "    border-bottom: 1px solid  red;\n"
 "}")
         self.leMaxWrite.setObjectName("leMaxWrite")
-        self.toolBoxDiskFilter.addItem(self.write, icon2, "")
+        self.toolBoxDiskFilter.addItem(self.write, icon3, "")
         self.rpm = QtWidgets.QWidget()
         self.rpm.setGeometry(QtCore.QRect(0, 0, 307, 188))
         self.rpm.setObjectName("rpm")
@@ -1619,7 +1564,7 @@ class Ui_WidgetDiskFilter(object):
 "}\n"
 "")
         self.btnResetRpm.setObjectName("btnResetRpm")
-        self.toolBoxDiskFilter.addItem(self.rpm, icon2, "")
+        self.toolBoxDiskFilter.addItem(self.rpm, icon3, "")
 
         self.retranslateUi(WidgetDiskFilter)
         self.toolBoxDiskFilter.layout().setSpacing(6)
@@ -1628,7 +1573,7 @@ class Ui_WidgetDiskFilter(object):
 
     def retranslateUi(self, WidgetDiskFilter):
         _translate = QtCore.QCoreApplication.translate
-        WidgetDiskFilter.setWindowTitle(_translate("WidgetDiskFilter", "Form"))
+        WidgetDiskFilter.setWindowTitle(_translate("WidgetDiskFilter", "Фильтр накопителей"))
         self.btnAccept.setText(_translate("WidgetDiskFilter", "Применить"))
         self.btnClose.setText(_translate("WidgetDiskFilter", "Отмена"))
         self.lbFilter.setText(_translate("WidgetDiskFilter", "Настройка фильтров"))
@@ -1653,13 +1598,14 @@ class Ui_WidgetDiskFilter(object):
         item.setText(_translate("WidgetDiskFilter", "Название"))
         self.btnResetType.setText(_translate("WidgetDiskFilter", "Сбросить"))
         self.toolBoxDiskFilter.setItemText(self.toolBoxDiskFilter.indexOf(self.type), _translate("WidgetDiskFilter", "Тип накопителя"))
+        self.tableVolume.setSortingEnabled(True)
+        item = self.tableVolume.horizontalHeaderItem(0)
+        item.setText(_translate("WidgetDiskFilter", "Выбор"))
+        item = self.tableVolume.horizontalHeaderItem(1)
+        item.setText(_translate("WidgetDiskFilter", "Название"))
         self.btnResetVolume.setText(_translate("WidgetDiskFilter", "Сбросить"))
-        self.lbMinVolume.setText(_translate("WidgetDiskFilter", "мин., Гб:"))
-        self.lbMaxVolume.setText(_translate("WidgetDiskFilter", "макс., Гб:"))
-        self.leMinVolume.setPlaceholderText(_translate("WidgetDiskFilter", "от 0"))
-        self.leMaxVolume.setPlaceholderText(_translate("WidgetDiskFilter", "до 78499"))
         self.toolBoxDiskFilter.setItemText(self.toolBoxDiskFilter.indexOf(self.volume), _translate("WidgetDiskFilter", "Объём [Гб]"))
-        self.btnResetVolume_3.setText(_translate("WidgetDiskFilter", "Сбросить"))
+        self.btnResetRead.setText(_translate("WidgetDiskFilter", "Сбросить"))
         self.lbMinRead.setText(_translate("WidgetDiskFilter", "мин., Мб:"))
         self.lbMaxRead.setText(_translate("WidgetDiskFilter", "макс., Мб:"))
         self.leMinRead.setPlaceholderText(_translate("WidgetDiskFilter", "от 0"))

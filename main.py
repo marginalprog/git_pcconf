@@ -325,8 +325,11 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         self.procSkladFilter = filters.ProcFilter(0, self)
         self.motherSkladFilter = filters.MotherFilter(0, self)
         self.coolSkladFilter = filters.CoolFilter(0, self)
+        self.ramSkladFilter = filters.RamFilter(0, self)
+        self.diskSkladFilter = filters.DiskFilter(0, self)
+        self.powerSkladFilter = filters.PowerFilter(0, self)
+        self.bodySkladFilter = filters.BodyFilter(0, self)
         self.rbSklad.toggled.connect(self.create_sklad_filter)  # Пересоздание экземпляра, если индикатор нажат
-        # .......инициализация других окон фильтрации.......
 
         # =================================================================================================
         self.tableVideoProizv.setColumnWidth(0, 28)
@@ -447,22 +450,45 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         self.fill_all_tabs_conf()
         # -----------------------------------------------------------------------------
 
-        # ---------------------Кнопки с помощью--------------------------------
+        # ----------------------------Кнопки с помощью--------------------------------
         self.vHelp = helping.VideoHelp()
-        self.btnVidHelp.clicked.connect(lambda: self.vHelp.show())
+        self.pHelp = helping.ProcHelp()
+        self.mHelp = helping.MotherHelp()
+        self.cHelp = helping.CoolHelp()
+        self.rHelp = helping.RamHelp()
+        self.dHelp = helping.DiskHelp()
+        self.powHelp = helping.PowerHelp()
+        self.bHelp = helping.BodyHelp()
 
-        # ---------------------------------------------------------------------
+        self.btnVidHelp.clicked.connect(lambda: self.vHelp.show())
+        self.btnProcHelp.clicked.connect(lambda: self.pHelp.show())
+        self.btnMotherHelp.clicked.connect(lambda: self.mHelp.show())
+        self.btnCoolHelp.clicked.connect(lambda: self.cHelp.show())
+        self.btnRamHelp.clicked.connect(lambda: self.rHelp.show())
+        self.btnDiskHelp.clicked.connect(lambda: self.dHelp.show())
+        self.btnPowerHelp.clicked.connect(lambda: self.powHelp.show())
+        self.btnBodyHelp.clicked.connect(lambda: self.bHelp.show())
+
+        # ---------------------------------------------------------------------------
 
         # ---------------------Окна и кнопки с фильтрами------------------------
         self.vidConfFilter = filters.VideoFilter(1, self)  # Создаётся отдельный экземпляр для сохранения внесённых д-х
         self.procConfFilter = filters.ProcFilter(1, self)  # Создаётся отдельный экземпляр для сохранения внесённых д-х
         self.motherConfFilter = filters.MotherFilter(1, self)
         self.coolConfFilter = filters.CoolFilter(1, self)
+        self.ramConfFilter = filters.RamFilter(1, self)
+        self.diskConfFilter = filters.DiskFilter(1, self)
+        self.powerConfFilter = filters.PowerFilter(1, self)
+        self.bodyConfFilter = filters.BodyFilter(1, self)
 
         self.btnVidFilter.clicked.connect(lambda: self.vidConfFilter.show())
         self.btnProcFilter.clicked.connect(lambda: self.procConfFilter.show())
         self.btnMotherFilter.clicked.connect(lambda: self.motherConfFilter.show())
         self.btnCoolFilter.clicked.connect(lambda: self.coolConfFilter.show())
+        self.btnRamFilter.clicked.connect(lambda: self.ramConfFilter.show())
+        self.btnDiskFilter.clicked.connect(lambda: self.diskConfFilter.show())
+        self.btnPowerFilter.clicked.connect(lambda: self.powerConfFilter.show())
+        self.btnBodyFilter.clicked.connect(lambda: self.bodyConfFilter.show())
         self.rbConf.toggled.connect(self.create_conf_filter)  # Пересоздание экземпляра, если индикатор нажат
 
         # ---------------------------------------------------------------------
@@ -762,14 +788,20 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         self.procSkladFilter = filters.ProcFilter(0, self)
         self.motherSkladFilter = filters.MotherFilter(0, self)
         self.coolSkladFilter = filters.CoolFilter(0, self)
-        # self.procSkladFilter = filters.ProcFilter(0, self) и т.д.
+        self.ramSkladFilter = filters.RamFilter(0, self)
+        self.diskSkladFilter = filters.DiskFilter(0, self)
+        self.powerSkladFilter = filters.PowerFilter(0, self)
+        self.bodySkladFilter = filters.BodyFilter(0, self)
 
     def create_conf_filter(self):
         self.vidConfFilter = filters.VideoFilter(1, self)
         self.procConfFilter = filters.ProcFilter(1, self)
-        self.motherSkladFilter = filters.MotherFilter(1, self)
-        self.coolSkladFilter = filters.CoolFilter(1, self)
-        # self.procSkladFilter = filters.ProcFilter(1, self) и т.д.
+        self.motherConfFilter = filters.MotherFilter(1, self)
+        self.coolConfFilter = filters.CoolFilter(1, self)
+        self.ramConfFilter = filters.RamFilter(1, self)
+        self.diskConfFilter = filters.DiskFilter(1, self)
+        self.powerConfFilter = filters.PowerFilter(1, self)
+        self.bodySkladFilter = filters.BodyFilter(1, self)
 
     # Метод загрузки таблицы производителей видеокарт из БД
     def load_proizv_videocard(self):
@@ -2271,23 +2303,37 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
             case 3:
                 self.coolSkladFilter.show()  # Отображение экземпляра класса
             case 4:
-                pass
-                # self.vidSkladFilter.show()  # Отображение экземпляра класса
+                self.ramSkladFilter.show()
             case 5:
-                pass
-                # self.vidSkladFilter.show()  # Отображение экземпляра класса
+                self.diskSkladFilter.show()
             case 6:
-                pass
-                # self.vidSkladFilter.show()  # Отображение экземпляра класса
+                self.powerSkladFilter.show()
             case 7:
-                pass
-                # self.vidSkladFilter.show()  # Отображение экземпляра класса
+                self.bodySkladFilter.show()  # Отображение экземпляра класса
             case 8:
                 pass
-                # self.vidSkladFilter.show()  # Отображение экземпляра класса
 
     def apply_filter_sklad(self, get_query, page):
         print(get_query)
+        bd_column = ""
+        # В зависимости от принятого типа комплектующего задаём ключевой атрибут для фильтрующей вкладки
+        match page:
+            case 0:
+                bd_column = "name"
+            case 1:
+                bd_column = "series"
+            case 2:
+                bd_column = "socket"
+            case 3:
+                bd_column = "type"
+            case 4:
+                bd_column = "type"
+            case 5:
+                bd_column = "type"
+            case 6:
+                bd_column = "formfactor"
+            case 7:
+                bd_column = "name"
         conn = None
         cur = None
         try:
@@ -2299,8 +2345,13 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
             cur = conn.cursor()
             cur.execute(get_query)
             sklad_row = self.save_row(
-                self.tableConfProc)  # !!! Сохраняем строчку в фильтруемых таблицах, если они выделена!!!!
-            self.fill_table_conf(page, cur)  # page = 0-7 - порядковые идентификаторы комплектующих
+                self.tableSklad)  # !!! Сохраняем строчку в фильтруемых таблицах, если они выделена!!!!
+            self.fill_table_sklad(page, cur)  # page = 0-7 - порядковые идентификаторы комплектующих
+            cur.execute(f"select distinct {bd_column} from({get_query}) as s1")
+            list_param = []
+            for name in cur:
+                list_param.append(name[0])
+            self.fill_tabs_configure(list_param, self.tabWidgetSklad)
             self.check_rows(sklad_row, self.tableSklad)
 
         except (Exception, psycopg2.DatabaseError) as error:
@@ -2329,41 +2380,81 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                     video_row = self.save_row(
                         self.tableConfVideo)  # !!! Сохраняем строчку в фильтруемых таблицах, если они выделена!!!!
                     self.fill_table_conf(page, cur)  # page = 0-7 - порядковые идентификаторы комплектующих
+                    cur.execute(f"select distinct name from({get_query}) as s1")
+                    list_name = []
+                    for name in cur:
+                        list_name.append(name[0])
+                    self.fill_tabs_configure(list_name, self.tabWidgetVideo)
                     self.check_rows(video_row, self.tableConfVideo)
                 case 1:
                     proc_row = self.save_row(
                         self.tableConfProc)  # !!! Сохраняем строчку в фильтруемых таблицах, если они выделена!!!!
                     self.fill_table_conf(page, cur)  # page = 0-7 - порядковые идентификаторы комплектующих
+                    cur.execute(f"select distinct series from({get_query}) as s1")
+                    list_series = []
+                    for name in cur:
+                        list_series.append(name[0])
+                    self.fill_tabs_configure(list_series, self.tabWidgetProc)
                     self.check_rows(proc_row, self.tableConfProc)
                 case 2:
                     mother_row = self.save_row(
                         self.tableConfMother)  # !!! Сохраняем строчку в фильтруемых таблицах, если они выделена!!!!
                     self.fill_table_conf(page, cur)  # page = 0-7 - порядковые идентификаторы комплектующих
+                    cur.execute(f"select distinct socket from({get_query}) as s1")
+                    list_socket = []
+                    for name in cur:
+                        list_socket.append(name[0])
+                    self.fill_tabs_configure(list_socket, self.tabWidgetMother)
                     self.check_rows(mother_row, self.tableConfMother)
                 case 3:
                     cool_row = self.save_row(
                         self.tableConfCool)  # !!! Сохраняем строчку в фильтруемых таблицах, если они выделена!!!!
                     self.fill_table_conf(page, cur)  # page = 0-7 - порядковые идентификаторы комплектующих
+                    cur.execute(f"select distinct type from({get_query}) as s1")
+                    list_type = []
+                    for name in cur:
+                        list_type.append(name[0])
+                    self.fill_tabs_configure(list_type, self.tabWidgetCool)
                     self.check_rows(cool_row, self.tableConfCool)
                 case 4:
                     ram_row = self.save_row(
                         self.tableConfRam)  # !!! Сохраняем строчку в фильтруемых таблицах, если они выделена!!!!
                     self.fill_table_conf(page, cur)  # page = 0-7 - порядковые идентификаторы комплектующих
+                    cur.execute(f"select distinct type from({get_query}) as s1")
+                    list_type = []
+                    for name in cur:
+                        list_type.append(name[0])
+                    self.fill_tabs_configure(list_type, self.tabWidgetRam)
                     self.check_rows(ram_row, self.tableConfRam)
                 case 5:
                     disk_row = self.save_row(
                         self.tableConfDisk)  # !!! Сохраняем строчку в фильтруемых таблицах, если они выделена!!!!
                     self.fill_table_conf(page, cur)  # page = 0-7 - порядковые идентификаторы комплектующих
+                    cur.execute(f"select distinct type from({get_query}) as s1")
+                    list_type = []
+                    for name in cur:
+                        list_type.append(name[0])
+                    self.fill_tabs_configure(list_type, self.tabWidgetDisk)
                     self.check_rows(disk_row, self.tableConfDisk)
                 case 6:
                     power_row = self.save_row(
                         self.tableConfPower)  # !!! Сохраняем строчку в фильтруемых таблицах, если они выделена!!!!
                     self.fill_table_conf(page, cur)  # page = 0-7 - порядковые идентификаторы комплектующих
+                    cur.execute(f"select distinct formfactor from({get_query}) as s1")
+                    list_ff = []
+                    for name in cur:
+                        list_ff.append(name[0])
+                    self.fill_tabs_configure(list_ff, self.tabWidgetPower)
                     self.check_rows(power_row, self.tableConfPower)
                 case 7:
                     body_row = self.save_row(
                         self.tableConfBody)  # !!! Сохраняем строчку в фильтруемых таблицах, если они выделена!!!!
                     self.fill_table_conf(page, cur)  # page = 0-7 - порядковые идентификаторы комплектующих
+                    cur.execute(f"select distinct name from({get_query}) as s1")
+                    list_proizv = []
+                    for name in cur:
+                        list_proizv.append(name[0])
+                    self.fill_tabs_configure(list_proizv, self.tabWidgetBody)
                     self.check_rows(body_row, self.tableConfBody)
 
         except (Exception, psycopg2.DatabaseError) as error:
@@ -3532,19 +3623,19 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
 
         if self.tableConfMother.objectName() in self.dict_current:
             mother_row = self.dict_current[self.tableConfMother.objectName()]
-            query += f"AND interface = '{mother_row[4]}' "
+            query += f" AND interface = '{mother_row[4]}' "
         if self.tableConfPower.objectName() in self.dict_current:
             power_row = self.dict_current[self.tableConfPower.objectName()]
             sum_video_connector = int(power_row[9]) * int(power_row[10])  # Коннекторы видеокарты
-            query += f"AND connvideo*kolconnvideo <= '{sum_video_connector}' "
+            query += f" AND connvideo*kolconnvideo <= '{sum_video_connector}' "
         if self.tableConfBody.objectName() in self.dict_current:
             body_row = self.dict_current[self.tableConfBody.objectName()]
-            query += f"AND length <= '{body_row[4]}' "
+            query += f" AND length <= '{body_row[4]}' "
 
         if self.rbConf.isChecked():
-            query += "AND exist = TRUE "
+            query += " AND videocard.exist = True"
 
-        query += "ORDER BY exist DESC "
+        query += " ORDER BY videocard.exist DESC "
         return query
 
     def configure_proc(self):
@@ -3556,20 +3647,20 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
 
         if self.tableConfMother.objectName() in self.dict_current:
             mother_row = self.dict_current[self.tableConfMother.objectName()]
-            query += f"AND socket like '%' || '{mother_row[1]}' || '%'  "
+            query += f" AND socket like '%' || '{mother_row[1]}' || '%'  "
         if self.tableConfCool.objectName() in self.dict_current:
             cool_row = self.dict_current[self.tableConfCool.objectName()]
-            query += f"AND '{cool_row[3]}' like concat('%', socket, '%') " \
-                     f"AND tdp*100/{cool_row[6]} >= 65 " \
-                     f"AND tdp*100/{cool_row[6]} <= 90 "
+            query += f" AND '{cool_row[3]}' like concat('%', socket, '%') " \
+                     f" AND tdp*100/{cool_row[6]} >= 65 " \
+                     f" AND tdp*100/{cool_row[6]} <= 90 "
         if self.tableConfRam.objectName() in self.dict_current:
             ram_row = self.dict_current[self.tableConfRam.objectName()]
-            query += f"AND ramfreq >= '{ram_row[3]}' "
+            query += f" AND ramfreq >= '{ram_row[3]}' "
 
         if self.rbConf.isChecked():
-            query += "AND exist = TRUE "
+            query += " AND processor.exist = True "
 
-        query += "ORDER BY exist DESC "
+        query += " ORDER BY processor.exist DESC "
         return query
 
     def configure_mother(self):
@@ -3584,31 +3675,31 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         # проверка влияющих на мат. плату таблиц для конкатенации запроса
         if self.tableConfVideo.objectName() in self.dict_current:
             vid_row = self.dict_current[self.tableConfVideo.objectName()]
-            query += f"AND pcie = '{vid_row[7]}' "
+            query += f" AND pcie = '{vid_row[7]}' "
         if self.tableConfProc.objectName() in self.dict_current:
             proc_row = self.dict_current[self.tableConfProc.objectName()]
-            query += f"AND socket = '{proc_row[1]}' "
+            query += f" AND socket = '{proc_row[1]}' "
         if self.tableConfCool.objectName() in self.dict_current:
             cool_row = self.dict_current[self.tableConfCool.objectName()]
-            query += f"AND '{cool_row[3]}' like concat('%', socket, '%') " \
-                     f"AND conncool >= '{cool_row[8]}' "
+            query += f" AND '{cool_row[3]}' like concat('%', socket, '%') " \
+                     f" AND conncool >= '{cool_row[8]}' "
         if self.tableConfRam.objectName() in self.dict_current:
             ram_row = self.dict_current[self.tableConfRam.objectName()]
-            query += f"AND memorytype = '{ram_row[1]}' " \
-                     f"AND memorymax >= {ram_row[2]} " \
-                     f"AND memoryfreqmax >= {ram_row[3]} "
+            query += f" AND memorytype = '{ram_row[1]}' " \
+                     f" AND memorymax >= {ram_row[2]} " \
+                     f" AND memoryfreqmax >= {ram_row[3]} "
         if self.tableConfPower.objectName() in self.dict_current:
             power_row = self.dict_current[self.tableConfPower.objectName()]
             sum_proc_connector = int(power_row[7]) * int(power_row[8])  # Коннекторы процессора
-            query += f"AND connproc*kolconnproc <= '{sum_proc_connector}' "
+            query += f" AND connproc*kolconnproc <= '{sum_proc_connector}' "
         if self.tableConfBody.objectName() in self.dict_current:
             body_row = self.dict_current[self.tableConfBody.objectName()]
-            query += f"AND '{body_row[2]}' like concat('%', formfactor, '%') "
+            query += f" AND '{body_row[2]}' like concat('%', formfactor, '%') "
 
         if self.rbConf.isChecked():
-            query += "AND exist = TRUE "
+            query += " AND motherboard.exist = True "
 
-        query += "ORDER BY exist DESC "
+        query += " ORDER BY exist DESC "
         return query
 
     def configure_cool(self):
@@ -3620,21 +3711,21 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
 
         if self.tableConfProc.objectName() in self.dict_current:
             proc_row = self.dict_current[self.tableConfProc.objectName()]
-            query += f"AND socket like '%' || '{proc_row[1]}' || '%' " \
-                     f"AND {proc_row[6]}*100/disperse >= 65 " \
-                     f"AND {proc_row[6]}*100/disperse <= 89 "
+            query += f" AND socket like '%' || '{proc_row[1]}' || '%' " \
+                     f" AND {proc_row[6]}*100/disperse >= 65 " \
+                     f" AND {proc_row[6]}*100/disperse <= 89 "
         if self.tableConfMother.objectName() in self.dict_current:
             mother_row = self.dict_current[self.tableConfMother.objectName()]
-            query += f"AND socket like '%' || '{mother_row[1]}' || '%' " \
-                     f"AND conncool >= '{mother_row[11]}' "
+            query += f" AND socket like '%' || '{mother_row[1]}' || '%' " \
+                     f" AND conncool >= '{mother_row[11]}' "
         if self.tableConfBody.objectName() in self.dict_current:
             body_row = self.dict_current[self.tableConfBody.objectName()]
-            query += f"AND height <= '{body_row[5]}' "
+            query += f" AND height <= '{body_row[5]}' "
 
         if self.rbConf.isChecked():
-            query += "AND exist = TRUE "
+            query += " AND cool.exist = TRUE "
 
-        query += "ORDER BY exist DESC "
+        query += " ORDER BY cool.exist DESC "
         return query
 
     def configure_ram(self):
@@ -3646,17 +3737,17 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
 
         if self.tableConfProc.objectName() in self.dict_current:
             proc_row = self.dict_current[self.tableConfProc.objectName()]
-            query += f"AND frequency <= '{proc_row[5]}' "
+            query += f" AND frequency <= '{proc_row[5]}' "
         if self.tableConfMother.objectName() in self.dict_current:
             mother_row = self.dict_current[self.tableConfMother.objectName()]
-            query += f"AND type = '{mother_row[5]}' " \
-                     f"AND volume <= '{mother_row[7]}' " \
-                     f"AND frequency <= '{mother_row[8]}' "
+            query += f" AND type = '{mother_row[5]}' " \
+                     f" AND volume <= '{mother_row[7]}' " \
+                     f" AND frequency <= '{mother_row[8]}' "
 
         if self.rbConf.isChecked():
-            query += "AND exist = TRUE "
+            query += "AND ram.exist = TRUE "
 
-        query += "ORDER BY exist DESC "
+        query += " ORDER BY ram.exist DESC "
         return query
 
     def configure_power(self):
@@ -3671,25 +3762,25 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
 
         if self.tableConfVideo.objectName() in self.dict_current:
             vid_row = self.dict_current[self.tableConfVideo.objectName()]
-            query += f"AND connvideo*kolconnvideo >= {int(vid_row[11]) * int(vid_row[12])} "
+            query += f" AND connvideo*kolconnvideo >= {int(vid_row[11]) * int(vid_row[12])} "
         if self.tableConfMother.objectName() in self.dict_current:
             mother_row = self.dict_current[self.tableConfMother.objectName()]
-            query += f"AND connproc*kolconnproc >= {int(mother_row[12]) * int(mother_row[13])} "
+            query += f" AND connproc*kolconnproc >= {int(mother_row[12]) * int(mother_row[13])} "
         if self.tableConfBody.objectName() in self.dict_current:
             # sum_video_connector = int(saved_row[9]) * int(saved_row[10])  # Коннекторы видеокарты
             body_row = self.dict_current[self.tableConfBody.objectName()]
-            query += f"AND formfactor = '{body_row[3]}' " \
-                     f"AND length <= '{body_row[6]}' "
+            query += f" AND formfactor = '{body_row[3]}' " \
+                     f" AND length <= '{body_row[6]}' "
 
         if len(self.dict_power_vid_proc_cool) == 3:  # Если выбрано  3 элемента, то добавляем доп.
             # параметры в запрос-конфигуратор (поиск по оптимальной мощности)
-            query += f"AND {power_sum}*100/power >= 50 " \
-                     f"AND {power_sum}*100/power <= 80 "
+            query += f" AND {power_sum}*100/power >= 50 " \
+                     f" AND {power_sum}*100/power <= 80 "
 
         if self.rbConf.isChecked():
-            query += "AND exist = TRUE "
+            query += " AND power.exist = TRUE "
 
-        query += "ORDER BY exist DESC "
+        query += " ORDER BY power.exist DESC "
         return query
 
     def configure_body(self):
@@ -3701,22 +3792,22 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
 
         if self.tableConfVideo.objectName() in self.dict_current:
             vid_row = self.dict_current[self.tableConfVideo.objectName()]
-            query += f"AND lengthvideo >= '{vid_row[10]}' "
+            query += f" AND lengthvideo >= '{vid_row[10]}' "
         if self.tableConfMother.objectName() in self.dict_current:
             mother_row = self.dict_current[self.tableConfMother.objectName()]
-            query += f"AND ffmother like '%' || '{mother_row[3]}' || '%'  "
+            query += f" AND ffmother like '%' || '{mother_row[3]}' || '%'  "
         if self.tableConfCool.objectName() in self.dict_current:
             cool_row = self.dict_current[self.tableConfCool.objectName()]
-            query += f"AND heightcool >= '{cool_row[5]}' "
+            query += f" AND heightcool >= '{cool_row[5]}' "
         if self.tableConfPower.objectName() in self.dict_current:
             power_row = self.dict_current[self.tableConfPower.objectName()]
-            query += f"AND ffpower like '%' || '{power_row[1]}' || '%' " \
-                     f"AND lengthpower >= '{power_row[2]}' "
+            query += f" AND ffpower like '%' || '{power_row[1]}' || '%' " \
+                     f" AND lengthpower >= '{power_row[2]}' "
 
         if self.rbConf.isChecked():
-            query += "AND exist = TRUE "
+            query += "AND body.exist = TRUE "
 
-        query += "ORDER BY exist DESC "
+        query += " ORDER BY body.exist DESC "
         return query
 
     def configure(self, table):

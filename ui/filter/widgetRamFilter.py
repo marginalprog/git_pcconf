@@ -15,6 +15,9 @@ class Ui_WidgetRamFilter(object):
     def setupUi(self, WidgetRamFilter):
         WidgetRamFilter.setObjectName("WidgetRamFilter")
         WidgetRamFilter.resize(373, 651)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/filters.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        WidgetRamFilter.setWindowIcon(icon)
         WidgetRamFilter.setStyleSheet("QWidget\n"
 "{\n"
 "    background-color: rgb(30,30,30);\n"
@@ -330,16 +333,16 @@ class Ui_WidgetRamFilter(object):
 "    border-bottom: 1px solid  red;\n"
 "}")
         self.leMaxPrice.setObjectName("leMaxPrice")
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Active, QtGui.QIcon.Off)
-        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Selected, QtGui.QIcon.Off)
-        icon.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
-        self.toolBoxRamFilter.addItem(self.price, icon, "")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Active, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Selected, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
+        self.toolBoxRamFilter.addItem(self.price, icon1, "")
         self.proizvoditel = QtWidgets.QWidget()
-        self.proizvoditel.setGeometry(QtCore.QRect(0, 0, 307, 191))
+        self.proizvoditel.setGeometry(QtCore.QRect(0, 0, 98, 28))
         self.proizvoditel.setObjectName("proizvoditel")
         self.frameProizv = QtWidgets.QFrame(self.proizvoditel)
         self.frameProizv.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -510,12 +513,12 @@ class Ui_WidgetRamFilter(object):
 "}\n"
 "")
         self.btnResetProizv.setObjectName("btnResetProizv")
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/up-arrow.png"), QtGui.QIcon.Active, QtGui.QIcon.Off)
-        self.toolBoxRamFilter.addItem(self.proizvoditel, icon1, "")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/up-arrow.png"), QtGui.QIcon.Active, QtGui.QIcon.Off)
+        self.toolBoxRamFilter.addItem(self.proizvoditel, icon2, "")
         self.type = QtWidgets.QWidget()
-        self.type.setGeometry(QtCore.QRect(0, 0, 307, 191))
+        self.type.setGeometry(QtCore.QRect(0, 0, 98, 28))
         self.type.setObjectName("type")
         self.frameType = QtWidgets.QFrame(self.type)
         self.frameType.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -686,11 +689,11 @@ class Ui_WidgetRamFilter(object):
 "}\n"
 "")
         self.btnResetType.setObjectName("btnResetType")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.toolBoxRamFilter.addItem(self.type, icon2, "")
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.toolBoxRamFilter.addItem(self.type, icon3, "")
         self.gaming = QtWidgets.QWidget()
-        self.gaming.setGeometry(QtCore.QRect(0, 0, 307, 191))
+        self.gaming.setGeometry(QtCore.QRect(0, 0, 98, 28))
         self.gaming.setObjectName("gaming")
         self.frameGaming = QtWidgets.QFrame(self.gaming)
         self.frameGaming.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -862,9 +865,9 @@ class Ui_WidgetRamFilter(object):
 "}\n"
 "")
         self.btnResetGaming.setObjectName("btnResetGaming")
-        self.toolBoxRamFilter.addItem(self.gaming, icon2, "")
+        self.toolBoxRamFilter.addItem(self.gaming, icon3, "")
         self.volume = QtWidgets.QWidget()
-        self.volume.setGeometry(QtCore.QRect(0, 0, 307, 191))
+        self.volume.setGeometry(QtCore.QRect(0, 0, 98, 28))
         self.volume.setObjectName("volume")
         self.frameVolume = QtWidgets.QFrame(self.volume)
         self.frameVolume.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -1065,9 +1068,9 @@ class Ui_WidgetRamFilter(object):
 "}\n"
 "")
         self.btnResetVolume.setObjectName("btnResetVolume")
-        self.toolBoxRamFilter.addItem(self.volume, icon2, "")
+        self.toolBoxRamFilter.addItem(self.volume, icon3, "")
         self.frequency = QtWidgets.QWidget()
-        self.frequency.setGeometry(QtCore.QRect(0, 0, 307, 191))
+        self.frequency.setGeometry(QtCore.QRect(0, 0, 98, 28))
         self.frequency.setObjectName("frequency")
         self.frameFreq = QtWidgets.QFrame(self.frequency)
         self.frameFreq.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -1268,9 +1271,9 @@ class Ui_WidgetRamFilter(object):
 "}\n"
 "")
         self.btnResetFreq.setObjectName("btnResetFreq")
-        self.toolBoxRamFilter.addItem(self.frequency, icon2, "")
+        self.toolBoxRamFilter.addItem(self.frequency, icon3, "")
         self.module = QtWidgets.QWidget()
-        self.module.setGeometry(QtCore.QRect(0, 0, 307, 191))
+        self.module.setGeometry(QtCore.QRect(0, 0, 98, 28))
         self.module.setObjectName("module")
         self.frameModule = QtWidgets.QFrame(self.module)
         self.frameModule.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -1471,9 +1474,9 @@ class Ui_WidgetRamFilter(object):
 "}\n"
 "")
         self.btnResetModule.setObjectName("btnResetModule")
-        self.toolBoxRamFilter.addItem(self.module, icon2, "")
+        self.toolBoxRamFilter.addItem(self.module, icon3, "")
         self.latency = QtWidgets.QWidget()
-        self.latency.setGeometry(QtCore.QRect(0, 0, 307, 191))
+        self.latency.setGeometry(QtCore.QRect(0, 0, 98, 28))
         self.latency.setObjectName("latency")
         self.frameLatency = QtWidgets.QFrame(self.latency)
         self.frameLatency.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -1653,13 +1656,13 @@ class Ui_WidgetRamFilter(object):
         self.tableLatency.verticalHeader().setVisible(False)
         self.tableLatency.verticalHeader().setCascadingSectionResizes(False)
         self.tableLatency.verticalHeader().setMinimumSectionSize(10)
-        self.btnReseLatency = QtWidgets.QPushButton(self.frameLatency)
-        self.btnReseLatency.setGeometry(QtCore.QRect(220, 160, 61, 21))
+        self.btnResetLatency = QtWidgets.QPushButton(self.frameLatency)
+        self.btnResetLatency.setGeometry(QtCore.QRect(220, 160, 61, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(9)
-        self.btnReseLatency.setFont(font)
-        self.btnReseLatency.setStyleSheet("QPushButton\n"
+        self.btnResetLatency.setFont(font)
+        self.btnResetLatency.setStyleSheet("QPushButton\n"
 "{\n"
 "background-color: rgb(10, 10, 10);\n"
 "color:  rgb(200,200, 200);\n"
@@ -1673,8 +1676,8 @@ class Ui_WidgetRamFilter(object):
 "border-bottom: 1px dotted red;\n"
 "}\n"
 "")
-        self.btnReseLatency.setObjectName("btnReseLatency")
-        self.toolBoxRamFilter.addItem(self.latency, icon2, "")
+        self.btnResetLatency.setObjectName("btnResetLatency")
+        self.toolBoxRamFilter.addItem(self.latency, icon3, "")
         self.line = QtWidgets.QFrame(WidgetRamFilter)
         self.line.setGeometry(QtCore.QRect(40, 70, 181, 20))
         self.line.setStyleSheet("border:0px;\n"
@@ -1748,7 +1751,7 @@ class Ui_WidgetRamFilter(object):
 
     def retranslateUi(self, WidgetRamFilter):
         _translate = QtCore.QCoreApplication.translate
-        WidgetRamFilter.setWindowTitle(_translate("WidgetRamFilter", "Form"))
+        WidgetRamFilter.setWindowTitle(_translate("WidgetRamFilter", "Фильтр ОЗУ"))
         self.btnResetAll.setText(_translate("WidgetRamFilter", "Сбросить всё"))
         self.btnResetPrice.setText(_translate("WidgetRamFilter", "Сбросить"))
         self.lbMinPrice.setText(_translate("WidgetRamFilter", "мин., ₽:"))
@@ -1803,7 +1806,7 @@ class Ui_WidgetRamFilter(object):
         item.setText(_translate("WidgetRamFilter", "Выбор"))
         item = self.tableLatency.horizontalHeaderItem(1)
         item.setText(_translate("WidgetRamFilter", "Название"))
-        self.btnReseLatency.setText(_translate("WidgetRamFilter", "Сбросить"))
+        self.btnResetLatency.setText(_translate("WidgetRamFilter", "Сбросить"))
         self.toolBoxRamFilter.setItemText(self.toolBoxRamFilter.indexOf(self.latency), _translate("WidgetRamFilter", "CAS-Latency"))
         self.lbFilter.setText(_translate("WidgetRamFilter", "Настройка фильтров"))
         self.btnClose.setText(_translate("WidgetRamFilter", "Отмена"))
