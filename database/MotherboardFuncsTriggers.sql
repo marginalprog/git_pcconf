@@ -139,6 +139,193 @@ RETURNS TABLE(
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
+--++++++++++++++++++
+CREATE OR REPLACE FUNCTION get_having_motherboard_by_socket(socket_in VARCHAR)
+RETURNS TABLE(
+	kol INT, 
+	motherboard_exist BOOL,
+	motherboard_id INT,   
+	proizv_name VARCHAR, 
+	fullname VARCHAR,
+	gaming VARCHAR,
+	socket VARCHAR, 
+	chipset VARCHAR, 
+	formfactor VARCHAR,
+	pcie VARCHAR,
+	memorytype VARCHAR, 
+	memoryslot INT, 
+	memorymax INT, 
+	memoryfreqmax INT,
+	m2 INT,
+	sata INT, 
+	conncool INT,
+	connproc INT,
+	kolconnproc INT,
+	price INT
+) AS $$
+	SELECT sklad_motherboard.kol, motherboard.exist, motherboard.id, proizv_motherboard.name,
+			fullname, gaming, socket, chipset, formfactor, pcie, 
+			memorytype, memoryslot, memorymax, memoryfreqmax,
+			m2, sata, conncool, connproc, kolconnproc, price
+	FROM motherboard, sklad_motherboard, proizv_motherboard
+	WHERE motherboard.id = sklad_motherboard.id_izd AND motherboard.id_proizv = proizv_motherboard.id AND socket = socket_in
+	AND motherboard.exist = True
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+--ЗАКАЗЫ
+-------------------------------222222
+CREATE OR REPLACE FUNCTION get_having_order_motherboard()
+RETURNS TABLE(
+	kol INT, 
+	motherboard_exist BOOL,
+	motherboard_id INT,
+	motherboard_date DATE,
+	motherboard_order_kol INT,
+	proizv_name VARCHAR, 
+	fullname VARCHAR,
+	gaming VARCHAR,
+	socket VARCHAR, 
+	chipset VARCHAR, 
+	formfactor VARCHAR,
+	pcie VARCHAR,
+	memorytype VARCHAR, 
+	memoryslot INT, 
+	memorymax INT, 
+	memoryfreqmax INT,
+	m2 INT,
+	sata INT, 
+	conncool INT,
+	connproc INT,
+	kolconnproc INT,
+	price INT
+) AS $$
+	SELECT sklad_motherboard.kol, motherboard.exist, motherboard.id, 
+			order_motherboard.date, order_motherboard.kol, proizv_motherboard.name,
+			fullname, gaming, socket, chipset, formfactor, pcie, 
+			memorytype, memoryslot, memorymax, memoryfreqmax,
+			m2, sata, conncool, connproc, kolconnproc, price
+	FROM motherboard, sklad_motherboard, proizv_motherboard, order_motherboard
+	WHERE motherboard.id = sklad_motherboard.id_izd AND motherboard.id_proizv = proizv_motherboard.id 
+	AND order_motherboard.id_izd = motherboard.id
+	AND motherboard.exist = True
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+-------------------------------3333333
+CREATE OR REPLACE FUNCTION get_all_order_motherboard()
+RETURNS TABLE(
+	kol INT, 
+	motherboard_exist BOOL,
+	motherboard_id INT,
+	motherboard_date DATE,
+	motherboard_order_kol INT,
+	proizv_name VARCHAR, 
+	fullname VARCHAR,
+	gaming VARCHAR,
+	socket VARCHAR, 
+	chipset VARCHAR, 
+	formfactor VARCHAR,
+	pcie VARCHAR,
+	memorytype VARCHAR, 
+	memoryslot INT, 
+	memorymax INT, 
+	memoryfreqmax INT,
+	m2 INT,
+	sata INT, 
+	conncool INT,
+	connproc INT,
+	kolconnproc INT,
+	price INT
+) AS $$
+	SELECT sklad_motherboard.kol, motherboard.exist, motherboard.id, 
+			order_motherboard.date, order_motherboard.kol, proizv_motherboard.name,
+			fullname, gaming, socket, chipset, formfactor, pcie, 
+			memorytype, memoryslot, memorymax, memoryfreqmax,
+			m2, sata, conncool, connproc, kolconnproc, price
+	FROM motherboard, sklad_motherboard, proizv_motherboard, order_motherboard
+	WHERE motherboard.id = sklad_motherboard.id_izd AND motherboard.id_proizv = proizv_motherboard.id 
+	AND order_motherboard.id_izd = motherboard.id
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+-------------------------------44444
+-- Функция для фильтрации мат плат по сокету
+CREATE OR REPLACE FUNCTION get_order_motherboard_by_socket(socket_in VARCHAR)
+RETURNS TABLE(
+	kol INT, 
+	motherboard_exist BOOL,
+	motherboard_id INT,
+	motherboard_date DATE,
+	motherboard_order_kol INT,
+	proizv_name VARCHAR, 
+	fullname VARCHAR,
+	gaming VARCHAR,
+	socket VARCHAR, 
+	chipset VARCHAR, 
+	formfactor VARCHAR,
+	pcie VARCHAR,
+	memorytype VARCHAR, 
+	memoryslot INT, 
+	memorymax INT, 
+	memoryfreqmax INT,
+	m2 INT,
+	sata INT, 
+	conncool INT,
+	connproc INT,
+	kolconnproc INT,
+	price INT
+) AS $$
+	SELECT sklad_motherboard.kol, motherboard.exist, motherboard.id, 
+			order_motherboard.date, order_motherboard.kol, proizv_motherboard.name,
+			fullname, gaming, socket, chipset, formfactor, pcie, 
+			memorytype, memoryslot, memorymax, memoryfreqmax,
+			m2, sata, conncool, connproc, kolconnproc, price
+	FROM motherboard, sklad_motherboard, proizv_motherboard, order_motherboard
+	WHERE motherboard.id = sklad_motherboard.id_izd AND motherboard.id_proizv = proizv_motherboard.id 
+	AND order_motherboard.id_izd = motherboard.id
+	AND socket = socket_in
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+-------------------------------5555
+CREATE OR REPLACE FUNCTION get_having_order_motherboard_by_socket(socket_in VARCHAR)
+RETURNS TABLE(
+	kol INT, 
+	motherboard_exist BOOL,
+	motherboard_id INT,
+	motherboard_date DATE,
+	motherboard_order_kol INT,
+	proizv_name VARCHAR, 
+	fullname VARCHAR,
+	gaming VARCHAR,
+	socket VARCHAR, 
+	chipset VARCHAR, 
+	formfactor VARCHAR,
+	pcie VARCHAR,
+	memorytype VARCHAR, 
+	memoryslot INT, 
+	memorymax INT, 
+	memoryfreqmax INT,
+	m2 INT,
+	sata INT, 
+	conncool INT,
+	connproc INT,
+	kolconnproc INT,
+	price INT
+) AS $$
+	SELECT sklad_motherboard.kol, motherboard.exist, motherboard.id, 
+			order_motherboard.date, order_motherboard.kol, proizv_motherboard.name,
+			fullname, gaming, socket, chipset, formfactor, pcie, 
+			memorytype, memoryslot, memorymax, memoryfreqmax,
+			m2, sata, conncool, connproc, kolconnproc, price
+	FROM motherboard, sklad_motherboard, proizv_motherboard, order_motherboard
+	WHERE motherboard.id = sklad_motherboard.id_izd AND motherboard.id_proizv = proizv_motherboard.id 
+	AND order_motherboard.id_izd = motherboard.id
+	AND socket = socket_in
+	AND motherboard.exist = True
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
 
 -- Функция вывода всех сокеты, что есть в базе материнских плат (для заполнения фильтрующих вкладок tabwidget)
 CREATE OR REPLACE FUNCTION get_inbase_mothersocket()

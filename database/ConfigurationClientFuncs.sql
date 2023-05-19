@@ -23,14 +23,16 @@ CREATE OR REPLACE FUNCTION create_configuration(
 	INT,
 	INT,
 	INT, -- id корпуса
+	INT, -- сумма сборки
 	DATE) -- дата заказа
 	RETURNS void AS $$
 BEGIN
-	INSERT INTO configuration(client_id, videocard_id, proc_id, motherboard_id,
-	cool_id, ram_id, disk_id, power_id, body_id, registration)
-	VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);
+	INSERT INTO configuration(client_id, videocard_id, processor_id, motherboard_id,
+	cool_id, ram_id, disk_id, power_id, body_id, price, date_create)
+	VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11);
 END;
 $$ LANGUAGE plpgsql;
+
 
 
 select create_client('admin@confpc.ru', 'qwerty', 'admin', '81231231212','01.01.2023')

@@ -114,6 +114,161 @@ RETURNS TABLE(
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
+--++++++++++++++++++
+CREATE OR REPLACE FUNCTION get_having_body_by_name(name_pr VARCHAR)
+RETURNS TABLE(
+	kol INT, 
+	body_exist BOOL,
+	body_Id INT,   
+	proizv_name VARCHAR, 
+	fullname VARCHAR,
+	gaming VARCHAR,
+	type VARCHAR,
+	ffmother VARCHAR,
+	ffpower VARCHAR,
+	lengthvideo INT,
+	heightcool INT,
+	lengthpower INT,
+	weight DECIMAL,
+	color VARCHAR,
+	price INT
+) AS $$
+	SELECT sklad_body.kol, body.exist, body.id, proizv_body.name, 
+			fullname, gaming, type, ffmother, ffpower,
+			lengthvideo, heightcool, lengthpower, weight, color, price
+	FROM body, sklad_body, proizv_body
+	WHERE body.id = sklad_body.id_izd AND body.id_proizv = proizv_body.id 
+	AND name = name_pr
+	AND body.exist = True
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+--ЗАКАЗЫ
+-------------------------------222222
+CREATE OR REPLACE FUNCTION get_having_order_body()
+RETURNS TABLE(
+	kol INT, 
+	body_exist BOOL,
+	body_Id INT,
+	body_date DATE,
+	body_order_kol INT,	
+	proizv_name VARCHAR, 
+	fullname VARCHAR,
+	gaming VARCHAR,
+	type VARCHAR,
+	ffmother VARCHAR,
+	ffpower VARCHAR,
+	lengthvideo INT,
+	heightcool INT,
+	lengthpower INT,
+	weight DECIMAL,
+	color VARCHAR,
+	price INT
+) AS $$
+	SELECT sklad_body.kol, body.exist, body.id, order_body.date, order_body.kol,
+			proizv_body.name, fullname, gaming, type, ffmother, ffpower,
+			lengthvideo, heightcool, lengthpower, weight, color, price
+	FROM body, sklad_body, proizv_body, order_body
+	WHERE body.id = sklad_body.id_izd AND body.id_proizv = proizv_body.id 
+	AND order_body.id_izd = body.id
+	AND body.exist = True
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+-------------------------------3333333
+CREATE OR REPLACE FUNCTION get_all_order_body()
+RETURNS TABLE(
+	kol INT, 
+	body_exist BOOL,
+	body_Id INT,
+	body_date DATE,
+	body_order_kol INT,	
+	proizv_name VARCHAR, 
+	fullname VARCHAR,
+	gaming VARCHAR,
+	type VARCHAR,
+	ffmother VARCHAR,
+	ffpower VARCHAR,
+	lengthvideo INT,
+	heightcool INT,
+	lengthpower INT,
+	weight DECIMAL,
+	color VARCHAR,
+	price INT
+) AS $$
+	SELECT sklad_body.kol, body.exist, body.id, order_body.date, order_body.kol,
+			proizv_body.name, fullname, gaming, type, ffmother, ffpower,
+			lengthvideo, heightcool, lengthpower, weight, color, price
+	FROM body, sklad_body, proizv_body, order_body
+	WHERE body.id = sklad_body.id_izd AND body.id_proizv = proizv_body.id 
+	AND order_body.id_izd = body.id
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+-------------------------------44444
+-- Функция для фильтрации корпуса по производителю
+CREATE OR REPLACE FUNCTION get_order_body_by_name(name_pr VARCHAR)
+RETURNS TABLE(
+	kol INT, 
+	body_exist BOOL,
+	body_Id INT,
+	body_date DATE,
+	body_order_kol INT,	
+	proizv_name VARCHAR, 
+	fullname VARCHAR,
+	gaming VARCHAR,
+	type VARCHAR,
+	ffmother VARCHAR,
+	ffpower VARCHAR,
+	lengthvideo INT,
+	heightcool INT,
+	lengthpower INT,
+	weight DECIMAL,
+	color VARCHAR,
+	price INT
+) AS $$
+	SELECT sklad_body.kol, body.exist, body.id, order_body.date, order_body.kol,
+			proizv_body.name, fullname, gaming, type, ffmother, ffpower,
+			lengthvideo, heightcool, lengthpower, weight, color, price
+	FROM body, sklad_body, proizv_body, order_body
+	WHERE body.id = sklad_body.id_izd AND body.id_proizv = proizv_body.id
+	AND order_body.id_izd = body.id
+	AND name = name_pr
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+-------------------------------5555
+CREATE OR REPLACE FUNCTION get_having_order_body_by_name(name_pr VARCHAR)
+RETURNS TABLE(
+	kol INT, 
+	body_exist BOOL,
+	body_Id INT,
+	body_date DATE,
+	body_order_kol INT,	
+	proizv_name VARCHAR, 
+	fullname VARCHAR,
+	gaming VARCHAR,
+	type VARCHAR,
+	ffmother VARCHAR,
+	ffpower VARCHAR,
+	lengthvideo INT,
+	heightcool INT,
+	lengthpower INT,
+	weight DECIMAL,
+	color VARCHAR,
+	price INT
+) AS $$
+	SELECT sklad_body.kol, body.exist, body.id, order_body.date, order_body.kol,
+			proizv_body.name, fullname, gaming, type, ffmother, ffpower,
+			lengthvideo, heightcool, lengthpower, weight, color, price
+	FROM body, sklad_body, proizv_body, order_body
+	WHERE body.id = sklad_body.id_izd AND body.id_proizv = proizv_body.id
+	AND order_body.id_izd = body.id
+	AND name = name_pr
+	AND body.exist = True
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
 
 -- Функция вывода всех производителей, чьи корпуса есть в базе (для заполнения фильтрующих вкладок tabwidget)
 CREATE OR REPLACE FUNCTION get_inbase_bodyproizv()

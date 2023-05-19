@@ -2084,7 +2084,7 @@ class Ui_MainWindow(object):
         self.tableSklad.verticalHeader().setMinimumSectionSize(10)
         self.tabWidgetSklad = QtWidgets.QTabWidget(self.frameVideo_2)
         self.tabWidgetSklad.setEnabled(True)
-        self.tabWidgetSklad.setGeometry(QtCore.QRect(10, 0, 981, 31))
+        self.tabWidgetSklad.setGeometry(QtCore.QRect(10, 0, 851, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(9)
@@ -2127,7 +2127,7 @@ class Ui_MainWindow(object):
         self.all_2.setObjectName("all_2")
         self.tabWidgetSklad.addTab(self.all_2, "")
         self.btnSkladFilter = QtWidgets.QPushButton(self.sklad)
-        self.btnSkladFilter.setGeometry(QtCore.QRect(1220, 31, 131, 20))
+        self.btnSkladFilter.setGeometry(QtCore.QRect(1250, 31, 131, 20))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
@@ -2218,6 +2218,62 @@ class Ui_MainWindow(object):
         self.btnResetSklad.setText("")
         self.btnResetSklad.setIconSize(QtCore.QSize(18, 18))
         self.btnResetSklad.setObjectName("btnResetSklad")
+        self.rbShowOrders = QtWidgets.QRadioButton(self.sklad)
+        self.rbShowOrders.setGeometry(QtCore.QRect(1250, 60, 151, 31))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.rbShowOrders.sizePolicy().hasHeightForWidth())
+        self.rbShowOrders.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setPointSize(-1)
+        self.rbShowOrders.setFont(font)
+        self.rbShowOrders.setStyleSheet("QRadioButton{\n"
+"    background-color: #101010;\n"
+"    color: rgb(205,205,205);\n"
+"    border: 0px;\n"
+"    border-bottom: 1px solid rgb(60,60,60);\n"
+"    font-size: 14px;\n"
+"}\n"
+"QRadioButton:checked{\n"
+"    background-color: #101010;\n"
+"    color: #dddddd;\n"
+"    border: 0px;\n"
+"   border-bottom: 1px solid rgb(60,60,60);\n"
+"}\n"
+"QRadioButton:hover{\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-color: rgb(40,40,40);\n"
+"    color: white;\n"
+"    border-bottom: 1px solid  red;\n"
+"}\n"
+"QRadioButton::indicator:hover{\n"
+"     width: 25px;\n"
+"    height: 25px;\n"
+"     border-image: url(\"E:/pcconf/images/calendar-red.png\") 0;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator{\n"
+"     width: 26px;\n"
+"    height: 26px;\n"
+"     border-image: url(\"E:/pcconf/images/calendar.png\") 0;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:checked {\n"
+"     width: 26px;\n"
+"    height: 26px;\n"
+"    margin-left: 3px;\n"
+"     border-image: url(\"E:/pcconf/images/calendar-red.png\") 0;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:unchecked {\n"
+"     width: 26px;\n"
+"    height: 26px;\n"
+"    margin-left: 3px;\n"
+"     border-image: url(\"E:/pcconf/images/calendar.png\") 0;\n"
+"}")
+        self.rbShowOrders.setAutoExclusive(False)
+        self.rbShowOrders.setObjectName("rbShowOrders")
         self.tabWidgetMain.addTab(self.sklad, "")
         self.configurator = QtWidgets.QWidget()
         self.configurator.setStyleSheet("border:0px;")
@@ -7107,7 +7163,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         self.stackedWidget.setCurrentIndex(0)
-        self.tabWidgetMain.setCurrentIndex(1)
+        self.tabWidgetMain.setCurrentIndex(0)
         self.toolBoxNavigation.layout().setSpacing(5)
         self.tabWidgetSklad.setCurrentIndex(0)
         self.tabWidgetVideo.setCurrentIndex(0)
@@ -7253,6 +7309,7 @@ class Ui_MainWindow(object):
         self.tabWidgetSklad.setTabText(self.tabWidgetSklad.indexOf(self.all_2), _translate("MainWindow", "Все"))
         self.btnSkladFilter.setText(_translate("MainWindow", "Настроить фильтр"))
         self.rbSklad.setText(_translate("MainWindow", "Только в наличии"))
+        self.rbShowOrders.setText(_translate("MainWindow", "Показать заказы"))
         self.tabWidgetMain.setTabText(self.tabWidgetMain.indexOf(self.sklad), _translate("MainWindow", "Склад"))
         self.progressBar.setFormat(_translate("MainWindow", "%v / %m"))
         self.treeWidget.setSortingEnabled(False)

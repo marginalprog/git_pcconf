@@ -40,7 +40,6 @@ class AcceptOrderWin(QtWidgets.QWidget, acceptOrderWidg.Ui_acceptOrderWidg):
     def __init__(self, main_window, tuple_order=None):
         super().__init__()
         self.setupUi(self)
-        self.btnAcceptPurcashe.clicked.connect(lambda: self.create_order(tuple_order, main_window))
         self.dateEdit.setDateTime(QDateTime.currentDateTime())
         self.dateEdit.setDisabled(True)
         if main_window.tableConfVideo.currentRow() != -1:
@@ -63,8 +62,10 @@ class AcceptOrderWin(QtWidgets.QWidget, acceptOrderWidg.Ui_acceptOrderWidg):
         if main_window.tableConfBody.currentRow() != -1:
             self.previewBody.setText(main_window.tableConfBody.item(main_window.tableConfBody.currentRow(), 2).text())
         self.lb_price.setText(main_window.lb_price.text())
+        self.btnAcceptPurcashe.clicked.connect(
+            lambda: self.create_order(tuple_order, main_window, main_window.lb_price.text()))
 
-    def create_order(self, tuple_order, main_window):
+    def create_order(self, tuple_order, main_window, price):
         if tuple_order:
             count = 0
             for i in tuple_order[1]:
@@ -90,6 +91,7 @@ class AcceptOrderWin(QtWidgets.QWidget, acceptOrderWidg.Ui_acceptOrderWidg):
                                                           tuple_order[0][5],
                                                           tuple_order[0][6],
                                                           tuple_order[0][7],
+                                                          price,
                                                           self.dateEdit.dateTime().toString("yyyy-MM-dd")])
                     conn.commit()
                 except (Exception, psycopg2.DatabaseError) as error:
@@ -100,11 +102,11 @@ class AcceptOrderWin(QtWidgets.QWidget, acceptOrderWidg.Ui_acceptOrderWidg):
                     if conn:
                         cur.close()
                         conn.close()
+                        main_window.reset_all_config()
+                        main_window.reset_radiobutton(main_window.tableSklad)
                         for i in range(8):
                             main_window.load_sklad(i)
                             main_window.load_conf(i)
-                        main_window.reset_all_config()
-                        main_window.reset_radiobutton(main_window.tableSklad)
                         main_window.create_sklad_filter()
                         main_window.create_conf_filter()
             else:
@@ -268,7 +270,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         self.query_sklad = ""
         self.query_conf = ""
 
-        self.user_id = 0  # 0 - ID администратора (работника).
+        self.user_id = 1  # 1 - ID администратора (работника).
 
         self.price_configuration = []
 
@@ -302,9 +304,15 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         # По нажатии на кнопку запускается метод, который принимает выбранную вклдку ТБ и открывает нужное окно фильтра
         self.btnSkladFilter.clicked.connect(lambda: self.tb_sklad_filter(self.toolBoxNavigation.currentIndex()))
 
-        # По нажатии на кнопку наличия запускается метод, отправляющий в
+        # По нажатии на кнопку наличия запускается метод, отправляющий в метод состояние кн. наличия, заказов, и вкладки
         self.rbSklad.toggled.connect(
-            lambda have: self.rb_click_having_sklad(have, self.toolBoxNavigation.currentIndex()))
+            lambda have: self.rb_click_order_having_sklad(have, self.rbShowOrders.isChecked(),
+                                                          self.toolBoxNavigation.currentIndex()))
+
+        # По нажатии на кнопку закзаов запускается метод, отправляющий в метод having, своё состояние и ID вкладки
+        self.rbShowOrders.toggled.connect(
+            lambda order: self.rb_click_order_having_sklad(self.rbSklad.isChecked(), order,
+                                                           self.toolBoxNavigation.currentIndex()))
 
         self.rbConf.toggled.connect(
             lambda have: self.rb_click_having_conf(have))
@@ -1202,6 +1210,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
     def load_sklad(self, page):
         conn = None
         cur = None
+        self.rbShowOrders.setChecked(False)
         try:
             conn = psycopg2.connect(database="confPc",
                                     user="postgres",
@@ -1365,213 +1374,445 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         row_count = 0
         match page:
             case 0:  # Заполнение таблицы видеокартами
-                self.tableSklad.setColumnCount(20)  # Число столбцов в видеокарте
-                self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во",
-                                                           "Производитель", "Название", "Игровая", "Произв. чипа",
-                                                           "Наименов. чипа", "Объём памяти", "Тип памяти",
-                                                           "Частота процессора", "Шина", "Интерфейс",
-                                                           "Монитор", "Разрешение", "TDP", "Длина",
-                                                           "Pin-контакты", "Кол-во pin", "Цена"])
-                for row in cur:
-                    self.tableSklad.setRowCount(row_count + 1)
-                    self.insert_existence_complect(self.tableSklad, row_count, row[1])
-                    self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
-                    self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
-                    self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
-                    self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
-                    self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
-                    self.tableSklad.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[7])))
-                    self.tableSklad.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[8])))
-                    self.tableSklad.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[9])))
-                    self.tableSklad.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[10])))
-                    self.tableSklad.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[11])))
-                    self.tableSklad.setItem(row_count, 12, QtWidgets.QTableWidgetItem(str(row[12])))
-                    self.tableSklad.setItem(row_count, 13, QtWidgets.QTableWidgetItem(str(row[13])))
-                    self.tableSklad.setItem(row_count, 14, QtWidgets.QTableWidgetItem(str(row[14])))
-                    self.tableSklad.setItem(row_count, 15, QtWidgets.QTableWidgetItem(str(row[15])))
-                    self.tableSklad.setItem(row_count, 16, QtWidgets.QTableWidgetItem(str(row[16])))
-                    self.tableSklad.setItem(row_count, 17, QtWidgets.QTableWidgetItem(str(row[17])))
-                    self.tableSklad.setItem(row_count, 18, QtWidgets.QTableWidgetItem(str(row[18])))
-                    self.tableSklad.setItem(row_count, 19, QtWidgets.QTableWidgetItem(str(row[19])))
-                    # item2.setTextAlignment(QtCore.Qt.AlignVCenter | QtCore.Qt.AlignRight)
-                    self.insert_rb_sklad(self.tableSklad)
-                    row_count += 1
+                if not self.rbShowOrders.isChecked():  # Если не выбрано отображение заказов
+                    self.tableSklad.setColumnCount(20)  # Число столбцов в видеокарте
+                    self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во",
+                                                               "Производитель", "Название", "Игровая", "Произв. чипа",
+                                                               "Наименов. чипа", "Объём памяти", "Тип памяти",
+                                                               "Частота процессора", "Шина", "Интерфейс",
+                                                               "Монитор", "Разрешение", "TDP", "Длина",
+                                                               "Pin-контакты", "Кол-во pin", "Цена"])
+                    for row in cur:
+                        self.tableSklad.setRowCount(row_count + 1)
+                        self.insert_existence_complect(self.tableSklad, row_count, row[1])
+                        self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
+                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                        self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+                        self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
+                        self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
+                        self.tableSklad.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[7])))
+                        self.tableSklad.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[8])))
+                        self.tableSklad.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[9])))
+                        self.tableSklad.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[10])))
+                        self.tableSklad.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[11])))
+                        self.tableSklad.setItem(row_count, 12, QtWidgets.QTableWidgetItem(str(row[12])))
+                        self.tableSklad.setItem(row_count, 13, QtWidgets.QTableWidgetItem(str(row[13])))
+                        self.tableSklad.setItem(row_count, 14, QtWidgets.QTableWidgetItem(str(row[14])))
+                        self.tableSklad.setItem(row_count, 15, QtWidgets.QTableWidgetItem(str(row[15])))
+                        self.tableSklad.setItem(row_count, 16, QtWidgets.QTableWidgetItem(str(row[16])))
+                        self.tableSklad.setItem(row_count, 17, QtWidgets.QTableWidgetItem(str(row[17])))
+                        self.tableSklad.setItem(row_count, 18, QtWidgets.QTableWidgetItem(str(row[18])))
+                        self.tableSklad.setItem(row_count, 19, QtWidgets.QTableWidgetItem(str(row[19])))
+                        # item2.setTextAlignment(QtCore.Qt.AlignVCenter | QtCore.Qt.AlignRight)
+                        self.insert_rb_sklad(self.tableSklad)
+                        row_count += 1
+                else:  # Вывод зазаказнных комплектующих с количеством
+                    self.tableSklad.setColumnCount(22)  # Число столбцов в видеокарте
+                    self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во(склад)", "Дата заказа",
+                                                               "Кол-во(заказ)", "Производитель", "Название",
+                                                               "Игровая", "Произв. чипа", "Наименов. чипа",
+                                                               "Объём памяти", "Тип памяти",
+                                                               "Частота процессора", "Шина", "Интерфейс",
+                                                               "Монитор", "Разрешение", "TDP", "Длина",
+                                                               "Pin-контакты", "Кол-во pin", "Цена"])
+                    for row in cur:
+                        self.tableSklad.setRowCount(row_count + 1)
+                        self.insert_existence_complect(self.tableSklad, row_count, row[1])
+                        self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
+                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                        self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+                        self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
+                        self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
+                        self.tableSklad.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[7])))
+                        self.tableSklad.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[8])))
+                        self.tableSklad.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[9])))
+                        self.tableSklad.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[10])))
+                        self.tableSklad.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[11])))
+                        self.tableSklad.setItem(row_count, 12, QtWidgets.QTableWidgetItem(str(row[12])))
+                        self.tableSklad.setItem(row_count, 13, QtWidgets.QTableWidgetItem(str(row[13])))
+                        self.tableSklad.setItem(row_count, 14, QtWidgets.QTableWidgetItem(str(row[14])))
+                        self.tableSklad.setItem(row_count, 15, QtWidgets.QTableWidgetItem(str(row[15])))
+                        self.tableSklad.setItem(row_count, 16, QtWidgets.QTableWidgetItem(str(row[16])))
+                        self.tableSklad.setItem(row_count, 17, QtWidgets.QTableWidgetItem(str(row[17])))
+                        self.tableSklad.setItem(row_count, 18, QtWidgets.QTableWidgetItem(str(row[18])))
+                        self.tableSklad.setItem(row_count, 19, QtWidgets.QTableWidgetItem(str(row[19])))
+                        self.tableSklad.setItem(row_count, 20, QtWidgets.QTableWidgetItem(str(row[20])))
+                        self.tableSklad.setItem(row_count, 21, QtWidgets.QTableWidgetItem(str(row[21])))
+                        # item2.setTextAlignment(QtCore.Qt.AlignVCenter | QtCore.Qt.AlignRight)
+                        self.insert_rb_sklad(self.tableSklad)
+                        row_count += 1
             case 1:
-                self.tableSklad.setColumnCount(17)  # Число столбцов в процессоре
-                self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во",
-                                                           "Производитель", "Название", "Игровой", "Серия",
-                                                           "Сокет", "Ядро", "Кол-во ядер", "Кэш",
-                                                           "Частота процессора", "Тех. проц.", "Частота ОЗУ",
-                                                           "Граф. процессор", "TDP", "Цена"])
-                for row in cur:
-                    self.tableSklad.setRowCount(row_count + 1)
-                    self.insert_existence_complect(self.tableSklad, row_count, row[1])
-                    self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
-                    self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
-                    self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
-                    self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
-                    self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
-                    self.tableSklad.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[7])))
-                    self.tableSklad.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[8])))
-                    self.tableSklad.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[9])))
-                    self.tableSklad.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[10])))
-                    self.tableSklad.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[11])))
-                    self.tableSklad.setItem(row_count, 12, QtWidgets.QTableWidgetItem(str(row[12])))
-                    self.tableSklad.setItem(row_count, 13, QtWidgets.QTableWidgetItem(str(row[13])))
-                    self.tableSklad.setItem(row_count, 14, QtWidgets.QTableWidgetItem(str(row[14])))
-                    self.tableSklad.setItem(row_count, 15, QtWidgets.QTableWidgetItem(str(row[15])))
-                    self.tableSklad.setItem(row_count, 16, QtWidgets.QTableWidgetItem(str(row[16])))
-                    row_count += 1
+                if not self.rbShowOrders.isChecked():  # Если не выбрано отображение заказов
+                    self.tableSklad.setColumnCount(17)  # Число столбцов в процессоре
+                    self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во",
+                                                               "Производитель", "Название", "Игровой", "Серия",
+                                                               "Сокет", "Ядро", "Кол-во ядер", "Кэш",
+                                                               "Частота процессора", "Тех. проц.", "Частота ОЗУ",
+                                                               "Граф. процессор", "TDP", "Цена"])
+                    for row in cur:
+                        self.tableSklad.setRowCount(row_count + 1)
+                        self.insert_existence_complect(self.tableSklad, row_count, row[1])
+                        self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
+                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                        self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+                        self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
+                        self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
+                        self.tableSklad.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[7])))
+                        self.tableSklad.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[8])))
+                        self.tableSklad.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[9])))
+                        self.tableSklad.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[10])))
+                        self.tableSklad.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[11])))
+                        self.tableSklad.setItem(row_count, 12, QtWidgets.QTableWidgetItem(str(row[12])))
+                        self.tableSklad.setItem(row_count, 13, QtWidgets.QTableWidgetItem(str(row[13])))
+                        self.tableSklad.setItem(row_count, 14, QtWidgets.QTableWidgetItem(str(row[14])))
+                        self.tableSklad.setItem(row_count, 15, QtWidgets.QTableWidgetItem(str(row[15])))
+                        self.tableSklad.setItem(row_count, 16, QtWidgets.QTableWidgetItem(str(row[16])))
+                        row_count += 1
+                else:
+                    self.tableSklad.setColumnCount(19)  # Число столбцов в процессоре
+                    self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во(склад)", "Дата заказа", "Кол-во(заказ)",
+                                                               "Производитель", "Название", "Игровой", "Серия",
+                                                               "Сокет", "Ядро", "Кол-во ядер", "Кэш",
+                                                               "Частота процессора", "Тех. проц.", "Частота ОЗУ",
+                                                               "Граф. процессор", "TDP", "Цена"])
+                    for row in cur:
+                        self.tableSklad.setRowCount(row_count + 1)
+                        self.insert_existence_complect(self.tableSklad, row_count, row[1])
+                        self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
+                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                        self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+                        self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
+                        self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
+                        self.tableSklad.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[7])))
+                        self.tableSklad.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[8])))
+                        self.tableSklad.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[9])))
+                        self.tableSklad.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[10])))
+                        self.tableSklad.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[11])))
+                        self.tableSklad.setItem(row_count, 12, QtWidgets.QTableWidgetItem(str(row[12])))
+                        self.tableSklad.setItem(row_count, 13, QtWidgets.QTableWidgetItem(str(row[13])))
+                        self.tableSklad.setItem(row_count, 14, QtWidgets.QTableWidgetItem(str(row[14])))
+                        self.tableSklad.setItem(row_count, 15, QtWidgets.QTableWidgetItem(str(row[15])))
+                        self.tableSklad.setItem(row_count, 16, QtWidgets.QTableWidgetItem(str(row[16])))
+                        self.tableSklad.setItem(row_count, 17, QtWidgets.QTableWidgetItem(str(row[17])))
+                        self.tableSklad.setItem(row_count, 18, QtWidgets.QTableWidgetItem(str(row[18])))
+                        row_count += 1
             case 2:
-                self.tableSklad.setColumnCount(20)  # Число столбцов в мат. плате
-                self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во",
-                                                           "Производитель", "Название", "Игровой", "Cокет",
-                                                           "Чипсет", "Формфактор", "PCI-E", "Тип ОЗУ", "Слоты ОЗУ",
-                                                           "Макс. объём ОЗУ", "Макс. частота ОЗУ", "Слоты М2",
-                                                           "Разъёмы SATA", "Pin-охлаждение", "Pin-процессор",
-                                                           "Кол-во pin", "Цена"])
-                for row in cur:
-                    self.tableSklad.setRowCount(row_count + 1)
-                    self.insert_existence_complect(self.tableSklad, row_count, row[1])
-                    self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
-                    self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
-                    self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
-                    self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
-                    self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
-                    self.tableSklad.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[7])))
-                    self.tableSklad.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[8])))
-                    self.tableSklad.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[9])))
-                    self.tableSklad.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[10])))
-                    self.tableSklad.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[11])))
-                    self.tableSklad.setItem(row_count, 12, QtWidgets.QTableWidgetItem(str(row[12])))
-                    self.tableSklad.setItem(row_count, 13, QtWidgets.QTableWidgetItem(str(row[13])))
-                    self.tableSklad.setItem(row_count, 14, QtWidgets.QTableWidgetItem(str(row[14])))
-                    self.tableSklad.setItem(row_count, 15, QtWidgets.QTableWidgetItem(str(row[15])))
-                    self.tableSklad.setItem(row_count, 16, QtWidgets.QTableWidgetItem(str(row[16])))
-                    self.tableSklad.setItem(row_count, 17, QtWidgets.QTableWidgetItem(str(row[17])))
-                    self.tableSklad.setItem(row_count, 18, QtWidgets.QTableWidgetItem(str(row[18])))
-                    self.tableSklad.setItem(row_count, 19, QtWidgets.QTableWidgetItem(str(row[19])))
-                    row_count += 1
+                if not self.rbShowOrders.isChecked():  # Если не выбрано отображение заказов
+                    self.tableSklad.setColumnCount(20)  # Число столбцов в мат. плате
+                    self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во",
+                                                               "Производитель", "Название", "Игровой", "Cокет",
+                                                               "Чипсет", "Формфактор", "PCI-E", "Тип ОЗУ", "Слоты ОЗУ",
+                                                               "Макс. объём ОЗУ", "Макс. частота ОЗУ", "Слоты М2",
+                                                               "Разъёмы SATA", "Pin-охлаждение", "Pin-процессор",
+                                                               "Кол-во pin", "Цена"])
+                    for row in cur:
+                        self.tableSklad.setRowCount(row_count + 1)
+                        self.insert_existence_complect(self.tableSklad, row_count, row[1])
+                        self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
+                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                        self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+                        self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
+                        self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
+                        self.tableSklad.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[7])))
+                        self.tableSklad.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[8])))
+                        self.tableSklad.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[9])))
+                        self.tableSklad.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[10])))
+                        self.tableSklad.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[11])))
+                        self.tableSklad.setItem(row_count, 12, QtWidgets.QTableWidgetItem(str(row[12])))
+                        self.tableSklad.setItem(row_count, 13, QtWidgets.QTableWidgetItem(str(row[13])))
+                        self.tableSklad.setItem(row_count, 14, QtWidgets.QTableWidgetItem(str(row[14])))
+                        self.tableSklad.setItem(row_count, 15, QtWidgets.QTableWidgetItem(str(row[15])))
+                        self.tableSklad.setItem(row_count, 16, QtWidgets.QTableWidgetItem(str(row[16])))
+                        self.tableSklad.setItem(row_count, 17, QtWidgets.QTableWidgetItem(str(row[17])))
+                        self.tableSklad.setItem(row_count, 18, QtWidgets.QTableWidgetItem(str(row[18])))
+                        self.tableSklad.setItem(row_count, 19, QtWidgets.QTableWidgetItem(str(row[19])))
+                        row_count += 1
+                else:
+                    self.tableSklad.setColumnCount(22)  # Число столбцов в мат. плате
+                    self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во(склад)", "Дата заказа",
+                                                               "Кол-во(заказ)", "Производитель", "Название",
+                                                               "Игровой", "Cокет", "Чипсет", "Формфактор", "PCI-E",
+                                                               "Тип ОЗУ", "Слоты ОЗУ", "Макс. объём ОЗУ",
+                                                               "Макс. частота ОЗУ", "Слоты М2",
+                                                               "Разъёмы SATA", "Pin-охлаждение", "Pin-процессор",
+                                                               "Кол-во pin", "Цена"])
+                    for row in cur:
+                        self.tableSklad.setRowCount(row_count + 1)
+                        self.insert_existence_complect(self.tableSklad, row_count, row[1])
+                        self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
+                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                        self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+                        self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
+                        self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
+                        self.tableSklad.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[7])))
+                        self.tableSklad.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[8])))
+                        self.tableSklad.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[9])))
+                        self.tableSklad.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[10])))
+                        self.tableSklad.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[11])))
+                        self.tableSklad.setItem(row_count, 12, QtWidgets.QTableWidgetItem(str(row[12])))
+                        self.tableSklad.setItem(row_count, 13, QtWidgets.QTableWidgetItem(str(row[13])))
+                        self.tableSklad.setItem(row_count, 14, QtWidgets.QTableWidgetItem(str(row[14])))
+                        self.tableSklad.setItem(row_count, 15, QtWidgets.QTableWidgetItem(str(row[15])))
+                        self.tableSklad.setItem(row_count, 16, QtWidgets.QTableWidgetItem(str(row[16])))
+                        self.tableSklad.setItem(row_count, 17, QtWidgets.QTableWidgetItem(str(row[17])))
+                        self.tableSklad.setItem(row_count, 18, QtWidgets.QTableWidgetItem(str(row[18])))
+                        self.tableSklad.setItem(row_count, 19, QtWidgets.QTableWidgetItem(str(row[19])))
+                        self.tableSklad.setItem(row_count, 20, QtWidgets.QTableWidgetItem(str(row[20])))
+                        self.tableSklad.setItem(row_count, 21, QtWidgets.QTableWidgetItem(str(row[21])))
+                        row_count += 1
             case 3:
-                self.tableSklad.setColumnCount(14)  # Число столбцов в охлаждении
-                self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во",
-                                                           "Производитель", "Название", "Конструкция",
-                                                           "Тип охл.", "Сокеты", "Трубы", "Высота",
-                                                           "Рассеиваемость", "Напряжение", "Pin-коннектор",
-                                                           "Цена"])
-                for row in cur:
-                    self.tableSklad.setRowCount(row_count + 1)
-                    self.insert_existence_complect(self.tableSklad, row_count, row[1])
-                    self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
-                    self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
-                    self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
-                    self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
-                    self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
-                    self.tableSklad.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[7])))
-                    self.tableSklad.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[8])))
-                    self.tableSklad.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[9])))
-                    self.tableSklad.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[10])))
-                    self.tableSklad.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[11])))
-                    self.tableSklad.setItem(row_count, 12, QtWidgets.QTableWidgetItem(str(row[12])))
-                    self.tableSklad.setItem(row_count, 13, QtWidgets.QTableWidgetItem(str(row[13])))
-                    row_count += 1
+                if not self.rbShowOrders.isChecked():  # Если не выбрано отображение заказов
+                    self.tableSklad.setColumnCount(14)  # Число столбцов в охлаждении
+                    self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во",
+                                                               "Производитель", "Название", "Конструкция",
+                                                               "Тип охл.", "Сокеты", "Трубы", "Высота",
+                                                               "Рассеиваемость", "Напряжение", "Pin-коннектор",
+                                                               "Цена"])
+                    for row in cur:
+                        self.tableSklad.setRowCount(row_count + 1)
+                        self.insert_existence_complect(self.tableSklad, row_count, row[1])
+                        self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
+                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                        self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+                        self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
+                        self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
+                        self.tableSklad.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[7])))
+                        self.tableSklad.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[8])))
+                        self.tableSklad.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[9])))
+                        self.tableSklad.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[10])))
+                        self.tableSklad.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[11])))
+                        self.tableSklad.setItem(row_count, 12, QtWidgets.QTableWidgetItem(str(row[12])))
+                        self.tableSklad.setItem(row_count, 13, QtWidgets.QTableWidgetItem(str(row[13])))
+                        row_count += 1
+                else:
+                    self.tableSklad.setColumnCount(16)  # Число столбцов в охлаждении
+                    self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во(склад)", "Дата заказа",
+                                                                   "Кол-во(заказ)",
+                                                               "Производитель", "Название", "Конструкция",
+                                                               "Тип охл.", "Сокеты", "Трубы", "Высота",
+                                                               "Рассеиваемость", "Напряжение", "Pin-коннектор",
+                                                               "Цена"])
+                    for row in cur:
+                        self.tableSklad.setRowCount(row_count + 1)
+                        self.insert_existence_complect(self.tableSklad, row_count, row[1])
+                        self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
+                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                        self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+                        self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
+                        self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
+                        self.tableSklad.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[7])))
+                        self.tableSklad.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[8])))
+                        self.tableSklad.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[9])))
+                        self.tableSklad.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[10])))
+                        self.tableSklad.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[11])))
+                        self.tableSklad.setItem(row_count, 12, QtWidgets.QTableWidgetItem(str(row[12])))
+                        self.tableSklad.setItem(row_count, 13, QtWidgets.QTableWidgetItem(str(row[13])))
+                        self.tableSklad.setItem(row_count, 14, QtWidgets.QTableWidgetItem(str(row[14])))
+                        self.tableSklad.setItem(row_count, 15, QtWidgets.QTableWidgetItem(str(row[15])))
+                        row_count += 1
             case 4:
-                self.tableSklad.setColumnCount(13)  # Число столбцов в оперативной памяти
-                self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во",
-                                                           "Производитель", "Название", "Игровой", "Тип",
-                                                           "Объём", "Тактовая частота", "Кол-во модулей",
-                                                           "CAS-Latency", "Напряжение", "Цена"])
-                for row in cur:
-                    self.tableSklad.setRowCount(row_count + 1)
-                    self.insert_existence_complect(self.tableSklad, row_count, row[1])
-                    self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
-                    self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
-                    self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
-                    self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
-                    self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
-                    self.tableSklad.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[7])))
-                    self.tableSklad.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[8])))
-                    self.tableSklad.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[9])))
-                    self.tableSklad.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[10])))
-                    self.tableSklad.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[11])))
-                    self.tableSklad.setItem(row_count, 12, QtWidgets.QTableWidgetItem(str(row[12])))
-                    row_count += 1
+                if not self.rbShowOrders.isChecked():  # Если не выбрано отображение заказов
+                    self.tableSklad.setColumnCount(13)  # Число столбцов в оперативной памяти
+                    self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во",
+                                                               "Производитель", "Название", "Игровой", "Тип",
+                                                               "Объём", "Тактовая частота", "Кол-во модулей",
+                                                               "CAS-Latency", "Напряжение", "Цена"])
+                    for row in cur:
+                        self.tableSklad.setRowCount(row_count + 1)
+                        self.insert_existence_complect(self.tableSklad, row_count, row[1])
+                        self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
+                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                        self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+                        self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
+                        self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
+                        self.tableSklad.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[7])))
+                        self.tableSklad.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[8])))
+                        self.tableSklad.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[9])))
+                        self.tableSklad.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[10])))
+                        self.tableSklad.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[11])))
+                        self.tableSklad.setItem(row_count, 12, QtWidgets.QTableWidgetItem(str(row[12])))
+                        row_count += 1
+                else:
+                    self.tableSklad.setColumnCount(15)  # Число столбцов в оперативной памяти
+                    self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во(склад)", "Дата заказа",
+                                                                   "Кол-во(заказ)",
+                                                               "Производитель", "Название", "Игровой", "Тип",
+                                                               "Объём", "Тактовая частота", "Кол-во модулей",
+                                                               "CAS-Latency", "Напряжение", "Цена"])
+                    for row in cur:
+                        self.tableSklad.setRowCount(row_count + 1)
+                        self.insert_existence_complect(self.tableSklad, row_count, row[1])
+                        self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
+                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                        self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+                        self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
+                        self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
+                        self.tableSklad.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[7])))
+                        self.tableSklad.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[8])))
+                        self.tableSklad.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[9])))
+                        self.tableSklad.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[10])))
+                        self.tableSklad.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[11])))
+                        self.tableSklad.setItem(row_count, 12, QtWidgets.QTableWidgetItem(str(row[12])))
+                        self.tableSklad.setItem(row_count, 13, QtWidgets.QTableWidgetItem(str(row[13])))
+                        self.tableSklad.setItem(row_count, 14, QtWidgets.QTableWidgetItem(str(row[14])))
+                        row_count += 1
             case 5:
-                self.tableSklad.setColumnCount(12)  # Число столбцов в накопителе
-                self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во",
-                                                           "Производитель", "Название", "Тип", "Объём",
-                                                           "Интерфейс", "Скорость чтения", "Скорость записи",
-                                                           "RPM", "Цена"])
-                for row in cur:
-                    self.tableSklad.setRowCount(row_count + 1)
-                    self.insert_existence_complect(self.tableSklad, row_count, row[1])
-                    self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
-                    self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
-                    self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
-                    self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
-                    self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
-                    self.tableSklad.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[7])))
-                    self.tableSklad.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[8])))
-                    self.tableSklad.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[9])))
-                    self.tableSklad.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[10])))
-                    self.tableSklad.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[11])))
-                    row_count += 1
+                if not self.rbShowOrders.isChecked():  # Если не выбрано отображение заказов
+                    self.tableSklad.setColumnCount(12)  # Число столбцов в накопителе
+                    self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во",
+                                                               "Производитель", "Название", "Тип", "Объём",
+                                                               "Интерфейс", "Скорость чтения", "Скорость записи",
+                                                               "RPM", "Цена"])
+                    for row in cur:
+                        self.tableSklad.setRowCount(row_count + 1)
+                        self.insert_existence_complect(self.tableSklad, row_count, row[1])
+                        self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
+                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                        self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+                        self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
+                        self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
+                        self.tableSklad.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[7])))
+                        self.tableSklad.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[8])))
+                        self.tableSklad.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[9])))
+                        self.tableSklad.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[10])))
+                        self.tableSklad.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[11])))
+                        row_count += 1
+                else:
+                    self.tableSklad.setColumnCount(14)  # Число столбцов в накопителе
+                    self.tableSklad.setHorizontalHeaderLabels(["", "",  "Кол-во(склад)", "Дата заказа",
+                                                                   "Кол-во(заказ)",
+                                                               "Производитель", "Название", "Тип", "Объём",
+                                                               "Интерфейс", "Скорость чтения", "Скорость записи",
+                                                               "RPM", "Цена"])
+                    for row in cur:
+                        self.tableSklad.setRowCount(row_count + 1)
+                        self.insert_existence_complect(self.tableSklad, row_count, row[1])
+                        self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
+                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                        self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+                        self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
+                        self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
+                        self.tableSklad.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[7])))
+                        self.tableSklad.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[8])))
+                        self.tableSklad.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[9])))
+                        self.tableSklad.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[10])))
+                        self.tableSklad.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[11])))
+                        self.tableSklad.setItem(row_count, 12, QtWidgets.QTableWidgetItem(str(row[12])))
+                        self.tableSklad.setItem(row_count, 13, QtWidgets.QTableWidgetItem(str(row[13])))
+                        row_count += 1
             case 6:
-                self.tableSklad.setColumnCount(16)  # Число столбцов в блоке питания
-                self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во", "Производитель", "Название",
-                                                           "Формафактор", "Длина", "Мощность", "Сертификат",
-                                                           "Основной разъём питания", "Количество разъёмов SATA",
-                                                           "Pin-процессор", "Кол-во pin", "Pin-видеокарта",
-                                                           "Кол-во pin", "Цена"])
-                for row in cur:
-                    self.tableSklad.setRowCount(row_count + 1)
-                    self.insert_existence_complect(self.tableSklad, row_count, row[1])
-                    self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
-                    self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
-                    self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
-                    self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
-                    self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
-                    self.tableSklad.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[7])))
-                    self.tableSklad.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[8])))
-                    self.tableSklad.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[9])))
-                    self.tableSklad.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[10])))
-                    self.tableSklad.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[11])))
-                    self.tableSklad.setItem(row_count, 12, QtWidgets.QTableWidgetItem(str(row[12])))
-                    self.tableSklad.setItem(row_count, 13, QtWidgets.QTableWidgetItem(str(row[13])))
-                    self.tableSklad.setItem(row_count, 14, QtWidgets.QTableWidgetItem(str(row[14])))
-                    self.tableSklad.setItem(row_count, 15, QtWidgets.QTableWidgetItem(str(row[15])))
-                    row_count += 1
+                if not self.rbShowOrders.isChecked():  # Если не выбрано отображение заказов
+                    self.tableSklad.setColumnCount(16)  # Число столбцов в блоке питания
+                    self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во", "Производитель", "Название",
+                                                               "Формафактор", "Длина", "Мощность", "Сертификат",
+                                                               "Основной разъём питания", "Количество разъёмов SATA",
+                                                               "Pin-процессор", "Кол-во pin", "Pin-видеокарта",
+                                                               "Кол-во pin", "Цена"])
+                    for row in cur:
+                        self.tableSklad.setRowCount(row_count + 1)
+                        self.insert_existence_complect(self.tableSklad, row_count, row[1])
+                        self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
+                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                        self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+                        self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
+                        self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
+                        self.tableSklad.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[7])))
+                        self.tableSklad.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[8])))
+                        self.tableSklad.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[9])))
+                        self.tableSklad.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[10])))
+                        self.tableSklad.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[11])))
+                        self.tableSklad.setItem(row_count, 12, QtWidgets.QTableWidgetItem(str(row[12])))
+                        self.tableSklad.setItem(row_count, 13, QtWidgets.QTableWidgetItem(str(row[13])))
+                        self.tableSklad.setItem(row_count, 14, QtWidgets.QTableWidgetItem(str(row[14])))
+                        self.tableSklad.setItem(row_count, 15, QtWidgets.QTableWidgetItem(str(row[15])))
+                        row_count += 1
+                else:
+                    self.tableSklad.setColumnCount(18)  # Число столбцов в блоке питания
+                    self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во(склад)", "Дата заказа",
+                                                                   "Кол-во(заказ)", "Производитель", "Название",
+                                                               "Формафактор", "Длина", "Мощность", "Сертификат",
+                                                               "Основной разъём питания", "Количество разъёмов SATA",
+                                                               "Pin-процессор", "Кол-во pin", "Pin-видеокарта",
+                                                               "Кол-во pin", "Цена"])
+                    for row in cur:
+                        self.tableSklad.setRowCount(row_count + 1)
+                        self.insert_existence_complect(self.tableSklad, row_count, row[1])
+                        self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
+                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                        self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+                        self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
+                        self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
+                        self.tableSklad.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[7])))
+                        self.tableSklad.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[8])))
+                        self.tableSklad.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[9])))
+                        self.tableSklad.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[10])))
+                        self.tableSklad.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[11])))
+                        self.tableSklad.setItem(row_count, 12, QtWidgets.QTableWidgetItem(str(row[12])))
+                        self.tableSklad.setItem(row_count, 13, QtWidgets.QTableWidgetItem(str(row[13])))
+                        self.tableSklad.setItem(row_count, 14, QtWidgets.QTableWidgetItem(str(row[14])))
+                        self.tableSklad.setItem(row_count, 15, QtWidgets.QTableWidgetItem(str(row[15])))
+                        self.tableSklad.setItem(row_count, 16, QtWidgets.QTableWidgetItem(str(row[16])))
+                        self.tableSklad.setItem(row_count, 17, QtWidgets.QTableWidgetItem(str(row[17])))
+                        row_count += 1
             case 7:
-                self.tableSklad.setColumnCount(15)  # Число столбцов в корпусеы
-                self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во",
-                                                           "Производитель", "Название", "Игровой", "Тип корпуса",
-                                                           "Форм-фактор мат. платы", "Форм-фактор БП",
-                                                           "Макс. длина виеокарты", "Макс. высота охлаждения",
-                                                           "Макс. длина БП", "Масса", "Цвет", "Цена"])
-                for row in cur:
-                    self.tableSklad.setRowCount(row_count + 1)
-                    self.insert_existence_complect(self.tableSklad, row_count, row[1])
-                    self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
-                    self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
-                    self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
-                    self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
-                    self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
-                    self.tableSklad.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[7])))
-                    self.tableSklad.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[8])))
-                    self.tableSklad.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[9])))
-                    self.tableSklad.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[10])))
-                    self.tableSklad.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[11])))
-                    self.tableSklad.setItem(row_count, 12, QtWidgets.QTableWidgetItem(str(row[12])))
-                    self.tableSklad.setItem(row_count, 13, QtWidgets.QTableWidgetItem(str(row[13])))
-                    self.tableSklad.setItem(row_count, 14, QtWidgets.QTableWidgetItem(str(row[14])))
-                    row_count += 1
+                if not self.rbShowOrders.isChecked():  # Если не выбрано отображение заказов
+                    self.tableSklad.setColumnCount(15)  # Число столбцов в корпусеы
+                    self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во",
+                                                               "Производитель", "Название", "Игровой", "Тип корпуса",
+                                                               "Форм-фактор мат. платы", "Форм-фактор БП",
+                                                               "Макс. длина виеокарты", "Макс. высота охлаждения",
+                                                               "Макс. длина БП", "Масса", "Цвет", "Цена"])
+                    for row in cur:
+                        self.tableSklad.setRowCount(row_count + 1)
+                        self.insert_existence_complect(self.tableSklad, row_count, row[1])
+                        self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
+                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                        self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+                        self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
+                        self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
+                        self.tableSklad.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[7])))
+                        self.tableSklad.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[8])))
+                        self.tableSklad.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[9])))
+                        self.tableSklad.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[10])))
+                        self.tableSklad.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[11])))
+                        self.tableSklad.setItem(row_count, 12, QtWidgets.QTableWidgetItem(str(row[12])))
+                        self.tableSklad.setItem(row_count, 13, QtWidgets.QTableWidgetItem(str(row[13])))
+                        self.tableSklad.setItem(row_count, 14, QtWidgets.QTableWidgetItem(str(row[14])))
+                        row_count += 1
+                else:
+                    self.tableSklad.setColumnCount(17)  # Число столбцов в корпусеы
+                    self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во(склад)", "Дата заказа",
+                                                                   "Кол-во(заказ)",
+                                                               "Производитель", "Название", "Игровой", "Тип корпуса",
+                                                               "Форм-фактор мат. платы", "Форм-фактор БП",
+                                                               "Макс. длина виеокарты", "Макс. высота охлаждения",
+                                                               "Макс. длина БП", "Масса", "Цвет", "Цена"])
+                    for row in cur:
+                        self.tableSklad.setRowCount(row_count + 1)
+                        self.insert_existence_complect(self.tableSklad, row_count, row[1])
+                        self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
+                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                        self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+                        self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
+                        self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
+                        self.tableSklad.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[7])))
+                        self.tableSklad.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[8])))
+                        self.tableSklad.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[9])))
+                        self.tableSklad.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[10])))
+                        self.tableSklad.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[11])))
+                        self.tableSklad.setItem(row_count, 12, QtWidgets.QTableWidgetItem(str(row[12])))
+                        self.tableSklad.setItem(row_count, 13, QtWidgets.QTableWidgetItem(str(row[13])))
+                        self.tableSklad.setItem(row_count, 14, QtWidgets.QTableWidgetItem(str(row[14])))
+                        self.tableSklad.setItem(row_count, 15, QtWidgets.QTableWidgetItem(str(row[15])))
+                        self.tableSklad.setItem(row_count, 16, QtWidgets.QTableWidgetItem(str(row[16])))
+                        row_count += 1
 
         self.insert_rb_sklad(self.tableSklad)
         self.tableSklad.setSortingEnabled(True)
         self.tableSklad.resizeColumnsToContents()
 
     # Метод загрузки всех комплектующих с БД в страницу конфигуратора
-    # Вызывать после каждого обновления записей, а также при запуске##################################################
+    # Вызывать после каждого обновления записей, а также при запуске
     def load_conf(self, page):
         conn = None
         cur = None
@@ -1910,8 +2151,15 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         Если true - добавляем новое комплектующее. Если false - создаём заказ на существующее комплектующее
         :param page: Порядковый номер выбранной в toolBox страницы на складе
         :param new_bool: Флаг. True - добавление нового комплектующего. False - создание заказа на выбранное компл.
-        :param row: Строка, на которую нажал пользователь
+        :param get_row: Строка, на которую нажал пользователь
         """
+        # Если была нажата кнопка вывода заказов, то удаляем лишние 2 значения с начала списка
+        # В обычном случае сюда поступает list[kol, pr_name ..].
+        # С включённым заказом сюда поступает list[kol, date, kol_order, pr_name ..]. Удаление 2х эл-ов
+        if self.rbShowOrders.isChecked():
+            if type(row) is list:
+                del row[0]
+                del row[0]
         match page:
             case 0:  # 0-9 - вкладки ToolBox (меню навигации)
                 list_all_pr, list_exist_pr = self.get_list_proizvoditel(self.tableVideoProizv)
@@ -1929,8 +2177,8 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                                                                      self.dict_video_name)
                         self.block_lineedit(win_add_change.leKol, "")
                         win_add_change.show()
-                else:  # Есил False - изменяем выбранную запись
-                    if type(row) is str:  # Если пришел не кортеж, а строка(ошибка) - вывод окна с ошибкой
+                else:  # Если false - совершаем заказ компл. на склад
+                    if type(row) is str:  # Если пришел не список, а строка(ошибка) - вывод окна с ошибкой
                         dialog = DialogOk("Ошибка", row)
                         dialog.show()
                         if dialog.exec():
@@ -2316,6 +2564,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
     def apply_filter_sklad(self, get_query, page):
         print(get_query)
         bd_column = ""
+        self.rbShowOrders.setChecked(False)  # Сбрасываем перед заполнением таблиц отображение заказов
         # В зависимости от принятого типа комплектующего задаём ключевой атрибут для фильтрующей вкладки
         match page:
             case 0:
@@ -2456,6 +2705,123 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                         list_proizv.append(name[0])
                     self.fill_tabs_configure(list_proizv, self.tabWidgetBody)
                     self.check_rows(body_row, self.tableConfBody)
+
+        except (Exception, psycopg2.DatabaseError) as error:
+            dialog = DialogOk("Ошибка", error)
+            dialog.show()
+
+        finally:
+            if conn:
+                cur.close()
+                conn.close()
+
+    def rb_click_order_having_sklad(self, have, order, page):
+        conn = None
+        cur = None
+        data_row = []
+        try:
+            conn = psycopg2.connect(database="confPc",
+                                    user="postgres",
+                                    password="2001",
+                                    host="localhost",
+                                    port="5432")
+            cur = conn.cursor()
+            if self.tableSklad.currentRow() != -1:  # Если была выбрана строка, то сохраняем её и отправляе в check
+                data_row = self.save_row(self.tableSklad)
+            match page:  # Определение запроса к БД по типу выбранного комплектующего
+                case 0:
+                    if order:  # Выводим заказы, если индикатор вывода заказа нажат
+                        if have:
+                            cur.callproc("get_having_order_videocard")
+                        else:
+                            cur.callproc("get_all_order_videocard")
+                    else:  # иначе - обычный фильтры по наличию
+                        if have:  # Если нажат индикатор "только в наличии", то выводим либо все заказы, либо имеющиеся
+                            cur.callproc("get_having_videocard")
+                        else:
+                            cur.callproc("get_all_videocard")
+                case 1:
+                    if order:  # Выводим заказы, если индикатор вывода заказа нажат
+                        if have:
+                            cur.callproc("get_having_order_processor")
+                        else:
+                            cur.callproc("get_all_order_processor")
+                    else:  # иначе - обычный фильтры по наличию
+                        if have:
+                            cur.callproc("get_having_processor")
+                        else:
+                            cur.callproc("get_all_processor")
+                case 2:
+                    if order:  # Выводим заказы, если индикатор вывода заказа нажат
+                        if have:
+                            cur.callproc("get_having_order_motherboard")
+                        else:
+                            cur.callproc("get_all_order_motherboard")
+                    else:  # иначе - обычный фильтры по наличию
+                        if have:
+                            cur.callproc("get_having_motherboard")
+                        else:
+                            cur.callproc("get_all_motherboard")
+                case 3:
+                    if order:  # Выводим заказы, если индикатор вывода заказа нажат
+                        if have:
+                            cur.callproc("get_having_order_cool")
+                        else:
+                            cur.callproc("get_all_order_cool")
+                    else:  # иначе - обычный фильтры по наличию
+                        if have:
+                            cur.callproc("get_having_cool")
+                        else:
+                            cur.callproc("get_all_cool")
+                case 4:
+                    if order:  # Выводим заказы, если индикатор вывода заказа нажат
+                        if have:
+                            cur.callproc("get_having_order_ram")
+                        else:
+                            cur.callproc("get_all_order_ram")
+                    else:  # иначе - обычный фильтры по наличию
+                        if have:
+                            cur.callproc("get_having_ram")
+                        else:
+                            cur.callproc("get_all_ram")
+                case 5:
+                    if order:  # Выводим заказы, если индикатор вывода заказа нажат
+                        if have:
+                            cur.callproc("get_having_order_disk")
+                        else:
+                            cur.callproc("get_all_order_disk")
+                    else:  # иначе - обычный фильтры по наличию
+                        if have:
+                            cur.callproc("get_having_disk")
+                        else:
+                            cur.callproc("get_all_disk")
+                case 6:
+                    if order:  # Выводим заказы, если индикатор вывода заказа нажат
+                        if have:
+                            cur.callproc("get_having_order_power")
+                        else:
+                            cur.callproc("get_all_order_power")
+                    else:  # иначе - обычный фильтры по наличию
+                        if have:
+                            cur.callproc("get_having_power")
+                        else:
+                            cur.callproc("get_all_power")
+                case 7:
+                    if order:  # Выводим заказы, если индикатор вывода заказа нажат
+                        if have:
+                            cur.callproc("get_having_order_body")
+                        else:
+                            cur.callproc("get_all_order_body")
+                    else:  # иначе - обычный фильтры по наличию
+                        if have:
+                            cur.callproc("get_having_body")
+                        else:
+                            cur.callproc("get_all_body")
+
+            self.fill_table_sklad(page, cur)
+            self.fill_tabs_sklad(page)
+            self.reset_radiobutton(self.tableSklad)
+            # self.check_rows(data_row, self.tableSklad)
 
         except (Exception, psycopg2.DatabaseError) as error:
             dialog = DialogOk("Ошибка", error)
@@ -3054,115 +3420,208 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 case 0:
                     if self.tableSklad.currentRow() != -1:  # Если была выбрана строка, то сохраняем её номер
                         data_row = self.save_row(self.tableSklad)
-                    if tab_name == "Все" and self.rbSklad.isChecked():
-                        cur.callproc('get_having_videocard')
-                        self.fill_table_sklad(page, cur)
+                    if tab_name == "Все" and self.rbSklad.isChecked():  # Если нажата вкладка "все" и фильтр наличия
+                        if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                            cur.callproc('get_having_order_videocard')
+                        else:
+                            cur.callproc('get_having_videocard')
                     elif tab_name == "Все":
-                        cur.callproc('get_all_videocard')
-                        self.fill_table_sklad(page, cur)
+                        if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                            cur.callproc('get_all_order_videocard')
+                        else:
+                            cur.callproc('get_all_videocard')
                     else:
-                        cur.callproc('get_videocard_by_name', [tab_name])
-                        self.fill_table_sklad(page, cur)
-                    self.reset_radiobutton(self.tableSklad)
-                    self.check_rows(data_row, self.tableSklad)
+                        if self.rbSklad.isChecked():
+                            if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                                cur.callproc('get_having_order_videocard_by_name', [tab_name])
+                            else:
+                                cur.callproc('get_having_videocard_by_name', [tab_name])
+                        else:
+                            if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                                cur.callproc('get_order_videocard_by_name', [tab_name])
+                            else:
+                                cur.callproc('get_videocard_by_name', [tab_name])
+
                 case 1:
                     if self.tableSklad.currentRow() != -1:  # Если была выбрана строка, то сохраняем её номер
                         data_row = self.save_row(self.tableSklad)
                     if tab_name == "Все" and self.rbSklad.isChecked():
-                        cur.callproc('get_having_processor')
-                        self.fill_table_sklad(page, cur)
+                        if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                            cur.callproc('get_having_order_processor')
+                        else:
+                            cur.callproc('get_having_processor')
                     elif tab_name == "Все":
-                        cur.callproc('get_all_processor')
-                        self.fill_table_sklad(page, cur)
+                        if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                            cur.callproc('get_all_order_processor')
+                        else:
+                            cur.callproc('get_all_processor')
                     else:
-                        cur.callproc('get_processor_by_series', [tab_name])
-                        self.fill_table_sklad(page, cur)
-                    self.reset_radiobutton(self.tableSklad)
-                    self.check_rows(data_row, self.tableSklad)
+                        if self.rbSklad.isChecked():
+                            if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                                cur.callproc('get_having_order_processor_by_series', [tab_name])
+                            else:
+                                cur.callproc('get_having_processor_by_series', [tab_name])
+                        else:
+                            if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                                cur.callproc('get_order_processor_by_series', [tab_name])
+                            else:
+                                cur.callproc('get_processor_by_series', [tab_name])
+
                 case 2:
                     if self.tableSklad.currentRow() != -1:  # Если была выбрана строка, то сохраняем её номер
                         data_row = self.save_row(self.tableSklad)
                     if tab_name == "Все" and self.rbSklad.isChecked():
-                        cur.callproc('get_having_motherboard')
-                        self.fill_table_sklad(page, cur)
+                        if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                            cur.callproc('get_having_order_motherboard')
+                        else:
+                            cur.callproc('get_having_motherboard')
                     elif tab_name == "Все":
-                        cur.callproc('get_all_motherboard')
-                        self.fill_table_sklad(page, cur)
+                        if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                            cur.callproc('get_all_order_motherboard')
+                        else:
+                            cur.callproc('get_all_motherboard')
                     else:
-                        cur.callproc('get_motherboard_by_socket', [tab_name])
-                        self.fill_table_sklad(page, cur)
-                    self.reset_radiobutton(self.tableSklad)
-                    self.check_rows(data_row, self.tableSklad)
+                        if self.rbSklad.isChecked():
+                            if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                                cur.callproc('get_having_order_motherboard_by_socket', [tab_name])
+                            else:
+                                cur.callproc('get_having_motherboard_by_socket', [tab_name])
+                        else:
+                            if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                                cur.callproc('get_order_motherboard_by_socket', [tab_name])
+                            else:
+                                cur.callproc('get_motherboard_by_socket', [tab_name])
+
                 case 3:
                     if self.tableSklad.currentRow() != -1:  # Если была выбрана строка, то сохраняем её номер
                         data_row = self.save_row(self.tableSklad)
                     if tab_name == "Все" and self.rbSklad.isChecked():
-                        cur.callproc('get_having_cool')
-                        self.fill_table_sklad(page, cur)
+                        if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                            cur.callproc('get_having_order_cool')
+                        else:
+                            cur.callproc('get_having_cool')
                     elif tab_name == "Все":
-                        cur.callproc('get_all_cool')
-                        self.fill_table_sklad(page, cur)
+                        if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                            cur.callproc('get_all_order_cool')
+                        else:
+                            cur.callproc('get_all_cool')
                     else:
-                        cur.callproc('get_cool_by_type', [tab_name])
-                        self.fill_table_sklad(page, cur)
-                    self.reset_radiobutton(self.tableSklad)
-                    self.check_rows(data_row, self.tableSklad)
+                        if self.rbSklad.isChecked():
+                            if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                                cur.callproc('get_having_order_cool_by_type', [tab_name])
+                            else:
+                                cur.callproc('get_having_cool_by_type', [tab_name])
+                        else:
+                            if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                                cur.callproc('get_order_cool_by_type', [tab_name])
+                            else:
+                                cur.callproc('get_cool_by_type', [tab_name])
+
                 case 4:
                     if self.tableSklad.currentRow() != -1:  # Если была выбрана строка, то сохраняем её номер
                         data_row = self.save_row(self.tableSklad)
                     if tab_name == "Все" and self.rbSklad.isChecked():
-                        cur.callproc('get_having_ram')
-                        self.fill_table_sklad(page, cur)
+                        if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                            cur.callproc('get_having_order_ram')
+                        else:
+                            cur.callproc('get_having_ram')
                     elif tab_name == "Все":
-                        cur.callproc('get_all_ram')
-                        self.fill_table_sklad(page, cur)
+                        if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                            cur.callproc('get_all_order_ram')
+                        else:
+                            cur.callproc('get_all_ram')
                     else:
-                        cur.callproc('get_ram_by_type', [tab_name])
-                        self.fill_table_sklad(page, cur)
-                    self.reset_radiobutton(self.tableSklad)
-                    self.check_rows(data_row, self.tableSklad)
+                        if self.rbSklad.isChecked():
+                            if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                                cur.callproc('get_having_order_ram_by_type', [tab_name])
+                            else:
+                                cur.callproc('get_having_ram_by_type', [tab_name])
+                        else:
+                            if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                                cur.callproc('get_order_ram_by_type', [tab_name])
+                            else:
+                                cur.callproc('get_ram_by_type', [tab_name])
+
                 case 5:
                     if self.tableSklad.currentRow() != -1:  # Если была выбрана строка, то сохраняем её номер
                         data_row = self.save_row(self.tableSklad)
                     if tab_name == "Все" and self.rbSklad.isChecked():
-                        cur.callproc('get_having_disk')
-                        self.fill_table_sklad(page, cur)
+                        if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                            cur.callproc('get_having_order_disk')
+                        else:
+                            cur.callproc('get_having_disk')
                     elif tab_name == "Все":
-                        cur.callproc('get_all_disk')
-                        self.fill_table_sklad(page, cur)
+                        if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                            cur.callproc('get_all_order_disk')
+                        else:
+                            cur.callproc('get_all_disk')
                     else:
-                        cur.callproc('get_disk_by_type', [tab_name])
-                        self.fill_table_sklad(page, cur)
-                    self.reset_radiobutton(self.tableSklad)
-                    self.check_rows(data_row, self.tableSklad)
+                        if self.rbSklad.isChecked():
+                            if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                                cur.callproc('get_having_order_disk_by_type', [tab_name])
+                            else:
+                                cur.callproc('get_having_disk_by_type', [tab_name])
+                        else:
+                            if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                                cur.callproc('get_order_disk_by_type', [tab_name])
+                            else:
+                                cur.callproc('get_disk_by_type', [tab_name])
+
                 case 6:
                     if self.tableSklad.currentRow() != -1:  # Если была выбрана строка, то сохраняем её номер
                         data_row = self.save_row(self.tableSklad)
                     if tab_name == "Все" and self.rbSklad.isChecked():
-                        cur.callproc('get_having_power')
-                        self.fill_table_sklad(page, cur)
+                        if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                            cur.callproc('get_having_order_power')
+                        else:
+                            cur.callproc('get_having_power')
                     elif tab_name == "Все":
-                        cur.callproc('get_all_power')
-                        self.fill_table_sklad(page, cur)
+                        if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                            cur.callproc('get_all_order_power')
+                        else:
+                            cur.callproc('get_all_power')
                     else:
-                        cur.callproc('get_power_by_factor', [tab_name])
-                        self.fill_table_sklad(page, cur)
-                    self.reset_radiobutton(self.tableSklad)
-                    self.check_rows(data_row, self.tableSklad)
+                        if self.rbSklad.isChecked():
+                            if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                                cur.callproc('get_having_order_power_by_factor', [tab_name])
+                            else:
+                                cur.callproc('get_having_power_by_factor', [tab_name])
+                        else:
+                            if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                                cur.callproc('get_order_power_by_factor', [tab_name])
+                            else:
+                                cur.callproc('get_power_by_factor', [tab_name])
+
                 case 7:
                     if self.tableSklad.currentRow() != -1:  # Если была выбрана строка, то сохраняем её номер
                         data_row = self.save_row(self.tableSklad)
+                    if self.tableSklad.currentRow() != -1:  # Если была выбрана строка, то сохраняем её номер
+                        data_row = self.save_row(self.tableSklad)
                     if tab_name == "Все" and self.rbSklad.isChecked():
-                        cur.callproc('get_having_body')
-                        self.fill_table_sklad(page, cur)
+                        if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                            cur.callproc('get_having_order_body')
+                        else:
+                            cur.callproc('get_having_body')
                     elif tab_name == "Все":
-                        cur.callproc('get_all_body')
-                        self.fill_table_sklad(page, cur)
+                        if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                            cur.callproc('get_all_order_body')
+                        else:
+                            cur.callproc('get_all_body')
                     else:
-                        cur.callproc('get_body_by_name', [tab_name])
-                        self.fill_table_sklad(page, cur)
-                    self.reset_radiobutton(self.tableSklad)
-                    self.check_rows(data_row, self.tableSklad)
+                        if self.rbSklad.isChecked():
+                            if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                                cur.callproc('get_having_order_body_by_name', [tab_name])
+                            else:
+                                cur.callproc('get_having_body_by_name', [tab_name])
+                        else:
+                            if self.rbShowOrders.isChecked():  # Если нажаты заказы
+                                cur.callproc('get_order_body_by_name', [tab_name])
+                            else:
+                                cur.callproc('get_body_by_name', [tab_name])
+
+            self.fill_table_sklad(page, cur)
+            self.reset_radiobutton(self.tableSklad)
+            self.check_rows(data_row, self.tableSklad)
 
             # Можно потом изменить чтобы при клике по вкладке если комплектующее в наличии не сбрасывалось
             # выделение
@@ -3195,19 +3654,16 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
 
                     if tab_name == "Все" and self.rbConf.isChecked():
                         cur.callproc('get_having_videocard')
-                        self.fill_table_conf(0, cur)
-                        self.reset_radiobutton(self.tableConfVideo)
-                        # Можно потом изменить чтобы при клике по вкладке если комплектующее в наличии не сбрасывалось
-                        # выделение
                     elif tab_name == "Все":
                         cur.callproc('get_all_videocard')
-                        self.fill_table_conf(0, cur)
-                        self.reset_radiobutton(self.tableConfVideo)
                     else:
-                        cur.callproc('get_videocard_by_name', [tab_name])
-                        self.fill_table_conf(0, cur)
-                        self.reset_radiobutton(self.tableConfVideo)
+                        if self.rbConf.isChecked():
+                            cur.callproc('get_having_videocard_by_name', [tab_name])
+                        else:
+                            cur.callproc('get_videocard_by_name', [tab_name])
 
+                    self.fill_table_conf(0, cur)
+                    self.reset_radiobutton(self.tableConfVideo)
                     self.check_rows(data_row, self.tableConfVideo)  # Проверяем строку и выделяем её
 
                 case self.tabWidgetProc:  # Здесь так же 3 условия, но для процессора
@@ -3216,39 +3672,33 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
 
                     if tab_name == "Все" and self.rbConf.isChecked():
                         cur.callproc('get_having_processor')
-                        self.fill_table_conf(1, cur)
-                        self.reset_radiobutton(self.tableConfProc)
-                        # Можно потом изменить чтобы при клике по вкладке если комплектующее в наличии не сбрасывалось
-                        # выделение
                     elif tab_name == "Все":
                         cur.callproc('get_all_processor')
-                        self.fill_table_conf(1, cur)
-                        self.reset_radiobutton(self.tableConfProc)
                     else:
-                        cur.callproc('get_processor_by_series', [tab_name])
-                        self.fill_table_conf(1, cur)
-                        self.reset_radiobutton(self.tableConfProc)
+                        if self.rbConf.isChecked():
+                            cur.callproc('get_having_processor_by_series', [tab_name])
+                        else:
+                            cur.callproc('get_processor_by_series', [tab_name])
 
+                    self.fill_table_conf(1, cur)
+                    self.reset_radiobutton(self.tableConfProc)
                     self.check_rows(data_row, self.tableConfProc)  # Проверяем строку и выделяем её
 
                 case self.tabWidgetMother:
                     if self.tableConfMother.currentRow() != -1:  # Если была выбрана строка, то сохраняем её номер
                         data_row = self.save_row(self.tableConfMother)
-
                     if tab_name == "Все" and self.rbConf.isChecked():
                         cur.callproc('get_having_motherboard')
-                        self.fill_table_conf(2, cur)
-                        self.reset_radiobutton(self.tableConfMother)
-
                     elif tab_name == "Все":
                         cur.callproc('get_all_motherboard')
-                        self.fill_table_conf(2, cur)
-                        self.reset_radiobutton(self.tableConfMother)
                     else:
-                        cur.callproc('get_motherboard_by_socket', [tab_name])
-                        self.fill_table_conf(2, cur)
-                        self.reset_radiobutton(self.tabWidgetMother)
+                        if self.rbConf.isChecked():
+                            cur.callproc('get_having_motherboard_by_socket', [tab_name])
+                        else:
+                            cur.callproc('get_motherboard_by_socket', [tab_name])
 
+                    self.fill_table_conf(2, cur)
+                    self.reset_radiobutton(self.tabWidgetMother)
                     self.check_rows(data_row, self.tableConfMother)  # Проверяем строку и выделяем её
 
                 case self.tabWidgetCool:
@@ -3257,18 +3707,17 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
 
                     if tab_name == "Все" and self.rbConf.isChecked():
                         cur.callproc('get_having_cool')
-                        self.fill_table_conf(3, cur)
-                        self.reset_radiobutton(self.tableConfCool)
 
                     elif tab_name == "Все":
                         cur.callproc('get_all_cool')
-                        self.fill_table_conf(3, cur)
-                        self.reset_radiobutton(self.tableConfCool)
                     else:
-                        cur.callproc('get_cool_by_type', [tab_name])
-                        self.fill_table_conf(3, cur)
-                        self.reset_radiobutton(self.tableConfCool)
+                        if self.rbConf.isChecked():
+                            cur.callproc('get_having_cool_by_type', [tab_name])
+                        else:
+                            cur.callproc('get_cool_by_type', [tab_name])
 
+                    self.fill_table_conf(3, cur)
+                    self.reset_radiobutton(self.tableConfCool)
                     self.check_rows(data_row, self.tableConfCool)  # Проверяем строку и выделяем её
 
                 case self.tabWidgetRam:
@@ -3277,18 +3726,16 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
 
                     if tab_name == "Все" and self.rbConf.isChecked():
                         cur.callproc('get_having_ram')
-                        self.fill_table_conf(4, cur)
-                        self.reset_radiobutton(self.tableConfRam)
-
                     elif tab_name == "Все":
                         cur.callproc('get_all_ram')
-                        self.fill_table_conf(4, cur)
-                        self.reset_radiobutton(self.tableConfRam)
                     else:
-                        cur.callproc('get_ram_by_type', [tab_name])
-                        self.fill_table_conf(4, cur)
-                        self.reset_radiobutton(self.tableConfRam)
+                        if self.rbConf.isChecked():
+                            cur.callproc('get_having_ram_by_type', [tab_name])
+                        else:
+                            cur.callproc('get_ram_by_type', [tab_name])
 
+                    self.fill_table_conf(4, cur)
+                    self.reset_radiobutton(self.tableConfRam)
                     self.check_rows(data_row, self.tableConfRam)  # Проверяем строку и выделяем её
 
                 case self.tabWidgetDisk:
@@ -3297,18 +3744,16 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
 
                     if tab_name == "Все" and self.rbConf.isChecked():
                         cur.callproc('get_having_disk')
-                        self.fill_table_conf(5, cur)
-                        self.reset_radiobutton(self.tableConfDisk)
-
                     elif tab_name == "Все":
                         cur.callproc('get_all_disk')
-                        self.fill_table_conf(5, cur)
-                        self.reset_radiobutton(self.tableConfDisk)
                     else:
-                        cur.callproc('get_disk_by_type', [tab_name])
-                        self.fill_table_conf(5, cur)
-                        self.reset_radiobutton(self.tableConfDisk)
+                        if self.rbConf.isChecked():
+                            cur.callproc('get_having_disk_by_type', [tab_name])
+                        else:
+                            cur.callproc('get_disk_by_type', [tab_name])
 
+                    self.fill_table_conf(5, cur)
+                    self.reset_radiobutton(self.tableConfDisk)
                     self.check_rows(data_row, self.tableConfDisk)  # Проверяем строку и выделяем её
 
                 case self.tabWidgetPower:
@@ -3317,18 +3762,15 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
 
                     if tab_name == "Все" and self.rbConf.isChecked():
                         cur.callproc('get_having_power')
-                        self.fill_table_conf(6, cur)
-                        self.reset_radiobutton(self.tableConfPower)
-
                     elif tab_name == "Все":
                         cur.callproc('get_all_power')
-                        self.fill_table_conf(6, cur)
-                        self.reset_radiobutton(self.tableConfPower)
                     else:
-                        cur.callproc('get_power_by_factor', [tab_name])
-                        self.fill_table_conf(6, cur)
-                        self.reset_radiobutton(self.tableConfPower)
-
+                        if self.rbConf.isChecked():
+                            cur.callproc('get_having_power_by_factor', [tab_name])
+                        else:
+                            cur.callproc('get_power_by_factor', [tab_name])
+                    self.fill_table_conf(6, cur)
+                    self.reset_radiobutton(self.tableConfPower)
                     self.check_rows(data_row, self.tableConfPower)  # Проверяем строку и выделяем её
 
                 case self.tabWidgetBody:
@@ -3337,18 +3779,16 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
 
                     if tab_name == "Все" and self.rbConf.isChecked():
                         cur.callproc('get_having_body')
-                        self.fill_table_conf(7, cur)
-                        self.reset_radiobutton(self.tableConfBody)
-
                     elif tab_name == "Все":
                         cur.callproc('get_all_body')
-                        self.fill_table_conf(7, cur)
-                        self.reset_radiobutton(self.tableConfBody)
                     else:
-                        cur.callproc('get_body_by_name', [tab_name])
-                        self.fill_table_conf(7, cur)
-                        self.reset_radiobutton(self.tableConfBody)
+                        if self.rbConf.isChecked():
+                            cur.callproc('get_having_body_by_name', [tab_name])
+                        else:
+                            cur.callproc('get_body_by_name', [tab_name])
 
+                    self.fill_table_conf(7, cur)
+                    self.reset_radiobutton(self.tableConfBody)
                     self.check_rows(data_row, self.tableConfBody)  # Проверяем строку и выделяем её
 
         except (Exception, psycopg2.DatabaseError) as error:

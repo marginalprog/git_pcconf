@@ -101,6 +101,149 @@ RETURNS TABLE(
 $$ LANGUAGE sql;
 
 
+---------процессоры В НАЛИЧИИ по серии
+CREATE OR REPLACE FUNCTION get_having_disk_by_type(type_in VARCHAR)
+RETURNS TABLE(
+	kol INT,
+	disk_exist BOOL,
+	disk_id INT,
+	proizv_name VARCHAR,
+	fullname VARCHAR,
+	type VARCHAR,
+	volume INT,
+	connect VARCHAR, 
+	read INT, 
+	write INT, 
+	rpm INT,
+	price INT
+) AS $$
+	SELECT sklad_disk.kol, disk.exist, disk.id, proizv_disk.name,
+			fullname, type, volume, connect, read, write, rpm, price
+	FROM disk, sklad_disk, proizv_disk
+	WHERE disk.id = sklad_disk.id_izd AND disk.id_proizv = proizv_disk.id 
+	AND type = type_in
+	AND disk.exist = True
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+
+--ЗАКАЗЫ
+-------------------------------222222
+CREATE OR REPLACE FUNCTION get_having_order_disk()
+RETURNS TABLE(
+	kol INT,
+	disk_exist BOOL,
+	disk_id INT,
+	disk_date DATE,
+	disk_order_kol INT,
+	proizv_name VARCHAR,
+	fullname VARCHAR,
+	type VARCHAR,
+	volume INT,
+	connect VARCHAR, 
+	read INT, 
+	write INT, 
+	rpm INT,
+	price INT
+) AS $$
+	SELECT sklad_disk.kol, disk.exist, disk.id,
+			order_disk.date, order_disk.kol, proizv_disk.name,
+			fullname, type, volume, connect, read, write, rpm, price
+	FROM disk, sklad_disk, proizv_disk, order_disk
+	WHERE disk.id = sklad_disk.id_izd AND disk.id_proizv = proizv_disk.id 
+	AND order_disk.id_izd = disk.id
+	AND disk.exist = True
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+-------------------------------3333333
+CREATE OR REPLACE FUNCTION get_all_order_disk()
+RETURNS TABLE(
+	kol INT,
+	disk_exist BOOL,
+	disk_id INT,
+	disk_date DATE,
+	disk_order_kol INT,
+	proizv_name VARCHAR,
+	fullname VARCHAR,
+	type VARCHAR,
+	volume INT,
+	connect VARCHAR, 
+	read INT, 
+	write INT, 
+	rpm INT,
+	price INT
+) AS $$
+	SELECT sklad_disk.kol, disk.exist, disk.id,
+			order_disk.date, order_disk.kol, proizv_disk.name,
+			fullname, type, volume, connect, read, write, rpm, price
+	FROM disk, sklad_disk, proizv_disk, order_disk
+	WHERE disk.id = sklad_disk.id_izd AND disk.id_proizv = proizv_disk.id 
+	AND order_disk.id_izd = disk.id
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+-------------------------------44444
+-- Функция для фильтрации процессоров по серии
+CREATE OR REPLACE FUNCTION get_order_disk_by_type(type_in VARCHAR)
+RETURNS TABLE(
+	kol INT,
+	disk_exist BOOL,
+	disk_id INT,
+	disk_date DATE,
+	disk_order_kol INT,
+	proizv_name VARCHAR,
+	fullname VARCHAR,
+	type VARCHAR,
+	volume INT,
+	connect VARCHAR, 
+	read INT, 
+	write INT, 
+	rpm INT,
+	price INT
+) AS $$
+	SELECT sklad_disk.kol, disk.exist, disk.id,
+			order_disk.date, order_disk.kol, proizv_disk.name,
+			fullname, type, volume, connect, read, write, rpm, price
+	FROM disk, sklad_disk, proizv_disk, order_disk
+	WHERE disk.id = sklad_disk.id_izd AND disk.id_proizv = proizv_disk.id
+	AND order_disk.id_izd = disk.id
+	AND type = type_in
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+-------------------------------5555
+CREATE OR REPLACE FUNCTION get_having_order_disk_by_type(type_in VARCHAR)
+RETURNS TABLE(
+	kol INT,
+	disk_exist BOOL,
+	disk_id INT,
+	disk_date DATE,
+	disk_order_kol INT,
+	proizv_name VARCHAR,
+	fullname VARCHAR,
+	type VARCHAR,
+	volume INT,
+	connect VARCHAR, 
+	read INT, 
+	write INT, 
+	rpm INT,
+	price INT
+) AS $$
+	SELECT sklad_disk.kol, disk.exist, disk.id,
+			order_disk.date, order_disk.kol, proizv_disk.name,
+			fullname, type, volume, connect, read, write, rpm, price
+	FROM disk, sklad_disk, proizv_disk, order_disk
+	WHERE disk.id = sklad_disk.id_izd AND disk.id_proizv = proizv_disk.id
+	AND order_disk.id_izd = disk.id
+	AND type = type_in
+	AND disk.exist = True
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+
+
+
 -- Функция вывода всех типов, что есть в базе накопителя (для заполнения фильтрующих вкладок tabwidget)
 CREATE OR REPLACE FUNCTION get_inbase_disktype()
 RETURNS TABLE(type VARCHAR) AS $$

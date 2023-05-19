@@ -90,6 +90,7 @@ RETURNS TABLE(
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
+
 -- Функция для фильтрации процессоров по серии
 CREATE OR REPLACE FUNCTION get_processor_by_series(series_in VARCHAR)
 RETURNS TABLE(
@@ -116,6 +117,169 @@ RETURNS TABLE(
 	WHERE processor.id = sklad_processor.id_izd AND processor.id_proizv = proizv_processor.id AND series = series_in
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
+
+---------процессоры В НАЛИЧИИ по серии
+CREATE OR REPLACE FUNCTION get_having_processor_by_series(series_in VARCHAR)
+RETURNS TABLE(
+	kol INT, 
+	processor_exist BOOL,
+	processor_id INT,   
+	proizv_name VARCHAR, 
+	fullname VARCHAR,
+	gaming VARCHAR,
+	series VARCHAR,
+	socket VARCHAR, 
+	core VARCHAR, 
+	ncores INT, 
+	cache INT, 
+	frequency INT, 
+	techproc VARCHAR, 
+	ramfreq INT,
+	graphics VARCHAR,
+	tdp INT, 
+	price INT
+) AS $$
+	SELECT sklad_processor.kol, processor.exist, processor.id, proizv_processor.name, fullname, gaming, series, socket, core, ncores, cache, frequency, techproc, ramfreq, graphics, tdp, price	
+	FROM processor, sklad_processor, proizv_processor
+	WHERE processor.id = sklad_processor.id_izd AND processor.id_proizv = proizv_processor.id AND series = series_in
+	AND processor.exist = True
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+--ЗАКАЗЫ
+-------------------------------222222
+CREATE OR REPLACE FUNCTION get_having_order_processor()
+RETURNS TABLE(
+	kol INT, 
+	processor_exist BOOL,
+	processor_id INT,  
+	processor_date DATE,
+	processor_order_kol INT,
+	proizv_name VARCHAR, 
+	fullname VARCHAR,
+	gaming VARCHAR,
+	series VARCHAR,
+	socket VARCHAR, 
+	core VARCHAR, 
+	ncores INT, 
+	cache INT, 
+	frequency INT, 
+	techproc VARCHAR, 
+	ramfreq INT,
+	graphics VARCHAR,	
+	tdp INT, 
+	price INT
+) AS $$
+	SELECT sklad_processor.kol, processor.exist, processor.id, order_processor.date, order_processor.kol,
+	proizv_processor.name, fullname, gaming, series, socket, core, ncores, cache, 
+	frequency, techproc, ramfreq, graphics, tdp, price
+	FROM processor, sklad_processor, proizv_processor, order_processor
+	WHERE processor.id = sklad_processor.id_izd AND processor.id_proizv = proizv_processor.id
+	AND order_processor.id_izd = processor.id
+	AND processor.exist = True
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+-------------------------------3333333
+CREATE OR REPLACE FUNCTION get_all_order_processor()
+RETURNS TABLE(
+	kol INT, 
+	processor_exist BOOL,
+	processor_id INT,  
+	processor_date DATE,
+	processor_order_kol INT,
+	proizv_name VARCHAR, 
+	fullname VARCHAR,
+	gaming VARCHAR,
+	series VARCHAR,
+	socket VARCHAR, 
+	core VARCHAR, 
+	ncores INT, 
+	cache INT, 
+	frequency INT, 
+	techproc VARCHAR, 
+	ramfreq INT,
+	graphics VARCHAR,	
+	tdp INT, 
+	price INT
+) AS $$
+	SELECT sklad_processor.kol, processor.exist, processor.id, order_processor.date, order_processor.kol,
+	proizv_processor.name, fullname, gaming, series, socket, core, ncores, cache, 
+	frequency, techproc, ramfreq, graphics, tdp, price
+	FROM processor, sklad_processor, proizv_processor, order_processor
+	WHERE processor.id = sklad_processor.id_izd AND processor.id_proizv = proizv_processor.id
+	AND order_processor.id_izd = processor.id
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+-------------------------------44444
+-- Функция для фильтрации процессоров по серии
+CREATE OR REPLACE FUNCTION get_order_processor_by_series(series_in VARCHAR)
+RETURNS TABLE(
+	kol INT, 
+	processor_exist BOOL,
+	processor_id INT,  
+	processor_date DATE,
+	processor_order_kol INT,
+	proizv_name VARCHAR, 
+	fullname VARCHAR,
+	gaming VARCHAR,
+	series VARCHAR,
+	socket VARCHAR, 
+	core VARCHAR, 
+	ncores INT, 
+	cache INT, 
+	frequency INT, 
+	techproc VARCHAR, 
+	ramfreq INT,
+	graphics VARCHAR,	
+	tdp INT, 
+	price INT
+) AS $$
+	SELECT sklad_processor.kol, processor.exist, processor.id, order_processor.date, order_processor.kol,
+	proizv_processor.name, fullname, gaming, series, socket, core, ncores, cache, 
+	frequency, techproc, ramfreq, graphics, tdp, price
+	FROM processor, sklad_processor, proizv_processor, order_processor
+	WHERE processor.id = sklad_processor.id_izd AND processor.id_proizv = proizv_processor.id
+	AND order_processor.id_izd = processor.id 
+	AND series = series_in
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+-------------------------------5555
+CREATE OR REPLACE FUNCTION get_having_order_processor_by_series(series_in VARCHAR)
+RETURNS TABLE(
+	kol INT, 
+	processor_exist BOOL,
+	processor_id INT,  
+	processor_date DATE,
+	processor_order_kol INT,
+	proizv_name VARCHAR, 
+	fullname VARCHAR,
+	gaming VARCHAR,
+	series VARCHAR,
+	socket VARCHAR, 
+	core VARCHAR, 
+	ncores INT, 
+	cache INT, 
+	frequency INT, 
+	techproc VARCHAR, 
+	ramfreq INT,
+	graphics VARCHAR,	
+	tdp INT, 
+	price INT
+) AS $$
+	SELECT sklad_processor.kol, processor.exist, processor.id, order_processor.date, order_processor.kol,
+	proizv_processor.name, fullname, gaming, series, socket, core, ncores, cache, 
+	frequency, techproc, ramfreq, graphics, tdp, price
+	FROM processor, sklad_processor, proizv_processor, order_processor
+	WHERE processor.id = sklad_processor.id_izd AND processor.id_proizv = proizv_processor.id
+	AND order_processor.id_izd = processor.id 
+	AND series = series_in
+	AND processor.exist = True
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+
 
 
 -- Функция вывода всех серий процессоров что есть базе (для заполнения фильтрующих вкладок tabwidget)

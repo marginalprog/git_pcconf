@@ -139,6 +139,195 @@ RETURNS TABLE(
 	AND name = name_pr
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
+--++++++++++++++++++
+CREATE OR REPLACE FUNCTION get_having_videocard_by_name(name_pr VARCHAR)
+RETURNS TABLE(
+	kol INT, 
+	videocard_exist BOOL,
+	videocard_id INT,  
+	proizv_name VARCHAR, 
+	fullname VARCHAR,
+	gaming VARCHAR,
+	chipcreator VARCHAR, 
+	chipname VARCHAR, 
+	vram INT, 
+	typevram VARCHAR, 
+	frequency INT, 
+	bus INT, 
+	interface VARCHAR, 
+	monitor INT, 
+	resolution VARCHAR, 
+	tdp INT, 
+	length INT, 
+	connvideo INT,
+	kolconnvideo INT,
+	price INT
+) AS $$
+	SELECT sklad_videocard.kol, videocard.exist, videocard.id, proizv_videocard.name, 
+			fullname, gaming, chipcreator, chipname, vram, typevram, frequency, bus,
+			interface, monitor, resolution, tdp, length, connvideo, kolconnvideo, price	
+	FROM videocard, sklad_videocard, proizv_videocard
+	WHERE videocard.id = sklad_videocard.id_izd 
+	AND videocard.id_proizv = proizv_videocard.id 
+	AND name = name_pr
+	AND videocard.exist = True
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+--ЗАКАЗЫ
+-------------------------------222222
+CREATE OR REPLACE FUNCTION get_having_order_videocard()
+RETURNS TABLE(
+	kol INT, 
+	videocard_exist BOOL,
+	videocard_id INT,
+	videocard_date DATE,
+	videocard_order_kol INT,
+	proizv_name VARCHAR, 
+	fullname VARCHAR,
+	gaming VARCHAR,
+	chipcreator VARCHAR, 
+	chipname VARCHAR, 
+	vram INT, 
+	typevram VARCHAR, 
+	frequency INT, 
+	bus INT, 
+	interface VARCHAR, 
+	monitor INT, 
+	resolution VARCHAR, 
+	tdp INT, 
+	length INT, 
+	connvideo INT,
+	kolconnvideo INT,
+	price INT
+) AS $$
+	SELECT sklad_videocard.kol, videocard.exist, videocard.id,
+		order_videocard.date, order_videocard.kol, proizv_videocard.name, 
+		fullname, gaming, chipcreator, chipname, vram, typevram, frequency, bus,
+		interface, monitor, resolution, tdp, length, connvideo, kolconnvideo, price	
+	FROM videocard, sklad_videocard, proizv_videocard, order_videocard
+	WHERE videocard.id = sklad_videocard.id_izd 
+	AND videocard.id_proizv = proizv_videocard.id 
+	AND order_videocard.id_izd = videocard.id
+	AND videocard.exist = True
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+-------------------------------3333333
+CREATE OR REPLACE FUNCTION get_all_order_videocard()
+RETURNS TABLE(
+	kol INT, 
+	videocard_exist BOOL,
+	videocard_id INT,
+	videocard_date DATE,
+	videocard_order_kol INT,
+	proizv_name VARCHAR, 
+	fullname VARCHAR,
+	gaming VARCHAR,
+	chipcreator VARCHAR, 
+	chipname VARCHAR, 
+	vram INT, 
+	typevram VARCHAR, 
+	frequency INT, 
+	bus INT, 
+	interface VARCHAR, 
+	monitor INT, 
+	resolution VARCHAR, 
+	tdp INT, 
+	length INT, 
+	connvideo INT,
+	kolconnvideo INT,
+	price INT
+) AS $$
+	SELECT sklad_videocard.kol, videocard.exist, videocard.id,
+		order_videocard.date, order_videocard.kol, proizv_videocard.name, 
+		fullname, gaming, chipcreator, chipname, vram, typevram, frequency, bus,
+		interface, monitor, resolution, tdp, length, connvideo, kolconnvideo, price	
+	FROM videocard, sklad_videocard, proizv_videocard, order_videocard
+	WHERE videocard.id = sklad_videocard.id_izd 
+	AND videocard.id_proizv = proizv_videocard.id 
+	AND order_videocard.id_izd = videocard.id
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+-------------------------------44444
+-- Функция для фильтрации видеокарт по серии
+CREATE OR REPLACE FUNCTION get_order_videocard_by_name(name_pr VARCHAR)
+RETURNS TABLE(
+	kol INT, 
+	videocard_exist BOOL,
+	videocard_id INT,
+	videocard_date DATE,
+	videocard_order_kol INT,
+	proizv_name VARCHAR, 
+	fullname VARCHAR,
+	gaming VARCHAR,
+	chipcreator VARCHAR, 
+	chipname VARCHAR, 
+	vram INT, 
+	typevram VARCHAR, 
+	frequency INT, 
+	bus INT, 
+	interface VARCHAR, 
+	monitor INT, 
+	resolution VARCHAR, 
+	tdp INT, 
+	length INT, 
+	connvideo INT,
+	kolconnvideo INT,
+	price INT
+) AS $$
+	SELECT sklad_videocard.kol, videocard.exist, videocard.id,
+		order_videocard.date, order_videocard.kol, proizv_videocard.name, 
+		fullname, gaming, chipcreator, chipname, vram, typevram, frequency, bus,
+		interface, monitor, resolution, tdp, length, connvideo, kolconnvideo, price	
+	FROM videocard, sklad_videocard, proizv_videocard, order_videocard
+	WHERE videocard.id = sklad_videocard.id_izd 
+	AND videocard.id_proizv = proizv_videocard.id 
+	AND order_videocard.id_izd = videocard.id
+	AND name = name_pr
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+-------------------------------5555
+CREATE OR REPLACE FUNCTION get_having_order_videocard_by_name(name_pr VARCHAR)
+RETURNS TABLE(
+	kol INT, 
+	videocard_exist BOOL,
+	videocard_id INT,
+	videocard_date DATE,
+	videocard_order_kol INT,
+	proizv_name VARCHAR, 
+	fullname VARCHAR,
+	gaming VARCHAR,
+	chipcreator VARCHAR, 
+	chipname VARCHAR, 
+	vram INT, 
+	typevram VARCHAR, 
+	frequency INT, 
+	bus INT, 
+	interface VARCHAR, 
+	monitor INT, 
+	resolution VARCHAR, 
+	tdp INT, 
+	length INT, 
+	connvideo INT,
+	kolconnvideo INT,
+	price INT
+) AS $$
+	SELECT sklad_videocard.kol, videocard.exist, videocard.id,
+		order_videocard.date, order_videocard.kol, proizv_videocard.name, 
+		fullname, gaming, chipcreator, chipname, vram, typevram, frequency, bus,
+		interface, monitor, resolution, tdp, length, connvideo, kolconnvideo, price	
+	FROM videocard, sklad_videocard, proizv_videocard, order_videocard
+	WHERE videocard.id = sklad_videocard.id_izd 
+	AND videocard.id_proizv = proizv_videocard.id
+	AND order_videocard.id_izd = videocard.id
+	AND name = name_pr
+	AND videocard.exist = True
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+
 
 
 -- Функция вывода всех производителей, чьи видеокарты есть в базе (для заполнения фильтрующих вкладок tabwidget)

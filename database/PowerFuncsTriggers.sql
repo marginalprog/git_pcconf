@@ -116,7 +116,172 @@ RETURNS TABLE(
 			fullname, formfactor, length, power, certificate, pinmain,
 			pinsata, connproc, kolconnproc, connvideo, kolconnvideo, price
 	FROM power, sklad_power, proizv_power
-	WHERE power.id = sklad_power.id_izd AND power.id_proizv = proizv_power.id AND formfactor = factor_in
+	WHERE power.id = sklad_power.id_izd AND power.id_proizv = proizv_power.id 
+	AND formfactor = factor_in
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+
+---------питание В НАЛИЧИИ по фактору
+CREATE OR REPLACE FUNCTION get_having_power_by_factor(factor_in VARCHAR)
+RETURNS TABLE(
+	kol INT,
+	power_exist BOOL,
+	power_id INT,
+	proizv_name VARCHAR,
+	fullname VARCHAR,
+	formfactor VARCHAR,
+	length INT,
+	power INT,
+	certificate VARCHAR,
+	pinmain VARCHAR, 
+	pinsata INT,
+	connproc INT, 
+	kolconnproc INT, 
+	connvideo INT, 
+	kolconnvideo INT,
+	price INT
+) AS $$
+	SELECT sklad_power.kol, power.exist, power.id, proizv_power.name,
+			fullname, formfactor, length, power, certificate, pinmain,
+			pinsata, connproc, kolconnproc, connvideo, kolconnvideo, price
+	FROM power, sklad_power, proizv_power
+	WHERE power.id = sklad_power.id_izd AND power.id_proizv = proizv_power.id 
+	AND formfactor = factor_in
+	AND power.exist = True
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+--ЗАКАЗЫ
+-------------------------------222222
+CREATE OR REPLACE FUNCTION get_having_order_power()
+RETURNS TABLE(
+	kol INT,
+	power_exist BOOL,
+	power_id INT,
+	power_date DATE,
+	power_order_kol INT,
+	proizv_name VARCHAR,
+	fullname VARCHAR,
+	formfactor VARCHAR,
+	length INT,
+	power INT,
+	certificate VARCHAR,
+	pinmain VARCHAR, 
+	pinsata INT,
+	connproc INT, 
+	kolconnproc INT, 
+	connvideo INT, 
+	kolconnvideo INT,
+	price INT
+) AS $$
+	SELECT sklad_power.kol, power.exist, power.id,
+			order_power.date, order_power.kol, proizv_power.name,
+			fullname, formfactor, length, power, certificate, pinmain,
+			pinsata, connproc, kolconnproc, connvideo, kolconnvideo, price
+	FROM power, sklad_power, proizv_power, order_power
+	WHERE power.id = sklad_power.id_izd AND power.id_proizv = proizv_power.id 
+	AND order_power.id_izd = power.id
+	AND power.exist = True
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+-------------------------------3333333
+CREATE OR REPLACE FUNCTION get_all_order_power()
+RETURNS TABLE(
+	kol INT,
+	power_exist BOOL,
+	power_id INT,
+	power_date DATE,
+	power_order_kol INT,
+	proizv_name VARCHAR,
+	fullname VARCHAR,
+	formfactor VARCHAR,
+	length INT,
+	power INT,
+	certificate VARCHAR,
+	pinmain VARCHAR, 
+	pinsata INT,
+	connproc INT, 
+	kolconnproc INT, 
+	connvideo INT, 
+	kolconnvideo INT,
+	price INT
+) AS $$
+	SELECT sklad_power.kol, power.exist, power.id,
+			order_power.date, order_power.kol, proizv_power.name,
+			fullname, formfactor, length, power, certificate, pinmain,
+			pinsata, connproc, kolconnproc, connvideo, kolconnvideo, price
+	FROM power, sklad_power, proizv_power, order_power
+	WHERE power.id = sklad_power.id_izd AND power.id_proizv = proizv_power.id 
+	AND order_power.id_izd = power.id
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+-------------------------------44444
+-- Функция для фильтрации процессоров по серии
+CREATE OR REPLACE FUNCTION get_order_power_by_factor(factor_in VARCHAR)
+RETURNS TABLE(
+	kol INT,
+	power_exist BOOL,
+	power_id INT,
+	power_date DATE,
+	power_order_kol INT,
+	proizv_name VARCHAR,
+	fullname VARCHAR,
+	formfactor VARCHAR,
+	length INT,
+	power INT,
+	certificate VARCHAR,
+	pinmain VARCHAR, 
+	pinsata INT,
+	connproc INT, 
+	kolconnproc INT, 
+	connvideo INT, 
+	kolconnvideo INT,
+	price INT
+) AS $$
+	SELECT sklad_power.kol, power.exist, power.id,
+			order_power.date, order_power.kol, proizv_power.name,
+			fullname, formfactor, length, power, certificate, pinmain,
+			pinsata, connproc, kolconnproc, connvideo, kolconnvideo, price
+	FROM power, sklad_power, proizv_power, order_power
+	WHERE power.id = sklad_power.id_izd AND power.id_proizv = proizv_power.id
+	AND order_power.id_izd = power.id
+	AND formfactor = factor_in
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+-------------------------------5555
+CREATE OR REPLACE FUNCTION get_having_order_power_by_factor(factor_in VARCHAR)
+RETURNS TABLE(
+	kol INT,
+	power_exist BOOL,
+	power_id INT,
+	power_date DATE,
+	power_order_kol INT,
+	proizv_name VARCHAR,
+	fullname VARCHAR,
+	formfactor VARCHAR,
+	length INT,
+	power INT,
+	certificate VARCHAR,
+	pinmain VARCHAR, 
+	pinsata INT,
+	connproc INT, 
+	kolconnproc INT, 
+	connvideo INT, 
+	kolconnvideo INT,
+	price INT
+) AS $$
+	SELECT sklad_power.kol, power.exist, power.id,
+			order_power.date, order_power.kol, proizv_power.name,
+			fullname, formfactor, length, power, certificate, pinmain,
+			pinsata, connproc, kolconnproc, connvideo, kolconnvideo, price
+	FROM power, sklad_power, proizv_power, order_power
+	WHERE power.id = sklad_power.id_izd AND power.id_proizv = proizv_power.id 
+	AND order_power.id_izd = power.id
+	AND formfactor = factor_in
+	AND power.exist = True
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 

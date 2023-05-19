@@ -122,7 +122,7 @@ QTabBar::tab:hover
 }</string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="tabsClosable">
        <bool>false</bool>
@@ -3358,7 +3358,7 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
           <rect>
            <x>10</x>
            <y>0</y>
-           <width>981</width>
+           <width>851</width>
            <height>31</height>
           </rect>
          </property>
@@ -3416,7 +3416,7 @@ QTabBar::tab:hover
        <widget class="QPushButton" name="btnSkladFilter">
         <property name="geometry">
          <rect>
-          <x>1220</x>
+          <x>1250</x>
           <y>31</y>
           <width>131</width>
           <height>20</height>
@@ -3560,6 +3560,79 @@ border-image: url(&quot;E:/pcconf/images/reset-red.png&quot;) 0;
           <width>18</width>
           <height>18</height>
          </size>
+        </property>
+       </widget>
+       <widget class="QRadioButton" name="rbShowOrders">
+        <property name="geometry">
+         <rect>
+          <x>1250</x>
+          <y>60</y>
+          <width>151</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QRadioButton{
+	background-color: #101010;
+	color: rgb(205,205,205);
+	border: 0px;
+	border-bottom: 1px solid rgb(60,60,60);
+	font-size: 14px;
+}
+QRadioButton:checked{
+	background-color: #101010;
+	color: #dddddd;
+	border: 0px;
+   border-bottom: 1px solid rgb(60,60,60);
+}
+QRadioButton:hover{
+	background-color: rgb(60,60,60);
+	border-color: rgb(40,40,40);
+	color: white;
+	border-bottom: 1px solid  red;
+}
+QRadioButton::indicator:hover{
+     width: 25px;
+    height: 25px;
+ 	border-image: url(&quot;E:/pcconf/images/calendar-red.png&quot;) 0;
+}
+
+QRadioButton::indicator{
+     width: 26px;
+    height: 26px;
+ 	border-image: url(&quot;E:/pcconf/images/calendar.png&quot;) 0;
+}
+
+QRadioButton::indicator:checked {
+     width: 26px;
+    height: 26px;
+	margin-left: 3px;
+ 	border-image: url(&quot;E:/pcconf/images/calendar-red.png&quot;) 0;
+}
+
+QRadioButton::indicator:unchecked {
+     width: 26px;
+    height: 26px;
+	margin-left: 3px;
+ 	border-image: url(&quot;E:/pcconf/images/calendar.png&quot;) 0;
+}</string>
+        </property>
+        <property name="text">
+         <string>Показать заказы</string>
+        </property>
+        <property name="autoExclusive">
+         <bool>false</bool>
         </property>
        </widget>
       </widget>

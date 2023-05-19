@@ -107,6 +107,156 @@ RETURNS TABLE(
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
+---------озу В НАЛИЧИИ по типу
+CREATE OR REPLACE FUNCTION get_having_ram_by_type(type_in VARCHAR)
+RETURNS TABLE(
+	kol INT,
+	ram_exist BOOL,
+	ram_id INT,
+	proizv_name VARCHAR,
+	fullname VARCHAR,
+	gaming VARCHAR,
+	type VARCHAR,
+	volume INT, 
+	frequency INT, 
+	complect INT, 
+	latency INT,
+	voltage DECIMAL, 
+	price INT
+) AS $$
+	SELECT sklad_ram.kol, ram.exist, ram.id, proizv_ram.name,
+			fullname, gaming, type, volume, frequency,
+			complect, latency, voltage, price
+	FROM ram, sklad_ram, proizv_ram
+	WHERE ram.id = sklad_ram.id_izd AND ram.id_proizv = proizv_ram.id 
+	AND type = type_in
+	AND ram.exist = True
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+--ЗАКАЗЫ
+-------------------------------222222
+CREATE OR REPLACE FUNCTION get_having_order_ram()
+RETURNS TABLE(
+	kol INT,
+	ram_exist BOOL,
+	ram_id INT,
+	ram_date DATE,
+	ram_order_kol INT,
+	proizv_name VARCHAR,
+	fullname VARCHAR,
+	gaming VARCHAR,
+	type VARCHAR,
+	volume INT, 
+	frequency INT, 
+	complect INT, 
+	latency INT,
+	voltage DECIMAL, 
+	price INT
+) AS $$
+	SELECT sklad_ram.kol, ram.exist, ram.id,
+			order_ram.date, order_ram.kol, proizv_ram.name,
+			fullname, gaming, type, volume, frequency,
+			complect, latency, voltage, price
+	FROM ram, sklad_ram, proizv_ram, order_ram
+	WHERE ram.id = sklad_ram.id_izd AND ram.id_proizv = proizv_ram.id 
+	AND order_ram.id_izd = ram.id
+	AND ram.exist = True
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+-------------------------------3333333
+CREATE OR REPLACE FUNCTION get_all_order_ram()
+RETURNS TABLE(
+	kol INT,
+	ram_exist BOOL,
+	ram_id INT,
+	ram_date DATE,
+	ram_order_kol INT,
+	proizv_name VARCHAR,
+	fullname VARCHAR,
+	gaming VARCHAR,
+	type VARCHAR,
+	volume INT, 
+	frequency INT, 
+	complect INT, 
+	latency INT,
+	voltage DECIMAL, 
+	price INT
+) AS $$
+	SELECT sklad_ram.kol, ram.exist, ram.id,
+			order_ram.date, order_ram.kol, proizv_ram.name,
+			fullname, gaming, type, volume, frequency,
+			complect, latency, voltage, price
+	FROM ram, sklad_ram, proizv_ram, order_ram
+	WHERE ram.id = sklad_ram.id_izd AND ram.id_proizv = proizv_ram.id
+	AND order_ram.id_izd = ram.id
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+-------------------------------44444
+-- Функция для фильтрации процессоров по серии
+CREATE OR REPLACE FUNCTION get_order_ram_by_type(type_in VARCHAR)
+RETURNS TABLE(
+	kol INT,
+	ram_exist BOOL,
+	ram_id INT,
+	ram_date DATE,
+	ram_order_kol INT,
+	proizv_name VARCHAR,
+	fullname VARCHAR,
+	gaming VARCHAR,
+	type VARCHAR,
+	volume INT, 
+	frequency INT, 
+	complect INT, 
+	latency INT,
+	voltage DECIMAL, 
+	price INT
+) AS $$
+	SELECT sklad_ram.kol, ram.exist, ram.id,
+			order_ram.date, order_ram.kol, proizv_ram.name,
+			fullname, gaming, type, volume, frequency,
+			complect, latency, voltage, price
+	FROM ram, sklad_ram, proizv_ram, order_ram
+	WHERE ram.id = sklad_ram.id_izd AND ram.id_proizv = proizv_ram.id
+	AND order_ram.id_izd = ram.id
+	AND type = type_in
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+
+-------------------------------5555
+CREATE OR REPLACE FUNCTION get_having_order_ram_by_type(type_in VARCHAR)
+RETURNS TABLE(
+	kol INT,
+	ram_exist BOOL,
+	ram_id INT,
+	ram_date DATE,
+	ram_order_kol INT,
+	proizv_name VARCHAR,
+	fullname VARCHAR,
+	gaming VARCHAR,
+	type VARCHAR,
+	volume INT, 
+	frequency INT, 
+	complect INT, 
+	latency INT,
+	voltage DECIMAL, 
+	price INT
+) AS $$
+	SELECT sklad_ram.kol, ram.exist, ram.id,
+			order_ram.date, order_ram.kol, proizv_ram.name,
+			fullname, gaming, type, volume, frequency,
+			complect, latency, voltage, price
+	FROM ram, sklad_ram, proizv_ram, order_ram
+	WHERE ram.id = sklad_ram.id_izd AND ram.id_proizv = proizv_ram.id
+	AND order_ram.id_izd = ram.id
+	AND type = type_in
+	AND ram.exist = True
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
 
 -- Функция вывода всех типов, что есть в базе озу (для заполнения фильтрующих вкладок tabwidget)
 CREATE OR REPLACE FUNCTION get_inbase_ramtype()

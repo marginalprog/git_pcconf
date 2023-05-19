@@ -111,6 +111,161 @@ RETURNS TABLE(
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
+---------++++++++++++++
+CREATE OR REPLACE FUNCTION get_having_cool_by_type(type_in VARCHAR)
+RETURNS TABLE(
+	kol INT,
+	cool_exist BOOL,
+	cool_id INT,
+	proizv_name VARCHAR,
+	fullname VARCHAR,
+	construction VARCHAR,
+	type VARCHAR,
+	socket VARCHAR, 
+	heatpipe INT, 
+	height INT, 
+	disperse INT,
+	voltage INT,
+	conncool INT,
+	price INT
+) AS $$
+	SELECT sklad_cool.kol, cool.exist, cool.id, proizv_cool.name,
+			fullname, construction, type, socket, heatpipe, 
+			height, disperse, voltage, conncool, price
+	FROM cool, sklad_cool, proizv_cool
+	WHERE cool.id = sklad_cool.id_izd AND cool.id_proizv = proizv_cool.id 
+	AND type = type_in
+	AND cool.exist = True
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+--ЗАКАЗЫ
+-------------------------------222222
+CREATE OR REPLACE FUNCTION get_having_order_cool()
+RETURNS TABLE(
+	kol INT,
+	cool_exist BOOL,
+	cool_id INT,
+	cool_date DATE,
+	cool_order_kol INT,
+	proizv_name VARCHAR,
+	fullname VARCHAR,
+	construction VARCHAR,
+	type VARCHAR,
+	socket VARCHAR, 
+	heatpipe INT, 
+	height INT,
+	disperse INT,
+	voltage INT,
+	conncool INT,
+	price INT
+) AS $$
+	SELECT sklad_cool.kol, cool.exist, cool.id, 
+			order_cool.date, order_cool.kol, proizv_cool.name,
+			fullname, construction, type, socket, heatpipe, 
+			height, disperse, voltage, conncool, price
+	FROM cool, sklad_cool, proizv_cool, order_cool
+	WHERE cool.id = sklad_cool.id_izd AND cool.id_proizv = proizv_cool.id
+	AND order_cool.id_izd = cool.id
+	AND cool.exist = True
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+-------------------------------3333333
+CREATE OR REPLACE FUNCTION get_all_order_cool()
+RETURNS TABLE(
+	kol INT,
+	cool_exist BOOL,
+	cool_id INT,
+	cool_date DATE,
+	cool_order_kol INT,
+	proizv_name VARCHAR,
+	fullname VARCHAR,
+	construction VARCHAR,
+	type VARCHAR,
+	socket VARCHAR, 
+	heatpipe INT, 
+	height INT,
+	disperse INT,
+	voltage INT,
+	conncool INT,
+	price INT
+) AS $$
+	SELECT sklad_cool.kol, cool.exist, cool.id, 
+			order_cool.date, order_cool.kol, proizv_cool.name,
+			fullname, construction, type, socket, heatpipe, 
+			height, disperse, voltage, conncool, price
+	FROM cool, sklad_cool, proizv_cool, order_cool
+	WHERE cool.id = sklad_cool.id_izd AND cool.id_proizv = proizv_cool.id
+	AND order_cool.id_izd = cool.id
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+-------------------------------44444
+-- Функция для фильтрации мат плат по сокету
+CREATE OR REPLACE FUNCTION get_order_cool_by_type(type_in VARCHAR)
+RETURNS TABLE(
+	kol INT,
+	cool_exist BOOL,
+	cool_id INT,
+	cool_date DATE,
+	cool_order_kol INT,
+	proizv_name VARCHAR,
+	fullname VARCHAR,
+	construction VARCHAR,
+	type VARCHAR,
+	socket VARCHAR, 
+	heatpipe INT, 
+	height INT,
+	disperse INT,
+	voltage INT,
+	conncool INT,
+	price INT
+) AS $$
+	SELECT sklad_cool.kol, cool.exist, cool.id, 
+			order_cool.date, order_cool.kol, proizv_cool.name,
+			fullname, construction, type, socket, heatpipe, 
+			height, disperse, voltage, conncool, price
+	FROM cool, sklad_cool, proizv_cool, order_cool
+	WHERE cool.id = sklad_cool.id_izd AND cool.id_proizv = proizv_cool.id
+	AND order_cool.id_izd = cool.id
+	AND type = type_in
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+-------------------------------5555
+CREATE OR REPLACE FUNCTION get_having_order_cool_by_type(type_in VARCHAR)
+RETURNS TABLE(
+	kol INT,
+	cool_exist BOOL,
+	cool_id INT,
+	cool_date DATE,
+	cool_order_kol INT,
+	proizv_name VARCHAR,
+	fullname VARCHAR,
+	construction VARCHAR,
+	type VARCHAR,
+	socket VARCHAR, 
+	heatpipe INT, 
+	height INT,
+	disperse INT,
+	voltage INT,
+	conncool INT,
+	price INT
+) AS $$
+	SELECT sklad_cool.kol, cool.exist, cool.id, 
+			order_cool.date, order_cool.kol, proizv_cool.name,
+			fullname, construction, type, socket, heatpipe, 
+			height, disperse, voltage, conncool, price
+	FROM cool, sklad_cool, proizv_cool, order_cool
+	WHERE cool.id = sklad_cool.id_izd AND cool.id_proizv = proizv_cool.id
+	AND order_cool.id_izd = cool.id
+	AND type = type_in
+	AND cool.exist = True
+	ORDER BY exist DESC
+$$ LANGUAGE sql;
+
+
+
 
 -- Функция вывода всех типов, что есть в базе охлаждения (для заполнения фильтрующих вкладок tabwidget)
 CREATE OR REPLACE FUNCTION get_inbase_cooltype()
