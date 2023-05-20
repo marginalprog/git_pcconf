@@ -111,7 +111,6 @@ RETURNS TABLE(
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
----------++++++++++++++
 CREATE OR REPLACE FUNCTION get_having_cool_by_type(type_in VARCHAR)
 RETURNS TABLE(
 	kol INT,
@@ -138,8 +137,8 @@ RETURNS TABLE(
 	AND cool.exist = True
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
+
 --ЗАКАЗЫ
--------------------------------222222
 CREATE OR REPLACE FUNCTION get_having_order_cool()
 RETURNS TABLE(
 	kol INT,
@@ -170,7 +169,6 @@ RETURNS TABLE(
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
--------------------------------3333333
 CREATE OR REPLACE FUNCTION get_all_order_cool()
 RETURNS TABLE(
 	kol INT,
@@ -200,8 +198,7 @@ RETURNS TABLE(
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
--------------------------------44444
--- Функция для фильтрации мат плат по сокету
+-- Функция для фильтрации охлаждения по типу
 CREATE OR REPLACE FUNCTION get_order_cool_by_type(type_in VARCHAR)
 RETURNS TABLE(
 	kol INT,
@@ -232,7 +229,6 @@ RETURNS TABLE(
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
--------------------------------5555
 CREATE OR REPLACE FUNCTION get_having_order_cool_by_type(type_in VARCHAR)
 RETURNS TABLE(
 	kol INT,
@@ -263,8 +259,6 @@ RETURNS TABLE(
 	AND cool.exist = True
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
-
-
 
 
 -- Функция вывода всех типов, что есть в базе охлаждения (для заполнения фильтрующих вкладок tabwidget)
@@ -353,7 +347,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 
--- Триггер на обновление состояния материнской платы
+-- Триггер на обновление состояния охлаждения
 CREATE OR REPLACE FUNCTION update_cool_exist()
 RETURNS TRIGGER AS $$
 BEGIN

@@ -1,7 +1,7 @@
 
 --Функции и триггеры корпуса
 
--- Функция создания нового производителя
+--Функция создания нового производителя
 CREATE OR REPLACE FUNCTION insert_proizv_body(
 	VARCHAR(50))
 RETURNS void AS $$
@@ -114,7 +114,6 @@ RETURNS TABLE(
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
---++++++++++++++++++
 CREATE OR REPLACE FUNCTION get_having_body_by_name(name_pr VARCHAR)
 RETURNS TABLE(
 	kol INT, 
@@ -144,7 +143,6 @@ RETURNS TABLE(
 $$ LANGUAGE sql;
 
 --ЗАКАЗЫ
--------------------------------222222
 CREATE OR REPLACE FUNCTION get_having_order_body()
 RETURNS TABLE(
 	kol INT, 
@@ -175,7 +173,7 @@ RETURNS TABLE(
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
--------------------------------3333333
+-- функция вывода всех заказанных корпусов
 CREATE OR REPLACE FUNCTION get_all_order_body()
 RETURNS TABLE(
 	kol INT, 
@@ -205,7 +203,7 @@ RETURNS TABLE(
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
--------------------------------44444
+
 -- Функция для фильтрации корпуса по производителю
 CREATE OR REPLACE FUNCTION get_order_body_by_name(name_pr VARCHAR)
 RETURNS TABLE(
@@ -237,7 +235,6 @@ RETURNS TABLE(
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
--------------------------------5555
 CREATE OR REPLACE FUNCTION get_having_order_body_by_name(name_pr VARCHAR)
 RETURNS TABLE(
 	kol INT, 

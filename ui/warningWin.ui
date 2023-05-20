@@ -46,9 +46,9 @@ border-top: 1px solid rgb(220, 0, 0);</string>
   <widget class="QLabel" name="lbErr">
    <property name="geometry">
     <rect>
-     <x>290</x>
+     <x>250</x>
      <y>40</y>
-     <width>71</width>
+     <width>101</width>
      <height>21</height>
     </rect>
    </property>
@@ -63,6 +63,9 @@ border-top: 1px solid rgb(220, 0, 0);</string>
    </property>
    <property name="text">
     <string>Ошибка</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
    </property>
   </widget>
   <widget class="QLabel" name="lbErrDescription">

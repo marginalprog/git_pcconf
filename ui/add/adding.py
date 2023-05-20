@@ -288,7 +288,6 @@ class AddChangeProcWindow(QtWidgets.QWidget, addChProcWidg.Ui_addChProcWidg):
                 main_window.create_conf_filter()  # Пересоздание экземпляра класса фильтров для отображения новых данных
 
 
-
 # Класс окна с добавлением\редактированием видеокарты
 class AddChangeMotherWindow(QtWidgets.QWidget, addChMotherWidg.Ui_addChMotherWidg):
     def __init__(self, main_window, new_bool, list_valid_proizv, dict_proizv, dict_motherboard):
@@ -399,9 +398,9 @@ class AddChangeMotherWindow(QtWidgets.QWidget, addChMotherWidg.Ui_addChMotherWid
                 main_window.load_sklad(2)  # Загрузка обновлённой таблицы Материнских плат из БД на склад
                 main_window.load_conf(2)  # Загрузка обновлённой таблицы Материнских плат из БД в конфигуратор
                 main_window.toolBoxNavigation.setCurrentIndex(2)
-                main_window.create_sklad_filter()  # Пересоздание экземпляра класса фильтров для отображения новых данных
+                main_window.create_sklad_filter()  # Пересоздание экземпляра класса фильтров для отображения новых
+                # данных
                 main_window.create_conf_filter()  # Пересоздание экземпляра класса фильтров для отображения новых данных
-
 
 
 # Класс окна с добавлением\редактированием видеокарты

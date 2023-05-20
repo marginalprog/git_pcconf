@@ -271,7 +271,7 @@ border-top: 1px solid rgb(220, 0, 0);</string>
   <widget class="QLabel" name="lbPrice">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>160</x>
      <y>440</y>
      <width>111</width>
      <height>21</height>
@@ -293,7 +293,7 @@ border-top: 1px solid rgb(220, 0, 0);</string>
   <widget class="QLineEdit" name="leTdp">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>310</x>
      <y>380</y>
      <width>111</width>
      <height>31</height>
@@ -351,9 +351,9 @@ QLineEdit:hover{
   <widget class="QLabel" name="lbNcores">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>160</x>
      <y>250</y>
-     <width>141</width>
+     <width>131</width>
      <height>21</height>
     </rect>
    </property>
@@ -373,7 +373,7 @@ QLineEdit:hover{
   <widget class="QLineEdit" name="lePrice">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>160</x>
      <y>470</y>
      <width>111</width>
      <height>31</height>
@@ -517,7 +517,7 @@ QLineEdit:hover{
   <widget class="QLineEdit" name="leRamFreq">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>310</x>
      <y>280</y>
      <width>111</width>
      <height>31</height>
@@ -550,7 +550,7 @@ QLineEdit:hover{
   <widget class="QLabel" name="lbTdp">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>310</x>
      <y>350</y>
      <width>171</width>
      <height>21</height>
@@ -602,9 +602,9 @@ QLineEdit:hover{
   <widget class="QLabel" name="lbRamFreq">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>310</x>
      <y>250</y>
-     <width>151</width>
+     <width>181</width>
      <height>21</height>
     </rect>
    </property>
@@ -618,7 +618,7 @@ QLineEdit:hover{
     <string notr="true">border:0px;</string>
    </property>
    <property name="text">
-    <string>Макс. частота ОЗУ</string>
+    <string>Макс. частота ОЗУ [МГц]</string>
    </property>
   </widget>
   <widget class="QLabel" name="lbFullName">
@@ -679,7 +679,7 @@ QLineEdit:hover{
   <widget class="QLineEdit" name="leNcores">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>160</x>
      <y>280</y>
      <width>111</width>
      <height>31</height>
@@ -837,7 +837,7 @@ QLineEdit:hover{
   <widget class="QLabel" name="lbSeries">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>310</x>
      <y>170</y>
      <width>101</width>
      <height>21</height>
@@ -927,7 +927,7 @@ QLineEdit:hover{
     <rect>
      <x>20</x>
      <y>350</y>
-     <width>111</width>
+     <width>131</width>
      <height>21</height>
     </rect>
    </property>
@@ -941,7 +941,7 @@ QLineEdit:hover{
     <string notr="true">border:0px;</string>
    </property>
    <property name="text">
-    <string>Техпроцесс</string>
+    <string>Техпроцесс [нм]</string>
    </property>
   </widget>
   <widget class="QDateEdit" name="dateEdit">
@@ -1104,7 +1104,7 @@ QCalendarWidget QAbstractItemView:disabled { color: rgb(80, 80, 80); }</string>
   <widget class="QLineEdit" name="leSeries">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>310</x>
      <y>200</y>
      <width>111</width>
      <height>31</height>
@@ -1173,7 +1173,7 @@ QLineEdit:hover{
   <widget class="QLabel" name="lbCache">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>160</x>
      <y>350</y>
      <width>111</width>
      <height>21</height>
@@ -1195,7 +1195,7 @@ QLineEdit:hover{
   <widget class="QLineEdit" name="leCache">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>160</x>
      <y>380</y>
      <width>111</width>
      <height>31</height>

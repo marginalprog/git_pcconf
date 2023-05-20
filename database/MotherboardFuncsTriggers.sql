@@ -1,7 +1,5 @@
 
----------------------------------------------------Функции и триггеры мат. платы-----------------------------------------------------
-
-
+----------------------------------Функции и триггеры мат. платы------------------------------------
 -- Функция создания нового производителя
 CREATE OR REPLACE FUNCTION insert_proizv_motherboard(
 	VARCHAR(50))
@@ -25,7 +23,7 @@ CREATE OR REPLACE FUNCTION insert_motherboard(
 	INT,
 	INT,
 	INT,
-	INT,
+	VARCHAR,
 	INT,
 	INT,
 	INT,
@@ -57,7 +55,7 @@ RETURNS TABLE(
 	memoryslot INT, 
 	memorymax INT, 
 	memoryfreqmax INT,
-	m2 INT,
+	m2 VARCHAR,
 	sata INT,
 	conncool INT,
 	connproc INT,
@@ -89,7 +87,7 @@ RETURNS TABLE(
 	memoryslot INT, 
 	memorymax INT, 
 	memoryfreqmax INT,
-	m2 INT,
+	m2 VARCHAR,
 	sata INT, 
 	conncool INT,
 	connproc INT,
@@ -123,7 +121,7 @@ RETURNS TABLE(
 	memoryslot INT, 
 	memorymax INT, 
 	memoryfreqmax INT,
-	m2 INT,
+	m2 VARCHAR,
 	sata INT, 
 	conncool INT,
 	connproc INT,
@@ -139,7 +137,6 @@ RETURNS TABLE(
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
---++++++++++++++++++
 CREATE OR REPLACE FUNCTION get_having_motherboard_by_socket(socket_in VARCHAR)
 RETURNS TABLE(
 	kol INT, 
@@ -156,7 +153,7 @@ RETURNS TABLE(
 	memoryslot INT, 
 	memorymax INT, 
 	memoryfreqmax INT,
-	m2 INT,
+	m2 VARCHAR,
 	sata INT, 
 	conncool INT,
 	connproc INT,
@@ -174,7 +171,6 @@ RETURNS TABLE(
 $$ LANGUAGE sql;
 
 --ЗАКАЗЫ
--------------------------------222222
 CREATE OR REPLACE FUNCTION get_having_order_motherboard()
 RETURNS TABLE(
 	kol INT, 
@@ -193,7 +189,7 @@ RETURNS TABLE(
 	memoryslot INT, 
 	memorymax INT, 
 	memoryfreqmax INT,
-	m2 INT,
+	m2 VARCHAR,
 	sata INT, 
 	conncool INT,
 	connproc INT,
@@ -211,7 +207,7 @@ RETURNS TABLE(
 	AND motherboard.exist = True
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
--------------------------------3333333
+
 CREATE OR REPLACE FUNCTION get_all_order_motherboard()
 RETURNS TABLE(
 	kol INT, 
@@ -230,7 +226,7 @@ RETURNS TABLE(
 	memoryslot INT, 
 	memorymax INT, 
 	memoryfreqmax INT,
-	m2 INT,
+	m2 VARCHAR,
 	sata INT, 
 	conncool INT,
 	connproc INT,
@@ -248,7 +244,6 @@ RETURNS TABLE(
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
--------------------------------44444
 -- Функция для фильтрации мат плат по сокету
 CREATE OR REPLACE FUNCTION get_order_motherboard_by_socket(socket_in VARCHAR)
 RETURNS TABLE(
@@ -268,7 +263,7 @@ RETURNS TABLE(
 	memoryslot INT, 
 	memorymax INT, 
 	memoryfreqmax INT,
-	m2 INT,
+	m2 VARCHAR,
 	sata INT, 
 	conncool INT,
 	connproc INT,
@@ -287,7 +282,6 @@ RETURNS TABLE(
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
--------------------------------5555
 CREATE OR REPLACE FUNCTION get_having_order_motherboard_by_socket(socket_in VARCHAR)
 RETURNS TABLE(
 	kol INT, 
@@ -306,7 +300,7 @@ RETURNS TABLE(
 	memoryslot INT, 
 	memorymax INT, 
 	memoryfreqmax INT,
-	m2 INT,
+	m2 VARCHAR,
 	sata INT, 
 	conncool INT,
 	connproc INT,

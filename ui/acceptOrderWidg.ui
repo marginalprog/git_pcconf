@@ -1363,6 +1363,42 @@ border-top: 1px solid rgb(100,100,100);</string>
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
+  <widget class="QPushButton" name="btnOk">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>810</y>
+     <width>151</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat Medium</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	border:1px solid rgb(70,70,70);
+	background-color: rgb(35,35,35);
+	color: #fffafa;
+}
+
+QPushButton::hover
+{
+	border:1px;
+	background-color: rgb(60,60,60);
+	border-color: rgb(40,40,40);
+	border-bottom: 1px solid  red;
+	color: red;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>OK</string>
+   </property>
+  </widget>
   <zorder>line</zorder>
   <zorder>lbComplect</zorder>
   <zorder>rectangle</zorder>
@@ -1414,6 +1450,7 @@ border-top: 1px solid rgb(100,100,100);</string>
   <zorder>lbDate</zorder>
   <zorder>dateEdit</zorder>
   <zorder>line_18</zorder>
+  <zorder>btnOk</zorder>
  </widget>
  <resources/>
  <connections>
@@ -1425,6 +1462,22 @@ border-top: 1px solid rgb(100,100,100);</string>
    <hints>
     <hint type="sourcelabel">
      <x>515</x>
+     <y>825</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>428</x>
+     <y>434</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnOk</sender>
+   <signal>clicked()</signal>
+   <receiver>acceptOrderWidg</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>415</x>
      <y>825</y>
     </hint>
     <hint type="destinationlabel">

@@ -1,5 +1,6 @@
 import sys
 import psycopg2
+import datetime
 
 from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtCore import QDateTime
@@ -14,12 +15,14 @@ from ui.proizv import addProizvWidget  # импорт файла (виджета
 
 # Класс диалогового окна с одной кнопкой
 class DialogOk(QDialog, warningWin.Ui_warningDialog):
-    def __init__(self, error_win_title, error_text):
+    def __init__(self, error_win_title, error_text, label_text=None):
         QDialog.__init__(self)
         self.setupUi(self)
         self.setWindowTitle(error_win_title)
         self.lbErrDescription.setText(error_text)
         self.btnCancel.clicked.connect(lambda: self.close())
+        if label_text:
+            self.lbErr.setText("Внимание")
 
 
 # Класс окна с одной кнопкой
@@ -37,11 +40,39 @@ class AcceptionWin(QDialog, acceptionWin.Ui_Dialog):
 
 # Класс окна с подтверждением заказа
 class AcceptOrderWin(QtWidgets.QWidget, acceptOrderWidg.Ui_acceptOrderWidg):
-    def __init__(self, main_window, tuple_order=None):
+    def __init__(self, main_window, tuple_order=None, sklad=None):
         super().__init__()
         self.setupUi(self)
         self.dateEdit.setDateTime(QDateTime.currentDateTime())
         self.dateEdit.setDisabled(True)
+        if not sklad:  # Если оформляется заказ, то раскрываем нужные кнопки и заполняем тектовые поля
+            self.btnAcceptPurcashe.setVisible(True)
+            self.btnClose.setVisible(True)
+            self.btnOk.setVisible(False)
+            self.fill_preview_conf(main_window)
+        else:  # Если вызван просмотр конфигурации со склада, то скрываются кнопки, относящиеся к заказу
+            self.btnAcceptPurcashe.setVisible(False)
+            self.btnClose.setVisible(False)
+            self.btnOk.setVisible(True)
+            self.fill_preview_sklad(tuple_order)
+
+        self.btnAcceptPurcashe.clicked.connect(
+            lambda: self.create_order(tuple_order, main_window, main_window.lb_price.text()))
+
+    def fill_preview_sklad(self, tuple_order):
+        self.previewVideo.setText(tuple_order[2])
+        self.previewProc.setText(tuple_order[3])
+        self.previewMother.setText(tuple_order[4])
+        self.previewCool.setText(tuple_order[5])
+        self.previewRam.setText(tuple_order[6])
+        self.previewDisk.setText(tuple_order[7])
+        self.previewPower.setText(tuple_order[8])
+        self.previewBody.setText(tuple_order[9])
+        self.lb_price.setText(tuple_order[1])
+        date = QDateTime.fromString(tuple_order[0])
+        self.dateEdit.setDateTime(date)
+
+    def fill_preview_conf(self, main_window):
         if main_window.tableConfVideo.currentRow() != -1:
             self.previewVideo.setText(
                 main_window.tableConfVideo.item(main_window.tableConfVideo.currentRow(), 2).text())
@@ -62,8 +93,6 @@ class AcceptOrderWin(QtWidgets.QWidget, acceptOrderWidg.Ui_acceptOrderWidg):
         if main_window.tableConfBody.currentRow() != -1:
             self.previewBody.setText(main_window.tableConfBody.item(main_window.tableConfBody.currentRow(), 2).text())
         self.lb_price.setText(main_window.lb_price.text())
-        self.btnAcceptPurcashe.clicked.connect(
-            lambda: self.create_order(tuple_order, main_window, main_window.lb_price.text()))
 
     def create_order(self, tuple_order, main_window, price):
         if tuple_order:
@@ -107,8 +136,11 @@ class AcceptOrderWin(QtWidgets.QWidget, acceptOrderWidg.Ui_acceptOrderWidg):
                         for i in range(8):
                             main_window.load_sklad(i)
                             main_window.load_conf(i)
+                        main_window.load_sklad(8)
+                        main_window.fill_table_orders(main_window.user_id)
                         main_window.create_sklad_filter()
                         main_window.create_conf_filter()
+                        self.close()
             else:
                 dialog = DialogOk("Ошибка", "Выбраны комплектующие, которых нет на складе (серый индикатор)")
                 dialog.show()
@@ -300,6 +332,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
             False,
             self.current_sklad())
                                        )
+        self.btnInfoConfig.clicked.connect(lambda: self.showInfoConfig(self.current_sklad(False)))
 
         # По нажатии на кнопку запускается метод, который принимает выбранную вклдку ТБ и открывает нужное окно фильтра
         self.btnSkladFilter.clicked.connect(lambda: self.tb_sklad_filter(self.toolBoxNavigation.currentIndex()))
@@ -567,6 +600,491 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         self.tabWidgetPower.tabBarClicked.connect(lambda index: self.click_tab_conf(index, self.tabWidgetPower))
         self.tabWidgetBody.tabBarClicked.connect(lambda index: self.click_tab_conf(index, self.tabWidgetBody))
 
+        # =====================================Личный кабинет==============================================
+        self.stackedWidget.setCurrentIndex(3)  # Установка окна авторизации в начале работы программы
+        self.rbCabinet.setVisible(False)  # Скрытие кнопки кабинета
+        self.line_11.setVisible(False)  # Скрытие сепарирующей линии вкладок склада и конфигуратор
+        self.line_10.setVisible(False)
+        self.dateEditCab.setDateTime(QDateTime.currentDateTime())
+        self.dateEditCab.setVisible(False)
+
+        self.btnSelectReg.clicked.connect(self.open_reg)
+        self.btnSelectLogin.clicked.connect(self.open_login)
+        self.btnLogin.clicked.connect(self.log_in)
+        self.btnReg.clicked.connect(self.reg_in)
+        self.btnInfoConfigClient.clicked.connect(lambda: self.showInfoConfig(self.current_cabinet()))
+        self.btnResetCabinet.clicked.connect(lambda: self.click_reset_radiobutton(self.tableOrders))
+        self.btnAcceptChngs.clicked.connect(lambda: self.accept_changes(self.user_id))
+
+        self.leChangePhone.setInputMask("+7\\(999\\)999\\-99\\-99;_")
+        self.leRegPhone.setInputMask("+7\\(999\\)999\\-99\\-99;_")
+
+        self.tableOrders.cellClicked.connect(
+            lambda row, column, table=self.tableOrders:
+            self.cell_row_without_conf(row, column, table))  # Возможность установки индикатора по клику
+
+        # ==============================================================================================
+    def reg_in(self):
+        """
+        Вызывается после подтверждения совпадения паролей
+        Метод регистрации пользователя/администратора, сверяющий введённые данные с данными в БД
+        """
+        conn = None
+        cur = None
+        success = None  # Флаг успешной авторизации
+        # Формальная проверка вводимой почты
+        if '@' not in self.leRegEmail.text() \
+                and '.' not in self.leRegEmail.text() \
+                and not(len(self.leRegEmail.text()) < 5):
+            dialog = DialogOk("Ошибка", "Введите корректный адрес почты")
+            dialog.show()
+        elif len(self.leRegName.text().replace(" ", "")) < 1:
+            dialog = DialogOk("Ошибка", "Имя должно содержать хотя бы 2 символа")
+            dialog.show()
+        elif len(self.leRegPhone.text()) != 16:
+            dialog = DialogOk("Ошибка", "Введите номер телефона полностью")
+            dialog.show()
+        elif len(self.leRegPass.text()) < 5 or len(self.leRegRepPass.text()) < 5:
+            dialog = DialogOk("Ошибка", "Пароль должен содержать не менее 6 символов")
+            dialog.show()
+        elif self.leRegPass.text() != self.leRegRepPass.text():
+            dialog = DialogOk("Ошибка", "Введённые пароли должны совпадать")
+            dialog.show()
+        # Если введённые пароли содержат пробел - вывести сообщение об ошибке
+        elif self.leRegPass.text() != self.leRegPass.text().replace(" ", "") \
+                or self.leRegRepPass.text() != self.leRegRepPass.text().replace(" ", ""):
+            dialog = DialogOk("Ошибка", "Пароль не должен содержать пробелов")
+            dialog.show()
+        else:  # Если пароли подходят - проверяем почту, телефон и регистрируем пользователя
+            check_email = self.leRegEmail.text()
+            check_phone = self.leRegPhone.text()
+            save_password = self.leRegPass.text()  # Сохранение введённого пароля
+            try:
+                conn = psycopg2.connect(database="confPc",
+                                        user="postgres",
+                                        password="2001",
+                                        host="localhost",
+                                        port="5432")
+                cur = conn.cursor()
+                cur.callproc("get_hash_pass", [save_password])  # Отправка введённого пароля на хеширование
+                for row in cur:
+                    save_password = row[0]  # Переопределения пароля для дальнейшей проверки по хешу
+
+                cur.callproc("get_all_client")
+                for row in cur:
+                    if check_email != row[1]:  # Если введённый email не содержится в строке, то проверяем телефон
+                        if check_phone != row[2]:  # Если введённый телефон не содержится в строке, меняем флаг.
+                            success = True
+                        else:
+                            dialog = DialogOk("Ошибка", "Данный номер телефона уже используется")
+                            dialog.show()
+                            success = False
+                    else:
+                        dialog = DialogOk("Ошибка", "Данная почта уже зарегистрирована в системе")
+                        dialog.show()
+                        success = False
+                        break
+                if success:  # Если пользователей не найдено, создаём нового с введёнными им данными
+                    cur.callproc("create_client", [self.leRegEmail.text(),
+                                                   save_password,
+                                                   self.leRegName.text(),
+                                                   self.leRegPhone.text(),
+                                                   self.dateEditCab.dateTime().toString("yyyy-MM-dd")])
+                    conn.commit()
+                    dialog = DialogOk("Внимание", "Вы успешно зарегистрированы. \nВойдите в систему", True)
+                    dialog.show()
+                    self.stackedWidget.setCurrentIndex(3)
+                    self.leRegEmail.clear()
+                    self.leRegName.clear()
+                    self.leRegPhone.clear()
+                    self.leRegPass.clear()
+                    self.leRegRepPass.clear()
+                    success = None  # Обнуляем состояние поиска, для возмодности повторной регистрации
+            except (Exception, psycopg2.DatabaseError) as error:
+                dialog = DialogOk("Ошибка", error)
+                dialog.show()
+
+            finally:
+                if conn:
+                    cur.close()
+                    conn.close()
+
+    def log_in(self):
+        """
+        Метод авторизации пользователя/администратора, сверяющий введённые данные с данными в БД
+        """
+        conn = None
+        cur = None
+        success = None  # Флаг успешной авторизации
+        check_email = self.leLogEmail.text()
+        check_password = self.leLogPass.text()  # Сохранение введённого пароля
+        if len(check_email) < 5 or len(check_password) < 5 or '@' not in self.leLogEmail.text():
+            dialog = DialogOk("Ошибка", "Введите корректные для авторизации данные")
+            dialog.show()
+        else:
+            try:
+                conn = psycopg2.connect(database="confPc",
+                                        user="postgres",
+                                        password="2001",
+                                        host="localhost",
+                                        port="5432")
+                cur = conn.cursor()
+                cur.callproc("get_hash_pass", [check_password])  # Отправка введённого пароля на хеширование
+                for row in cur:
+                    check_password = row[0]  # Переопределения пароля для дальнейшей проверки по хешу
+
+                cur.callproc("get_all_client")
+                for row in cur:
+                    if check_email == row[1]:  # Если введённый email содержится в БД, то проверяем пароль
+                        if check_password == row[3]:  # Если хэши паролей совпдают, то производим вход в систему
+                            self.user_id = row[0]
+                            success = True
+                            break
+                        else:  # Если хэши не совпадают - уведомление о некорректном вводе пароля
+                            dialog = DialogOk("Ошибка", "Неверный пароль. Повторите попытку")
+                            dialog.show()
+                            return
+                if success and self.user_id == 1:  # Если успешный вход от лица администратора
+                    self.system_admin(self.user_id)
+                elif success:
+                    self.system_client(self.user_id)
+                else:
+                    dialog = DialogOk("Ошибка", "Данный адрес почты не зарегистрирован в системе")
+                    dialog.show()
+
+            except (Exception, psycopg2.DatabaseError) as error:
+                dialog = DialogOk("Ошибка", error)
+                dialog.show()
+
+            finally:
+                if conn:
+                    cur.close()
+                    conn.close()
+
+    def fill_table_orders(self, user_id):
+        conn = None
+        cur = None
+        try:
+            conn = psycopg2.connect(database="confPc",
+                                    user="postgres",
+                                    password="2001",
+                                    host="localhost",
+                                    port="5432")
+            cur = conn.cursor()
+            # Заполнение таблицы со всеми конфигурациями в личном кабинете (т.к. администратор)
+            if user_id == 1:
+                cur.callproc("get_all_configuration")
+            else:
+                cur.callproc("get_user_configuration", [user_id])
+            row_count = 0
+            self.tableOrders.setColumnCount(12)
+            self.tableOrders.setHorizontalHeaderLabels(["", "№ сборки", "Дата оформления", "Цена", "Видеокарта",
+                                                        "Процессор", "Мат. плата", "Охлаждение", "ОЗУ",
+                                                        "Накопитель", "Блок питания", "Корпус"])
+            for row in cur:
+                self.tableOrders.setRowCount(row_count + 1)
+                self.tableOrders.setItem(row_count, 1, QtWidgets.QTableWidgetItem(str(row[0])))
+                date = datetime.datetime.strptime(str(row[1]), '%Y-%m-%d').strftime('%d.%m.%Y')
+                self.tableOrders.setItem(row_count, 2, QtWidgets.QTableWidgetItem(date))
+                self.tableOrders.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[2])))
+                self.tableOrders.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[3])))
+                self.tableOrders.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[4])))
+                self.tableOrders.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[5])))
+                self.tableOrders.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[6])))
+                self.tableOrders.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[7])))
+                self.tableOrders.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[8])))
+                self.tableOrders.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[9])))
+                self.tableOrders.setItem(row_count, 11, QtWidgets.QTableWidgetItem(str(row[10])))
+                row_count += 1
+            self.insert_rb_sklad(self.tableOrders)
+            self.tableOrders.setSortingEnabled(True)
+            self.tableOrders.resizeColumnsToContents()
+
+        except (Exception, psycopg2.DatabaseError) as error:
+            dialog = DialogOk("Ошибка", error)
+            dialog.show()
+
+        finally:
+            if conn:
+                cur.close()
+                conn.close()
+
+    def accept_changes(self, user_id):
+        """
+        Вызывается при измении данных клиента
+        """
+        conn = None
+        cur = None
+        success = None  # Флаг успешной авторизации
+        query = "UPDATE client SET "
+        update_name = False
+        update_phone = False
+        check_phone = None
+        update_pass = False
+        new_pass = None
+        print(len(self.leChangeRepPass.text()))
+        # Если длина повтора пароля 0, значит пароль не меняем в БД. Меняем имя (Если введено) и телефон.
+        if len(self.leChangeName.text()) == 0:
+            pass
+        else:  # Если данные введены и их планируется изменить:
+            if len(self.leChangeName.text().replace(" ", "")) < 1:  # Проверка имени
+                dialog = DialogOk("Ошибка", "Имя должно содержать хотя бы 2 символа")
+                dialog.show()
+                return
+            else:
+                query += f" name = '{self.leChangeName.text()}' "
+                update_name = True
+
+        if len(self.leChangePhone.text()) == 6: # Если длина поля телефона осталась = длине маски, то пропускаем поле
+            pass
+        else:
+            if len(self.leChangePhone.text()) != 16:
+                dialog = DialogOk("Ошибка", "Введите номер телефона полностью")
+                dialog.show()
+                return
+            else:
+                if update_name:  # Если обновляется имя
+                    query += ', '
+                query += f" phone = '{self.leChangePhone.text()}' "
+                check_phone = self.leChangePhone.text()
+                update_phone = True
+
+        if len(self.leChangeRepPass.text()) == 0:  # Если введены данные в повтор пароля
+            pass
+        elif len(self.leChangePass.text()) < 5 or len(self.leChangeRepPass.text()) < 5:
+            dialog = DialogOk("Ошибка", "Пароль должен содержать не менее 6 символов")
+            dialog.show()
+            return
+        # Если введённые пароли содержат пробел - вывести сообщение об ошибке
+        elif self.leChangePass.text() != self.leChangePass.text().replace(" ", "") \
+                or self.leChangeRepPass.text() != self.leChangeRepPass.text().replace(" ", ""):
+            dialog = DialogOk("Ошибка", "Пароль не должен содержать пробелов")
+            dialog.show()
+            return
+        else:
+            if update_phone or update_name:  # Если обновляется телефон или иля
+                query += ', '
+            query += f" password = md5('{self.leChangeRepPass.text()}') "
+            new_pass = self.leChangeRepPass.text()
+            update_pass = True
+
+        if not update_name and not update_phone and not update_pass:
+            dialog = DialogOk("Ошибка", "Внесите данные для изменения: имя; телефон; пароль с повтором")
+            dialog.show()
+        else:
+            # Формальная проверка вводимой почты
+            if '@' not in self.leChangeEmail.text() \
+                    and '.' not in self.leChangeEmail.text() \
+                    and not (len(self.leChangeEmail.text()) < 5):
+                dialog = DialogOk("Ошибка", "Введите корректный адрес почты")
+                dialog.show()
+                return
+
+            else:  # Если почта верная - проверяем почту и телефон по БД и обновляем пользователя
+                check_email = self.leChangeEmail.text()
+                save_password = self.leChangePass.text()  # Сохранение введённого пароля
+                try:
+                    conn = psycopg2.connect(database="confPc",
+                                            user="postgres",
+                                            password="2001",
+                                            host="localhost",
+                                            port="5432")
+                    cur = conn.cursor()
+                    if not new_pass:  # Если не планируется изменять пароль, то проверяем его корректность по бд
+                        cur.callproc("get_hash_pass", [save_password])  # Отправка введённого пароля на хеширование
+                        for row in cur:
+                            save_password = row[0]  # Переопределения пароля для дальнейшей проверки по хешу
+
+                        cur.callproc("get_all_client")
+                        for row in cur:
+                            if check_email == row[1]:  # Если введённый email содержится в БД, то проверяем пароль
+                                if save_password == row[3]:  # Если хэши паролей совпдают, то изменяем данные аккаунта
+                                    query += f" WHERE id = {user_id} "
+                                    cur.execute(query)
+                                    conn.commit()
+                                    success = True
+                                    break
+                                else:  # Если хэши не совпадают - уведомление о некорректном вводе пароля
+                                    dialog = DialogOk("Ошибка", "Неверный пароль. Повторите попытку")
+                                    dialog.show()
+                                    return
+                            if not success:  # Если не нашли пользователя по почте и не изменили запись
+                                dialog = DialogOk("Ошибка", "Введённой почты не существует в системе")
+                                dialog.show()
+                                return
+                    else:  # если планируем изменить пароль
+                        cur.callproc("get_all_client")
+                        if update_phone:
+                            for row in cur:
+                                # Если телефон для изменения введён, то проверяем совпадения
+                                if check_phone == row[2]:  # Если введённый телефон не содержится в строке, то проверяем телефон
+                                    dialog = DialogOk("Ошибка", "Данный номер телефона уже используется")
+                                    dialog.show()
+                                    return
+                        if not success:
+                            cur.callproc("get_all_client")
+                            for row in cur:
+                                if check_email == row[1]:  # Если ищем пользователя по почте для изменения
+                                    query += f" WHERE id = {user_id} "
+                                    cur.execute(query)
+                                    conn.commit()
+                                    success = True
+                                    break
+                            if not success:
+                                dialog = DialogOk("Ошибка", "Введённой почты не существует в системе")
+                                dialog.show()
+                                return
+                    if success:  # Если нашли и изменили данные
+                        dialog = DialogOk("Внимание", "Данные изменены успешно", True)
+                        dialog.show()
+                        cur.callproc("get_client_by_id", [user_id])
+                        for row in cur:
+                            self.lbClientEmail.setText(str(row[1]))
+                            self.lbClientPhone.setText(str(row[2]))
+                            self.lbClientName.setText(str(row[4]))
+                        self.leChangeEmail.clear()
+                        self.leChangeName.clear()
+                        self.leChangePhone.clear()
+                        self.leChangePass.clear()
+                        self.leChangeRepPass.clear()
+                except (Exception, psycopg2.DatabaseError) as error:
+                    dialog = DialogOk("Ошибка", error)
+                    dialog.show()
+
+                finally:
+                    if conn:
+                        cur.close()
+                        conn.close()
+
+    def system_admin(self, user_id):
+        """
+        Если в систему вошёл администратор, то вызывается данный метод, раскрывающий все возможные элементы управления
+        """
+        self.stackedWidget.setCurrentIndex(0)  # Скрытие окон форм авторизации
+        self.rbCabinet.setVisible(True)  # Раскрытие кнопки кабинета и сепарирующих линий
+        self.line_11.setVisible(True)
+        self.line_10.setVisible(True)
+        conn = None
+        cur = None
+        try:
+            conn = psycopg2.connect(database="confPc",
+                                    user="postgres",
+                                    password="2001",
+                                    host="localhost",
+                                    port="5432")
+            cur = conn.cursor()
+            # Заполнение личного кабинета информацией
+            cur.callproc("get_all_kol_configuration")
+            for row in cur:
+                self.lbCountOrders.setText(str(row[0]))  # Задание счетчику заказов в ЛК числа заказов
+
+            cur.callproc("get_client_by_id", [user_id])
+            for row in cur:
+                self.lbClientEmail.setText(str(row[1]))
+                self.lbClientPhone.setText(str(row[2]))
+                self.lbClientName.setText(str(row[4]))
+                date = datetime.datetime.strptime(str(row[5]), '%Y-%m-%d').strftime('%d.%m.%Y')
+                self.lbRegDate.setText(date)
+
+            self.fill_table_orders(user_id)
+
+        except (Exception, psycopg2.DatabaseError) as error:
+            dialog = DialogOk("Ошибка", error)
+            dialog.show()
+
+        finally:
+            if conn:
+                cur.close()
+                conn.close()
+
+    def system_client(self, user_id):
+        """
+        Если в систему вошёл пользователь, то вызывается данный метод, скрывающий "Склад"
+        """
+        self.stackedWidget.setCurrentIndex(0)  # Скрытие окон форм авторизации
+        self.rbCabinet.setVisible(True)  # Раскрытие кнопки кабинета и сепарирующих линий
+        self.line_11.setVisible(False)
+        self.line_10.setVisible(True)
+        self.tabWidgetMain.setTabVisible(0, False)
+        # Переопределение стиля фрейма виджета для увеличения ширины вкладки
+        self.tabWidgetMain.setStyleSheet('''QFrame{border:0px;}
+                                            QTabWidget::pane
+                                            {
+                                                background: rgb(30, 30, 30);
+                                                border-style: solid;
+                                                border-width: 2px;
+                                                border-color: #151515;
+                                            }
+                                            
+                                            QTabBar::tab
+                                            {
+                                                background: rgb(45, 45, 45);
+                                                min-width: 1360px;
+                                                min-height: 33px;
+                                                margin-left: 1px;
+                                                left: -1px;
+                                                color: white;
+                                                border-bottom: 1px solid;
+                                            }
+                                            
+                                            QTabBar::tab:selected
+                                            {
+                                                background: #151515;
+                                                border-bottom: 1px solid;
+                                                border-color: #FF0000;
+                                            }
+                                            QTabBar::tab:hover
+                                            {
+                                                background: #404040;
+                                                border-bottom: 1px solid;
+                                                border-color: black;
+                                            }''')
+        conn = None
+        cur = None
+        try:
+            conn = psycopg2.connect(database="confPc",
+                                    user="postgres",
+                                    password="2001",
+                                    host="localhost",
+                                    port="5432")
+            cur = conn.cursor()
+            # Заполнение личного кабинета информацией
+            cur.callproc("get_kol_configuration", [user_id])
+            for row in cur:
+                self.lbCountOrders.setText(str(row[0]))  # Задание счетчику заказов в ЛК числа заказов
+            del row
+            cur.callproc("get_client_by_id", [user_id])
+            for row in cur:
+                self.lbClientEmail.setText(str(row[1]))
+                self.lbClientPhone.setText(str(row[2]))
+                self.lbClientName.setText(str(row[4]))
+                date = datetime.datetime.strptime(str(row[5]), '%Y-%m-%d').strftime('%d.%m.%Y')
+                self.lbRegDate.setText(date)
+            del row
+            # Заполнение таблицы с конфигурациями в личном кабинете
+            self.fill_table_orders(user_id)
+
+        except (Exception, psycopg2.DatabaseError) as error:
+            dialog = DialogOk("Ошибка", error)
+            dialog.show()
+
+        finally:
+            if conn:
+                cur.close()
+                conn.close()
+
+    def open_reg(self):
+        """
+        Метод открытия вкладки с регистрацией пользователя
+        """
+        self.stackedWidget.setCurrentIndex(2)
+
+    def open_login(self):
+        """
+        Метод открытия вкладки с авторизацией пользователя
+        """
+        self.stackedWidget.setCurrentIndex(3)
+
     def show_header(self, table, flag_btn=False):
         """
         Метод для отображения заголовков в таблицах конфигуратора. Если вызван из кнопки - видимость меняется.
@@ -709,6 +1227,20 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                     table.horizontalHeader().setVisible(False)
         table.resizeColumnsToContents()
 
+    def showInfoConfig(self, row):
+        """
+        Метод, открывающий и зполняющий окно подробного просмотра конфигурации
+        :param row: выбранная строка в таблице сборок
+        """
+        if type(row) is str:  # Если пришел не список, а строка(ошибка) - вывод окна с ошибкой
+            dialog = DialogOk("Ошибка", row)
+            dialog.show()
+            if dialog.exec():
+                pass
+        else:
+            self.order_window = AcceptOrderWin(self, row, sklad=True)
+            self.order_window.show()
+
     def get_id_by_name(self, dict, name):
         """
         Метод вычленения ID комплектующего из словаря по имени
@@ -784,7 +1316,8 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
             self.rbCabinet.setText("К сборке")
         else:
             self.stackedWidget.setCurrentIndex(0)
-            self.line_11.show()
+            if self.user_id == 1:  # Показываем сепарирующую вкладкии склада\конфигуратора линию только администратору
+                self.line_11.show()
             self.rbCabinet.setText("Кабинет")
 
     def menu_cabinet(self):
@@ -1218,6 +1751,13 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                                     host="localhost",
                                     port="5432")
             cur = conn.cursor()
+            self.rbSklad.setDisabled(False)  # Включаем индикаторы, если до этого он был выключен (открыты конфигурации)
+            self.rbShowOrders.setVisible(True)
+            self.btnInfoConfig.setVisible(False)  # Скрываем кнопку подробностей конфигурации
+            self.btnSkladFilter.setVisible(True)  # Скрытие кнопки фильтров
+            self.btnAdd.setVisible(True)  # Скрытие кнопки добавления комплектующего
+            self.btnRepeat.setVisible(True)  # Скрытие кнопки создание заказа
+
             match page:
                 case 0:
                     if self.rbSklad.isChecked():
@@ -1355,6 +1895,17 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                             self.dict_body_kol[row[2]] = row[0]
                             self.dict_body_proizv[row[2]] = row[3]
                             self.dict_body_name[row[2]] = row[4]
+                case 8:
+                    self.rbSklad.setChecked(False)  # Устанавливаем индикатор наличия на False
+                    self.rbSklad.setDisabled(True)  # Убираем возможность использования индикатора наличия
+                    self.rbShowOrders.setVisible(False)  # Скрытие кнопки отображения заказа
+                    self.btnSkladFilter.setVisible(False)  # Скрытие кнопки фильтров
+                    self.btnAdd.setVisible(False)  # Скрытие кнопки добавления комплектующего
+                    self.btnRepeat.setVisible(False)  # Скрытие кнопки создание заказа
+                    self.btnInfoConfig.setVisible(True)
+                    cur.callproc("get_all_configuration")
+                    self.fill_table_sklad(page, cur)
+                    self.fill_tabs_sklad(8)
 
         except (Exception, psycopg2.DatabaseError) as error:
             dialog = DialogOk("Ошибка", str(error))
@@ -1366,7 +1917,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 conn.close()
 
     # Метод заполнения полей таблицы склада по фильтрующему запросу из БД
-    def fill_table_sklad(self, page, cur):
+    def fill_table_sklad(self, page, cur=None):
         self.tableSklad.clear()
         self.tableSklad.clearSelection()
         self.tableSklad.setRowCount(0)
@@ -1419,7 +1970,8 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                         self.tableSklad.setRowCount(row_count + 1)
                         self.insert_existence_complect(self.tableSklad, row_count, row[1])
                         self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
-                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                        date = datetime.datetime.strptime(str(row[3]), '%Y-%m-%d').strftime('%d.%m.%Y')
+                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(date))
                         self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
                         self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
                         self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
@@ -1479,7 +2031,8 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                         self.tableSklad.setRowCount(row_count + 1)
                         self.insert_existence_complect(self.tableSklad, row_count, row[1])
                         self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
-                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                        date = datetime.datetime.strptime(str(row[3]), '%Y-%m-%d').strftime('%d.%m.%Y')
+                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(date))
                         self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
                         self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
                         self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
@@ -1540,7 +2093,8 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                         self.tableSklad.setRowCount(row_count + 1)
                         self.insert_existence_complect(self.tableSklad, row_count, row[1])
                         self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
-                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                        date = datetime.datetime.strptime(str(row[3]), '%Y-%m-%d').strftime('%d.%m.%Y')
+                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(date))
                         self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
                         self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
                         self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
@@ -1587,7 +2141,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 else:
                     self.tableSklad.setColumnCount(16)  # Число столбцов в охлаждении
                     self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во(склад)", "Дата заказа",
-                                                                   "Кол-во(заказ)",
+                                                               "Кол-во(заказ)",
                                                                "Производитель", "Название", "Конструкция",
                                                                "Тип охл.", "Сокеты", "Трубы", "Высота",
                                                                "Рассеиваемость", "Напряжение", "Pin-коннектор",
@@ -1596,7 +2150,8 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                         self.tableSklad.setRowCount(row_count + 1)
                         self.insert_existence_complect(self.tableSklad, row_count, row[1])
                         self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
-                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                        date = datetime.datetime.strptime(str(row[3]), '%Y-%m-%d').strftime('%d.%m.%Y')
+                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(date))
                         self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
                         self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
                         self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
@@ -1635,7 +2190,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 else:
                     self.tableSklad.setColumnCount(15)  # Число столбцов в оперативной памяти
                     self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во(склад)", "Дата заказа",
-                                                                   "Кол-во(заказ)",
+                                                               "Кол-во(заказ)",
                                                                "Производитель", "Название", "Игровой", "Тип",
                                                                "Объём", "Тактовая частота", "Кол-во модулей",
                                                                "CAS-Latency", "Напряжение", "Цена"])
@@ -1643,7 +2198,8 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                         self.tableSklad.setRowCount(row_count + 1)
                         self.insert_existence_complect(self.tableSklad, row_count, row[1])
                         self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
-                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                        date = datetime.datetime.strptime(str(row[3]), '%Y-%m-%d').strftime('%d.%m.%Y')
+                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(date))
                         self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
                         self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
                         self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
@@ -1679,8 +2235,8 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                         row_count += 1
                 else:
                     self.tableSklad.setColumnCount(14)  # Число столбцов в накопителе
-                    self.tableSklad.setHorizontalHeaderLabels(["", "",  "Кол-во(склад)", "Дата заказа",
-                                                                   "Кол-во(заказ)",
+                    self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во(склад)", "Дата заказа",
+                                                               "Кол-во(заказ)",
                                                                "Производитель", "Название", "Тип", "Объём",
                                                                "Интерфейс", "Скорость чтения", "Скорость записи",
                                                                "RPM", "Цена"])
@@ -1688,7 +2244,8 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                         self.tableSklad.setRowCount(row_count + 1)
                         self.insert_existence_complect(self.tableSklad, row_count, row[1])
                         self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
-                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                        date = datetime.datetime.strptime(str(row[3]), '%Y-%m-%d').strftime('%d.%m.%Y')
+                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(date))
                         self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
                         self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
                         self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
@@ -1729,7 +2286,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 else:
                     self.tableSklad.setColumnCount(18)  # Число столбцов в блоке питания
                     self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во(склад)", "Дата заказа",
-                                                                   "Кол-во(заказ)", "Производитель", "Название",
+                                                               "Кол-во(заказ)", "Производитель", "Название",
                                                                "Формафактор", "Длина", "Мощность", "Сертификат",
                                                                "Основной разъём питания", "Количество разъёмов SATA",
                                                                "Pin-процессор", "Кол-во pin", "Pin-видеокарта",
@@ -1738,7 +2295,8 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                         self.tableSklad.setRowCount(row_count + 1)
                         self.insert_existence_complect(self.tableSklad, row_count, row[1])
                         self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
-                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                        date = datetime.datetime.strptime(str(row[3]), '%Y-%m-%d').strftime('%d.%m.%Y')
+                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(date))
                         self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
                         self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
                         self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
@@ -1782,7 +2340,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 else:
                     self.tableSklad.setColumnCount(17)  # Число столбцов в корпусеы
                     self.tableSklad.setHorizontalHeaderLabels(["", "", "Кол-во(склад)", "Дата заказа",
-                                                                   "Кол-во(заказ)",
+                                                               "Кол-во(заказ)",
                                                                "Производитель", "Название", "Игровой", "Тип корпуса",
                                                                "Форм-фактор мат. платы", "Форм-фактор БП",
                                                                "Макс. длина виеокарты", "Макс. высота охлаждения",
@@ -1791,7 +2349,8 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                         self.tableSklad.setRowCount(row_count + 1)
                         self.insert_existence_complect(self.tableSklad, row_count, row[1])
                         self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[0])))
-                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                        date = datetime.datetime.strptime(str(row[3]), '%Y-%m-%d').strftime('%d.%m.%Y')
+                        self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(date))
                         self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
                         self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
                         self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
@@ -1806,7 +2365,25 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                         self.tableSklad.setItem(row_count, 15, QtWidgets.QTableWidgetItem(str(row[15])))
                         self.tableSklad.setItem(row_count, 16, QtWidgets.QTableWidgetItem(str(row[16])))
                         row_count += 1
-
+            case 8:
+                self.tableSklad.setColumnCount(11)
+                self.tableSklad.setHorizontalHeaderLabels(["", "Дата оформления", "Цена", "Видеокарта",
+                                                           "Процессор", "Мат. плата", "Охлаждение", "ОЗУ",
+                                                           "Накопитель", "Блок питания", "Корпус"])
+                for row in cur:
+                    self.tableSklad.setRowCount(row_count + 1)
+                    date = datetime.datetime.strptime(str(row[1]), '%Y-%m-%d').strftime('%d.%m.%Y')
+                    self.tableSklad.setItem(row_count, 1, QtWidgets.QTableWidgetItem(date))
+                    self.tableSklad.setItem(row_count, 2, QtWidgets.QTableWidgetItem(str(row[2])))
+                    self.tableSklad.setItem(row_count, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                    self.tableSklad.setItem(row_count, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+                    self.tableSklad.setItem(row_count, 5, QtWidgets.QTableWidgetItem(str(row[5])))
+                    self.tableSklad.setItem(row_count, 6, QtWidgets.QTableWidgetItem(str(row[6])))
+                    self.tableSklad.setItem(row_count, 7, QtWidgets.QTableWidgetItem(str(row[7])))
+                    self.tableSklad.setItem(row_count, 8, QtWidgets.QTableWidgetItem(str(row[8])))
+                    self.tableSklad.setItem(row_count, 9, QtWidgets.QTableWidgetItem(str(row[9])))
+                    self.tableSklad.setItem(row_count, 10, QtWidgets.QTableWidgetItem(str(row[10])))
+                    row_count += 1
         self.insert_rb_sklad(self.tableSklad)
         self.tableSklad.setSortingEnabled(True)
         self.tableSklad.resizeColumnsToContents()
@@ -2077,16 +2654,34 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
             self.paste_existence(table, row, 1, False)
 
     # Чтение выбранной строки в таблце для передачи в перезаказ
-    def current_sklad(self):
+    def current_sklad(self, conf=True):
         cur_row = self.tableSklad.currentRow()
         count_col = self.tableSklad.columnCount()
         data_row = []
+        start = 2  # индекс, с которого следует считывать выбранную строку
         if cur_row == -1:
-            err = "Выберите комплектующее (строку) для создания заказа"
+            if conf:
+                err = "Выберите комплектующее (строку) для создания заказа"
+            else:
+                err = "Выберите конфигурацию (строку) для подробного просмотра"
+            return err
+        else:
+            if not conf:
+                start = 1
+            for i in range(start, count_col):
+                data_row.append(self.tableSklad.item(cur_row, i).text())
+            return data_row
+
+    def current_cabinet(self):
+        cur_row = self.tableOrders.currentRow()
+        count_col = self.tableOrders.columnCount()
+        data_row = []
+        if cur_row == -1:
+            err = "Выберите конфигурацию (строку) для подробного просмотра"
             return err
         else:
             for i in range(2, count_col):
-                data_row.append(self.tableSklad.item(cur_row, i).text())
+                data_row.append(self.tableOrders.item(cur_row, i).text())
             return data_row
 
     # Чтение выбранной строки в таблце для передачи в перезаказ
@@ -2151,7 +2746,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
         Если true - добавляем новое комплектующее. Если false - создаём заказ на существующее комплектующее
         :param page: Порядковый номер выбранной в toolBox страницы на складе
         :param new_bool: Флаг. True - добавление нового комплектующего. False - создание заказа на выбранное компл.
-        :param get_row: Строка, на которую нажал пользователь
+        :param row: Строка, на которую нажал пользователь
         """
         # Если была нажата кнопка вывода заказов, то удаляем лишние 2 значения с начала списка
         # В обычном случае сюда поступает list[kol, pr_name ..].
@@ -3235,12 +3830,14 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 list_names = self.get_tabs("Power", self.rbSklad.isChecked())
             case 7:
                 list_names = self.get_tabs("Body", self.rbSklad.isChecked())
+            case 8:
+                pass
+        if page != 8:  # Если вызван метод не для обзора конфигурацй, то заполняем табвиджет вкладками
+            count_tab = len(list_names)
 
-        count_tab = len(list_names)
-
-        for i in range(0, count_tab):  # первая вкладка должна остаться
-            tab = QtWidgets.QWidget()
-            self.tabWidgetSklad.addTab(tab, list_names[i])
+            for i in range(0, count_tab):  # первая вкладка должна остаться
+                tab = QtWidgets.QWidget()
+                self.tabWidgetSklad.addTab(tab, list_names[i])
 
     def fill_tabs_configure(self, list_names, tab_widget):
         """
@@ -3618,7 +4215,8 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                                 cur.callproc('get_order_body_by_name', [tab_name])
                             else:
                                 cur.callproc('get_body_by_name', [tab_name])
-
+                case 8:
+                    cur.callproc('get_all_configuration')
             self.fill_table_sklad(page, cur)
             self.reset_radiobutton(self.tableSklad)
             self.check_rows(data_row, self.tableSklad)

@@ -147,7 +147,6 @@ RETURNS TABLE(
 $$ LANGUAGE sql;
 
 --ЗАКАЗЫ
--------------------------------222222
 CREATE OR REPLACE FUNCTION get_having_order_processor()
 RETURNS TABLE(
 	kol INT, 
@@ -179,7 +178,8 @@ RETURNS TABLE(
 	AND processor.exist = True
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
--------------------------------3333333
+
+
 CREATE OR REPLACE FUNCTION get_all_order_processor()
 RETURNS TABLE(
 	kol INT, 
@@ -211,7 +211,6 @@ RETURNS TABLE(
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
--------------------------------44444
 -- Функция для фильтрации процессоров по серии
 CREATE OR REPLACE FUNCTION get_order_processor_by_series(series_in VARCHAR)
 RETURNS TABLE(
@@ -245,7 +244,7 @@ RETURNS TABLE(
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
--------------------------------5555
+
 CREATE OR REPLACE FUNCTION get_having_order_processor_by_series(series_in VARCHAR)
 RETURNS TABLE(
 	kol INT, 
@@ -278,9 +277,6 @@ RETURNS TABLE(
 	AND processor.exist = True
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
-
-
-
 
 -- Функция вывода всех серий процессоров что есть базе (для заполнения фильтрующих вкладок tabwidget)
 CREATE OR REPLACE FUNCTION get_inbase_procseries()

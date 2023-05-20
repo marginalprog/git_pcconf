@@ -153,7 +153,6 @@ RETURNS TABLE(
 $$ LANGUAGE sql;
 
 --ЗАКАЗЫ
--------------------------------222222
 CREATE OR REPLACE FUNCTION get_having_order_power()
 RETURNS TABLE(
 	kol INT,
@@ -186,7 +185,7 @@ RETURNS TABLE(
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
--------------------------------3333333
+
 CREATE OR REPLACE FUNCTION get_all_order_power()
 RETURNS TABLE(
 	kol INT,
@@ -218,8 +217,7 @@ RETURNS TABLE(
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
--------------------------------44444
--- Функция для фильтрации процессоров по серии
+-- Функция для фильтрации БП по формфактору
 CREATE OR REPLACE FUNCTION get_order_power_by_factor(factor_in VARCHAR)
 RETURNS TABLE(
 	kol INT,
@@ -251,7 +249,8 @@ RETURNS TABLE(
 	AND formfactor = factor_in
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
--------------------------------5555
+
+
 CREATE OR REPLACE FUNCTION get_having_order_power_by_factor(factor_in VARCHAR)
 RETURNS TABLE(
 	kol INT,
@@ -372,7 +371,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 
--- Триггер на обновление состояния материнской платы
+-- Триггер на обновление состояния блока питания
 CREATE OR REPLACE FUNCTION update_power_exist()
 RETURNS TRIGGER AS $$
 BEGIN

@@ -101,7 +101,7 @@ RETURNS TABLE(
 $$ LANGUAGE sql;
 
 
----------процессоры В НАЛИЧИИ по серии
+--накопители В НАЛИЧИИ по типу
 CREATE OR REPLACE FUNCTION get_having_disk_by_type(type_in VARCHAR)
 RETURNS TABLE(
 	kol INT,
@@ -128,7 +128,6 @@ $$ LANGUAGE sql;
 
 
 --ЗАКАЗЫ
--------------------------------222222
 CREATE OR REPLACE FUNCTION get_having_order_disk()
 RETURNS TABLE(
 	kol INT,
@@ -156,7 +155,7 @@ RETURNS TABLE(
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
--------------------------------3333333
+
 CREATE OR REPLACE FUNCTION get_all_order_disk()
 RETURNS TABLE(
 	kol INT,
@@ -183,8 +182,8 @@ RETURNS TABLE(
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
--------------------------------44444
--- Функция для фильтрации процессоров по серии
+
+-- Функция для фильтрации накопителей по типу
 CREATE OR REPLACE FUNCTION get_order_disk_by_type(type_in VARCHAR)
 RETURNS TABLE(
 	kol INT,
@@ -212,7 +211,7 @@ RETURNS TABLE(
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
--------------------------------5555
+
 CREATE OR REPLACE FUNCTION get_having_order_disk_by_type(type_in VARCHAR)
 RETURNS TABLE(
 	kol INT,
@@ -240,8 +239,6 @@ RETURNS TABLE(
 	AND disk.exist = True
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
-
-
 
 
 -- Функция вывода всех типов, что есть в базе накопителя (для заполнения фильтрующих вкладок tabwidget)
@@ -330,7 +327,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 
--- Триггер на обновление состояния материнской платы
+-- Триггер на обновление состояния накопителя
 CREATE OR REPLACE FUNCTION update_disk_exist()
 RETURNS TRIGGER AS $$
 BEGIN

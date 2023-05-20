@@ -1608,6 +1608,11 @@ QComboBox QAbstractItemView {
      <string>1</string>
     </property>
    </item>
+   <item>
+    <property name="text">
+     <string>нет</string>
+    </property>
+   </item>
   </widget>
   <widget class="QComboBox" name="cbSata">
    <property name="geometry">

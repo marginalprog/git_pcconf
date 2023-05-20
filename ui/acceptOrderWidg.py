@@ -669,6 +669,28 @@ class Ui_acceptOrderWidg(object):
         self.line_18.setFrameShape(QtWidgets.QFrame.HLine)
         self.line_18.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_18.setObjectName("line_18")
+        self.btnOk = QtWidgets.QPushButton(acceptOrderWidg)
+        self.btnOk.setGeometry(QtCore.QRect(340, 810, 151, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnOk.setFont(font)
+        self.btnOk.setStyleSheet("QPushButton{\n"
+"    border:1px solid rgb(70,70,70);\n"
+"    background-color: rgb(35,35,35);\n"
+"    color: #fffafa;\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    border:1px;\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-color: rgb(40,40,40);\n"
+"    border-bottom: 1px solid  red;\n"
+"    color: red;\n"
+"}\n"
+"")
+        self.btnOk.setObjectName("btnOk")
         self.line.raise_()
         self.lbComplect.raise_()
         self.rectangle.raise_()
@@ -720,9 +742,11 @@ class Ui_acceptOrderWidg(object):
         self.lbDate.raise_()
         self.dateEdit.raise_()
         self.line_18.raise_()
+        self.btnOk.raise_()
 
         self.retranslateUi(acceptOrderWidg)
         self.btnClose.clicked.connect(acceptOrderWidg.close)
+        self.btnOk.clicked.connect(acceptOrderWidg.close)
         QtCore.QMetaObject.connectSlotsByName(acceptOrderWidg)
 
     def retranslateUi(self, acceptOrderWidg):
@@ -743,6 +767,7 @@ class Ui_acceptOrderWidg(object):
         self.lb_price_3.setText(_translate("acceptOrderWidg", " ₽"))
         self.lb_price_2.setText(_translate("acceptOrderWidg", "Цена:"))
         self.lbDate.setText(_translate("acceptOrderWidg", "Дата совершения заказа:"))
+        self.btnOk.setText(_translate("acceptOrderWidg", "OK"))
 
 
 if __name__ == "__main__":

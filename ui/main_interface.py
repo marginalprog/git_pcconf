@@ -2274,6 +2274,27 @@ class Ui_MainWindow(object):
 "}")
         self.rbShowOrders.setAutoExclusive(False)
         self.rbShowOrders.setObjectName("rbShowOrders")
+        self.btnInfoConfig = QtWidgets.QPushButton(self.sklad)
+        self.btnInfoConfig.setGeometry(QtCore.QRect(810, 580, 171, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnInfoConfig.setFont(font)
+        self.btnInfoConfig.setStyleSheet("QPushButton{\n"
+"    border:1px solid rgb(70,70,70);\n"
+"    background-color: rgb(40,40,40);\n"
+"    color: #fffafa;\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    border:1px;\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-color: rgb(40,40,40);\n"
+"    border-bottom: 1px solid  red;\n"
+"}\n"
+"")
+        self.btnInfoConfig.setObjectName("btnInfoConfig")
         self.tabWidgetMain.addTab(self.sklad, "")
         self.configurator = QtWidgets.QWidget()
         self.configurator.setStyleSheet("border:0px;")
@@ -6501,14 +6522,14 @@ class Ui_MainWindow(object):
         self.tabWidgetCabinet.setObjectName("tabWidgetCabinet")
         self.tab_profile = QtWidgets.QWidget()
         self.tab_profile.setObjectName("tab_profile")
-        self.lbName_2 = QtWidgets.QLabel(self.tab_profile)
-        self.lbName_2.setGeometry(QtCore.QRect(40, 277, 211, 20))
+        self.lbClientName = QtWidgets.QLabel(self.tab_profile)
+        self.lbClientName.setGeometry(QtCore.QRect(40, 277, 211, 20))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(14)
-        self.lbName_2.setFont(font)
-        self.lbName_2.setStyleSheet("")
-        self.lbName_2.setObjectName("lbName_2")
+        self.lbClientName.setFont(font)
+        self.lbClientName.setStyleSheet("")
+        self.lbClientName.setObjectName("lbClientName")
         self.frame = QtWidgets.QFrame(self.tab_profile)
         self.frame.setGeometry(QtCore.QRect(60, 20, 161, 151))
         self.frame.setStyleSheet("border: 0px;\n"
@@ -6532,22 +6553,22 @@ class Ui_MainWindow(object):
         self.lbName_3.setFont(font)
         self.lbName_3.setStyleSheet("")
         self.lbName_3.setObjectName("lbName_3")
-        self.lbName_4 = QtWidgets.QLabel(self.tab_profile)
-        self.lbName_4.setGeometry(QtCore.QRect(70, 220, 141, 21))
+        self.lbRegDate = QtWidgets.QLabel(self.tab_profile)
+        self.lbRegDate.setGeometry(QtCore.QRect(70, 220, 141, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(11)
-        self.lbName_4.setFont(font)
-        self.lbName_4.setStyleSheet("color: rgb(200,200,200);")
-        self.lbName_4.setObjectName("lbName_4")
-        self.lbName_5 = QtWidgets.QLabel(self.tab_profile)
-        self.lbName_5.setGeometry(QtCore.QRect(40, 301, 211, 21))
+        self.lbRegDate.setFont(font)
+        self.lbRegDate.setStyleSheet("color: rgb(200,200,200);")
+        self.lbRegDate.setObjectName("lbRegDate")
+        self.lbClientEmail = QtWidgets.QLabel(self.tab_profile)
+        self.lbClientEmail.setGeometry(QtCore.QRect(40, 301, 211, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(11)
-        self.lbName_5.setFont(font)
-        self.lbName_5.setStyleSheet("color: rgb(200,200,200);")
-        self.lbName_5.setObjectName("lbName_5")
+        self.lbClientEmail.setFont(font)
+        self.lbClientEmail.setStyleSheet("color: rgb(200,200,200);")
+        self.lbClientEmail.setObjectName("lbClientEmail")
         self.lineHMenu_2 = QtWidgets.QFrame(self.tab_profile)
         self.lineHMenu_2.setGeometry(QtCore.QRect(40, 331, 31, 20))
         self.lineHMenu_2.setStyleSheet("border: 0px;\n"
@@ -6566,14 +6587,14 @@ class Ui_MainWindow(object):
         self.lineHMenu_3.setFrameShape(QtWidgets.QFrame.HLine)
         self.lineHMenu_3.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.lineHMenu_3.setObjectName("lineHMenu_3")
-        self.lbName_6 = QtWidgets.QLabel(self.tab_profile)
-        self.lbName_6.setGeometry(QtCore.QRect(40, 381, 131, 21))
+        self.lbClientPhone = QtWidgets.QLabel(self.tab_profile)
+        self.lbClientPhone.setGeometry(QtCore.QRect(40, 381, 201, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(11)
-        self.lbName_6.setFont(font)
-        self.lbName_6.setStyleSheet("color: rgb(200,200,200);")
-        self.lbName_6.setObjectName("lbName_6")
+        self.lbClientPhone.setFont(font)
+        self.lbClientPhone.setStyleSheet("color: rgb(200,200,200);")
+        self.lbClientPhone.setObjectName("lbClientPhone")
         self.lbName_7 = QtWidgets.QLabel(self.tab_profile)
         self.lbName_7.setGeometry(QtCore.QRect(40, 351, 181, 31))
         font = QtGui.QFont()
@@ -6590,14 +6611,14 @@ class Ui_MainWindow(object):
         self.lbName_8.setFont(font)
         self.lbName_8.setStyleSheet("")
         self.lbName_8.setObjectName("lbName_8")
-        self.lbName_9 = QtWidgets.QLabel(self.tab_profile)
-        self.lbName_9.setGeometry(QtCore.QRect(290, 51, 211, 20))
+        self.lbCountOrders = QtWidgets.QLabel(self.tab_profile)
+        self.lbCountOrders.setGeometry(QtCore.QRect(290, 51, 211, 20))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(11)
-        self.lbName_9.setFont(font)
-        self.lbName_9.setStyleSheet("color: rgb(200,200,200);")
-        self.lbName_9.setObjectName("lbName_9")
+        self.lbCountOrders.setFont(font)
+        self.lbCountOrders.setStyleSheet("color: rgb(200,200,200);")
+        self.lbCountOrders.setObjectName("lbCountOrders")
         self.lineHMenu_4 = QtWidgets.QFrame(self.tab_profile)
         self.lineHMenu_4.setGeometry(QtCore.QRect(290, 80, 31, 20))
         self.lineHMenu_4.setStyleSheet("border: 0px;\n"
@@ -6607,17 +6628,17 @@ class Ui_MainWindow(object):
         self.lineHMenu_4.setFrameShape(QtWidgets.QFrame.HLine)
         self.lineHMenu_4.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.lineHMenu_4.setObjectName("lineHMenu_4")
-        self.lbSettings_2 = QtWidgets.QLabel(self.tab_profile)
-        self.lbSettings_2.setGeometry(QtCore.QRect(570, 90, 201, 21))
+        self.lbOrders = QtWidgets.QLabel(self.tab_profile)
+        self.lbOrders.setGeometry(QtCore.QRect(570, 50, 201, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(16)
-        self.lbSettings_2.setFont(font)
-        self.lbSettings_2.setStyleSheet("")
-        self.lbSettings_2.setAlignment(QtCore.Qt.AlignCenter)
-        self.lbSettings_2.setObjectName("lbSettings_2")
+        self.lbOrders.setFont(font)
+        self.lbOrders.setStyleSheet("")
+        self.lbOrders.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbOrders.setObjectName("lbOrders")
         self.tableOrders = QtWidgets.QTableWidget(self.tab_profile)
-        self.tableOrders.setGeometry(QtCore.QRect(280, 150, 811, 281))
+        self.tableOrders.setGeometry(QtCore.QRect(280, 100, 811, 281))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(12)
@@ -6649,6 +6670,8 @@ class Ui_MainWindow(object):
 "    color: rgb(200,200,200);\n"
 "    font-size: 13px;\n"
 "    selection-background-color:#ffc0cb;\n"
+"    margin-left: 1px;\n"
+"    margin-right: 1px;\n"
 "}\n"
 "\n"
 "QHeaderView::section:hover {\n"
@@ -6662,7 +6685,7 @@ class Ui_MainWindow(object):
 "    border-right: 0px;\n"
 "    border-left: 0px;\n"
 "    border-top:0px;\n"
-"    color: white;\n"
+"    color: rgb(200,200,200);\n"
 "}\n"
 "\n"
 "QTableView\n"
@@ -6844,13 +6867,9 @@ class Ui_MainWindow(object):
         self.tableOrders.setShowGrid(False)
         self.tableOrders.setGridStyle(QtCore.Qt.SolidLine)
         self.tableOrders.setCornerButtonEnabled(True)
-        self.tableOrders.setRowCount(2)
-        self.tableOrders.setColumnCount(7)
+        self.tableOrders.setRowCount(0)
+        self.tableOrders.setColumnCount(6)
         self.tableOrders.setObjectName("tableOrders")
-        item = QtWidgets.QTableWidgetItem()
-        self.tableOrders.setVerticalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableOrders.setVerticalHeaderItem(1, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableOrders.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
@@ -6863,20 +6882,6 @@ class Ui_MainWindow(object):
         self.tableOrders.setHorizontalHeaderItem(4, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableOrders.setHorizontalHeaderItem(5, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableOrders.setHorizontalHeaderItem(6, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableOrders.setItem(0, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableOrders.setItem(0, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableOrders.setItem(0, 3, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableOrders.setItem(0, 4, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableOrders.setItem(0, 5, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableOrders.setItem(0, 6, item)
         self.tableOrders.horizontalHeader().setCascadingSectionResizes(True)
         self.tableOrders.horizontalHeader().setDefaultSectionSize(40)
         self.tableOrders.horizontalHeader().setMinimumSectionSize(40)
@@ -6884,39 +6889,84 @@ class Ui_MainWindow(object):
         self.tableOrders.verticalHeader().setCascadingSectionResizes(False)
         self.tableOrders.verticalHeader().setDefaultSectionSize(50)
         self.tableOrders.verticalHeader().setMinimumSectionSize(10)
-        self.lbName_2.raise_()
+        self.btnInfoConfigClient = QtWidgets.QPushButton(self.tab_profile)
+        self.btnInfoConfigClient.setGeometry(QtCore.QRect(590, 400, 171, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnInfoConfigClient.setFont(font)
+        self.btnInfoConfigClient.setStyleSheet("QPushButton{\n"
+"    border:1px solid rgb(70,70,70);\n"
+"    background-color: rgb(40,40,40);\n"
+"    color: #fffafa;\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    border:1px;\n"
+"    background-color: rgb(60,60,60);\n"
+"    border-color: rgb(40,40,40);\n"
+"    border-bottom: 1px solid  red;\n"
+"}\n"
+"")
+        self.btnInfoConfigClient.setObjectName("btnInfoConfigClient")
+        self.btnResetCabinet = QtWidgets.QPushButton(self.tab_profile)
+        self.btnResetCabinet.setGeometry(QtCore.QRect(1070, 70, 21, 21))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.btnResetCabinet.setFont(font)
+        self.btnResetCabinet.setStyleSheet("QPushButton\n"
+"{\n"
+"background: transparent;\n"
+"border:1px;\n"
+"border-image: url(\"E:/pcconf/images/reset-gray.png\") 0;\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"border: 0px;\n"
+"border-image: url(\"E:/pcconf/images/reset-red.png\") 0;\n"
+"}\n"
+"")
+        self.btnResetCabinet.setText("")
+        self.btnResetCabinet.setIconSize(QtCore.QSize(18, 18))
+        self.btnResetCabinet.setObjectName("btnResetCabinet")
+        self.lbClientName.raise_()
         self.frame.raise_()
         self.lineVMenu_2.raise_()
         self.lbName_3.raise_()
-        self.lbName_4.raise_()
-        self.lbName_5.raise_()
+        self.lbRegDate.raise_()
+        self.lbClientEmail.raise_()
         self.lineHMenu_2.raise_()
-        self.lbName_6.raise_()
+        self.lbClientPhone.raise_()
         self.lbName_7.raise_()
         self.lineHMenu_3.raise_()
         self.lbName_8.raise_()
-        self.lbName_9.raise_()
+        self.lbCountOrders.raise_()
         self.lineHMenu_4.raise_()
-        self.lbSettings_2.raise_()
+        self.lbOrders.raise_()
         self.tableOrders.raise_()
+        self.btnInfoConfigClient.raise_()
+        self.btnResetCabinet.raise_()
         self.tabWidgetCabinet.addTab(self.tab_profile, "")
         self.tab_settings = QtWidgets.QWidget()
         self.tab_settings.setObjectName("tab_settings")
         self.lbName = QtWidgets.QLabel(self.tab_settings)
-        self.lbName.setGeometry(QtCore.QRect(370, 90, 161, 16))
+        self.lbName.setGeometry(QtCore.QRect(360, 90, 161, 16))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(11)
         self.lbName.setFont(font)
         self.lbName.setStyleSheet("")
         self.lbName.setObjectName("lbName")
-        self.leName = QtWidgets.QLineEdit(self.tab_settings)
-        self.leName.setGeometry(QtCore.QRect(580, 80, 211, 31))
+        self.leChangeName = QtWidgets.QLineEdit(self.tab_settings)
+        self.leChangeName.setGeometry(QtCore.QRect(580, 80, 211, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
-        self.leName.setFont(font)
-        self.leName.setStyleSheet("QLineEdit{\n"
+        self.leChangeName.setFont(font)
+        self.leChangeName.setStyleSheet("QLineEdit{\n"
 "    padding-left: 5px;\n"
 "    border: 1px solid rgb(20,20,20);\n"
 "    background-color: rgb(40,40,40);\n"
@@ -6928,15 +6978,15 @@ class Ui_MainWindow(object):
 "    background-color: rgb(55,55,55);\n"
 "    border-bottom: 1px solid  red;\n"
 "}")
-        self.leName.setText("")
-        self.leName.setObjectName("leName")
-        self.leEmail = QtWidgets.QLineEdit(self.tab_settings)
-        self.leEmail.setGeometry(QtCore.QRect(580, 140, 211, 31))
+        self.leChangeName.setText("")
+        self.leChangeName.setObjectName("leChangeName")
+        self.leChangeEmail = QtWidgets.QLineEdit(self.tab_settings)
+        self.leChangeEmail.setGeometry(QtCore.QRect(580, 140, 211, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
-        self.leEmail.setFont(font)
-        self.leEmail.setStyleSheet("QLineEdit{\n"
+        self.leChangeEmail.setFont(font)
+        self.leChangeEmail.setStyleSheet("QLineEdit{\n"
 "    padding-left: 5px;\n"
 "    border: 1px solid rgb(20,20,20);\n"
 "    background-color: rgb(40,40,40);\n"
@@ -6948,23 +6998,23 @@ class Ui_MainWindow(object):
 "    background-color: rgb(55,55,55);\n"
 "    border-bottom: 1px solid  red;\n"
 "}")
-        self.leEmail.setText("")
-        self.leEmail.setObjectName("leEmail")
+        self.leChangeEmail.setText("")
+        self.leChangeEmail.setObjectName("leChangeEmail")
         self.lbEmail = QtWidgets.QLabel(self.tab_settings)
-        self.lbEmail.setGeometry(QtCore.QRect(370, 150, 151, 16))
+        self.lbEmail.setGeometry(QtCore.QRect(360, 140, 151, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(11)
         self.lbEmail.setFont(font)
         self.lbEmail.setStyleSheet("")
         self.lbEmail.setObjectName("lbEmail")
-        self.lePassword = QtWidgets.QLineEdit(self.tab_settings)
-        self.lePassword.setGeometry(QtCore.QRect(580, 260, 211, 31))
+        self.leChangePass = QtWidgets.QLineEdit(self.tab_settings)
+        self.leChangePass.setGeometry(QtCore.QRect(580, 260, 211, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
-        self.lePassword.setFont(font)
-        self.lePassword.setStyleSheet("QLineEdit{\n"
+        self.leChangePass.setFont(font)
+        self.leChangePass.setStyleSheet("QLineEdit{\n"
 "    padding-left: 5px;\n"
 "    border: 1px solid rgb(20,20,20);\n"
 "    background-color: rgb(40,40,40);\n"
@@ -6976,10 +7026,11 @@ class Ui_MainWindow(object):
 "    background-color: rgb(55,55,55);\n"
 "    border-bottom: 1px solid  red;\n"
 "}")
-        self.lePassword.setText("")
-        self.lePassword.setObjectName("lePassword")
+        self.leChangePass.setText("")
+        self.leChangePass.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.leChangePass.setObjectName("leChangePass")
         self.lbPassword = QtWidgets.QLabel(self.tab_settings)
-        self.lbPassword.setGeometry(QtCore.QRect(370, 270, 151, 16))
+        self.lbPassword.setGeometry(QtCore.QRect(360, 260, 151, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(11)
@@ -6995,13 +7046,13 @@ class Ui_MainWindow(object):
         self.lbSettings.setStyleSheet("")
         self.lbSettings.setAlignment(QtCore.Qt.AlignCenter)
         self.lbSettings.setObjectName("lbSettings")
-        self.lePhone = QtWidgets.QLineEdit(self.tab_settings)
-        self.lePhone.setGeometry(QtCore.QRect(580, 200, 211, 31))
+        self.leChangePhone = QtWidgets.QLineEdit(self.tab_settings)
+        self.leChangePhone.setGeometry(QtCore.QRect(580, 200, 211, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
-        self.lePhone.setFont(font)
-        self.lePhone.setStyleSheet("QLineEdit{\n"
+        self.leChangePhone.setFont(font)
+        self.leChangePhone.setStyleSheet("QLineEdit{\n"
 "    padding-left: 5px;\n"
 "    border: 1px solid rgb(20,20,20);\n"
 "    background-color: rgb(40,40,40);\n"
@@ -7013,25 +7064,25 @@ class Ui_MainWindow(object):
 "    background-color: rgb(55,55,55);\n"
 "    border-bottom: 1px solid  red;\n"
 "}")
-        self.lePhone.setText("")
-        self.lePhone.setObjectName("lePhone")
+        self.leChangePhone.setText("")
+        self.leChangePhone.setObjectName("leChangePhone")
         self.lbPhone = QtWidgets.QLabel(self.tab_settings)
-        self.lbPhone.setGeometry(QtCore.QRect(370, 210, 171, 16))
+        self.lbPhone.setGeometry(QtCore.QRect(360, 210, 171, 16))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(11)
         self.lbPhone.setFont(font)
         self.lbPhone.setStyleSheet("")
         self.lbPhone.setObjectName("lbPhone")
-        self.btn_accept_chngs = QtWidgets.QPushButton(self.tab_settings)
-        self.btn_accept_chngs.setGeometry(QtCore.QRect(480, 390, 221, 31))
+        self.btnAcceptChngs = QtWidgets.QPushButton(self.tab_settings)
+        self.btnAcceptChngs.setGeometry(QtCore.QRect(480, 390, 221, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat SemiBold")
         font.setPointSize(10)
         font.setBold(True)
         font.setWeight(75)
-        self.btn_accept_chngs.setFont(font)
-        self.btn_accept_chngs.setStyleSheet("\n"
+        self.btnAcceptChngs.setFont(font)
+        self.btnAcceptChngs.setStyleSheet("\n"
 "\n"
 "QPushButton::hover\n"
 "{\n"
@@ -7046,14 +7097,14 @@ class Ui_MainWindow(object):
 "color: white;\n"
 "border: 1px solid #bf0000;\n"
 "}")
-        self.btn_accept_chngs.setObjectName("btn_accept_chngs")
-        self.lePassword_2 = QtWidgets.QLineEdit(self.tab_settings)
-        self.lePassword_2.setGeometry(QtCore.QRect(580, 320, 211, 31))
+        self.btnAcceptChngs.setObjectName("btnAcceptChngs")
+        self.leChangeRepPass = QtWidgets.QLineEdit(self.tab_settings)
+        self.leChangeRepPass.setGeometry(QtCore.QRect(580, 320, 211, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(10)
-        self.lePassword_2.setFont(font)
-        self.lePassword_2.setStyleSheet("QLineEdit{\n"
+        self.leChangeRepPass.setFont(font)
+        self.leChangeRepPass.setStyleSheet("QLineEdit{\n"
 "    padding-left: 5px;\n"
 "    border: 1px solid rgb(20,20,20);\n"
 "    background-color: rgb(40,40,40);\n"
@@ -7065,10 +7116,11 @@ class Ui_MainWindow(object):
 "    background-color: rgb(55,55,55);\n"
 "    border-bottom: 1px solid  red;\n"
 "}")
-        self.lePassword_2.setText("")
-        self.lePassword_2.setObjectName("lePassword_2")
+        self.leChangeRepPass.setText("")
+        self.leChangeRepPass.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.leChangeRepPass.setObjectName("leChangeRepPass")
         self.lbPassword_2 = QtWidgets.QLabel(self.tab_settings)
-        self.lbPassword_2.setGeometry(QtCore.QRect(370, 320, 181, 41))
+        self.lbPassword_2.setGeometry(QtCore.QRect(360, 310, 201, 51))
         font = QtGui.QFont()
         font.setFamily("Montserrat Medium")
         font.setPointSize(11)
@@ -7077,6 +7129,320 @@ class Ui_MainWindow(object):
         self.lbPassword_2.setObjectName("lbPassword_2")
         self.tabWidgetCabinet.addTab(self.tab_settings, "")
         self.stackedWidget.addWidget(self.cabinet)
+        self.registration = QtWidgets.QWidget()
+        self.registration.setObjectName("registration")
+        self.leRegEmail = QtWidgets.QLineEdit(self.registration)
+        self.leRegEmail.setGeometry(QtCore.QRect(720, 250, 211, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.leRegEmail.setFont(font)
+        self.leRegEmail.setStyleSheet("QLineEdit{\n"
+"    padding-left: 5px;\n"
+"    border: 1px solid rgb(20,20,20);\n"
+"    background-color: rgb(40,40,40);\n"
+"    border-bottom: 1px solid  rgb(120,120,120);\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QLineEdit:hover{\n"
+"    background-color: rgb(55,55,55);\n"
+"    border-bottom: 1px solid  red;\n"
+"}")
+        self.leRegEmail.setText("")
+        self.leRegEmail.setObjectName("leRegEmail")
+        self.leRegPass = QtWidgets.QLineEdit(self.registration)
+        self.leRegPass.setGeometry(QtCore.QRect(720, 370, 211, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.leRegPass.setFont(font)
+        self.leRegPass.setStyleSheet("QLineEdit{\n"
+"    padding-left: 5px;\n"
+"    border: 1px solid rgb(20,20,20);\n"
+"    background-color: rgb(40,40,40);\n"
+"    border-bottom: 1px solid  rgb(120,120,120);\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QLineEdit:hover{\n"
+"    background-color: rgb(55,55,55);\n"
+"    border-bottom: 1px solid  red;\n"
+"}")
+        self.leRegPass.setText("")
+        self.leRegPass.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.leRegPass.setObjectName("leRegPass")
+        self.leRegPhone = QtWidgets.QLineEdit(self.registration)
+        self.leRegPhone.setGeometry(QtCore.QRect(720, 310, 211, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.leRegPhone.setFont(font)
+        self.leRegPhone.setStyleSheet("QLineEdit{\n"
+"    padding-left: 5px;\n"
+"    border: 1px solid rgb(20,20,20);\n"
+"    background-color: rgb(40,40,40);\n"
+"    border-bottom: 1px solid  rgb(120,120,120);\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QLineEdit:hover{\n"
+"    background-color: rgb(55,55,55);\n"
+"    border-bottom: 1px solid  red;\n"
+"}")
+        self.leRegPhone.setText("")
+        self.leRegPhone.setObjectName("leRegPhone")
+        self.lbPassword_3 = QtWidgets.QLabel(self.registration)
+        self.lbPassword_3.setGeometry(QtCore.QRect(510, 430, 181, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(11)
+        self.lbPassword_3.setFont(font)
+        self.lbPassword_3.setStyleSheet("")
+        self.lbPassword_3.setObjectName("lbPassword_3")
+        self.leRegName = QtWidgets.QLineEdit(self.registration)
+        self.leRegName.setGeometry(QtCore.QRect(720, 190, 211, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.leRegName.setFont(font)
+        self.leRegName.setStyleSheet("QLineEdit{\n"
+"    padding-left: 5px;\n"
+"    border: 1px solid rgb(20,20,20);\n"
+"    background-color: rgb(40,40,40);\n"
+"    border-bottom: 1px solid  rgb(120,120,120);\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QLineEdit:hover{\n"
+"    background-color: rgb(55,55,55);\n"
+"    border-bottom: 1px solid  red;\n"
+"}")
+        self.leRegName.setText("")
+        self.leRegName.setObjectName("leRegName")
+        self.lbPhone_2 = QtWidgets.QLabel(self.registration)
+        self.lbPhone_2.setGeometry(QtCore.QRect(510, 310, 181, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(11)
+        self.lbPhone_2.setFont(font)
+        self.lbPhone_2.setStyleSheet("")
+        self.lbPhone_2.setObjectName("lbPhone_2")
+        self.lbName_2 = QtWidgets.QLabel(self.registration)
+        self.lbName_2.setGeometry(QtCore.QRect(510, 200, 161, 16))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(11)
+        self.lbName_2.setFont(font)
+        self.lbName_2.setStyleSheet("")
+        self.lbName_2.setObjectName("lbName_2")
+        self.lbEmail_2 = QtWidgets.QLabel(self.registration)
+        self.lbEmail_2.setGeometry(QtCore.QRect(510, 250, 151, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(11)
+        self.lbEmail_2.setFont(font)
+        self.lbEmail_2.setStyleSheet("")
+        self.lbEmail_2.setObjectName("lbEmail_2")
+        self.leRegRepPass = QtWidgets.QLineEdit(self.registration)
+        self.leRegRepPass.setGeometry(QtCore.QRect(720, 430, 211, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.leRegRepPass.setFont(font)
+        self.leRegRepPass.setStyleSheet("QLineEdit{\n"
+"    padding-left: 5px;\n"
+"    border: 1px solid rgb(20,20,20);\n"
+"    background-color: rgb(40,40,40);\n"
+"    border-bottom: 1px solid  rgb(120,120,120);\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QLineEdit:hover{\n"
+"    background-color: rgb(55,55,55);\n"
+"    border-bottom: 1px solid  red;\n"
+"}")
+        self.leRegRepPass.setText("")
+        self.leRegRepPass.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.leRegRepPass.setObjectName("leRegRepPass")
+        self.lbReg = QtWidgets.QLabel(self.registration)
+        self.lbReg.setGeometry(QtCore.QRect(510, 120, 421, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(16)
+        self.lbReg.setFont(font)
+        self.lbReg.setStyleSheet("")
+        self.lbReg.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbReg.setObjectName("lbReg")
+        self.lbPassword_4 = QtWidgets.QLabel(self.registration)
+        self.lbPassword_4.setGeometry(QtCore.QRect(510, 370, 151, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(11)
+        self.lbPassword_4.setFont(font)
+        self.lbPassword_4.setStyleSheet("")
+        self.lbPassword_4.setObjectName("lbPassword_4")
+        self.btnReg = QtWidgets.QPushButton(self.registration)
+        self.btnReg.setGeometry(QtCore.QRect(620, 500, 221, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.btnReg.setFont(font)
+        self.btnReg.setStyleSheet("\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"color: white;\n"
+"background: #bf0000;\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton\n"
+"{\n"
+"background-color: #FF0000;\n"
+"color: white;\n"
+"border: 1px solid #bf0000;\n"
+"}")
+        self.btnReg.setObjectName("btnReg")
+        self.btnSelectLogin = QtWidgets.QPushButton(self.registration)
+        self.btnSelectLogin.setGeometry(QtCore.QRect(670, 550, 111, 21))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        font.setUnderline(False)
+        self.btnSelectLogin.setFont(font)
+        self.btnSelectLogin.setStyleSheet("QPushButton\n"
+"{\n"
+"color:  rgb(230,230, 230);\n"
+"border: 0px;\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"color: red;\n"
+"border-bottom: 1px solid red;\n"
+"}\n"
+"")
+        self.btnSelectLogin.setObjectName("btnSelectLogin")
+        self.dateEditCab = QtWidgets.QDateEdit(self.registration)
+        self.dateEditCab.setGeometry(QtCore.QRect(1380, 110, 110, 22))
+        self.dateEditCab.setObjectName("dateEditCab")
+        self.stackedWidget.addWidget(self.registration)
+        self.login = QtWidgets.QWidget()
+        self.login.setObjectName("login")
+        self.lbEmail_3 = QtWidgets.QLabel(self.login)
+        self.lbEmail_3.setGeometry(QtCore.QRect(520, 260, 151, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(11)
+        self.lbEmail_3.setFont(font)
+        self.lbEmail_3.setStyleSheet("")
+        self.lbEmail_3.setObjectName("lbEmail_3")
+        self.btnLogin = QtWidgets.QPushButton(self.login)
+        self.btnLogin.setGeometry(QtCore.QRect(660, 410, 151, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.btnLogin.setFont(font)
+        self.btnLogin.setStyleSheet("\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"color: white;\n"
+"background: #bf0000;\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton\n"
+"{\n"
+"background-color: #FF0000;\n"
+"color: white;\n"
+"border: 1px solid #bf0000;\n"
+"}")
+        self.btnLogin.setObjectName("btnLogin")
+        self.lbPassword_5 = QtWidgets.QLabel(self.login)
+        self.lbPassword_5.setGeometry(QtCore.QRect(520, 330, 191, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(11)
+        self.lbPassword_5.setFont(font)
+        self.lbPassword_5.setStyleSheet("")
+        self.lbPassword_5.setObjectName("lbPassword_5")
+        self.leLogEmail = QtWidgets.QLineEdit(self.login)
+        self.leLogEmail.setGeometry(QtCore.QRect(730, 260, 211, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.leLogEmail.setFont(font)
+        self.leLogEmail.setStyleSheet("QLineEdit{\n"
+"    padding-left: 5px;\n"
+"    border: 1px solid rgb(20,20,20);\n"
+"    background-color: rgb(40,40,40);\n"
+"    border-bottom: 1px solid  rgb(120,120,120);\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QLineEdit:hover{\n"
+"    background-color: rgb(55,55,55);\n"
+"    border-bottom: 1px solid  red;\n"
+"}")
+        self.leLogEmail.setText("")
+        self.leLogEmail.setObjectName("leLogEmail")
+        self.lbReg_2 = QtWidgets.QLabel(self.login)
+        self.lbReg_2.setGeometry(QtCore.QRect(520, 180, 421, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat SemiBold")
+        font.setPointSize(16)
+        self.lbReg_2.setFont(font)
+        self.lbReg_2.setStyleSheet("")
+        self.lbReg_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbReg_2.setObjectName("lbReg_2")
+        self.leLogPass = QtWidgets.QLineEdit(self.login)
+        self.leLogPass.setGeometry(QtCore.QRect(730, 330, 211, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        self.leLogPass.setFont(font)
+        self.leLogPass.setStyleSheet("QLineEdit{\n"
+"    padding-left: 5px;\n"
+"    border: 1px solid rgb(20,20,20);\n"
+"    background-color: rgb(40,40,40);\n"
+"    border-bottom: 1px solid  rgb(120,120,120);\n"
+"    selection-background-color: rgb(105, 0, 0);\n"
+"}\n"
+"\n"
+"QLineEdit:hover{\n"
+"    background-color: rgb(55,55,55);\n"
+"    border-bottom: 1px solid  red;\n"
+"}")
+        self.leLogPass.setText("")
+        self.leLogPass.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.leLogPass.setObjectName("leLogPass")
+        self.btnSelectReg = QtWidgets.QPushButton(self.login)
+        self.btnSelectReg.setGeometry(QtCore.QRect(660, 470, 151, 21))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(10)
+        font.setUnderline(False)
+        self.btnSelectReg.setFont(font)
+        self.btnSelectReg.setStyleSheet("QPushButton\n"
+"{\n"
+"color:  rgb(230,230, 230);\n"
+"border: 0px;\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"color: red;\n"
+"border-bottom: 1px solid red;\n"
+"}\n"
+"")
+        self.btnSelectReg.setObjectName("btnSelectReg")
+        self.stackedWidget.addWidget(self.login)
         self.line_10 = QtWidgets.QFrame(self.centralwidget)
         self.line_10.setGeometry(QtCore.QRect(1346, 0, 16, 31))
         self.line_10.setStyleSheet("border: 0px;\n"
@@ -7310,6 +7676,7 @@ class Ui_MainWindow(object):
         self.btnSkladFilter.setText(_translate("MainWindow", "Настроить фильтр"))
         self.rbSklad.setText(_translate("MainWindow", "Только в наличии"))
         self.rbShowOrders.setText(_translate("MainWindow", "Показать заказы"))
+        self.btnInfoConfig.setText(_translate("MainWindow", "Подробнее о сборке"))
         self.tabWidgetMain.setTabText(self.tabWidgetMain.indexOf(self.sklad), _translate("MainWindow", "Склад"))
         self.progressBar.setFormat(_translate("MainWindow", "%v / %m"))
         self.treeWidget.setSortingEnabled(False)
@@ -7445,20 +7812,16 @@ class Ui_MainWindow(object):
         item = self.lvCabinetMenu.item(1)
         item.setText(_translate("MainWindow", "Настройки"))
         self.lvCabinetMenu.setSortingEnabled(__sortingEnabled)
-        self.lbName_2.setText(_translate("MainWindow", "User-228"))
+        self.lbClientName.setText(_translate("MainWindow", "User-228"))
         self.lbName_3.setText(_translate("MainWindow", "Дата регистрации"))
-        self.lbName_4.setText(_translate("MainWindow", "22.01.2023"))
-        self.lbName_5.setText(_translate("MainWindow", "korkishko.v@bk.ru"))
-        self.lbName_6.setText(_translate("MainWindow", "+7953999999"))
+        self.lbRegDate.setText(_translate("MainWindow", "22.01.2023"))
+        self.lbClientEmail.setText(_translate("MainWindow", "korkishko.v@bk.ru"))
+        self.lbClientPhone.setText(_translate("MainWindow", "+7953999999"))
         self.lbName_7.setText(_translate("MainWindow", "Номер телефона"))
         self.lbName_8.setText(_translate("MainWindow", "Количество заказов"))
-        self.lbName_9.setText(_translate("MainWindow", "7"))
-        self.lbSettings_2.setText(_translate("MainWindow", "Заказы"))
+        self.lbCountOrders.setText(_translate("MainWindow", "7"))
+        self.lbOrders.setText(_translate("MainWindow", "Заказы"))
         self.tableOrders.setSortingEnabled(True)
-        item = self.tableOrders.verticalHeaderItem(0)
-        item.setText(_translate("MainWindow", "New Row"))
-        item = self.tableOrders.verticalHeaderItem(1)
-        item.setText(_translate("MainWindow", "New Row"))
         item = self.tableOrders.horizontalHeaderItem(1)
         item.setText(_translate("MainWindow", "Конфигурация"))
         item = self.tableOrders.horizontalHeaderItem(2)
@@ -7469,33 +7832,33 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "Цена сборки"))
         item = self.tableOrders.horizontalHeaderItem(5)
         item.setText(_translate("MainWindow", "Дата создания"))
-        item = self.tableOrders.horizontalHeaderItem(6)
-        item.setText(_translate("MainWindow", "Подробнее"))
-        __sortingEnabled = self.tableOrders.isSortingEnabled()
-        self.tableOrders.setSortingEnabled(False)
-        item = self.tableOrders.item(0, 1)
-        item.setText(_translate("MainWindow", "1379"))
-        item = self.tableOrders.item(0, 2)
-        item.setText(_translate("MainWindow", "GIGABYTE GeForce RTX 3050 EAGLE OC"))
-        item = self.tableOrders.item(0, 3)
-        item.setText(_translate("MainWindow", "Intel Core i5-10700K"))
-        item = self.tableOrders.item(0, 4)
-        item.setText(_translate("MainWindow", "178500"))
-        item = self.tableOrders.item(0, 5)
-        item.setText(_translate("MainWindow", "29.04.2023"))
-        item = self.tableOrders.item(0, 6)
-        item.setText(_translate("MainWindow", "..."))
-        self.tableOrders.setSortingEnabled(__sortingEnabled)
+        self.btnInfoConfigClient.setText(_translate("MainWindow", "Подробнее о сборке"))
         self.tabWidgetCabinet.setTabText(self.tabWidgetCabinet.indexOf(self.tab_profile), _translate("MainWindow", "Profile"))
-        self.lbName.setText(_translate("MainWindow", "Имя *"))
+        self.lbName.setText(_translate("MainWindow", "Новое имя"))
+        self.leChangeEmail.setPlaceholderText(_translate("MainWindow", "exmaple@mail.ru"))
         self.lbEmail.setText(_translate("MainWindow", "Адрес e-mail *"))
         self.lbPassword.setText(_translate("MainWindow", "Пароль *"))
         self.lbSettings.setText(_translate("MainWindow", "Редактировать профиль"))
         self.lbPhone.setText(_translate("MainWindow", "Мобильный телефон"))
-        self.btn_accept_chngs.setText(_translate("MainWindow", "Подтвердить"))
-        self.lbPassword_2.setText(_translate("MainWindow", "Новый пароль \n"
+        self.btnAcceptChngs.setText(_translate("MainWindow", "Подтвердить"))
+        self.lbPassword_2.setText(_translate("MainWindow", "Повторите новый пароль \n"
 "(при необходимости)"))
         self.tabWidgetCabinet.setTabText(self.tabWidgetCabinet.indexOf(self.tab_settings), _translate("MainWindow", "Settings"))
+        self.leRegEmail.setPlaceholderText(_translate("MainWindow", "exmaple@mail.ru"))
+        self.lbPassword_3.setText(_translate("MainWindow", "Подтвердите пароль *"))
+        self.lbPhone_2.setText(_translate("MainWindow", "Мобильный телефон *"))
+        self.lbName_2.setText(_translate("MainWindow", "Имя *"))
+        self.lbEmail_2.setText(_translate("MainWindow", "Адрес e-mail *"))
+        self.lbReg.setText(_translate("MainWindow", "Регистрация"))
+        self.lbPassword_4.setText(_translate("MainWindow", "Пароль *"))
+        self.btnReg.setText(_translate("MainWindow", "Зарегистироваться"))
+        self.btnSelectLogin.setText(_translate("MainWindow", "Войти в систему"))
+        self.lbEmail_3.setText(_translate("MainWindow", "Адрес e-mail"))
+        self.btnLogin.setText(_translate("MainWindow", "Войти"))
+        self.lbPassword_5.setText(_translate("MainWindow", "Пароль (от 6 символов)"))
+        self.leLogEmail.setPlaceholderText(_translate("MainWindow", "example@mail.ru"))
+        self.lbReg_2.setText(_translate("MainWindow", "Авторизация"))
+        self.btnSelectReg.setText(_translate("MainWindow", "Зарегистрироваться"))
         self.rbCabinet.setText(_translate("MainWindow", "Профиль"))
 
 

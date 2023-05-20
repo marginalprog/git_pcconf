@@ -82,7 +82,7 @@ RETURNS TABLE(
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
--- Функция для фильтрации охлаждения по типу
+-- Функция для фильтрации ОЗУ по типу
 CREATE OR REPLACE FUNCTION get_ram_by_type(type_in VARCHAR)
 RETURNS TABLE(
 	kol INT,
@@ -135,7 +135,6 @@ RETURNS TABLE(
 $$ LANGUAGE sql;
 
 --ЗАКАЗЫ
--------------------------------222222
 CREATE OR REPLACE FUNCTION get_having_order_ram()
 RETURNS TABLE(
 	kol INT,
@@ -194,8 +193,7 @@ RETURNS TABLE(
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
--------------------------------44444
--- Функция для фильтрации процессоров по серии
+-- Функция для фильтрации озу по типу
 CREATE OR REPLACE FUNCTION get_order_ram_by_type(type_in VARCHAR)
 RETURNS TABLE(
 	kol INT,
@@ -226,7 +224,6 @@ RETURNS TABLE(
 $$ LANGUAGE sql;
 
 
--------------------------------5555
 CREATE OR REPLACE FUNCTION get_having_order_ram_by_type(type_in VARCHAR)
 RETURNS TABLE(
 	kol INT,
@@ -265,7 +262,7 @@ RETURNS TABLE(type VARCHAR) AS $$
 	ORDER BY type ASC
 $$ LANGUAGE sql;
 
--- Функция вывода озу, с сокетами в НАЛИЧИИ (для заполнения фильтрующих вкладок tabwidget)
+-- Функция вывода типов ОЗУ в НАЛИЧИИ (для заполнения фильтрующих вкладок tabwidget)
 CREATE OR REPLACE FUNCTION get_having_ramtype()
 RETURNS TABLE(type VARCHAR) AS $$
 	SELECT DISTINCT type FROM ram
@@ -274,7 +271,7 @@ RETURNS TABLE(type VARCHAR) AS $$
 $$ LANGUAGE sql;
 
 
--- Триггер создания нового материнской платы (с созданием нового поля на складе)
+-- Триггер создания новой ОЗУ платы (с созданием нового поля на складе)
 CREATE OR REPLACE FUNCTION insert_skladram()
 RETURNS trigger
 AS $$
@@ -288,7 +285,7 @@ LANGUAGE plpgsql;
 
 CREATE OR REPLACE TRIGGER sklad_ram_insert_trigger
 AFTER INSERT
-ON "ram" -- при добавлении НОВОГО охлаждения создаем поле склада
+ON "ram" -- при добавлении НОВОЙ озу создаем поле склада
 FOR EACH ROW
 EXECUTE PROCEDURE insert_skladram();
 

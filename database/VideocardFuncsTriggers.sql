@@ -139,7 +139,7 @@ RETURNS TABLE(
 	AND name = name_pr
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
---++++++++++++++++++
+
 CREATE OR REPLACE FUNCTION get_having_videocard_by_name(name_pr VARCHAR)
 RETURNS TABLE(
 	kol INT, 
@@ -175,7 +175,6 @@ RETURNS TABLE(
 $$ LANGUAGE sql;
 
 --ЗАКАЗЫ
--------------------------------222222
 CREATE OR REPLACE FUNCTION get_having_order_videocard()
 RETURNS TABLE(
 	kol INT, 
@@ -212,7 +211,8 @@ RETURNS TABLE(
 	AND videocard.exist = True
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
--------------------------------3333333
+
+
 CREATE OR REPLACE FUNCTION get_all_order_videocard()
 RETURNS TABLE(
 	kol INT, 
@@ -249,8 +249,7 @@ RETURNS TABLE(
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
--------------------------------44444
--- Функция для фильтрации видеокарт по серии
+-- Функция для фильтрации видеокарт по производителю
 CREATE OR REPLACE FUNCTION get_order_videocard_by_name(name_pr VARCHAR)
 RETURNS TABLE(
 	kol INT, 
@@ -288,7 +287,6 @@ RETURNS TABLE(
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
--------------------------------5555
 CREATE OR REPLACE FUNCTION get_having_order_videocard_by_name(name_pr VARCHAR)
 RETURNS TABLE(
 	kol INT, 
@@ -327,9 +325,6 @@ RETURNS TABLE(
 	ORDER BY exist DESC
 $$ LANGUAGE sql;
 
-
-
-
 -- Функция вывода всех производителей, чьи видеокарты есть в базе (для заполнения фильтрующих вкладок tabwidget)
 CREATE OR REPLACE FUNCTION get_inbase_videoproizv()
 RETURNS TABLE(name VARCHAR) AS $$
@@ -346,7 +341,6 @@ RETURNS TABLE(name VARCHAR) AS $$
 	AND videocard.exist = True
 	ORDER BY name ASC
 $$ LANGUAGE sql;
-
 
 -- Триггер создания новой видеокарты (с созданием нового поля на складе
 CREATE OR REPLACE FUNCTION insert_skladvideo()
@@ -440,20 +434,3 @@ CREATE TRIGGER update_videocard_exist_trigger
 	AFTER UPDATE ON sklad_videocard FOR EACH ROW
 	EXECUTE PROCEDURE update_videocard_exist();
 	
-	
---------------------------------------------------------------------------------------------------------------------------------------
-
-
-select  get_proizv_videocard()
-
-
-SELECT insert_proizv('GIGABYTE')
-SELECT insert_videocard(1,'GIGABYTE GeForce RTX 3050 EAGLE OC', 'NVIDIA', 'RTX 3050', 8192, 'GDDR6', 1552, 256, 'PCI-E 4.0', 4, '7680x4320', 130, 28, 29250);
-SELECT insert_order_videocard(5, 2, '05.04.2023')
-
-SELECT insert_proizv('MSI')
-SELECT insert_videocard(2,'MSI AMD Radeon RX 6600', 'AMD', 'RX 6600', 8192, 'GDDR6', 2044, 128, 'PCI-E 4.0', 4, '7680x4320', 132, 33, 26490);
-SELECT insert_order_videocard(6, 2, '05.04.2023')
-
-
-
