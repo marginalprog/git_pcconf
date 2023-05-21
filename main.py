@@ -3519,7 +3519,6 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 else:
                     self.clear_cart(self.tableConfVideo)
 
-                data_row.clear()
                 if self.tableConfProc.currentRow() != -1:  # Если была выбрана строка, то сохраняем её номер
                     data_row = self.save_row(self.tableConfProc)
                 cur.callproc("get_having_processor")
@@ -3531,7 +3530,6 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 else:
                     self.clear_cart(self.tableConfProc)
 
-                data_row.clear()
                 if self.tableConfMother.currentRow() != -1:  # Если была выбрана строка, то сохраняем её номер
                     data_row = self.save_row(self.tableConfMother)
                 cur.callproc("get_having_motherboard")
@@ -3543,7 +3541,6 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 else:
                     self.clear_cart(self.tableConfMother)
 
-                data_row.clear()
                 if self.tableConfCool.currentRow() != -1:  # Если была выбрана строка, то сохраняем её номер
                     data_row = self.save_row(self.tableConfCool)
                 cur.callproc("get_having_cool")
@@ -3555,7 +3552,6 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 else:
                     self.clear_cart(self.tableConfCool)
 
-                data_row.clear()
                 if self.tableConfRam.currentRow() != -1:  # Если была выбрана строка, то сохраняем её номер
                     data_row = self.save_row(self.tableConfRam)
                 cur.callproc("get_having_ram")
@@ -3567,7 +3563,6 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 else:
                     self.clear_cart(self.tableConfRam)
 
-                data_row.clear()
                 if self.tableConfDisk.currentRow() != -1:  # Если была выбрана строка, то сохраняем её номер
                     data_row = self.save_row(self.tableConfDisk)
                 cur.callproc("get_having_disk")
@@ -3579,7 +3574,6 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 else:
                     self.clear_cart(self.tableConfDisk)
 
-                data_row.clear()
                 if self.tableConfPower.currentRow() != -1:  # Если была выбрана строка, то сохраняем её номер
                     data_row = self.save_row(self.tableConfPower)
                 cur.callproc("get_having_power")
@@ -3591,7 +3585,6 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 else:
                     self.clear_cart(self.tableConfPower)
 
-                data_row.clear()
                 if self.tableConfBody.currentRow() != -1:  # Если была выбрана строка, то сохраняем её номер
                     data_row = self.save_row(self.tableConfBody)
                 cur.callproc("get_having_body")
@@ -3615,7 +3608,6 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 else:
                     self.clear_cart(self.tableConfVideo)
 
-                data_row.clear()
                 if self.tableConfProc.currentRow() != -1:  # Если была выбрана строка, то сохраняем её номер
                     data_row = self.save_row(self.tableConfProc)
                 cur.callproc("get_all_processor")
@@ -3627,7 +3619,6 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 else:
                     self.clear_cart(self.tableConfProc)
 
-                data_row.clear()
                 if self.tableConfMother.currentRow() != -1:  # Если была выбрана строка, то сохраняем её номер
                     data_row = self.save_row(self.tableConfMother)
                 cur.callproc("get_all_motherboard")
@@ -3639,7 +3630,6 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 else:
                     self.clear_cart(self.tableConfMother)
 
-                data_row.clear()
                 if self.tableConfCool.currentRow() != -1:  # Если была выбрана строка, то сохраняем её номер
                     data_row = self.save_row(self.tableConfCool)
                 cur.callproc("get_all_cool")
@@ -3651,7 +3641,6 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 else:
                     self.clear_cart(self.tableConfCool)
 
-                data_row.clear()
                 if self.tableConfRam.currentRow() != -1:  # Если была выбрана строка, то сохраняем её номер
                     data_row = self.save_row(self.tableConfRam)
                 cur.callproc("get_all_ram")
@@ -3663,7 +3652,6 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 else:
                     self.clear_cart(self.tableConfRam)
 
-                data_row.clear()
                 if self.tableConfDisk.currentRow() != -1:  # Если была выбрана строка, то сохраняем её номер
                     data_row = self.save_row(self.tableConfDisk)
                 cur.callproc("get_all_disk")
@@ -3675,7 +3663,6 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 else:
                     self.clear_cart(self.tableConfDisk)
 
-                data_row.clear()
                 if self.tableConfPower.currentRow() != -1:  # Если была выбрана строка, то сохраняем её номер
                     data_row = self.save_row(self.tableConfPower)
                 cur.callproc("get_all_power")
@@ -3687,7 +3674,6 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 else:
                     self.clear_cart(self.tableConfPower)
 
-                data_row.clear()
                 if self.tableConfBody.currentRow() != -1:  # Если была выбрана строка, то сохраняем её номер
                     data_row = self.save_row(self.tableConfBody)
                 cur.callproc("get_all_body")
@@ -4446,6 +4432,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
 
     # Метод, обнуляющий собранную конфигурацию
     def reset_all_config(self):
+        self.rbConf.setChecked(False)  # Фильтр по наличию отключаем
         self.click_reset_radiobutton(self.tableConfVideo)
         self.click_reset_radiobutton(self.tableConfProc)
         self.click_reset_radiobutton(self.tableConfMother)
@@ -5197,15 +5184,15 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
 
     def save_row(self, table):
         index_row = -1
-        data_row = []
+        current_data_row = []
         if table.currentRow() != -1:  # Если была выбрана строка, то сохраняем её номер
             index_row = table.currentRow()
             if table == self.tableSklad:
-                data_row = self.current_sklad()
+                current_data_row = self.current_sklad()
             else:
-                data_row = self.current_conf(table)  # Сохранение строки
-            self.dict_current[table.objectName()] = data_row  # Убрать ретёрн и оставить словарь?
-            return data_row
+                current_data_row = self.current_conf(table)  # Сохранение строки
+            self.dict_current[table.objectName()] = current_data_row  # Убрать ретёрн и оставить словарь?
+            return current_data_row
         return []
 
     def check_rows(self, saved_row, table):
@@ -5221,7 +5208,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                     return True
                 checkable_row.clear()
         # Если в отфильтрованной таблице нет выделенной ранее строки (метод не вернул true), то чистим корзину
-        self.clear_cart(table)  # Метод вызывается и на складе.
+        self.clear_cart(table)
         return False
 
     # Метод заполнения корзины выбранных комплектующих (принимает таблицу, из которой был вызван, имя и цену)
