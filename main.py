@@ -3412,11 +3412,11 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                             cur.callproc("get_having_body")
                         else:
                             cur.callproc("get_all_body")
-
-            self.fill_table_sklad(page, cur)
-            self.fill_tabs_sklad(page)
-            self.reset_radiobutton(self.tableSklad)
-            # self.check_rows(data_row, self.tableSklad)
+            if page != 8:  # Если вызывается не из  вкладки конфигурирования
+                self.fill_table_sklad(page, cur)
+                self.fill_tabs_sklad(page)
+                self.reset_radiobutton(self.tableSklad)
+                # self.check_rows(data_row, self.tableSklad)
 
         except (Exception, psycopg2.DatabaseError) as error:
             dialog = DialogOk("Ошибка", error)
