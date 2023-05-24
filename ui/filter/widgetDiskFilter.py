@@ -428,16 +428,8 @@ class Ui_WidgetDiskFilter(object):
         self.tableProizv.setMouseTracking(True)
         self.tableProizv.setFocusPolicy(QtCore.Qt.NoFocus)
         self.tableProizv.setAutoFillBackground(False)
-        self.tableProizv.setStyleSheet("QTableWidget QTableCornerButton::section\n"
+        self.tableProizv.setStyleSheet("QTableWidget::item\n"
 "{\n"
-"    background: rgb(30, 30, 30);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
-"{\n"
-"    background: rgb(10, 10, 10);\n"
 "     border-bottom: 1px solid rgb(60,60,60); \n"
 "    border-right: 0px;\n"
 "    border-left: 0px;\n"
@@ -446,7 +438,7 @@ class Ui_WidgetDiskFilter(object):
 "\n"
 "QTableView\n"
 "{\n"
-"    background: rgb(10, 10, 10);\n"
+"    background-color: #101010;\n"
 "    color: #dddddd;\n"
 "    border-top: 0px;\n"
 "    border-right: 0px;\n"
@@ -604,15 +596,7 @@ class Ui_WidgetDiskFilter(object):
         self.tableType.setMouseTracking(True)
         self.tableType.setFocusPolicy(QtCore.Qt.NoFocus)
         self.tableType.setAutoFillBackground(False)
-        self.tableType.setStyleSheet("QTableWidget QTableCornerButton::section\n"
-"{\n"
-"    \n"
-"    background: rgb(30, 30, 30);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
+        self.tableType.setStyleSheet("QTableWidget::item\n"
 "{\n"
 "     border-bottom: 1px solid rgb(60,60,60); \n"
 "    border-right: 0px;\n"
@@ -758,7 +742,7 @@ class Ui_WidgetDiskFilter(object):
         icon3.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBoxDiskFilter.addItem(self.type, icon3, "")
         self.volume = QtWidgets.QWidget()
-        self.volume.setGeometry(QtCore.QRect(0, 0, 307, 188))
+        self.volume.setGeometry(QtCore.QRect(0, 0, 98, 28))
         self.volume.setObjectName("volume")
         self.frameVolume = QtWidgets.QFrame(self.volume)
         self.frameVolume.setGeometry(QtCore.QRect(0, 0, 311, 191))

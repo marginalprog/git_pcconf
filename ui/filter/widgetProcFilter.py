@@ -379,7 +379,7 @@ class Ui_WidgetProcFilter(object):
         icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
         self.toolBoxProcFilter.addItem(self.price, icon1, "")
         self.proizvoditel = QtWidgets.QWidget()
-        self.proizvoditel.setGeometry(QtCore.QRect(0, 0, 98, 28))
+        self.proizvoditel.setGeometry(QtCore.QRect(0, 0, 307, 186))
         self.proizvoditel.setObjectName("proizvoditel")
         self.frameProizv = QtWidgets.QFrame(self.proizvoditel)
         self.frameProizv.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -400,46 +400,8 @@ class Ui_WidgetProcFilter(object):
         self.tableProizv.setMouseTracking(True)
         self.tableProizv.setFocusPolicy(QtCore.Qt.NoFocus)
         self.tableProizv.setAutoFillBackground(False)
-        self.tableProizv.setStyleSheet("QHeaderView\n"
-"{    \n"
-"    background: rgb(30, 30, 30);\n"
-"    color: #dddddd;\n"
-"    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
-"    min-height: 30px;\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    background: rgb(30, 30, 30);\n"
-"    min-width: 10px;    \n"
-"    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
-"    color: #dddddd;\n"
-"    font-size: 12px;\n"
-"}\n"
-"\n"
-"QHeaderView::section:hover {\n"
-"   color: white;\n"
-"    background-color: rgb(80,80,80);\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section\n"
+        self.tableProizv.setStyleSheet("QTableWidget::item\n"
 "{\n"
-"    background: rgb(30, 30, 30);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
-"{\n"
-"    background: rgb(10, 10, 10);\n"
 "     border-bottom: 1px solid rgb(60,60,60); \n"
 "    border-right: 0px;\n"
 "    border-left: 0px;\n"
@@ -448,7 +410,7 @@ class Ui_WidgetProcFilter(object):
 "\n"
 "QTableView\n"
 "{\n"
-"    background: rgb(10, 10, 10);\n"
+"    background-color: #101010;\n"
 "    color: #dddddd;\n"
 "    border-top: 0px;\n"
 "    border-right: 0px;\n"
@@ -585,7 +547,7 @@ class Ui_WidgetProcFilter(object):
         icon2.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/up-arrow.png"), QtGui.QIcon.Active, QtGui.QIcon.Off)
         self.toolBoxProcFilter.addItem(self.proizvoditel, icon2, "")
         self.series = QtWidgets.QWidget()
-        self.series.setGeometry(QtCore.QRect(0, 0, 98, 28))
+        self.series.setGeometry(QtCore.QRect(0, 0, 307, 186))
         self.series.setObjectName("series")
         self.frameSeries = QtWidgets.QFrame(self.series)
         self.frameSeries.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -606,45 +568,7 @@ class Ui_WidgetProcFilter(object):
         self.tableSeries.setMouseTracking(True)
         self.tableSeries.setFocusPolicy(QtCore.Qt.NoFocus)
         self.tableSeries.setAutoFillBackground(False)
-        self.tableSeries.setStyleSheet("QHeaderView\n"
-"{    \n"
-"    background: rgb(30, 30, 30);\n"
-"    color: #dddddd;\n"
-"    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
-"    min-height: 30px;\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    background: rgb(30, 30, 30);\n"
-"    min-width: 10px;    \n"
-"    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
-"    color: #dddddd;\n"
-"    font-size: 12px;\n"
-"}\n"
-"\n"
-"QHeaderView::section:hover {\n"
-"   color: white;\n"
-"    background-color: rgb(80,80,80);\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section\n"
-"{\n"
-"    \n"
-"    background: rgb(30, 30, 30);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
+        self.tableSeries.setStyleSheet("QTableWidget::item\n"
 "{\n"
 "     border-bottom: 1px solid rgb(60,60,60); \n"
 "    border-right: 0px;\n"
@@ -790,7 +714,7 @@ class Ui_WidgetProcFilter(object):
         icon3.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBoxProcFilter.addItem(self.series, icon3, "")
         self.gaming = QtWidgets.QWidget()
-        self.gaming.setGeometry(QtCore.QRect(0, 0, 98, 28))
+        self.gaming.setGeometry(QtCore.QRect(0, 0, 307, 186))
         self.gaming.setObjectName("gaming")
         self.frameGaming = QtWidgets.QFrame(self.gaming)
         self.frameGaming.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -811,45 +735,7 @@ class Ui_WidgetProcFilter(object):
         self.tableGaming.setMouseTracking(True)
         self.tableGaming.setFocusPolicy(QtCore.Qt.NoFocus)
         self.tableGaming.setAutoFillBackground(False)
-        self.tableGaming.setStyleSheet("QHeaderView\n"
-"{    \n"
-"    background: rgb(30, 30, 30);\n"
-"    color: #dddddd;\n"
-"    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
-"    min-height: 30px;\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    background: rgb(30, 30, 30);\n"
-"    min-width: 10px;    \n"
-"    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
-"    color: #dddddd;\n"
-"    font-size: 12px;\n"
-"}\n"
-"\n"
-"QHeaderView::section:hover {\n"
-"   color: white;\n"
-"    background-color: rgb(80,80,80);\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section\n"
-"{\n"
-"    \n"
-"    background: rgb(30, 30, 30);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
+        self.tableGaming.setStyleSheet("QTableWidget::item\n"
 "{\n"
 "     border-bottom: 1px solid rgb(60,60,60); \n"
 "    border-right: 0px;\n"
@@ -993,7 +879,7 @@ class Ui_WidgetProcFilter(object):
         self.btnResetGaming.setObjectName("btnResetGaming")
         self.toolBoxProcFilter.addItem(self.gaming, icon3, "")
         self.socket = QtWidgets.QWidget()
-        self.socket.setGeometry(QtCore.QRect(0, 0, 98, 28))
+        self.socket.setGeometry(QtCore.QRect(0, 0, 307, 186))
         self.socket.setObjectName("socket")
         self.frameSocket = QtWidgets.QFrame(self.socket)
         self.frameSocket.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -1014,45 +900,7 @@ class Ui_WidgetProcFilter(object):
         self.tableSocket.setMouseTracking(True)
         self.tableSocket.setFocusPolicy(QtCore.Qt.NoFocus)
         self.tableSocket.setAutoFillBackground(False)
-        self.tableSocket.setStyleSheet("QHeaderView\n"
-"{    \n"
-"    background: rgb(30, 30, 30);\n"
-"    color: #dddddd;\n"
-"    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
-"    min-height: 30px;\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    background: rgb(30, 30, 30);\n"
-"    min-width: 10px;    \n"
-"    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
-"    color: #dddddd;\n"
-"    font-size: 12px;\n"
-"}\n"
-"\n"
-"QHeaderView::section:hover {\n"
-"   color: white;\n"
-"    background-color: rgb(80,80,80);\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section\n"
-"{\n"
-"    \n"
-"    background: rgb(30, 30, 30);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
+        self.tableSocket.setStyleSheet("QTableWidget::item\n"
 "{\n"
 "     border-bottom: 1px solid rgb(60,60,60); \n"
 "    border-right: 0px;\n"
@@ -1196,7 +1044,7 @@ class Ui_WidgetProcFilter(object):
         self.btnResetSocket.setObjectName("btnResetSocket")
         self.toolBoxProcFilter.addItem(self.socket, icon3, "")
         self.core = QtWidgets.QWidget()
-        self.core.setGeometry(QtCore.QRect(0, 0, 98, 28))
+        self.core.setGeometry(QtCore.QRect(0, 0, 307, 186))
         self.core.setObjectName("core")
         self.frameCore = QtWidgets.QFrame(self.core)
         self.frameCore.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -1217,45 +1065,7 @@ class Ui_WidgetProcFilter(object):
         self.tableCore.setMouseTracking(True)
         self.tableCore.setFocusPolicy(QtCore.Qt.NoFocus)
         self.tableCore.setAutoFillBackground(False)
-        self.tableCore.setStyleSheet("QHeaderView\n"
-"{    \n"
-"    background: rgb(30, 30, 30);\n"
-"    color: #dddddd;\n"
-"    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
-"    min-height: 30px;\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    background: rgb(30, 30, 30);\n"
-"    min-width: 10px;    \n"
-"    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
-"    color: #dddddd;\n"
-"    font-size: 12px;\n"
-"}\n"
-"\n"
-"QHeaderView::section:hover {\n"
-"   color: white;\n"
-"    background-color: rgb(80,80,80);\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section\n"
-"{\n"
-"    \n"
-"    background: rgb(30, 30, 30);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
+        self.tableCore.setStyleSheet("QTableWidget::item\n"
 "{\n"
 "     border-bottom: 1px solid rgb(60,60,60); \n"
 "    border-right: 0px;\n"
@@ -1400,7 +1210,7 @@ class Ui_WidgetProcFilter(object):
         self.btnResetCore.setObjectName("btnResetCore")
         self.toolBoxProcFilter.addItem(self.core, icon3, "")
         self.ncores = QtWidgets.QWidget()
-        self.ncores.setGeometry(QtCore.QRect(0, 0, 98, 28))
+        self.ncores.setGeometry(QtCore.QRect(0, 0, 307, 186))
         self.ncores.setObjectName("ncores")
         self.frameNcores = QtWidgets.QFrame(self.ncores)
         self.frameNcores.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -1421,45 +1231,7 @@ class Ui_WidgetProcFilter(object):
         self.tableNcores.setMouseTracking(True)
         self.tableNcores.setFocusPolicy(QtCore.Qt.NoFocus)
         self.tableNcores.setAutoFillBackground(False)
-        self.tableNcores.setStyleSheet("QHeaderView\n"
-"{    \n"
-"    background: rgb(30, 30, 30);\n"
-"    color: #dddddd;\n"
-"    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
-"    min-height: 30px;\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    background: rgb(30, 30, 30);\n"
-"    min-width: 10px;    \n"
-"    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
-"    color: #dddddd;\n"
-"    font-size: 12px;\n"
-"}\n"
-"\n"
-"QHeaderView::section:hover {\n"
-"   color: white;\n"
-"    background-color: rgb(80,80,80);\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section\n"
-"{\n"
-"    \n"
-"    background: rgb(30, 30, 30);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
+        self.tableNcores.setStyleSheet("QTableWidget::item\n"
 "{\n"
 "     border-bottom: 1px solid rgb(60,60,60); \n"
 "    border-right: 0px;\n"
@@ -1603,7 +1375,7 @@ class Ui_WidgetProcFilter(object):
         self.btnResetNcores.setObjectName("btnResetNcores")
         self.toolBoxProcFilter.addItem(self.ncores, icon3, "")
         self.frequency = QtWidgets.QWidget()
-        self.frequency.setGeometry(QtCore.QRect(0, 0, 98, 28))
+        self.frequency.setGeometry(QtCore.QRect(0, 0, 307, 186))
         self.frequency.setObjectName("frequency")
         self.frameFreq = QtWidgets.QFrame(self.frequency)
         self.frameFreq.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -1624,45 +1396,7 @@ class Ui_WidgetProcFilter(object):
         self.tableFreq.setMouseTracking(True)
         self.tableFreq.setFocusPolicy(QtCore.Qt.NoFocus)
         self.tableFreq.setAutoFillBackground(False)
-        self.tableFreq.setStyleSheet("QHeaderView\n"
-"{    \n"
-"    background: rgb(30, 30, 30);\n"
-"    color: #dddddd;\n"
-"    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
-"    min-height: 30px;\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    background: rgb(30, 30, 30);\n"
-"    min-width: 10px;    \n"
-"    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
-"    color: #dddddd;\n"
-"    font-size: 12px;\n"
-"}\n"
-"\n"
-"QHeaderView::section:hover {\n"
-"   color: white;\n"
-"    background-color: rgb(80,80,80);\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section\n"
-"{\n"
-"    \n"
-"    background: rgb(30, 30, 30);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
+        self.tableFreq.setStyleSheet("QTableWidget::item\n"
 "{\n"
 "     border-bottom: 1px solid rgb(60,60,60); \n"
 "    border-right: 0px;\n"
@@ -1806,7 +1540,7 @@ class Ui_WidgetProcFilter(object):
         self.btnResetFreq.setObjectName("btnResetFreq")
         self.toolBoxProcFilter.addItem(self.frequency, icon3, "")
         self.cache = QtWidgets.QWidget()
-        self.cache.setGeometry(QtCore.QRect(0, 0, 98, 28))
+        self.cache.setGeometry(QtCore.QRect(0, 0, 307, 186))
         self.cache.setObjectName("cache")
         self.frameCache = QtWidgets.QFrame(self.cache)
         self.frameCache.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -1827,45 +1561,7 @@ class Ui_WidgetProcFilter(object):
         self.tableCache.setMouseTracking(True)
         self.tableCache.setFocusPolicy(QtCore.Qt.NoFocus)
         self.tableCache.setAutoFillBackground(False)
-        self.tableCache.setStyleSheet("QHeaderView\n"
-"{    \n"
-"    background: rgb(30, 30, 30);\n"
-"    color: #dddddd;\n"
-"    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
-"    min-height: 30px;\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    background: rgb(30, 30, 30);\n"
-"    min-width: 10px;    \n"
-"    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
-"    color: #dddddd;\n"
-"    font-size: 12px;\n"
-"}\n"
-"\n"
-"QHeaderView::section:hover {\n"
-"   color: white;\n"
-"    background-color: rgb(80,80,80);\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section\n"
-"{\n"
-"    \n"
-"    background: rgb(30, 30, 30);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
+        self.tableCache.setStyleSheet("QTableWidget::item\n"
 "{\n"
 "     border-bottom: 1px solid rgb(60,60,60); \n"
 "    border-right: 0px;\n"
@@ -2009,7 +1705,7 @@ class Ui_WidgetProcFilter(object):
         self.btnResetCache.setObjectName("btnResetCache")
         self.toolBoxProcFilter.addItem(self.cache, icon3, "")
         self.techproc = QtWidgets.QWidget()
-        self.techproc.setGeometry(QtCore.QRect(0, 0, 98, 28))
+        self.techproc.setGeometry(QtCore.QRect(0, 0, 307, 186))
         self.techproc.setObjectName("techproc")
         self.frameTechproc = QtWidgets.QFrame(self.techproc)
         self.frameTechproc.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -2030,45 +1726,7 @@ class Ui_WidgetProcFilter(object):
         self.tableTechproc.setMouseTracking(True)
         self.tableTechproc.setFocusPolicy(QtCore.Qt.NoFocus)
         self.tableTechproc.setAutoFillBackground(False)
-        self.tableTechproc.setStyleSheet("QHeaderView\n"
-"{    \n"
-"    background: rgb(30, 30, 30);\n"
-"    color: #dddddd;\n"
-"    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
-"    min-height: 30px;\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    background: rgb(30, 30, 30);\n"
-"    min-width: 10px;    \n"
-"    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
-"    color: #dddddd;\n"
-"    font-size: 12px;\n"
-"}\n"
-"\n"
-"QHeaderView::section:hover {\n"
-"   color: white;\n"
-"    background-color: rgb(80,80,80);\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section\n"
-"{\n"
-"    \n"
-"    background: rgb(30, 30, 30);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
+        self.tableTechproc.setStyleSheet("QTableWidget::item\n"
 "{\n"
 "     border-bottom: 1px solid rgb(60,60,60); \n"
 "    border-right: 0px;\n"
@@ -2212,7 +1870,7 @@ class Ui_WidgetProcFilter(object):
         self.btnResetTechproc.setObjectName("btnResetTechproc")
         self.toolBoxProcFilter.addItem(self.techproc, icon3, "")
         self.ramFreq = QtWidgets.QWidget()
-        self.ramFreq.setGeometry(QtCore.QRect(0, 0, 98, 28))
+        self.ramFreq.setGeometry(QtCore.QRect(0, 0, 307, 186))
         self.ramFreq.setObjectName("ramFreq")
         self.frameRamFreq = QtWidgets.QFrame(self.ramFreq)
         self.frameRamFreq.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -2233,45 +1891,7 @@ class Ui_WidgetProcFilter(object):
         self.tableRamFreq.setMouseTracking(True)
         self.tableRamFreq.setFocusPolicy(QtCore.Qt.NoFocus)
         self.tableRamFreq.setAutoFillBackground(False)
-        self.tableRamFreq.setStyleSheet("QHeaderView\n"
-"{    \n"
-"    background: rgb(30, 30, 30);\n"
-"    color: #dddddd;\n"
-"    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
-"    min-height: 30px;\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    background: rgb(30, 30, 30);\n"
-"    min-width: 10px;    \n"
-"    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
-"    color: #dddddd;\n"
-"    font-size: 12px;\n"
-"}\n"
-"\n"
-"QHeaderView::section:hover {\n"
-"   color: white;\n"
-"    background-color: rgb(80,80,80);\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section\n"
-"{\n"
-"    \n"
-"    background-color: #101010;\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
+        self.tableRamFreq.setStyleSheet("QTableWidget::item\n"
 "{\n"
 "     border-bottom: 1px solid rgb(60,60,60); \n"
 "    border-right: 0px;\n"
@@ -2418,7 +2038,7 @@ class Ui_WidgetProcFilter(object):
         icon4.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
         self.toolBoxProcFilter.addItem(self.ramFreq, icon4, "")
         self.graphProc = QtWidgets.QWidget()
-        self.graphProc.setGeometry(QtCore.QRect(0, 0, 98, 28))
+        self.graphProc.setGeometry(QtCore.QRect(0, 0, 307, 186))
         self.graphProc.setObjectName("graphProc")
         self.frameGraphProc = QtWidgets.QFrame(self.graphProc)
         self.frameGraphProc.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -2439,45 +2059,7 @@ class Ui_WidgetProcFilter(object):
         self.tableGraphProc.setMouseTracking(True)
         self.tableGraphProc.setFocusPolicy(QtCore.Qt.NoFocus)
         self.tableGraphProc.setAutoFillBackground(False)
-        self.tableGraphProc.setStyleSheet("QHeaderView\n"
-"{    \n"
-"    background: rgb(30, 30, 30);\n"
-"    color: #dddddd;\n"
-"    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
-"    min-height: 30px;\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    background: rgb(30, 30, 30);\n"
-"    min-width: 10px;    \n"
-"    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
-"    color: #dddddd;\n"
-"    font-size: 12px;\n"
-"}\n"
-"\n"
-"QHeaderView::section:hover {\n"
-"   color: white;\n"
-"    background-color: rgb(80,80,80);\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section\n"
-"{\n"
-"    \n"
-"    background: rgb(30, 30, 30);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
+        self.tableGraphProc.setStyleSheet("QTableWidget::item\n"
 "{\n"
 "     border-bottom: 1px solid rgb(60,60,60); \n"
 "    border-right: 0px;\n"
@@ -2621,7 +2203,7 @@ class Ui_WidgetProcFilter(object):
         self.btnResetGraphProc.setObjectName("btnResetGraphProc")
         self.toolBoxProcFilter.addItem(self.graphProc, icon3, "")
         self.tdp = QtWidgets.QWidget()
-        self.tdp.setGeometry(QtCore.QRect(0, 0, 98, 28))
+        self.tdp.setGeometry(QtCore.QRect(0, 0, 307, 186))
         self.tdp.setObjectName("tdp")
         self.frameTdp = QtWidgets.QFrame(self.tdp)
         self.frameTdp.setGeometry(QtCore.QRect(0, 0, 311, 191))

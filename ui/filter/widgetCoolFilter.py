@@ -392,7 +392,7 @@ class Ui_WidgetCoolFilter(object):
         icon1.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow (1).png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
         self.toolBoxCoolFilter.addItem(self.price, icon1, "")
         self.proizvoditel = QtWidgets.QWidget()
-        self.proizvoditel.setGeometry(QtCore.QRect(0, 0, 98, 28))
+        self.proizvoditel.setGeometry(QtCore.QRect(0, 0, 307, 194))
         self.proizvoditel.setObjectName("proizvoditel")
         self.frameProizv = QtWidgets.QFrame(self.proizvoditel)
         self.frameProizv.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -413,46 +413,8 @@ class Ui_WidgetCoolFilter(object):
         self.tableProizv.setMouseTracking(True)
         self.tableProizv.setFocusPolicy(QtCore.Qt.NoFocus)
         self.tableProizv.setAutoFillBackground(False)
-        self.tableProizv.setStyleSheet("QHeaderView\n"
-"{    \n"
-"    background: rgb(30, 30, 30);\n"
-"    color: #dddddd;\n"
-"    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
-"    min-height: 30px;\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    background: rgb(30, 30, 30);\n"
-"    min-width: 10px;    \n"
-"    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
-"    color: #dddddd;\n"
-"    font-size: 12px;\n"
-"}\n"
-"\n"
-"QHeaderView::section:hover {\n"
-"   color: white;\n"
-"    background-color: rgb(80,80,80);\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section\n"
+        self.tableProizv.setStyleSheet("QTableWidget::item\n"
 "{\n"
-"    background: rgb(30, 30, 30);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
-"{\n"
-"    background: rgb(10, 10, 10);\n"
 "     border-bottom: 1px solid rgb(60,60,60); \n"
 "    border-right: 0px;\n"
 "    border-left: 0px;\n"
@@ -461,7 +423,7 @@ class Ui_WidgetCoolFilter(object):
 "\n"
 "QTableView\n"
 "{\n"
-"    background: rgb(10, 10, 10);\n"
+"    background-color: #101010;\n"
 "    color: #dddddd;\n"
 "    border-top: 0px;\n"
 "    border-right: 0px;\n"
@@ -598,7 +560,7 @@ class Ui_WidgetCoolFilter(object):
         icon2.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/up-arrow.png"), QtGui.QIcon.Active, QtGui.QIcon.Off)
         self.toolBoxCoolFilter.addItem(self.proizvoditel, icon2, "")
         self.construction = QtWidgets.QWidget()
-        self.construction.setGeometry(QtCore.QRect(0, 0, 98, 28))
+        self.construction.setGeometry(QtCore.QRect(0, 0, 307, 194))
         self.construction.setObjectName("construction")
         self.frameConstr = QtWidgets.QFrame(self.construction)
         self.frameConstr.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -619,45 +581,7 @@ class Ui_WidgetCoolFilter(object):
         self.tableConstr.setMouseTracking(True)
         self.tableConstr.setFocusPolicy(QtCore.Qt.NoFocus)
         self.tableConstr.setAutoFillBackground(False)
-        self.tableConstr.setStyleSheet("QHeaderView\n"
-"{    \n"
-"    background: rgb(30, 30, 30);\n"
-"    color: #dddddd;\n"
-"    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
-"    min-height: 30px;\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    background: rgb(30, 30, 30);\n"
-"    min-width: 10px;    \n"
-"    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
-"    color: #dddddd;\n"
-"    font-size: 12px;\n"
-"}\n"
-"\n"
-"QHeaderView::section:hover {\n"
-"   color: white;\n"
-"    background-color: rgb(80,80,80);\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section\n"
-"{\n"
-"    \n"
-"    background: rgb(30, 30, 30);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
+        self.tableConstr.setStyleSheet("QTableWidget::item\n"
 "{\n"
 "     border-bottom: 1px solid rgb(60,60,60); \n"
 "    border-right: 0px;\n"
@@ -803,7 +727,7 @@ class Ui_WidgetCoolFilter(object):
         icon3.addPixmap(QtGui.QPixmap("E:\\pcconf\\ui\\filter\\../../images/down-arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolBoxCoolFilter.addItem(self.construction, icon3, "")
         self.socket = QtWidgets.QWidget()
-        self.socket.setGeometry(QtCore.QRect(0, 0, 98, 28))
+        self.socket.setGeometry(QtCore.QRect(0, 0, 307, 194))
         self.socket.setObjectName("socket")
         self.frameSocket = QtWidgets.QFrame(self.socket)
         self.frameSocket.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -824,45 +748,7 @@ class Ui_WidgetCoolFilter(object):
         self.tableSocket.setMouseTracking(True)
         self.tableSocket.setFocusPolicy(QtCore.Qt.NoFocus)
         self.tableSocket.setAutoFillBackground(False)
-        self.tableSocket.setStyleSheet("QHeaderView\n"
-"{    \n"
-"    background: rgb(30, 30, 30);\n"
-"    color: #dddddd;\n"
-"    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
-"    min-height: 30px;\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    background: rgb(30, 30, 30);\n"
-"    min-width: 10px;    \n"
-"    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
-"    color: #dddddd;\n"
-"    font-size: 12px;\n"
-"}\n"
-"\n"
-"QHeaderView::section:hover {\n"
-"   color: white;\n"
-"    background-color: rgb(80,80,80);\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section\n"
-"{\n"
-"    \n"
-"    background: rgb(30, 30, 30);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
+        self.tableSocket.setStyleSheet("QTableWidget::item\n"
 "{\n"
 "     border-bottom: 1px solid rgb(60,60,60); \n"
 "    border-right: 0px;\n"
@@ -1006,7 +892,7 @@ class Ui_WidgetCoolFilter(object):
         self.btnResetSocket.setObjectName("btnResetSocket")
         self.toolBoxCoolFilter.addItem(self.socket, icon3, "")
         self.type = QtWidgets.QWidget()
-        self.type.setGeometry(QtCore.QRect(0, 0, 98, 28))
+        self.type.setGeometry(QtCore.QRect(0, 0, 307, 194))
         self.type.setObjectName("type")
         self.frameType = QtWidgets.QFrame(self.type)
         self.frameType.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -1027,45 +913,7 @@ class Ui_WidgetCoolFilter(object):
         self.tableType.setMouseTracking(True)
         self.tableType.setFocusPolicy(QtCore.Qt.NoFocus)
         self.tableType.setAutoFillBackground(False)
-        self.tableType.setStyleSheet("QHeaderView\n"
-"{    \n"
-"    background: rgb(30, 30, 30);\n"
-"    color: #dddddd;\n"
-"    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
-"    min-height: 30px;\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    background: rgb(30, 30, 30);\n"
-"    min-width: 10px;    \n"
-"    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
-"    color: #dddddd;\n"
-"    font-size: 12px;\n"
-"}\n"
-"\n"
-"QHeaderView::section:hover {\n"
-"   color: white;\n"
-"    background-color: rgb(80,80,80);\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section\n"
-"{\n"
-"    \n"
-"    background: rgb(30, 30, 30);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
+        self.tableType.setStyleSheet("QTableWidget::item\n"
 "{\n"
 "     border-bottom: 1px solid rgb(60,60,60); \n"
 "    border-right: 0px;\n"
@@ -1209,7 +1057,7 @@ class Ui_WidgetCoolFilter(object):
         self.btnResetType.setObjectName("btnResetType")
         self.toolBoxCoolFilter.addItem(self.type, icon3, "")
         self.heatpipe = QtWidgets.QWidget()
-        self.heatpipe.setGeometry(QtCore.QRect(0, 0, 98, 28))
+        self.heatpipe.setGeometry(QtCore.QRect(0, 0, 307, 194))
         self.heatpipe.setObjectName("heatpipe")
         self.framePipe = QtWidgets.QFrame(self.heatpipe)
         self.framePipe.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -1230,45 +1078,7 @@ class Ui_WidgetCoolFilter(object):
         self.tablePipe.setMouseTracking(True)
         self.tablePipe.setFocusPolicy(QtCore.Qt.NoFocus)
         self.tablePipe.setAutoFillBackground(False)
-        self.tablePipe.setStyleSheet("QHeaderView\n"
-"{    \n"
-"    background: rgb(30, 30, 30);\n"
-"    color: #dddddd;\n"
-"    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
-"    min-height: 30px;\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    background: rgb(30, 30, 30);\n"
-"    min-width: 10px;    \n"
-"    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
-"    color: #dddddd;\n"
-"    font-size: 12px;\n"
-"}\n"
-"\n"
-"QHeaderView::section:hover {\n"
-"   color: white;\n"
-"    background-color: rgb(80,80,80);\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section\n"
-"{\n"
-"    \n"
-"    background: rgb(30, 30, 30);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
+        self.tablePipe.setStyleSheet("QTableWidget::item\n"
 "{\n"
 "     border-bottom: 1px solid rgb(60,60,60); \n"
 "    border-right: 0px;\n"
@@ -1413,7 +1223,7 @@ class Ui_WidgetCoolFilter(object):
         self.btnResetPipe.setObjectName("btnResetPipe")
         self.toolBoxCoolFilter.addItem(self.heatpipe, icon3, "")
         self.pinCool = QtWidgets.QWidget()
-        self.pinCool.setGeometry(QtCore.QRect(0, 0, 98, 28))
+        self.pinCool.setGeometry(QtCore.QRect(0, 0, 307, 194))
         self.pinCool.setObjectName("pinCool")
         self.framePinCool = QtWidgets.QFrame(self.pinCool)
         self.framePinCool.setGeometry(QtCore.QRect(0, 0, 311, 191))
@@ -1434,45 +1244,7 @@ class Ui_WidgetCoolFilter(object):
         self.tablePinCool.setMouseTracking(True)
         self.tablePinCool.setFocusPolicy(QtCore.Qt.NoFocus)
         self.tablePinCool.setAutoFillBackground(False)
-        self.tablePinCool.setStyleSheet("QHeaderView\n"
-"{    \n"
-"    background: rgb(30, 30, 30);\n"
-"    color: #dddddd;\n"
-"    border: 0px;\n"
-"    font-size: 14px;\n"
-"    min-width: 100px;    \n"
-"    min-height: 30px;\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    background: rgb(30, 30, 30);\n"
-"    min-width: 10px;    \n"
-"    min-height: 25px;\n"
-"    border: 0px solid;\n"
-"    border-right: 1px solid rgb(50,50,50); \n"
-"    color: #dddddd;\n"
-"    font-size: 12px;\n"
-"}\n"
-"\n"
-"QHeaderView::section:hover {\n"
-"   color: white;\n"
-"    background-color: rgb(80,80,80);\n"
-"}\n"
-"\n"
-"QHeaderView::section{\n"
-"    color: white;\n"
-"    selection-background-color:#ffc0cb;\n"
-"}\n"
-"\n"
-"QTableWidget QTableCornerButton::section\n"
-"{\n"
-"    \n"
-"    background-color: #101010;\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
+        self.tablePinCool.setStyleSheet("QTableWidget::item\n"
 "{\n"
 "     border-bottom: 1px solid rgb(60,60,60); \n"
 "    border-right: 0px;\n"
@@ -1616,7 +1388,7 @@ class Ui_WidgetCoolFilter(object):
         self.btnResetPinCool.setObjectName("btnResetPinCool")
         self.toolBoxCoolFilter.addItem(self.pinCool, icon3, "")
         self.disperse = QtWidgets.QWidget()
-        self.disperse.setGeometry(QtCore.QRect(0, 0, 98, 28))
+        self.disperse.setGeometry(QtCore.QRect(0, 0, 307, 194))
         self.disperse.setObjectName("disperse")
         self.frameDisperse = QtWidgets.QFrame(self.disperse)
         self.frameDisperse.setGeometry(QtCore.QRect(0, 0, 311, 191))

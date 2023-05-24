@@ -509,8 +509,8 @@ QLineEdit:hover{
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>98</width>
-      <height>28</height>
+      <width>307</width>
+      <height>187</height>
      </rect>
     </property>
     <attribute name="icon">
@@ -570,46 +570,8 @@ QLineEdit:hover{
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">QHeaderView
-{	
-	background: rgb(30, 30, 30);
-	color: #dddddd;
-	border: 0px;
-	font-size: 14px;
-	min-width: 100px;	
-	min-height: 30px;
-}
-
-QHeaderView::section{
-	background: rgb(30, 30, 30);
-	min-width: 10px;	
-	min-height: 25px;
-	border: 0px solid;
-	border-right: 1px solid rgb(50,50,50); 
-	color: #dddddd;
-	font-size: 12px;
-}
-
-QHeaderView::section:hover {
-   color: white;
-	background-color: rgb(80,80,80);
-}
-
-QHeaderView::section{
-    color: white;
-	selection-background-color:#ffc0cb;
-}
-
-QTableWidget QTableCornerButton::section
+       <string notr="true">QTableWidget::item
 {
-	background: rgb(30, 30, 30);
-	border-style: solid;
-	border-width: 1px;
-}
-
-QTableWidget::item
-{
-	background: rgb(10, 10, 10);
  	border-bottom: 1px solid rgb(60,60,60); 
 	border-right: 0px;
 	border-left: 0px;
@@ -618,7 +580,7 @@ QTableWidget::item
 
 QTableView
 {
-	background: rgb(10, 10, 10);
+	background-color: #101010;
 	color: #dddddd;
 	border-top: 0px;
 	border-right: 0px;
@@ -809,8 +771,8 @@ QPushButton::hover
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>98</width>
-      <height>28</height>
+      <width>307</width>
+      <height>187</height>
      </rect>
     </property>
     <attribute name="icon">
@@ -904,45 +866,7 @@ QPushButton::hover
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">QHeaderView
-{	
-	background: rgb(30, 30, 30);
-	color: #dddddd;
-	border: 0px;
-	font-size: 14px;
-	min-width: 100px;	
-	min-height: 30px;
-}
-
-QHeaderView::section{
-	background: rgb(30, 30, 30);
-	min-width: 10px;	
-	min-height: 25px;
-	border: 0px solid;
-	border-right: 1px solid rgb(50,50,50); 
-	color: #dddddd;
-	font-size: 12px;
-}
-
-QHeaderView::section:hover {
-   color: white;
-	background-color: rgb(80,80,80);
-}
-
-QHeaderView::section{
-    color: white;
-	selection-background-color:#ffc0cb;
-}
-
-QTableWidget QTableCornerButton::section
-{
-	
-	background: rgb(30, 30, 30);
-	border-style: solid;
-	border-width: 1px;
-}
-
-QTableWidget::item
+       <string notr="true">QTableWidget::item
 {
  	border-bottom: 1px solid rgb(60,60,60); 
 	border-right: 0px;
@@ -1110,8 +1034,8 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>98</width>
-      <height>28</height>
+      <width>307</width>
+      <height>187</height>
      </rect>
     </property>
     <attribute name="icon">
@@ -1170,45 +1094,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">QHeaderView
-{	
-	background: rgb(30, 30, 30);
-	color: #dddddd;
-	border: 0px;
-	font-size: 14px;
-	min-width: 100px;	
-	min-height: 30px;
-}
-
-QHeaderView::section{
-	background: rgb(30, 30, 30);
-	min-width: 10px;	
-	min-height: 25px;
-	border: 0px solid;
-	border-right: 1px solid rgb(50,50,50); 
-	color: #dddddd;
-	font-size: 12px;
-}
-
-QHeaderView::section:hover {
-   color: white;
-	background-color: rgb(80,80,80);
-}
-
-QHeaderView::section{
-    color: white;
-	selection-background-color:#ffc0cb;
-}
-
-QTableWidget QTableCornerButton::section
-{
-	
-	background: rgb(30, 30, 30);
-	border-style: solid;
-	border-width: 1px;
-}
-
-QTableWidget::item
+       <string notr="true">QTableWidget::item
 {
  	border-bottom: 1px solid rgb(60,60,60); 
 	border-right: 0px;
@@ -1409,8 +1295,8 @@ QPushButton::hover
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>98</width>
-      <height>28</height>
+      <width>307</width>
+      <height>187</height>
      </rect>
     </property>
     <attribute name="icon">
@@ -1469,45 +1355,7 @@ QPushButton::hover
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">QHeaderView
-{	
-	background: rgb(30, 30, 30);
-	color: #dddddd;
-	border: 0px;
-	font-size: 14px;
-	min-width: 100px;	
-	min-height: 30px;
-}
-
-QHeaderView::section{
-	background: rgb(30, 30, 30);
-	min-width: 10px;	
-	min-height: 25px;
-	border: 0px solid;
-	border-right: 1px solid rgb(50,50,50); 
-	color: #dddddd;
-	font-size: 12px;
-}
-
-QHeaderView::section:hover {
-   color: white;
-	background-color: rgb(80,80,80);
-}
-
-QHeaderView::section{
-    color: white;
-	selection-background-color:#ffc0cb;
-}
-
-QTableWidget QTableCornerButton::section
-{
-	
-	background: rgb(30, 30, 30);
-	border-style: solid;
-	border-width: 1px;
-}
-
-QTableWidget::item
+       <string notr="true">QTableWidget::item
 {
  	border-bottom: 1px solid rgb(60,60,60); 
 	border-right: 0px;
@@ -1708,8 +1556,8 @@ QPushButton::hover
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>98</width>
-      <height>28</height>
+      <width>307</width>
+      <height>187</height>
      </rect>
     </property>
     <attribute name="icon">
@@ -1768,45 +1616,7 @@ QPushButton::hover
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">QHeaderView
-{	
-	background: rgb(30, 30, 30);
-	color: #dddddd;
-	border: 0px;
-	font-size: 14px;
-	min-width: 100px;	
-	min-height: 30px;
-}
-
-QHeaderView::section{
-	background: rgb(30, 30, 30);
-	min-width: 10px;	
-	min-height: 25px;
-	border: 0px solid;
-	border-right: 1px solid rgb(50,50,50); 
-	color: #dddddd;
-	font-size: 12px;
-}
-
-QHeaderView::section:hover {
-   color: white;
-	background-color: rgb(80,80,80);
-}
-
-QHeaderView::section{
-    color: white;
-	selection-background-color:#ffc0cb;
-}
-
-QTableWidget QTableCornerButton::section
-{
-	
-	background: rgb(30, 30, 30);
-	border-style: solid;
-	border-width: 1px;
-}
-
-QTableWidget::item
+       <string notr="true">QTableWidget::item
 {
  	border-bottom: 1px solid rgb(60,60,60); 
 	border-right: 0px;
@@ -2007,8 +1817,8 @@ QPushButton::hover
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>98</width>
-      <height>28</height>
+      <width>307</width>
+      <height>187</height>
      </rect>
     </property>
     <attribute name="icon">
@@ -2380,8 +2190,8 @@ QLineEdit:hover{
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>98</width>
-      <height>28</height>
+      <width>307</width>
+      <height>187</height>
      </rect>
     </property>
     <attribute name="icon">
@@ -2753,8 +2563,8 @@ QLineEdit:hover{
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>98</width>
-      <height>28</height>
+      <width>307</width>
+      <height>187</height>
      </rect>
     </property>
     <attribute name="icon">
@@ -3126,8 +2936,8 @@ QLineEdit:hover{
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>98</width>
-      <height>28</height>
+      <width>307</width>
+      <height>187</height>
      </rect>
     </property>
     <attribute name="icon">

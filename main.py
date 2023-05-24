@@ -25,7 +25,7 @@ class DialogOk(QDialog, warningWin.Ui_warningDialog):
             self.lbErr.setText("Внимание")
 
 
-# Класс окна с одной кнопкой
+# Класс окна с кнопками подтверждения
 class AcceptionWin(QDialog, acceptionWin.Ui_Dialog):
     def __init__(self, attention_win_title, attention_text):
         QDialog.__init__(self)
@@ -4569,7 +4569,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
             button_group.setId(radio, i)
         self.dict_button_group[table.objectName()] = button_group
 
-    # Метод вставки в таблицу склада рб-шек (без коннекторов на фильтрацию, только визуал)
+    # Метод вставки в таблицу склада рб- (без коннекторов на фильтрацию, только визуал)
     def insert_rb_sklad(self, table):
         row_count = table.rowCount()
 
@@ -4645,7 +4645,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 "FROM videocard, sklad_videocard, proizv_videocard " \
                 "WHERE videocard.id = sklad_videocard.id_izd " \
                 "AND videocard.id_proizv = proizv_videocard.id "
-
+        # проверка влияющих на видеокарту таблиц
         if self.tableConfMother.objectName() in self.dict_current:
             mother_row = self.dict_current[self.tableConfMother.objectName()]
             query += f" AND interface = '{mother_row[4]}' "
@@ -4669,7 +4669,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 "ramfreq, graphics, tdp, price " \
                 "FROM processor, sklad_processor, proizv_processor " \
                 "WHERE processor.id = sklad_processor.id_izd AND processor.id_proizv = proizv_processor.id "
-
+        # проверка влияющих на процессор таблиц
         if self.tableConfMother.objectName() in self.dict_current:
             mother_row = self.dict_current[self.tableConfMother.objectName()]
             query += f" AND socket like '%' || '{mother_row[1]}' || '%'  "
@@ -4733,7 +4733,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 "height, disperse, voltage, conncool, price " \
                 "FROM cool, sklad_cool, proizv_cool " \
                 "WHERE cool.id = sklad_cool.id_izd AND cool.id_proizv = proizv_cool.id "
-
+        # проверка влияющих на кулер таблиц
         if self.tableConfProc.objectName() in self.dict_current:
             proc_row = self.dict_current[self.tableConfProc.objectName()]
             query += f" AND socket like '%' || '{proc_row[1]}' || '%' " \
@@ -4759,7 +4759,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 "complect, latency, voltage, price " \
                 "FROM ram, sklad_ram, proizv_ram " \
                 "WHERE ram.id = sklad_ram.id_izd AND ram.id_proizv = proizv_ram.id "
-
+        # проверка влияющих на ОЗУ таблиц
         if self.tableConfProc.objectName() in self.dict_current:
             proc_row = self.dict_current[self.tableConfProc.objectName()]
             query += f" AND frequency <= '{proc_row[5]}' "
@@ -4782,7 +4782,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
                 "FROM power, sklad_power, proizv_power " \
                 "WHERE power.id = sklad_power.id_izd AND power.id_proizv = proizv_power.id "
 
-        # проверка влияющих на мат. плату таблиц для конкатенации запроса
+        # проверка влияющих на блок питания таблиц для конкатенации запроса
         power_sum = sum(self.dict_power_vid_proc_cool.values())  # Сумма потреблений в ваттах
 
         if self.tableConfVideo.objectName() in self.dict_current:
@@ -4792,7 +4792,6 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
             mother_row = self.dict_current[self.tableConfMother.objectName()]
             query += f" AND connproc*kolconnproc >= {int(mother_row[12]) * int(mother_row[13])} "
         if self.tableConfBody.objectName() in self.dict_current:
-            # sum_video_connector = int(saved_row[9]) * int(saved_row[10])  # Коннекторы видеокарты
             body_row = self.dict_current[self.tableConfBody.objectName()]
             query += f" AND formfactor = '{body_row[3]}' " \
                      f" AND length <= '{body_row[6]}' "
@@ -5229,7 +5228,6 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
             self.table_config.setItem(row_count, 3, QTableWidgetItem("₽"))
             # item2.setTextAlignment(QtCore.Qt.AlignVCenter | QtCore.Qt.AlignRight) Выравнивание для корзины
         else:
-            # дублируется вставка ид таблицы для случая пустой корзины (вставить на 0 место)
             self.table_config.setItem(insert_row, 0, QTableWidgetItem(str(table)))
             self.table_config.setItem(insert_row, 1, QTableWidgetItem(name))
             self.table_config.setItem(insert_row, 2, QTableWidgetItem(price))

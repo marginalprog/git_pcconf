@@ -1,4 +1,4 @@
--- Last modification date: 2023-05-16 08:48:55.515
+-- Last modification date: 2023-05-21 15:28:27.738
 
 -- tables
 -- Table: Body
@@ -24,7 +24,7 @@ CREATE TABLE Body (
 CREATE TABLE Client (
     id serial  NOT NULL,
     email Varchar(50)  NOT NULL,
-    password Varchar(50)  NOT NULL,
+    password text  NOT NULL,
     name Varchar(50)  NOT NULL,
     phone Varchar(20)  NOT NULL,
     registration date  NOT NULL,
@@ -43,6 +43,7 @@ CREATE TABLE Configuration (
     Motherboard_id serial  NOT NULL,
     Ram_id serial  NOT NULL,
     Disk_id serial  NOT NULL,
+    price int  NOT NULL,
     date_create date  NOT NULL,
     CONSTRAINT Configuration_pk PRIMARY KEY (id)
 );
@@ -96,11 +97,10 @@ CREATE TABLE Motherboard (
     memoryslot int  NOT NULL,
     memorymax int  NOT NULL,
     memoryfreqmax int  NOT NULL,
-    m2 int  NOT NULL,
+    m2 varchar(20)  NOT NULL,
     sata int  NOT NULL,
     price int  NOT NULL,
     conncool int  NOT NULL,
-    kolconncool int  NOT NULL,
     connproc int  NOT NULL,
     kolconnproc int  NOT NULL,
     CONSTRAINT Motherboard_pk PRIMARY KEY (id)
@@ -636,7 +636,6 @@ ALTER TABLE Order_power ADD CONSTRAINT order_power_Power
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
-
 
 -- Триггер вычитания из всех складов по 1 комплектующему
 CREATE OR REPLACE FUNCTION update_all_sklad()

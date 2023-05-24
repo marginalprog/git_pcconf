@@ -371,14 +371,7 @@ class Ui_WidgetPowerFilter(object):
         self.tableProizv.setMouseTracking(True)
         self.tableProizv.setFocusPolicy(QtCore.Qt.NoFocus)
         self.tableProizv.setAutoFillBackground(False)
-        self.tableProizv.setStyleSheet("QTableWidget QTableCornerButton::section\n"
-"{\n"
-"    background: rgb(30, 30, 30);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
+        self.tableProizv.setStyleSheet("QTableWidget::item\n"
 "{\n"
 "    background: rgb(10, 10, 10);\n"
 "     border-bottom: 1px solid rgb(60,60,60); \n"
@@ -547,15 +540,7 @@ class Ui_WidgetPowerFilter(object):
         self.tableFormFactor.setMouseTracking(True)
         self.tableFormFactor.setFocusPolicy(QtCore.Qt.NoFocus)
         self.tableFormFactor.setAutoFillBackground(False)
-        self.tableFormFactor.setStyleSheet("QTableWidget QTableCornerButton::section\n"
-"{\n"
-"    \n"
-"    background: rgb(30, 30, 30);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
+        self.tableFormFactor.setStyleSheet("QTableWidget::item\n"
 "{\n"
 "     border-bottom: 1px solid rgb(60,60,60); \n"
 "    border-right: 0px;\n"
@@ -953,14 +938,7 @@ class Ui_WidgetPowerFilter(object):
         self.tableCert.setMouseTracking(True)
         self.tableCert.setFocusPolicy(QtCore.Qt.NoFocus)
         self.tableCert.setAutoFillBackground(False)
-        self.tableCert.setStyleSheet("QTableWidget QTableCornerButton::section\n"
-"{\n"
-"    background: rgb(30, 30, 30);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
+        self.tableCert.setStyleSheet("QTableWidget::item\n"
 "{\n"
 "    background: rgb(10, 10, 10);\n"
 "     border-bottom: 1px solid rgb(60,60,60); \n"
@@ -1126,14 +1104,7 @@ class Ui_WidgetPowerFilter(object):
         self.tablePinmain.setMouseTracking(True)
         self.tablePinmain.setFocusPolicy(QtCore.Qt.NoFocus)
         self.tablePinmain.setAutoFillBackground(False)
-        self.tablePinmain.setStyleSheet("QTableWidget QTableCornerButton::section\n"
-"{\n"
-"    background: rgb(30, 30, 30);\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"}\n"
-"\n"
-"QTableWidget::item\n"
+        self.tablePinmain.setStyleSheet("QTableWidget::item\n"
 "{\n"
 "    background: rgb(10, 10, 10);\n"
 "     border-bottom: 1px solid rgb(60,60,60); \n"

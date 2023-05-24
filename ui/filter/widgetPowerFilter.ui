@@ -626,14 +626,7 @@ QLineEdit:hover{
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">QTableWidget QTableCornerButton::section
-{
-	background: rgb(30, 30, 30);
-	border-style: solid;
-	border-width: 1px;
-}
-
-QTableWidget::item
+       <string notr="true">QTableWidget::item
 {
 	background: rgb(10, 10, 10);
  	border-bottom: 1px solid rgb(60,60,60); 
@@ -895,15 +888,7 @@ QPushButton::hover
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">QTableWidget QTableCornerButton::section
-{
-	
-	background: rgb(30, 30, 30);
-	border-style: solid;
-	border-width: 1px;
-}
-
-QTableWidget::item
+       <string notr="true">QTableWidget::item
 {
  	border-bottom: 1px solid rgb(60,60,60); 
 	border-right: 0px;
@@ -1541,14 +1526,7 @@ QLineEdit:hover{
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">QTableWidget QTableCornerButton::section
-{
-	background: rgb(30, 30, 30);
-	border-style: solid;
-	border-width: 1px;
-}
-
-QTableWidget::item
+       <string notr="true">QTableWidget::item
 {
 	background: rgb(10, 10, 10);
  	border-bottom: 1px solid rgb(60,60,60); 
@@ -1810,14 +1788,7 @@ QPushButton::hover
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">QTableWidget QTableCornerButton::section
-{
-	background: rgb(30, 30, 30);
-	border-style: solid;
-	border-width: 1px;
-}
-
-QTableWidget::item
+       <string notr="true">QTableWidget::item
 {
 	background: rgb(10, 10, 10);
  	border-bottom: 1px solid rgb(60,60,60); 
