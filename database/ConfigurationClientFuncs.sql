@@ -89,9 +89,6 @@ RETURNS TABLE(
 	FROM configuration
 $$ LANGUAGE sql;
 
-
-select create_client('admin@confpc.ru', 'qwerty', 'admin', '81231231212','01.01.2023')
-
 --функция получения всех конфигураций (на склад)
 CREATE OR REPLACE FUNCTION get_all_configuration()
 RETURNS TABLE(

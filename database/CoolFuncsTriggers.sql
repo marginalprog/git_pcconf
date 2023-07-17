@@ -33,7 +33,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
---- Функция вывода данных об охлаждении
+-- Функция вывода данных об охлаждении
 CREATE OR REPLACE FUNCTION get_all_cool()
 RETURNS TABLE(
 	kol INT,

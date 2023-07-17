@@ -123,7 +123,7 @@ border-top: 1px solid rgb(180, 0, 0);</string>
    <property name="geometry">
     <rect>
      <x>120</x>
-     <y>130</y>
+     <y>140</y>
      <width>191</width>
      <height>31</height>
     </rect>
@@ -215,7 +215,7 @@ QPushButton::hover
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>100</y>
+     <y>110</y>
      <width>221</width>
      <height>21</height>
     </rect>

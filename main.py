@@ -1318,7 +1318,7 @@ class MainWindow(QtWidgets.QMainWindow, main_interface.Ui_MainWindow):
             self.stackedWidget.setCurrentIndex(0)
             if self.user_id == 1:  # Показываем сепарирующую вкладкии склада\конфигуратора линию только администратору
                 self.line_11.show()
-            self.rbCabinet.setText("Кабинет")
+            self.rbCabinet.setText("Профиль")
 
     def menu_cabinet(self):
         print(self.lvCabinetMenu.currentRow())

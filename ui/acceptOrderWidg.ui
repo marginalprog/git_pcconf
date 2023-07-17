@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Подтверждение заказа</string>
+   <string>Конфигурация</string>
   </property>
   <property name="windowIcon">
    <iconset>

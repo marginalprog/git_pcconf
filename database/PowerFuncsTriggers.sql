@@ -301,7 +301,7 @@ RETURNS TABLE(formfactor VARCHAR) AS $$
 $$ LANGUAGE sql;
 
 
--- Триггер создания нового поля БП (с созданием нового поля на складе)
+-- Триггер создания нового поля БП на складе
 CREATE OR REPLACE FUNCTION insert_skladpower()
 RETURNS trigger
 AS $$
@@ -331,7 +331,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 
--- Триггер пересчёта количества блоков питания на складе
+-- Триггерная функция пересчёта количества блоков питания на складе
 CREATE OR REPLACE FUNCTION update_skladpower()
 RETURNS trigger
 AS $$

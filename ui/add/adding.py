@@ -159,7 +159,7 @@ class AddChangeVideoWindow(QtWidgets.QWidget, addChVidWidg.Ui_addChVidWidg):
                 main_window.create_conf_filter()  # Пересоздание экземпляра класса фильтров для отображения новых данных
 
 
-# Класс окна с добавлением\редактированием видеокарты
+# Класс окна с добавлением\редактированием процессора
 class AddChangeProcWindow(QtWidgets.QWidget, addChProcWidg.Ui_addChProcWidg):
     def __init__(self, main_window, new_bool, list_valid_proizv, dict_proizv, dict_processor):
         super().__init__()
@@ -288,7 +288,7 @@ class AddChangeProcWindow(QtWidgets.QWidget, addChProcWidg.Ui_addChProcWidg):
                 main_window.create_conf_filter()  # Пересоздание экземпляра класса фильтров для отображения новых данных
 
 
-# Класс окна с добавлением\редактированием видеокарты
+# Класс окна с добавлением\редактированием мат. платы
 class AddChangeMotherWindow(QtWidgets.QWidget, addChMotherWidg.Ui_addChMotherWidg):
     def __init__(self, main_window, new_bool, list_valid_proizv, dict_proizv, dict_motherboard):
         super().__init__()
@@ -403,7 +403,7 @@ class AddChangeMotherWindow(QtWidgets.QWidget, addChMotherWidg.Ui_addChMotherWid
                 main_window.create_conf_filter()  # Пересоздание экземпляра класса фильтров для отображения новых данных
 
 
-# Класс окна с добавлением\редактированием видеокарты
+# Класс окна с добавлением\редактированием охлаждения
 class AddChangeCoolWindow(QtWidgets.QWidget, addChCoolWidg.Ui_addChCoolWidg):
     def __init__(self, main_window, new_bool, list_valid_proizv, dict_proizv, dict_cool):
         super().__init__()
@@ -510,7 +510,7 @@ class AddChangeCoolWindow(QtWidgets.QWidget, addChCoolWidg.Ui_addChCoolWidg):
                 main_window.create_conf_filter()  # Пересоздание экземпляра класса фильтров для отображения новых данных
 
 
-# Класс окна с добавлением\редактированием видеокарты
+# Класс окна с добавлением\редактированием ОЗУ
 class AddChangeRamWindow(QtWidgets.QWidget, addChRamWidg.Ui_addChRamWidg):
     def __init__(self, main_window, new_bool, list_valid_proizv, dict_proizv, dict_ram):
         super().__init__()
@@ -621,6 +621,7 @@ class AddChangeRamWindow(QtWidgets.QWidget, addChRamWidg.Ui_addChRamWidg):
                 main_window.create_conf_filter()
 
 
+# Класс окна с добавлением\редактированием накопителя
 class AddChangeDiskWindow(QtWidgets.QWidget, addChDiskWidg.Ui_addChDiskWidg):
     def __init__(self, main_window, new_bool, list_valid_proizv, dict_proizv, dict_disk):
         super().__init__()
@@ -733,6 +734,7 @@ class AddChangeDiskWindow(QtWidgets.QWidget, addChDiskWidg.Ui_addChDiskWidg):
                 main_window.create_conf_filter()
 
 
+# Класс окна с добавлением\редактированием БП
 class AddChangePowerWindow(QtWidgets.QWidget, addChPowerWidg.Ui_addChPowerWidg):
     def __init__(self, main_window, new_bool, list_valid_proizv, dict_proizv, dict_power):
         super().__init__()
@@ -846,6 +848,7 @@ class AddChangePowerWindow(QtWidgets.QWidget, addChPowerWidg.Ui_addChPowerWidg):
                 main_window.create_conf_filter()
 
 
+# Класс окна с добавлением\редактированием корпуса
 class AddChangeBodyWindow(QtWidgets.QWidget, addChBodyWidg.Ui_addChBodyWidg):
     def __init__(self, main_window, new_bool, list_valid_proizv, dict_proizv, dict_body):
         super().__init__()
